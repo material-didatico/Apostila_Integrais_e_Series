@@ -1,0 +1,538 @@
+%------------------------------------------------------------------------------%
+\section{Revisão de Algumas Funções}
+\label{sec:Revisao_de_Algumas_Funcoes}
+
+Incluímos aqui uma pequena revisão de algumas funções que são importantes para o
+estudo dos tópicos desse trabalho.
+
+%------------------------------------------------------------------------------%
+\subsection*{Funções Exponencial e Logarítmica}
+
+A \emph{Função Exponencial}\index{Função!exponencial} pode ser definida de
+diversas formas, por exemplo, pela sua série de Taylor
+\[
+  e^x = \exp(x)
+      = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots
+      = \sum_{n=0}^{\infty} \frac{x^n}{\;n!\;}
+\]
+para todo $x$ real.
+Consequentemente, o número $e$ é a soma da série
+\[
+  e = 2 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots
+    = \sum_{n=0}^{\infty} \frac{1}{\;n!\;}
+\]
+e tem o valor
+\[
+ e = 2,71828\;18284\;59045\;23536\;02874\;71352\;66249\;77572\;47093\;69995\dots
+\]
+A imagem da função exponencial é o conjunto dos números reais positivos.
+O gráfico dessa função pode ser visto na Figura~\ref{fig:functions_exp}.
+Alternativamente podemos definir essa função pelo limite
+\begin{equation}
+  \label{eq:exponencial-pelo-limite}
+  \exp(x) = \lim_{n\to\infty} \left( 1 + \frac{x}{n} \right)^n
+\end{equation}
+A derivada e a integral da função exponencial são
+\[
+ \frac{d}{dx} e^x = e^x
+ \qquad\qquad
+ \int e^x\,dx = e^x + C
+\]
+
+%------------------------------------------------------------------------------%
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_exp_1}
+    \caption{Gráfico da função $e^{x}$}
+    \label{fig:functions_exp_positiva}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_exp_2}
+    \caption{Gráfico da função $e^{-x}$}
+    \label{fig:functions_exp_negativa}
+  \end{subfigure}
+  \caption{Gráficos da função exponencial}
+  \label{fig:functions_exp}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A \emph{Função Logaritmo Natural}\index{Função!logaritmo}
+é a função inversa da exponencial e é o valor $y$ tal que
+\[
+  y = \ln(x) \qquad\Rightarrow\qquad e^y = x
+\]
+o domínio dessa função são os números reais positivos e sua imagem são todos os reais.
+A Figura~\ref{fig:functions_log} mostra o gráfico dessa função calculada em
+$\abs{x}$ estendendo assim o domínio para valores negativos de $x$.
+
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_functions_log}
+  \caption{Gráfico da função $\ln|x|$}
+  \label{fig:functions_log}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A série de Taylor da função logaritmo normalmente é escrita como
+\[
+  \ln(x+1)
+  = x - \frac{x^2}{2}
+  + \frac{x^3}{3}
+  - \frac{x^4}{4}
+  + \cdots
+  = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}x^n}{n}
+\]
+e tem raio de convergência $R=1$.
+A derivada e a integral da função exponencial são
+\[
+  \frac{d}{dx} \ln(x) = \frac{1}{\,x\,}
+  \qquad\qquad
+  \int \ln(x)\,dx = x\big( \ln(x) - 1 \big) + C
+\]
+
+%------------------------------------------------------------------------------%
+\subsection*{Funções Trigonométricas}
+
+Tradicionalmente pensamos nas funções trigonométricas como combinações
+das funções seno e cosseno
+\begin{align*}
+	\tan(x) & = \frac{\sin(x)}{\cos(x)} &
+	\cot(x) & = \frac{\cos(x)}{\sin(x)} = \frac{1}{\tan(x)}\\[5mm]
+	\sec(x) & = \frac{1}{\cos(x)}       &
+	\csc(x) & = \frac{1}{\sin(x)}
+\end{align*}
+Os gráficos dessas funções podem ser vistos na Figura~\ref{fig:functions_trig}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_sin}
+    \caption{Gráfico da função $\sin(x)$}
+    \label{fig:functions_sin}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_cos}
+    \caption{Gráfico da função $\cos(x)$}
+    \label{fig:functions_cos}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_tan}
+    \caption{Gráfico da função $\tan(x)$}
+    \label{fig:functions_tan}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_cot}
+    \caption{Gráfico da função $\cot(x)$}
+    \label{fig:functions_cot}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_sec}
+    \caption{Gráfico da função $\sec(x)$}
+    \label{fig:functions_sec}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_csc}
+    \caption{Gráfico da função $\csc(x)$}
+    \label{fig:functions_csc}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \caption{Gráficos das funções trigonométricas}
+  \label{fig:functions_trig}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Identidade Pitagórica
+\begin{align*}
+  \sin^2(x) + \cos^2(x) & = 1         &
+  1 + \tan^2(x)         & = \sec^2(x) &
+  1 + \cot^2(x)         & = \csc^2(x)
+\end{align*}
+Algumas identidades trigonométricas
+\begin{align*}
+	& \sin(-x)                         = -\sin(x)  &
+	& \cos(-x)                         = \cos(x)   &
+	& \tan(-x)                         = -\tan(x)  \\[5mm]
+	& \sin\left(\frac{\pi}{2}-x\right) = \cos(x)   &
+	& \cos\left(\frac{\pi}{2}-x\right) = \sin(x)   &
+	& \tan\left(\frac{\pi}{2}-x\right) = \cot(x)
+\end{align*}
+Fórmulas de soma e subtração
+\begin{align*}
+	\sin(x+y) & = \sin(x)\cos(y) + \sin(y)\cos(x) \\
+	\sin(x-y) & = \sin(x)\cos(y) - \sin(y)\cos(x) \\
+	\cos(x+y) & = \cos(x)\cos(y) - \sin(x)\sin(y) \\
+	\cos(x-y) & = \cos(x)\cos(y) + \sin(x)\sin(y)
+\end{align*}
+Fórmulas de ângulo duplo
+\begin{align*}
+	\cos(2x) & = \cos^2(x) - \sin^2(x) & 	\sin(2x) & = 2\sin(x)\cos(x)  \\
+	         & = 2\cos^2(x) - 1        \\
+	         & = 1 - 2\sin^2(x)
+\end{align*}
+Fórmulas de metade do ângulo
+\begin{align*}
+	\sin^2(\frac{x}{2}) & = \frac{1-\cos(x)}{2} &
+  \cos^2(\frac{x}{2}) & = \frac{1+\cos(x)}{2}
+\end{align*}
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_asin}
+    \caption{Gráfico da função $\arcsin(x)$}
+    \label{fig:functions_asin}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_acos}
+    \caption{Gráfico da função $\arccos(x)$}
+    \label{fig:functions_acos}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_atan}
+    \caption{Gráfico da função $\arctan(x)$}
+    \label{fig:functions_atan}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_acot}
+    \caption{Gráfico da função $\arccot(x)$}
+    \label{fig:functions_acot}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_asec}
+    \caption{Gráfico da função $\arcsec(x)$}
+    \label{fig:functions_asec}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_acsc}
+    \caption{Gráfico da função $\arccsc(x)$}
+    \label{fig:functions_acsc}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \caption{Gráficos das funções trigonométricas inversas}
+  \label{fig:functions_trig_inv}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\subsection*{Funções Trigonométricas Inversas}
+
+Os gráficos dessas funções podem ser vistos na Figura~\ref{fig:functions_trig_inv}.
+
+Derivadas as funções trigonométricas inversas
+\begin{align*}
+  \frac{d}{dx} \arcsin(x) & =  \frac{1}{\sqrt{1-x^2\,}\,}  &
+  \frac{d}{dx} \arccos(x) & = -\frac{1}{\sqrt{1-x^2\,}\,}  \\[3mm]
+  \frac{d}{dx} \arctan(x) & =  \frac{1}{\,1-x^2\,}         &
+  \frac{d}{dx} \arccot(x) & = -\frac{1}{\,1-x^2\,}         \\[3mm]
+  \frac{d}{dx} \arcsec(x) & =  \frac{1}{x\sqrt{x^2-1\,}\,} &
+  \frac{d}{dx} \arccsc(x) & = -\frac{1}{x\sqrt{x^2-1\,}\,}
+\end{align*}
+
+\FloatBarrier
+
+%------------------------------------------------------------------------------%
+\subsection*{Funções Hiperbólicas}
+
+As \emph{funções hiperbólicas}\index{Função!hiperbólica}
+são funções análogas às funções trigonométricas ordinárias,
+que recebem esse nome por estarem relacionadas às hipérboles de modo similar
+a relação entre as funções trigonométrica e a circunferência. Porém, em nosso
+contexto essa interpretação geométrica não será utilizada. Aqui elas são importantes
+por representarem funções exponenciais em um arranjo similar às trigonométricas.
+
+Definição do seno e cosseno hiperbólicos%
+\index{Seno hiperbólico}
+\index{Cosseno hiperbólico}
+\begin{align}
+\sinh(x) & = \frac{e^x - e^{-x}}{2} \label{eq:def_seno_hiperbolico}    \\[3mm]
+\cosh(x) & = \frac{e^x + e^{-x}}{2} \label{eq:def_cosseno_hiperbolico}
+\end{align}
+Os gráficos dessas funções podem ser vistos na Figura~\ref{fig:functions_hyper}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_sinh}
+    \caption{Gráfico da função $\sinh(x)$}
+    \label{fig:functions_sinh}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_cosh}
+    \caption{Gráfico da função $\cosh(x)$}
+    \label{fig:functions_cosh}
+  \end{subfigure}
+  \caption{Gráficos das funções hiperbólicas}
+  \label{fig:functions_hyper}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Também podemos definir essas funções com o uso de expressões envolvendo números complexos
+\begin{align*}
+\sinh(x) & = -i \sin(ix) &
+\cosh(x) & =    \cos(ix)
+\end{align*}
+
+Derivadas das funções hiperbólicas
+\begin{align*}
+\frac{d  }{dx  } \sinh(x) & = \cosh(x) & \frac{d  }{dx  } \cosh(x) & = \sinh(x) \\[3mm]
+\frac{d^2}{dx^2} \sinh(x) & = \sinh(x) & \frac{d^2}{dx^2} \cosh(x) & = \cosh(x)
+\end{align*}
+essas derivadas podem ser calculadas de modo simples apenas substituindo a
+definição da função, por exemplo
+\begin{align*}
+	\frac{d}{dx} \sinh(x) & = \frac{d}{dx} \frac{e^x - e^{-x}}{2}                             \\[3mm]
+	                      & = \frac{1}{2} \left( \frac{de^x}{dx} - \frac{de^{-x}}{dx} \right) \\[3mm]
+	                      & = \frac{1}{2} \left( e^x + e^{-x} \right)                         \\[3mm]
+	                      & = \cosh(x)
+\end{align*}
+Algumas relações úteis
+\begin{align*}
+\sinh(-x) & = -\sinh(x) &
+\cosh(-x) & =  \cosh(x)
+\end{align*}
+Relação com a exponencial e \emph{Fórmula de Euler}\index{Fórmula!Euler}
+\begin{align*}
+	e^x     & = \cosh(x) + \sinh(x) \\
+	e^{-x}  & = \cosh(x) - \sinh(x) \\
+	e^{-ix} & = \cos(x) + i\sin(x)
+\end{align*}
+Identidade similar a relação pitagórica
+\[ \cosh^2(x) - \sinh^1(x) = 1 \]
+Somando e subtraindo os argumentos
+\begin{gather*}
+\sinh(x+y) = \sinh(x)\cosh(y) + \cosh(x)\sinh(y) \\
+\sinh(x-y) = \sinh(x)\cosh(y) - \cosh(x)\sinh(y) \\
+\cosh(x+y) = \cosh(x)\cosh(y) + \sinh(x)\sinh(y) \\
+\cosh(x-y) = \cosh(x)\cosh(y) - \sinh(x)\sinh(y)
+\end{gather*}
+Séries de Taylor
+\begin{gather*}
+\sinh(x) = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots
+         = \sum_{n=0}^{\infty} \frac{x^{2n+1}}{\;(2n+1)!\;} \\
+\cosh(x) = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots
+         = \sum_{n=0}^{\infty} \frac{x^{2n}}{\;(2n)!\;}
+\end{gather*}
+Da mesma forma como as funções trigonométricas podem ser definidas a partir do seno e
+cosseno, podemos definir as seguintes funções hiperbólicas
+\begin{align*}
+  \tanh(x) & = \frac{\sinh(x)}{\cosh(x)} &
+  \coth(x) & = \frac{\cosh(x)}{\sinh(x)} = \frac{1}{\tanh(x)}\\[5mm]
+  \sech(x) & = \frac{1}{\cosh(x)}       &
+  \csch(x) & = \frac{1}{\sinh(x)}
+\end{align*}
+Os gráficos dessas funções podem ser vistos na Figura~\ref{fig:functions_hiper_2}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_tanh}
+    \caption{Gráfico da função $\tanh(x)$}
+    \label{fig:functions_tanh}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_coth}
+    \caption{Gráfico da função $\coth(x)$}
+    \label{fig:functions_coth}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_sech}
+    \caption{Gráfico da função $\sech(x)$}
+    \label{fig:functions_sech}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_csch}
+    \caption{Gráfico da função $\csch(x)$}
+    \label{fig:functions_csch}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \caption{Gráficos das funções hiperbólicas compostas}
+  \label{fig:functions_hiper_2}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\subsection*{Função sinc}
+
+O termo \emph{sinc}\index{sinc} é uma contração do nome da função em latim
+\textit{sinus cardinalis} (seno cardinal), essa função é definida como
+\begin{equation}
+  \label{eq:funcao_sinc}
+  \sinc(x) = \begin{cases}
+                \dfrac{\sin(x)}{x} & \; x \neq 0 \\[3mm]
+                \quad 1            & \; x = 0
+             \end{cases}
+\end{equation}
+Porém, por simplicidade, é comum escrevermos apenas
+\[
+  \sinc(x) = \frac{\sin(x)}{x}
+\]
+O gráfico dessa função pode ser visto na Figura~\ref{fig:functions_sinc}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_functions_sinc}
+  \caption{Gráfico da função $\sinc(x)$}
+  \label{fig:functions_sinc}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Derivada da sinc
+\[
+  \frac{d}{dx} \sinc(x) = \frac{\cos(x)-\sinc(x)}{x}
+\]
+Série de Taylor da sinc
+\[
+  \sinc(x) = \sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2n}}{(2n+1)!}
+\]
+Cuidado para não confundir a definição utilizada aqui com
+uma definição alternativa comumente utilizada no processamento digital de sinais,
+da função \emph{sinc normalizada}\index{sinc!normalizada}
+\[
+  \sinc(x) = \frac{\sin(\pi x)}{\pi x}
+\]
+
+%------------------------------------------------------------------------------%
+\subsection*{Outras Funções}
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_carac}
+    \caption{Gráfico da função característica}
+    \label{fig:functions_carac}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_heaviside}
+    \caption{Gráfico da função de Heaviside}
+    \label{fig:functions_heaviside}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_rampa}
+    \caption{Gráfico da função rampa}
+    \label{fig:functions_rampa}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_functions_delta}
+    \caption{Representação da Delta de Dirac}
+    \label{fig:functions_delta}
+  \end{subfigure}\\[0.5\baselineskip]
+  %--------------------------------------------------------------%
+  \caption{Gráficos das funções característica, Heaviside, rampa e Delta de Dirac}
+  \label{fig:functions_other}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Definimos a \emph{Função Característica}\index{Função!característica}
+de um subconjunto $A$ dos números reais $\R$ como a função $\carac{A}$ que vale 1
+em $A$ e zero fora dele
+\begin{equation}
+  \label{eq:funcao_caracteristica}
+  \carac{A}(x) = \begin{cases}
+    \; 1 & \; x \in A \\
+    \; 0 & \; \text{caso contrário}
+  \end{cases}
+\end{equation}
+
+A \emph{Função de Heaviside}\index{Função!Heaviside}
+ou \emph{Degrau Unitário}\index{Função!degrau unitário}
+$\heaviside(x)$, vale 1 para $x$ positivo, zero para $x$ negativo.
+\begin{equation}
+  \label{eq:funcao_heaviside}
+  \heaviside(x) = \begin{cases}
+    \; 0 & \; x < 0 \\
+    \; 1 & \; x > 0
+  \end{cases}
+\end{equation}
+Essa função não precisa ser definida em $x=0$, mas dependendo do contexto
+ela pode assumir algum valor específico nesse ponto. Um exemplo é
+escolher o valor $\sfrac{1}{2}$
+\[
+  \heaviside(x) = \begin{cases}
+    \;\; 0          & \; x < 0 \\
+    \; \sfrac{1}{2} & \; x = 0 \\
+    \;\; 1          & \; x > 0
+  \end{cases}
+\]
+Também podemos escrever essa função como \(\heaviside(t) = \carac{[0, \infty)}(t)\).
+
+A \emph{Função Rampa}\index{Função!rampa} é uma aproximação contínua para a
+função de Heaviside, que é definida por
+\begin{equation}
+  \label{eq:funcao_rampa}
+  \ramp_\varepsilon = \begin{cases}
+    \;\; 0                                 & \; x < - \varepsilon \\[3mm]
+    \; \dfrac{t}{2\varepsilon} + \dfrac{1}{2} & \; x = 0          \\[4mm]
+    \;\; 1                                 & \; x > \varepsilon
+  \end{cases}
+\end{equation}
+
+A \emph{Delta de Dirac}\index{Delta de Dirac}, \(\delta(t)\),
+que representa um \emph{Impulso Unitário Instantâneo}\index{Impulso unitário instantâneo}
+em \(t=0\). Ela é definida pela propriedade
+\begin{equation}
+  \label{eq:delta_dirac}
+  \int_{-\infty}^\infty \delta(t)\; f(t)\, dt \;=\; f(0)
+\end{equation}
+Cuidado com o delta pois ele \emph{não é uma função} segundo a definição empregada no Cálculo.
+Esclarecer seu significado preciso demanda a teoria de distribuições.
+Mesmo assim, baseados em uma teoria matemática mais elaborada, escrevemos
+informalmente que
+\[
+  \delta(t) = \lim_{h\to 0^+} d_h(t) =
+    \begin{cases}
+      \;\, 0      & \quad t\neq 0 \\
+      \;   \infty & \quad t = 0
+    \end{cases}
+\]
+A Seção~\ref{sec:convergencia_transformada_fourier} discute um pouco mais sobre essa função.
+
+A Figura~\ref{fig:functions_other} mostra o gráfico dessas funções.
+Porém, não podemos dizer que a Figura~\ref{fig:functions_delta} seja o gráfico
+do Delta de Dirac. Essa é uma representação onde a seta indica que a função não
+assume um valor real nesse ponto. Normalmente o valor $y$ onde a seta aponta
+indica a constante multiplicando o delta.
+
+%------------------------------------------------------------------------------%

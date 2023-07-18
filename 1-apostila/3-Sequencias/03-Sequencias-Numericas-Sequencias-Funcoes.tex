@@ -1,0 +1,233 @@
+%------------------------------------------------------------------------------%
+\section{Sequências e Funções}
+
+Nessa seção apresentamos alguns resultados relacionando o cálculo de limites
+de sequências com propriedades de algumas funções. O primeiro resultado
+nos informa quando podemos trocar a ordem do cálculo do limite
+e a avaliação da função em situações como essa
+\[
+  \lim_{n\to\infty} f(a_n)
+  \quad \stackrel{\text{?}}{=} \quad
+  f\left( \lim_{n\to\infty} a_n \right)   \,.
+\]
+O segundo nos diz que podemos trocar o cálculo do limite de sequências
+pelo cálculo do limite de funções, o que nos permite utilizar as técnicas
+estudadas no Cálculo I.
+
+\begin{teorema}{Teorema da Função Contínua}{teo:funcao-continua}
+  Se $a_n$ é uma sequência numérica real convergente, $a_n\to L$,
+  e $f\colon D\subset\R\to\R$ é uma
+  função contínua\index{Teorema!função contínua} em $L\in D$, então
+  \[
+    f(a_n)\to f(L) \,.
+  \]
+\end{teorema}
+
+\begin{proof}
+  Seja $\varepsilon>0$, como $f$ é contínua em $L$, existe $\delta>0$ tal que
+  \[
+    \abs{x-L}<\delta
+    \qquad \Rightarrow \qquad
+    \abs{f(x)-f(L)}<\varepsilon \,.
+  \]
+  Como $a_n\to L$, temos que existe $N\in\N$ tal que
+  \[
+    \abs{a_n-L}<\delta
+    \qquad \text{ para todo } \quad
+    n > N \,.
+  \]
+  Então, para todo $n>N$ temos que $\abs{f(a_n)-f(L)}<\varepsilon$, ou seja,
+  \[
+    f(a_n)\to f(L) \,.
+  \]
+\end{proof}
+
+A Figura~\ref{fig:teorema_funcao_continua} ilustra a aplicação do
+Teorema~\ref{teo:funcao-continua} para as sequências
+\(b_n = f(a_n)\) e \(c_n=g(a_n)\)
+onde a sequência $(a_n)$ e dada por
+\[
+  a_n = \frac{(-1)^n}{n^{1,5}}   \,,
+  \qquad
+  n = 1, 2, 3, \dots
+\]
+que converge para $L=0$, e as funções $f$ e $g$ são
+\[
+  f(x) = \sin(x)           \,,
+  \qquad\qquad\qquad\qquad
+  g(x) = \begin{cases}
+    \cos(x) & \; x<0 \\
+    \sin(x) & \; x\geq 0
+  \end{cases}              \,.
+\]
+No gráfico~\ref{fig:teorema_funcao_continua_1} observamos
+que $b_n$ também converge para zero, mas no
+gráfico~\ref{fig:teorema_funcao_continua_2} a sequência $c_n$
+oscila indefinidamente entre zero e 1.
+
+%------------------------------------------------------------------------------%
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_teorema_funcao_continua_1}
+    \caption{Função é contínua em $L=0$.}
+    \label{fig:teorema_funcao_continua_1}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_teorema_funcao_continua_2}
+    \caption{Função é descontínua em $L=0$.}
+    \label{fig:teorema_funcao_continua_2}
+  \end{subfigure}\\
+  \caption{Ilustração do Teorema da Função Contínua.}
+  \label{fig:teorema_funcao_continua}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar que se $0<a<1$ então $\lim\cos(a^n)=1.$
+  \solution
+  Para ver isso basta lembrar que $\lim a_n=0$
+  e que a função cosseno é contínua em zero.
+  Portanto,
+  \[
+    \lim\cos(a^n) = \cos\left(\lim a_n\right) = \cos(0) = 1 \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+O próximo teorema é bastante natural, mas uma regra da Matemática é nunca
+acreditar em um resultado antes de demonstrá-lo. Não importa o quão natural e
+aparentemente óbvio ele pareca ser.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Sequência Definida por Função}{teo:limite_funcao}
+  Se $f$ é uma função real definida para todo $x\geq n_0$, para algum $n_0\in \N$,
+  e $a_n$ é uma sequência tal que
+  \[
+    a_n = f(n) \qquad \text{ para todo } n \geq n_0    \,,
+  \]
+  então
+  \[
+    \lim_{x\to\infty}f(x)=L
+    \quad \Rightarrow \quad
+    \lim_{n\to \infty} a_n=L \,.
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Uma consequência desse último teorema é que, em caso de indeterminação,
+podemos aplicar a \emph{Regra de L'Hôpital}\index{L'Hôpital!regra} para
+calcular o limite de sequências que ``concordam'' com alguma função real.
+Os próximos exemplos aplicam essa técnica.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que \(\lim\frac{1-5n^4}{n^4+8n^3}=-5\).
+  \solution
+  A função
+  \[
+    f(x) = \frac{1-5x^4}{x^4+8x^3}
+  \]
+  está definida para todo $x>0$ e a sequência
+  \[
+    f(n)=\frac{1-5n^4}{n^4+8n^3}
+  \]
+  para todo $n > 0$.
+  Assim podemos usar Teorema~\ref{teo:limite_funcao} e aplicar a regra de L'Hôpital
+  para calcular o limite desejado
+  \begin{align*}
+    \lim_{x\to\infty} \frac{1-5x^4}{x^4+8x^3} & = \lim_{x\to\infty} \frac{-20x^3}{4x^3+24x^2} \\[2mm]
+                                              & = \lim_{x\to\infty} \frac{-60x^2}{12x^2+48x}  \\[2mm]
+                                              & = \lim_{x\to\infty} \frac{-120x}{24x+48}      \\[2mm]
+                                              & = \lim_{x\to\infty} -\frac{120}{24}
+                                                = -5    \,.
+  \end{align*}
+  A figura a seguir mostra os gráficos da função e da sequência.
+  %----------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_exemplo_sequencia_por_funcao_racional}[-1]
+  %----------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+    Verifique se a sequência
+    \(
+      a_n = \left( 1-\frac{1}{n^2}\right)^n
+    \)
+    converge, se sim, calcule o limite.
+
+    \solution
+    Essa é uma indeterminação do tipo $1^\infty$,
+    portando devemos aplicar o logaritmo natural para obter
+    \[
+      \ln(a_n) = n\ln\left( 1-\frac{1}{n^2}\right)
+              = \frac{\;\ln \left( 1-\sfrac{1}{n^2}\right) }{\sfrac{1}{n}}   \,.
+    \]
+    A última expressão é uma indeterminação do tipo $\sfrac{0}{0}$,
+    então, aplicando a regra de L'Hôpital, segue que
+    \begin{align*}
+      \lim \ln(a_n)
+        & = \lim_{x\to\infty}\dfrac{\;\dfrac{d}{dx}\ln\left(1-\dfrac{1}{x^2}\right)\;}
+                                   {  \dfrac{d}{dx}\left(\dfrac{1}{x}\right)}  \\[2mm]
+        & = \lim_{x\to\infty}\dfrac{\;\dfrac{1}{1-\sfrac{1}{x^2}}\;\dfrac{2}{x^3}\;}{-\sfrac{1}{x^2}} \\[2mm]
+        & = \lim_{x\to\infty}\frac{-2x^2}{\;x^3-x\;}                                                  \\[2mm]
+        & = \lim_{x\to\infty}\frac{-4x}{\;3x^2-1\;}                                                   \\[2mm]
+        & = \lim_{x\to\infty}\frac{-4}{\;6x\;}
+          = 0    \,.
+    \end{align*}
+    Como a função $e^x$ é contínua em $0$, podemos usar o
+    Teorema da Função Contínua~\ref{teo:funcao-continua},
+    de modo que
+    \[
+      \lim a_n = \lim\left( e^{\ln a_n} \right)
+               = e^{\lim\left( \ln a_n \right)}
+               = e^0
+               = 1    \,.
+    \]
+    A figura a seguir mostra os gráficos da função e da sequência.
+    %----------------------------------------------------------------------------%
+    \IncludeTexGraphicCentred{fig_exemplo_sequencia_por_funcao_exp}[-1]
+    %----------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+Observe que o teorema vale apenas em um sentido, se a sequência converge,
+não podemos concluir nada sobre a função.
+Assim como, se a função não convergir não podemos concluir nada sobre a sequência.
+O próximo exemplo ilustra esse caso.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+	Comparação entre a sequência $a_n=0$, com $n\in\N$ e a função
+	$f(x)=\sin(\pi x)$, com $x\in\R$.
+	\solution
+	Primeiro observamos que vale a igualdade
+	\[
+    a_n = f(n)
+	\]
+	pois, para todo $n$ inteiro
+	\[
+    f(n) = \sin(\pi n) = 0   \,.
+	\]
+	Analisando a sequência, concluímos que ela é convergente pois todos
+	os seus termos são iguais a zero
+	\[
+    \lim_{n\to \infty} a_n = \lim_{n\to \infty} 0 = 0  \,.
+	\]
+	Entretanto, a função $f$ oscila entre $-1$ e $1$ quando tentamos calcular
+	seu limite para o infinito nos reais
+	\[
+  	\lim_{x\to\infty} f(x) = \lim_{x\to\infty} \sin(\pi x) \qquad \text{não existe.}
+	\]
+  A figura a seguir mostra os gráficos da função e da sequência.
+  %----------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_exemplo_sequencia_por_funcao_sin}[-1]
+  %----------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

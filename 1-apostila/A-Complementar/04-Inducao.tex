@@ -1,0 +1,83 @@
+%------------------------------------------------------------------------------%
+\section{Indução Finita}
+\label{sec:Inducao-Finita}
+
+Demonstração por \emph{Indução Finita}\index{Indução!finita}
+ou
+\emph{Indução Matemática}\index{Indução!matemática}
+é uma técnica para demonstrar afirmações que dependem de um índice que segue para
+o infinito, por exemplo $n\in\N$.
+
+Para mostrar que uma afirmação, $P_n$, é verdadeira para todo $n$ devemos provar que:
+\begin{enumerate}
+	\item ela é verdadeira para o primeiro $n$, por exemplo se o índice começa em $n=1$
+    temos que mostrar que $P_1$ é verdade;
+	\item se ela for verdadeira para $n$ então também será verdadeira para o próximo
+    índice, $n+1$, isso é
+    \[
+      P_n \Rightarrow P_{n+1} \,.
+    \]
+\end{enumerate}
+
+O exemplo a seguir ilustra a técnica provando a
+\emph{Desigualdade de Bernoulli}%
+\index{Desigualdade!Bernoulli}%
+\index{Bernoulli!desigualdade}.
+
+\begin{example}
+  \label{ex:Desigualdade_de_Bernoulli}
+  Demonstrar a Desigualdade de Bernoulli
+  \[
+    (1+x)^n \geq 1 + n x
+  \]
+  para todo $x>-1$ e $n$ inteiro não negativo.
+
+  \solution
+  Primeiro vamos identificar qual é o índice envolvido e qual a afirmação
+  que deve ser verificada para cada valor do índice
+  \begin{gather*}
+    n = 0, 1, 2, 3, \dots \\
+    P_n\colon (1+x)^n \geq 1 + n x
+  \end{gather*}
+  Provamos agora o primeiro caso, $n=0$, por simples substituição
+  \[
+    (1+x)^0 = 1 \geq 1 + 0x = 1
+  \]
+  O próximo passo é assumir que a afirmação é verdadeira para $P_n$,
+  que chamamos de \emph{Hipótese de Indução}\index{Hipótese de indução},
+  e provar que ela é verdadeira para $P_{n+1}$.
+  Neste exemplo queremos provar que
+  \[
+    (1+x)^n \geq 1 + nx \quad\Rightarrow\quad (1+x)^{n+1} \geq 1 + (n+1) x
+  \]
+  Começamos manipulando o lado esquerdo da desigualdade que queremos demonstrar
+  \[
+    (1+x)^{(n+1)} = (1+x)^{n}(1+x)
+  \]
+  Como $(1+x)>0$, pois por hipótese $x>-1$, podemos usar a hipótese de indução,
+  $(1+x)^n \geq 1 + nx$, para escrever
+  \[
+    (1+x)^{(n+1)}
+    \geq (1 + nx)(1 + x)
+    = 1 + x + nx + nx^2
+  \]
+  Rearranjando temos
+  \[
+    (1+x)^{(n+1)}
+    \geq 1 + (1 + n)x + nx^2
+  \]
+  Como $nx^2$ é sempre não negativo, podemos remove-lo mantendo a relação de desigualdade
+  \[
+    (1+x)^{(n+1)}
+    \geq 1 + (1 + n)x
+  \]
+  Provamos assim que $P_n\Rightarrow P_{n+1}$, o que completa a prova por indução finita
+  e garante que a desigualdade é verdadeira para todo $n\geq 0$.
+\end{example}
+
+
+
+
+
+
+%------------------------------------------------------------------------------%

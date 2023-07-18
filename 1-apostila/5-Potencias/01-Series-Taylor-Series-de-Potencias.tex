@@ -1,0 +1,479 @@
+%------------------------------------------------------------------------------%
+\section{Séries de Potências}
+
+Nesse capítulo vamos utilizar a teoria desenvolvida para o estudo de séries numéricas
+para construir as Séries de Potências, que podemos imaginar como polinômios de
+grau infinito.
+Para estudar a convergência das Séries de Potência, vamos considerar que para
+cada valor fixo de $x$ temos uma série numérica que pode ser analisada com
+os resultados do capítulo anterior. Porém,
+estaremos também interessados em estudar essas séries como funções de $x$.
+Na próxima seção apresentaremos as Séries de Taylor, que nos mostram
+como construir séries de potência para funções que conhecemos,
+desejamos estudar ou aproximar.
+Começamos apresentando a definição da Série de Potências.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série de Potências}{def:Serie-potencia}
+  \emph{Série de Potências}\index{Série!potências} centrada em $a$
+  é uma série de funções da forma
+  \[
+  	\sum_{n=0}^\infty c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2
+                                 + \cdots + c_n(x-a)^n + \cdots
+ 	\]
+  onde $c_n$ e $a$ são constantes e $x\in\R$ é uma variável.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A seguir temos um exemplo de uma Série de Potências e a função que corresponde
+a sua soma.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine a soma da série
+  \(\;
+    \sum_{n=0}^\infty x^n   \;.
+  \)
+  \solution
+  Primeiro note que essa é uma Série de Potências centrada em $a=0$
+  com coeficientes $c_n=1$, para todo $n=0, 1, 2,\dots$
+  Consideramos agora o valor de $x$ fixo e observamos que essa é uma Série Geométrica
+  com $r=x$, portanto convergente para todo $x$ tal que $\abs{x}<1$.
+  Além disso, usando a fórmula da
+  soma da Série Geométrica~\eqref{eq:soma-serie-geometrica},
+  nos pontos onde a série converge, temos
+  \[
+  	\sum_{n=0}^\infty x^n = \sum_{n=1}^\infty x^{n-1} = \frac{1}{1-x}  \;.
+ 	\]
+ 	Como essa série diverge para todo $\abs{x}\geq 1$ essa igualdade só vale
+  para o intervalo $(-1, 1)$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+\begin{figure}
+  \begin{center}%
+    \scalebox{0.9}{\input{fig_taylor_1div1mx}}%
+    \vspace{-\baselineskip}%
+  \end{center}
+  \caption{Comparação da função \(\sfrac{1}{(1-x)}\) com seus\\Polinômios de Taylor.}
+  \label{fig:funcao_tayplor_1div1mx}
+\end{figure}
+
+A Figura~\ref{fig:funcao_tayplor_1div1mx} exibe o gráfico da função
+\(
+  \sfrac{1}{(1-x)}
+\)
+e as quatro primeiras somas parciais da série de potências.
+
+%------------------------------------------------------------------------------%
+Com base no resultado desse exemplo podemos usar a série truncada como uma
+aproximação para a função, desde que $\abs{x}<1$, isso é,
+\[
+	f(x) = \frac{1}{1-x} \;\approx\; \sum_{n=0}^{N} x^n   \;.
+\]
+O próximo exemplo apresenta uma generalização desse resultado.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Para quaisquer constantes reais $a$ e $\beta\neq 0$, calcule a soma da série
+  \[
+    \sum_{n=0}^\infty \beta^n(x-a)^n   \;.
+  \]
+
+  \solution
+  Essa é uma Série de Potências centrada em $a$ com coeficientes $c_n=\beta^n$
+  que podemos escrever como
+  \[
+  	\sum_{n=0}^\infty \big(\beta(x-a)\big)^n   \;.
+ 	\]
+  Para cada $x$ fixo, esta é uma série geométrica com $r=\beta(x-a)$.
+  Ela converge se, e somente se, $\abs{r}<1$, ou seja, quando
+  \begin{gather*}
+  	\abs{\beta(x-a)}        \;<\; 1                                     \\[3mm]
+  	-\frac{1}{\abs{\beta}}  \;<\;  x-a  \;<\; \frac{1}{\abs{\beta}}     \\[3mm]
+  	a-\frac{1}{\abs{\beta}} \;<\;  x    \;<\; a + \frac{1}{\abs{\beta}}   \;.
+  \end{gather*}
+  Novamente usamos a fórmula da
+  soma da Série Geométrica~\eqref{eq:soma-serie-geometrica}
+  nos pontos onde a série converge
+  \[
+    \sum_{n=0}^\infty \beta^n(x-a)^n =
+    \sum_{n=1}^\infty \big(\beta(x-a)\big)^{n-1} =
+    \frac{1}{1-\beta(x-a)}   \;.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a soma da série
+  \(\;
+    \sum_{n=0}^\infty \left(\frac{x-2}{2}\right)^n   \;.
+  \)
+  \solution
+  Essa série é um caso particular do exemplo anterior
+  com $\beta=\sfrac{1}{2}$ e $a=2$, temos então que
+  \[
+    \sum_{n=0}^\infty \left(\frac{x-2}{2}\right)^n
+    = \frac{1}{1-\frac{x-2}{2}}
+    = \frac{2}{4-x}   \;,
+  \]
+  que converge para
+  \begin{align*}
+    a-\frac{1}{\abs{\beta}} <          & \; x < a + \frac{1}{\abs{\beta}}        \;,\\[3mm]
+    2 - \abs{\frac{1}{\sfrac{1}{2}}} < & \; x < 2 + \abs{\frac{1}{\sfrac{1}{2}}} \;,\\[3mm]
+    0 <                                & \; x < 4   \;.
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+\OnlineBox{https://colab.research.google.com/drive/19dbJqWuwaQGKtibaxspj0IQJyntL_UKo?usp=sharing}
+{
+  Código Python para ilustrar algumas séries de potências.
+}
+
+Os exemplos anteriores mostraram como podemos usar a definição de convergência de
+séries numéricas para estudar a convergência das séries de potências.
+Porém, existem resultados específicos que podemos utilizar para as Séries de Potência,
+por exemplo, toda série de potências converge no seu centro, chamamos esse caso
+de \emph{Convergência Trivial}\index{Convergência!trivial}. Podemos comprovar
+isso simplesmente avaliando cada termo da série em $x=a$
+\[
+  \sum_{n=0}^\infty c_n(x-a)^n \,\evalat{x=a}{}
+    = c_0 + c_1(a-a) + c_2(a-a)^2 + \cdots
+    = c_0   \;.
+\]
+O teorema a seguir apresenta uma propriedade das séries de potências
+que simplifica a analise de convergência.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Convergência da Série de Potências}{teo:convergencia-serie-potencias}
+  Se a Série de Potências\index{Série!potências!convergência}
+  \[
+  	\sum_{n=0}^\infty c_n(x-a)^n
+ 	\]
+  converge em $x-a=L\neq 0$, então ela converge absolutamente para todo $x$ com
+  \[
+  	\abs{x-a}<\abs{L}   \;.
+  \]
+  Se a série diverge em $x-a=M$, então ela diverge para todo $x$ tal que
+  \[
+  	\abs{x-a}>\abs{M}   \;.
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  \emph{Parte 1}
+
+  Suponha que
+  \[
+  	\sum_{n=0}^\infty c_n L^n
+ 	\]
+  converge, então, pelo Teste de Divergência~\ref{teo:teste-divergencia}
+  \( \lim (c_n L^n) = 0 \).
+  Assim, existe $N\in\N$ tal que
+  \[
+  	\abs{ c_n L^n } < 1 \qquad \forall n > N \;.
+ 	\]
+ 	Dividindo os dois lados por $\abs{L}^n$ e multiplicando por $\abs{x-a}^n$, temos
+  \begin{equation}
+    \label{eq:proof_desigualdade_L}
+  	\abs{c_n}\abs{x-a}^n \;<\; \abs{\frac{x-a}{L}}^n \qquad \forall n>N   \;.
+  \end{equation}
+  Note que, se $x$ é tal que $\abs{x-a} < \abs{L}$, a série geométrica
+  \[
+    \sum_{n=0}^\infty \abs{\frac{x-a}{L}}^n
+  \]
+  converge.
+  Então, pelo Teste da Comparação~\ref{teo:teste-comparacao}
+  usando a desigualdade~\eqref{eq:proof_desigualdade_L}
+  a série
+  \[
+  	\sum_{n=0}^\infty \abs{c_n}\abs{x-a}^n
+  \]
+  converge. Isso é o mesmo que dizer que a série
+  \[
+  	\sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  converge absolutamente.
+
+  \emph{Parte 2}
+
+  Assuma que a série diverge para
+  \[
+    r - a = M \neq 0
+  \]
+  e suponha, por absurdo, que existe $s$ satisfazendo
+  \[
+    \abs{s-a} > \abs{M}
+  \]
+  onde a série converge.
+  Usando a primeira parte do teorema sabemos que se a série converge em $s$
+  ela deve convergir para todo $x$ tal que
+  \[
+    \abs{x-a} < \abs{s-a}
+  \]
+  Em particular deve convergir em $r$ o que é uma contradição.
+  Provamos então que não pode existir nenhum ponto $s$ convergente
+  tal que
+  \[
+    \abs{s-a} > \abs{M} \;.
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Esse teorema é útil para encontrar intervalos onde a série converge
+absolutamente e onde a série diverge, o próximo exemplo emprega esse resultado.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine para quais valores de $x$ a série
+  \[
+    \sum_{n=0}^\infty (-1)^{n+1}\frac{(x-2)^n}{n}
+  \]
+  é convergente.
+  \solution
+  Note que quando $x-2=\pm 1$ podemos decidir com facilidade se a série converge ou não.
+  Considerando o caso $x-2=1$ temos $x=3$ que gera a série numérica
+  \[
+    \sum_{n=0}^\infty\frac{ (-1)^{n+1}}{n}
+  \]
+  que converge pois é a Série Harmônica Alternada.
+  Assim, pelo Teorema~\ref{teo:convergencia-serie-potencias},
+  podemos afirmar que essa série converge absolutamente para todo $x$ tal que $\abs{x-2}<1$,
+  ou seja, a série converge absolutamente no intervalo $(1, 3)$.
+  Note que no ponto~$x=3$ a série converge condicionalmente,
+  por se tratar da Série Harmônica Alternada.
+
+  Tomando agora $x-2=-1$, isso é $x=1$, obtemos
+  \[
+    \sum_{n=0}^\infty\frac{\,(-1)^{n+1}(-1)^n\,}{n}
+    = \sum_{n=0}^\infty\frac{-1\,}{n} \;.
+  \]
+  Como a Série Harmônica diverge, essa última série também diverge.
+  Assim pelo Teorema~\ref{teo:convergencia-serie-potencias},
+  a série diverge sempre que $\abs{x-a}>1$, ou seja,
+  a série diverge em $(-\infty,\,1]\cup (3,\,\infty)$.
+  O gráfico a seguir exibe a região de convergência dessa série.
+  No interior do intervalo a convergência é absoluta e no ponto $x=3$ é condicional.
+  %----------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_interval_exemplo_1}[-1.8]
+  %----------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+Note que o último teorema garante que os pontos onde uma série de potências
+converge estão sempre em um intervalo, que chamamos de intervalo de convergência.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Intervalo de convergência}{def:Intervalo-convergencia}
+  O intervalo dos pontos onde uma Série de Potências converge é chamado de
+  \emph{Intervalo de Convergência}%
+  \index{Série!potências!intervalo de convergência}%
+  \index{Intervalo!convergência}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+O teorema sobre a convergência das séries de potências pode ser
+reescrito de uma forma mais poderosa, apresentada a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Raio de Convergência}{teo:raio-convergencia}
+  O Intervalo de Convergência de uma
+  Série de Potências\index{Série!potências!convergência} centrada em $a$
+  \[
+  	\sum_{n=0}^\infty c_n(x-a)^n
+ 	\]
+  sempre será um intervalo centrado em $a$ com raio $R$.
+  Chamamos o número $R$ de
+  \emph{Raio de Convergência}%
+  \index{Série!potências!raio de convergência}%
+  \index{Raio de convergência}
+  da Série de Potências e ele se enquadra em um dos casos:
+  \begin{description}[leftmargin=10mm, labelwidth=17mm, itemindent=20mm]
+    \item[$R=0$]      Convergência trivial, a série converge apenas em $x=a$;
+    \item[$R=\infty$] A série converge absolutamente para todo $x\in\R$;
+    \item[$R>0$]      A série converge absolutamente para todo $x$ satisfazendo
+      \[
+        \abs{x-a}<R
+      \]
+      e diverge para todo $x$ tal que
+      \[
+       \abs{x-a}>R   \;.
+      \]
+  \end{description}
+  \IncludeTexGraphicCentred{fig_interval_raio_convergencia}[-1.8][-1]
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Queremos mostrar que se não estivermos em um dos dois primeiros casos
+  precisamos estar no terceiro, isso é, se o conjunto dos valores de $x$
+  onde a série converge
+  \[
+    \Omega = \left\{ \; x\in\R \st \sum_{n=0}^\infty c_n(x-a)^n \text{ converge } \right\}
+  \]
+  não for $\Omega=\{a\}$ nem $\Omega=\R$ ele precisa ser o intervalo
+  \[
+    \Omega = [\, a-R, a+R \,]
+  \]
+  para algum número finito $R$.
+
+  Como não estamos na situação em que a convergência ocorre para toda a reta,
+  existe um ponto $u$ onde a série diverge,
+  Assim, pelo Teorema~\ref{teo:convergencia-serie-potencias},
+  temos que a série diverge para todo $x$ tal que $\abs{x-a}>d$, onde $d=\abs{u-a}$.
+  Concluímos então que $\Omega$ é um conjunto limitado
+  \[
+  	\Omega\subset [\, a-d, a+d \,]   \;.
+  \]
+  Como também não estamos na situação de convergência trivial,
+  existe $x\in \Omega$ diferente de $a$. Tomamos então $R$
+  como o menor número maior ou igual a $\abs{x-a}$ para todo $x\in \Omega$, isso é,
+  (veja a Definição~\ref{def:inf-sup})
+  \begin{equation}
+    \label{eq:r_sup}
+    R = \sup_{x\in \Omega} \,\abs{x-a}   \;.
+  \end{equation}
+  Como $\Omega$ é limitado e existe $x\neq a$ em $\Omega$ sabemos que $R>0$ e é finito.
+  Agora, vamos mostrar que a série converge para qualquer $x$ tal que $\abs{x-a}<R$.
+  Como $R$ é tal que a condição~\eqref{eq:r_sup} vale, existe $u\in \Omega$ tal que
+  \[
+    \abs{x-a} < \abs{u-a} \leq R
+  \]
+  então, pelo Teorema~\ref{teo:convergencia-serie-potencias},
+  a série converge absolutamente em~$x$.
+  Por outro lado, se $v$ é tal que
+  \[
+    R < \abs{v-a}
+  \]
+  então a série tem que divergir em $v$, pois caso contrário $v\in \Omega$ o que
+  contraria~\eqref{eq:r_sup}.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Usando o Teorema~\ref{teo:convergencia-serie-potencias} ao identificarmos
+o intervalo onde a série converge absolutamente, $\abs{x-a}<R$,
+sabemos automaticamente que a série diverge para $\abs{x-a}>R$.
+Entretanto, o teorema não diz nada sobre os extremos do intervalo
+de convergência, $\abs{x-a}=R$, precisamos analisar individualmente esses pontos.
+Para determinar $R$ podemos usar os testes de convergência, em especial o
+Teste da Razão (Teorema~\ref{teo:teste-razao}) ou o
+Teste da Raiz (Teorema~\ref{teo:teste-raiz}). Os próximos exemplos mostram como
+determinar o intervalo de convergência de algumas séries.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Analise a convergência da série de potências
+  \(
+  	\sum_{n=0}^\infty \frac{(x-2)^n}{10^n}   \;.
+ 	\)
+  \solution
+  O termo geral dessa série é
+  \[
+  	a_n=\frac{(x-2)^n}{10^n}
+ 	\]
+  então podemos aplicar o Teste da Raiz no módulo do termo geral, ou seja,
+  \[
+  	\sqrt[n]{\abs{a_n}}                     =
+    \sqrt[n]{\abs{\frac{(x-2)^n}{10^n}}}    =
+    \sqrt[n]{\abs{\frac{x-2}{10}}^n}        =
+    \frac{\abs{x-2}}{10}                    \;\rightarrow\;
+    \frac{\abs{x-2}}{10}
+ 	\]
+  Então a série converge absolutamente desde que
+  \[
+  	\frac{\abs{x-2}}{10} < 1
+ 	\]
+  ou seja, converge pare
+  \(
+  	\abs{x-2} < 10
+ 	\)
+  e diverge sempre que
+  \(
+    \abs{x-2}>10
+  \).
+  Assim, o raio de convergência é $R=10$.
+
+  Resta analisar o que ocorre nos extremos $x-2=\pm 10$.
+  Se $x-2=10$ temos a série
+  \[
+    \sum_{n=0}^\infty \frac{(x-2)^n}{10^n} =
+    \sum_{n=0}^\infty \frac{10^n}{10^n} =
+    \sum_{n=0}^\infty 1
+  \]
+  que diverge pelo Teste da Divergência.
+  No caso $x-2=-10$, obtemos a série
+  \[
+    \sum_{n=0}^\infty \frac{(x-2)^n}{10^n} =
+    \sum_{n=0}^\infty \frac{(-10)^n}{10^n} =
+    \sum_{n=0}^\infty (-1)^n
+  \]
+  que também diverge pelo Teste da Divergência.
+
+  Em resumo a série converge absolutamente no intervalo $(-8,\,12)$
+  e diverge em $(-\infty,\,-8]\cup[12,\,\infty)$.
+  O gráfico a seguir ilustra os intervalo de convergência da série.
+  %---------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_interval_exemplo_2}[-1.5]
+  %---------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+\OnlineBox{https://colab.research.google.com/drive/1EugBhApxYNwAiXASe-HWgRLVs6EUePL2?usp=sharing}
+{
+  Código Python para ilustrar o raio de convergência das séries de potências.
+}
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Analise a convergência da série de potências
+  \(
+  	\sum_{n=0}^\infty (-1)^n\frac{x^n}{n!}  \;.
+ 	\)
+  \solution
+  Aplicando o Teste da Razão para encontrar o raio de convergência obtemos,
+  \[
+      \abs{\frac{a_{n+1}}{a_n}} =
+      \abs{\frac{x^{n+1}}{(n+1)!}\frac{n!}{x^n}} =
+      \abs{\frac{x}{(n+1)}}
+      \;\rightarrow\; 0  \;.
+  \]
+  Como o limite é menor do que 1 para qualquer valor de $x$
+  concluímos que a série converge em toda a reta real,
+  ou seja, o raio de convergência da série é~$R=\infty$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Analise a convergência da série de potências
+  \(
+  	\sum_{n=0}^\infty \abs{n^n x^n}  \;.
+ 	\)
+  \solution
+  Aplicando o Teste da Raiz para a série obtemos, para todo $x\neq 0$, que
+  \[
+  	\sqrt[n]{\abs{n^nx^n}}=n\abs{x} \;\rightarrow\; \infty  \;.
+ 	\]
+  Então essa série de potências converge apenas em $x=0$,
+  isto é, seu raio de convergência é $R=0$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Resumindo, quando queremos testar a convergência de uma Série de Potências,
+normalmente empregamos os seguintes passos:
+\begin{enumerate}[nosep]
+  \item Usar o teste da razão, ou da raiz, para encontrar o intervalo onde
+        a série converge absolutamente
+        \[
+          \abs{x-a} < R \qquad \text{ ou } \qquad a-R < x < a+R
+        \]
+  \item Se o intervalo de convergência absoluta for finito precisamos
+        testar a convergência em cada extremo. Nesses pontos os testes
+        da razão ou raiz provavelmente serão inconclusivos, portanto
+        devemos usar o teste da comparação, integral ou série alternada.
+\end{enumerate}
+Observe que se o intervalo de convergência absoluta for finito, \(\abs{x-a} < R\),
+podemos afirmar diretamente que a série diverge para \(\abs{x-a} > R\).
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,175 @@
+%------------------------------------------------------------------------------%
+\section{Teste da Raiz}
+
+O Teste da Raiz é similar ao Teste da Razão, ele é útil quando calcular
+a raiz $n$-ésima for mais fácil do que calcular a razão ente os termos da série.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Raiz}{teo:teste-raiz}
+  Seja\index{Teste!raiz}
+  \(\;
+    \sum_{n=1}^\infty a_n
+  \;\)
+  uma série tal que $a_n\geq 0$ e
+  \[
+    \lim_{n\to \infty} \sqrt[n]{a_n} = \rho
+  \]
+  então,
+  \begin{enumerate}
+    \item se $\rho<1$ a série converge;
+    \item se $\rho>1$ ou $\rho=\infty$ a série diverge;
+    \item se $\rho=1$ o teste é inconclusivo.
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  %----------------------------------------------------------------------------%
+  \emph{Parte 1}
+
+  Nesse caso, temos que $\rho<1$, assim podemos escolher $\varepsilon>0$
+  tal que $\rho+\varepsilon<1$.
+  Como
+  \[
+    \lim_{n\to \infty} \sqrt[n]{a_n}=\rho
+  \]
+  existe $N\in \N$ tal que se $n\geq N$
+  \[
+      \abs{\sqrt[n]{a_n}-\rho\,}\;<\;\varepsilon
+      \quad\Rightarrow\quad
+      \sqrt[n]{a_n} \;<\; \varepsilon+\rho
+      \quad\Rightarrow\quad
+      a_n \;<\; (\varepsilon+\rho)^n      \,.
+  \]
+  Dessa forma, pelo teste da comparação, temos que a série
+  \[
+    \sum_{n=1}^\infty a_n
+  \]
+  converge, pois seu termo geral, $a_n$ está limitado pelo termo geral da série geométrica
+  \[
+    \sum_{n=1}^\infty (\varepsilon+\rho)^n
+  \]
+  que é convergente pois $\varepsilon+\rho<1$.
+
+  %----------------------------------------------------------------------------%
+%  \emph{Parte 2}
+%
+%  {\color{red} Escrever}
+
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Assim como no Teste da Razão, no Teste da Raiz o teorema é inconclusivo
+quando $\rho=1$. Observe as séries
+\[
+  \sum_{n=1}^\infty \frac{1}{n}
+  \qquad \text{ e } \qquad
+  \sum_{n=1}^\infty \frac{1}{n^2}
+\]
+em ambos os casos temos que
+\(
+  \lim \sqrt[n]{a_n}=1
+\)
+entretanto, a série harmônica diverge e a série~$p$, com $p=2$, converge.
+%Fica como exercício verificar que
+%\[
+%  \lim \sqrt[n]{\frac{1}{n}\;} = \lim \sqrt[n]{\frac{1}{n^2}\;} = 1
+%\]
+
+Note o Teste da Raiz continua válido mesmo trocando a hipótese de que
+\[
+  \lim \sqrt[n]{a_n} = \rho
+\]
+por
+\begin{equation}
+  \label{eq:teste-raiz-variacao}
+  \lim \sqrt[n+k]{a_n} = \rho \qquad \forall k \in \N     \,.
+\end{equation}
+Para ver que isso é verdade basta notar na demonstração que o termo geral
+da série continua limitado pelo termo geral de uma série geométrica.
+
+Seguem agora alguns exemplos do uso desse teste.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da raiz para analisar a convergência da série
+  \[
+    \sum_{n=1}^\infty \frac{4^n}{\,(3n)^n\,}         \,.
+  \]
+  \solution
+  Seja
+  \[
+    a_n = \frac{4^n}{\,(3n)^n\,}
+  \]
+  então
+  \[
+    \sqrt[n]{a_n\,} = \sqrt[n]{\frac{4^n}{\,(3n)^n\,}}
+                    = \frac{4}{3n}
+                    \to 0 < 1
+  \]
+  portanto a série converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da raiz para analisar a convergência da série
+  \[
+    \sum_{n=1}^\infty\frac{1}{n^{n+1}}     \,.
+  \]
+  \solution
+  Observe que, fazendo uma mudança de índice, podemos reescrever a série como
+  \[
+    \sum_{n=1}^\infty\frac{1}{\, n^{n+1}\,} =
+    \sum_{n=2}^\infty\frac{1}{\,(n-1)^{n}\,}       \,.
+  \]
+  Podemos agora tomar
+  \[
+    a_n = \frac{1}{\,(n-1)^{n}\,}
+  \]
+  que nos leva a
+  \[
+    \sqrt[n]{a_n} = \frac{1}{n-1} \to 0 < 1
+  \]
+  o que nos permite concluir que série converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Outra forma de resolver o exemplo anterior é usar a variação do
+Teste da Raiz~\eqref{eq:teste-raiz-variacao}.
+Neste caso, podemos tomar
+\[
+  a_n=\frac{1}{n^{n+1}}
+\]
+que nos leva a
+\[
+  \sqrt[n+1]{a_n} = \frac{1}{n} \to 0 < 1   \,.
+\]
+Assim, chegamos a conclusão de que a série converge.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da raiz para analisar a convergência da série
+  \[
+    \sum_{n=1}^\infty \left[\ln\left(e^2+\frac{1}{n}\right)\right]^{n+1}    \,.
+  \]
+  \solution
+  Fazendo uma transformação no índice podemos reescreve a série da seguinte forma
+  \[
+    \sum_{n=1}^\infty \left[\ln\left(e^2+\frac{1}{n}  \right)\right]^{n+1} \;=\;
+    \sum_{n=2}^\infty \left[\ln\left(e^2+\frac{1}{n-1}\right)\right]^{n}   \,.
+  \]
+  Dessa forma temos que
+  \[
+    a_n=\left[\ln\left(e^2+\frac{1}{n-1}\right)\right]^{n}   \,.
+  \]
+  Aplicando o Teste da Raiz temos
+  \[
+    \sqrt[n]{a_n} = \ln\left(e^2+\frac{1}{n-1}\right)
+                  \;\to\; \ln (e^2)
+                  = 2 > 1      \,.
+  \]
+  Portanto essa série diverge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

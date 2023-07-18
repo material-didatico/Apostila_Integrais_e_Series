@@ -1,0 +1,107 @@
+%------------------------------------------------------------------------------%
+\section{Apresentação e Motivação}
+
+Apresentamos nesse capítulo o conceito de sequências de números reais.
+Estamos interessados em explorar suas propriedades de convergência.
+Esses resultados serão fundamentais quando iniciarmos a discussão sobre séries
+no próximo capítulo.
+
+Note que os mesmos conceitos podem ser estendidos para sequências
+de outros objetos matemáticos, como vetores, matrizes ou funções.
+Porém, as propriedades de convergência serão basicamente as mesmas.
+
+Sequências e séries estão entre os conceitos matemáticos mais aplicados,
+por exemplo, qualquer algoritmo computacional que busque a solução para
+um problema fazendo correções iterativas em uma aproximação inicial vai produzir
+uma sequência de aproximações que podem convergir ou não para a solução desejada.
+Como exemplo, apresentamos o método de Newton.
+
+%------------------------------------------------------------------------------%
+\subsection*{Método das Tangentes de Newton}
+
+Muitos métodos numéricos ou computacionais se baseiam na busca de uma solução
+por aproximações sucessivas, isso é, eles partem de um chute inicial e
+a cada iteração constroem uma nova aproximação para a solução.
+Um dos métodos mais importantes com essas características é o
+\emph{Método de Newton}\index{Método!Newton}\index{Newton!Método}
+para encontrar zeros de funções.
+
+Queremos encontrar um valor real $x^\ast$ que satisfaça a equação
+\[
+	f(x^\ast) = 0 \;,
+\]
+para uma função $f\colon A\subset\R\to\R$ derivável em $A$ e
+cuja derivada, $f'$, é diferente de zero para todo $x\in A$.
+
+O Método de Newton busca uma solução para $f(x)=0$ partindo de um chute inicial
+$x_0\in A$. Começamos construindo a reta tangente ao gráfico de $f$ pelo ponto
+$(x_0, f(x_0))$ e encontrando o ponto onde a reta toca o eixo-$x$, como ilustrado
+na Figura~\ref{fig:newton_1}. O ponto $x_1$ encontrado dessa forma é a nova
+aproximação para a solução.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_newton_step_1}
+    \caption{Reta tangente em $(x_0, f(x_0))$\\e intercepto $x_1$}
+    \label{fig:newton_1}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_newton_step_2}
+    \caption{Reta tangente em $(x_1, f(x_1))$\\e intercepto $x_2$}
+    \label{fig:newton_2}
+  \end{subfigure}
+  \caption{Ilustração dos primeiros passos do Método de Newton}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+De posse da nova aproximação repetimos o processo para obter $x_2$, como ilustrado na
+Figura~\ref{fig:newton_2}. Aplicando sucessivamente esse método produzimos uma
+lista infinita de aproximações para a solução do problema.
+
+Podemos construir uma fórmula para calcular cada aproximação $x_n$ a partir do valor da
+aproximação anterior $x_{n-1}$. O primeiro passo é calcular a expressão para a reta
+tangente ao gráfico de $f$ no ponto $(x_n, f(x_n))$
+\[
+	y-f(x_n) = f'(x_n)(x-x_n)    \;.
+\]
+A próxima aproximação será o valor de $x$ onde essa reta cruza o eixo-$x$, isso é,
+quanto $y=0$, assim temos
+\[
+	-f(x_n) = f'(x_n)(x_{n+1}-x_n)      \;,
+\]
+rearranjando, obtemos a fórmula para o Método de Newton
+\[
+	x_{n+1} = x_n - \frac{\,f(x_n)\,}{\,f'(x_n)\,}    \;.
+\]
+Note que a exigência de que a derivada de $f$ não seja nula em $A$ é para
+garantir que a divisão sempre seja possível.
+
+Esse método vai produzir várias listas infinitas de números
+\[
+\begin{array}{llllll}
+	x_0,     & x_1,     & x_2,     & \dots, & x_n,     & \dots \\
+	f(x_0),  & f(x_1),  & f(x_2),  & \dots, & f(x_n),  & \dots \\
+	f'(x_0), & f'(x_1), & f'(x_2), & \dots, & f'(x_n), & \dots
+\end{array}
+\]
+a cada uma dessas listas infinitas damos o nome de \emph{Sequência Numérica}.
+
+\OnlineBox{https://colab.research.google.com/drive/1li98CA9JUOYCO2_Gca8-Yspuex61ndH9?usp=share_link}
+{
+  Código Python para ilustrar o Método de Newton.
+}
+
+A pergunta que precisamos responder agora é se essas sequências
+convergem para a solução que desejamos. O primeiro passo é definir
+o que queremos dizer com convergência, depois verificamos se as sequências
+convergem para alguma coisa e por fim verificamos que os valores
+$f(x_n)$ convergem para zero e consequentemente os valores $x_n$
+convergem para a solução que buscamos. Nas próximas seções
+deste capítulo apresentamos os resultados matemáticos necessários
+para respondermos a essas questões.
+
+%------------------------------------------------------------------------------%

@@ -1,8 +1,42 @@
 %------------------------------------------------------------------------------%
-
-\usepackage{mathconfig}
+% Definições particulares para a Apostila Intgrais e Séries
+%------------------------------------------------------------------------------%
 
 %\definecolor{cpCoverBelt}{HTML}{9ba8b0}
 \setlength{\BeltPosition}{15mm}
+
+\usepackage{mathconfig}
+
+% Lista para links dos recursos online
+%------------------------------------------------------------------------------%
+
+\usepackage[format=hang,labelfont=normalfont]{subcaption}
+\usepackage{nameref}
+\usepackage{nccmath}
+\usepackage{systeme}
+\usepackage{longtable}
+
+\newlist{listlinks}{enumerate}{1}
+\newlist{listrefs}{enumerate}{1}
+
+\setlist[listlinks]{
+  label=\arabic*),
+  leftmargin=1cm,
+  parsep=-0.1\baselineskip,
+  topsep=-0.7\baselineskip,
+}
+
+\AfterEndEnvironment{listlinks}{\vspace{1.5\parsep}}
+
+\setlist[listrefs]{
+  label=\arabic*),
+  leftmargin=1cm,
+  parsep=0pt,
+  topsep=-0.5\baselineskip,
+}
+
+%------------------------------------------------------------------------------%
+
+\newcommand{\vpt}{\vphantom{\int_{\int}^{\int}}}
 
 %------------------------------------------------------------------------------%

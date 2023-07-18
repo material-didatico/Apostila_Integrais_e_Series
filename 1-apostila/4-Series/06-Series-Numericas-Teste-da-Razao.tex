@@ -1,0 +1,208 @@
+%------------------------------------------------------------------------------%
+\section{Teste da Razão}
+
+Nessa seção apresentamos mais teste que pode ser aplicado a séries de termos
+positivos, o Teste da Razão. Nesse teste estamos verificando se os termos
+da série caem com velocidade suficiente calculando a razão entre um termo
+e seu antecessor.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Razão}{teo:teste-razao}
+  Seja\index{Teste!razão}
+  \(\;
+    \sum_{n=1}^\infty a_n
+  \;\)
+  uma série tal que $a_n>0$ e
+  \[
+    \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \rho
+  \]
+  então,
+  \begin{enumerate}
+    \item se $\rho<1$ a série converge;
+    \item se $\rho>1$ ou $\rho=\infty$ a série diverge;
+    \item se $\rho=1$ o teste é inconclusivo.
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  %----------------------------------------------------------------------------%
+  \emph{Parte 1}
+
+  Como $\rho<1$ podemos escolher $\varepsilon>0$ tal que $\rho+\varepsilon<1$,
+  e como
+  \[
+    \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \rho
+  \]
+  segue que existe $N\in \N$ tal que para todo $n\geq N$
+  \[
+    \abs{\;\frac{a_{n+1}}{a_n}-\rho\;} < \varepsilon    \,.
+  \]
+  Dessa forma, denotando $r=\varepsilon+\rho<1$, temos em particular que
+  \[
+    a_{n+1} < (\varepsilon+\rho)a_n
+            = a_nr
+    \qquad \forall n\geq N      \,.
+  \]
+  Repetindo essa relação para todo $n$ a partir de $N$ temos
+  \begin{align*}
+    a_{N+1} & < a_N r \\
+    a_{N+2} & < a_{N+1} r < a_N r^2 \\
+    a_{N+3} & < a_{N+2} r < a_N r^3 \\
+    a_{N+k} & < a_N r^k             \,.
+  \end{align*}
+  Fazendo a mudança de índices $n=N+k$ podemos escrever
+  \[
+    a_n < a_N r^{n-N}
+    \qquad \forall n> N
+  \]
+  e consequentemente temos que
+  \[
+    \sum_{n=N+1}^m a_n < \sum_{n=N+1}^{m} a_N r^{n-N}
+                       = \sum_{k=1}^{m-N} a_N r^k
+    \qquad \forall m > N                \,.
+  \]
+  Como $\abs{r}<1$, a sequência de somas parciais da série geométrica
+  do lado direito converge.
+  Então, a sequência de somas parciais do lado esquerdo está limitada
+  pela soma da série geométrica e é crescente, pois os termos
+  gerais são positivos.
+  Portanto a sequência do lado esquerdo converge, quando $m\to\infty$,
+  ou seja, a série
+  \[
+    \sum_{n=N}^\infty a_n
+  \]
+  converge.
+  Podemos concluir então que a série
+  \[
+    \sum_{n=1}^\infty a_n
+  \]
+  também converge, pois ela coincide com a série anterior exceto por um
+  número finito de termos.
+
+  %----------------------------------------------------------------------------%
+%  \emph{Parte 2}
+%
+%   {\color{red}Escrever}
+\end{proof}
+%------------------------------------------------------------------------------%
+
+No caso em que $\rho=1$, não podemos tirar conclusão alguma com base
+no teste da razão. De fato para todo $p$, a série $p$
+\[
+  \sum_{n=1}^\infty \frac{1}{n^p}
+\]
+satisfaz
+\[
+    \lim_{n\to \infty} \dfrac{a_{n+1}}{a_n}
+        = \lim_{n\to \infty} \dfrac{\;\dfrac{1}{(n+1)^p}\;}{\dfrac{1}{n^p}}
+        = \lim_{n\to \infty} \left(\dfrac{n}{n+1}\right)^p
+        = 1
+\]
+entretanto, como já vimos anteriormente, a série $p$ converge se $p>1$ e diverge se $p\leq 1$.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \(\;
+    \sum_{n=1}^\infty\frac{n!}{(2n)!}
+  \).
+
+  \solution
+  Seja
+  \(
+    a_n = \frac{n!}{(2n)!}
+  \),
+  então
+  \begin{align*}
+  	\frac{a_{n+1}}{a_n} & = \frac{(n+1)!}{\,(2n+2)!\,}\;\frac{\,(2n)!\,}{n!}      \\[3mm]
+  	                    & = \frac{(n+1)\, n!\;\;(2n)! }{\,(2n+2)(2n+1)\,(2n)!\;\; n!\,} \\[3mm]
+  	                    & = \frac{n+1}{\,(2n+2)(2n+1)\,}
+  	                        \to 0 < 1    \,.
+  \end{align*}
+  Assim, a série converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \(\;
+    \sum_{n=1}^\infty\frac{3^{n+2}}{\ln(n)}
+  \).
+  \solution
+  Seja
+  \(
+    a_n = \frac{\,3^{n+2}\,}{\,\ln(n)\,}
+  \),
+  então
+  \begin{align*}
+    \frac{a_{n+1}}{a_n} & = \frac{3^{n+3}}{\,\ln(n+1)\,} \; \frac{\,\ln(n)\,}{\,3^{n+2}\,} \\[3mm]
+                        & = \frac{3\ln(n)}{\,\ln(n+1)\,}    \,.
+  \end{align*}
+  Usando L'Hôpital, obtemos que
+  \[
+      \lim \frac{\,a_{n+1}\,}{a_n} =
+      \lim \frac{\,3(n+1)\,}{n}    = 3 > 1     \,.
+  \]
+  Portanto, a série diverge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \(
+    \sum_{n=1}^\infty \frac{n!}{\,n^n\,}
+  \).
+  \solution
+  Seja
+  \(
+    a_n = \frac{n!}{\,n^n\,}
+  \),
+  então
+  \begin{align*}
+    \frac{\,a_{n+1}\,}{a_n}
+    & = \frac{(n+1)!}{\,(n+1)^{n+1}\,} \; \frac{\,n^n\,}{n!} \\[3mm]
+    & = \frac{\,(n+1)\,n!\;n^n\,}{(n+1)^n\,(n+1)\;n!}        \\[3mm]
+    & = \frac{n^n}{\,(n+1)^n\,}                              \\[3mm]
+    & = \left(\frac{1}{1+\sfrac{1}{n}}\right)^n              \\[3mm]
+    & = \left( 1 + \frac{1}{n} \right)^{-n}                  \,.
+  \end{align*}
+  Podemos agora calcular o limite
+  \begin{align*}
+    \lim \frac{a_{n+1}}{a_n}
+    & = \lim              \left(1 + \frac{1}{n}\right)^{-n}         \\[3mm]
+    & = \lim\exp\left[ \ln\left(1 + \frac{1}{n}\right)^{-n\vphantom{L}} \right] \\[3mm]
+    & = \lim\exp\left[-\ln\left(1 + \frac{1}{n}\right)^{ n\vphantom{L}} \right] \\[3mm]
+    & = \exp\left[-\ln\lim\left(1 + \frac{1}{n}\right)^{ n\vphantom{L}} \right] \\[3mm]
+    & = \exp\left[-\ln\left(e^1\right) \right] \\[3mm]
+    & = \exp(-1)
+  \end{align*}
+  onde usamos a relação \eqref{eq:exponencial-pelo-limite}.
+  Temos então que
+  \[
+    \lim \frac{a_{n+1}}{a_n} = e^{-1} \approx 0,3679 < 1
+  \]
+  portanto a série converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \(
+    a_1 = 5,
+    \quad
+    a_{n+1} = \frac{\,\sqrt[n]{n}\,}{2} a_n
+  \).
+  \solution
+  Veja que
+  \[
+    \frac{a_{n+1}}{a_n} = \frac{\sqrt[n]{n}}{2}
+                        \to \frac{1}{2}
+                        < 1
+  \]
+  então a série converge.
+\end{example}
+
+%------------------------------------------------------------------------------%

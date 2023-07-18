@@ -1,0 +1,470 @@
+%------------------------------------------------------------------------------%
+\section{Convergência da Série de Taylor}
+
+Uma consequência da definição da Série de Taylor é que se uma função pode ser
+representada por uma Série de Potências essa série coincide com
+a Série de Taylor da função. Esse fato é apresentado com precisão pela
+proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Igualdade das Séries de Potências e Taylor}{prop:serietaylorpotencia}
+  Se a função $f$ for igual a uma Série de Potências,
+  no intervalo de convergência da série,
+  \[
+    f(x)=\sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  então os coeficientes da série são os coeficientes de Taylor
+  \[
+    c_n = \frac{f^{(n)}(a)}{n!} \qquad n = 0, 1, 2, \dots
+  \]
+\end{proposicao}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  A função $f$ é infinitamente derivável, pois as séries de potências
+  são infinitamente deriváveis em seu intervalo de convergência.
+  Calculando a $n$-ésima derivada de $f$, temos
+  \begin{align*}
+    f^{(n)}(x) & = \sum_{k=n}^\infty k(k-1)\cdots(k-n+1)c_k(x-a)^{k-n}            \\
+               & = n!c_n + \sum_{k=n+1}^\infty k(k-1)\cdots(k-n+1)c_k(x-a)^{k-n}
+  \end{align*}
+  Avaliando a derivada em $a$ temos
+  \[
+    f^{(n)}(a) = n!c_n
+  \]
+  Isolando $c_n$ concluímos a demonstração
+  \[
+    c_n = \frac{\;f^{(n)}(a)\;}{n!}
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+A utilidade dessa última proposição é limitada, pois precisamos saber de antemão
+que a função pode ser escrita como uma Série de Potências e essa verificação não
+é trivial. Por exemplo, existem funções infinitamente deriváveis,
+cujas séries de Taylor são convergentes mas não convergem para a função.
+O próximo exemplo apresenta uma dessas funções.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a Série de Taylor centrada na origem, $a=0$, da função
+  \[
+    f(x) = \begin{cases}
+      0                 & x \leq 0 \\[2mm]
+      e^{\sfrac{-1}{x}} & x > 0
+    \end{cases}
+  \]
+  Calcule a soma da série e compare com a função.
+  \solution
+  Essa é uma função suave, infinitamente derivável, cujo gráfico está
+  ilustrado na figura a seguir.
+  %---------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_functions_exp_1dx}[-0.6][-2]
+  %---------------------------------------------------------------------------%
+  Primeiro calculamos as derivadas de $f$ em zero. Como a função é definida
+  com expressões diferentes de cada lado da origem precisamos calcular as derivadas
+  de cada lado e verificar que ambas coincidem em $x=0$.
+
+  Calcular as derivadas do lado esquerdo, $x<0$, é trivial pois a função é constante
+  e portanto todas as suas derivadas são nulas. Consequentemente, o limite
+  na origem também é zero
+  \[
+    \lim_{x\to 0^-} f^{(k)}(x) = 0 \qquad k = 1, 2, 3, \dots
+  \]
+  Do lado direito, $x>0$, a função tem a forma \(f(x) = e^{\sfrac{-1}{x}}\), calculando as
+  primeiras derivadas obtemos
+  \begin{align*}
+    f'(x)      & = \frac{e^{\sfrac{-1}{x}}}{x^2}                       \\[3mm]
+    f''(x)     & = \frac{e^{\sfrac{-1}{x}}}{x^4}\,(1-2x)               \\[3mm]
+    f^{(3)}(x) & = \frac{e^{\sfrac{-1}{x}}}{x^6}\,(6x^2-6x+1)          \\[3mm]
+    f^{(4)}(x) & = \frac{e^{\sfrac{-1}{x}}}{x^8}\,(-24x^3+36x^2-12x+1)
+  \end{align*}
+  Observamos, sem demonstrar, que a $n$-ésima derivada será sempre a exponencial
+  dividida por uma potência de $x$ e multiplicada por um poliônimo.
+  Ao calcularmos o limite $x\to 0^+$ o polinômio sempre produzirá um
+  valor finito, enquanto
+  \[
+    \lim_{x\to 0^+}\frac{e^{\sfrac{-1}{x}}}{x^k} = 0 \qquad k = 1, 2, 3, \dots
+  \]
+  Concluímos que todas as derivadas de $f(x)$ são zero na origem.
+  Assim todos os coeficientes da sua Série de Taylor são nulos e a soma da
+  série é a função constante igual a zero, que, evidentemente, não é igual a $f$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Uma função $f$ cuja Série de Taylor converge para $f$
+é chamada de \emph{Função Analítica}\index{Função!analítica}. Nosso objetivo aqui
+é poder determinar quais funções são analíticas.
+
+O próximo exemplo mostra uma forma direta para demonstrarmos que a Série de Taylor
+de uma função coincide com a função. Ainda nessa seção apresentaremos o Teorema de Taylor
+que simplifica essa verificação.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Seja $f(x)=\ln(x)$ encontre a série de Taylor de $f$ centrada em $a=1$.
+  Encontre o intervalo onde a série converge absolutamente e mostre
+  que neste intervalo a série coincide com~$f$.
+  \solution
+  Note que
+  \begin{align*}
+    f(x)       & = \ln(x)            & f(1)       & =  0      \\[3mm]
+    f^{(1)}(x) & = x^{-1}            & f^{(1)}(1) & =  1      \\[3mm]
+    f^{(2)}(x) & = -x^{-2}           & f^{(2)}(1) & = -1      \\[3mm]
+    f^{(3)}(x) & = 2x^{-3}           & f^{(3)}(1) & =  2      \\[3mm]
+    f^{(4)}(x) & = -2\cdot 3\,x^{-4} & f^{(4)}(1) & = -6  \;.
+  \end{align*}
+  Podemos escrever, para todo $n\geq 1$, que
+  \[
+    f^{(n)}(x) = \frac{(-1)^{n-1}(n-1)!}{x^n}
+  \]
+  portanto
+  \[
+    f^{(n)}(1) = (-1)^{n-1}(n-1)! \qquad n\geq 1 \;.
+  \]
+  Então, a série de Taylor de $\ln(x)$ em $a=1$ é dada por
+  \begin{align*}
+    T(x)
+    & = \sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n \\[3mm]
+    & = \frac{(-1)^0 f(1)}{0!}(x-1)^0 + \sum_{n=1}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n \\[3mm]
+    & = \sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)!}{n!} (x-1)^n \\[3mm]
+    & = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (x-1)^n  \;.
+  \end{align*}
+  Para encontrarmos o raio de convergência da série
+  vamos aplicar o Teste da Raiz, ou seja, vamos calcular o limite
+  \begin{align*}
+    \sqrt[n]{\abs{a_n}}
+    & = \sqrt[n]{\abs{\frac{(-1)^{n-1}}{n}(x-1)^n}} \\[3mm]
+    & = \sqrt[n]{\frac{\abs{x-1}^n}{n}} \\[3mm]
+    & = \frac{\abs{x-1}}{\sqrt[n]{n}} \\[3mm]
+    & \rightarrow \abs{x-1}
+  \end{align*}
+  onde usamos que \(\sqrt[n]{n}\rightarrow 1\).
+  Verificamos que o raio de convergência da série é $R=1$,
+  portanto a série converge absolutamente para $x$ tal que $\abs{x-1}<1$,
+  ou seja, para $x\in (0, 2)$.
+  Poderíamos analisar os extremos desse intervalo,
+  mas para identificar a série com a função $f$
+  vamos precisar derivar a série termo a termo
+  e esse procedimento só está garantido no intervalo aberto.
+
+  Derivando \(T(x)\) temos
+  \begin{align*}
+    T'(x)
+    & = \sum_{n=1}^\infty (-1)^{n-1}\frac{d}{dx}\frac{(x-1)^n}{n} \\[3mm]
+    & = \sum_{n=1}^\infty (-1)^{n-1}(x-1)^{n-1} \\[3mm]
+    & = \sum_{n=1}^\infty (1-x)^{n-1}    \;.
+  \end{align*}
+  Observe que essa última série é uma Série Geométrica com $\alpha=1$ e $r=1-x$.
+  Como era de se esperar ela converge para $\abs{r}=\abs{1-x}<1$.
+  Além disso, nesse intervalo sua soma é dada por
+  \[
+    T'(x) = \frac{\alpha}{1-r}
+          = \frac{1}{1-(1-x)}
+          = \frac{1}{\,x\,}   \;.
+  \]
+  Então, integrando $g'(t)$ sobre $[1, x]$ e usando que $g(1)=0$, obtemos
+  \[
+    T(x) = g(x) - g(1)
+         = \int_1^x g'(t)\,dt
+         = \int_1^x \frac{1}{\,t\,} dt
+         = \ln(x)   \;.
+  \]
+  Dessa forma, fica provado que, no intervalo $(0,\,2)$, a função $\ln(x)$
+  coincide com sua Série de Taylor centrada em $x=1$.
+
+\end{example}
+%------------------------------------------------------------------------------%
+
+A Figura~\ref{fig:funcao_tayplor_logaritmo} mostra a função $\ln(x)$, em azul,
+e seus polinômios de Taylor de ordens 1, 2, 3 e 6, o último desses polinômios
+está desenhado em magenta. Observe que para $x$ entre zero e dois os polinômios
+se aproximam da função logaritmo, porém a partir de $x=2$ eles se afastam
+rapidamente.
+
+\begin{figure}
+  \begin{center}%
+    \vspace{-0.2\baselineskip}%
+    \scalebox{0.9}{\input{fig_taylor_log}}%
+    \vspace{-\baselineskip}%
+  \end{center}
+  \caption{Comparação da função logaritmo com seus polinômios de Taylor.}
+  \label{fig:funcao_tayplor_logaritmo}
+\end{figure}
+
+O método usado no último exemplo funcionou bem para a função logaritmo,
+mas buscar uma estratégia especifica para cada função pode ser
+bastante complicado.
+Felizmente, o Teorema de Taylor fornece uma forma relativamente
+simples para verificar a convergência da série para uma
+classe muito grande de funções.
+
+A ideia do teorema é que podemos escrever uma função $f$ em
+uma vizinhança de $x=a$ como sendo o seu polinômio de Taylor de
+ordem $n$, $P_n(x)$, somado com o erro, $R_n(x)$, ou seja,
+\[
+  f(x) = P_n(x) + R_n(x)
+       = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k
+       + R_n(x)    \;.
+\]
+Se formos capazes de encontrar os valores de $x$ para os quais
+$R_n(x)$ tende a zero quando o grau do polinômio vai para infinito,
+podemos concluir que $f$ coincide com sua Série de Taylor nestes valores.
+Verificamos isso observando que
+\begin{align*}
+	f(x) & = \lim_{n\rightarrow \infty} \big( P_n(x) + R_n(x) \big)                    \\[3mm]
+	     & = \lim_{n\rightarrow \infty} P_n(x) + \lim_{n\rightarrow \infty} R_n(x)     \\[3mm]
+       & = \lim_{n\rightarrow \infty} P_n(x) + 0                                     \\[3mm]
+       & = \lim_{n\rightarrow \infty} \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k      \\[3mm]
+	     & = \sum_{k=0}^\infty \frac{f^{(k)}(a)}{k!}(x-a)^k    \;.
+\end{align*}
+A importância do Teorema de Taylor está exatamente no fato que ele fornece
+uma fórmula para o resto $R_n(x)$.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema de Taylor}{teo:teorema-taylor}
+  Seja%
+  \index{Taylor!teorema}%
+  \index{Teorema!Taylor}
+  $f\colon I\rightarrow \R$ uma função que tem $n+1$ derivadas contínuas no
+  intervalo aberto $I$, então para $a$, $x \in I$, podemos escrever que
+  \[
+    f(x) = P_n(x) + R_n(x)
+         = \sum_{k=0}^n\frac{\;f^{(k)}(a)\;}{k!}(x-a)^k+ R_n(x)
+  \]
+  onde
+  \[
+    R_n(x)=\frac{\;f^{(n+1)}(c)\;}{(n+1)!}(x-a)^{n+1}
+  \]
+  para algum $c$ entre $a$ e $x$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Dado um $x$ fixo, que podemos considerar sem perda de generalidade menor do que $a$,
+  definimos a constante $K$, de modo que
+  \[
+    f(x) = f(a)+f'(a)(x-a)
+         + \cdots
+         + \frac{f^{(n)}(a)}{n!}(x-a)^n
+         + \frac{K}{(n+1)!}(x-a)^{n+1}    \;.
+  \]
+  Precisamos mostrar que existe $c\in(x, a)$ tal que
+  \[
+    K = f^{(n+1)}(c)    \;.
+  \]
+  Para isso definimos a função
+  \begin{align*}
+  	\phi(y) = f(x) - \bigg[\; f(y)   + f'(y)(x-y) + \cdots
+  	                               & + \frac{f^{(n)}(y)}{n!}(x-y)^n        \\[2mm]
+  	                               & +\frac{K}{(n+1)!}(x-y)^{n+1} \;\bigg]    \;.
+  \end{align*}
+  Por construção essa função é tal que
+  \[
+    \phi(a) = \phi(x) = 0    \;.
+  \]
+  Então, pelo Teorema de Rolle~\ref{teo:rolle},
+  existe $c\in(x,\,a)$ tal que $\phi'(c)=0$.
+  Calculando a derivada de $\phi(y)$ obtemos
+  \begin{align*}
+    \phi'(y) = -\bigg[ & \;\hpm f^{(1)}(y)                               \\[3mm]
+                       & + f^{(2)}(y)(x-y) - f^{(1)}(y)                  \\[3mm]
+                       & + \frac{f^{(3)}(y)}{2}(x-y)^2 - f^{(2)}(y)(x-y) \\[3mm]
+                       & + \cdots                                        \\[3mm]
+                       & + \frac{f^{(n+1)}(y)}{n!}   (x-y)^n
+                         - \frac{f^{(n)  }(y)}{n!} n (x-y)^{n-1}         \\[3mm]
+                       & -(n+1)\frac{K}{(n+1)!}(x-y)^{n}                 \;\bigg]    \;.
+  \end{align*}
+  Subtraindo os termos repetidos obtemos
+  \[
+    \phi'(y) = -\bigg[ \frac{f^{(n+1)}(y)}{n!}   (x-y)^n
+                      -(n+1)\frac{K}{(n+1)!}(x-y)^{n}  \;\bigg]
+  \]
+  rearranjando podemos escrever
+  \[
+    \phi'(y) = \left(K - f^{(n+1)}(y)\right) \frac{(x-y)^{n}}{n!}    \;.
+  \]
+  Avaliando essa derivada em $c$ temos
+  \[
+    \phi'(c) = \left(K - f^{(n+1)}(c) \right) \frac{(x-c)^{n}}{n!} = 0    \;.
+  \]
+  Como $c\in(x, a)$, ou seja, $c\neq x$, segue que
+  \[
+    K = f^{(n+1)}(c)    \;.
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Para garantirmos que uma Série de Taylor converge para a sua função,
+podemos mostrar que a diferença entre as somas parciais, $P_n(x)$,
+e a função, $f$, tende à zero, para algum intervalo contendo $a$,
+quando o número de termos vai para infinito, isso é,
+\[
+  \lim_{n\to \infty} \frac{\;f^{(n+1)}(c)\;}{(n+1)!}(x-a)^{n+1} = 0    \;.
+\]
+Porém, não existe uma forma sistemática para encontrar o valor correto para $c$,
+o que normalmente fazemos é analisar todos os valores possíveis
+e considerar o pior caso, o próximo resultado formaliza esse procedimento.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Desigualdade de Taylor}{prop:desigualdade-taylor}
+  Se para \(\abs{x-a}\leq d\) vale a desigualdade
+  \[
+    \abs{f^{(n+1)}(x)} \leq M    \;.
+  \]
+  Então o erro da Série de Taylor de $f$ centrada em $a$
+  satisfaz a \emph{Desigualdade de Taylor}%
+  \index{Taylor!desigualdade}%
+  \index{Desigualdade!Taylor}
+  \[
+    \abs{R_n(x)} \leq \frac{M}{\,(n+1)!\,}\abs{x-a}^{n+1}
+  \]
+  para todo $x$ tal que \(\abs{x-a}\leq d\).
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+O próximo exemplo ilustra como podemos verificar quando a Série de Taylor
+de uma função converge para a própria função.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que a Série de Taylor da função exponencial converge para a função
+  exponencial.
+  \solution
+  Vimos no Exemplo~\ref{ex:serie-taylor-exponencial} que a Série de Taylor
+  da função exponencial, $e^x$, centrada na origem, $a=0$, é convergente para
+  todo $x\in\R$ e tem a forma
+  \[
+    T(x) = \sum_{n=0}^\infty \frac{x^n}{n!}
+      = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}+\cdots
+  \]
+  Vamos demonstrar agora que a série converge para a função, isso é,
+  \[
+    e^x = \sum_{n=0}^\infty \frac{x^n}{n!}    \;.
+  \]
+  Para qualquer valor $x\in\R$ tomamos $d$ tal que
+  \(
+    \abs{x} \leq d
+  \)
+  temos então que para qualquer $n\in\N$
+  \[
+    \abs{f^{(n+1)}(x)} = e^x \leq e^d    \;.
+  \]
+  Podemos agora usar a Desigualdade de Taylor~\ref{prop:desigualdade-taylor}
+  com $M=e^d$ obtendo
+  \[
+    \abs{R_n(x)} \leq \frac{e^d}{\,(n+1)!\,}\abs{x-a}^{n+1}    \;.
+  \]
+  Calculamos o limite encontramos
+  \[
+    \lim_{n\to \infty} \frac{e^d}{\,(n+1)!\,}\abs{x-a}^{n+1} =
+    e^d \lim_{n\to \infty} \frac{\abs{x-a}^{n+1}}{\,(n+1)!\,} = 0    \;.
+  \]
+  Usando o Teorema do Confronto concluímos que
+  \[
+    \lim_{n\to \infty} R_n = 0
+  \]
+  e portanto a Série de Taylor converge para a função
+  \[
+    e^x = \sum_{n=0}^\infty \frac{x^n}{n!}    \;.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Temos agora os resultados necessários para demonstrar o cálculo da soma da
+\emph{Série do Inverso do Fatorial}\index{Série!inverso do fatorial}
+apresentada na Definição~\ref{def:serie-inverso-fatorial}.
+
+%------------------------------------------------------------------------------%
+\begin{example}[ex:soma-serie-inverso-fatorial]
+  Mostre que a soma da Série do Inverso do Fatorial é
+  \[
+    \sum_{n=1}^\infty \frac{1}{\,n!\,} = e    \;.
+  \]
+  \solution
+  Basta observarmos que a Série do Inverso do Fatorial coincide com a
+  Série de Taylor da função exponencial em $x=1$
+  \[
+    \sum_{n=1}^\infty \frac{1  }{\,n!\,} =
+    \sum_{n=1}^\infty \frac{1^n}{\,n!\,} = e^1 = e    \;.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+A seguir apresentamos mais um exemplo de como podemos verificar que
+a Série de Taylor converge para a sua função.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a série de Taylor de $\cos(x)$ centrada em $x=\sfrac{\pi}{2}$.
+  Mostre que essa série converge para $\cos(x)$ para todo $x\in\R$.
+
+  \solution
+  Calculando as derivadas de $f(x) =\cos(x)$ obtemos
+  \begin{align*}
+    f^{(1)}(x) & =           -  \sin(x) \\
+    f^{(2)}(x) & =           -  \cos(x) \\
+    f^{(3)}(x) & = \hphantom{-} \sin(x) \;.
+  \end{align*}
+  Repetindo o processo percebemos que
+  \begin{align*}
+  	f^{(2n)}(x)   & =(-1)^{n}\hphantom{^{+1}} \cos(x)   \\
+  	f^{(2n+1)}(x) & =(-1)^{n+1}               \sin(x)   \;.
+  \end{align*}
+  Calculando em $\sfrac{\pi}{2}$ temos
+  \begin{align*}
+     f^{(2n)}   & \left( \sfrac{\pi}{2} \right) = 0          \\
+     f^{(2n+1)} & \left( \sfrac{\pi}{2} \right) = (-1)^{n+1} \;.
+  \end{align*}
+  Desse modo, a série de Taylor em $x=\sfrac{\pi}{2}$ é
+  \[
+    T(x) = \sum_{n=0}^\infty \frac{(-1)^{n+1}}{\,(2n+1)!\,}
+    \left( x-\frac{\pi}{2} \right)^{2n+1}    \;.
+  \]
+  Pelo teorema de Taylor, sabemos que existe
+  \(c \in \left(\sfrac{\pi}{2}, x \right)\), ou
+  \(c \in \left(x, \sfrac{\pi}{2} \right)\), tal que
+  \[
+    \cos(x) = \sum_{n=0}^k \frac{(-1)^{n+1}}{\,(2n+1)!\,}
+    \left(x-\frac{\pi}{2} \right)^{2n+1}
+    + R_{2k+1}(x)
+  \]
+  onde
+  \begin{align*}
+   	R_{2k+1}(x) & =\frac{\, f^{(2k+2)}(c)     \,}{ (2k+2)! } \left( x - \frac{\pi}{2} \right)^{2k+2}  \\[3mm]
+  	            & =\frac{\, (-1)^{n+1}\cos(c) \,}{ (2k+2)! } \left( x - \frac{\pi}{2} \right)^{2k+2}  \;.
+  \end{align*}
+  Como
+  $\abs{\cos(c)} \leq 1$,
+  segue que, para todo  $x\in \R$
+  \[
+    0 \;\leq\; \abs{R_{2k+1}(x)}
+      \;\leq\; \frac{ \abs{x-\sfrac{\pi}{2}}^{2k+2} }{ (2k+2)! }
+      \;\rightarrow\; 0   \;.
+  \]
+  Assim, $R_{2k+1}(x)\rightarrow 0$ para todo $x\in \R$. Isso implica que
+  \[
+    \cos(x) = \sum_{n=0}^\infty \frac{ (-1)^{n+1} }{\, (2n+1)! \,}
+                                \left( x - \frac{\pi}{2} \right)^{2n+1}
+    \qquad \forall\; x\in\R
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+\begin{figure}
+  \begin{center}%
+    \vspace{-0.2\baselineskip}%
+    \scalebox{0.9}{\input{fig_taylor_cos}}%
+    \vspace{-\baselineskip}%
+  \end{center}
+  \caption{Comparação da função cosseno com seus polinômios de Taylor.}
+  \label{fig:funcao_tayplor_cosseno}
+\end{figure}
+
+A Figura~\ref{fig:funcao_tayplor_cosseno} mostra o gráfico do cosseno
+em azul e os polinômios de Taylor
+de graus 4, 8, 12 e 16, sendo que esse último destacado em magenta.
+
+%------------------------------------------------------------------------------%
+
+\input{5-Potencias/99-Series-Taylor-Tabela}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,240 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+% Exercício 1 página 26 - Thomas
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Use o teste da integral para determinar se a série
+\[
+  \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+converge ou diverge.
+Certifique-se de que as condições do teste da integral sejam satisfeitas.
+\begin{answer}
+Podemos aplicar o teste da integral pois a função $f(x)=\frac{1}{x^2}$
+é positiva, contínua e decrescente para $x\geq 1$. Calculando a integral temos
+\begin{align*}
+	\int_{1}^{\infty} \frac{1}{x^2}\,dx & = \lim_{b\to\infty} \int_{1}^{b} \frac{1}{x^2}\,dx           \\[2mm]
+	                                    & = \lim_{b\to\infty} \left( -\frac{1}{x} \right)\evalat{b}{1} \\[2mm]
+	                                    & = \lim_{b\to\infty} \left( -\frac{1}{b} +1 \right) = 1
+\end{align*}
+Como a integral converge a série também converge.
+
+Note que
+\[ \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1,6449 \neq 1 \]
+\end{answer}
+\end{exercise}
+
+% Exercício 7 página 26 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Use o teste da integral para determinar se a série converge ou diverge.
+  Certifique-se de que as condições do teste da integral sejam satisfeitas.
+  \[
+    \sum_{n=1}^{\infty} \frac{n}{n^2+4}
+  \]
+  \begin{answer}
+    A função \(f(x)=\frac{x}{x^2+4}\) é positiva e contínua para $x\geq 1$.
+    Precisamos verificar se ela é decrescente, para isso calculamos sua derivada
+    \[
+    f'(x)
+    = \frac{1(x^2+4) - x(2x)}{(x^2+4)^4}
+    = \frac{4-x^2}{(x^2+4)^4}
+    \]
+    Verificamos que $f'(x)<0$, e portanto $f$ é decrescente, para todo $x>2$,
+    note, porém, que essa propriedade não vale para $x=2$.
+    Como precisamos de um número inteiro $N$ a partir do qual
+    a função seja decrescente escolhemos $N=3$.
+
+    Podemos, agora, aplicar o teste da integral. Primeiro calculamos a primitiva de $f$
+    usando a substituição
+    \[ u=x^2+4 \qquad \text{e} \qquad du=2xdx \]
+    \begin{align*}
+    \int\frac{x}{x^2+4}\,dx & = \int \frac{1}{2u}\,du      \\[2mm]
+    & = \frac{1}{2}\ln u + C       \\[2mm]
+    & = \frac{1}{2}\ln (x^2+4) + C
+    \end{align*}
+    Calculando a integral imprópria temos
+    \begin{align*}
+    \int_{3}^{\infty}\!\!& \frac{x}{x^2+4}\,dx = \lim_{b\to\infty} \int_{3}^{b} \! \frac{x}{x^2+4}\,dx                   \\[2mm]
+    & = \lim_{b\to\infty} \left( \frac{1}{2} \ln(x^2+4) \right)\evalat{b}{3}    \\[2mm]
+    & = \lim_{b\to\infty} \left( \frac{\; \ln(b^2+4) -\ln(3^2+4) \:}{2} \right) \\[2mm]
+    & = \infty
+    \end{align*}
+    Como a integral diverge a série também diverge.
+  \end{answer}
+\end{exercise}
+
+% Exercícios 2-6, 8-10  página 26 - Thomas
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+  Use o teste da integral para determinar se cada série converge ou diverge.
+  Certifique-se de que as condições do teste da integral sejam satisfeitas.
+  \begin{mathlist}[2]
+  \item \sum_{n=1}^{\infty} \frac{1}{n^{0,2}}
+  \item \sum_{n=1}^{\infty} \frac{1}{n^2+4}
+  \item \sum_{n=1}^{\infty} \frac{1}{n+4}
+  \item \sum_{n=1}^{\infty} e^{-2n}
+  \item \sum_{n=2}^{\infty} \frac{1}{n(\ln n)^2}
+  \item \sum_{n=2}^{\infty} \frac{\ln\left(n^2\right)}{n}
+  \item \sum_{n=1}^{\infty} \frac{n^2}{e^{\sfrac{n}{3}}}
+  \item \sum_{n=2}^{\infty} \frac{n-4}{n^2-2n+1}
+  \end{mathlist}
+\end{exercise}
+
+% Exercício 12 página 26 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+A série
+\[
+  \sum_{n=1}^{\infty} e^{-n}
+\]
+converge ou diverge? Justifique sua resposta.
+\begin{answer}
+  Esse é uma série convergente pois é uma série geométrica com $r=e^{-1} \approx 0,3679$.
+  Sua soma é
+  \[
+    S = \frac{e^{-1}}{1-e^{-1}} = \frac{1}{e-1} \approx 0,5820
+  \]
+
+  Alternativamente podemos usar o teste da integral com função $f(x)=e^{-x}$
+  \begin{align*}
+  	\int_{1}^{\infty}e^{-x}\,dx & = \lim_{b\to\infty} \int_{1}^{b} e^{-x}\,dx             \\[2mm]
+  	                            & = \lim_{b\to\infty} \left( -e^{-x} \right)\evalat{b}{1} \\[2mm]
+  	                            & = \lim_{b\to\infty} \left( -e^{-b} + e^1 \right)        \\[2mm]
+  	                            & = e \approx 2,7183
+  \end{align*}
+\end{answer}
+\end{exercise}
+
+% página 26 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Verifique se cada série converge ou diverge? Justifique sua resposta.
+  \begin{mathlist}[2]
+    % 11, 13-20
+    \item \sum_{n=1}^{\infty} \frac{1}{10^n}
+    \item \sum_{n=1}^{\infty} \frac{n}{n+1}
+    \item \sum_{n=1}^{\infty} \frac{5}{n+1}
+    \item \sum_{n=1}^{\infty} \frac{3}{\sqrt{n}}
+    \item \sum_{n=1}^{\infty} \frac{-2}{n\sqrt{n}}
+    \item \sum_{n=1}^{\infty} -\frac{1}{8^n}
+    \item \sum_{n=1}^{\infty} \frac{-8}{n}
+    \item \sum_{n=2}^{\infty} \frac{\ln(n)}{n}
+    \item \sum_{n=2}^{\infty} \frac{\ln(n)}{\sqrt{n}}
+    % 21 - 28
+    \item \sum_{n=1}^{\infty} \frac{2^n}{3^n}
+    \item \sum_{n=1}^{\infty} \frac{5^n}{4n+3}
+    \item \sum_{n=0}^{\infty} \frac{-2}{n+1}
+    \item \sum_{n=1}^{\infty} \frac{1}{2n-1}
+    \item \sum_{n=1}^{\infty} \frac{2^n}{n+1}
+    \item \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}\left(\sqrt{n}+1\right)}
+    \item \sum_{n=2}^{\infty} \frac{\sqrt{n}}{\ln(n)}
+    \item \sum_{n=1}^{\infty} \left(1+\frac{1}{n}\right)^n
+  \end{mathlist}
+\end{exercise}
+
+% página 26 - Thomas
+% Solutions page 718
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Verifique se cada série converge ou diverge? Justifique sua resposta.
+  \begin{mathlist}
+    % 29 - 34
+    \item \sum_{n=1}^{\infty} \frac{1}{(\ln 2)^n}
+    \item \sum_{n=1}^{\infty} \frac{1}{(\ln 3)^n}
+    \item \sum_{n=1}^{\infty} \frac{1}{n\left(1+\ln^2(n)\right)}
+    \item \sum_{n=1}^{\infty} n\sin\left(\frac{1}{n}\right)
+    \item \sum_{n=1}^{\infty} n\tan\left(\frac{1}{n}\right)
+    % 35 - 40
+    \item \sum_{n=1}^{\infty} \frac{e^n}{1+e^{2n}}
+    \item \sum_{n=1}^{\infty} \frac{2}{1+e^n}
+    \item \sum_{n=1}^{\infty} \frac{8\arctan(n)}{1+n^2}
+    \item \sum_{n=1}^{\infty} \frac{n}{n^2+1}
+    \item \sum_{n=1}^{\infty} \sinh(n)
+    \item \sum_{n=1}^{\infty} \sech^2(n)
+    \item \sum_{n=3}^{\infty} \frac{\sfrac{1}{n}}{\ln(n)\sqrt{\ln^2(n)-1}}
+  \end{mathlist}
+\end{exercise}
+
+% 41 e 42 página 26 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Determine para quais valores de $a$ cada série converge.
+  \begin{mathlist}
+    \item \sum_{n=1}^{\infty} \left(\frac{a}{n+2}-\frac{ 1}{n+4}\right)
+    \item \sum_{n=3}^{\infty} \left(\frac{1}{n-1}-\frac{2a}{n+1}\right)
+  \end{mathlist}
+\end{exercise}
+
+% Exercício 51 página 27 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Quantos termos da série convergente
+\[ \sum_{n=1}^{\infty} \frac{1}{\;n^{1,1}\;} \]
+devem ser utilizados para estimar seu valor com erro de no máximo \num{0.00001}?
+\begin{answer}
+  Sabemos que a série é convergente e que a função $f(x)=x^{-1,1}$ satisfaz as condições do
+  teste a integral. Nesse caso o erro, ou resto, é limitado por
+  \[ R_n = S - s_n < \int_{n}^{\infty} \frac{1}{x^{1,1}} dx \]
+  Calculando a integral temos
+  \begin{align*}
+  	\int_{n}^{\infty} \frac{1}{x^{1,1}} dx & = \lim_{b\to\infty} \int_{n}^{b} \frac{1}{x^{1,1}} dx                     \\[2mm]
+  	                                       & = \lim_{b\to\infty} \left( -\frac{10}{x^{0,1}} \right)\evalat{b}{n}       \\[2mm]
+  	                                       & = \lim_{b\to\infty} \left( -\frac{10}{b^{0,1}} +\frac{10}{n^{0,1}}\right) \\[2mm]
+  	                                       & = \frac{10}{n^{0,1}}
+  \end{align*}
+  Impondo a condição
+  \begin{align*}
+    \frac{10}{n^{0,1}} & < \num{0.00001}                                         \\[2mm]
+    n^{0,1}            & > \frac{10}{\num{0.00001}} = \num{1000000}              \\[2mm]
+    n                  & > \num{1000000}^{10} = \left(10^6\right)^{10} = 10^{60}
+  \end{align*}
+
+  Se um computador somasse um termo a cada nanosegundo ($10^{-9}$ \si{\second})
+  ele levaria $2,3\cdot 10^{33}$ vezes a idade do universo para concluir essa conta.
+\end{answer}
+\end{exercise}
+
+% Exercício 52 página 27 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Quantos termos da série convergente
+  \[ \sum_{n=4}^{\infty} \frac{1}{n\left(\ln n\right)^3} \]
+  devem ser utilizados para estimar seu valor com erro de no máximo 0,01?
+\end{exercise}
+
+% Exercício 49, 50 página 27 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Calcule a soma da série com a precisão solicitada.
+  \begin{mathlist}
+  \item \sum_{n=1}^{\infty} \frac{1}{n^3}   \) \tabto{35mm} \( 0,01 \)
+  \item \sum_{n=1}^{\infty} \frac{1}{n^2+4} \) \tabto{35mm} \( 0,1  \)
+  \end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{mathlist}[2]
+%  \item
+%  \item
+%  \item
+%\end{mathlist}
+%\begin{answer}
+%  \begin{alphalist}[3]
+%    \item
+%    \item
+%    \item
+%  \end{alphalist}
+%\end{answer}
+%\end{exercise}
+
+\end{exercises}
+%------------------------------------------------------------------------------%

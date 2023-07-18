@@ -1,0 +1,406 @@
+%------------------------------------------------------------------------------%
+\section{Séries de Taylor}
+
+Nessa seção definiremos as Séries de Taylor e mostraremos como calcular seus coeficientes.
+Um ponto importante é que construir uma série de Taylor para uma função não garante
+a convergência da série para essa função, a série pode, por exemplo,
+convergir para outra função. Essa questão será discutida na próxima seção.
+Apresentamos primeiro a definição dos Polinômios de Taylor que podem ser
+construídos para quaisquer funções que possuam o número necessário
+de derivadas no ponto $a$.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Polinômio de Taylor}{def:polinomio-taylor}
+	Se uma função real $f$ tem derivadas até ordem $n$ em uma vizinhança de $a$,
+	definimos o
+	\emph{Polinômio de Taylor}\index{Polinômio!Taylor}\index{Taylor!polinômio}
+  de $f$ e ordem $n$ centrado em $a$ como
+	\begin{align*}
+	  P_n(x) & = \sum_{k=0}^n \frac{\,f^{(k)}(a)\,}{k!}(x-a)^k \\[3mm]
+	         & = f(a)
+             + f'(a)(x-a)
+             + \frac{\,f''(a)\,}{2!}(x-a)^2
+             + \cdots
+             + \frac{\,f^{(n)}(a)\,}{n!}(x-a)^n     \;.
+	\end{align*}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Quando a função possuir derivadas de todas as ordens em $a$ podemos definir sua Série de Taylor.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série de Taylor}{def:serie-taylor}
+  Dada uma função real $f$ infinitamente derivável em uma vizinhança de $a$,
+  sua \emph{Série de Taylor}\index{Série!Taylor}\index{Taylor!série}
+  centrada em $a$, é dada por
+  \begin{multline*}
+    \sum_{n=0}^\infty \frac{\,f^{(n)}(a)\,}{n!}(x-a)^n = \\
+     f(a) +
+     f'(a)(x-a) +
+     \frac{\,f''(a)\,}{2!}(x-a)^2 +
+     \cdots +
+     \frac{\,f^{(n)}(a)\,}{n!}(x-a)^n +
+     \cdots
+  \end{multline*}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A Série de Maclaurin é um caso particular da Série de Taylor.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série de Maclaurin}{def:serie-maclaurin}
+  A \emph{Série de Maclaurin}\index{Série!Maclaurin}\index{Maclaurin!série}
+é uma Série de Taylor centrada na origem, isso é, $a=0$
+\[
+	\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n
+    = f(0)
+    +	f'(0)\,x
+    +	\frac{\,f''(0)\,}{2!}x^2
+    + \cdots
+    +	\frac{\,f^{(n)}(0)\,}{n!}x^n
+    + \cdots
+\]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Observe que estamos usando a notação de derivada zero $f^{(0)}$
+para indicar a própria função $f$, isso é,
+\[
+  f^{(0)}(x) = f(x)
+\]
+Apresentamos como primeiro exemplo o cálculo da Série de Taylor da
+função $e^x$ centrada na origem, isso é, sua Série de Maclaurin.
+
+%------------------------------------------------------------------------------%
+\begin{example}[ex:serie-taylor-exponencial]
+	Calcule a Série de Maclaurin da função $f(x)=e^x$.
+	\solution
+	O primeiro passo é calcular as derivadas da função.
+	Esse exemplo foi escolhido pela simplicidade em calcular as derivadas
+  da função exponencial que têm sempre a mesma expressão
+	\[
+		f^{(k)}(x) = \frac{d^ke^x}{dx^k} = e^x     \;.
+	\]
+	Como queremos a série centrada em $x=0$, precisamos avaliar as derivadas nesse ponto
+	\[
+		f^{(k)}(0) = e^0 = 1     \;.
+	\]
+	Podemos agora calcular os coeficientes da Série de Taylor
+	\begin{align*}
+	  c_0 & = f(0) = 1                            \;,\\[3mm]
+	  c_1 & = f'(0) = 1                           \;,\\[3mm]
+	  c_2 & = \frac{f^{(2)}(0)}{2!} = \frac{1}{2} \;,\\[3mm]
+	  c_3 & = \frac{f^{(3)}(0)}{3!} = \frac{1}{6} \;.
+	\end{align*}
+	Repetindo essas operações observamos que
+	\[
+		c_k = \frac{f^{(k)}(0)}{k!} = \frac{1}{k!} \;.
+	\]
+	Podemos agora construir a Série de Taylor da função exponencial
+	\begin{align*}
+		S(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n \\[3mm]
+         & = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n     \\[3mm]
+         & = \sum_{n=0}^\infty \frac{x^n}{n!}
+           = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}+\cdots
+	\end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+\begin{figure}
+  \begin{center}%
+    \vspace{-0.2\baselineskip}%
+    \scalebox{0.9}{\input{fig_taylor_exp}}%
+    \vspace{-\baselineskip}%
+  \end{center}
+  \caption{Comparação da função exponencial com seus polinômios de Taylor.}
+  \label{fig:funcao_tayplor_exponencial}
+\end{figure}
+
+Ainda não podemos dizer que a série calculada nesse exemplo seja igual a função~$e^x$.
+Entretanto ela aproxima muito bem a função como podemos ver na
+Figura~\ref{fig:funcao_tayplor_exponencial},
+onde a função $e^x$ está mostrada em azul. Nesse gráfico também estão as primeiras
+somas parciais da série, correspondentes aos Polinômio de Taylor com graus de 1 a 5.
+O gráfico em magenta exibe $P_5$, observe que a partir de $x=-1$ esse gráfico
+sobrepõe o da função exponencial.
+
+\OnlineBox{https://colab.research.google.com/drive/1X3XFXqi-ZF6KbKYTA0oJUYREw9EnhlL_?usp=sharing}
+{
+  Código Python para ilustrar algumas séries de Taylor.
+}
+
+%------------------------------------------------------------------------------%
+\subsection*{Séries Binomiais}
+
+Vamos agora apresentar um caso particular de grande importância histórica e
+prática a Série Binomial.
+Começamos apresentando o
+\emph{Binômio de Newton}\index{Binômio de Newton}\index{Newton!binômio}
+que é a expansão de um binômio elevado a uma potência inteira, $(a-b)^m$,
+estamos interessados no caso particular
+\begin{equation}
+  \label{eq:binomio-newton}
+  (1+x)^m = \sum_{k=0}^m \binom{m}{k} \, x^k
+  \qquad\qquad \forall\; m\in \N
+\end{equation}
+onde
+\begin{equation}
+  \label{eq:combinacoes}
+  \binom{m}{k}
+  = \frac{m!}{\,k!(m-k)!\,}
+  = \frac{m(m-1)\cdots(m-k+1)}{k!}
+\end{equation}
+é o \emph{Número de Combinações}\index{Número de combinações}
+de $m$ elementos tomados $k$ a $k$. Observe que, para qualquer~$m$
+\[
+  \binom{m}{0} = 1    \;.
+\]
+Podemos verificar a fórmula~\eqref{eq:binomio-newton}
+calculando a Serie de Taylor da função
+\[
+  f(x) = (1+x)^m
+\]
+onde $m$ é um número inteiro positivo.
+Começamos calculando as derivadas de $f$ em $x=0$
+\begin{align*}
+  f(x)   & = (1+x)^m           & f(0)   & = 1      \\[2mm]
+  f'(x)  & = m(1+x)^{m-1}      & f'(0)  & = m      \\[2mm]
+  f''(x) & = m(m-1)(1+x)^{m-2} & f''(0) & = m(m-1) \;.
+\end{align*}
+Repetindo o processo observamos que para todo $k$
+\[
+  f^{(k)}(x) = m(m-1)\cdots (m-k+1)(1+x)^{m-k}
+\]
+portanto
+\[
+  f^{(k)}(0) = m(m-1)\cdots (m-k+1)  \;.
+\]
+Note que para todo $k>m$ teremos que $f^{(k)}(0)=0$.
+Dessa forma, a Série de Taylor de $f$ centrada em zero é
+uma soma finita
+\[
+  \sum_{k=0}^\infty \frac{\;f^{(k)}(0)\;}          {k!}\,x^k =
+  \sum_{k=1}^m      \frac{\;m(m-1)\cdots (m-k+1)\;}{k!}\,x^k
+\]
+onde os coeficientes são exatamente o
+número de combinações de $m$ elementos tomados $k$ a $k$.
+Assim, podemos escrever que
+\begin{equation}
+  \label{eq:binomio-newton-2}
+  \sum_{k=0}^\infty \frac{\;f^{(k)}(0)\;}{k!}\,x^k =
+  \sum_{k=0}^m \binom{m}{k} x^k
+  \qquad\qquad m \in \N    \;.
+\end{equation}
+Como o somatório é finito temos apenas uma igualdade entre polinômios
+e podemos escrever que a soma é igual a função
+\[
+  (1+x)^m = \sum_{k=0}^m \binom{m}{k} x^k
+  \qquad\qquad m \in \N     \;.
+\]
+
+Queremos agora generalizar esse resultado para $m\in \R$.
+Essa generalização é a \emph{Série Binomial}\index{Série!binomial}.
+Com $m$ real as derivadas de $f$ continuam com as mesmas expressões
+\begin{align*}
+  f^{(k)}(x) & = m(m-1)\cdots (m-k+1)(1+x)^{m-k} \\
+  f^{(k)}(0) & = m(m-1)\cdots (m-k+1)     \;.
+\end{align*}
+Porém, $f^{(k)}(0)$ deixa de ser zero para $k>m$. Isso transforma a
+soma~\eqref{eq:binomio-newton-2} em uma série propriamente dita
+\[
+  \sum_{k=0}^\infty \frac{\;f^{(k)}(0)\;}{k!}\,x^k =
+  \sum_{k=0}^\infty \binom{m}{k} x^k
+\]
+onde
+\[
+  \binom{m}{k} = \frac{m(m-1)\cdots(m-k+1)}{k!}
+  \qquad\qquad m \in \R     \;.
+\]
+Observe que como $m$ não é um inteiro positivo não podemos calcular seu
+fatorial.
+Outro ponto fundamental é que com infinitos termos na Série de Taylor
+não podemos afirmar que ela é igual a função sem verificar sua
+convergência.
+O próximo teorema conclui a generalização da
+equação~\eqref{eq:binomio-newton} para todo $m$ real,
+mostrando que a Série de Taylor de $f(x)=(1+x)^m$ converge para a função.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Série Binomial}{teo:serie-binomial}
+  Para qualquer número $m\in\R$ e todo $x\in(-1, 1)$, vale que
+  \[
+    (1+x)^m = \sum_{k=0}^\infty \binom{m}{k} \, x^k
+  \]
+  onde
+  \[
+    \binom{m}{k} = \frac{m(m-1)\cdots(m-k+1)}{k!}    \;.
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Vamos aplicar o Teste da Razão nos termos da série
+  \[
+    a_k = \binom{m}{k} x^k = \frac{m(m-1)\cdots(m-k+1)}{k!} x^k  \;.
+  \]
+  A razão entre os módulos dos termos é
+  \begin{align*}
+    \abs{ \frac{a_{k+1}}{a_k} }
+    & = \abs{  \binom{m}{k+1} x^{k+1}                    \;
+        \left[ \binom{m}{k}   x^k \right]^{-1} }         \\[5mm]
+    & = \abs{ \frac    {\,m(m-1)\cdots(m-k)  \,}{(k+1)!} \;
+              \frac{k!}{\,m(m-1)\cdots(m-k+1)\,}         \;
+              \frac{\,x^{k+1}\,}{x^k} }                  \\[3mm]
+    & = \frac{\,\abs{m-k}\,}{k+1} \abs{x}  \;.
+  \end{align*}
+  O limite dessa razão, quando $k\to\infty$, é igual a $\abs{x}$.
+  Então, a série converge absolutamente quando $\abs{x}<1$,
+  ou seja, o intervalo de convergência é $(-1, 1)$.
+  Isso significa que nesse intervalo podemos definir a função
+  \[
+    h(x) = \sum_{k=0}^\infty \binom{m}{k} x^k  \;.
+  \]
+  Nosso objetivo agora é mostrar que
+  \[
+    h(x) = (1+x)^m
+  \]
+  Para verificar essa igualdade, vamos usar uma expressão equivalente
+  \[
+    g(x) = \frac{h(x)}{(1+x)^{m}} = (1+x)^{-m}h(x) = 1
+  \]
+  Avaliando $g$ em zero temos
+  \[
+    g(0)
+    = (1+0)^{-m}h(0)
+    = \sum_{k=0}^\infty \binom{m}{k} 0^k
+    = \binom{m}{0} 0^0
+    = 1   \;.
+  \]
+  Agora basta provar que $g$ é uma função constante,
+  ou seja, vamos mostrar que $g'(x)=0$ para todo $x\in (-1,\,1)$.
+  Calculando a derivada e igualando a zero temos
+  \[
+    g'(x) = -m(1+x)^{-m-1} h(x) + (1+x)^{-m} h'(x) = 0  \;.
+  \]
+  Rearranjando a equação
+  \begin{align*}
+    -m(1+x)^{-m-1} h(x) + (1+x)^{-m} h'(x) & = 0                  \\
+    (1+x)^{-m} h'(x)                       & = m(1+x)^{-m-1} h(x) \\
+    (1+x)^{-m} (1+x)^{m+1} h'(x)           & = m h(x)             \\
+    (1+x) h'(x)                            & = m h(x)   \;.
+  \end{align*}
+  obtemos que $g'(x)$ será zero se
+  \[
+    (1+x) h'(x) = m h(x)
+  \]
+  Para demonstrar essa igualdade vamos partir da expressão do lado esquerdo
+  e mostrar que ela é igual a do lado direito.
+  Começamos por derivar a série $h(x)$ termo a termo
+  \[
+    h'(x) = \sum_{k=1}^\infty \binom{m}{k} k x^{k-1}   \;.
+  \]
+  Podemos agora escrever
+  \begin{align*}
+    (1+x) h'(x) & = h'(x) + xh'(x) \\
+                & = \sum_{k=1}^\infty \binom{m}{k} k x^{k-1}
+                + \sum_{k=1}^\infty \binom{m}{k} k x^k    \;.
+  \end{align*}
+  Para somar as duas séries precisamos igualar o
+  expoente de $x$, para isso alteramos o índice da primeira série
+  \[
+    (1+x) h'(x)
+       = \sum_{k=0}^\infty \binom{m}{k+1} (k+1) x^k
+       + \sum_{k=1}^\infty \binom{m}{k}    k    x^k \\[3mm]
+  \]
+  Agora igualamos os índices das séries separando o termo $k=0$ da primeira
+  e agrupamos os somatórios
+  \[
+    (1+x) h'(x) = m + \sum_{k=1}^\infty
+                      \bigg[ \binom{m}{k+1} (k+1)
+                           + \binom{m}{k}    k    \;
+                      \bigg] x^k     \;.
+  \]
+  Vamos agora substituir as fórmulas para as combinações
+  \begin{align*}
+    (1+x) h'(x)
+    & = m + \sum_{k=1}^\infty \bigg[\; \frac{m(m-1)\cdots(m-k)  }{(k+1)!} \;(k+1)             \\[3mm]
+    &       \hspace{23mm}            + \frac{m(m-1)\cdots(m-k+1)}{ k!   } \; k \;\bigg] x^{k} \;.
+  \end{align*}
+  Podemos agora simplificar os coeficientes de $x^k$ e colocar em evidência a parte comum
+  \begin{align*}
+    (1+x) h'(x)
+    & = m + \sum_{k=1}^\infty \bigg[\; \frac{m(m-1)\cdots(m-k)  }{k!    }                \\[3mm]
+    &       \hspace{23mm}            + \frac{m(m-1)\cdots(m-k+1)}{(k-1)!} \;\bigg] x^{k} \\[3mm]
+    & = m + \sum_{k=1}^\infty \frac{m(m-1)\cdots(m-k+1)}{(k-1)!}
+                              \left[ \frac{(m-k)}{k}+1 \right] x^{k}                     \\[3mm]
+    & = m+\sum_{k=1}^\infty \frac{m(m-1)\cdots(m-k+1)}{(k-1)!}\;\frac{\,m\,}{k}\; x^{k}  \\[3mm]
+    & = m+\sum_{k=1}^\infty \frac{m(m-1)\cdots(m-k+1)}{k!} \;m x^{k}          \;.
+  \end{align*}
+  Colocando a constante $m$ em evidencia e notando que a
+  fração é a expressão da combinação temos que
+  \begin{align*}
+    (1+x) h'(x)
+      & = m + m \sum_{k=1}^\infty \binom{m}{k} x^{k}                             \\[3mm]
+      & = m \left[ 1            + \sum_{k=1}^\infty \binom{m}{k} x^{k} \right]   \\[3mm]
+      & = m \left[ \binom{m}{0} + \sum_{k=1}^\infty \binom{m}{k} x^{k} \right]   \\[3mm]
+      & = m \sum_{k=0}^\infty \binom{m}{k} x^{k}                                 \\[3mm]
+      & = m h(x)          \;.
+  \end{align*}
+  Isso mostra que, para $x\in(-1, 1)$,
+  \[
+    (1+x)^m = \sum_{k=0}^\infty \binom{m}{k} x^k          \;.
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+As \emph{Funções Potência}\index{Função!potência},
+\(
+  f(x) = x^r
+\),
+são muito comuns em diversas áreas e aplicações da Matemática.
+Se o expoente $r$ for um número inteiro elas também são fáceis para avaliar.
+Porém, em casos como
+\[
+f(x) = x^{\sqrt{2}}     \qquad\qquad
+f(x) = \sqrt[3]{x}      \qquad\qquad
+f(x) = x^{\sfrac{5}{7}}
+\]
+precisamos aproximar o valor da função por seu Polinômio de Taylor.
+O próximo exemplo mostra como calcular a Série de Taylor para essas
+funções.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a Série de Taylor da função $\sqrt[3]{x}$.
+  \solution
+  Primeiro escrevemos a função na forma binomial
+  \[
+    \sqrt[3]{x}
+    = x^{\sfrac{1}{3}}
+    = \big(1 + (x-1)\big)^{\sfrac{1}{3}}
+    = (1+y)^{\sfrac{1}{3}}
+  \]
+  onde $y=x-1$.
+  Usando o Teorema~\ref{teo:serie-binomial} podemos escrever
+  \[
+    (1+y)^{\sfrac{1}{3}} = \sum_{k=0}^\infty \binom{\sfrac{1}{3}}{k}\, y^k
+    \qquad y \in(-1, 1)          \;.
+  \]
+  Desfazendo a mudança de variáveis, concluímos que, para $x \in(0, 2)$,
+  \begin{align*}
+     \sqrt[3]{x}
+     & = \sum_{k=0}^\infty \binom{\sfrac{1}{3}}{k} (x-1)^k \\[3mm]
+     & = \!\binom{\sfrac{1}{3}}{0} (x-1)^0
+       + \!\binom{\sfrac{1}{3}}{1} (x-1)^1
+       + \!\binom{\sfrac{1}{3}}{2} (x-1)^2
+       + \!\binom{\sfrac{1}{3}}{3} (x-1)^3
+       + \cdots \\[3mm]
+     & = 1 + \frac{1}{3}(x-1) \\[3mm]
+     &\hphantom{=1\;} + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)}{2}(x-1)^2 \\[3mm]
+     &\hphantom{=1\;} + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)\left(\sfrac{1}{3}-2\right)}{3!}(x-1)^3
+       + \cdots \\[3mm]
+     & = 1 + \frac{1}{3}(x-1) - \frac{1}{9}(x-1)^2 + \frac{5}{81}(x-1)^3 + \cdots
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

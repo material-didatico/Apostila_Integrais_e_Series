@@ -1,0 +1,247 @@
+%------------------------------------------------------------------------------%
+\section{Propriedades}
+
+Nessa seção apresentamos algumas propriedades das séries que podemos
+utilizar ao fazermos manipulações algébricas.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Linearidade das Séries}{teo:linearidade-series}
+  Se\index{Série!propriedades}
+  \(\sum a_n\) e \(\sum b_n\)
+  são \emph{séries convergentes} e $k\in\R$, então
+  \begin{enumerate}[topsep=5mm,itemsep=5mm]
+    \item \( \sum_{n=1}^\infty (a_n+b_n) =  \sum_{n=1}^\infty a_n +\sum_{n=1}^\infty b_n \),
+    \item \( \sum_{n=1}^\infty (a_n-b_n) =  \sum_{n=1}^\infty a_n -\sum_{n=1}^\infty b_n \),
+    \item \( \sum_{n=1}^\infty ka_n      = k\sum_{n=1}^\infty a_n \).
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcular a soma da série
+  \(\quad
+    \sum_{n=0}^\infty \left(\frac{1}{2^n}+\frac{(-1)^n}{5^n}\right)
+  \).
+  \solution
+  Observe que a série que queremos calcular é a soma, termo a termo de duas séries geométricas.
+  Além disso, as razões das séries geométricas são $\abs{\sfrac{1}{2}}<1 $ e $\abs{\sfrac{-1}{5}}<1$.
+  Então, podemos usar a regra da soma de séries e a fórmula da soma da série geométrica.
+  \begin{align*}
+    \sum_{n=0}^\infty \left(\frac{1}{2^n} +\frac{(-1)^n}{5^n}\right)
+      & = \sum_{n=0}^\infty \left(\frac{ 1}{2}\right)^n
+        + \sum_{n=0}^\infty \left(\frac{-1}{5}\right)^n \\[3mm]
+      & = \frac{1}{1-\sfrac{1}{2}} + \frac{1}{1+\sfrac{1}{5}}
+        = \frac{17}{6}   \,.
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Note que, nesse exemplo, o índice começou em zero e não em 1. O início da série não tem
+influência na convergência, mas pode mudar o valor da soma da série.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcular a soma da série
+  \(\quad
+    \sum_{n=1}^\infty\left[ \frac{1}{\sqrt{n}}
+                          - \frac{1}{\sqrt{n+1}}
+                          - \frac{1}{4^{n+1}}\right]
+  \).
+  \solution
+  Observe que a série
+  \(
+    \sum_{n=1}^\infty\frac{1}{4^{n+1}}
+  \)
+  converge,
+  pois é uma série geométrica com $r=\sfrac{1}{4}<1$, além disso,
+  \[
+    \sum_{n=1}^\infty\left(\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}\right)
+  \]
+  é uma série telescópica com a sequência de somas parciais dada por
+  \[
+    S_n = 1-\frac{1}{\sqrt{n+1}} \to 1  \,.
+  \]
+  Temos então que
+  \begin{align*}
+  	S & = \sum_{n=1}^\infty \left[\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}-\frac{1}{4^{n+1}}\right] \\
+  	  & = \sum_{n=1}^\infty\left(\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}\right)
+  	    - \sum_{n=1}^\infty\frac{1}{4^{n+1}}                            \\
+  	  & = 1-\frac{1}{16}\sum_{n=1}^\infty\left(\frac{1}{4}\right)^{n-1} \\
+  	  & = 1-\frac{1}{16}\;\frac{1}{1-\sfrac{1}{4}}                      \\
+  	  & = 1 - \frac{1}{12} = \frac{11}{12}                              \,.
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+A hipótese de que $\sum a_n$ e $\sum b_n$ são séries convergentes é importante,
+por exemplo, se considerarmos as duas séries divergentes
+\[
+  \sum_{n=1}^\infty (-1)^n
+  \qquad \text{ e } \qquad
+  \sum_{n=1}^\infty (-1)^{n+1}
+\]
+observamos que
+\[
+  \sum_{n=1}^\infty\big[(-1)^n+(-1)^{n+1}\big] = 0
+  \quad\neq\quad
+  \left(\sum_{n=1}^\infty (-1)^n\right) +
+  \left(\sum_{n=1}^\infty (-1)^{n+1}\right)    \,.
+\]
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\subsection*{Manipulando Índices e Termos}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+Primeiro vamos destacar uma característica do cálculo do limite de uma série,
+não importa o valor dos primeiros termos, $n<N$, pois a existência do limite só
+depende do que acontece no ``final'' da série. Assim quando formos verificar
+a convergência sempre que for conveniente podemos ignorar o início da série.
+Não se esqueça que isso só vale para determinar a convergência, o valor da
+soma, se existir, provavelmente será alterado. O teorema a seguir formaliza
+essa afirmação.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Verificando a Convergência }{teo:verificando-convergencia}
+  Ao verificarmos a convergência de uma série basta analisar a soma dos
+  termos a partir de um índice $N$, isso é, se a série
+  \[
+    \sum_{n=N}^\infty a_n
+  \]
+  for convergente, ou divergente, então a série
+  \[
+    \sum_{n=0}^\infty a_n
+  \]
+  terá a mesma propriedade.
+\end{teorema}
+%------------------------------------------------------------------------------%
+%\begin{proof}
+%  Escrever a prova!
+%\end{proof}
+%------------------------------------------------------------------------------%
+
+Podemos construir novas séries a partir de uma série dada, por exemplo,
+adicionando ou retirando termos. Note que mudar a ordem dos termos de uma série
+cria outra série. Se a mudança é feita em uma quantidade finita de termos
+a nova série mantem a convergência ou divergência da série original.
+Porém, se infinitos termos forem alterados será necessário
+analisar separadamente a convergência da nova série.
+
+Se a série
+\[
+  \sum_{n=0}^\infty a_n
+\]
+converge, então a série onde removemos, $k>0$, ou incluímos termos, $k<0$,
+\[
+  \sum_{n=k}^\infty a_n \qquad\qquad k\in \Z
+\]
+também converge, desde que os temos adicionais estejam bem definidos.
+Se a série original divergir então a nova série também diverge.
+Note que no caso de convergência, se $k\neq 0$ o limite é alterado.
+De fato, se $L$ é o limite da série original,
+no caso onde removemos termos, $k>0$, temos que
+\[
+  \sum_{n=k}^\infty a_n
+  = \sum_{n=0}^\infty a_n - \left(a_1+\cdots+a_{k-1} \right)
+  = L - \left(a_1+\cdots+a_{k-1}\right)                     \,.
+\]
+Enquanto que, quando acrescentando termos, $k<0$, temos que
+\[
+  \sum_{n=k}^\infty a_n
+  = \sum_{n=0}^\infty a_n + \left( a_k+\cdots+a_{-1} \right)
+  = L + \left( a_k+\cdots+a_{-1} \right)        \,.
+\]
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Alterando os Termos de uma Série}{prop:numero-termos-serie}
+  Adicionar, retirar ou permutar um \emph{número finito de termos} em uma série,
+  não altera o fato da série convergir ou divergir.
+
+  Porém, pode alterar o valor da soma da série, caso ele exista.
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência da série
+  \(
+    \sum_{n=-3}^\infty \frac{1}{2^n}
+  \).
+  \solution
+  A série
+  \[
+    \sum_{n=0}^\infty \frac{1}{2^n}
+  \]
+  converge, pois é uma série geométrica com $r=\sfrac{1}{2}$.
+  Portanto, a série
+  \[
+    \sum_{n=-3}^\infty \frac{1}{2^n}
+  \]
+  também converge. Além disso,
+  \begin{align*}
+    \sum_{n=-3}^\infty \frac{1}{2^n} & = 2^3 + 2^2 + 2^1 + \sum_{n=0}^\infty \frac{1}{2^n} \\[3mm]
+                                     & = 8 + 4 + 2 + \frac{1}{1-\sfrac{1}{2}}              \\
+                                     & = 14 + 2                                            \\
+                                     & = 16                                                \,.
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Reindexando uma Série}{prop:reindexando-serie}
+  Alterar o índice inicial de uma série da seguinte maneira
+  \[
+    \sum_{n=0}^\infty a_n =
+    \sum_{n=k}^\infty a_{n-k} \qquad \forall\; k \in \Z
+  \]
+  não altera a convergência ou a soma da série, caso ela exista.
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Note que, quando $k<0$, estamos iniciando a série com índices menores do que zero.
+Por outro lado, se $k>0$, estamos começando a série com índices positivos.
+Claro que esse tipo de mudança nos índices também podem ser feitas em séries
+indexadas a partir de~$n\neq 0$. De forma geral temos
+\[
+  \sum_{n=m}^\infty a_n \;=\!\!\sum_{n=m+k}^\infty a_{n-k}               \,.
+\]
+Note que não é necessário decorar essa fórmula, basta fazer um mudança de variáveis.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Reescreva a série
+  \(
+    \sum_{n=1}^\infty\frac{5}{n(n+1)}
+  \)
+  indexando-a a partir de $-1$.
+  \solution
+  Como $n$ começa em $1$ e queremos indexar a partir de $-1$,
+  basta introduzir um novo índice $m=n-2$, então $n=m+2$ e
+  $m=-1, \dots, \infty$.
+  Assim, a série indexada a partir de $-1$ é
+  \[
+    \sum_{n=1}^\infty\frac{5}{n(n+1)} =
+    \sum_{m=-1}^\infty\frac{5}{(m+2)(m+3)}   \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Reindexe a série do exemplo anterior a partir $20$.
+  \solution
+  Para indexar a partir de $20$, queremos que
+  $m=20$ corresponda a $n=1$, ou seja,
+  quando $m=20$ devemos ter $m+a=n=1$ e $m+b=n+1=2$.
+  Assim os valores de $a$ e $b$ devem ser $-19$ e $-18$.
+  Concluímos que a nova série é escrita como
+  \[
+    \sum_{n=1}^ \infty\frac{5}{n(n+1)} =
+    \sum_{m=20}^\infty\frac{5}{(m-19)(m-18)}   \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,248 @@
+%------------------------------------------------------------------------------%
+\section{Operações com Séries de Potências}
+
+Apresentamos nessa seção alguns resultados que nos auxiliam a realizar operações
+em Séries de Potências. Começamos pela importante propriedade que nos permite
+derivar e integrar essas séries termo a termo.
+Se uma Série de Potências possui um raio de convergência $R>0$, então a função
+\[
+  f(x)=\sum_{n=0}^\infty c_n(x-a)^n
+\]
+está definida no intervalo $(a-R, a+R)$ e é infinitamente derivável, isso é,
+tem as derivadas de todas as ordens, neste mesmo intervalo.
+Além disso, podemos calcular as derivadas ou integrais de $f$
+derivando ou integrando a série termo a termo como descrito nos próximos
+dois teoremas
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Derivação de Série de Potências Termo a Termo}{teo:derivacao-termo-termo}
+  Se o raio de convergência, $R$, não for nulo, podemos calcular a derivada da função
+  \[
+    f(x) = \sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  derivando a série termo a termo dentro do intervalo $(a-R, a+R)$
+  \[
+    f'(x) \;=\; \sum_{n=o}^\infty \frac{d}{dx}\big( c_n(x-a)^n \big)
+          \;=\; \sum_{n=1}^\infty \,n\,c_n\,(x-a)^{n-1}   \;.
+  \]
+  Essa série também converge em $(a-R, a+R)$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Observe que o primeiro termo da série é uma constante, portanto quando
+derivamos a série ele desaparece e o índice da série para a derivada começa em um.
+Note também que podemos aplicar a derivação termo a termo repetidas vezes
+para calcular a $k$-ésima derivada de $f$
+\begin{align*}
+  f^{(k)}(x) & = \sum_{n=0}^\infty \big( c_n(x-a)^n \big)^{(k)}                          \\[3mm]
+             & = \sum_{n=k}^\infty \,n\,(n-1) \cdots \big(n-(k-1)\big)\,c_n\,(x-a)^{n-k} \;.
+\end{align*}
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Integração de Série de Potências Termo a Termo}{teo:integracao-termo-termo}
+  Se o raio de convergência, $R$, não for nulo, podemos calcular a primitiva da função
+  \[
+    f(x) = \sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  integrando a série termo a termo dentro do intervalo $(a-R, a+R)$
+  \[
+    \int f(x)\,dx \;=\; \sum_{n=0}^\infty \int c_n(x-a)^n dx
+                  \;=\; \sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}+ C
+  \]
+  onde $C$ é a constante de integração. Esta série também converge em $(a-R, a+R)$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Esses teoremas, combinados com a fórmula que temos para a Série Geométrica,
+são úteis para encontrar a função que representa uma dada série,
+ou para encontrar uma série para uma dada função. Claro que isso só será possível quando
+operações de integração ou derivação nos dão ou uma série geométrica ou uma função que
+pode ser vista como limite de uma série geométrica. Os próximos exemplos ilustram essa
+aplicação.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre uma série de potências centrada em $x=0$ para a função
+  \(
+    f(x)=\ln \left( 1+x^2 \right)
+  \).
+  \solution
+  Note que
+  \[
+    \frac{d}{dx} \ln\left( 1+x^2 \right)
+      = \frac{2x}{1+x^2}
+      = \frac{2x}{1-\left(-x^2\right)}   \;.
+  \]
+  Comparando essa expressão com a fórmula da soma
+  Série Geométrica com $r=-x^2$
+  \[
+    \sum_{n=0}^\infty \left(-x^2\right)^n=\frac{1}{1-\left(-x^2\right)}
+  \]
+  percebemos que, nos pontos onde a série converge,
+  \[
+    \frac{d}{dx}\ln\left( 1+x^2 \right)
+      = 2x \sum_{n=0}^\infty \left(-x^2 \right)^n
+      = 2  \sum_{n=0}^\infty (-1)^n\,x^{2n+1}     \;.
+  \]
+  Integrando e simplificando temos
+  \[
+    \ln\left( 1+x^2 \right) = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+2}}{\,n+1\,}+C
+  \]
+  onde $C$ é uma constante.
+  Avaliando a série em $x=0$ verificamos que $C=\ln(1)=0$, portanto
+  \[
+    \ln\left( 1+x^2 \right) = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+2}}{n+1}     \;.
+  \]
+  Note que provamos a validade dessa fórmula apenas para $x\in(-1,1)$,
+  pois usamos o limite da Série Geométrica que converge apenas para valores
+  de $x$ tais que
+  \(
+    \abs{r}=\abs{-x^2}<1     \;.
+  \).
+  Porém, série que aparece na última equação
+  converge no intervalo $[-1, 1]$, entretanto, neste momento
+  só podemos afirmar que a igualdade vale para $x\in (-1, 1)$.
+  Os casos $x=-1$ e $x=1$ precisariam ser analisados separadamente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+No próximo exemplo faremos o caminho inverso do anterior, ou seja,
+começaremos com uma série e procuraremos uma função que represente
+essa série em algum intervalo.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre uma função $f(x)$ que represente a série
+  \[
+    \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{\,2n+1\,}
+  \]
+  em um intervalo contendo a origem.
+
+  \solution
+  Se
+  \[
+    f(x) = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{\,2n+1\,}
+  \]
+  podemos derivar $f$ termo a termo
+  \[
+    f'(x) = \sum_{n=0}^\infty (-1)^n \frac{d}{dx}\left(\frac{x^{2n+1}}{\,2n+1\,}\right)
+          = \sum_{n=0}^\infty (-1)^nx^{2n}
+          = \sum_{n=0}^\infty \left(-x^2 \right)^n   \;.
+  \]
+  Rearranjando temos
+  \[
+    f'(x) = \sum_{n=1}^\infty \left(-x^2 \right)^{n-1}   \;.
+  \]
+  Comparando com uma Série Geométrica observamos que $a=1$ e $r=-x^2$.
+  Usando a fórmula para a soma da série temos que,
+  para $x\in (-1, 1)$,
+  \[
+    f'(x) = \frac{1}{\,1-\left(-x^2\right)\,}
+          = \frac{1}{\,1+x^2\,}     \;.
+  \]
+  Veja que $f(0)=0, $ então integrando $f'(t)$ sobre $[0, x]$
+  e usando o Teorema Fundamental do Cálculo~\ref{teo:fundamental-calculo},
+  obtemos que
+  \begin{align*}
+    f(x) & = \int_0^x f'(t)\,dt               \\[3mm]
+         & = \int_0^x \frac{1}{\,1+t^2\,}\,dt \\[3mm]
+         & = \arctan(x) - \arctan(0)          \\[3mm]
+         & = \arctan(x)     \;.
+  \end{align*}
+  Note que só podemos garantir que a função $\arctan(x)$ representa a
+  série no intervalo $(-1, 1)$, pois utilizamos o limite da Série Geométrica,
+  que só converge neste intervalo.
+  Observe ainda que podemos afirmar que essa série converge no extremo $x=1$,
+  usando o Teste de Leibniz~\ref{teo:Teste-Leibniz}.
+  Entretanto, neste momento, não podemos afirmar que
+  em $x=1$ essa série converge para $\arctan(1)$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Apresentamos a seguir algumas operações que podem ser realizadas em séries de
+potências dentro do seu intervalo de convergência.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Multiplicação de Séries de Potências}{teo:multipliacao-series-potencias}
+	Se as séries
+	\[
+		A(x) = \sum_{n=0}^{\infty} a_n x^n
+    \qquad\text{ e }\qquad
+  	B(x) = \sum_{n=0}^{\infty} b_n x^n
+	\]
+	convergem absolutamente para \(\abs{x}<R\), e
+	\[
+		c_n = \sum_{k=0}^{n} a_kb_{n-k}
+         = a_0b_n + a_1b_{n-1} + a_2b_{n-2} + \cdots + a_{n-1}b_1 + a_nb_0     \;,
+	\]
+	então
+  \[
+    \sum_{n=0}^{\infty} c_nx^n = A(x)B(x)
+    \qquad\qquad \abs{x}<R     \;,
+  \]
+	ou seja, podemos escrever
+	\[
+		\left(\sum_{n=0}^{\infty} a_n x^n\right)
+		\left(\sum_{n=0}^{\infty} b_n x^n\right) =
+		\sum_{n=0}^{\infty} c_nx^n     \;.
+	\]
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Observe que esse resultado nos diz que o produto de duas séries de potencia convergentes
+também converge no mesmo intervalo. Porém, calcular os valores $c_n$ pode ser uma
+tarefa extremamente complexa.
+
+Podemos também fazer uma mudança de variáveis trocando $x$ por uma função $f(x)$.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Mudança de Variáveis em uma Série de Potências}{teo:Mudanca-variaveis-serie-potencias}
+	Se a série
+	\[
+	  \sum_{n=0}^{\infty} a_n x^n
+	\]
+	converge absolutamente para \(\abs{x}<R\), então
+	\[
+  	\sum_{n=0}^{\infty} a_n \big(\, f(x) \,\big)^n
+	\]
+	converge absolutamente desde que $f$ seja uma função contínua e
+	\(
+    \abs{f(x)}<R
+  \).
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%%------------------------------------------------------------------------------%
+%\begin{teorema}{Composição de Funções}{teo:composicao-funcoes}
+%  Seja $f$ uma função satisfazendo
+%  \[
+%    f(x) = \sum_{n=0}^\infty c_n(x-a)^n \qquad \text{ em } x\in I
+%  \]
+%  onde $I$ é um intervalo aberto.
+%  Seja $u:\R\rightarrow \R$ uma função contínua e $(b, c)$ é o intervalo $u^{-1}(I)$. Então,
+%  \[
+%    f\big(u(x)\big) = \sum_{n=0}^\infty c_n \big(u(x)-a\big)^n \qquad \text{ em } x\in (b, c)
+%  \]
+%\end{teorema}
+%%------------------------------------------------------------------------------%
+%\begin{proof}
+%  Como $f$ é uma série de potências, sabemos, pela Proposição \ref{prop:serietaylorpotencia}
+%  que $f$ coincide com sua série de Taylor em $I$. Então, pelo teorema de Taylor temos que
+%  \[
+%    f(x) = \sum_{n=0}^k \frac{f^{(n)}(a)}{n!} (x-a)^n+R_{k}(x)
+%  \]
+%  e que $R_k(x)\rightarrow 0$ para todo $x\in I$. Então,
+%  \[
+%    f\big(u(x)\big) = \sum_{n=0}^k \frac{f^{(n)}(a)}{n!} \big(u(x)-a\big)^n + R_{k}(u(x))
+%  \]
+%  e $R_{k}\big(u(x)\big)\rightarrow 0$ se $u(x)\in I$,
+%  mas se $x\in (b, c)=u^{-1}(I)$ segue que $u(x)\in I$.
+%  Portanto, sempre que $x\in (b, c)$,
+%  \[
+%    f\big(u(x)\big) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!} \big(u(x)-a\big)^n
+%    = \sum_{n=0}^\infty c_n \big(u(x)-a\big)^n
+%  \]
+%\end{proof}
+%%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

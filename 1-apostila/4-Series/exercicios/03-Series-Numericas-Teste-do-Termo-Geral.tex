@@ -1,0 +1,120 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+% Exercício 27 página 26
+%------------------------------------------------------------------------------%
+\begin{exercise}
+A série converge ou diverge? Justifique sua resposta.
+\[
+  \sum_{n=1}^{\infty} \frac{\sqrt{n}}{\;\ln n\;}
+\]
+\begin{answer}
+  Aplicando o teste da divergência temos
+  \begin{align*}
+  	\lim_{n\to\infty} \frac{\sqrt{n}}{\;\ln n\;} & = \lim_{x\to\infty} \frac{\; x^{\frac{1}{2}} \;}{ \ln x }                \\[2mm]
+  	                                             & = \lim_{x\to\infty} \dfrac{\; \frac{1}{2} x^{\frac{-1}{2}} \;}{ x^{-1} } \\[2mm]
+  	                                             & = \lim_{x\to\infty} \frac{\; \sqrt{x} \;}{ 2 } = \infty
+  \end{align*}
+  Como o termo geral não vai para zero a série diverge.
+\end{answer}
+\end{exercise}
+
+% Exercício 28 página 20
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Use o teste do $n$-ésimo termo para divergência para mostrar que a série é divergente
+  ou afirmar que o teste não é conclusivo.
+  \[
+  \sum_{n=1}^{\infty} \frac{n(n+1)}{\;(n+2)(n+3)\;}
+  \]
+  \begin{answer}
+    Calculando o limite do dos termos da série temos
+    \begin{align*}
+    \lim_{n\to\infty} \frac{n(n+1)}{\;(n+2)(n+3)\;} & = \lim \frac{n^2+n}{\;n^2 +5n +6\;} \\
+    & = \lim \frac{2n+1}{\;2n +5\;}       \\
+    & = \lim \frac{2}{\;2\;} = 1
+    \end{align*}
+    em cada passo foi identificado que o limite gerava uma
+    indeterminação do tipo $\sfrac{\infty}{\infty}$
+    e usado o método de L'Hôpital.
+    Como o limite do termo geral não é zero a série diverge.
+  \end{answer}
+\end{exercise}
+
+% 49-68 página 20 do Thomas Vol. 2
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Verifique se a série é convergente, caso seja calcule seu limite.
+  \begin{mathlist}
+    \item \sum_{n=0}^{\infty} \left(\frac{1}{\sqrt{2}}\right)^n
+    \item \sum_{n=0}^{\infty} \left(\sqrt{2}\right)^n
+    \item \sum_{n=1}^{\infty} (-1)^{n+1}\frac{3}{2^n}
+    \item \sum_{n=1}^{\infty} (-1)^{n+1}n
+    \item \sum_{n=0}^{\infty} \cos(n\pi)
+    \item \sum_{n=0}^{\infty} \frac{\cos(n\pi)}{5^n}
+    \item \sum_{n=0}^{\infty} e^{-2n}
+    \item \sum_{n=1}^{\infty} \ln\left(\frac{1}{3^n}\right)
+    \item \sum_{n=1}^{\infty} \frac{2}{10^n}
+    \item \sum_{n=0}^{\infty} \frac{1}{x^n} \quad |x|>1
+    \item \sum_{n=0}^{\infty} \frac{2^n-1}{3^n}
+    \item \sum_{n=1}^{\infty} \left(1-\frac{1}{n}\right)^n
+    \item \sum_{n=0}^{\infty} \frac{n!}{1000^n}
+    \item \sum_{n=1}^{\infty} \frac{n^n}{n!}
+    \item \sum_{n=1}^{\infty} \frac{2^n+3^n}{4^n}
+    \item \sum_{n=1}^{\infty} \frac{2^n+4^n}{3^n+4^n}
+    \item \sum_{n=1}^{\infty} \ln\left(\frac{n}{n+1}\right)
+    \item \sum_{n=1}^{\infty} \ln\left(\frac{n}{2n+1}\right)
+    \item \sum_{n=0}^{\infty} \left(\frac{e}{\pi}\right)^n
+    \item \sum_{n=0}^{\infty} \frac{e^{n\pi}}{\pi^{ne}}
+  \end{mathlist}
+  \begin{answer}
+    \begin{alphalist}[3]
+      \item $2+\sqrt{2}$
+      \item Diverge
+      \item $1$
+      \item Diverge
+      \item Diverge
+      \item $\sfrac{5}{6}$
+      \item $\sfrac{e^2}{e^2-1}$
+      \item Diverge
+      \item $\sfrac{2}{9}$
+      \item $\sfrac{x}{x-1}$
+      \item $\sfrac{3}{2}$
+      \item Diverge
+      \item Diverge
+      \item Diverge
+      \item $4$
+      \item Diverge
+      \item Diverge
+      \item Diverge
+      \item $\sfrac{\pi}{\pi-e}$
+      \item Diverge
+    \end{alphalist}
+  \end{answer}
+\end{exercise}
+
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{mathlist}[2]
+%  \item
+%  \item
+%  \item
+%\end{mathlist}
+%\begin{answer}
+%  \begin{alphalist}[3]
+%    \item
+%    \item
+%    \item
+%  \end{alphalist}
+%\end{answer}
+%\end{exercise}
+
+\end{exercises}
+%------------------------------------------------------------------------------%

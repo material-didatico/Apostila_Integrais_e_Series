@@ -1,0 +1,37 @@
+%------------------------------------------------------------------------------%
+
+\begin{nlongtable}[\setlength{\extrarowheight}{5mm}]%
+                  {>{$\displaystyle\vphantom{\int_\int}\qquad}w{l}{0.300\linewidth}<{$}
+                   >{$\displaystyle\vphantom{\int_\int}}      w{l}{0.682\linewidth}<{$}}
+                  {Tabela de Integrais}
+                  {tab:tabela-integrais}
+  \int u \,dv                          & = uv - \int v \,du                                        \\ \hline
+  \int u^n \,du                        & = \frac{u^{n+1}}{\,n+1\,} + C \qquad n\neq -1             \\ \hline
+  \int \frac{du}{u}                    & = \ln\abs{u} + C                                          \\ \hline
+  \int e^u \,du                        & = e^u + C                                                 \\ \hline
+  \int a^u \,du                        & = \frac{a^u}{\,\ln(a)\,} + C                              \\ \hline
+  \int \ln(u)\,du                      & = u\big( \ln(u) - 1 \big) + C                             \\ \hline
+  \int \sin(u)   \,du                  & = -\cos(u) + C                                            \\ \hline
+  \int \cos(u)   \,du                  & =  \sin(u) + C                                            \\ \hline
+  \int \sec^2(u) \,du                  & =  \tan(u) + C                                            \\ \hline
+  \int \csc^2(u) \,du                  & = -\cot(u)+ C                                             \\ \hline
+  \int \sec(u) \tan(u) \,du            & =  \sec(u) + C                                            \\ \hline
+  \int \csc(u) \cot(u) \,du            & = -\csc(u) + C                                            \\ \hline
+  \int \tan(u) \,du                    & = \ln\abs{\sec(u)} + C                                    \\ \hline
+  \int \cot(u) \,du                    & = \ln\abs{\sin(u)} + C                                    \\ \hline
+  \int \sec(u) \,du                    & = \ln\abs{\sec(u)+\tan(u)} + C                            \\ \hline
+  \int \csc(u) \,du                    & = \ln\abs{\csc(u)-\cot(u)} + C                            \\ \hline
+  \int \frac{du}{\sqrt{a^2-u^2\,}\,}   & = \arcsin\left(\frac{\,u\,}{a}\right) + C                 \\ \hline
+  \int \frac{du}{\,a^2+u^2\,}          & = \frac{1}{\,a\,} \arctan\left(\frac{\,u\,}{a}\right)+ C  \\ \hline
+  \int \frac{du}{u\sqrt{u^2-a^2\,}\,}  & = \frac{1}{\,a\,} \arcsec\left(\frac{\,u\,}{a}\right) + C \\ \hline
+  \int \frac{du}{\,a^2-u^2\,}          & = \frac{1}{\,2a\,}\ln\abs{\frac{\,u+a\,}{u-a}} + C        \\ \hline
+  \int \frac{du}{\,u^2-a^2\,}          & = \frac{1}{\,2a\,}\ln\abs{\frac{\,u-a\,}{u+a}} + C        \\ \hline
+  \int u \sin(u) \, du                 & = \sin(u) - u \cos(u) + C                                 \\ \hline
+  \int u \cos(u) \, du                 & = \cos(u) + u \sin(u) + C                                 \\ \hline
+  \int u^2 \sin(u) \, du               & = \hpm 2\cos(u) + 2u \sin(u) -u^2\cos(u) + C              \\ \hline
+  \int u^2 \cos(u) \, du               & =    - 2\sin(u) + 2u \cos(u) +u^2\sin(u) + C              \\ \hline
+  \int u^n \sin(u) \, du               & =    - u^n\cos(u) + n\int u^{n-1} \cos(u)\,du             \\ \hline
+  \int u^n \cos(u) \, du               & = \hpm u^n\sin(u) - n\int u^{n-1} \sin(u)\,du
+\end{nlongtable}
+
+%------------------------------------------------------------------------------%

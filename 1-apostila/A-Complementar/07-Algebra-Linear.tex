@@ -1,0 +1,280 @@
+%------------------------------------------------------------------------------%
+\section{Álgebra Linear}
+\label{sec:Algebra_Linear}
+
+Apresentamos nessa seção algumas definições e propriedades estudadas na Álgebra Linear.
+A finalidade destes resultados é generalizar o conceito de vetores, da Geometria Analítica.
+Em essência dizemos que qualquer entidade matemática que tenha propriedades semelhantes as
+propriedades dos vetores da geometria também são vetores, com isso podemos utilizar
+resultados oriundos da geometria em contextos mais abstratos.
+
+Para a Álgebra Linear as propriedades fundamentais dos vetores são as operações que
+podemos realizar com eles. Assim definimos um espaço vetorial como sendo um conjunto
+de elementos nos quais podemos realizar operações semelhantes as operações com vetores.
+O termo espaço é utilizado sempre que tivermos um conjunto onde é possível
+realizar alguma operação em todos os seus elementos. A definição a seguir explicita
+o que é um espaço vetorial.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Espaço Vetorial}{def:espaco-vetorial}
+  Um \emph{Espaço Vetorial}\index{Espaço Vetorial} real é um conjunto $V$,
+  não vazio, onde as operações de \emph{Soma}\index{Soma} e
+  \emph{Produto por Escalar}\index{Produto!por escalar} estão definidas.
+  Além disso, para quaisquer $u$, $v$ e $w\in V$ e $\alpha$ e $\beta\in\R$
+  é sempre verdade que
+  \begin{enumerate}
+    \item \( v + w \in V \)
+    \item \( \alpha v \in V \)
+    \item \( (u+v) + w = u + (v+w)\)
+    \item \( v+w = w+v \)
+    \item Existe \( 0\in V\) tal que \(v+0=v\)
+    \item Existe \(-v\in V\) tal que \(v+(-v) = 0\)
+    \item \( \alpha(v+w) = \alpha v + \alpha w \)
+    \item \((\alpha+\beta)v = \alpha v + \beta v \)
+    \item \((\alpha \beta)v = \alpha(\beta v)\)
+    \item \( 1v = v \)
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Não importa a natureza dos elementos ou das operações utilizadas,
+se as propriedades forem atendidas dizemos que $V$ é um \emph{Espaço Vetorial},
+$v\in V$ é um \emph{Vetor}\index{Vetor} e $\alpha\in\R$ é um
+\emph{Escalar}\index{Escalar}. A definição de espaços vetoriais complexos é
+equivalente substituindo os escalares reais por números complexos. No contexto dessa
+apostila estamos interessados em espaços vetoriais onde os vetores são funções
+definidas em um intervalo, que chamaremos de
+\emph{Espaços de Funções}\index{Espaço de Funções}.
+
+Uma característica importante dos espaços vetoriais, reais ou complexos,
+é que novos vetores podem ser construídos pela combinação linear de vetores dados.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Combinação Linear}{def:combinacao-linear}
+  Dados os vetores \(v_1, v_2, \dots, v_n \in V\) e escalares
+  \( \alpha_1, \alpha_2, \dots, \alpha_n \) o vetor
+  \[
+    v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n
+  \]
+  também é um elemento de $V$ e é chamado de
+  \emph{Combinação Linear}\index{Combinação Linear} dos vetores~$v_i$.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Uma questão que muitas vezes precisamos responder é se um vetor
+é ou não gerado por uma combinação linear de outros vetores.
+Se ele puder ser gerado dessa forma, dizemos que ele é
+Linearmente Dependente dos vetores
+que o geram e em geral ele pode ser considerado supérfluo. Se tivermos
+um conjunto de vetores onde nenhum pode ser gerado pelos demais dizemos
+que esse conjunto é linearmente independente, como descrito na definição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Independência Linear}{def:independencia-linear}
+  Dados os vetores \(v_1, v_2, \dots, v_n \in V\), dizemos que o conjunto
+  \(\{v_1, v_2, \dots, v_n\}\) é
+  \emph{Linearmente Independente}\index{Linearmente!independente} (LI)
+  se a equação
+  \[
+   \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_n v_n = 0
+  \]
+  implica que \( \alpha_1 = \alpha_2 = \cdots = \alpha_n = 0 \).
+  Se existir uma solução onde algum escalar não é nulo o conjunto de vetores
+  é \emph{Linearmente Dependente}\index{Linearmente!dependente} (LD).
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Uma consequência da propriedade de que vetores podem ser gerados pela combinação
+de outros é que podemos selecionar um conjunto de vetores para gerar todo o
+espaço vetorial. O menor conjunto que gera todo o espaço é chamado de
+base, como descrito na próxima definição.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Base de um Espaço Vetorial}{def:base}
+  Um conjunto \(\{v_1, v_2, \dots, v_n\}\) de vetores em $V$ é uma
+  \emph{Base}\index{Base} de $V$ se:
+  \begin{enumerate}
+    \item for um conjunto linearmente independente
+    \item todo vetor de $V$ pode ser gerado como combinação linear dos
+          vetores do conjunto.
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Um tipo de operação que pode ser estudada no contexto da Álgebra Linear são
+as transformações lineares, que podem ser definidas como segue.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Transformação Linear}{def:transformacao-linear}
+  Dados dois espaços vetoriais $V$ e $W$, uma
+  \emph{Transformação Linear}\index{Transformação Linear} é uma função de
+  $V$ em $W$, \(T:V\to W\) que satisfaz:
+  \begin{enumerate}
+    \item para quaisquer $v$ e $w\in V$
+    \[
+      T(v+w) = T(v) + T(w)
+    \]
+    \item Para qualquer escalar $\alpha$ e $v\in V$
+    \[
+      T(\alpha v) = \alpha T(v)
+    \]
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Derivadas e integrais são exemplos de transformações lineares no espaço de funções,
+assim como, as equações diferenciais lineares. Um problema importante que
+surge no contexto de transformações lineares é o problema de autovalores e autovetores.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Autovalores e Autovetores}{def:autovalores-autovetores}
+  Dada uma transformação linear de um espaço vetorial $V$ nele mesmo,
+  \(T:V\to V\), se existir um \emph{vetor não nulo} $v\in V$
+  e um escalar $\lambda$ tais que
+  \[
+    T(v) = \lambda v
+  \]
+  dizemos que $\lambda$ é um \emph{Autovalor}\index{Autovalor} de $T$ e
+  $v$ é o \emph{Autovetor}\index{Autovetor} de $T$ associado a $\lambda$.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+No contexto dos espaços de função é comum chamar os autovetores de
+\emph{Autofunções}\index{Autofunção}.
+
+Além das operações de soma e produto por escalar, a Álgebra Linear
+também generaliza outros conceitos como comprimento e ângulo entre
+vetores.
+Nesse momento é útil fazermos uma comparação com o plano cartesiano, $\R^2$,
+onde calculamos o produto escalar, ou produto interno,
+dos vetores $v=(v_1, v_2)$ e $w=(w_1, w_2)$ como
+\[
+  v\cdot w = \prodint{v, w} = v_1 w_1 + v_2 w_2
+\]
+Com o produto escalar podemos calcular a norma, ou tamanho, de um vetor $v\in\R^2$
+como
+\[
+  \norm{v} = \sqrt{\prodint{v, v}\,} = \sqrt{ v_1^2 + v_2^2\,}
+\]
+Com a norma podemos calcular a distância entre dois vetores, ou pontos,
+\[
+  d(v, w) = \norm{v-w} = \sqrt{ (v_1-w_1)^2 + (v_2-w_2)^2\,}
+\]
+Podemos também calcular o ângulo entre dois vetores usando a relação entre
+o produto escalar e a norma
+\[
+  v\cdot w = \norm{v}\, \norm{w}\, \cos\theta
+\]
+Finalmente dizemos que os vetores $v$ e $w$ são ortogonais se o ângulo entre
+eles for \ang{90}, ou seja, se
+\[
+  v\cdot w = 0
+\]
+Vamos agora generalizar essas definições para espaços vetoriais quaisquer.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Produto Interno}{def:produto-interno}
+  Dado um espaço vetorial real $V$, um \emph{Produto Interno}\index{Produto!interno}
+  sobre $V$ é uma função, \(\prodint{v, w}\),
+  que associa um número real a cada par de vetores $v$ e $w\in V$,
+  satisfazendo as propriedades
+  \begin{enumerate}
+    \item \(\prodint{v, v} \geq 0\) para todo $v\in V$
+    \item \(\prodint{v, v} = 0\) se, e somente se, $v=0$
+    \item \(\prodint{\alpha v, w} = \alpha \prodint{v, w}\) para todo escalar $\alpha$
+    \item \(\prodint{u+v, w} = \prodint{u, w} + \prodint{v, w}\)
+    \item \(\prodint{v, w} = \prodint{w, v}\)
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Se o espaço vetorial $V$ possui uma definição de produto interno dizemos que ele é um
+\emph{Espaço Vetorial com Produto Interno}\index{Espaço Vetorial!com produto interno}.
+No estudo da transformada de Fourier utilizamos o produto interno
+\begin{equation}
+  \label{eq:produto_interno_funcoes}
+  \prodint{v, w} = \int_a^b v(x) \, w(x) \, dx
+\end{equation}
+para o espaço de funções no intervalo $[a, b]$
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Ortogonalidade}{def:ortogonalidade}
+  Em um espaço vetorial com produto interno $\prodint{,}$, dizemos
+  que dois vetores $v$ e $w$ são \emph{Ortogonais}\index{Ortogonalidade} se
+  \[
+    \prodint{v, w} = 0
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Para indicar que os vetores $v$ e $w$ são ortogonais podemos utilizar a notação
+\(v\perp w\). A proposição a seguir apresenta as propriedades de vetores
+ortogonais.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades da Ortogonalidade}{pro:propriedades-ortogonalidade}
+  Em um espaço vetorial com produto interno, $V$, valem as propriedades de ortogonalidade
+  \begin{enumerate}
+    \item \( 0 \perp v \) para todo \(v\in V\)
+    \item \( v \perp w \) implica que \( w \perp v \)
+    \item Se \( v \perp w \) para todo \(w\in V\), então \(v=0\)
+    \item Se \( u \perp w \) e \( v \perp w \), então  \( (u+v) \perp w \)
+    \item Se \( v \perp w \), então \( (\lambda v) \perp w \) para todo escalar $\lambda$
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+No caso do espaço de funções a condição de ortogonalidade oriunda do produto
+interno~\eqref{eq:produto_interno_funcoes} é
+\[
+  \prodint{v, w} = \int_a^b v(x) \, w(x) \, dx = 0
+\]
+No estudo das séries de Fourier usamos o fato de que as funções seno e
+cosseno com a escolha adequada de frequências são ortogonais.
+
+Se o espaço vetorial possui um produto interno podemos definir uma norma,
+como descrito na próxima definição
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Norma}{def:norma}
+  Dado um espaço vetorial com produto interno \(\prodint{\;,\;}\), definimos a
+  \emph{Norma}\index{Norma} de um vetor $v\in V$ em relação a esse produto interno
+  como
+  \[
+    \norm{v} = \sqrt{\prodint{v, v}}
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Se \(\norm{v}=1\) para algum vetor $v$ dizemos que ele é um
+\emph{Vetor Unitário}\index{Vetor!unitário}.
+
+A norma induzida no espaço de funções pelo produto
+interno~\eqref{eq:produto_interno_funcoes} é
+\[
+  \norm{v} = \prodint{v, v} = \int_a^b v(x)^2 \, dx = 0
+\]
+
+Podemos agora definir a distância entre dois vetores em um espaço vetorial.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Distância}{def:distancia}
+  Dado um espaço vetorial com produto interno \(\prodint{,}\), definimos a
+  \emph{Distância}\index{Distância} entre vetores $v$ e $w\in V$
+  em relação a esse produto interno como
+  \[
+    d(v, w) = \norm{v-w}
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A distância induzida no espaço de funções pelo produto
+interno~\eqref{eq:produto_interno_funcoes} é
+\[
+  d(v, w) = \norm{v-w} = \int_a^b \big(v(x)-w(x)\big)^2 \, dx = 0
+\]
+Essa definição de distância é usada na Seção~\ref{sec:fenomeno_gibbs},
+sobre o fenômeno de Gibbs, para esclarecer o significado apropriado a convergência
+da série de Fourier.
+
+%------------------------------------------------------------------------------%

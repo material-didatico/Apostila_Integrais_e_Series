@@ -1,0 +1,120 @@
+%------------------------------------------------------------------------------%
+\section{Sistemas de Coordenadas}
+\label{sec:sistemas_coorenadas}
+
+O sistema de \emph{Coordenadas Polares}\index{Coordenadas polares}
+é definido a partir do sistema de coordenadas cartesiano $(x, y)$
+pela transformação de coordenadas
+\begin{equation}
+  \label{eq:coordenadas_polares}
+  \begin{split}
+    x & = r \cos(\theta) \\
+    y & = r \sin(\theta)
+  \end{split}
+\end{equation}
+onde um ponto $P$ com coordenadas $(x, y)$ pode ser representado também
+pelas coordenadas $(r, \theta)$, como mostra a Figura~\ref{fig:coordenadas_polares}.
+A transformação inversa é dada por
+\begin{equation}
+  \label{eq:coordenadas_polares_inversa}
+  \begin{split}
+    \theta & = \arctan\left(\dfrac{\,y\,}{x}\right) \\[3mm]
+    r      & = \sqrt{x^2 + y^2\,}
+  \end{split}
+\end{equation}
+Note que todo o plano cartesiano $(x, y)\in\R^2$ é mapeado na região
+\[
+  \begin{split}
+    r      & \in [\,0, \infty) \\
+    \theta & \in [\,0, 2\pi)
+  \end{split}
+\]
+onde o intervalo para $\theta$ pode ser substituído por qualquer outro
+intervalo de comprimento $2\pi$.
+Apesar da origem $(0, 0)$ ser um ponto ordinário no plano, sua representação
+em coordenadas polares é singular, pois se $r=0$ todos os valores de $\theta$
+representam o mesmo ponto.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_coordenadas_polares}
+  \caption{Sistema de coordenadas polares}
+  \label{fig:coordenadas_polares}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+As derivadas de uma função em coordenadas cartesianas e polares
+estão ligadas pela regra da cadeia. Considere a função
+\[
+  g(x, y) = f\big( r(x, y), \theta(x, y) \big)
+\]
+pela regra da cadeia em duas dimensões sabemos que
+\begin{align*}
+  \frac{\partial g}{\partial x}
+  & = \frac{\partial f}{\partial r     } \frac{\partial r     }{\partial x}
+    + \frac{\partial f}{\partial \theta} \frac{\partial \theta}{\partial x} \\[5mm]
+  \frac{\partial g}{\partial y}
+  & = \frac{\partial f}{\partial r     } \frac{\partial r     }{\partial y}
+    + \frac{\partial f}{\partial \theta} \frac{\partial \theta}{\partial y}
+\end{align*}
+Calculando as derivadas da transformação~\eqref{eq:coordenadas_polares_inversa} temos
+\begin{equation}
+\label{eq:coordenadas_polares_regra_cadeia}
+\begin{split}
+  \frac{\partial g}{\partial x}
+  & = \cos\theta           \,\frac{\partial f}{\partial r     }
+    - \frac{\sin\theta}{r} \,\frac{\partial f}{\partial \theta}
+     \\[5mm]
+  \frac{\partial g}{\partial y}
+  & =  \sin\theta           \,\frac{\partial f}{\partial r     }
+    +  \frac{\cos\theta}{r} \,\frac{\partial f}{\partial \theta}
+\end{split}
+\end{equation}
+Note que nessas expressões $r$ e $\theta$ são pensados como funções de
+$x$ e $y$, isso é, $r=r(x, y)$ e $\theta = \theta(x, y)$.
+Podemos reproduzir esses cálculos para obter relação recíproca
+\begin{equation}
+  \label{eq:coordenadas_polares_regra_cadeia_reciproca}
+  \begin{split}
+    \frac{\partial f}{\partial r}
+    & = \cos\theta \,\frac{\partial g}{\partial x}
+      + \sin\theta \,\frac{\partial g}{\partial y}
+    \\[5mm]
+    \frac{\partial f}{\partial \theta}
+    & =
+      - r \sin\theta \,\frac{\partial g}{\partial x}
+      + r \cos\theta \,\frac{\partial g}{\partial y}
+  \end{split}
+\end{equation}
+Uma aplicação das coordenadas polares é a integração em regiões que são mais
+facilmente descritas nessas coordenadas. Por exemplo, o disco de raio $\rho$
+centrado na origem, $D$, é descrito em coordenadas cartesianas como
+\[
+  D = \left\{
+        (x, y) \in\R^2 \st
+        -\rho \leq x \leq \rho
+        \quad\text{ e }\quad
+        -\sqrt{ \rho^2 -x^2} \leq y \leq \sqrt{ \rho^2 - x^2}\,
+  \right\}
+\]
+enquanto que em coordenadas polares ele pode ser descrito como
+\[
+  D = \left\{
+  (r, \theta) \in\R^2 \st
+    0 \leq x \leq \rho
+    \quad\text{ e }\quad
+    0 \leq \theta < 2\pi \,
+  \right\}
+\]
+Assim a integral de uma função $f$ nessa região assume a forma
+\[
+  I = \int_D f ds
+    = \int_{-\rho}^{\rho} \int_{-\sqrt{ \rho^2 -x^2}}^{\sqrt{ \rho^2 -x^2}} \, f(x, y) \, dy dx
+    = \int_0^{2\pi} \int_0^\rho  f(r, \theta) \,r\, dr d\theta
+\]
+Cuidado para não esquecer que a mudança de variáveis transforma o diferencial
+$dxdy$ em $rdrd\theta$.
+
+
+%------------------------------------------------------------------------------%

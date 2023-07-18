@@ -1,0 +1,276 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+% Exercício 5 página 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Utilize o teste da comparação para determinar se a série converge ou diverge.
+\[
+  \sum_{n=1}^{\infty} \frac{\cos^2 n}{n^{\sfrac{3}{2}}}
+\]
+\begin{answer}
+  Sabemos que $|\cos x|\leq 1$, portanto
+  \[0 \;\leq\;\cos^2 x \;\leq\; 1\]
+  como $n^{\sfrac{3}{2}}$ é sempre positivo para $n\geq 1$
+  temos que
+  \[ 0 \;\leq\; \frac{\cos^2}{n^{\sfrac{3}{2}}} \;\leq\; \frac{1}{n^{\sfrac{3}{2}}} \]
+  Analisando a série
+  \[ \sum_{n=1}^{\infty} \frac{1}{n^{\sfrac{3}{2}}} \]
+  percebemos que é uma série $p$ com $p=\sfrac{3}{2}>1$ e portanto é convergente.
+  Concluímos, assim, que a série original é convergente.
+\end{answer}
+\end{exercise}
+
+% Exercício 7 página 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Utilize o teste da comparação para determinar se a série converge ou diverge.
+\[ \sum_{n=1}^{\infty} \sqrt{ \frac{n+4}{n^4+4} \;} \]
+\begin{answer}
+  Analisando o comportamento dos termos da série para $n$ grande percebemos que eles
+  se comportam como
+  \[ b_n = \sqrt{\frac{\alpha}{n^3}} = \frac{\sqrt{\alpha}}{n^{\sfrac{3}{2}}} \]
+  onde $\alpha$ é uma constante. A série com termos $b_n$ é uma série $p$ com
+  $p=\sfrac{3}{2}>1$ e portanto convergente.
+  Vamos tentar mostrar que $a_n\leq b_n$, o que garantiria a convergência da série original.
+  \begin{align*}
+  	a_n                        & \leq b_n                       \\
+  	\sqrt{ \frac{n+4}{n^4+4} } & \leq \sqrt{\frac{\alpha}{n^3}} \\[2mm]
+  	\frac{n+4}{n^4+4}          & \leq \frac{\alpha}{n^3}        \\[2mm]
+  	\frac{n^3(n+4)}{n^4+4}     & \leq \alpha                    \\[2mm]
+  	\frac{n^4+4n^3}{n^4+4}     & \leq \alpha
+  \end{align*}
+  Temos que verificar se a função
+  \[ f(x) = \frac{x^4+4x^3}{x^4+4} \]
+  possui limitante superior para $x\geq 1$. Se esse limitante existir
+  escolhemos um valor qualquer maior do que ele para $\alpha$ e
+  teremos demonstrado que $a_n\leq b_n$.
+
+  Primeiro observamos que a função é contínua para todo $x$ e que $f(0)=0$
+  então calculamos o limite
+  \[
+  \lim_{x\to\infty} \frac{x^4+4x^3}{x^4+4} =
+  \lim_{x\to\infty} \frac{1+\sfrac{4}{x}}{1+\sfrac{4}{x^4}}  = 1
+  \]
+  Como $f$ é contínua para todo $x\geq 0$, $f(0)=0$ e tem assintota
+  horizontal $y=1$, concluímos que ela não pode ir para infinito e portanto
+  tem um limitante superior, o que comprova a desigualdade $a_n\leq b_n$.
+  Portanto, pelo teste da comparação concluímos que a série converge.
+
+  %Para verificar a existência de um limitante podemos esboçar o
+  %gráfico da função para $x\geq 1$ e localizar seus máximos. Sua derivada é
+  %\[ f'(x) = -\frac{4x^2(x^4-4x-12)}{(x^4+4)^2} \]
+  %Temos um problema para encontrar as raízes de um polinômio de 4 grau.
+
+  \vspace{\baselineskip}
+  Uma \textbf{solução alternativa} é \textit{adivinhar}
+  que a comparação deve ser feita com a série
+  \[ \sum_{n=1}^{\infty} \frac{\sqrt{5}}{n^{\sfrac{3}{2}}} \]
+  A demonstração de que $a_n$ é menor do que $b_n$ é feita pelo
+  desenvolvimento
+  \begin{align*}
+  	n^3                        & \leq n^4                  \\
+  	4n^3                       & \leq 4n^4                 \\
+  	n^4 + 4n^3                 & \leq 5n^4                 \\
+  	n^4 + 4n^3                 & \leq 5n^4 + 20 = 5(n^4+4) \\[2mm]
+  	\frac{n^4 + 4n^3}{n^4+4}   & \leq 5                    \\[2mm]
+  	\frac{(n + 4)n^3}{n^4+4}   & \leq 5                    \\[2mm]
+  	\frac{n + 4}{n^4+4}        & \leq \frac{5}{n^3}        \\[2mm]
+  	\frac{n + 4}{n^4+4}        & \leq \frac{5}{n^3}        \\[2mm]
+  	\sqrt{\frac{n + 4}{n^4+4}} & \leq \sqrt{\frac{5}{n^3}} \\[2mm]
+  \end{align*}
+  Com a desigualdade demonstrada podemos concluir que a série converge.
+\end{answer}
+\end{exercise}
+
+% Exercício de prova do prof. Éden Amorim
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Aplicando os testes de convergência verifique se a série numérica abaixo
+  é convergente ou divergente
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n+3^n}
+  \]
+  \begin{answer}
+    Como \(\sum\frac{1}{3^n}\) é convergente e
+    \[
+      \frac{1}{n+3^n} < \frac{1}{3^n}
+    \]
+    a série converge pelo teste da comparação.
+  \end{answer}
+\end{exercise}
+
+% Exercícios 1-4, 6, 8 página 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Utilize o teste da comparação para determinar se cada série converge ou diverge.
+  \begin{mathlist}[2]
+  \item \sum_{n=1}^\infty \frac{1}{n^2+30}
+  \item \sum_{n=1}^\infty \frac{n-1}{n^4+2}
+  \item \sum_{n=2}^\infty \frac{1}{\sqrt{n}-1}
+  \item \sum_{n=2}^\infty \frac{n+2}{n^2-n}
+  \item \sum_{n=1}^\infty \frac{1}{3^n\,n}
+  \item \sum_{n=1}^\infty \frac{\sqrt{n}+1}{\sqrt{n^2+3}}
+  \end{mathlist}
+\end{exercise}
+
+% Exercício 15 página 31
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Utilize o teste da comparação no limite para determinar se a série converge ou diverge.
+\[ \sum_{n=2}^{\infty} \frac{1}{\ln n} \]
+\hint{compare no limite com $\sum \sfrac{1}{n}$}
+\begin{answer}
+  A série harmônica
+  \[ \sum_{n=2}^{\infty} \frac{1}{n} \]
+  é divergente, pois é uma série $p$ com $p=1$.
+  Os termos da série original e da série harmônica são sempre positivos para $n\geq 2$.
+  Aplicando o teste da comparação no limite , temos
+  \begin{align*}
+  	\lim_{n\to\infty}\frac{a_n}{b_n} & = \lim_{n\to\infty} \dfrac{\;\frac{1}{\ln n}\;}{\frac{1}{n}} \\[2mm]
+  	                                 & = \lim_{n\to\infty} \frac{n}{\ln n}                          \\[2mm]
+  	                                 & = \lim_{x\to\infty} \frac{x}{\ln x}                          \\[2mm]
+  	                                 & = \lim_{x\to\infty} \frac{1}{\sfrac{1}{x}}                   \\[2mm]
+  	                                 & = \lim_{x\to\infty} x = \infty
+  \end{align*}
+  Concluímos que a série diverge.
+
+  Observe que $n=1$ não pode fazer parte da série pois $\ln 1 = 0$.
+\end{answer}
+\end{exercise}
+
+% Exercício 24 página 31 Thomas?
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  A série converge ou diverge?
+  \[
+    \sum_{n=3}^{\infty} \frac{5n^3-3n}{n^2(n-2)(n^2+5)}
+  \]
+  \begin{answer}
+    Os termos da série são calculados por uma função racional cuja maior potência de $n$ no numerador
+    é 3 e a maior no denominador é 5, ou seja, para $n$ suficientemente grande $a_n$ deve se comportar
+    como
+    \[
+      f(x) = \frac{x^3}{x^5} = \frac{1}{x^2}
+    \]
+    A série com termos $b_n=f(n)$ é uma série $p$ com $p=2>1$ e portanto convergente.
+    Além disso, $a_n$ e $b_n$ são maiores do que zero para todo $n$ suficientemente grande.
+    Usando o teste da comparação no limite temos
+    \begin{align*}
+      \lim_{n\to\infty} \frac{a_n}{b_n}
+      & = \lim_{n\to\infty} \dfrac{\; \dfrac{5n^3-3n}{\,n^2(n-2)(n^2+5)\,}\;}{\dfrac{1}{n^2}} \\[2mm]
+      & = \lim_{n\to\infty} \frac{5n^3-3n}{\;(n-2)(n^2+5)\;}                                  \\[2mm]
+      & = \lim_{n\to\infty} \frac{5n^3-3n}{\;n^3 -2n^2 +5n -10\;}                             \\[2mm]
+      & = \lim_{x\to\infty} \frac{5x^3-3x}{\;x^3 -2x^2 +5x -10\;}                             \\[2mm]
+      & = \lim_{x\to\infty} \frac{15x^2-3}{\;3x^2 -4x +5\;}                                   \\[2mm]
+      & = \lim_{x\to\infty} \frac{30x}{\;6x-4\;}                                              \\[2mm]
+      & = \lim_{x\to\infty} \frac{30}{6} = 5
+    \end{align*}
+    Portanto a série original converge.
+  \end{answer}
+\end{exercise}
+
+% Exercícios 9-14 pg 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Use o teste da comparação no limite para determinar se cada série é
+  convergente ou divergente.
+  \begin{mathlist}[1][series=03-05-A]
+    \item \sum_{n=1}^\infty \frac{n-2}{n^3-n^2+3} \) \\
+          \hspace{10mm}\hint{Compare com \(\sum_{n=1}^\infty \frac{1}{n^2}\)}
+    \item \sum_{n=1}^\infty \sqrt{\frac{n+1}{n^2+2}} \) \\
+          \hspace{10mm}\hint{Compare com \(\sum_{n=1}^\infty \frac{1}{\sqrt{n}}\)}
+  \end{mathlist}
+  \begin{mathlist}[2][resume=03-05-A]
+    \item \sum_{n=2}^\infty \frac{n(n+1)}{(n^2+1)(n-1)}
+    \item \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+    \item \sum_{n=1}^\infty \frac{5^n}{4^n\sqrt{n}}
+    \item \sum_{n=1}^\infty \left(\frac{2n+3}{5n+4}\right)^n
+  \end{mathlist}
+  \begin{mathlist}[1][resume=03-05-A]
+    \item \sum_{n=1}^\infty \ln\left(1+\frac{1}{n^2}\right) \) \\
+          \hspace{10mm}\hint{Compare com \(\sum_{n=1}^\infty \frac{1}{n^2}\)}
+  \end{mathlist}
+\end{exercise}
+
+% Exercícios 17-36 pg 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Utilize qualquer método para determinar se a série converge ou diverge.
+  \begin{mathlist}[2][series=03-05-A]
+    % 17-22
+    \item \sum_{n=1}^\infty \frac{1}{\,2\sqrt{n}+\sqrt[3]{n}\,}
+    \item \sum_{n=1}^\infty \frac{3}{n+\sqrt{n}}
+    \item \sum_{n=1}^\infty \frac{\sin^2(n)}{2^n}
+    \item \sum_{n=1}^\infty \frac{1+\cos(n)}{n^2}
+    \item \sum_{n=1}^\infty \frac{2n}{3n-1}
+    \item \sum_{n=1}^\infty \frac{n+1}{n^2\sqrt{n}}
+  \end{mathlist}
+  \begin{mathlist}[1][resume=03-05-A]
+    % 23-24
+    \item \sum_{n=1}^\infty \frac{10n+1}{n(n+1)(n+2)}
+    \item \sum_{n=3}^\infty \frac{5n^3-3n}{n^2(n-2)(n^2+5)}
+  \end{mathlist}
+  \begin{mathlist}[2][resume=03-05-A]
+    % 25-28
+    \item \sum_{n=1}^\infty \left(\frac{n}{3n+1}\right)^n
+    \item \sum_{n=1}^\infty \frac{1}{\sqrt{n^3+2}}
+    \item \sum_{n=1}^\infty \frac{1}{\ln\big(\ln(n)\big)}
+    \item \sum_{n=1}^\infty \frac{\big(\ln(n)\big)^2}{n^3}
+    % 29-32
+    \item \sum_{n=1}^\infty \frac{1}{\sqrt{n}\;\ln(n)}
+    \item \sum_{n=1}^\infty \frac{\big(\ln(n)\big)^2}{n^{\sfrac{3}{2}}}
+    \item \sum_{n=1}^\infty \frac{1}{1+\ln(n)}
+    \item \sum_{n=1}^\infty \frac{\ln(n+1)}{n+1}
+    % 33-36
+    \item \sum_{n=1}^\infty \frac{1}{n\sqrt{n^2-1}}
+    \item \sum_{n=2}^\infty \frac{\sqrt{n}}{n^2+1}
+    \item \sum_{n=1}^\infty \frac{1-n}{2^n n}
+    \item \sum_{n=1}^\infty \frac{n+2^n}{2^n n^2}
+  \end{mathlist}
+\end{exercise}
+
+% Exercícios 37-54 pg 31 - Thomas
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Utilize qualquer método para determinar se a série converge ou diverge.
+  \begin{mathlist}[2][series=03-05-B]
+    % 37-39
+    \item \sum_{n=1}^\infty \frac{1}{3^{n-1}+1}
+    \item \sum_{n=1}^\infty \frac{3^{n-1}+1}{3^n}
+    \item \sum_{n=1}^\infty \frac{n+1}{n^2+3n}\;\frac{1}{5n}
+    % 40-42
+    \item \sum_{n=1}^\infty \frac{2^n+3^n}{3^n+4^n}
+    \item \sum_{n=1}^\infty \frac{2^n-n}{2^n\,n}
+    \item \sum_{n=1}^\infty \ln\left(\frac{n}{n+1}\right)
+  \end{mathlist}
+  \begin{mathlist}[1][resume=03-05-B]
+    % 43
+    \item \sum_{n=2}^\infty \frac{1}{n!} \) \\
+      \hint{mostre que \(\frac{1}{n!} \leq \frac{1}{n(n-1)}\) para \(n\geq 2\)}
+  \end{mathlist}
+  \begin{mathlist}[2][resume=03-05-B]
+    % 44-46
+    \item \sum_{n=1}^\infty \frac{(n-1)!}{(n+2)!}
+    \item \sum_{n=1}^\infty \frac{\arctan(n)}{n^{1,1}}
+    \item \sum_{n=1}^\infty \frac{\tanh(n)}{n^2}
+    % 47-49
+    \item \sum_{n=1}^\infty \sin\left(\frac{1}{n}\right)
+    \item \sum_{n=1}^\infty \frac{\arcsec(n)}{n^{1,3}}
+    \item \sum_{n=1}^\infty \frac{1}{n\sqrt[n]{n}}
+    % 50-52
+    \item \sum_{n=1}^\infty \tan\left(\frac{1}{n}\right)
+    \item \sum_{n=1}^\infty \frac{\coth(n)}{n^2}
+    \item \sum_{n=1}^\infty \frac{\sqrt[n]{n}}{n^2}
+  \end{mathlist}
+  \begin{mathlist}[1][resume=03-05-B]
+    % 53 - 54
+    \item \sum_{n=1}^\infty \frac{1}{1+2+3+\cdots+n}
+    \item \sum_{n=1}^\infty \frac{1}{1+4+9+\cdots+n^2}
+  \end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+
+\end{exercises}
+%------------------------------------------------------------------------------%

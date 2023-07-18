@@ -3,7 +3,14 @@
 TEX_FILES=Integracao_e_Series.tex
 PDF_FILES=$(TEX_FILES:.tex=.pdf)
 NON_FILES=$(TEX_FILES:.tex=)
-DIRS= 
+DIRS= 0-Introducao   \
+	  1-Definidas    \
+	  2-Indefinidas  \
+	  3-Sequencias   \
+	  4-Series       \
+	  5-Potencias    \
+      A-Complementar \
+      B-Online
 
 all: $(PDF_FILES)
 

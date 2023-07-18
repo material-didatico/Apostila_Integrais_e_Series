@@ -1,0 +1,72 @@
+%------------------------------------------------------------------------------%
+
+A Tabela~\ref{tab:series-maclaurin} lista algumas séries de Maclaurin
+importantes e seus raios de convergência.
+
+%------------------------------------------------------------------------------%
+\begin{ntable}[\setlength{\extrarowheight}{5mm}]%
+              {@{\extracolsep{-5pt}}%
+               >{$\displaystyle\vphantom{\int_\int^\int}}w{c}{0.12\linewidth}<{$}%
+               >{$\displaystyle\vphantom{\int_\int^\int}}w{l}{0.23\linewidth}<{$}%
+               >{$\displaystyle\vphantom{\int_\int^\int}}w{l}{0.45\linewidth}<{$}%
+               >{$\displaystyle\vphantom{\int_\int^\int}}w{l}{0.10\linewidth}<{$}}[1][5mm]
+              {Séries de Maclaurin}
+              {tab:series-maclaurin}
+  \frac{1}{1-x}
+  & = \sum_{n=0}^{\infty} x^n
+  & = 1 + x + x^2 + x^3 + \cdots
+  & R = 1
+  \\ \hline
+  e^x
+  & = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+  & = 1 + \frac{x}{1}
+    + \frac{x^2}{2!}
+    + \frac{x^3}{3!}
+    + \cdots
+  & R = \infty
+  \\ \hline
+  \sin(x)
+  & = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+  & = x - \frac{x^3}{3!}
+    + \frac{x^5}{5!}
+    - \frac{x^7}{7!}
+    + \cdots
+  & R = \infty
+  \\ \hline
+  \cos(x)
+  & = \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n}}{(2n)!}
+  & = 1 - \frac{x^2}{2}
+    + \frac{x^4}{4!}
+    - \frac{x^6}{6!}
+    + \cdots
+  & R = \infty
+  \\ \hline
+  \arctan(x)
+  & = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1}
+  & =	x - \frac{x^3}{3}
+    + \frac{x^5}{5}
+    - \frac{x^7}{7}
+    + \cdots
+  & R = 1
+  \\ \hline
+  \ln(x+1)
+  & = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}x^n}{n}
+  & = x - \frac{x^2}{2}
+    + \frac{x^3}{3}
+    - \frac{x^4}{4}
+    + \cdots
+  & R = 1
+  \\ \hline
+  (1+x)^k
+  & = \sum_{n=0}^{\infty} \binom{k}{n} x^n
+  & = 1 + kx
+    + \frac{k(k-1)}{2}x^2
+    %	+ \frac{k(k-1)(k-2)}{3!}
+    + \cdots \quad
+  & R = 1
+\end{ntable}
+%------------------------------------------------------------------------------%
+
+\FloatBarrier
+
+%------------------------------------------------------------------------------%

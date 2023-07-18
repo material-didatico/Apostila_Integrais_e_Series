@@ -4,8 +4,22 @@
 \usepackage{integracao_e_series}
 
 \makeatletter
-\graphicspath{  {./0-Introducao/figs/}}
-\def\input@path{{./0-Introducao/figs/}}
+\graphicspath{  {./0-Introducao/figs/},
+                {./1-Definidas/figs/},
+                {./2-Indefinidas/figs/},
+                {./3-Sequencias/figs/},
+                {./4-Series/figs/},
+                {./5-Potencias/figs/},
+                {./A-Complementar/figs/},
+                {./B-Online/figs/}}
+\def\input@path{{./0-Introducao/figs/},
+                {./1-Definidas/figs/},
+                {./2-Indefinidas/figs/},
+                {./3-Sequencias/figs/},
+                {./4-Series/figs/},
+                {./5-Potencias/figs/},
+                {./A-Complementar/figs/},
+                {./B-Online/figs/}}
 \makeatother
 
 \addbibresource{disciplinas.bib}
@@ -51,12 +65,13 @@
 \include{0-Introducao/prefacio}
 \include{1-Definidas/definidas}
 \include{2-Indefinidas/indefinidas}
-\include{3-Series/series}
-\include{4-Potencias/potencias}
+\include{3-Sequencias/Sequencias-Numericas}
+\include{4-Series/Series-Numericas}
+\include{5-Potencias/Series-Potencias}
 
 \appendix
-\include{A-Apendice/complementar}
-\include{A-Apendice/online}
+\include{A-Complementar/Conteudo-Complementar}
+\include{B-Online/Recursos-Online}
 
 %------------------------------------------------------------------------------%
 

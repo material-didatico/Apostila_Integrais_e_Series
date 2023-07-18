@@ -1,0 +1,429 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+%--------------------------------------------------------------------------------------------------%
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+	Encontre o polinômio de Taylor de segundo grau da função $f(x)$ centrado em $a$.
+	Use o Teorema de Taylor para estimar o erro no intervalo $\mathcal{I}$.
+	\begin{mathlist}
+		% 13
+		\item f(x) = \sqrt{x} \) \\[2mm]
+		\(
+			\quad a = 4 \qquad
+ 			\mathcal{I} =\{x\in\R\;/\; 4   \leq x \leq 4,2 \}
+		\)
+		% 14
+		\item f(x) = x^{-2} \) \\[2mm]
+		\(
+			\quad a = 1 \qquad
+		  \mathcal{I} =\{x\in\R\;/\; 0,9 \leq x \leq 1,1 \}
+    \)
+		% 15
+		\item f(x) = x^{2/3} \) \\[2mm]
+		\(
+			\quad a = 1 \qquad
+			\mathcal{I} =\{x\in\R\;/\; 0,8 \leq x \leq 1,2 \}
+		\)
+		% 16
+		\item f(x) = \sin(x) \) \\[2mm]
+		\(
+			\quad a = \frac{\pi}{6} \qquad
+			\mathcal{I} =\left\{x\in\R\;/\; 0   \leq x \leq \frac{\pi}{3} \right\}
+		\)
+		% 17
+		\item f(x) = \sec(x) \) \\[2mm]
+		\(
+			\quad a = 0 \qquad
+ 			\mathcal{I} =\{x\in\R\;/\;-0,2 \leq x \leq 0,2 \}
+		\)
+		% 18
+		\item f(x) = \ln(1+2x) \) \\[2mm]
+		\(
+			\quad a = 1 \qquad
+			\mathcal{I} =\{x\in\R\;/\;0,5 \leq x \leq 1,5 \} \)
+		% 19
+		\item f(x) = e^{x^2} \) \\[2mm]
+		\(
+			\quad a = 0 \qquad
+			\mathcal{I} =\{x\in\R\;/\; 0   \leq x \leq 0,1 \}
+		\)
+		% 20
+		\item f(x) = x\ln(x) \) \\[2mm]
+		\(
+			\quad a = 1 \qquad
+			\mathcal{I} =\{x\in\R\;/\;0,5 \leq x \leq 1,5 \}
+ 		\)
+		% 21
+		\item f(x) = x\sin(x) \) \\[2mm]
+		\(
+			\quad a = 0 \qquad
+			\mathcal{I} =\{x\in\R\;/\;-1  \leq x \leq 1   \}
+		\)
+		% 22
+		\item f(x) = \sinh(2x) = \frac{e^{2x}-e^{-2x}}{2} \) \\[2mm]
+		\(
+			\quad a = 0 \qquad
+			\mathcal{I} =\{x\in\R\;/\;-1  \leq x \leq 1 \}
+		\)
+	\end{mathlist}
+	\begin{answer}
+		\begin{alphalist}
+			% 13   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =              x^{ 1/2} & f^{(0)}(4) & = 2             \\
+				f^{(1)}(x) & =  \frac{1}{2} x^{-1/2} & f^{(1)}(4) & =  \frac{1}{4}  \\
+				f^{(2)}(x) & = -\frac{1}{4} x^{-3/2} & f^{(2)}(4) & = -\frac{1}{32} \\
+				f^{(3)}(x) & =  \frac{3}{8} x^{-5/2} &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = 2 + \frac{1}{4}(x-4) -\frac{1}{64}(x-4)^2 \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-4}^3 \]
+			Majorando o módulo
+			\[ 4 \leq x \leq 4,2 \]
+			\[ \abs{x-4} \leq 0,2 = \frac{2}{10} \]
+			\[ \abs{x-4}^3 \leq \frac{2^3}{10^3} \]
+			Precisamos de $M$ tal que
+			\[ \abs{\frac{3}{8} x^{-5/2}} \leq M \qquad \forall x\in \mathcal{I} \]
+			Como \(\frac{3}{8} x^{-5/2}\) é decrescente em $\mathcal{I}$
+			\[ M = \frac{3}{8} 4^{-5/2} = \frac{3}{8\cdot 2^5} = \frac{3}{2^8} \]
+			portanto
+			\begin{align*}
+				\abs{R_2(x)} & \leq \frac{3}{2^8} \frac{1}{3\cdot 2} \frac{2^3}{10^3} \\[1mm]
+				& = \frac{1}{2^6 10^3}                                    \\[1mm]
+				& \approx \num{0.000016}
+			\end{align*}
+
+			% 14   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =    x^{-2} & f^{(0)}(1) & =  1 \\
+				f^{(1)}(x) & = -2 x^{-3} & f^{(1)}(1) & = -2 \\
+				f^{(2)}(x) & =  6 x^{-4} & f^{(2)}(1) & =  6 \\
+				f^{(3)}(x) & =-24 x^{-5} &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = 1-2(x-1) + 3(x-1)^2 \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-1}^3 \]
+			Majorando o módulo
+			\[ 0,9 \leq x \leq 1,1 \]
+			\[ \abs{x-1}   \leq 0,1 \]
+			\[ \abs{x-1}^3 \leq \frac{1}{10^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{-24 x^{-5}}  \qquad \forall x\in \mathcal{I} \]
+			como $\abs{f^{(3)}(x)}$ é decrescente em $\mathcal{I}$
+			\[ M = \frac{24}{(0,9)^5} = \frac{2^3\cdot 3\cdot 10^5}{9^5} \]
+			portanto
+			\begin{align*}
+				\abs{R_2(x)}
+				& \leq \frac{2^3\cdot 3\cdot 10^5}{9^5}
+				\frac{1}{3\cdot 2}
+				\frac{1}{10^3} \\
+				& = \frac{2^2 10^2}{9^5}  \\
+				& \approx \num{0.006774}
+			\end{align*}
+
+			% 15   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =  x^{2/3}              & f^{(0)}(1) & = 1           \\
+				f^{(1)}(x) & = \frac{2}{3}  x^{-1/3} & f^{(1)}(1) & = \frac{2}{3} \\
+				f^{(2)}(x) & =-\frac{2}{9}  x^{-4/3} & f^{(2)}(1) & =-\frac{2}{9} \\
+				f^{(3)}(x) & = \frac{8}{27} x^{-7/3} &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_3(x)
+			= 1 + \frac{2}{3} (x-1) -\frac{1}{9}(x-1)^2
+			\]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-1}^3 \]
+			Majorando o módulo
+			\[ 0,8 \leq x \leq 1,2 \]
+			\[ \abs{x-1}   \leq 0,2 \]
+			\[ \abs{x-1}^3 \leq \left(\frac{2}{10}\right)^3 = \frac{2^3}{10^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{\frac{8}{27} x^{-7/3}} \qquad \forall x\in \mathcal{I} \]
+			como $\abs{f^{(3)}(x)}$ é decrescente em $\mathcal{I}$
+			\begin{align*}
+				M & = \frac{8}{27} (0,8)^{-7/3} \\
+				& = \frac{8}{27} \left(\frac{10}{8}\right)^{7/3} \\
+				& = \frac{10^{7/3}}{3^3\cdot 8^{4/3}} \\
+				& = \frac{10^{7/3}}{3^3\cdot 2^4}
+			\end{align*}
+			portanto
+			\begin{align*}
+				\abs{R_2(x)} & \leq
+				\frac{10^{7/3}}{\;3^3\cdot 2^4\;}
+				\frac{1}{\;3\cdot 2\;}
+				\frac{2^3}{\;10^3\;}              \\[1mm]
+				& = \frac{1}{3^4\; 2^2\; 10^{2/3}}  \\[1mm]
+				& \approx \num{0.000665}
+			\end{align*}
+
+			% 16   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =  \sin(x) & f^{(0)}(\sfrac{\pi}{6}) & = 1/2        \\
+				f^{(1)}(x) & =  \cos(x) & f^{(1)}(\sfrac{\pi}{6}) & = \sqrt{3}/2 \\
+				f^{(2)}(x) & = -\sin(x) & f^{(2)}(\sfrac{\pi}{6}) & = -1/2       \\
+				f^{(3)}(x) & = -\cos(x) &
+			\end{align*}
+			Polinômio de Taylor
+			\[
+			f(x) \approx T_2(x)
+			= \frac{1}{2}
+			+ \frac{\sqrt{3}}{2}\left(x-\frac{\pi}{6}\right)
+			- \frac{1}{4}\left(x-\frac{\pi}{6}\right)^2
+			\]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-\frac{\pi}{6}}^3 \]
+			Majorando o módulo
+			\[ 0 \leq x \leq \frac{\pi}{3} \]
+			\[ \abs{x-\frac{\pi}{6}}   \leq \frac{\pi}{6} \]
+			\[ \abs{x-\frac{\pi}{6}}^3 \leq \frac{\pi^3}{6^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{-\cos(x)} \qquad \forall x\in \mathcal{I} \]
+			como \(\abs{-\cos(x)}\) é decrescente em $\mathcal{I}$
+			\[ M = \cos(0) = 1 \]
+			portanto
+			\[ \abs{R_2(x)} \leq \frac{1}{6}\frac{\pi^3}{6^3} \approx \num{0,023925}  \]
+
+			% 17   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & = \sec(x)                      \\
+				f^{(1)}(x) & = \sec(x)\tan(x)               \\
+				f^{(2)}(x) & = \sec(x)(2\sec^2(x)-1)        \\
+				f^{(3)}(x) & = \sec(x)\tan(x)(6\sec^2(x)-1) \\[2mm]
+				f^{(0)}(0) & = 1 \\
+				f^{(1)}(0) & = 0 \\
+				f^{(2)}(0) & = 1
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = 1 +\frac{x^2}{2}  \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x}^3 \]
+			Majorando o módulo
+			\[ -0,2 \leq x \leq 0,2 \]
+			\[ \abs{x}   \leq 0,2 \]
+			\[ \abs{x}^3 \leq \frac{2^3}{10^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{\sec(x)\tan(x)(6\sec^2(x)-1)} \quad \forall x\in \mathcal{I} \]
+			Como $f^{(3)}$ é uma função impar e crescente on intervalo $[0;0,2]$
+			\[ M = f^{(3)}(0,2) \]
+			portanto
+			\[ \abs{R_2(x)} \leq \]
+
+%			{\color{red} Concluir cálculos}
+
+			% 18   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & = \ln(1+2x)   & f^{(0)}(1) & = \ln 3 \\
+				f^{(1)}(x) & =  2/(1+2x)   & f^{(1)}(1) & = 2/3   \\
+				f^{(2)}(x) & = -4/(1+2x)^2 & f^{(2)}(1) & = -4/9  \\
+				f^{(3)}(x) & = 16/(1+2x)^3 &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = \ln(3) + \frac{2}{3}(x-1) -\frac{2}{9}(x-1)^2 \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-1}^3 \]
+			Majorando o módulo
+			\[ 0,5 \leq x \leq 1,5 \]
+			\[ \abs{x-1}   \leq 0,5 \]
+			\[ \abs{x-1}^3 \leq \frac{1}{2^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{\frac{16}{(1+2x)^3}} \qquad \forall x\in \mathcal{I} \]
+			como $f^{(3)}$ é uma função decrescente em $\mathcal{I}$
+			\[ M = \frac{16}{(1+2\cdot 0,5)^3} = 2 \]
+			portanto
+			\[
+			\abs{R_2(x)}
+			\leq \frac{2}{3\cdot 2}\frac{1}{2^3}
+			= \frac{1}{3\cdot 2^3}
+			\approx \num{0,041667}
+			\]
+
+			% 19   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & = e^{x^2}           & f^{(0)}(0) & = 1 \\
+				f^{(1)}(x) & = e^{x^2}(2x)       & f^{(1)}(0) & = 0 \\
+				f^{(2)}(x) & = e^{x^2}(2+4x^2)   & f^{(2)}(0) & = 2 \\
+				f^{(3)}(x) & = e^{x^2}(12x+8x^3) &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_3(x) = 1 + \frac{x^2}{2} \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x}^3 \]
+			Majorando o módulo
+			\[ 0 \leq x \leq 0,1
+			\;\Rightarrow\; \abs{x}   \leq 0,1
+			\;\Rightarrow\; \abs{x}^3 \leq \frac{1}{10^3}
+			\]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{e^{x^2}(12x+8x^3)} \qquad \forall x\in \mathcal{I} \]
+			como $f^{(3)}$ é uma função crescente em $\mathcal{I}$
+			\begin{align*}
+				M & = f^{(3)}(0,1)                              \\
+				& = e^{0,1^2}( 12\cdot 0,1 +8\cdot (0,1)^3) \\
+				& \approx \num{1.2201}
+			\end{align*}
+			portanto
+			\[ \abs{R_2(x)} \leq  \frac{\num{1.2201}}{6\cdot 10^3} \approx \num{0.000203} \]
+
+			% 20   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & = x\ln(x)  & f^{(0)}(1) & = 0 \\
+				f^{(1)}(x) & = \ln(x)+1 & f^{(1)}(1) & = 1 \\
+				f^{(2)}(x) & =  1/x     & f^{(2)}(1) & = 1 \\
+				f^{(3)}(x) & = -1/x^2   &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = (x-1) + \frac{(x-1)^2}{2} \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x-1}^3 \]
+			Majorando o módulo
+			\[ 0,5 \leq x \leq 1,5 \]
+			\[ \abs{x-1}   \leq 0,5 \]
+			\[ \abs{x-1}^3 \leq \frac{1}{2^3} \]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{-1/x^2} \qquad \forall x\in \mathcal{I} \]
+			como $\abs{f^{(3)}}$ é uma função decrescente em $\mathcal{I}$
+			\[ M = \abs{f^{(3)}(0,5)} = \frac{1}{0,5^2} = 2^2 \]
+			portanto
+			\[
+			\abs{R_2(x)}
+			\leq \frac{2^2}{3\cdot 2} \frac{1}{2^3}
+			= \frac{1}{3\cdot 2^2}
+			\approx \num{0.083333}
+			\]
+
+			% 21   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =  x\sin(x)            \\
+				f^{(1)}(x) & =   \sin(x) + x\cos(x) \\
+				f^{(2)}(x) & =  2\cos(x) - x\sin(x) \\
+				f^{(3)}(x) & = -3\sin(x) - x\cos(x) \\[2mm]
+				f^{(0)}(0) & = 0 \\
+				f^{(1)}(0) & = 0 \\
+				f^{(2)}(0) & = 2
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = x^2 \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x}^3 \]
+			Majorando o módulo
+			\[
+			-1 \leq x \leq 1
+			\;\Rightarrow\; \abs{x}   \leq 1
+			\;\Rightarrow\; \abs{x}^3 \leq 1
+			\]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{-3\sin(x) - x\cos(x)} \qquad \forall x\in \mathcal{I} \]
+			Após alguns cálculos elaborados obtemos
+			\[ M = \num{3.065} \]
+			portanto
+			\[ \abs{R_2(x)} \leq \num{3.065} \]
+
+			% 22   --------------------------------------------------------------------------------------------%
+			\item Calculando as derivadas de $f$
+			\begin{align*}
+				f^{(0)}(x) & =  \sinh(2x) & f^{(0)}(0) & = 0 \\
+				f^{(1)}(x) & = 2\cosh(2x) & f^{(1)}(0) & = 2 \\
+				f^{(2)}(x) & = 4\sinh(2x) & f^{(2)}(0) & = 0 \\
+				f^{(3)}(x) & = 8\cosh(2x) &
+			\end{align*}
+			Polinômio de Taylor
+			\[ f(x) \approx T_2(x) = 2x \]
+			Pelo teorema de Taylor
+			\[ \abs{R_2(x)} \leq \frac{M}{3!}\abs{x}^3 \]
+			Majorando o módulo
+			\[ -1 \leq x \leq 1
+			\;\Rightarrow\; \abs{x}   \leq 1
+			\;\Rightarrow\; \abs{x}^3 \leq 1
+			\]
+			Precisamos de $M$ tal que
+			\[ M \geq \abs{8\cosh(2x)} \qquad \forall x\in \mathcal{I} \]
+			\[ M = 8\cosh(2) \approx 30.098 \]
+			portanto
+			\[ \abs{R_2(x)} \leq \frac{\num{30.098}}{6} \approx \num{5.0163} \]
+		\end{alphalist}
+	\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+% Stewart pg 690 47-50
+%------------------------------------------------------------------------------%
+\begin{exercise}
+	Calcule a integral indefinida como uma série infinita.
+	\begin{mathlist}
+		\item \int x\cos\left(x^3\right) \,dx
+		\item \int \frac{e^x-1}{x}\,dx
+		\item \int \frac{\cos(x)-1}{x}\,dx
+		\item \int \arctan(x^2) \,dx
+	\end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+% Stewart 7 pg 766 51-54
+%------------------------------------------------------------------------------%
+\begin{exercise}
+	Use séries para aproximar a integral definida com erro menor do que a
+	tolerância, $\varepsilon$, indicada.
+  \hint{Use a estimativa de erros das séries alternadas e uma calculadora.}
+	\begin{mathlist}
+		\item \int_{0}^{\sfrac{1}{2}} \arctan(x) \,dx \) \tabto{50mm} \( \varepsilon = 10^{-4} \)
+		\item \int_{0}^{1} \sin(x^4) \,dx             \) \tabto{50mm} \( \varepsilon = 10^{-4} \)
+		\item \int_{0}^{0,4} \sqrt{1+x^4} \,dx        \) \tabto{50mm} \( \varepsilon = 5\cdot 10^{-6} \)
+	\end{mathlist}
+\end{exercise}
+
+\begin{exercise}
+  Encontre uma série cuja soma seja o valor da integral definida
+  \[
+    \int_{0}^{0,5} x^2e^{-x^2} \,dx
+  \]
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+% Stewart pg 690 55-57
+%------------------------------------------------------------------------------%
+\begin{exercise}
+	Use séries para calcular o limite.
+	\begin{mathlist}
+		\item \lim_{x\to 0} \frac{x-\ln(1+x)}{x^2}
+		\item \lim_{x\to 0} \frac{1-\cos(x)}{1+x-e^x}
+		\item \lim_{x\to 0} \frac{\sin(x)-x+\sfrac{x^3}{6}}{x^5}
+	\end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{mathlist}[2]
+%  \item
+%  \item
+%  \item
+%\end{mathlist}
+%\begin{answer}
+%  \begin{alphalist}[3]
+%    \item
+%    \item
+%    \item
+%  \end{alphalist}
+%\end{answer}
+%\end{exercise}
+
+\end{exercises}
+%------------------------------------------------------------------------------%

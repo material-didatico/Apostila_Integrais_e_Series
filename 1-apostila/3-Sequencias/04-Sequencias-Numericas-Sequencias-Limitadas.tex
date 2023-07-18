@@ -1,0 +1,284 @@
+%------------------------------------------------------------------------------%
+\section{Sequências Limitadas}
+
+Em muitas aplicações precisamos determinar se uma sequência é convergente ou não,
+mas não precisamos calcular explicitamente seu limite. Muitos métodos numéricos
+ou computacionais entram nessa categoria. Nos próximos capítulos vamos usar
+a existência do limite de sequências para analisar a convergência de séries,
+nestes casos também não precisaremos determinar o valor do limite.
+Dessa forma, nesta seção apresentamos algumas propriedades de sequências
+que podem nos ajudar a determinar sua convergência sem precisarmos calcular
+seu limite.
+
+A primeira propriedade que vamos definir é se uma sequência é limitada ou não,
+isso é, se os seus termos podem divergir para o infinito ou não. Note que no
+Cálculo I esse mesmo conceito é definido para funções reais.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Sequências Limitadas}{def:sequencia-limitada}
+  Dizemos que uma sequência numérica real $(a_n)$ é:%
+  \index{Sequência!limitada}%
+  \index{Sequência!limitada inferiormente}%
+  \index{Sequência!limitada superiormente}
+  \begin{description}[labelwidth=\widthof{\bfseries Limitada Superiormente}]
+    \item[Limitada Inferiormente] \tabto{45mm} se existe $m\in\R$ tal que $m\leq a_n$ para todo $n\in \N$;
+    \item[Limitada Superiormente] \tabto{45mm} se existe $M\in\R$ tal que $a_n\leq M$ para todo $n\in \N$;
+    \item[Limitada]               \tabto{45mm} se é limitada superiormente e inferiormente, \\
+                                  \tabto{45mm} ou seja, existem $M$ e $m$ tais que $m\leq a_n\leq M$.
+  \end{description}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Um cuidado especial precisa ser tomado aqui, estamos usando a palavra
+limite em dois sentidos diferentes. Quando falamos do \emph{limite de uma sequência}
+estamos tratando da sua convergência, isso é, queremos saber se $a_n\to L$. Porém,
+quando falamos de \emph{sequências limitadas} estamos nos referindo a barreiras
+que os termos da sequência jamais ultrapassam, $m\leq a_n \leq M$.
+A Figura~\ref{fig:sequencia_limitada} ilustra os casos descritos na
+Definição~\ref{def:sequencia-limitada}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.3333\linewidth}
+    \centering
+    \input{fig_sequencia_limitada_1}
+    \caption{Sequência limitada\\inferiormente.}
+    \label{fig:sequencia_limitada_1}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.3333\linewidth}
+    \centering
+    \input{fig_sequencia_limitada_2}
+    \caption{Sequência limitada\\superiormente.}
+    \label{fig:sequencia_limitada_2}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.3333\linewidth}
+    \centering
+    \input{fig_sequencia_limitada_3}
+    \caption{Sequência limitada.}
+    \label{fig:sequencia_limitada_3}
+  \end{subfigure}\\
+  \caption{Ilustração das sequências limitadas.}
+  \label{fig:sequencia_limitada}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Note que, mesmo que a Definição~\ref{def:sequencia-limitada} exija que
+as desigualdades valham para todos os termos da sequência, $n\in\N$,
+em muitos casos basta que a relação seja verdadeira apenas a partir de um
+determinado índice $n>N\in\N$.
+
+Uma foma alternativa de descrever uma sequência limitada é impor a condição
+\[
+  \abs{a_n} \leq A  \,,
+\]
+nesse caso $M=A$ e $m=-A$.
+
+Outra propriedade que vamos definir depende dos termos da sequência serem sempre
+maiores ou menores do que o seu antecessor. Também existe uma definição equivalente
+para funções reais, estudada no Cálculo I. Pesquise as semelhanças e diferenças
+das definições em cada caso.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Sequências Crescentes e Decrescentes}{def:sequencia-crescente}
+  Uma sequência $(a_n)$ é:%
+  \index{Sequência!crescente}%
+  \index{Sequência!decrescente}%
+  \index{Sequência!monótona}
+  \begin{description}[labelwidth=\widthof{\bfseries Decrescente}]
+      \item[Crescente]   se $a_n \leq a_{n+1}$ para todo $n\in\N$;
+      \item[Decrescente] se $a_n \geq a_{n+1}$ para todo $n\in\N$;
+      \item[Monótona]    se é crescente ou decrescente, também chamada de monotônica.
+  \end{description}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Note que a definição de sequência crescente não exige que um termo
+seja estritamente maior do que o anterior, permitindo que ele seja igual.
+O equivalente vale para as sequências decrescentes.
+Dessa forma, pela definição, uma sequência constante é crescente e decrescente
+ao mesmo tempo.
+Uma nomenclatura mais precisa seria sequência ``não decrescente'' ou ``não crescente'',
+porém, esses nomes não são comumente usados nos livros de Cálculo.
+A Figura~\ref{fig:sequencia_monotona} apresenta uma sequência crescente
+e uma decrescente, ambas são monótonas.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.5\linewidth}
+    \centering
+    \input{fig_sequencia_monotona_1}
+    \caption{Sequência crescente.}
+    \label{fig:sequencia_monotona_1}
+  \end{subfigure}%
+  \begin{subfigure}[t]{0.5\linewidth}
+    \centering
+    \input{fig_sequencia_monotona_2}
+    \caption{Sequência decrescente.}
+    \label{fig:sequencia_monotona_2}
+  \end{subfigure}\\
+  \caption{Ilustração das sequências crescentes e decrescentes.}
+  \label{fig:sequencia_monotona}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Usando as duas definições anteriores podemos apresentar o seguinte teorema
+que pode nos ajudar a determinar se uma sequência é convergente sem
+precisar calcular seu limite.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Convergência da Sequência Monótona}{teo:sequencia-monotona}
+  Se uma sequência é \emph{limitada e monótona} então ela é
+  \emph{convergente}.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Para demonstrar esse resultado será necessário utilizar o
+\emph{ínfimo}\index{Infimo@Ínfimo} de um subconjunto dos reais,
+para os detalhes sobre o ínfimo veja Definição~\ref{def:inf-sup}.
+
+\begin{proof}
+  Vamos considerar o caso que $a_n$ é decrescente, ou seja,
+  \[
+    a_1 \geq a_2 \geq a_3 \geq a_4 \geq \cdots
+  \]
+  Seja $L$ o maior valor tal que $a_n\geq L$,
+  ou seja, o ínfimo dos termos da sequência
+  \[
+    L = \inf(a_n) \,, \qquad n = 1, 2, 3, \dots
+  \]
+  Como $L$ é o maior valor satisfazendo essa propriedade,
+  para qualquer $\varepsilon>0$ existe $N$ tal que
+  \[
+    a_{N} <  L + \varepsilon   \,.
+  \]
+  Como a sequência é decrescente, para todo $n>N$, $a_n\leq a_N$, então
+  \[
+    a_{n} < L+\varepsilon  \,,
+  \]
+  para todo $n>N$.
+  Como $a_n>L$ segue diretamente que
+  \[
+    a_n > L-\varepsilon  \,.
+  \]
+  Assim,
+  \[
+    L-\varepsilon < a_{n} < L+\varepsilon
+    \qquad\text{portanto}\qquad
+    a_n \to L     \,.
+  \]
+\end{proof}
+
+Note que os valores iniciais da sequência não influenciam na sua convergência.
+Assim basta que ela seja limitada e monótona a partir de algum índice $N$,
+isso é, basta que ela seja limitada e monótona para todo $n>N$.
+
+O teorema a seguir explicita a propriedade de que as sequências convergentes
+sempre são limitadas.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Sequência convergente é limitada}{teo:sequencia-convergente-limitada}
+  Toda sequência convergente é limitada.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+\begin{proof}
+  Tome uma sequência convergente $a_n\to L$.
+  Como ela é convergente podemos escolher um $\varepsilon$ e sabemos que
+  existe $N$ tal que, para todo $n>N$, temos que $\abs{x_n-L}<\varepsilon$,
+  ou seja,
+  \[
+    \varepsilon - L < x_n < \varepsilon + L
+  \]
+  Como a lista de termos $a_n$ com $n\leq N$ é finita ela possui um
+  minimo e um máximo
+  \[
+    m_1 = \min_{n\leq N}(a_n) \qquad\text{ e }\qquad
+    M_1 = \max_{n\leq N}(a_n)
+  \]
+  Definindo
+  \[
+    m = \min(m_1, \varepsilon - L) \qquad\text{ e }\qquad
+    M = \max(M_1, \varepsilon + L)
+  \]
+  Concluímos que, para todo $n\in\N$,
+  \[
+    m \leq a_n \leq M
+  \]
+  e portanto $a_n$ é limitada.
+\end{proof}
+
+Os últimos teoremas são úteis para verificar se uma dada sequência é ou não convergente,
+como ilustrado nos exemplos a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência das sequências
+  \begin{align*}
+    (a_n) & = ( 1,  2,  3, \dots,         n, \dots) \\
+    (b_n) & = (-2, -4, -6, \dots,       -2n, \dots) \\
+    (c_n) & = ( 1,  3,  5, \dots,      2n-1, \dots) \\
+    (d_n) & = (-1,  4, -9, \dots, (-1)^nn^2, \dots)
+  \end{align*}
+  \solution
+  Observamos que nenhuma das sequências é limitada, assim pelo
+  Teorema~\ref{teo:sequencia-convergente-limitada} nenhuma pode ser
+  convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência da sequência $a_n = p^n$ para $p>1$.
+  \solution
+  Como $p>1$, a sequência $a_n = p^n$ é monotônica crescente,
+  mas não é limitada, portanto não é convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência da sequência $a_n = p^n$ para $0<p<1$.
+  \solution
+  Como $0<p<1$, a sequência $a_n = p^n$ é monotônica decrescente e limitada,
+  portanto é convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Para $0<p<1$, verifique a convergência da sequência
+  \[
+    \left(\; 1, \; 1+p, \; 1+p+p^2, \; \dots, \; \sum_{k=0}^n p^k, \; \dots \; \right) \,.
+  \]
+  \solution
+
+  Como $p>0$, a sequência claramente é crescente.
+
+  Vamos verificar que a sequência é limitada.
+  Note que o $n$-ésimo termo dessa sequência tem a forma
+  \[
+    a_n = 1 + p + p^2 + \cdots + p^n  \,.
+  \]
+  Multiplicando por $p$, temos
+  \[
+    pa_n = p + p^2 + \cdots + p^{n+1}  \,.
+  \]
+  Subtraindo as expressões temos
+  \[
+    a_n - pa_n = 1 - p^{n+1}   \,,
+  \]
+  ou seja,
+  \[
+    a_n = \frac{\;1-p^{n+1}\;}{1-p}  \,.
+  \]
+  Como $0<p<1$ sabemos que $0<p^{n+1}<1$ e portanto $1-p^{n+1}<1$, portanto
+  \[
+    a_n \leq \frac{1}{1-a}   \,,
+  \]
+  ou seja, $a_n$ é limitada, sendo assim, $a_n$ é uma sequência convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

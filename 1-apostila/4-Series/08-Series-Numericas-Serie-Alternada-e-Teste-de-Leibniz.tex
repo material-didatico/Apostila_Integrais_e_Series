@@ -1,0 +1,273 @@
+%------------------------------------------------------------------------------%
+\section{Série Alternada e Teste de Leibniz}
+
+Nas seções anteriores apresentamos vários testes que verificam se uma
+série de termos não negativos é convergente. Agora vamos discutir
+séries que possuem termos positivos e negativos. Nesta seção
+estudaremos o caso particular onde os sinais se alternam produzindo o que
+chamamos de série alternada. Na próxima seção apresentamos os conceitos de
+convergência absoluta e condicional que vamos usar para os outros casos.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série Alternada}{def:serie-alternada}
+  Uma série com a forma
+  \[
+    \sum_{n=1}^\infty (-1)^{n+1}\,a_n
+    = a_1 - a_2 + a_3 - a_4 + \cdots
+  \]
+  onde $a_n>0$ para todo $n$ é chamada de
+\emph{Série Alternada}\index{Série!alternada}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Para esse caso particular de série temos um teste de convergência bastante
+simples, o Teste de Leibniz~\ref{teo:Teste-Leibniz}, e também uma forma de
+estimar o erro ao aproximarmos a soma da série
+por uma soma parcial~\ref{pro:erro-serie-alternada}.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste de Leibniz}{teo:Teste-Leibniz}
+  Seja\index{Teste!Leibniz}
+  \[
+    \sum_{n=1}^\infty (-1)^{n+1}\,a_n
+  \]
+  uma Série Alternada, Definição~\ref{def:serie-alternada}, se
+  \begin{enumerate}
+      \item $a_n>0$,
+      \item $a_n\geq a_{n+1}$,
+      \item $a_n\to 0$
+  \end{enumerate}
+  para todo $n \geq N$, então a série converge.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+Vamos assumir que $N=1$, isso é, as condições do teste valem para todos os
+termos da série. Escolhendo $n$ par e escrevendo $n=2m$, temos que
+a soma dos $n$ primeiros termos é
+\[
+  S_n = S_{2m} = a_1 - a_2 + a_3 - a_4 + a_5 - a_6 + \cdots + a_{2m-1} - a_{2m}    \,.
+\]
+Como essa é uma soma finita podemos agrupar os termos dois a dois
+\[
+  S_{2m} = (a_1 - a_2) + (a_3 - a_4) + (a_5 - a_6) + \cdots + (a_{2m-1} - a_{2m})    \,.
+\]
+Cada termo entre parenteses é positivo ou zero, pois $a_k\geq a_{k+1}$,
+então podemos concluir que $S_{2m+2}\geq S_{2m}$ para todo $m$, ou seja,
+a sequência $S_{2m}$ é crescente.
+Vamos agora agrupar os termos de $S_{2m}$ de outra forma
+\[
+  S_{2m} = a_1 - (a_2 - a_3) - (a_4 - a_5) - \cdots -  (a_{2m-2} - a_{2m-1}) - a_{2m}
+\]
+dessa igualdade concluímos que
+\(
+  S_{2m} \leq a_1
+\).
+Como a sequência $S_{2m}$ é crescente e limitada, pelo Teorema~\ref{teo:sequencia-monotona},
+concluirmos que ela é convergente e podemos escrever
+\begin{equation}
+  \label{eq:test_leibniz_par}
+  \lim_{m\to \infty} S_{2m} = L
+\end{equation}
+para algum $L\in\R$.
+Considerando agora o caso onde $n$ é ímpar, $n=2m+1$, temos que a soma dos $n$
+primeiros termos é
+\[
+  S_n = S_{2m+1} = S_{2m} + a_{2m+1}
+\]
+como $a_n\to 0$ temos que
+\begin{equation}
+  \label{eq:test_leibniz_impar}
+  \lim_{m\to \infty} S_{2m+1}
+  = \lim_{m\to \infty} S_{2m} + \lim_{m\to \infty} a_{2m+1}
+  = L + 0 = L   \,.
+\end{equation}
+A equação~\eqref{eq:test_leibniz_par} nos informa que a subsequência dos termos pares
+tende para~$L$, enquanto que, a equação~\eqref{eq:test_leibniz_impar} garante que os
+termos impares convergem para o mesmo valor. Podemos concluir então que
+\[
+  \sum_{n=1}^\infty (-1)^{n+1}a_n
+  = \lim_{n\to \infty} S_n
+  = L    \,.
+\]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Para aplicarmos o Teste de Leibniz precisamos garantir que $a_n\geq a_{n+1}$,
+o que pode ser complicado em alguns casos. Porém, se conhecermos uma função $f$
+tal que $f(n)=a_n$, podemos verificar se a função é decrescente calculando sua
+derivada. Se $f'(x)\leq 0$ para todo $x\leq N$ podemos concluir que
+$a_n\geq a_{n+1}$ para todo $n\geq N$.
+
+Um resultado que podemos extrair do Teste de Leibniz é o critério de convergência
+da Série-$p$ com termos alternados.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Convergência da Série~$p$ Alternada}{prop:convergencia-serie-p-alternada}
+  Observe que $a_n=\sfrac{1}{n^p}$ com $p>0$, satisfaz todas as hipóteses do
+  Teorema~\ref{teo:Teste-Leibniz},
+  então a \emph{Série~$p$ Alternada}\index{Série!$p$ alternada}
+  \[
+    \sum_{n=1}^\infty \frac{\,(-1)^{n+1}\,}{n^p}
+  \]
+  é convergente para todo $p>0$.
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Note para $0<p\leq 1$ a série~$p$ não converge,
+entretanto a série~$p$ alternada converge.
+
+Apresentamos a seguir alguns exemplos do uso do Teste de Leibniz.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o Teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=1}^\infty(-1)^{n}\ln\left(1+\frac{1}{n}\right)     \,.
+  \]
+  \solution
+  Seja
+  \[
+    a_n=\ln\left(1+\frac{1}{n}\right)    \,,
+  \]
+  note que $a_n>0$ para todo $n\geq 1$, pois
+  \(
+    1 + \frac{1}{n} > 1
+  \),
+  note também que se definirmos
+  \[
+    f(x) = \ln\left(1+\frac{1}{x}\right)
+  \]
+  temos
+  \[
+    f'(x)=\frac{-1}{x^2+x}<0 \qquad \forall x\geq 1
+  \]
+  o que mostra que $a_{n+1}<a_n$.
+  Então $a_n$ é decrescente. Além disso, como a função $\ln(x)$ é contínua em $1$
+  segue que
+  \[
+    \lim a_n = \ln\lim \left(1+\frac{1}{n}\right)
+             = \ln 1
+             = 0     \,.
+  \]
+  Assim, podemos aplicar o Teste de Leibniz e concluir que a série alternada converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o Teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=2}^\infty(-1)^{n+1}\frac{4}{(\ln n)^2}   \,.
+  \]
+  \solution
+  Como  $\ln n$ é crescente,
+  \[
+    a_n = \frac{4}{(\ln n)^2}
+  \]
+  é decrescente.
+  Além disso $a_n>0$ para todo $n\geq 2$ e $a_n\to 0$, pois
+  \[
+    \left(\ln n\right)^2\to \infty    \,.
+  \]
+  Dessa forma, podemos aplicar o teste de Leibniz para concluir que a série alternada converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=1}^\infty(-1)^{n+1}\frac{10^n}{(n+1)!}        \,.
+  \]
+  \solution
+  Seja
+  \(
+    a_n=\frac{10^n}{(n+1)!}
+  \).
+  Veja que se $n\geq 8$, então $n+2\geq 10$ e
+  \(
+    1 \geq \frac{10}{n+2}
+  \).
+  Assim,
+  \begin{align*}
+    a_{n+1} & =\frac{10^{n+1}}{(n+2)!}             \\
+            & =\frac{10^n}{(n+1)!}\frac{10}{(n+2)} \\
+            & \leq \frac{10^n}{(n+1)!}             \\
+            & =a_n
+  \end{align*}
+  ou seja, $a_n$ é decrescente a partir de $n=8$.
+
+  Para verificar que $a_n\to 0$, note que se $n\geq 10$,
+  \begin{align*}
+    (n+1)! & = 1\cdot 2\cdot 3\cdots n\cdot (n+1) \\
+           & \geq 10! \; 10^{n-10}\,(n+1)         \,.
+  \end{align*}
+  Dessa forma
+  \begin{align*}
+    0 & <\frac{10^n}{(n+1)!}                    \\
+      & \leq \frac{10^n}{10!\;10^{n-10}\,(n+1)} \\
+      & =\frac{10^{10}}{10!\,(n+1)}             \,.
+  \end{align*}
+  Então, pelo Teorema do Confronto~\ref{teo:confronto} temos que $a_n\to 0$.
+
+  Desse modo, todas as hipóteses do teorema são satisfeitas,
+  de forma que podemos concluir que essa série alternada converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\subsection*{Estimativa de Erro}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+Assim como no Teste da Integral o Teste de Leibniz também nos fornece uma
+estimativa para o erro $R_n$ de uma série que atende às condições do teste.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Erro de uma Série Alternada}{pro:erro-serie-alternada}
+  Seja%
+  \index{Série!estimativa de erro!teste Leibniz}%
+  \index{Estimativa de erro!teste Leibniz}
+  $a_k>0$ tal que $a_{k+1}\leq a_k$ e que a série alternada converge para $S$
+  \[
+    \sum_{k=1}^\infty (-1)^{k+1}\,a_k     \,.
+  \]
+  Nesse caso, o erro cometido ao aproximarmos $S$ por uma soma parcial
+  \[
+    S_n = \sum_{k=1}^n (-1)^{k+1}\,a_k
+  \]
+  é o resto da série (Definição~\ref{def:resto-serie}) e está limitado pelo
+  primeiro termo não incluído na soma parcial
+  \[
+    \abs{R_n} = \abs{S - S_n} \leq \abs{a_{n+1} }    \,.
+  \]
+\end{proposicao}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Note que, o resto da série
+  \[
+    R_n = \sum_{k=n+1}^\infty(-1)^{k+1}\,a_k
+  \]
+  pode ser expandido em
+  \[
+    R_n =
+    \begin{cases}
+      \hphantom{-} a_{n+1}-a_{n+2}+a_{n+3}-\cdots, & \;\text{ se } n \text{ é par} \\
+      -            a_{n+1}+a_{n+2}-a_{n+3}+\cdots, & \;\text{ se } n \text{ é ímpar}
+    \end{cases}
+  \]
+  Podemos escrever então que
+  \[
+    \abs{R_n} = \abs{\,a_{n+1}-(a_{n+2}-a_{n+3})-(a_{n+4}-a_{n+5})-\cdots\,}     \,.
+  \]
+  Agora, usando que todos os termos entre parênteses são positivos,
+  pois $a_{n}>a_{n+1}$, temos que
+  \[
+    \abs{R_n} < \abs{a_{n+1}}
+  \]
+  o que demonstra o teorema.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

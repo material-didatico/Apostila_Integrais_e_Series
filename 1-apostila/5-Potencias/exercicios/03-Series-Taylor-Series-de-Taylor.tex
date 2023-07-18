@@ -1,0 +1,649 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+%--------------------------------------------------------------------------------------------------%
+% Stewart 7ed seção 11.10 página 765
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a série de Maclaurin para $f(x)$, e o raio de convergência da série de potências.
+\begin{mathlist}
+  % 5  ----------------------------------------------------------------------------------------------%
+  \item f(x) = (1-x)^{-2}
+  % 6  ----------------------------------------------------------------------------------------------%
+  \item f(x) = \ln(1+x)
+  % 7  ----------------------------------------------------------------------------------------------%
+  \item f(x) = \sin(\pi x)
+  % 8  ----------------------------------------------------------------------------------------------%
+  \item f(x) = e^{-2x}
+  % 9  ----------------------------------------------------------------------------------------------%
+  \item f(x) = 2^x
+  % 10  ---------------------------------------------------------------------------------------------%
+  \item f(x) = x\cos(x)
+  % 11  ---------------------------------------------------------------------------------------------%
+  \item f(x) = \sinh(x) = \frac{e^x-e^{-x}}{2}
+  % 12  ---------------------------------------------------------------------------------------------%
+  \item f(x) = \cosh(x) = \frac{e^x+e^{-x}}{2}
+\end{mathlist}
+\begin{answer}
+  \begin{alphalist}
+  % 5  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+    f^{(0)}(x) & = (1-x)^{-2}                    \\
+  	f^{(1)}(x) & = 2(1-x)^{-3}                   \\
+  	f^{(2)}(x) & = 2 \cdot 3(1-x)^{-4}          \\
+  	f^{(3)}(x) & = 2 \cdot 3 \cdot 4(1-x)^{-5} \\
+  	f^{(n)}(x) & = (n+1)!(1-x)^{-n-2}
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+    f^{(0)}(0) & = 1      \\
+    f^{(1)}(0) & = 2!     \\
+    f^{(2)}(0) & = 3!     \\
+    f^{(3)}(0) & = 4!     \\
+    f^{(n)}(0) & = (n+1)!
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) = \sum_{n=0}^\infty \frac{(n+1)! x^n}{n!}
+         = \sum_{n=0}^\infty (n+1) x^n
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\abs{x}\frac{n+2}{n+1}\right)=\abs{x}
+  \]
+  portanto $R=1$.
+
+  % 6  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+  	f^{(0)}(x) & = \ln(1+x)                      \\
+  	f^{(1)}(x) & = (1+x)^{-1}                    \\
+  	f^{(2)}(x) & = -(1+x)^{-2}                   \\
+  	f^{(3)}(x) & = 2(1+x)^{-3}                   \\
+  	f^{(4)}(x) & = -2\cdot 3(1+x)^{-3}          \\
+  	f^{(n)}(x) & = (-1)^{n-1} (n-1)! (1+x)^{-n}
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  	f^{(0)}(0) & = 0                 \\
+  	f^{(1)}(0) & = 1                 \\
+  	f^{(2)}(0) & = -1                \\
+  	f^{(3)}(0) & = 2                 \\
+    f^{(4)}(0) & = -6                \\
+  	f^{(n)}(0) & = (-1)^{n-1} (n-1)!
+  \end{align*}
+  Série de Maclaurin
+  \begin{align*}
+    f(x) & = \sum_{n=0}^\infty (-1)^{(n-1)} (n-1)! \frac{x^n}{n!} \\
+         & = \sum_{n=0}^\infty \frac{(-1)^{n-1} x^n}{n}
+  \end{align*}
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{\abs{x}}{1+\sfrac{1}{n}}\right)=
+    \abs{x}
+  \]
+  portanto $R=1$.
+
+  % 7  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+  	f^{(0)}(x) & =        \sin(\pi x) \\
+  	f^{(1)}(x) & =  \pi   \cos(\pi x) \\
+  	f^{(2)}(x) & = -\pi^2 \sin(\pi x) \\
+  	f^{(3)}(x) & = -\pi^3 \cos(\pi x)
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  	f^{(0)}(0) & = 0      \\
+  	f^{(1)}(0) & = \pi    \\
+  	f^{(2)}(0) & = 0      \\
+  	f^{(3)}(0) & = -\pi^3
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) = \sum_{n=0}^\infty (-1)^n \frac{\pi^{2n+1}}{(2n+1)!} x^{2n+1}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{\pi^2x^2}{(2n+3)(2n+2)}\right) = 0
+  \]
+  portanto $R=\infty$.
+
+  % 8  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+  	f^{(0)}(x) & =    e^{-2x} \\
+  	f^{(1)}(x) & = -2 e^{-2x} \\
+  	f^{(2)}(x) & =  4 e^{-2x} \\
+  	f^{(3)}(x) & = -8 e^{-2x} \\
+  	f^{(4)}(x) & = 16 e^{-2x}
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  	f^{(0)}(0) & =  1 \\
+  	f^{(1)}(0) & = -2 \\
+  	f^{(2)}(0) & =  4 \\
+  	f^{(3)}(0) & = -8 \\
+  	f^{(n)}(0) & = 16
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) = \sum_{n=0}^\infty \frac{(-2)^n}{n!} x^n
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{2\abs{x}}{n+1}\right) = 0
+  \]
+  portanto $R=\infty$.
+
+  % 9  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+  	f^{(0)}(x) & = 2^x           \\
+  	f^{(1)}(x) & = 2^x (\ln 2)   \\
+  	f^{(2)}(x) & = 2^x (\ln 2)^2 \\
+  	f^{(3)}(x) & = 2^x (\ln 2)^3 \\
+  	f^{(n)}(x) & = 2^x (\ln 2)^n
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  	f^{(0)}(0) & = 1         \\
+  	f^{(1)}(0) & = \ln 2     \\
+  	f^{(2)}(0) & = (\ln 2)^2 \\
+  	f^{(3)}(0) & = (\ln 2)^3 \\
+  	f^{(n)}(0) & = (\ln 2)^n
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) = \sum_{n=0}^\infty (\ln 2)^n \frac{x^n}{n!}
+         = \sum_{n=0}^\infty \frac{(\ln 2)^n}{n!} x^n
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{(\ln 2)\abs{x}}{n+1}\right) = 0
+  \]
+  portanto $R=\infty$.
+
+  % 10 ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+  	f^{(0)}(x) & =  x \cos(x)           \\
+  	f^{(1)}(x) & = -x \sin x +   \cos x \\
+  	f^{(2)}(x) & = -x \cos x - 2 \sin x \\
+  	f^{(3)}(x) & =  x \sin x - 3 \cos x \\
+  	f^{(4)}(x) & =  x \cos x + 4 \sin x \\
+  	f^{(5)}(x) & = -x \sin x + 5 \cos x \\
+  	f^{(6)}(x) & = -x \cos x - 6 \sin x \\
+  	f^{(7)}(x) & =  x \sin x - 7 \cos x
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  	f^{(0)}(0) & =  0  \\
+  	f^{(1)}(0) & =  1  \\
+  	f^{(2)}(0) & =  0  \\
+  	f^{(3)}(0) & = -3  \\
+  	f^{(4)}(0) & =  0  \\
+  	f^{(5)}(0) & =  5  \\
+  	f^{(6)}(0) & =  0  \\
+  	f^{(7)}(0) & = -7
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n+1}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{x^2}{(2n+2)(2n+1)}\right) = 0
+  \]
+  portanto $R=\infty$.
+
+  % 11  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+    f^{(0)}(x) & = \sinh(x) \\
+    f^{(1)}(x) & = \cosh(x) \\
+    f^{(2)}(x) & = \sinh(x) \\
+    f^{(3)}(x) & = \cosh(x)
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+    f^{(0)}(0) & = 0 \\
+    f^{(1)}(0) & = 1 \\
+    f^{(2)}(0) & = 0 \\
+    f^{(3)}(0) & = 1 \\
+    f^{(n)}(0) & =
+    \begin{cases}
+      0 & n \text{ par} \\
+      1 & n \text{ impar}
+    \end{cases}
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x)= \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{x^2}{(3n+3)(2n+2)}\right) = 0
+  \]
+  portanto $R=\infty$.
+
+  % 12  ----------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas
+  \begin{align*}
+    f^{(0)}(x) & = \cosh(x) \\
+    f^{(1)}(x) & = \sinh(x) \\
+    f^{(2)}(x) & = \cosh(x) \\
+    f^{(3)}(x) & = \sinh(x) \\
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+    f^{(0)}(0) & = 1 \\
+    f^{(1)}(0) & = 0 \\
+    f^{(2)}(0) & = 1 \\
+    f^{(3)}(0) & = 0 \\
+    f^{(n)}(0) & = \begin{cases}
+                     1 & n \text{ par} \\
+                     0 & n \text{ impar}
+                   \end{cases}
+  \end{align*}
+  Série de Maclaurin
+  \[
+    f(x) = \sum_{n=0}^\infty  \frac{x^{2n}}{(2n)!}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left(\frac{x^2}{(2n+2)(2n+1)}\right) = 0
+  \]
+  portanto $R=\infty$.
+  \end{alphalist}
+\end{answer}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Stewart 7ed seção 11.10 página 765
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a série de Taylor para $f(x)$ centrada em $a$, e o raio de convergência da série de potências.
+\begin{mathlist}
+  % 13
+  \item f(x) = x^4-3x^2+1  \) \tabto{45mm} \( a=1 \)
+  % 14
+  \item f(x) = x - x^3     \) \tabto{45mm} \( a=-2 \)
+  % 15
+  \item f(x) = \ln x       \) \tabto{45mm} \( a = 2 \)
+  % 16
+  \item f(x) = \frac{1}{x} \) \tabto{45mm} \( a = -3 \)
+  % 17
+  \item f(x) = e^{2x}      \) \tabto{45mm} \( a=3 \)
+  % 18
+  \item f(x) = \sin x      \) \tabto{45mm} \( a=\sfrac{\pi}{2} \)
+  % 19
+  \item f(x) = \cos x      \) \tabto{45mm} \( a=\pi \)
+  % 20
+  \item f(x) = \sqrt{x}    \) \tabto{45mm} \( a=16 \)
+\end{mathlist}
+\begin{answer}
+  \begin{alphalist}
+  % 13  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & = x^4-3x^2+1 & f^{(0)}(1) & = -1               \\
+  	f^{(1)}(x) & = 4x^3-6x    & f^{(1)}(1) & = -2               \\
+  	f^{(2)}(x) & = 12x^2 -6   & f^{(2)}(1) & = 6                \\
+  	f^{(3)}(x) & = 24x        & f^{(3)}(1) & = 24               \\
+  	f^{(4)}(x) & = 24         & f^{(4)}(1) & = 24               \\
+  	f^{(n)}(x) & = 0          & f^{(n)}(1) & = 0 \quad n \geq 5
+  \end{align*}
+  Série de Taylor
+  \begin{align*}
+  	f(x) = -1 & -2(x-1)   + 3(x-1)^2   \\
+  	          & +4(x-1)^3 +  (x-1)^4
+  \end{align*}
+  portanto $R=\infty$.
+
+  % 14  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & = x - x^3 & f^{(0)}(-2) & = 6                \\
+  	f^{(1)}(x) & = 1 -3x^2 & f^{(1)}(-2) & = -11              \\
+  	f^{(2)}(x) & = -6x     & f^{(2)}(-2) & = 21               \\
+  	f^{(3)}(x) & = -6      & f^{(3)}(-2) & = -6               \\
+  	f^{(n)}(x) & = 0       & f^{(n)}(-2) & = 0 \quad n \geq 4
+  \end{align*}
+  Série de Taylor
+  \[ f(x) = 6 - 11(x+2) + 6(x+2)^2 -(x+2)^3 \]
+  portanto $R=\infty$.
+
+  % 15  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & = \ln x                \\
+  	f^{(1)}(x) & =  1/x                 \\
+  	f^{(2)}(x) & = -1/x^2               \\
+  	f^{(3)}(x) & =  2/x^3               \\
+  	f^{(4)}(x) & = -6/x^4               \\
+  	f^{(5)}(x) & = 24/x^5               \\
+  	f^{(n)}(x) & = (-1)^{n-1}(n-1)!/x^n \quad n \geq 1
+  \end{align*}
+  \begin{align*}
+  	f^{(0)}(2) & = \ln 2                               \\
+  	f^{(1)}(2) & = 1/2                                 \\
+  	f^{(2)}(2) & = -1/2^2                              \\
+  	f^{(3)}(2) & = 2/2^3                               \\
+  	f^{(4)}(2) & = -6/2^4                              \\
+  	f^{(5)}(2) & = 24/2^5                              \\
+  	f^{(n)}(2) & = (-1)^{n-1}(n-1)!/2^n \quad n \geq 1
+  \end{align*}
+  Série de Taylor
+  \begin{align*}
+    f(x) & = \ln 2 + \sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)!(x-2)^n}{2^n n!} \\
+         & = \ln 2 + \sum_{n=1}^\infty \frac{(-1)^{n-1}(x-2)^n}{2^n n}
+  \end{align*}
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\left( \frac{n}{n+1} \right)\frac{\abs{x-2}}{2} =
+    \frac{\abs{x-2}}{2}
+  \]
+  portanto $R=2$.
+
+  % 16  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & =  1/x            & f^{(0)}(-3) & =  -1/3     \\
+  	f^{(1)}(x) & = -1/x^2          & f^{(1)}(-3) & =  -1/3^2   \\
+  	f^{(2)}(x) & =  2/x^3          & f^{(2)}(-3) & =  -2/3^3   \\
+  	f^{(3)}(x) & = -6/x^4          & f^{(3)}(-3) & =  -6/3^4   \\
+  	f^{(4)}(x) & = 24/x^5          & f^{(4)}(-3) & = -24/3^5   \\
+  	f^{(n)}(x) & = (-1)^n n! / x^n & f^{(n)}(-3) & = -n! / 3^n
+  \end{align*}
+  Série de Taylor
+  \[
+    f(x) =  \sum_{n=0}^\infty \frac{-n!(x+3)^n}{3^n n!}
+         = -\sum_{n=0}^\infty \frac{(x+3)^n}{3^n}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\frac{\abs{x+3}}{3} =
+    \frac{\abs{x+3}}{3}
+  \]
+  portanto $R=3$.
+
+  % 17  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & =     e^{2x} & f^{(0)}(3) & =     e^{6} \\
+  	f^{(1)}(x) & = 2   e^{2x} & f^{(1)}(3) & = 2   e^{6} \\
+  	f^{(2)}(x) & = 2^2 e^{2x} & f^{(2)}(3) & = 2^2 e^{6} \\
+  	f^{(3)}(x) & = 2^3 e^{2x} & f^{(3)}(3) & = 2^3 e^{6} \\
+  	f^{(4)}(x) & = 2^4 e^{2x} & f^{(4)}(3) & = 2^4 e^{6} \\
+  	f^{(5)}(x) & = 2^5 e^{2x} & f^{(5)}(3) & = 2^5 e^{6} \\
+  	f^{(n)}(x) & = 2^n e^{2x} & f^{(n)}(3) & = 2^n e^{6}
+  \end{align*}
+  Série de Taylor
+  \[
+    f(x) = \sum_{n=0}^\infty \frac{2^n e^6 (x-3)^n}{n!}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty}\frac{2\abs{x-3}}{n+1} = 0
+  \]
+  portanto $R=\infty$
+
+  % 18  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & =  \sin x & f^{(0)}(\sfrac{\pi}{2}) & =  1 \\
+  	f^{(1)}(x) & =  \cos x & f^{(1)}(\sfrac{\pi}{2}) & =  0 \\
+  	f^{(2)}(x) & = -\sin x & f^{(2)}(\sfrac{\pi}{2}) & = -1 \\
+  	f^{(3)}(x) & = -\cos x & f^{(3)}(\sfrac{\pi}{2}) & =  0 \\
+  	f^{(4)}(x) & =  \sin x & f^{(4)}(\sfrac{\pi}{2}) & =  1 \\
+  	f^{(5)}(x) & =  \cos x & f^{(5)}(\sfrac{\pi}{2}) & =  0
+  \end{align*}
+  Série de Taylor
+  \[
+    f(x) = \sum_{n=0}^\infty (-1)^n \frac{(x-\sfrac{\pi}{2})^{2n}}{(2n)!}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+    = \lim_{n\to\infty}\left( \frac{\abs{x-\sfrac{\pi}{2}}^2}{(2n+2)(2n+1)} \right) = 0
+  \]
+  portanto $R=\infty$
+
+  % 19  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & =  \cos x & f^{(0)}(\pi) & = -1 \\
+  	f^{(1)}(x) & = -\sin x & f^{(1)}(\pi) & =  0 \\
+  	f^{(2)}(x) & = -\cos x & f^{(2)}(\pi) & =  1 \\
+  	f^{(3)}(x) & =  \sin x & f^{(3)}(\pi) & =  0 \\
+  	f^{(4)}(x) & =  \cos x & f^{(4)}(\pi) & = -1
+  \end{align*}
+  Série de Taylor
+  \[
+    f(x) = \sum_{n=0}^\infty (-1)^{n+1} \frac{(x-\pi)^{2n}}{(2n)!}
+  \]
+  Usando o teste da razão para determinar o raio de convergência
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+    = \lim_{n\to\infty}\left( \frac{\abs{x-pi}^2}{(2n+2)(2n+1} \right) = 0
+  \]
+  portanto $R=\infty$
+
+  % 20  ---------------------------------------------------------------------------------------------%
+  \item Calculando as derivadas no centro da série
+  \begin{align*}
+  	f^{(0)}(x) & = x^{1/2}                  & f^{(0)}(16) & = 4                            \\
+  	f^{(1)}(x) & =   \frac{1}{2} x^{-1/2}   & f^{(1)}(16) & =  \frac{1}{2}   \frac{1}{4}   \\
+  	f^{(2)}(x) & = - \frac{1}{4} x^{-3/2}   & f^{(2)}(16) & = -\frac{1}{4}   \frac{1}{4^3} \\
+  	f^{(3)}(x) & =   \frac{3}{8} x^{-5/2}   & f^{(3)}(16) & =  \frac{3}{8}   \frac{1}{4^5} \\
+  	f^{(4)}(x) & = - \frac{15}{16} x^{-7/2} & f^{(4)}(16) & = -\frac{15}{16} \frac{1}{4^7}
+  \end{align*}
+  Série de Taylor
+  \begin{multline*}
+  	f(x) = 4 + \frac{1}{8}(x-16) \\
+  	+ \sum_{n=0}^\infty (-1)^{n-1}
+      \frac{1\cdot 3\cdots (2n-3)}{2^{5n-5}}
+      \frac{(x-16)^n}{n!}
+  \end{multline*}
+  Usando o teste da razão para determinar o raio de convergência
+  \begin{align*}
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+      & = \lim_{n\to\infty}\left( \frac{\abs{x-16}(2n-1)}{2^5(n+1)} \right) \\
+      & = \frac{\abs{x-16}}{16}
+  \end{align*}
+  portanto $R=16$
+  \end{alphalist}
+\end{answer}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Thomas pg 56 1-10
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+	Encontre os polinômios de Taylor de ordens 0, 1, 2 e 3 gerados por $f$ em $a$.
+	\begin{mathlist}
+    \item f(x) = e^{2x}        \) \tabto{45mm} \( a = 0 \)
+    \item f(x) = \sin(x)       \) \tabto{45mm} \( a = 0 \)
+    \item f(x) = \ln(x)        \) \tabto{45mm} \( a = 1 \)
+    \item f(x) = \ln(1+x)      \) \tabto{45mm} \( a = 0 \)
+    \item f(x) = \frac{1}{x}   \) \tabto{45mm} \( a = 2	\)
+    \item f(x) = \frac{1}{x+2} \) \tabto{45mm} \( a = 0 \)
+    \item f(x) = \sin(x)       \) \tabto{45mm} \( a = \sfrac{\pi}{4} \)
+    \item f(x) = \tan(x)       \) \tabto{45mm} \( a = \sfrac{\pi}{4} \)
+    \item f(x) = \sqrt{x}      \) \tabto{45mm} \( a = 4 \)
+    \item f(x) = \sqrt{1-x}    \) \tabto{45mm} \( a = 0 \)
+	\end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Thomas pg 56 11-22
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+  Encontre as Séries de Maclaurin das funções
+  \begin{mathlist}
+    \item f(x) = e^{-x}
+    \item f(x) = xe^x
+    \item f(x) = \frac{1}{1+x}
+    \item f(x) = \frac{2+x}{1-x}
+    \item f(x) = \sin(3x)
+    \item f(x) = \sin\left(\frac{x}{2}\right)
+    \item f(x) = 7\cos(-x)
+    \item f(x) = 5\cos(\pi x)
+    \item f(x) = \cosh(x) = \frac{e^x+e^{-x}}{2}
+    \item f(x) = \sinh(x) = \frac{e^x-e^{-x}}{2}
+    \item f(x) = x^4-2x^3-5x+4
+    \item f(x) = \frac{x^2}{x+1}
+  \end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Thomas pg 57 23-32
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+  Encontre as Séries de Taylor gerada por $f$ centrada em $a$.
+  \begin{mathlist}
+    \item f(x) = x^3-2x+4                           \) \tabto{67mm} \( a =  2 \)
+    \item f(x) = 2x^3 +x^2 +3x -8                   \) \tabto{67mm} \( a =  1 \)
+    \item f(x) = x^4 +x^2 +1                        \) \tabto{67mm} \( a = -2 \)
+    \item f(x) = 3x^5 -x^4 +2x^3 +x^2 -2            \) \tabto{67mm} \( a = -1 \)
+    \item f(x) = \frac{1}{x^2}                      \) \tabto{67mm} \( a =  1 \)
+    \item f(x) = \frac{1}{(1-x)^3}                  \) \tabto{67mm} \( a =  0 \)
+    \item f(x) = e^x                                \) \tabto{67mm} \( a =  2 \)
+    \item f(x) = 2^x                                \) \tabto{67mm} \( a =  1 \)
+    \item f(x) = \cos\left(2x+\frac{\pi}{2}\right)  \) \tabto{67mm} \( a = \frac{\pi}{4} \)
+    \item f(x) = \sqrt{x+1}                         \) \tabto{67mm} \( a =  0 \)
+  \end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+% Thomas pg 57 33-36
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Encontre os três primeiros termos diferentes de zero da Série de Maclaurin
+  para cada função e determine os valores de $x$ para os quais a série
+  converge absolutamente.
+  \begin{mathlist}
+    \item f(x) = \cos(x) - \frac{2}{1-x}
+    \item f(x) = \big(1-x+x^2\big)\,e^x
+    \item f(x) = \sin(x)\;\ln(1+x)
+    \item f(x) = x\sin^2(x)
+  \end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+  Aplique a série binomial com $m=-1$ e $x=-r$
+  para obter que se $|r|<1$, \[\sum_{n=0}^\infty r^n=\frac{1}{1-r}\]
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Stewart 7ed seção 11.10 página 765
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Use a série binomial para expandir a função $f$ em uma série de potências.
+\begin{mathlist}[2]
+  \item f(x) = \sqrt[4]{1-x}
+  \item f(x) = \sqrt[3]{8+x}
+  \item f(x) = (2+x)^{-3}
+  \item f(x) = (1-x)^{2/3}
+\end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Use uma tabela de séries de Maclaurin para construir as séries de Maclaurin para a função $f$.
+\begin{mathlist}
+  % 29
+  \item f(x) = \sin(\pi x)
+  \item f(x) = \cos\left(\frac{\pi x}{2}\right)
+  \item f(x) = e^x + e^{2x}
+  \item f(x) = e^x + 2 e^{-x}
+  \item f(x) = x\cos\left(\frac{x^2}{2}\right)
+  \item f(x) = x^2\ln(1+x^3)
+  % 35
+  \item f(x) = \frac{x}{\sqrt{4+x^2}}
+  \item f(x) = \frac{x^2}{\sqrt{2+x}}
+  \item f(x) = \sin^2(x) \) \hfill \hint{\(\sin^2(x) = \frac{1-\cos(2x)}{2}\)}
+  \item f(x) = \begin{cases}
+                 \dfrac{x-\sin x}{x^3} & x\neq 0 \\[3mm]
+                 \quad\;\sfrac{1}{6}   & x = 0
+               \end{cases}
+\end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Stewart 7ed seção 11.11 página 774
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre o polinômio de Taylor de terceiro grau 3 da função $f(x)$ centrado em $a$.
+\begin{mathlist}
+  % 3
+  \item f(x) = \frac{1}{x}    \) \tabto{50mm} \( a = 2 \)
+  \item f(x) = x+e^{-x}       \) \tabto{50mm} \( a =0 \)
+  \item f(x) = \cos(x)        \) \tabto{50mm} \( a = \sfrac{\pi}{2} \)
+  \item f(x) =  e^{-x}\sin(x) \) \tabto{50mm} \( a = 0 \)
+  \item f(x) = \ln x          \) \tabto{50mm} \( a = 1 \)
+  \item f(x) = x\cos(x)       \) \tabto{50mm} \( a = 0 \)
+  \item f(x) = xe^{-2x}       \) \tabto{50mm} \( a = 0 \)
+  \item f(x) = \arctan(x)     \) \tabto{50mm} \( a = 1 \)
+\end{mathlist}
+\end{exercise}
+
+%--------------------------------------------------------------------------------------------------%
+% Stewart 7ed Revisão Capítulo 11 página 780
+%--------------------------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a série de Maclaurin para $f$ e determine seu raio de convergência.
+\vspace{0.5\baselineskip}
+\begin{mathlist}[2]
+  % 47
+  \item f(x) = \frac{x^2}{1+x}
+  \item f(x) = \arctan(x^2)
+  \item f(x) = \ln(4-x)
+  \item f(x) = xe^{2x}
+  \item f(x) = \sin(x^4)
+  \item f(x) = 10^x
+  \item f(x) = \frac{1}{\sqrt[4]{16-x}}
+  \item f(x) = (1-3x)^{-5}
+\end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{mathlist}[2]
+%  \item
+%  \item
+%  \item
+%\end{mathlist}
+%\begin{answer}
+%  \begin{alphalist}[3]
+%    \item
+%    \item
+%    \item
+%  \end{alphalist}
+%\end{answer}
+%\end{exercise}
+
+\end{exercises}
+%------------------------------------------------------------------------------%

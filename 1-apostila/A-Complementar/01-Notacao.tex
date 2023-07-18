@@ -1,0 +1,144 @@
+%------------------------------------------------------------------------------%
+\section{Notação Matemática}
+\label{sec:Notacao_Matematica}
+
+%------------------------------------------------------------------------------%
+\subsection*{Símbolos Matemáticos}
+
+A lista a seguir inclui vários símbolos matemáticos comumente utilizados e seus
+significados
+
+{\centering
+\begin{tabular}{lp{15cm}}
+  \emph{$\infty\;$} &
+  Indica uma quantidade infinita. Observe que $\infty$ não é um número e portanto
+  não podemos realizar operações algébricas com ele.
+  \\
+  \emph{$\forall\;$} &
+  Para todo
+  \\
+  \emph{$\exists\;$} &
+  Existe
+  \\
+  \emph{$\to\;$} &
+  Esse símbolo pode indicar um limite, $x\to 0$, ou ser usado na definição de uma função
+  $f:\R\to\R$. Ele \emph{não} pode substituir outros símbolos como a igualdade e também
+  \emph{não} deve ser usado para indicar o sentido de leitura.
+\end{tabular}\par}
+
+A seguir apresentamos símbolos que indicam relações. Note que cada um tem um
+significado específico, um \emph{não} pode substituir o outro.
+
+{\centering
+\begin{tabular}{lp{15cm}}
+  \emph{$=\;$} &
+  Símbolo de igualdade, ele indica que as duas expressões são completamente equivalentes.
+  \\
+  \emph{$\Leftrightarrow\;$} &
+  Esse símbolo significa ``se, e somente se''.
+  Ele só pode ser utilizado entre duas afirmações lógicas, isso é, que podem
+  ser verdadeiras ou falsas, e indica que ambas são simultaneamente
+  verdadeiras ou simultaneamente falsas.
+  \\
+  \emph{$\Rightarrow\;$} &
+  Assim como $\Leftrightarrow$, esse símbolo indica uma relação lógica entre duas
+  afirmações. Porém, seu significado é mais sutil, ele indica que se a primeira
+  afirmação for verdadeira a segunda também precisa ser. Se a primeira afirmação
+  for falsa não sabemos nada sobre a segunda.
+  \\
+  \emph{$\Leftarrow\;$} &
+  Tem o mesmo significado que $\Rightarrow$, porém com os papeis trocados para as afirmações.
+\end{tabular}\par}
+
+%------------------------------------------------------------------------------%
+\subsection*{Conjuntos e Intervalos}
+\label{sub:conjuntos_intervalos}
+
+Os conjuntos numéricos mais utilizados são:
+
+{\centering
+\begin{tabular}{llp{10cm}}
+  \emph{$\N\;$} & Números naturais  & $\{1, 2, 3, \dots\}$ \\
+  \emph{$\Z\;$} & Números inteiros  & $\{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}$ \\
+  \emph{$\Q\;$} & Números racionais & Razões, ou frações, de números inteiros \\
+  \emph{$\R\;$} & Números reais     & A caracterização dos reais é mais complexa,
+                                      para o Cálculo, podemos pensar que eles correspondem
+                                      aos pontos da reta e que não há buracos entre eles \\
+  \emph{$\C\;$} & Números complexos & Extensão dos reais para incluir raízes de números negativos
+\end{tabular}\par}
+
+As operações com conjuntos mais comuns são
+
+{\centering
+\begin{tabular}{lp{15cm}}
+  \emph{$\in\;$}     & Indica que um elemento pertence a um conjunto \\
+  \emph{$\cup\;$}    & União de conjuntos, representa os elementos que pertencem a um ou outro conjunto \\
+  \emph{$\cap\;$}    & Intersecção de conjuntos, representa os elementos que pertencem a ambos conjuntos \\
+  \emph{$\subset\;$} & Subconjunto, indica que todos os elementos do conjunto da esquerda pertencem
+                       também ao conjunto da direita.
+\end{tabular}\par}
+
+\emph{Intervalos}\index{Intervalo}
+são um caso particular de subconjuntos dos números reais,
+eles indicam um conjunto de números reais ``consecutivos'' e ``sem buracos''.
+Normalmente os intervalos são definidos por desigualdades
+\[
+\begin{array}{cl}
+  I & = \left\{\, x\in\R \st 3 < x < 5        \,\right\} \\
+  J & = \left\{\, x\in\R \st -1 \leq x \leq 2 \,\right\} \\
+  K & = \left\{\, x\in\R \st \abs{x} < 2      \,\right\}
+\end{array}
+\]
+Como esses conjuntos são muito utilizados no Cálculo existe uma notação
+específica para eles. A notação para intervalos precisa indicar quais
+são seus extremos e se esses extremos pertencem ou não ao intervalo,
+um colchete $[$ ou $]$ indica que o extremo correspondente pertence
+ao intervalo enquanto que um parenteses $($ ou $)$ indica que os extremos
+não pertence ao intervalo
+\[
+\begin{array}{cl}
+  (3, 5)  & = \left\{\, x\in\R \st 3 < x < 5        \,\right\} \\[1pt]
+  [-1, 2] & = \left\{\, x\in\R \st -1 \leq x \leq 2 \,\right\} \\[1pt]
+  [-2, 2] & = \left\{\, x\in\R \st \abs{x} < 2      \,\right\} \\[1pt]
+  (a, b]  & = \left\{\, x\in\R \st a <    x \leq b  \,\right\} \\[1pt]
+  [a, b)  & = \left\{\, x\in\R \st a \leq x <    b  \,\right\}
+\end{array}
+\]
+Quando ambos extremos pertencem ao intervalo dizemos que ele é um
+\emph{Intervalo Fechado}\index{Intervalo!fechado} quando
+nenhum extremo pertence ao intervalo dizemos que ele é um
+\emph{Intervalo Aberto}\index{Intervalo!aberto}.
+
+Um intervalo aberto que contém um ponto $a$ é chamado de
+\emph{Vizinhança}\index{Vizinhança} de $a$.
+
+%------------------------------------------------------------------------------%
+
+\begin{definicao}{Ínfimo e Supremo}{def:inf-sup}
+  O \emph{Ínfimo}\index{Infimo@Ínfimo} de $A\subset\R$, $\inf(A)$,
+  é o maior número real menor ou igual a todos os elementos de $A$.
+
+  O \emph{Supremo}\index{Supremo} de $A\subset\R$, $\sup(A)$,
+  que é o menor número real maior ou igual a todos os elementos de $A$.
+\end{definicao}
+
+Para observamos a diferença entre o ínfimo e o mínimo considere
+o intervalo aberto entre zero e um, $A=(0, 1)$.
+Nenhum elemento $x\in A$ pode ser o mínimo de $A$, pois $\sfrac{x}{2}$
+é menor do que $x$ e pertence a $A$, portanto, esse conjunto não possui
+um menor elemento. O zero seria o candidato para ser o mínimo, mas
+ele não pertence a $A$, nesse caso dizemos que zero é o ínfimo de $A$.
+Uma análise equivalente vai nos mostrar que $A$ também não possui um
+máximo e que 1 é seu supremo. Podemos escrever em tão que
+\begin{align*}
+  \inf\big((0, 1)\big) & = 0  &  \min\big((0, 1)\big) \quad \text{não existe} \\
+  \sup\big((0, 1)\big) & = 1  &  \max\big((0, 1)\big) \quad \text{não existe}
+\end{align*}
+Em um intervalo fechado o ínfimo coincide com o mínimo e o supremo
+coincide com o máximo, por exemplo, considere $[0, 1]$
+\begin{align*}
+  \inf\big([0, 1]\big) & = \,\min\big([0, 1]\big) = 0 \\
+  \sup\big([0, 1]\big) & =   \max\big([0, 1]\big) = 1
+\end{align*}
+
+%------------------------------------------------------------------------------%

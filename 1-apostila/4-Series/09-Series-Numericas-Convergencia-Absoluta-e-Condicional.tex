@@ -1,0 +1,192 @@
+%------------------------------------------------------------------------------%
+\section{Convergência Absoluta e Condicional}
+
+Testar diretamente a convergência de séries com termos positivos e
+negativos arbitrários precisa considerar o arranjo particular de sinais,
+assim não temos testes gerais para esses casos.
+A solução que empregaremos é comparar as séries com termos quaisquer
+com séries com termos não negativos.
+A definição a seguir define os conceitos de convergência condicional e absoluta
+que empregaremos para esse fim.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Convergência Absoluta e Condicional}{def:convergencia-absoluta}
+  Dizemos que a série
+  \(
+    \sum_{n=1}^\infty a_n
+  \)
+  \emph{Converge Absolutamente}%
+  \index{Série!convergência absoluta}%
+  \index{Série!convergência condicional},
+  ou é \emph{Absolutamente Convergente}, se a série
+  com os valores absolutos
+  \(
+    \sum_{n=1}^\infty \,\abs{a_n}
+  \)
+  converge.
+
+  Uma série que converge mas não é absolutamente convergente
+  é chamada \emph{Condicionalmente Convergente}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Quando queremos verificar a convergência de uma série com termos positivos
+e negativos podemos construir a série que soma os módulos dos termos dessa
+série e verificar a convergência dessa nova série usando um dos testes
+para as séries de termos não negativos.
+Se essa série convergir usamos o teorema a seguir para garantir
+que a série original também converge.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Convergência Absoluta}{teo:teste-convergencia-absoluta}
+  Uma\index{Teste!convergência absoluta}
+  série absolutamente convergente é convergente.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Seja
+  \[
+    \sum_{n=1}^\infty a_n
+  \]
+  uma série absolutamente convergente. Observando que
+  \[
+    -\abs{a_n} \leq a_n \leq \abs{a_n}
+  \]
+  e somando $\abs{a_n}$ em todos os termos temos
+  \[
+    0 \leq a_n + \abs{a_n} \leq 2\abs{a_n}    \,.
+  \]
+  Como a série é absolutamente convergente, segue que
+  \[
+    \sum_{n=1}^\infty 2\abs{a_n}
+  \]
+  converge.
+  Assim, pelo Teste da Comparação a série
+  \[
+    \sum_{n=1}^\infty \big( a_n + \abs{a_n} \big)
+  \]
+  converge.
+  Consequentemente, a série
+  \[
+    \sum_{n=1}^\infty a_n
+  \]
+  converge, pois
+  \[
+    \sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \big( a_n + \abs{a_n} \big) - \abs{a_n}
+  \]
+  e as séries
+  \[
+    \sum_{n=1}^\infty \big( a_n + \abs{a_n} \big)
+    \qquad\text{ e }\qquad
+    \sum_{n=1}^\infty \abs{a_n}
+  \]
+  convergem.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Note que não é possível afirmar que uma série que converge também converge
+absolutamente. Como exemplo, observe a série~$p$ alternada
+\[
+  \sum_{n=1}^\infty \frac{\,(-1)^{n+1}\,}{n^p}       \,.
+\]
+Essa série converge se $0<p\leq 1$,
+entretanto esta série não é absolutamente convergente, pois
+\[
+  \sum_{n=1}^\infty \abs{\frac{(-1)^{n+1}}{n^p}} = \sum_{n=1}^\infty \frac{1}{n^p}
+\]
+e a série~$p$ não converge se $p\leq 1$,
+ou seja, a série~$p$ alternada, com $0<p\leq 1$, é condicionalmente convergente.
+
+Observe que dada uma série convergente de termos não negativos $a_n$, então,
+a série alternada
+\[
+  \sum (-1)^{n+1}a_n
+\]
+é absolutamente convergente.
+Note que, todas as séries convergentes com termo geral não negativo que vimos
+anteriormente, tem sua respectiva série alternada absolutamente convergente.
+
+Os exemplos a seguir mostram como usar o teste da convergência absoluta.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o teste da convergência absoluta para mostrar que
+  \[
+    \sum_{n=1}^\infty (-1)^n\frac{(n!)^2\,3^n}{(2n+1)!}
+  \]
+  é uma série convergente.
+  \solution
+  Mostraremos que a série é absolutamente convergente, ou seja,
+  que a série
+  \[
+    \sum_{n=1}^\infty\abs{a_n} = \sum_{n=1}^\infty \frac{(n!)^23^n}{(2n+1)!}
+  \]
+  converge.
+  Para isso aplicaremos o Teste da Razão
+  \begin{align*}
+  	\frac{\abs{a_{n+1}}}{\abs{a_n}}
+    & = \frac{\big((n+1)!\big)^2\, 3^{n+1}}{(2n+3)!} \; \frac{(2n+1)!}{(n!)^2\,3^n}     \\[3mm]
+  	& = \frac{\,(n+1)^2 (n!)^2\; 3^{n} 3 \; (2n+1)!\,}
+             {\,(2n+3)(2n+2)(2n+1)!\; (n!)^2\; 3^n\,} \\[3mm]
+  	& = \frac{3(n+1)^{2}}{\,2{(n+1)}(2n+3)\,}         \\[3mm]
+  	& = \frac{3(n+1)}{\,2(2n+3)\,}
+  \end{align*}
+  Assim, aplicando L'Hôpital, segue que
+  \[
+    \lim \frac{\,\abs{a_{n+1}}\,}{\abs{a_n}}
+      = \lim \frac{3(n+1)}{\,2(2n+3)\,}
+      = \frac{3}{\,4\,}
+      < 1   \;.
+  \]
+  Portanto, pelo Teste da Razão a série $\sum\abs{a_n}$ é convergente.
+  Então, pelo Teste da Convergência Absoluta, concluímos que a série
+  \[
+    \sum_{n=1}^\infty (-1)^n\frac{(n!)^23^n}{(2n+1)!}
+  \]
+  é absolutamente convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique se a série
+  \(\;
+    \sum_{n=1}^\infty (-1)^n \frac{\,\arctan(n)\,}{n^2+1}
+  \;\)
+  é absolutamente convergente.
+  \solution
+  Temos que verificar a convergência da série
+  \[
+    \sum_{n=1}^\infty \frac{\,\arctan(n)\,}{n^2+1}  \;.
+  \]
+  Pelo Teste da Integral sabemos que essa série converge se, e somente se,
+  a integral
+  \[
+    \int_1^\infty\frac{\,\arctan(x)\,}{x^2+1}\,dx
+  \]
+  for convergente.
+  Para calcular a integral usamos a mudança de variáveis
+  \[
+    u = \arctan(x)
+    \qquad\qquad
+    du = \frac{dx}{x^2+1}
+  \]
+  que leva aos novos limites de integração
+  \[
+    \arctan(1)=\frac{\pi}{4}
+    \qquad\qquad
+    \lim_{x\to \infty} \arctan(x) = \frac{\pi}{2}
+  \]
+  segue que
+  \begin{align*}
+    \int_1^\infty \frac{\,\arctan(x)\,}{x^2+1}\,dx
+    & = \int_{\sfrac{\pi}{4}}^{\sfrac{\pi}{2}} u\,du             \\[3mm]
+    & = \frac{u^2}{2}\evalat{\sfrac{\pi}{4}}{\sfrac{\pi}{2}}     \\[3mm]
+    & = \frac{1}{2}\left(\frac{\pi^2}{4}-\frac{\pi^2}{16}\right) \\[3mm]
+    & = \frac{3\pi^2}{32}  \;.
+  \end{align*}
+  Como a integral é convergente a série é absolutamente convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

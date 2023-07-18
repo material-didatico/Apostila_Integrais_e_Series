@@ -1,0 +1,628 @@
+%------------------------------------------------------------------------------%
+\section{Teste da Integral}
+
+Nesta seção e nas próximas vamos apresentar alguns testes que podem ser utilizados
+para verificar se séries com termos não-negativos são convergentes. Começamos
+definindo esse caso particular de séries.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série com Termos Não Negativos}{def:serie-termos-nao-negativos}
+  Uma série $\sum a_n$ onde todos os termos da sequência $a_n$ são não negativos,
+  isso é,
+  \[
+    a_n \geq 0 \qquad \forall n
+  \]
+  é chamada de \emph{Série de Termos Não Negativos}\index{Série!termos não negativos}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Note que se quisermos estudar uma série com ternos não positivos \(a_n\leq 0\)
+podemos remover todos os sinais negativos e estudar a série de termos
+não negativos correspondente. Uma das razões para começarmos o estudo
+da convergência das séries por esse caso particular é que podemos usar
+o Teorema da Sequência Monotônica~\ref{teo:sequencia-monotona} na
+sequência das somas parciais o que produz o seguinte corolário.
+
+%------------------------------------------------------------------------------%
+\begin{corolario}{Convergência de Série com Termos Não Negativos}
+                 {cor:convergencia-serie-termos-nao-negativos}
+    Uma série $\sum a_n$ de Termos Não Negativos, $a_n \geq 0$,
+    é \emph{convergente} se, e somente se, sua sequência de somas
+    parciais é uma sequência \emph{limitada}.
+\end{corolario}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Basta ver que a sequência de somas parciais é crescente,
+  já que a sequência do termo geral é não negativa.
+  Assim, $S_n$ é monotônica e portanto convergente.
+  Por outro lado, se a série é convergente,
+  então a sequência $S_n$ é convergente e, portanto, limitada.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Os próximos exemplos ilustram o uso desse resultado.
+No início do Capítulo definimos a Série do Inverso do Quadrado
+(Definição~\ref{def:serie-inverso-quadrado}) e apresentamos
+sua soma sem demonstração, vamos agora mostrar que ela converge.
+
+%------------------------------------------------------------------------------%
+\begin{example}[ex:convergencia-serie-inverso-quadrado]
+  Mostre que a
+  \emph{Série do Inverso do Quadrado}\index{Série!inverso do quadrado}
+  é convergente.
+  \solution
+  Verificamos facilmente que todos os termos são positivos e
+  construímos a sequência de somas parciais
+  \[
+    S_n = \sum_{k=1}^n \frac{1}{k^2}
+        = 1 + \frac{1}{4}
+            + \frac{1}{9}
+            + \frac{1}{16}
+            + \frac{1}{25}
+            + \cdots
+            + \frac{1}{n^2}    \,.
+  \]
+  Começamos manipulando $S_n$
+  \begin{align*}
+    S_n & = 1 + \frac{1}{4}
+        + \frac{1}{9}
+        + \frac{1}{16}
+        + \frac{1}{25}
+        + \cdots
+        + \frac{1}{n^2}    \\[3mm]
+        & = 1 + \frac{1}{2\cdot 2}
+        + \frac{1}{3\cdot 3}
+        + \frac{1}{4\cdot 4}
+        + \frac{1}{5\cdot 5}
+        + \cdots
+        + \frac{1}{nn}     \\[3mm]
+        & < 1 + \frac{1}{1\cdot 2}
+        + \frac{1}{2\cdot 3}
+        + \frac{1}{3\cdot 4}
+        + \frac{1}{4\cdot 5}
+        + \cdots
+        + \frac{1}{(n-1)n} \\[3mm]
+        & = 1 + \sigma_n
+  \end{align*}
+  onde $\sigma_n$ são todos os termos exceto o primeiro
+  \begin{align*}
+    \sigma_n & = \frac{1}{1\cdot 2}
+               + \frac{1}{2\cdot 3}
+               + \frac{1}{3\cdot 4}
+               + \frac{1}{4\cdot 5}
+               + \cdots
+               + \frac{1}{(n-1)n} \\[3mm]
+             & = \sum_{k=2}^n \frac{1}{(k-1)k}            \,,
+  \end{align*}
+  ou seja, $\sigma_n$ é a sequência de somas parciais da série com termos
+  \[
+    a_k = \frac{1}{(k-1)k}         \,.
+  \]
+  Decompondo $a_k$ em frações parciais
+  \[
+    a_k = \frac{1}{\,k-1\,} - \frac{1}{\,k\,}
+  \]
+  verificamos que essa é uma Série Telescópica e portanto podemos calcular seu limite
+  \begin{align*}
+    \sigma & = \lim_{n\to\infty} \sigma_n  \\[3mm]
+           & = \lim_{n\to\infty} \sum_{k=2}^n \left( \frac{1}{\,k-1\,} - \frac{1}{\,k\,}\right) \\[3mm]
+           & = \lim_{n\to\infty} \left(\frac{1}{\,2-1\,} - \frac{1}{\,n\,}\right) \\[3mm]
+           & = \lim_{n\to\infty} 1 - \frac{1}{\,n\,} \\[3mm]
+           & = 1        \,.
+  \end{align*}
+  Retornando a $S_n$, para todo $n\geq 2$ podemos escrever
+  \[
+    S_n < 1 + \sigma_n
+  \]
+  calculando o limite nos dois lados da desigualdade verificamos que
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^2} \;<\; 2          \,,
+  \]
+  ou seja, a série é limitada.
+  Portanto pelo Corolário~\ref{cor:convergencia-serie-termos-nao-negativos}
+  ela é convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Vamos também mostrar que a Série do Inverso do Fatorial~\ref{def:serie-inverso-fatorial}
+é convergente.
+
+%------------------------------------------------------------------------------%
+\begin{example}[ex:convergencia-serie-inverso-fatorial]
+  Mostre que a
+  \emph{Série do Inverso do Fatorial}\index{Série!inverso do fatorial}
+  é convergente.
+  \solution
+  Também nesse caso é fácil verificar que os termos da série são todos
+  positivos e começamos manipulando suas somas parciais
+  \begin{align*}
+    S_n & = \sum_{k=0}^n \frac{1}{k!} \\[3mm]
+        & = 1 + 1
+        + \frac{1}{2}
+        + \frac{1}{3\cdot2}
+        + \frac{1}{4\cdot 3\cdot 2}
+        + \frac{1}{5\cdot 4\cdot 3\cdot 2}
+        + \cdots + \frac{1}{n\cdot (n-1)\cdots 3\cdot 2} \\[3mm]
+        & < 1 + 1
+        + \frac{1}{2}
+        + \frac{1}{2\cdot2}
+        + \frac{1}{2\cdot 2\cdot 2}
+        + \frac{1}{2\cdot 2\cdot 2\cdot 2}
+        + \cdots
+        + \frac{1}{2\cdot 2\cdots 2\cdot 2} \\[3mm]
+        & = 1 + 1
+        + \frac{1}{2}
+        + \frac{1}{2^2}
+        + \frac{1}{2^3}
+        + \frac{1}{2^4}
+        + \cdots
+        + \frac{1}{2^{n-1}}          \,.
+  \end{align*}
+  Observe que, removendo o primeiro termo, a última expressão é a
+  $n$-ésima soma parcial da série geométrica
+  com $\alpha=1$ e $r=\sfrac{1}{2}$,
+  \[
+    \sigma_n =  1
+             + \frac{1}{2}
+             + \frac{1}{2^2}
+             + \frac{1}{2^3}
+             + \frac{1}{2^4}
+             + \cdots
+             + \frac{1}{2^{n-1}}          \,,
+  \]
+  cuja soma é
+  \[
+    \sigma = \frac{\alpha}{1-r}
+           = \frac{1}{1-\sfrac{1}{2}}
+           = \frac{1}{\sfrac{1}{2}}
+           = 2            \,.
+  \]
+  Retornando a $S_n$, temos que, para todo $n\geq 2$ vale a seguinte desigualdade
+  \[
+    S_n < 1 + \sigma_n      \,.
+  \]
+  Calculando o limite dos dois lados da desigualdade verificamos que
+  \[
+    \sum_{n=0}^\infty \frac{1}{\,n!\,} < 3           \,.
+  \]
+  Como a série só tem termos não negativos e é limitada, usamos o
+  Corolário~\ref{cor:convergencia-serie-termos-nao-negativos}
+  para concluir que a série é convergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}{\linewidth}
+    \centering
+    \vspace{2mm}
+    \input{fig_teste_integral_right}
+    \caption{Construindo os retângulos a direita a série é maior do que a integral.}
+    \label{fig:teste_integral_right}
+  \end{subfigure}\\[2mm]
+  \begin{subfigure}{\linewidth}
+    \centering
+    \input{fig_teste_integral_left}
+    \caption{Construindo os retângulos a esquerda a série é menor do que a integral.}
+    \label{fig:teste_integral_left}
+  \end{subfigure}\\
+  \caption{Ilustração do teste da integral.}
+  \label{fig:teste_integral}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Vamos agora apresentar o teste da integral que compara a soma da série com a Integral
+Imprópria~\ref{def:integral-impropria-1} de uma função~$f$.
+Porém, antes de apresentar esse resultado, vamos explorar as ideias envolvidas
+analisando a Figura~\ref{fig:teste_integral}.
+Estamos assumindo que, pelo menos a partir de algum ponto $n\geq N$,
+os termos da série sejam dados pela função, $a_n=f(n)$,
+e que a função é contínua e decrescente para  $x\geq N$.
+Vamos representar os termos da série por retângulos de largura um e altura $a_n$,
+que podem ser construídos a direita ou a esquerda do ponto $x=n$.
+Como $f$ é decrescente, se os retângulos estão na direita
+como no Gráfico~\ref{fig:teste_integral_right},
+a área do retângulo é maior do que a integral de $f$ em cada intervalo $[n, n+1]$.
+Enquanto que, se desenharmos o retângulo à esquerda
+como no Gráfico~\ref{fig:teste_integral_left},
+a integral será maior do que a área do retângulo.
+O próximo teorema usa essas relações para associar a convergência da integral
+imprópria com a existência da soma da série.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Integral}{teo:teste-integral}
+  Seja\index{Teste!integral}
+  $a_n$ uma sequência tal que para todo $n\geq N$, onde $N$ é um número natural,
+  $a_n\geq 0$. Seja $f$ uma função contínua, positiva e decrescente para $x\geq N$,
+  satisfazendo $f(n)=a_n$, para todo $n\geq N$. Então, a série
+  \[
+    \sum_{n=N}^\infty a_n
+  \]
+  converge se, e somente se, a integral
+  \[
+    \int_N^\infty f(x)\,dx
+  \]
+  converge.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+\emph{Prova da Ida}
+
+  Vamos mostrar primeiro que a convergência da série garante a convergência
+  da integral.
+  Seja $n>N$ e considere a partição do intervalo $[N, n]$ dada por
+  \[
+    [N, N+1] \cup [N+1, N+2]
+             \cup \cdots
+             \cup [n-1, n]    \,.
+  \]
+  Como cada intervalo tem comprimento igual a $1$,
+  a função $f$ é decrescente e estamos considerando os retângulos a direita do
+  ponto $x=n$, segue que a soma parcial
+  \[
+    S_{N,n-1} = a_N + a_{N+1} + \cdots + a_{n-1}
+  \]
+  nos dá um limite superior para área abaixo do gráfico da função $f$
+  dentro do intervalo $[N, n]$, isso é,
+  \[
+    \int_N^n f(x)\,dx \leq S_{N,n-1}  \,.
+  \]
+  Como a série converge a sequência de somas parciais $S_{N,n-1}$
+  converge para algum valor $L$.
+  Além disso, como $a_n$ é não negativo a sequência $S_{N,n-1}$ é crescente,
+  então para todo $n > N$
+  \[
+    I_n = \int_N^n f(x)\,dx \leq  L   \,,
+  \]
+  ou seja, a sequência $I_n$ é uma sequência limitada,
+  além disso como $f$ é positiva $I_n$ é crescente e podemos
+  concluir que a sequência $I_n$ é convergente e portanto
+  a integral imprópria
+  \[
+    \int_N^\infty f(x)\,dx
+  \]
+  é convergente.
+
+%------------------------------------------------------------------------------%
+\emph{Verificando a Volta}
+
+  Agora mostraremos que se a integral converge a série também converge.
+  Para isso vamos construir os retângulos que representam os termos da
+  série à esquerda do ponto $x=n$, nesse caso a soma parcial correspondente
+  ao intervalo $[N, n]$ é dada por
+  \[
+    S_{N+1,n} = a_{N+1} + a_{N+2} + \cdots + a_{n}      \,.
+  \]
+  Usando novamente o fato que a função é decrescente,
+  essa soma parcial nos dá um limite inferior para a integral, ou seja
+  \[
+    S_{N+1,n} \leq \int_N^n f(x)\,dx           \,.
+  \]
+  Somando $a_N$ dos dois lados temos que
+  \[
+    S_{N,n} = a_N + S_{N+1,n} \leq a_N + \int_N^n f(x)\, dx       \,.
+  \]
+  Como a função $f$ é positiva e a integral imprópria é convergente
+  \[
+    \int_N^\infty f(x)\,dx = L
+  \]
+  temos, para todo $n>N$,  que
+  \[
+    S_{N,n} \leq L     \,.
+  \]
+  Como $a_k$ é não negativo e a série é limitada
+  usando o Corolário~\ref{cor:convergencia-serie-termos-nao-negativos}
+  concluímos que a série é convergente.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Note que também podemos reescrever a tese do teorema acima como:
+a série
+\[
+  \sum_{n=N}^\infty a_n
+\]
+diverge se, e somente se, a integral
+\[
+  \int_N^\infty f(x)\,dx
+\]
+diverge. O próximo exemplo aplica essa versão do teorema.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da integral
+  \(
+    \int_{1}^\infty \frac{\,dx\,}{x}
+  \).
+  \solution
+  Verificamos que a Série Harmônica
+  \[
+    \sum_{n=1}^\infty \frac{1}{\,n\,}
+  \]
+  diverge, assim, pela observação acima, podemos concluir que a integral
+  \[
+    \int_{1}^\infty \frac{\,dx\,}{x}
+  \]
+  também diverge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+É importante destacar que o valor a integral \emph{não é uma boa aproximação}
+para a soma da série.
+Podemos observar isso na Figura~\ref{fig:teste_integral_comparacao}
+comparando a área sob o gráfico da função $f(x)=x^{-2}$
+entre os pontos $n$ e $n+1$ que é data pela integral
+\[
+  I_n = \int_n^{n+1} \frac{\,dx\,}{x^2} = \frac{1}{\,n^2+n\,}
+\]
+com os termos da série
+\[
+  a_n = \frac{1}{\,n^2\,}
+\]
+representados pelos retângulos.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_teste_integral_comparacao}
+  \caption{Comparação do valor da integral com a soma da série,
+    mostrando que a integral não é uma boa aproximação para a soma.}
+  \label{fig:teste_integral_comparacao}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A tabela a seguir reproduz a mesma comparação apresentando os valores numéricos
+dos sete primeiros termos e sua soma.
+Note que os termos são significativamente diferentes no início e só
+começam a se aproximar posteriormente. Note também que o erro acumulado
+no início nunca é compensado não importando o número de termos somado.
+
+\begin{ntabular}{cccc}[0.6]
+  $n$   & $a_n$   & $I_n$   & $a_n-I_n$  \\ \hline \hline
+  1     & 1,000   & 0,500   & 0,500      \\ \hline
+  2     & 0,250   & 0,167   & 0,083      \\ \hline
+  3     & 0,111   & 0,083   & 0,028      \\ \hline
+  4     & 0,062   & 0,050   & 0,012      \\ \hline
+  5     & 0,040   & 0,033   & 0,007      \\ \hline
+  6     & 0,028   & 0,024   & 0,004      \\ \hline
+  7     & 0,020   & 0,018   & 0,003      \\ \hline \hline
+  Soma  & 1,512   & 0,875   & 0,637
+\end{ntabular}
+
+Mais a frente vamos apresentar o Teorema~\ref{teo:estimativa-erro},
+que nos mostra como podemos usar o valor da integral para obter estimativas
+de erro para a aproximação da soma da série por suas somas parciais.
+
+Podemos agora utilizar o Teste da Integral para verificar a convergência
+de uma classe importante de séries, que chamamos de Serie~$p$. Primeiro
+apresentamos a definição dessas séries e depois aplicamos o teste para
+verificar em quais condições elas convergem.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série $p$}{def:serie-p}
+  Uma série com a forma
+  \(\;
+    \sum_{n=1}^\infty \frac{1}{\,n^p\,}
+  \;\)
+  é chamada de \emph{Série $p$}\index{Série!$p$} ou \emph{$p$-série}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Essas séries são importantes pois existe uma forma simples para verificar
+quando elas são convergentes. O próximo resultado apresenta esse critério.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Convergência da Série $p$}{pro:convergencia-serie-p}
+  Uma série $p$ converge se $p>1$ e diverge se $p\leq 1$.
+\end{proposicao}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Quando $p=1$ temos a série harmônica que diverge, como já vimos.
+
+  Suponha então que $p\neq 1$, nesse caso temos
+  \begin{align}
+    \int_1^\infty\frac{\,dx\,}{x^p}
+         & = \lim_{b\to \infty}\left[\;\frac{x^{-p+1}}{-p+1}\evalat{1}{b} \; \right] \nonumber \\[3mm]
+         & = \frac{1}{1-p} \;\lim_{b\to \infty}\left(\frac{1}{b^{p-1}}-1\right)   \,.
+         \label{eq:int1divxp}
+  \end{align}
+  Quando $p>1$ temos que $p-1>0$, então
+  \[
+    \lim_{b\to\infty} \frac{1}{\,b^{p-1}\,} = 0      \,.
+  \]
+  Assim, da equação \eqref{eq:int1divxp} temos que a integral converge e
+  \[
+    \int_1^\infty\frac{\,dx\,}{x^p}=\frac{1}{\,p-1\,}     \,.
+  \]
+  Concluímos então que para $p>1$ a série $p$ converge.
+  Quando $p<1$ temos que $p-1<0$, então
+  \[
+   \lim_{b\to\infty} \frac{1}{\,b^{p-1}\,}
+  \]
+  diverge, portanto a integral diverge e consequentemente a série também.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência série
+  \(\;
+    \sum_{n=1}^\infty \frac{1}{n^2+1}
+  \).
+
+  \solution
+  A série \(\sum_{n=1}^\infty \frac{1}{n^2+1}\) não é um série $p$,
+  mas como $n^2+1>n^2$, segue que
+  \[
+      0 \;<\;\sum_{k=1}^n \frac{1}{k^2+1}
+        \;<\; \sum_{k=1}^n \frac{1}{k^2}
+      \qquad \forall\; n\in \N          \,.
+  \]
+  Entretanto, pela Proposição~\ref{pro:convergencia-serie-p}, temos que a série $p$
+  \[
+    \sum_{n=1}^\infty \frac{1}{n^2}
+  \]
+  converge, pois $p=2>1$. Dessa forma a sequência de somas parciais
+  \[
+    S_n=\sum_{k=1}^n \frac{1}{k^2+1}
+  \]
+  é limitada, e como os termos da série são não negativos,
+  usamos o Corolário~\ref{cor:convergencia-serie-termos-nao-negativos}
+  para verificar que a série converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%Veja outra solução para essa mesma série no Exemplo 4 da Seção 10.3 do
+%livro do Thomas \cite{thomas_2}.
+%A ideia é aplicar o teorema de forma mais direta, resolvendo a integral
+%\[
+%  \int_{1}^\infty \frac{1}{x^2+1}dx
+%\]
+%e concluindo que essa integral converge.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\subsection*{Estimativa de Erro}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+Para analisarmos o erro cometido ao aproximarmos a soma de uma série $S$
+por uma soma parcial $S_n$ vamos definir o erro ou resto da série.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Resto da Série}{def:resto-serie}
+  Dada uma série convergente, cuja soma é $S$
+  \[
+    S = \sum_{k=1}^\infty a_k
+  \]
+  podemos usar suas somas parciais
+  \[
+    S_n = \sum_{k=1}^n a_k
+  \]
+  como aproximações para $S$. Ao fazermos isso estamos cometendo
+  um \emph{erro} igual ao \emph{Resto da Série}\index{Série!resto},
+  isso é, o erro é igual a todos os termos que não foram somados
+  \[
+    R_n = S-S_n
+        = \sum_{k=n+1}^\infty a_k       \,.
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}{\linewidth}
+    \centering
+    \vspace{5mm}
+    \input{fig_teste_integral_erro_right}
+    \caption{Construindo os retângulos a direita a série é maior do que a integral.}
+    \label{fig:teste_integral_erro_right}
+  \end{subfigure}\\[2mm]
+  \begin{subfigure}{\linewidth}
+    \centering
+    \input{fig_teste_integral_erro_left}
+    \caption{Construindo os retângulos a esquerda a série é menor do que a integral.}
+    \label{fig:teste_integral_erro_left}
+  \end{subfigure}\\
+  \caption{Estimativa do erro pelo testo da integral.}
+  \label{fig:teste_integral_erro}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Quando verificamos que uma série é convergente pelo teste da integral
+podemos obter também estimativas para o erro cometido ao aproximarmos
+a soma da série por uma das suas somas parciais.
+Observe os gráficos da Figura~\ref{fig:teste_integral_erro} que
+indicam o resto da série, $R_n$, após calcularmos a $n$-ésima soma parcial, $S_n$.
+No Gráfico~\ref{fig:teste_integral_erro_right} os retângulos com área $a_k$
+estão desenhados a direita do ponto $x=k$ e podemos perceber que
+\[
+  R_n > \int_{n+1}^{\infty} f(x)\,dx          \,.
+\]
+Fazendo a mesma comparação no Gráfico~\ref{fig:teste_integral_erro_left},
+onde os retângulos estão a esquerda, vemos que
+\[
+  R_n < \int_{n}^{\infty} f(x)\,dx         \,.
+\]
+Note a mudança no início do intervalo de integração.
+Temos assim limites inferior e superior para o erro cometido
+ao aproximarmos a soma da série por uma soma parcial.
+O próximo teorema formaliza esse resultado.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Estimativa de Erro}{teo:estimativa-erro}
+  Seja%
+  \index{Série!estimativa de erro!teste integral}%
+  \index{Estimativa de erro!teste integral}
+  $a_k$ uma sequência tal que $a_k\geq 0$,
+  para todo $k\geq N$, onde $N$ é um número natural.
+  Seja $f$ uma função contínua, positiva e decrescente para $x\geq N$,
+  satisfazendo $f(k)=a_k$, para todo $k\geq N$.
+  Suponha que a série com termos $a_k$ converge para $S$, isso é,
+  \[
+    \sum_{k=1}^\infty a_k = S
+  \]
+  então o resto
+  \[
+    R_n=S-S_n
+  \]
+  satisfaz
+  \[
+    \int_{n+1}^\infty f(x)\,dx \;\leq\; R_n \;\leq\; \int_{n}^\infty f(x)\,dx        \,.
+  \]
+  Consequentemente,
+  \[
+    S_n+\int_{n+1}^\infty f(x)\,dx \;\leq\; S \;\leq\; S_n+\int_{n}^\infty f(x)\,dx        \,.
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  A demonstração é parecida com a demonstração do Teorema~\ref{teo:teste-integral}.
+  Basta reparar que $R_n$ é uma aproximação por baixo da integral
+  \[
+    \int_{n}^\infty f(x)\,dx
+  \]
+  já que representa a soma de retângulos de base 1 e altura
+  $a_k=f(k)$, para $k=n+1, n+2, \dots$
+  Por outro lado, $R_n$ é uma aproximação por cima da integral
+  \[
+    \int_{n+1}^\infty f(x)\,dx
+  \]
+  A última desigualdade segue somando $S_n$ na desigualdade anterior e usando que
+  \[
+    R_n = S - S_n              \,.
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Sabemos que a série
+  \[
+    \sum_{n=1}^\infty\frac{1}{\,n^2\,}
+  \]
+  converge, pois é uma série $p$, com $p=2$.
+  Descubra $n$ tal que o resto $R_n$ da aproximação $S_n$ seja menor que \num{0.01}.
+
+  \solution
+  Sabemos que o Teste da Integral pode ser aplicado, pois
+  \[
+    \int_n^\infty\frac{\,dx\,}{x^2}
+      = \lim_{b\to\infty}\left[ -\frac{1}{\,b\,} + \frac{1}{\,n\,} \right]
+      = \frac{1}{\,n\,}                \,.
+  \]
+  Assim, pelo Teorema~\ref{teo:estimativa-erro},
+  \[
+    \frac{1}{\,n+1\,} \leq R_n \leq \frac{1}{\,n\,}           \,.
+  \]
+  Para garantir que $R_n<\num{0.01}$ impomos que
+  \[
+    \frac{1}{\,n\,} < \num{0.01}
+  \]
+  isolando $n$ optemos $n>100$. Concluímos então que a aproximação $S_{100}$
+  tem um erro menor do que \num{0.01}.
+\end{example}
+
+%------------------------------------------------------------------------------%

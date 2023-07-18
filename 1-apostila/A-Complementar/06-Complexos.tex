@@ -1,0 +1,189 @@
+%------------------------------------------------------------------------------%
+\section{Números Complexos}
+\label{sec:NumerosComplexos}
+
+Essa seção introduz o conceito de \emph{Números Complexos}\index{Número complexo}
+e apresenta os resultados utilizados nesse material.
+
+%Uma apresentação mais completa dos Complexos pode ser
+%encontrada em [\emph{CITAR ALGUÉM}].
+
+Como uma motivação para a criação dos números complexos considere a equação
+\[
+  x^2 + 1 = 0
+\]
+manipulando formalmente obtemos a solução
+\[
+  x = \sqrt{-1}
+\]
+Porém, para qualquer número real $a$ sabemos que \(a^2 \geq 0\) o que implica que não existe
+o número \(\sqrt{-1}\) dentro do conjunto dos números reais e portanto a equação não possui solução.
+
+Uma forma para contornar essa limitação é criar um novo número, denotado por $i$ e que chamamos de
+\emph{Unidade imaginária}\index{Unidade Imaginária}, de forma que
+\[
+  i^2 = -1
+\]
+Além disso, determinamos que as operações com esse número obedecem as mesmas regras das operações com
+os números reais. Por exemplo, podemos calcular as potências de $i$
+\begin{align*}
+	i^2 & = -1                    \\
+	i^3 & = i^2i = (-1)i = -i     \\
+	i^4 & = i^2i^2 = (-1)(-1) = 1 \\
+	i^5 & = i^4i = i              \\
+	i^6 & = i^5i = i^2 = -1
+\end{align*}
+
+Como o número $i$ não pertence aos reais estamos criando um novo conjunto numérico conhecido como
+o \emph{Conjunto dos Números Complexos}\index{Número complexo!conjunto}
+\[
+  \C = \big\{\, a+bi \;\big|\; a, b \in \R \,\big\}
+\]
+Note que, identificarmos os números reais, $a$, com os números complexos \((a+0i)\) e
+dessa forma entendemos os números reais como um subconjunto dos complexos.
+
+No números complexos as operações de soma e produto são definidas
+de modo compatível com as operações nos números reais.
+A \emph{soma}\index{Número complexo!soma} de dois números complexos $v=a+bi$ e $w=c+di$ é definida por
+\[
+  v+w = (a+bi) + (c+di) = (a+c) + (b+d) i
+\]
+Enquanto o \emph{produto}\index{Número complexo!produto} é definido por
+\begin{align*}
+	vw & = (a+bi) \cdot (c+di)             \\
+	   & = a \cdot (c+di) + bi \cdot(c+di) \\
+	   & = ac + adi + bci + bdi^2          \\
+	   & = ac + adi + bci - bd             \\
+	   & = (ac-bd) + (ad+bc) i
+\end{align*}
+Propriedades das operações de números complexos. Sejam $u$, $v$ e $w$ números complexos, então
+\begin{enumerate}[label=\alph*)]
+\item \( v + w = w + v \)
+\item \( v + (w + u) = ( v + w ) + u \)
+\item \( v + 0 = 0 + v = v \) sendo que \( 0 = 0 + 0i \)
+\item Para todo \(v=a+bi \in\C\), o número
+      \[-v=-a-bi \qquad \text{é tal que} \qquad v+(-v) = 0 \]
+\item \(vw = wv\)
+\item \( v(wu) = (vw)u\)
+\item \( 1v = v\) sendo que \(1=1+0i\)
+\item Se \( v = a+bi \neq 0 \) então
+      \[ v^{-1} = \frac{a}{a^2+b^2} - \frac{b}{a^2+b^2}\,i
+        \qquad\text{é tal que} \qquad
+        vv^{-1} = v^{-1}v = 1
+      \]
+\item \( v(w+u) = vw + vu  \)
+\end{enumerate}
+Como as operações de soma e produto nos complexos possui a essas propriedades
+dizemos que o conjunto dos números complexos, com essas operações, é um \emph{corpo}\index{Corpo}.
+Os números reais, $\R$, e os racionais, $\Q$, também são corpos.
+
+\begin{example}
+  Calculo das raízes da equação quadrática.
+  \solution
+  Considere a seguinte equação algébrica
+  \[ ax^2 + bx + c = 0 \]
+  onde $a\neq 0$. Sabemos que suas soluções são dadas pela fórmula de Bhaskara
+  \[ x = \frac{-b \pm \sqrt{\Delta}}{2a} \]
+  onde
+  \[ \Delta = b^2 - 4 ac \]
+
+  Quando os coeficientes $a$, $b$ e $c$ são reais
+  a função \(y(x) = ax^2 + bx + c \)
+  representa uma parábola do plano e as soluções da equação quadrática são as os pontos onde o gráfico
+  cruza o eixo $x$. Nesse contexto, buscamos soluções reais e quando \(\Delta<0\) dizemos que o
+  gráfico não cruza o eixo $x$.
+
+  Porém, usando os números complexos, podemos calcular a raiz quadrada de números negativos obtendo
+  \[ \sqrt{\Delta} = \sqrt{\abs{\Delta}}\;i \]
+  e as soluções para a equação quadrática são o par conjugado
+  \[ x_1 = -\frac{b}{2a} - \frac{\sqrt{\abs{\Delta}}}{2a}\,i \]
+  \[ x_2 = -\frac{b}{2a} + \frac{\sqrt{\abs{\Delta}}}{2a}\,i \]
+
+  É possível mostrar que no, conjunto dos números complexos,
+  todo polinômio de grau $n$ possui exatamente $n$ raízes.
+  Além disso, se os coeficientes do polinômio forem números reais
+  então suas raízes serão números reais ou números complexos conjugadas.
+\end{example}
+
+Assim como representamos os números reais em uma reta, a Reta Real, representamos
+os complexos no \emph{Plano Complexo}\index{Plano complexo}. Cada número $u=x+yi$ é associado ao ponto
+$(x, y)$ do plano. A Figura~\ref{fig:PlanoComplexo} ilustra essa associação.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_complex_plane}
+  \caption{Representação dos Números Complexos em um Plano}
+  \label{fig:PlanoComplexo}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Além das operações de soma e produto, também definimos outras operações
+para os complexos.
+
+\begin{definicao}{Operações com Números Complexos}{def:complex-operations}
+  Para um número \( z = x+yi \in \C \) definimos as operações:
+  \begin{description}
+  \item[Parte real]       \tabto{35mm} \( \Re(z) = x \)\index{Número complexo!parte real}
+  \item[Parte imaginária] \tabto{35mm} \( \Im(z) = y \)\index{Número complexo!parte imaginária}
+  \item[Conjugado]        \tabto{35mm} \( \overline{z} = x - yi \)\index{Número complexo!conjugado}
+  \item[Módulo]           \tabto{35mm} \( \abs{z} = r = \sqrt{x^2+y^2\,} \)\index{Número complexo!módulo}
+  \item[Argumento]        \tabto{35mm} \( \arg{z} = \varphi = \arctan\frac{y}{\,x\,}\)\index{Número complexo!argumento}
+  \end{description}
+\end{definicao}
+A Figura~\ref{fig:PlanoComplexo} mostra a interpretação geométrica dessas operações.
+
+É possível demonstrar as seguintes propriedades desses operações, para os números
+complexos $v$ e $w$.
+\begin{enumerate}[label=\alph*)]
+\item \( v\overline{v}  = \abs{v}^2 \)
+\item \( \overline{v+w} = \overline{v} + \overline{w} \)
+\item \( \overline{vw}  = \overline{v}\overline{w} \)
+\end{enumerate}
+
+Um estudo do cálculo em variáveis complexas está além do escopo desse texto,
+porém, para podemos introduzir a Transformada de Fourier, vamos precisar da definição de algumas
+funções com variáveis complexas.
+
+As funções algébricas, aquelas que utilizam apenas operações como soma, produto, e potências,
+não precisam de uma definição especial, basta realizar as operações definidas para os complexos.
+Porém, para as demais funções precisamos de outras técnicas. Para as funções analíticas,
+isso é, as funções cujas Séries de Taylor convergem para a própria função, podemos usar essa série
+para definir as funções nos complexos. As funções que vamos utilizar com maior frequência
+são o seno, cosseno e a exponencial
+\begin{align}
+	\sin z & = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \frac{z^7}{7!} - \cdots      \\[3mm]
+	\cos z & = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \frac{z^8}{8!} - \cdots      \\[3mm]
+	e^z    & = 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} +  \cdots
+\end{align}
+
+Comparando as séries de Taylor dessas funções podemos demonstrar a \emph{Identidade de Euler}\index{Identidade de Euler}
+que associa a exponencial com as funções seno e cosseno
+\begin{equation}
+  e^{i\theta} = \cos(\theta) + i\sin(\theta)  \qquad \forall \; \theta \in\R
+\end{equation}
+Com essa identidade podemos interpretar a \emph{Exponencial Complexa}\index{Exponencial Complexa}
+como sendo uma oscilação com decrescimento ou decaimento exponencial, pois
+\[e^{z} = e^{a+bi} = e^a e^{bi} =e^a  \big[ \cos(b) + i\sin(b) \big] \]
+Dessa forma \(e^a\) determina o crescimento ou decrescimento, enquanto
+\(\cos(b) + i\sin(b)\) determina a oscilação.
+
+%------------------------------------------------------------------------------%
+\subsection*{Cálculo com Funções e Variáveis Complexas}
+
+Ao longo desse texto diversas vezes utilizamos funções de uma variável real
+que assumem valores complexos, $f:D\subset\R\to\C$, nesses casos podemos
+aplicar as técnicas do Cálculo de funções reais considerando a $i$ como uma
+constante, por exemplo,
+\begin{gather*}
+  \frac{d}{dx}\left(ax^2 + ix + 3i\right) = 2ax + i                    \\[3mm]
+  \frac{d}{dx}\sin(ix) = i\cos(ix)                                     \\[5mm]
+  \int ax^2 + ix + 3i \,dx = \frac{ax^3}{3} + \frac{ix^2}{2} + 3ix + C \\[3mm]
+  \int \sin(ix) \,dx = -\frac{\cos(ix)}{i} = i\cos(ix)
+\end{gather*}
+
+Porém, \emph{não} podemos utilizar as mesmas regras para funções
+de variáveis complexas, $f:D\in\C\to\C$. Para esses casos precisamos da
+teoria própria para as variáveis complexas.
+
+%------------------------------------------------------------------------------%

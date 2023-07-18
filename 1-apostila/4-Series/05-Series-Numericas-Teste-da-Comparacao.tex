@@ -1,0 +1,339 @@
+%------------------------------------------------------------------------------%
+\section{Teste da Comparação}
+
+Nessa seção apresentamos um resultado que nos permite comparar séries conhecidas
+com séries que queremos analisar, o Teste da Comparação. Existem duas versões
+desse teste o \emph{Teste da Comparação} apresentado no teorema a seguir
+e o \emph{Teste da Comparaçao no Limite} apresentado no Teorema~\ref{teo:teste-comparacao-limite}.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Comparação}{teo:teste-comparacao}
+  Sejam%
+  \index{Teste!comparação}
+  \[
+    \sum_{n=N}^\infty a_n
+    \qquad\text{ e }\qquad
+    \sum_{n=N}^\infty b_n
+  \]
+  séries tais que $a_n\geq 0$ e $b_n\geq 0$. Suponha que para algum~$N$,
+  \[
+    a_n\leq b_n, \qquad \forall  n\geq N
+  \]
+  então,
+  \begin{enumerate}
+    \item se \(\sum_{n=N}^\infty b_n\) converge, \tabto{45mm} então \(\sum_{n=N}^\infty a_n\) converge;
+    \item se \(\sum_{n=N}^\infty a_n\) diverge,  \tabto{45mm} então \(\sum_{n=N}^\infty b_n\) diverge.
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  \emph{Parte 1}
+
+  Como
+  \[
+    a_n\leq b_n, \quad \forall  n\geq N
+  \]
+  temos que
+  \[
+    \sum_{k=N}^n a_k    \;\leq\;
+    \sum_{k=N}^n b_k    \qquad \forall n\geq N      \,.
+  \]
+  Somando $b_1+b_2+\cdots+ b_{N-1}$ de ambos os lados, obtemos
+  \[
+    b_1 + b_2 + \cdots + b_{N-1} + \sum_{k=N}^na_k
+    \;\leq\;
+    \sum_{k=1}^nb_k=B_n \qquad \forall n\geq N         \,.
+  \]
+  O termo $B_n$, do lado direito da desigualdade acima, é a sequência de
+  somas parciais da série $\sum b_n$, como essa série converge e
+  $b_n\geq 0$ (ou seja a $B_n$ é crescente), segue que
+  \[
+    0 \;\leq\; b_1 + b_2 + \cdots + b_{N-1} + \sum_{k=N}^na_k
+      \;\leq\; \sum_{k=1}^\infty b_k
+      = B
+      \qquad \forall n\geq N          \,,
+  \]
+  ou seja, a sequência
+  \[
+    b_1 + b_2 + \cdots + b_{N-1} + \sum_{k=N}^na_k
+  \]
+  é limitada e crescente,
+  pois $a_n\geq 0$, portanto esta é uma sequência convergente, ou seja, a série
+  \[
+    b_1+b_2+\cdots+ b_{N-1}+\sum_{n=N}^\infty a_n
+  \]
+  converge. Mas como já discutimos
+  anteriormente, adicionar e retirar um número finito determos em uma série não muda sua
+  natureza, de modo que podemos retirar os termos $b_1+b_2+\cdots+ b_{N-1}$ e adicionar os
+  termo $a_1+a_2+\cdots+ a_{N-1}$ e concluir que a série $\sum a_n$ é convergente.
+
+\emph{Parte 2}
+
+  Suponha por absurdo que $\sum b_n$ converge, então, pelo item anterior,
+  segue que $\sum a_n$ converge. O que é um absurdo, pois por hipótese $\sum a_n$
+  diverge. Segue que $\sum b_n$ diverge.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que a série \(\sum_{n=1}^\infty \frac{n-1}{n^4+2}\) converge.
+  \solution
+  De fato, veja que
+  \begin{align*}
+    \frac{n-1}{n^4+2} & =    \frac{n}{n^4+2} - \frac{1}{n^4+2} \\[3mm]
+                      & \leq \frac{n}{n^4+2}                   \\[3mm]
+                      & =    \frac{1}{n^3 + \sfrac{2}{n}}      \\[3mm]
+                      & \leq \frac{1}{n^3}                     \,.
+  \end{align*}
+  Como a série
+  \[
+    \sum_{n=1}^\infty \frac{1}{n^3}
+  \]
+  é uma série $p$ com $p=3>1$, ela é convergente.
+  Assim, pelo teste de comparação a série
+  \[
+    \sum_{n=1}^\infty \frac{n-1}{n^4+2}
+  \]
+  também converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência da série
+  \(
+    \sum_{n=1}^\infty\frac{3^n}{2^n-1}
+  \).
+  \solution
+  A série
+  \[
+    \sum_{n=1}^\infty\frac{3^n}{2^n-1}
+  \]
+  diverge, pois
+  \[
+    \frac{3^n}{2^n-1}\geq \left(\frac{3}{2}\right)^n
+  \]
+  e a série geométrica
+  \[
+    \sum_{n=1}^\infty\left(\frac{3}{2}\right)^n
+  \]
+  diverge, pois
+  \(
+    \abs{r}=\sfrac{3}{2}>1
+  \).
+\end{example}
+%------------------------------------------------------------------------------%
+
+Apresentamos agora a segunda versão do teste da comparação. nessa versão substituímos
+a necessidade de verificar se $a_n\leq b_n$ ou $a_n\geq b_n$ pelo cálculo de um
+limite. Ao aplicarmos o teste em uma série específica podemos escolher a versão
+que necessitar de cálculos mais simples.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste da Comparação no Limite}{teo:teste-comparacao-limite}
+  Sejam\index{Teste!comparação no limite}
+  $a_n>0$ e $b_n>0$, para todo $n\geq N$, $N\in \N$.
+  \begin{enumerate}
+    \item
+      Se
+      \(
+        \lim\frac{a_n}{b_n}=c>0
+      \;\)
+      então
+      \(\;
+        \sum_{n=1}^\infty a_n
+      \)
+      converge se, e somente se,
+      \(
+        \sum_{n=1}^\infty b_n
+      \)
+      converge.
+    \item
+      Se
+      \(
+        \lim\frac{a_n}{b_n}=0
+      \;\) e
+      \(\;
+        \sum_{n=1}^\infty b_n
+      \)
+      converge, então
+      \(
+        \sum_{n=1}^\infty a_n
+      \)
+      converge.
+    \item
+      Se
+      \(
+        \lim\frac{a_n}{b_n}=\infty
+      \;\) e
+      \(\;
+        \sum_{n=1}^\infty b_n
+      \)
+      diverge, então
+      \(
+        \sum_{n=1}^\infty a_n
+      \)
+      diverge.
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  %----------------------------------------------------------------------------%
+  \emph{Parte 1}
+
+  A demonstração da Parte 1 está no Teorema 11 na Seção 10.4 no livro do Thomas~\cite{thomas_2}.
+
+  %----------------------------------------------------------------------------%
+  \emph{Parte 2}
+
+  Para todo $\varepsilon>0$ existe $N_1\in\N$,  $N_1\geq N$, tal que
+  \[
+    \frac{a_n}{b_n} =    \abs{\frac{a_n}{b_n}-0}
+                    \leq \varepsilon
+    \qquad \forall n\geq N_1
+  \]
+  ou seja,
+  \[
+    a_n \leq \varepsilon b_n \qquad \forall  n\geq N_1          \,.
+  \]
+  Assim, pelo teorema anterior, se $\sum \varepsilon b_n$
+  converge, então $\sum a_n$
+  também converge, mas é claro que $\sum \varepsilon b_n$
+  converge, pois $\sum b_n$
+  converge e $\varepsilon$ é uma constante.
+
+  %----------------------------------------------------------------------------%
+  \emph{Parte 3}
+
+  Para todo $M>0$ dado, existe $N_1\in\N$, $N_1\geq N$, tal que
+  \[
+    \frac{a_n}{b_n}>M \qquad \forall n> N_1   \,,
+  \]
+  ou seja,
+  \[
+    a_n > M b_n \qquad \forall n > N_1     \,.
+  \]
+  Como $\sum b_n $ diverge e $M$ é constante, segue que $\sum M b_n$ também diverge.
+  Pelo teorema anterior, como $\sum M b_n$ diverge, segue que $\sum a_n$ também diverge.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série
+  \(
+    \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+  \).
+  \solution
+  A série
+  \[
+    \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+  \]
+  converge, pois tomando
+  \[
+    b_n=\frac{2^n}{4^n}=\frac{1}{2^n}
+  \]
+  temos
+  \[
+    \lim \frac{a_n}{b_n} = \lim \frac{4^n}{3+4^n}
+                         = \lim \frac{1}{\sfrac{3}{4^n}+1}
+                         = 1                  \,.
+  \]
+  Como a série
+  \[
+    \sum \frac{1}{2^n}
+  \]
+  converge, pois é uma série geométrica com $\abs{r}=\sfrac{1}{2}<1$,
+  segue, usando o item 1 do teorema, que a série
+  \[
+    \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+  \]
+  também converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Use o fato que $\ln n$ cresce mais lentamente que $n^c$ para qualquer
+  constante positiva $c$ para provar a convergência da série
+  \[
+    \sum_{n=1}^\infty \frac{(\ln n)^2}{n^3}      \,.
+  \]
+  \solution
+  Para verificarmos que $\ln n$ cresce mais lentamente que $n^c$ para qualquer
+  constante positiva $c$ usamos a regra de L'Hôpital para mostrar que
+  \[
+    \lim_{x\to \infty}\frac{\ln x}{x^c} = 0   \,.
+  \]
+  Usando esse fato podemos escrever que para qualquer $c>0$ vale a desigualdade
+  \[
+    \frac{\left(\ln n\right)^2}{n^3} < \frac{n^{2c}}{n^3} = \frac{1}{n^{3-2c}}     \,.
+  \]
+  Queremos agora escolher a constante $c$ tal que a expressão do lado direito
+  seja o termo geral de uma série convergente.
+  Observando que esses são os termos de uma série-$p$ com $p=3-2c$, precisamos
+  impor que $3-2c>1$ ou seja $c<1$, escolhemos então \(c=\sfrac{1}{2}\).
+  Dessa forma construímos uma série convergente com termos
+  \[
+     b_n = \frac{1}{n^{3-2c}}
+         = \frac{1}{n^2}     \,.
+  \]
+  Podemos aplicar o Teste da Comparação no Limite
+  \begin{align*}
+    \lim \frac{a_n}{b_n} & = \lim \frac{(\ln n)^2} {n} \\[3mm]
+                         & =2\lim \frac{\ln n}{n}      \\[3mm]
+                         & =2\lim \frac{ 1}{n}=0       \,.
+  \end{align*}
+  Pelo item $2$ do Teorema~\ref{teo:teste-comparacao-limite},
+  como
+  \[
+    \sum_{n=1}^\infty \frac{1}{n^2}
+  \]
+  converge, segue que a série em questão também converge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+    Verifique que série
+    \(
+      \sum_{n=1}^\infty \left(\frac{2n+3}{5n+4}\right)^n
+    \)
+    diverge.
+
+    \solution
+    Com efeito, comparando o termo geral
+    \(
+      a_n=\left(\frac{2n+3}{5n+4}\right)^n
+    \)
+    com
+    \(
+      b_n=\left(\frac{2}{5} +\frac{3}{5n}\right)^n
+    \),
+    temos
+    \begin{align*}
+      \lim \frac{a_n}{b_n} & = \lim \left( \frac{2n+3}{5n+4} \; \frac{5n}{2n+3}\right)^n \\
+                           & = \lim \left( \frac{5n}{5n+4}\right)^n                      \\
+                           & = \lim \left( \frac{1}{1+\sfrac{4}{5n}}\right)^n            \\
+                           & = \frac{1}{e^{\sfrac{4}{5}}}                                \,.
+    \end{align*}
+    Como
+    \(
+      \frac{1}{e^{\sfrac{4}{5}}} > 0
+    \),
+    pelo primeiro item do teorema, segue que o comportamento
+    de $\sum a_n$ é o mesmo de $\sum b_n$, mas $\sum b_n$ diverge, pois
+    \[
+      b_n=\left(\frac{2}{5} +\frac{3}{5n}\right)^n\to e^{\sfrac{6}{25}}\neq 0  \,.
+    \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Para verificar as passagens desse exemplo, é possível utilizar a expressão
+\[
+  \lim \left( \frac{1}{1+\sfrac{4}{5n}}\right)^n =
+  \exp\left[ \,\lim\ln \left( \dfrac{1}{1+\sfrac{4}{5n}}\right)^n \,\right]    \,.
+\]
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,48 @@
+%------------------------------------------------------------------------------%
+
+\newcommand{\derivativeLabelRow}[1]{%
+  \rowcolor{cpBoxTheoryTitleBack}%
+  \multicolumn{2}{c}{$\displaystyle\vphantom{\int_\int}$#1}%
+}
+
+\begin{nlongtable}[\setlength{\extrarowheight}{5mm}]%
+  {>{$\displaystyle\vphantom{\int_\int}\;\;}w{l}{0.491\linewidth}<{$}
+   >{$\displaystyle\vphantom{\int_\int}\;  }w{l}{0.491\linewidth}<{$}}
+  {Tabela de Derivadas}
+  {tab:tabela-derivadas} \\[-22mm]
+\derivativeLabelRow{Funções exponenciais e logarítmicas}   \\ \hline
+  \frac{d}{dx} \; e^x        = e^x                         &
+  \frac{d}{dx} \; a^x        = a^x\ln(a)                   \\ \hline
+  \frac{d}{dx} \; \ln\abs{x} = \frac{1}{x}                 &
+  \frac{d}{dx} \; \log_a(x)  = \frac{1}{x\ln(a)}           \\ \hline
+\derivativeLabelRow{Funções trigonométricas}               \\ \hline
+  \frac{d}{dx}\; \sin(x) =  \cos(x)                        &
+  \frac{d}{dx}\; \tan(x) =  \sec^2(x)                      \\ \hline
+  \frac{d}{dx}\; \sec(x) =  \sec(x) \tan(x)                &
+  \frac{d}{dx}\; \cos(x) = -\sin(x)                        \\ \hline
+  \frac{d}{dx}\; \cot(x) = -\csc^2(x)                      &
+  \frac{d}{dx}\; \csc(x) = -\csc(x) \cot(x)                \\ \hline
+\derivativeLabelRow{Funções trigonométricas inversas}      \\ \hline
+  \frac{d}{dx} \sin^{-1}(x) =  \frac{1}{ \sqrt{1-x^2}}     &
+  \frac{d}{dx} \tan^{-1}(x) =  \frac{1}{       1+x^2 }     \\ \hline
+  \frac{d}{dx} \sec^{-1}(x) =  \frac{1}{x\sqrt{x^2-1}}     &
+  \frac{d}{dx} \cos^{-1}(x) = -\frac{1}{ \sqrt{1-x^2}}     \\ \hline
+  \frac{d}{dx} \cot^{-1}(x) = -\frac{1}{       1+x^2 }     &
+  \frac{d}{dx} \csc^{-1}(x) = -\frac{1}{x\sqrt{x^2-1}}     \\ \hline
+\derivativeLabelRow{Funções hiperbólicas}                  \\ \hline
+  \frac{d}{dx}\; \sinh(x) =  \cosh(x)                      &
+  \frac{d}{dx}\; \tanh(x) =  \sech^2(x)                    \\ \hline
+  \frac{d}{dx}\; \sech(x) = -\sech(x) \tanh(x)             &
+  \frac{d}{dx}\; \cosh(x) =  \sinh(x)                      \\ \hline
+  \frac{d}{dx}\; \coth(x) = -\csch^2(x)                    &
+  \frac{d}{dx}\; \csch(x) = -\csch(x) \coth(x)             \\ \hline
+\derivativeLabelRow{Funções hiperbólicas inversas}         \\ \hline
+  \frac{d}{dx} \sinh^{-1}(x) =  \frac{1}{ \sqrt{1+x^2}}    &
+  \frac{d}{dx} \tanh^{-1}(x) =  \frac{1}{       1-x^2 }    \\ \hline
+  \frac{d}{dx} \sech^{-1}(x) = -\frac{1}{x\sqrt{1-x^2}}    &
+  \frac{d}{dx} \cosh^{-1}(x) =  \frac{1}{ \sqrt{x^2-1}}    \\ \hline
+  \frac{d}{dx} \coth^{-1}(x) =  \frac{1}{       1-x^2 }    &
+  \frac{d}{dx} \csch^{-1}(x) = -\frac{1}{\abs{x}\sqrt{x^2+1}}
+\end{nlongtable}
+
+%------------------------------------------------------------------------------%

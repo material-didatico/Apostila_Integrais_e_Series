@@ -1,0 +1,300 @@
+%------------------------------------------------------------------------------%
+\section{Cálculo de Funções Reais}
+\label{sec:Derivacao_Integracao}
+
+Apresentamos nessa seção algumas definições e propriedades do Cálculo de
+funções reais que podem ser úteis para o estudo dos conteúdos desse material.
+Começamos pela definição de uma função real.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Função}{def:funcao}
+  Uma \emph{Função}\index{Função} $f$ de um conjunto $D$ para um conjunto $E$
+  é uma regra que associa, sem ambiguidade, um único elemento $y=f(x)\in E$
+  para cada elemento $x\in D$. Denotamos uma função por
+  \[
+    f: D \to E
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Dizemos que $D$ é o \emph{Domínio}\index{Domínio} e $E$ o
+\emph{Contra Domínio}\index{Contra Domínio} de $f$, enquanto o
+conjunto de todos os valores $y=f(x)$ correspondentes a algum $x\in D$ é
+a \emph{Imagem}\index{Imagem} de $f$.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Função Real}{def:funcao-real}
+  Uma \emph{Função Real}\index{Função!real} é uma função cujo domínio e
+  contra domínio são subconjuntos dos reais $\R$.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A seguir apresentamos a definição formal do limite de uma função real.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Limite de Função Real}{def:limite-funcao-real}
+  Seja $f$ uma função definida em intervalo aberto que contém do ponto $a\in\R$,
+  podendo não ser definida em $a$. Dizemos que o \emph{Limite}\index{Limite!função real}
+  de $f(x)$ quando $x$ se aproxima de $a$ é $L\in\R$ e escrevemos
+  \[
+    \lim_{x\to a} f(x) = L
+  \]
+  se para cada $\varepsilon>0$ existir $\delta>0$ tal que
+  \[
+    0 < \abs{x-a} < \delta \qquad\Rightarrow\qquad \abs{f(x)-L} < \varepsilon
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Essa definição pode ser estendida para o caso em que $a$ é $\pm\infty$.
+Quando o limite existe ele possui as propriedades descritas na proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades do Limite de Funções Reais}{pro:limite-funcao-real}
+  Supondo que $c$ é uma constante, $f$ e $g$ são funções reais e que os limites
+  \[
+    \lim_{x\to a} f(x) \qquad\text{ e }\qquad \lim_{x\to a} g(x)
+  \]
+  existem, então valem as \emph{Propriedades do Limite}
+  \begin{enumerate}
+    \item \( \lim_{x\to a} \Big[ f(x) + g(x) \Big] = \lim_{x\to a} f(x) + \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} \Big[ f(x) - g(x) \Big] = \lim_{x\to a} f(x) - \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} cf(x) = c \lim_{x\to a} f(x) \)
+    \item \( \lim_{x\to a} \Big[ f(x)g(x) \Big] = \lim_{x\to a} f(x) \cdot \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} \frac{f(x)}{g(x)} = \dfrac{\displaystyle\lim_{x\to a} f(x)}
+                                                     {\displaystyle\lim_{x\to a} d(x)} \)
+          \qquad desde que \(\lim_{x\to a} d(x) \neq 0\)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Uma propriedade de algumas funções reais é não possuir buracos ou saltos em seu
+gráfico. Dizemos que essa funções são contínuas e a próxima definição nos fornece
+uma caracterização para essas funções.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Continuidade de Função Real}{def:continuidade-funcao-real}
+  Uma função real é \emph{Contínua}\index{Função!contínua} em um ponto $a$ se
+  \begin{enumerate}
+    \item \( f(a) \) existe
+    \item \( \lim_{x\to a} f(x) \) existe
+    \item \( \lim_{x\to a} f(x) = f(a) \)
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Um resultado importante sobre funções contínuas é o Teorema do Valor Intermediário.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema do Valor Intermediário}{teo:valor-intermediario}
+  Suponha\index{Teorema!valor intermediário}
+  que a função $f$ é contínua em todos os pontos de um intervalo fechado
+  $[a, b]$ e que \(f(a)\neq f(b)\). Assuma que $p$ é um valor entre $f(a)$ e $f(b)$
+  então existe um número $c\in(a, b)$ tal que $f(c)=p$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Com o limite podemos definir a derivada de uma função real que nos fornece o
+valor da inclinação da reta tangente ao gráfico da função em cada ponto.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Derivada de Função Real}{def:derivada-funcao-real}
+  A \emph{Derivada}\index{Derivada} de uma função real $f(x)$ em relação
+  a variável $x$ é a função $f'$ cujo valor em $x$ é
+  \[
+    f'(x) = \lim_{h\to 0} \frac{\,f(x+h)-f(x)\,}{h}
+  \]
+  desde que o limite exista.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Ao calcularmos derivadas usamos as regras de derivação listadas na proposição
+a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Regras de Derivação}{pro:regras-derivacao}
+  Sejam $f$ e $g$ funções deriváveis, $c$ e $r$ constantes, então temos que
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item \( \frac{d}{dx} c = 0 \)
+      \item \( \frac{d}{dx} x^n = nx^{n-1} \)
+      \item \( \frac{d}{dx} e^x = e^x \)
+      \item \( \big(cf\big)' = cf' \)
+      \item \( \big(f+g\big)' = f' + g' \)
+      \item \( \big(f-g\big)' = f' - g' \)
+      \item \( \big(fg\big)' = f'g + fg' \)
+      \item \( \left(\frac{f}{\,g\,}\right)' = \frac{f'g - fg'}{g^2} \)
+      \item Se \(h(x) = f\big(g(x)\big) \) então  \[ h'(x) = f'\big(g(x)\big)\,g'(x) \]
+    \end{enumerate}
+  \end{multicols}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Uma propriedade importante de funções deriváveis é o Teorema de Rolle ou
+Teorema do Valor Médio.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema de Rolle}{teo:rolle}
+  Suponha\index{Teorema!de Rolle}\index{Teorema!valor médio}
+  que $f$ é uma função
+  \begin{enumerate}
+    \item contínua  no intervalo fechado $[a, b]$
+    \item derivável no intervalo aberto  $(a, b)$ e
+    \item \(f(a)=f(b)\)
+  \end{enumerate}
+  então existe $c\in(a, b)$ onde $f'(c)=0$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+A operação inversa da derivação e a integração e é apresentadas nos próximos resultados.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Primitiva de Função Real}{def:primitiva-funcao-real}
+  A \emph{Primitiva}\index{Primitiva},
+  \emph{Antiderivada}\index{Antiderivada} ou
+  \emph{Integral Indefinida}\index{Integral!indefinida}
+  de uma função $f$ é a função $F$ tal que
+  \[
+    \frac{dF}{dx}(x) = f(x)
+  \]
+  Denotamos a primitiva por
+  \[
+    F(x) = \int f(x)\, dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+É importante observar que a primitiva não é única, se $F(x)$ é uma primitiva de $f(x)$
+então $F(x)+c$ também será para qualquer constante $c$. A proposição a seguir
+apresenta algumas propriedades da primitiva.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades da Primitiva}{pro:propriedades-primitiva}
+  Dadas funções integráveis $f$ e $g$ e a constante $c$ temos que
+  \begin{enumerate}
+    \item \( \int f(x)+g(x)\,dx = \int f(x)\,dx + \int g(x)\,dx\)
+    \item \( \int f(x)-g(x)\,dx = \int f(x)\,dx - \int g(x)\,dx\)
+    \item \( \int cf(x)\,dx   = c \int f(x)\,dx \)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Uma operação relacionada é o cálculo da área entre o gráfico da função $f$ e
+o eixo-$x$, chamamos essa operação de integral definida como descrito na
+próxima definição.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Definida}{def:integral-defnida}
+  A \emph{Integral Definida}\index{Integral!definida} de uma função real $f$
+  é a área, considerando o sinal, entre o gráfico da função e o eixo-$x$
+  no intervalo $[a, b]$
+  \[
+    \int_{a}^{b} f(x) \, dx
+  \]
+  Essa área é o limite da \emph{Soma de Riemman} correspondente.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A integral definida possui as propriedades descrita na proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades da Integral Definida}{pro:propriedade-integral-definida}
+  Dadas funções integráveis $f$ e $g$ e a constante $c$ temos que
+  \begin{enumerate}
+    \item \( \int_a^b c\,dx = c(b-a) \)
+    \item \( \int_a^b f(x)+g(x)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx\)
+    \item \( \int_a^b f(x)-g(x)\,dx = \int_a^b f(x)\,dx - \int_a^b g(x)\,dx\)
+    \item \( \int_a^b cf(x)\,dx = c \int_a^b f(x)\,dx \)
+    \item \( \int_a^c f(x)\,dx + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx \)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Integração por Partes}{pro:integracao-partes}
+  Dadas funções integráveis $p$ e $q$, podemos escrever a seguinte relação
+  entre as integrais indefinidas
+  \[
+    \int u\,dv = uv - \int v\,du \,.
+  \]
+  De modo equivalente temos a relação entre as integrais definidas
+  \[
+    \int_{-\infty}^\infty p\,dq = pq \, \evalat{-\infty}{\infty} - \int_{-\infty}^\infty q\,dp \,.
+  \]
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+O Teorema Fundamental do Cálculo é o resultado que determina as relações
+entre a derivada e as integrais definida e indefinida de uma função.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema Fundamental do Cálculo}{teo:fundamental-calculo}
+\begin{description}
+  \item[Parte 1]\index{Teorema!fundamental do Cálculo}
+  Se $f$ é uma função contínua em $[a, b]$ então a função $F$ definida por
+  \[
+    F(x) = \int_a^x f(t)\, dt \qquad\qquad a \leq x \leq b
+  \]
+  é contínua em $[a, b]$, diferenciável em $(a, b)$ e
+  \[
+    F'(x) = f(x)
+  \]
+  \item[Parte 2]
+  Se $f$ é contínua em $[a, b]$ então
+  \[
+   \int_a^b f(x)\,dx = F(b) - F(a) = F(x)\evalat{a}{b}
+  \]
+  onde $F$ é qualquer primitiva de $f$.
+\end{description}
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+As integrais definidas são calculadas em um intervalo finito e a função $f$
+não deve ter nenhuma descontinuidade infinita. Porém, mesmo se o intervalo for infinito
+ou $f$ possuir uma descontinuidade infinita, em alguns casos, é possível
+calcular a área sob o gráfico usando a integral imprópria.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Imprópria -- Tipo 1}{def:integral-impropria-1}
+  A \emph{Integral Imprópria}\index{Integral!imprópria} do tipo 1
+  é a integral definida de uma função $f$ em um intervalo infinito.
+
+  Se \( \int_a^b f(x)\, dx \)
+  existe para todo $b\geq a$ e o limite existir, temos que
+  \[
+    \int_a^\infty f(x)\,dx = \lim_{b\to\infty}\int_a^b f(x)\, dx
+  \]
+  Se \( \int_a^b f(x)\, dx \)
+  existe para todo $a\leq b$ e o limite existir, temos que
+  \[
+    \int_{-\infty}^b f(x)\,dx = \lim_{a\to-\infty}\int_a^b f(x)\, dx
+  \]
+  Se \( \int_a^\infty    f(x)\,dx \)
+  e  \( \int_{-\infty}^b f(x)\,dx \)
+  são convergentes, então
+  \[
+    \int_{-\infty}^\infty f(x)\,dx = \int_{-\infty}^c f(x)\, dx
+                                   + \int_c^\infty    f(x)\, dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Imprópria -- Tipo 2}{def:integral-impropria-2}
+  Se $f$ é contínua em $[a, b)$ e descontínua em $b$, e o limite existir,
+  temos que
+  \[
+    \int_a^b f(x)\,dx = \lim_{t\to b} \int_a^t f(x)\,dx
+  \]
+  Se $f$ é contínua em $(a, b]$ e descontínua em $a$, e o limite existir,
+  temos que
+  \[
+    \int_a^b f(x)\,dx = \lim_{t\to a} \int_t^b f(x)\,dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+\input{A-Complementar/08-1-Derivadas}
+\input{A-Complementar/08-2-Integrais}
+
+%------------------------------------------------------------------------------%

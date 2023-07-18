@@ -1,0 +1,211 @@
+%------------------------------------------------------------------------------%
+\section{Teste de Divergência}
+
+A partir desse ponto começamos a construir um conjunto de ferramentas
+que nos ajudam a decidir se uma série converge ou não.
+Note que, por enquanto, não estamos preocupados com a soma da série,
+queremos apenas saber se a soma existe.
+O primeiro desses resultados, que chamamos de
+\emph{Teste de Divergência} ou
+\emph{Teste do Termo Geral},
+nos ajuda a identificar muitas séries que não podem ser
+convergentes com relativa facilidade .
+Dessa forma, sempre o aplicamos primeiro para descartar rapidamente essas séries.
+O teorema a seguir é o principal resultado que nos permite
+construir o teste da divergência.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Limite do Termo Geral}{teo:limite-termo-geral}
+  Se a série
+  \(
+    \sum_{n=1}^\infty a_n
+  \)
+  é convergente $a_n$ tende para zero.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Como a série é convergente, a sequência de somas parciais
+  $S_n$ é convergente, ou seja,
+  \[
+    \lim S_n=\lim S_{n-1}=L
+  \]
+  observando que $S_n-S_{n-1}=a_n$ concluirmos que
+  \[
+    \lim a_n
+    = \lim (S_n-S_{n-1})
+    = L - L
+    = 0              \,.
+  \]
+\end{proof}
+%------------------------------------------------------------------------------%
+
+O teste de divergência é uma consequência direta desse teorema.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teste de Divergência}{teo:teste-divergencia}
+  Se\index{Teste!divergência}\index{Teste!termo geral}
+  a sequência $a_n$ não converge para zero, então a série
+  \(
+    \sum_{n=1}^\infty a_n
+  \)
+  diverge.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Uma forma para provar que uma série diverge é mostrar que o seu termo geral $a_n$
+ou converge para um limite diferente de zero ou diverge. Mas tome cuidado, isso não quer
+dizer que toda série que diverge satisfaz a propriedade que o termo geral não converge
+para zero, ou, analogamente, não é verdade que toda série cujo termo geral converge para
+zero é uma série convergente. Os próximos exemplos ilustram o uso desse teste em
+algumas séries específicas.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostrar que a série
+  \(\;
+    \sum_{n=1}^\infty ar^{n-1}
+  \;\)
+  diverge quando $\abs{r}\geq 1$.
+  \solution
+  A série geométrica
+  \[
+    \sum_{n=1}^\infty ar^{n-1}
+  \]
+  diverge quando $\abs{r}\geq 1$, pois, nesse caso, $ar^{n-1}$ não converge para zero.
+  Verificamos isso observando que se $r=1$
+  \[
+    ar^n \to a \neq 0
+  \]
+  enquanto que, se $\abs{r}>1$ ou $r=-1$, $ar^{n-1}$ diverge.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série
+  \(\;
+    \sum_{n=0}^\infty \left(\sqrt{2}\right)^n
+  \)
+  \solution
+  A série
+  \(
+    \sum_{n=0}^\infty \left(\sqrt{2}\right)^n
+  \)
+  diverge, uma vez que
+  \(
+    \lim \left(\sqrt{2}\right)^n\!\!=\infty
+  \)
+  pois
+  \(
+    \sqrt{2}>1
+  \).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série
+  \(\;
+    \sum_{n=0}^\infty \cos(n\pi)
+  \)
+  \solution
+  Essa série diverge, pois
+  \(
+    \lim \cos(n\pi)
+  \)
+  não existe, já que
+  \[
+    \cos(n\pi)=(-1)^n
+  \]
+  que alterna entre $-1$ e $1$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série
+  \(\;
+    \sum_{n=1}^\infty \frac{n^n}{n!}   \,.
+  \)
+  \solution
+  A série
+  \(
+    \sum_{n=1}^\infty \frac{n^n}{n!}
+  \)
+  diverge, pois
+  \(
+    \lim \frac{n^n}{n!}=\infty
+  \).
+  De fato, note que, se $n\geq 2$,
+  \[ n! \;=\;     1\cdot 2\cdot 3\cdots n
+        \;\leq\;  \underbrace{n\cdot n \cdots n}_{n-1 \text{ fatores }}
+        \;=\; n^{(n-1)}
+  \]
+  Então, multiplicando ambos os lados por $n$
+  \[
+    n\,n!\leq n^{n} \qquad\Rightarrow\qquad n\leq \frac{n^n}{n!}
+  \]
+  Como $n\to\infty$, seque que
+  \(
+    \frac{\,n^n\,}{n!}\to \infty
+  \).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série
+  \(\;
+    \sum_{n=1}^\infty \ln\left(\frac{n}{2n+1}\right)
+  \).
+  \solution
+  A série \(\sum_{n=1}^\infty \ln\left(\frac{n}{2n+1}\right)\) diverge, pois
+  \[
+    \lim\ln\left(\frac{n}{2n+1}\right) \;=\; \ln\left(\lim \frac{n}{2n+1}\right)
+                                       \;=\; \ln{\frac{1}{2}}
+                                       \;\neq\; 0     \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+A seguir apresentamos um exemplo clássico de uma série cujo termo geral converge para
+zero mas a série diverge. Primeiro vamos apresentar a definição dessa
+série e em seguida verificamos que ela é divergente.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série Harmônica}{def:serie-harmonica}
+  A \emph{Série Harmônica}\index{Série!harmônica} é a série
+  \(\quad
+    \sum_{n=1}^\infty \frac{1}{\;n\;}
+  \).
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verificar a convergência da série harmônica.
+  \solution
+  Para ver que essa série diverge, observe que
+  \begin{align*}
+   	\!\!\!S_{2^n} & = 1 + \frac{1}{2} + \cdots + \frac{1}{2^n} \\[3mm]
+  	              & = 1 + \frac{1}{2}
+                    + \left( \frac{1}{3} + \frac{1}{4} \right)
+                    + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right)
+                    + \cdots
+                    + \left( \frac{1}{2^{n-1}+1} + \cdots + \frac{1}{2^n} \right) \\[3mm]
+  	              & > 1 + \frac{1}{2}
+                    + \left( \frac{1}{3} + \frac{1}{4} \right)
+                    + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right)
+                    + \cdots
+                    + \left( \frac{1}{2^n} + \cdots + \frac{1}{2^n} \right) \\[3mm]
+  	              & = 1 + \frac{1}{2}
+                    + \frac{2}{4}
+                    + \frac{4}{8} + \cdots
+                    + \frac{2^{n-1}}{2^n}  \\[3mm]
+  	              & = 1 + \frac{n}{2} \to \infty    \,.
+  \end{align*}
+  Portanto a série diverge, mesmo que $\sfrac{1}{n}\to0$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

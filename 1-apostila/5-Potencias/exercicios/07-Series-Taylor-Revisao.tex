@@ -1,0 +1,175 @@
+%------------------------------------------------------------------------------%
+\begin{exercises*}
+
+% Exercício de prova do prof. Éden Amorim
+\begin{exercise}
+  Para cada função abaixo, apresente sua série de Taylor com o centro indicado.
+  Apresente também o raio de convergência das séries.
+  \begin{mathlist}
+    \item q(x) = \frac{1}{5-x}      \), centrada em 4
+    \item E(x) = \int e^{-x^2}\,dx  \), centrada em 0
+    \item d(x) = \cos^2 x - \sin^2 x\), centrada em 0
+  \end{mathlist}
+  \begin{answer}
+    \begin{alphalist}
+      \item Pela série geométrica (razão $= x-4$):
+        \[
+          q(x) = \frac{1}{5-x}
+               = \frac{1}{1-(x-4)}
+               = \sum (x-4)^n
+        \]
+        para \(|x-4| < 1\)
+      \item Pela série de Taylor da exponencial, substituindo $x \to -x^2$ e
+        integrando a série (não afetam o raio, por ser infinito):
+        \begin{align*}
+          E(x) & = \int \left( \sum \frac{(-1)^n}{n!} x^{2n} \right) \, dx \\
+               & = C + \sum \frac{(-1)^n}{(2n+1)n!} x^{2n+1}
+        \end{align*}
+        para $x \in \R$.
+      \item Pela série de Taylor do cosseno, substituindo $x \to 2x$ (não afeta o raio, por ser infinito):
+        \[
+          d(x) =\cos(2x) = \sum \frac{(-1)^n 2^{2n}}{(2n)!}x^{2n}
+        \]
+        para $x \in \R$.
+    \end{alphalist}
+  \end{answer}
+\end{exercise}
+
+% Exercício de prova do prof. Éden Amorim
+\begin{exercise}
+  Considere a função
+  \begin{align*}
+    L(x) & = \ln \bigg( \frac{1+x}{1-x}\bigg) \\
+         & = \ln(1+x) - \ln(1-x)
+  \end{align*}
+  para $\abs{x} < 1$
+  Ela é utilizada para obter séries numéricas que aproximam os valores de $\ln 2$ e $\ln 3$.
+  Nessa questão vamos explorar essa utilização.
+  \begin{alphalist}
+      \item Obtenha os valores de $x$ para os quais $L(x)=\ln 2$ e $L(x)=\ln 3$.
+      \item Obtenha uma série de potências para $L$ centrada em zero, explicitando seu raio de convergência.
+      \item Com base nos itens anteriores, apresente séries numéricas que convergem para $\ln 2$ e $\ln 3$
+  \end{alphalist}
+  \begin{answer}
+    \begin{alphalist}
+      \item Por cálculo direto, \(x=\sfrac{1}{3}\) e \(x=\sfrac{1}{2}\), respectivamente.
+      \item Pela série de potências do logaritmo, substituindo $x \to - x$
+            e somando as séries (não afetam o raio):
+        \begin{align*}
+          L(x) & = \sum \frac{1}{n}x^n - \sum \frac{(-1)^n}{n}x^n \\
+               & = 2\sum \frac{1}{(2n+1)}x^{2n+1}
+        \end{align*}
+        para $|x| < 1$.
+      \item Substituindo os valores obtidos no item (a) na série do item (b):
+        \[\ln 2 = \sum \frac{2}{(2n+1)3^{2n+1}}\]
+        \[\ln 3 = \sum \frac{1}{(2n+1)2^{2n}}\]
+    \end{alphalist}
+  \end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise} Seja $f(x)=\ln(x)$.
+  \begin{alphalist}
+    \item Mostre que \[f(x)=\sum_{n=1}^\infty\frac{(-1)^{n-1}(x-1)^n}{n}\] para \(x\in (0,2)\)
+    \item Mostre que a série no item anterior converge absolutamente em $x\in (0,2)$.
+        Analise se a série converge nos extremos $x=0$ e $x=2$.
+        É possível afirmar que a série diverge em $(-\infty, 0)\cup (2, \infty)$?
+    \item Some os quatro primeiros termos da série do item (a)
+        para encontrar uma aproximação para o valor de $\ln(\sfrac{3}{2})$.
+        Estime o erro cometido.
+  \end{alphalist}
+\end{exercise}
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise}
+  Seja \(f(x)=\frac{2}{1-x}\)
+  \begin{alphalist}
+    \item Encontre um padrão para $f^{(n)}(x)$ e use isso para construir
+      a série de Taylor de $f$ centrada em $x=-1$.
+    \item Mostre que
+      \(f(x)=\frac{1}{1-\dfrac{x+1}{2}}\)
+    \item
+      Tomando \(r=\frac{x+1}{2}\), para quais valores de $x$
+      a função $f$ pode ser vista como o limite da série geométrica \(\sum r^n\)?
+      \item Use os itens (a) e (b) para concluir que $R_n(x)\rightarrow 0$
+      se $x\in(-3, 1)$, onde $R_n(x)$ é o resto dado pelo teorema de Taylor.
+  \end{alphalist}
+\end{exercise}
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise}
+  Considere a série de potências
+  \[\sum_{n=0}^\infty \frac{(-1)^n(5x-5)^{n}}{n5^{n}}\]
+  \vspace{-\baselineskip}
+  \begin{alphalist}
+    \item Qual o centro $a$ da série?
+    \item Qual o raio de convergência?
+    \item Qual o intervalo de convergência da série?
+    \item Encontre uma função $f(x)$ que coincide com a série no interior do intervalo de convergência.
+  \end{alphalist}
+\end{exercise}
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise}
+  Considere a série de potências
+  \[\sum_{n=1}^\infty (-1)^{n-1}\frac{x^{2n-1}}{2n-1}\]
+  \begin{alphalist}
+    \item Encontre o intervalo de convergência da série.
+    \item Encontre uma função $f$ tal que
+      \[ f(x)=\sum_{n=0}^\infty (-1)^{n-1}\frac{x^{2n-1}}{2n-1}\]
+    no interior do intervalo de convergência.
+  \end{alphalist}
+\end{exercise}
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise}
+  Seja \(f(x)=e^{x}\)
+  \begin{alphalist}
+    \item Encontre a série de Taylor de $f$ centrada em $x=0$
+      e mostre que $f$ coincide com a série em todo $x\in\R.$
+    \item Escreva
+      \[ \int_0^y f(-x^3)\,dx = \int_0^y e^{-x^3}\,dx \]
+      como uma série de potências centrada em $y=0$.
+    \item Calcule uma aproximação para
+      \[ \int_0^{1/2} f(-x^3)\,dx \]
+      fazendo a soma dos três primeiros termos da série obtida no item anterior.
+    \item Estime o erro cometido na aproximação do item anterior.
+  \end{alphalist}
+\end{exercise}
+
+% Exercício de prova do prof. André Pereira
+\begin{exercise}
+  Seja \( f(x)=\cos(x) \).
+  \begin{alphalist}
+    \item Encontre um padrão para $f^{(n)}(x)$ e use isso para encontrar a série de Taylor
+      de $f$ centrada em $x=0$.
+      Mostre que $f(x)$ coincide com sua série de Taylor para todo $x\in\R$.
+    \item Escreva
+      \[\int_0^x \cos(t^2)\,dt\]
+      como uma série de potências centrada em $x=0$.
+    \item Encontre uma aproximação para
+      \[\int_0^1\cos(t^2)\,dt\]
+      somando até o terceiro termo da série obtida no item anterior.
+      Estime o erro cometido.
+  \end{alphalist}
+\end{exercise}
+
+%    \begin{exercise}
+%        \begin{mathlist}[2]
+%            \item
+%            \item
+%            \item
+%        \end{mathlist}
+%        \begin{answer}
+%            \begin{alphalist}[3]
+%                \item
+%                \item
+%                \item
+%            \end{alphalist}
+%        \end{answer}
+%    \end{exercise}
+
+\end{exercises*}
+%------------------------------------------------------------------------------%

@@ -1,0 +1,571 @@
+%------------------------------------------------------------------------------%
+\begin{exercises}
+
+% Stewart 7ed seção 11.8 página 745
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre o raio e o intervalo de convergência da série de potências.
+\begin{mathlist}
+  % 3  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} (-1)^n n x^n
+  % 4  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(-1)^n x^n}{\sqrt[3]{n}}
+  % 5  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{x^n}{2n-1}
+  % 6  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(-1)^n x^n}{n^2}
+  % 7  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=0}^{\infty} \frac{x^n}{n!}
+  % 8  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} n^n x^n
+  % 9  ----------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} (-1)^n\frac{n^2 x^n}{2^n}
+  % 10  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{10^n x^n}{n^3}
+  % 11  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(-3)^n x^n}{n\sqrt{n}}
+  % 12  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{x^n}{n3^n}
+  % 13  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=2}^{\infty} (-1)^n \frac{n^n}{4^n\ln n}
+  % 14  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+  % 15  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=0}^{\infty} \frac{(x-2)^n}{n^2+1}
+  % 16  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=0}^{\infty} (-1)^n \frac{(x-3)^n}{2n+1}
+  % 17  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{3^n(x+4)^n}{\sqrt{n}}
+  % 18  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{n(x+1)^n}{4^n}
+  % 19  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(x-2)^n}{n^n}
+  % 20  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(2x-1)^n}{5^n\sqrt{n}}
+  % 21  ---------------------------------------------------------------------------------------------%
+  \item  \sum_{n=1}^{\infty} \frac{n(x-a)^n}{b^n} \quad b>0
+  % 22  ---------------------------------------------------------------------------------------------%
+  \item  \sum_{n=2}^{\infty} \frac{b^n (x-a)^n}{\ln n}, \quad b > 0
+  % 23  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} n!(2x-1)^n
+  % 24  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{n^2x^n}{2\cdot4\cdot6\cdot\cdots\cdot(2n)}
+  % 25  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{(5x-4)^n}{n^3}
+  % 26  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=2}^{\infty} \frac{x^{2n}}{n(\ln n)^2}
+  % 27  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{x^n}{1\cdot3\cdot5\cdot\cdots\cdot(2n-1)}
+  % 28  ---------------------------------------------------------------------------------------------%
+  \item \sum_{n=1}^{\infty} \frac{n!x^n}{1\cdot3\cdot5\cdot\cdots\cdot(2n-1)}
+\end{mathlist}
+\begin{answer}
+  \begin{alphalist}
+  % 3  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left[\left(1+\frac{1}{n}\right)\abs{x}\right] =
+    \abs{x}
+  \]
+  portanto $R=1$.
+  Quando $x=\pm 1$, a série diverge pelo teste do $n$-ésimo termo, pois
+  \( \abs{a_n} = n \).
+  Assim o intervalo de convergência é $(-1, 1)$.
+
+  % 4  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \sqrt[3]{\frac{1}{1+\sfrac{1}{n}}} \abs{x} =
+    \abs{x}
+  \]
+  portanto $R=1$.
+  Quando $x=1$  a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt[3]{n}}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=-1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt[3]{n}}
+  \]
+  diverge pois é uma série $p$ com $p=\sfrac{1}{3}$.
+  Assim o intervalo de convergência é $(-1, 1]$.
+
+  % 5  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left(\frac{2n-1}{2n+1}\abs{x}\right) =
+    \abs{x}
+  \]
+  portanto $R=1$.
+  Quando $x=1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{2n-1}
+  \]
+  diverge pelo teste da comparação com a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{2n}
+  \]
+  Quando $x=-1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{2n-1}
+  \]
+  converge pelo teste da série alternada.
+  Assim o intervalo de convergência é $[-1, 1)$.
+
+  % 6  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left[\left(\frac{n}{n+1}\right)^2\abs{x}\right] =
+    \abs{x}
+  \]
+  portanto $R=1$.
+  Quando $x=1$  a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=-1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{2n-1}
+  \]
+  converge pois é uma série $p$ com $p=2$.
+  Assim o intervalo de convergência é $[-1, 1]$.
+
+  % 7  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{\abs{x}}{n+1} = 0
+  \]
+  portanto $R=\infty$ e o intervalo de convergência é $(-\infty, \infty)$.
+
+  % 8  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da raiz para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\sqrt[n]{\abs{a_n}} =
+    \lim_{n\to\infty} n\abs{x} = \infty
+  \]
+  portanto $R=0$ e o intervalo de convergência é apenas o ponto zero, $\{0\}=[0, 0]$.
+
+  % 9  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left[\frac{\abs{x}}{2}\left(1+\frac{1}{n}\right)^2\right] =
+    \frac{\abs{x}}{2}
+  \]
+  portanto $R=2$.
+  Quando $x=\pm 2$ a série
+  \[
+    \sum_{n=1}^{\infty} (\pm1)^nn^2
+  \]
+  diverge pelo teste do $n$-ésimo termo.
+  Assim o intervalo de convergência é $(-2, 2)$.
+
+  % 10  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{10\abs{x}}{(1+\sfrac{1}{n})^3} =
+    10\abs{x}
+  \]
+  portanto $R=\sfrac{1}{10}$.
+  Quando $x=-\sfrac{1}{10}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x= \sfrac{1}{10}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^3}
+  \]
+  converge pois é uma série $p$ com $p=3$.
+  Assim o intervalo de convergência é $[-1, 1]$.
+
+  % 11  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left[-3x\left(\frac{n}{n+1}\right)^{3/2}\right] =
+    3\abs{x}
+  \]
+  portanto $R=\sfrac{1}{3}$.
+  Quando $x= \sfrac{1}{3}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{n^{\sfrac{3}{2}}}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=-\sfrac{1}{3}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^{\sfrac{3}{2}}}
+  \]
+  converge pois é uma série $p$ com $p=\sfrac{3}{2}$.
+  Assim o intervalo de convergência é $\left[-\sfrac{1}{3}, \sfrac{1}{3}\right]$.
+
+  % 12  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{\abs{x}}{3}\left(\frac{n}{n+1}\right) =
+    \frac{\abs{x}}{3}
+  \]
+  portanto $R=3$.
+  Quando $x= 3$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n}
+  \]
+  diverge pois é a série harmônica.
+  Quando $x=-3$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{n}
+  \]
+  converge pois é uma série harmônica alternada.
+  Assim o intervalo de convergência é $[-3, 3)$.
+
+  % 13  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \frac{\abs{x}}{4}\lim_{n\to\infty}\frac{\ln(n)}{\ln(n+1)} =
+    \frac{\abs{x}}{4}
+  \]
+  portanto $R=4$.
+  Quando $x=-4$ a série
+  \[
+    \sum_{n=2}^{\infty} \frac{1}{\ln n}
+  \]
+  diverge pelo teste da comparação com a série
+  \[
+    \sum_{n=2}^{\infty}\frac{1}{n}
+  \]
+  Quando $x= 4$ a série
+  \[
+    \sum_{n=2}^{\infty} \frac{(-1)^n}{\ln n}
+  \]
+  converge pelo teste da série alternada.
+  Assim o intervalo de convergência é $(-4, 4]$.
+
+  % 14  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{x^2}{(2n+3)(2n+2)} = 0
+    \]
+  portanto $R=\infty$ e o intervalo de convergência é $(-\infty, \infty)$.
+
+  % 15  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=2$.
+  Usando o teste da razão para determinar o raio temos
+  \begin{align*}
+  	\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+      & = \abs{x-2} \lim_{n\to\infty} \frac{n^2+1}{(n+1)^2+1} \\
+  	  & = \abs{x-2}
+  \end{align*}
+  portanto $R=1$.
+  Quando $x=1$ a série
+  \[
+    \sum_{n=2}^{\infty} \frac{(-1)^n}{n^2+1}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=3$ a série
+  \[
+    \sum_{n=2}^{\infty} \frac{1}{n^2+1}
+  \]
+  converge pela comparação com a série $p$ com $p=2$
+  \[
+    \sum_{n=1}\frac{1}{n^2}
+  \]
+  Assim o intervalo de convergência é $[1, 3]$.
+
+  % 16  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=3$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \abs{x-3} \lim_{n\to\infty} \frac{2n+1}{2n+3} =
+    \abs{x-3}
+  \]
+  portanto $R=1$.
+  Quando $x=2$ a série
+  \[
+    \sum_{n=0}^{\infty} \frac{1}{2n+1}
+  \]
+  diverge pela comparação no limite com
+  \[
+    \sum_{n=1}^{\infty}\frac{1}{n}
+  \]
+  ou pelo teste da integral.
+  Quando $x=4$ a série
+  \[
+    \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}
+  \]
+  converge pelo teste da série alternada.
+  Assim o intervalo de convergência é $(2, 4]$.
+
+  % 17  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=-4$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{3\abs{x+4}\sqrt{n}}{\sqrt{n+1}} =
+    3\abs{x+4}
+  \]
+  portanto $R=\sfrac{1}{3}$.
+  Quando $x=-\frac{13}{3}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n}}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=-\frac{11}{3}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}}
+  \]
+  diverge pois é uma série $p$ com $p=\sfrac{1}{2}$.
+  Portanto o intervalo de convergência é $\left[-\sfrac{13}{3}, -\sfrac{11}{3}\right)$.
+
+  % 18  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=-1$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{\abs{x+1}(n+1)}{4n} =
+    \frac{\abs{x+1}}{4}
+    \]
+  portanto $R=4$.
+  Quando $x=-5$ ou $x= 3$ a série
+  \[
+    \sum_{n=1}^{\infty} (\pm 1)^n n
+  \]
+  diverge pelo teste do $n$-ésimo termo.
+  Assim o intervalo de convergência é $\left(-5, 3\right)$.
+
+  % 19  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=2$.
+  Usando o teste da raiz para determinar o raio temos
+  \[
+    \lim_{n\to\infty} \sqrt[n]{\abs{a_n}} =
+    \lim_{n\to\infty} \frac{\abs{x-2}}{n} = 0
+  \]
+  portanto $R=\infty$ e o intervalo de convergência é $\left(-\infty, \infty\right)$.
+
+  % 20  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=\sfrac{1}{2}$.
+  Usando o teste da razão para determinar o raio temos
+  \begin{align*}
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+      & = \lim_{n\to\infty} \frac{\abs{2x-1}}{5}\sqrt{\frac{n}{n+1}} \\
+      & = \frac{\abs{2x-1}}{5}
+  \end{align*}
+  portanto $R=\sfrac{5}{2}$.
+  Quando $x=-2$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n}}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x= 3$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}}
+  \]
+  diverge pois é uma série $p$ com $p=\sfrac{1}{2}$.
+  Assim o intervalo de convergência é $\left[-2, 3\right)$.
+
+  % 21  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \left(1+\frac{1}{n}\right) \frac{\abs{x-a}}{b} =
+    \frac{\abs{x-a}}{b}
+  \]
+  portanto $R=b$.
+  Quando $x=a-b$ ou $x=a+b$ a série
+  \[
+    \sum_{n=1}^{\infty} n
+  \]
+  diverge pelo teste do $n$-ésimo termo.
+  Assim o intervalo de convergência é $\left(a-b, a+b\right)$.
+
+  % 22  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{b\abs{x-a}\ln n}{\ln(n+1)} =
+    b\abs{x-a}
+  \]
+  portanto $R=\sfrac{1}{b}$.
+  Quando $x=a+\sfrac{1}{b}$ a série
+  \[
+    \sum_{n=2}^{\infty}\frac{1}{\ln n}
+  \]
+  diverge pelo teste da comparação com a série $p$ com $p=1$.
+  Quando $x=a-\sfrac{1}{b}$ a série
+  \[
+    \sum_{n=1}^{\infty}\frac{(-1)^n}{\ln n}
+  \]
+  converge pelo teste da série alternada.
+  Assim o intervalo de convergência é $\left[a-\sfrac{1}{b}, a+\sfrac{1}{b}\right)$.
+
+  % 23  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=\sfrac{1}{2}$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} (n+1)\abs{2n-1} = \infty
+  \]
+  portanto $R=0$ e o intervalo de convergência é
+  $\left\{\sfrac{1}{2}\right\} = \left[\sfrac{1}{2}, \sfrac{1}{2}\right]$.
+
+  % 24  ---------------------------------------------------------------------------------------------%
+  \item Reescrevendo o termo da série temos
+  \begin{align*}
+  	a_n & = \frac{n^2x^n}{2\cdot4\cdot6\cdot\cdots\cdot(2n)} \\
+  	    & = \frac{n^2x^n}{2^n}                                   \\
+  	    & = \frac{nx^n}{2^n(n-1)!}
+  \end{align*}
+  Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{n+1}{n^2}\frac{\abs{x}}{2} = 0
+  \]
+  portanto $R=\infty$ e o intervalo de convergência é $\left(-\infty, \infty\right)$.
+
+  % 25  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=\sfrac{4}{5}$.
+  Usando o teste da razão para determinar o raio temos
+  \begin{align*}
+  	\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}
+      & = \lim_{n\to\infty} \abs{5x-4}\left(\frac{n}{n+1}\right)^3 \\
+  	  & = \abs{5x-4}
+  \end{align*}
+  portanto $R=\sfrac{1}{5}$.
+  Quando $x=\sfrac{3}{5}$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{(-1)^n}{n^3}
+  \]
+  converge pelo teste da série alternada.
+  Quando $x=1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^3}
+  \]
+  converge pois é uma série $p$ com $p=3$.
+  Assim o intervalo de convergência é $\left[\sfrac{3}{5}, 1\right]$.
+
+  % 26  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} x^2\frac{n(\ln n)^2}{(n+1)[\ln(n+1)]^2} = x^2
+  \]
+  portanto $R=1$.
+  Quando $x=\pm 1$ a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n(\ln n)^2}
+  \]
+  converge pelo teste a integral.
+  Assim o intervalo de convergência é $\left[-1, 1\right]$.
+
+  % 27  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{\abs{x}}{2n+1} = 0
+  \]
+  portanto $R=\infty$ e o intervalo de convergência é $\left(-\infty, \infty\right)$.
+
+  % 28  ---------------------------------------------------------------------------------------------%
+  \item Centro da série $a=0$.
+  Usando o teste da razão para determinar o raio temos
+  \[
+    \lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}} =
+    \lim_{n\to\infty} \frac{(n+1)\abs{x}}{2n+1} =
+    \frac{\abs{x}}{2}
+  \]
+  portanto $R=2$.
+  Quando $x=\pm 2$ a série
+  \begin{align*}
+  	\abs{a_n} & = \frac{n!\;2^n}{1\cdot 3\cdot 5\cdot \cdots(2n-1)}                               \\[2mm]
+  	          & = \frac{(1\cdot 2\cdot 3\cdot \cdots n)2^n}{1\cdot 3\cdot 5\cdot \cdots(2n-1)} \\[2mm]
+  	          & = \frac{2\cdot 4\cdot 6\cdot \cdots 2n}{1\cdot 3\cdot 5\cdot \cdots(2n-1)} >1
+  \end{align*}
+  diverge pelo teste do $n$-ésimo termo.
+  Assim o intervalo de convergência é $\left(-2, 2\right)$.
+
+  \end{alphalist}
+\end{answer}
+\end{exercise}
+
+% Thomas 10.7 pg 51 1-20
+%------------------------------------------------------------------------------%
+\begin{exercise}
+	Encontre o raio e o intervalo de convergência da série de potências.
+	Para quais valores de $x$ a série converge absolutamente e para
+	quais valores ela converge condicionalmente.
+	\begin{mathlist}
+		\item \sum_{n=0}^{\infty} x^n                               % 01
+		\item \sum_{n=0}^{\infty} (x+5)^n                           % 02
+		\item \sum_{n=0}^{\infty} (-1)^n (4x+1)^n                   % 03
+		\item \sum_{n=1}^{\infty} \frac{(3x-2)^n}{n}                % 04
+		\item \sum_{n=0}^{\infty} \frac{(x-2)^n}{10^n}              % 05
+		\item \sum_{n=0}^{\infty} (2x)^n                            % 06
+		\item \sum_{n=0}^{\infty} \frac{nx^n}{n+2}                  % 07
+		\item \sum_{n=1}^{\infty} \frac{(-1)^n (x+2)^n}{n}          % 08
+		\item \sum_{n=1}^{\infty} \frac{x^n}{n3^n\sqrt{n}}          % 09
+		\item \sum_{n=1}^{\infty} \frac{(x-1)^n}{\sqrt{n}}          % 10
+		\item \sum_{n=0}^{\infty} \frac{(-1)^nx^n}{n!}              % 11
+		\item \sum_{n=0}^{\infty} \frac{3^n x^n}{n!}                % 12
+		\item \sum_{n=1}^{\infty} \frac{4^n x^{2n}}{n}              % 13
+		\item \sum_{n=1}^{\infty} \frac{(x-1)^n}{n^33^n}            % 14
+		\item \sum_{n=0}^{\infty} \frac{x^n}{\sqrt{n^2+3}}          % 15
+		\item \sum_{n=0}^{\infty} \frac{(-1)^n x^{n+1}}{\sqrt{n}+3} % 16
+		\item \sum_{n=0}^{\infty} \frac{n(x+3)^n}{5^n}              % 17
+		\item \sum_{n=0}^{\infty} \frac{nx^n}{4^n(n^2+1)}           % 18
+		\item \sum_{n=0}^{\infty} \frac{x^n\sqrt{n}}{3^n}           % 19
+		\item \sum_{n=1}^{\infty} \sqrt[n]{n}(2x+5)^n               % 20
+	\end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%\begin{mathlist}[2]
+%  \item
+%  \item
+%  \item
+%\end{mathlist}
+%\begin{answer}
+%  \begin{alphalist}[3]
+%    \item
+%    \item
+%    \item
+%  \end{alphalist}
+%\end{answer}
+%\end{exercise}
+
+\end{exercises}
+%------------------------------------------------------------------------------%

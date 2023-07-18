@@ -1,0 +1,972 @@
+%------------------------------------------------------------------------------%
+\section{Definição e Propriedades}
+
+Começamos pela definição de sequências numéricas.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Sequência Numérica}{def:sequencias}
+  Uma \emph{sequência}%
+  \index{Sequência!numérica}%
+  \index{Sequência!termo}%
+  \index{Sequência!índice}
+  de números reais é uma lista de números em uma ordem determinada
+  \[ a_1,\quad a_2,\quad a_3,\quad \dots,\quad a_n,\quad \dots \]
+  Cada $a_i\in\R$ é um \emph{termo} da sequência,
+  enquanto $i$ é o \emph{índice} com $i=1, 2, 3, \dots$
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Uma definição equivalente, descreve a sequência de números reais
+como uma função, $f\colon\N\to\R$, dos naturais (índices) nos reais (termos).
+Neste caso, os termos da sequência são
+\[
+  a_1=f(1),\quad a_2=f(2),\quad a_3=f(3),\quad \dots,\quad a_n=f(n),\quad \dots
+\]
+
+Um aspecto importante na definição de sequência é o fato que os elementos são
+dados em uma \emph{ordem determinada}.
+Isso distingue uma sequência de um conjunto enumerável de valores.
+Dessa forma, podemos ter duas sequências distintas que contém exatamente
+os mesmos elementos.
+
+Nesse trabalho vamos representar sequências com os termos entre parênteses,
+como nestes exemplos:
+\begin{gather*}
+  (\; 1, \; 2,      \; 3,      \; 4,      \; 5,     \; \dots,  \; n, \; \dots\; )  \,, \\
+  (\; 1, \; 2^{-1}, \; 2^{-2}, \; 2^{-3}, \; \dots, \; 2^{-n}, \;       \dots\; )  \,.
+\end{gather*}
+Normalmente atribuímos nomes aos termos de uma sequência
+\[
+  (a_n) \qquad \text{ ou } \qquad (b_n)     \,.
+\]
+Quando necessário podemos explicitar os valores para o índice
+\[
+  \big(a_n\big)_{n=1}^\infty \qquad \text{ ou } \qquad
+  \big(b_i\big)_{i=0}^\infty \,,
+\]
+Em resumo, temos as seguintes notações para uma sequência
+\[
+  (a_n)
+  = \big(a_n\big)_{n=1}^\infty
+  = (\; a_1, \; a_2, \; a_3, \; a_4, \; a_5, \; \dots\;)     \,.
+\]
+Sempre que estivermos definindo uma sequência numérica e não explicitarmos
+os índices estamos assumindo que o índice começa em um. Mas tome cuidado
+pois essa regra não é universal, em muitos casos assume-se que o índice
+começa em zero, por exemplo, nas Séries de Potências que veremos no
+Capítulo~\ref{cap:series_de_taylor}.
+
+Note que muitos livros representam sequências com os termos entre chaves
+\[
+  \{a_n\}
+  = \{a_n\}_{n=1}^\infty
+  = \{\; a_1, \; a_2, \; a_3, \; a_4, \; a_5, \; \dots\;\}     \,.
+\]
+Porém, a notação com chaves também é usada para representar conjuntos, onde a ordem dos
+elementos não é relevante, isso é, os conjuntos \(\{a,b,c\}\) e \(\{c,b,a\}\) são idênticos.
+Assim, escolhemos a notação com parênteses para enfatizar essa característica, isso é,
+as sequências
+\begin{align*}
+  (a_n) & = (\; 1, \; 2, \; 3, \; 4, \; \dots, \; n,  \; n+1,  \, \dots ) \,,\\
+  (b_n) & = (\; 2, \; 1, \; 4, \; 3, \; \dots, \; 2n, \; 2n-1, \, \dots )
+\end{align*}
+são diferentes apesar de possuírem os mesmos elementos.
+Note que, os termos da primeira sequência são da forma $a_n=n$ para todo $n\in\N$,
+mas os termos da segunda sequência são da forma $b_n=n+1$ se $n$ é impar e $b_n=n-1$ se $n$ é par.
+
+A forma como os termos de uma sequência são determinados não importa
+para a aplicação dos resultados da teoria. Porém, pode fazer muita diferença
+quando desejamos fazer manipulações algébricas com os termos.
+As duas formas mais comuns para calcular os termos de uma sequência são
+por uma expressão direta ou por uma relação de recorrência.
+No caso da expressão direta temos uma \emph{fórmula explicita} para o
+termo em função do índice, como nos exemplos:
+\[
+  a_n = \sqrt{n}    \,,
+  \qquad\qquad
+  b_n = \ln(n)    \,,
+  \qquad\qquad
+  c_n = \frac{1}{n^2}    \,.
+\]
+Na
+\emph{Relação de Recorrência}%
+\index{Relação de recorrência}
+o valor de um termo da sequência é calculado a partir do termo anterior, ou dos anteriores.
+Nesse caso, dizemos que a sequência é
+\emph{recursiva}%
+\index{Sequência!recursiva}.
+O exemplo mais famoso é a
+\emph{Sequência de Fibonacci}%
+\index{Sequência!Fibonacci}%
+\index{Fibonacci},
+que é definida pela relação de recorrência
+\[
+  f_1 = 1    \,, \qquad
+  f_2 = 2    \,, \qquad\qquad
+  f_n = f_{n-1} + f_{n-2} \,, \quad n \geq 3    \,.
+\]
+Outros exemplos são a
+\emph{Progressão Aritmética}\index{Progressão!aritmética}, $p_n$, e a
+\emph{Progressão Geométrica}\index{Progressão!geométrica}, $q_n$, definidas como
+\begin{gather*}
+  p_1 = a    \,, \qquad p_n = p_{n-1} + s     \,, \\
+  q_1 = a    \,, \qquad q_n = r q_{n-1}       \,.
+\end{gather*}
+
+Podemos representar graficamente as sequências de uma forma semelhante a
+que usamos para representar o gráfico de uma função real $y=f(x)$, marcando
+os pontos em um plano cartesiano com os valores dos índices no eixo-$x$.
+Porém, no caso das sequências temos pontos isolados e não uma linha contínua,
+como ilustrado na Figura~\ref{fig:grafico-sequencia-cartesiano}.
+Alternativamente, podemos representar os valores dos termos de uma sequência
+sobre um único eixo, como ilustrado na Figura~\ref{fig:grafico-sequencia-um-eixo}.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_representation_cartesian}
+    \caption{Representação de uma sequência\\em um plano cartesiano.}
+    \label{fig:grafico-sequencia-cartesiano}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \input{fig_representation_axis}
+    \caption{Representação de uma sequência\\sobre um eixo.}
+    \label{fig:grafico-sequencia-um-eixo}
+  \end{subfigure}
+  \caption{Representação gráfica de sequências.}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A seguir apresentamos alguns exemplos de sequências definidas diretamente por
+expressões envolvendo o índice.
+Observe que a linha conectando os pontos não faz parte do gráfico,
+ela foi incluída apenas para facilitar a visualização da ordem dos pontos.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Escreva os primeiros termos de cada sequência e esboce seu gráfico
+  no plano cartesiano.
+	\solution
+  \begin{enumerate}
+
+  \item \( a_k = 1 \,, \qquad k = 1, 2, 3, \dots \) \par
+    Primeiros termos
+    \[
+      (a_k) = \left(\, 1, \, 1, \, 1, \, 1, \, 1, \, 1, \dots \right) \,.
+    \]
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_1}
+    \end{flushleft}
+
+  \item \( a_k = 1+(-1)^k \,, \qquad k = 1, 2, 3, \dots \) \par
+    Primeiros termos
+    \begin{align*}
+      (a_k)
+        & = \left( 1+(-1)^1, \quad
+                   1+(-1)^2, \quad
+                   1+(-1)^3, \quad
+                   1+(-1)^4, \dots \right) \\
+        & = \left( 1-1, \quad
+                   1+1, \quad
+                   1-1, \quad
+                   1+1, \dots \right) \\
+        & = \left(\, 0, \, 2, \, 0, \, 2, \, 0, \, 2, \dots \right) \,.
+    \end{align*}
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_2}
+    \end{flushleft}
+
+  \item \( a_k = \frac{1}{k} \,, \qquad k = 1, 2, 3, \dots \) \par
+    Primeiros termos
+    \[
+      (a_k) = \left(\, 1, \,
+                       \frac{1}{2}, \,
+                       \frac{1}{3}, \,
+                       \frac{1}{4}, \dots \right) \,.
+    \]
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_3}
+    \end{flushleft}
+
+  \item \( a_k = k^2 \,, \qquad k = 0, 1, 2, \dots \) \par
+    Primeiros termos
+    \begin{align*}
+      (a_k)
+        & = \left(\, 0^2, \, 1^2, \, 2^2, \, 3^2, \, 4^2, \dots \right) \\
+        & = \left(\, 0,   \, 1,   \, 4,   \, 9,   \, 16,  \dots \right) \,.
+    \end{align*}
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_4}
+    \end{flushleft}
+
+  \item \( a_k = (-1)^k k^2 \,, \qquad k = 0, 1, 2, \dots \) \par
+    Primeiros termos
+    \begin{align*}
+      (a_k)
+        & = \left( (-1)^1 \times 1^2, \quad
+                   (-1)^2 \times 2^2, \quad
+                   (-1)^3 \times 3^2, \quad
+                   (-1)^4 \times 4^2, \dots \right) \\
+        & = \left( -1 \times 1,  \quad
+                    1 \times 4,  \;
+                   -1 \times 9,  \quad
+                    1 \times 16, \dots \right) \\
+        & = \left(\, 0, -1, \, 4, -9, \, 16, \dots \right) \,.
+    \end{align*}
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_5}
+    \end{flushleft}
+
+  \item \( a_k = \frac{(-1)^k}{k^2} \,, \qquad k = 1, 2, 3, \dots \) \par
+    Primeiros termos
+    \begin{align*}
+      (a_k)
+        & = \left( \frac{(-1)^1}{1^2}, \quad
+                   \frac{(-1)^2}{2^2}, \quad
+                   \frac{(-1)^3}{3^2}, \quad
+                   \frac{(-1)^4}{4^2}, \dots \right) \\
+        & = \left( \frac{-1}{1},  \quad
+                   \frac{ 1}{4},  \;
+                   \frac{-1}{9},  \quad
+                   \frac{ 1}{16}, \dots \right) \\
+        & = \left(\, -1, \,
+                  \frac{1}{\,4\,},  \,
+                  \frac{-1\,}{9},   \,
+                  \frac{1}{\,16\,}, \dots \right)  \,.
+    \end{align*}
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_6}
+    \end{flushleft}
+\end{enumerate}
+\end{example}
+%------------------------------------------------------------------------------%
+
+A seguir apresentamos alguns exemplos de sequências definidas recursivamente.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Escreva os primeiros termos de cada sequência e esboce seu gráfico
+  no plano cartesiano.
+  \solution
+  \begin{enumerate}
+
+    \item \( a_1 = 1 \,,
+      \qquad a_{n+1} = 0,8\, a_n \,,
+      \qquad n = 1, 2, 3, \dots \) \par
+    Note que essa sequencia é uma Progressão Geométrica,
+    seus primeiros termos são:
+    \begin{align*}
+      a_1 & = 1 \\
+      a_2 & = 0,8\, a_1 = 0,8 \\
+      a_3 & = 0,8\, a_2 = 0,8 \times 0,8  = 0,64  \\
+      a_4 & = 0,8\, a_3 = 0,8 \times 0,64 = 0,512 \\
+      \vdots
+    \end{align*}
+    portanto
+    \[
+      (a_k) = \left(\, 1; \, 0,8; \, 0,64; \, 0,512; \dots \right) \,.
+    \]
+    Observe que usamos o ponto e virgula para separar termos.
+    Fazemos isso sempre que necessário para evitar confusão com a virgula
+    da representação decimal do número.
+
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_recorrencia_1}
+    \end{flushleft}
+
+    \item \( a_1 = 1 \,, \, a_2 = 1 \,,
+      \qquad a_{n} = a_{n-1} +  a_{n-2} \,,
+      \qquad n = 3, 4, 5, \dots \) \par
+    Note que essa é a sequencia de Fibonacci,
+    seus primeiros termos são:
+    \begin{align*}
+      a_1 & = 1 \\
+      a_2 & = 1\\
+      a_3 & = a_2 + a_1 = 1 + 1 = 2 \\
+      a_4 & = a_3 + a_2 = 2 + 1 = 3 \\
+      a_5 & = a_4 + a_3 = 3 + 2 = 5 \\
+      \vdots
+    \end{align*}
+    portanto
+    \[
+      (a_k) = \left(\, 1, \, 1, \, 2, \, 3, \, 5, \dots \right) \,.
+    \]
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_recorrencia_2}
+    \end{flushleft}
+
+    \item \( a_1 = 1 \,,
+      \qquad a_{n} = \frac{a_{n-1}}{n} \,,
+      \qquad n = 2, 3, 4, \dots \) \par
+    Os primeiros termos dessa sequência são:
+    \begin{align*}
+      a_1 & = 1                                                       \\[2mm]
+      a_2 & = \frac{a_1}{2} = \frac{1}{2}                             \\[2mm]
+      a_3 & = \frac{a_2}{3} = \frac{\sfrac{1}{2}}{3}  = \frac{1}{6}   \\[2mm]
+      a_4 & = \frac{a_3}{4} = \frac{\sfrac{1}{6}}{4}  = \frac{1}{24}  \\[2mm]
+      a_5 & = \frac{a_4}{5} = \frac{\sfrac{1}{24}}{5} = \frac{1}{120} \\
+      \vdots
+    \end{align*}
+    portanto
+    \[
+      (a_k) = \left(\, 1, \,
+                       \frac{1}{2},  \,
+                       \frac{1}{6},  \,
+                       \frac{1}{24}, \,
+                       \frac{1}{120}, \dots \right) \,.
+    \]
+    Gráfico da sequência
+    \begin{flushleft}
+      \input{fig_exemplo_primeiros_termos_recorrencia_3}
+    \end{flushleft}
+  \end{enumerate}
+\end{example}
+%------------------------------------------------------------------------------%
+
+\OnlineBox{https://colab.research.google.com/drive/1K6KEGfdWfMc0Jagwgn3GT1qtopzFOlbm?usp=share_link}
+{
+  Código Python para calcular os termos das sequências dos exemplos anteriores.
+}
+
+Podemos agora apresentar a definição de convergência de sequências.
+Note que a definição para o limite de funções reais é muito similar, porém,
+nem sempre ela é trabalhada dessa forma na disciplina de Cálculo I.
+Um exercício interessante é buscar a definição
+do limite de funções reais em um livro de Cálculo I e comparar com a definição
+a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Convergência de Sequências}{def:sequencia}
+  Dizemos que uma sequência de números reais $(a_n)$
+  \emph{converge}\index{Sequência!convergente}
+  para um número real $L$ se, para todo $\varepsilon>0$ dado, existe $N\in \N$ tal que
+  \[
+    n > N \qquad \Rightarrow  \qquad \abs{a_n-L} < \varepsilon \,.
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Se $(a_n)$ converge para $L$, usamos uma das notações
+\[
+  \lim_{n\to \infty} a_n = L       \qquad\text{ ou }\qquad
+  a_n \to L                        \qquad\text{ ou }\qquad
+  \lim a_n = L
+\]
+e dizemos que $L$ é o
+\emph{limite}\index{Sequência!limite}\index{Limite!sequência}
+da sequência $(a_n)$.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \input{fig_sequencia_limite}
+  \caption{Ilustração da definição do limite de sequências numéricas.}
+  \label{fig:sequencia_limite}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A Figura~\ref{fig:sequencia_limite} ilustra a definição do limite de uma
+sequência numérica.
+Esse gráfico apresenta uma sequência $(a_n)$ que converge para $L$.
+Para qualquer valor $\varepsilon$ que escolhermos, não
+importa o quão pequeno, sempre vai existir um índice $N$ a partir
+do qual todos os valores $a_n$
+estão sempre dentro do intervalo $(L-\varepsilon, L+\varepsilon)$.
+
+Uma forma para entender o significado do $\varepsilon$ é imaginá-lo como um valor
+de tolerância. Se estivéssemos buscando uma aproximação para $L$, utilizando a
+sequência $a_n$, precisaríamos garantir que para qualquer tolerância $\varepsilon$
+exigida seríamos capazes de encontrar um índice $N$ a partir do qual todos os
+termos da sequência aproximam $L$ com um erro menor do que $\varepsilon$.
+Porém, queremos mais do que apenas aproximar $L$, queremos poder dizer que o limite
+de $a_n$ é igual a $L$, nesse caso precisamos garantir que para todos os valores de
+$\varepsilon>0$ sempre é possível encontrar um $N$ que satisfaça a condição de que o
+erro seja menor do que $\varepsilon$.
+
+Para nos familiarizarmos com os elementos da definição vamos explorar um
+exemplo numérico.
+
+\begin{example}
+  A partir de que termo da sequência
+  \[
+    a_n = \frac{1}{n}
+  \]
+  podemos dizer que ela aproxima zero com as tolerâncias de
+  $\varepsilon=0,1$ e $\varepsilon=0,001$?
+
+  \solution
+
+  Queremos determinar o índice $N$ a partir do qual
+  todos os termos $a_n$ satisfazem a relação \(\abs{a_n} < \varepsilon\).
+  Manipulando $\abs{a_n}$ temos
+  \[
+    \abs{a_n} = \abs{\frac{1}{n}} = \frac{1}{n} \,.
+  \]
+  Portanto \(\abs{a_n} < \varepsilon\) equivale a
+  \[
+    \frac{1}{n} < \varepsilon
+  \]
+  que podemos reescrever como
+  \[
+    \frac{1}{\varepsilon} < n \,.
+  \]
+  Assim, concluímos que a relação \(\abs{a_n} < \varepsilon\) é equivalente a
+  \[
+    n > \frac{1}{\varepsilon} \,.
+  \]
+  Podemos agora substituir os valores definidos para a tolerância.
+  Para garantir que \(\abs{a_n} < 0,1\) precisamos que
+  \[
+    n > \frac{1}{0,1} = 10 \,.
+  \]
+  Podemos então escolher $N=10$, ou qualquer outro valor maior do que 10.
+
+  Enquanto que para garantir que \(\abs{a_n} < 0,001\) precisamos que
+  \[
+    n > \frac{1}{0,001} = 1000 \,.
+  \]
+  Nesse caso podemos escolher $N=1000$.
+\end{example}
+
+O exemplo anterior, assim como qualquer exploração numérica, pode nos ajudar
+a entender o comportamento de uma sequência, mas não garante nada sobre seu
+limite. A seguir fazemos a demonstração da convergência usando essencialmente
+as mesmas manipulações do exemplo anterior, mas sem usar valores numéricos.
+
+\begin{example}
+  Mostre que a sequência
+  \(
+    a_n = \frac{1}{n}
+  \)
+  converge para zero.
+
+  \solution
+  Dado \(\varepsilon>0\) arbitrário, queremos determinar o índice $N$ tal que
+  \[
+    \abs{a_n-0} < \varepsilon \qquad \forall n > N \,.
+  \]
+  Simplificando essa relação temos
+  \[
+    \frac{1}{n} < \varepsilon \qquad \forall n > N \,.
+  \]
+  Note que a condição \(\sfrac{1}{n} < \varepsilon\) equivale a
+  \[
+    n > \frac{1}{\varepsilon} \,.
+  \]
+  Escolhendo $N$ de forma que
+  \[
+    N > \frac{1}{\varepsilon}
+  \]
+  Garantimos que \(\abs{a_n-0} < \varepsilon\) para todo $n>N$, pois
+  \[
+    \abs{a_n-0} = \frac{1}{n} < \frac{1}{N} < \frac{1}{\,\sfrac{1}{\varepsilon}\,} = \varepsilon
+  \]
+  Provamos assim que
+  \[
+    \frac{1}{n} \to 0 \,.
+  \]
+\end{example}
+
+A seguir apresentamos outros exemplos de como a definição de convergência
+é usada para provar a convergência de uma sequência.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que \(\lim \frac{1}{2^n}=0\).
+
+  \solution
+  Precisamos provar que para qualquer $\varepsilon >0$ existe  $N\in\N$ tal que
+  \begin{equation}
+    \label{ex:limite_1div2n}
+    \abs{\frac{1}{2^n}-0} = \frac{1}{2^n} < \varepsilon \qquad \forall\; n>N \,,
+  \end{equation}
+  Reescrevendo a desigualdade como
+  \(
+  2^{-n} < \varepsilon
+  \)
+  e calculando o logaritmo base 2 em ambos os lados temos
+  \begin{align*}
+    \log_2\left(2^{-n}\right) & < \log_2\varepsilon  \\
+    -n                        & < \log_2\varepsilon  \\
+    n                         & > -\log_2\varepsilon
+  \end{align*}
+  Portanto basta escolher
+  \[
+  N>-\log_2\varepsilon
+  \]
+  para garantir a condição~\eqref{ex:limite_1div2n}
+  e mostrar que \(\lim \frac{1}{2^n}=0\).
+\end{example}
+%------------------------------------------------------------------------------%
+
+O próximo exemplo generaliza o anterior.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que se $\abs{\alpha}<1$, então $\lim \alpha^n=0$.
+
+  \solution
+  Se $\alpha=0$ todos os termos da sequência são zero e portanto o limite é zero.
+
+  Quando $\abs{\alpha}\neq0$, precisamos provar que para qualquer
+  $\varepsilon >0$ existe  $N\in\N$ tal que
+  \begin{equation}
+    \label{ex:limite_an}
+    \abs{\alpha^n-0} = \abs{\alpha^n} < \varepsilon \qquad \forall\; n>N \,,
+  \end{equation}
+  para isso vamos usar uma variável auxiliar $c$ que atende a condição
+  \[
+    \abs{\alpha} = \frac{1}{1+c} \,,
+  \]
+  ou seja, $c=\sfrac{1}{\abs{\alpha}}-1$.
+  Como $0<\abs{\alpha}<1$, sabemos que $\sfrac{1}{\abs{\alpha}}>1$ e portanto $c>0$.
+  Usando a Desigualdade de Bernoulli (Veja o exemplo~\ref{ex:Desigualdade_de_Bernoulli})
+  \[
+    (1+x)^n \geq 1 + n x \qquad \forall x >-1, \;\forall n \geq 0
+  \]
+  podemos escrever que
+  \[
+    (1+c)^n \geq 1+nc \geq nc
+  \]
+  Retornando para a sequência $\alpha^n$ temos
+  \[
+    \alpha^n = \frac{1}{(1+c)^n} \leq \frac{1}{nc}
+  \]
+  Escolhendo $N$ tal que
+  \[
+    \frac{1}{Nc} < \varepsilon
+  \]
+  ou seja
+  \(
+    N > \sfrac{1}{c\varepsilon}
+  \),
+  concluímos que para todo $n>N$ vale
+  \[
+    \alpha^n = \frac{1}{(1+c)^n} \leq \frac{1}{nc} < \frac{1}{Nc} < \varepsilon
+  \]
+  que é exatamente a condição~\eqref{ex:limite_an} e portanto
+  mostra que $\lim a^n=0$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+
+%------------------------------------------------------------------------------%
+\begin{figure}[t]
+\centering
+\begin{subfigure}{\linewidth}
+  \centering
+  \input{fig_sequencia_divergente_1}
+  \caption{Sequência divergente para o infinito.}
+  \label{fig:sequencia_divergente_1}
+\end{subfigure}\\
+\begin{subfigure}{\linewidth}
+  \centering
+  \input{fig_sequencia_divergente_2}
+  \caption{Sequência divergente para menos infinito.}
+  \label{fig:sequencia_divergente_2}
+\end{subfigure}\\
+\begin{subfigure}{\linewidth}
+  \centering
+  \input{fig_sequencia_divergente_3}
+  \caption{Sequência divergente pois permanece oscilando entre os mesmos valores.}
+  \label{fig:sequencia_divergente_3}
+\end{subfigure}\\
+\begin{subfigure}{\linewidth}
+  \centering
+  \input{fig_sequencia_divergente_4}
+  \caption{Sequência divergente pois tem comportamento caótico.}
+  \label{fig:sequencia_divergente_4}
+\end{subfigure}\\
+\caption{Formas em que uma sequência pode divergir.}
+\label{fig:sequencia_divergente}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Observe que a definição do limite não nos diz como encontrar $L$ e sua aplicação
+pode ser extremamente complicada. Sua importância está em ser a base para
+demonstrar as propriedades do limite que utilizaremos.
+
+Se não existe um número real $L$ que satisfaça a Definição~\ref{def:sequencia},
+dizemos que $(a_n)$ \emph{diverge}\index{Sequência!divergente}.
+A Figura~\ref{fig:sequencia_divergente} ilustra as formas como uma sequência
+numérica pode divergir.
+Os gráficos~\ref{fig:sequencia_divergente_1} e~\ref{fig:sequencia_divergente_2}
+mostram sequências que divergem para infinto e menos infinito, veja a
+Definição~\ref{def:divergencia-infinito} mais a frente nesta seção.
+Em~\ref{fig:sequencia_divergente_3} temos uma sequência que oscila repetindo
+os mesmos valores indefinidamente, enquanto que a sequência ilustrada
+em~\ref{fig:sequencia_divergente_4}, o
+\href{https://pt.wikipedia.org/wiki/Mapa_log%C3%ADstico}{Mapa Logístico}\index{Mapa logístico},
+apresenta um comportamento caótico.
+
+\OnlineBox{https://colab.research.google.com/drive/1gCtYiJitmgxS8LELscBL6k_x24JUKdc6?usp=share_link}
+{
+  Código Python para explorar o Mapa Logístico.
+}
+
+O próximo exemplo usa a definição para provar que uma sequência não converge
+para nenhum número real.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+    Mostre que a sequência $(1, 0, 1, 0, 1, \dots)$ diverge.
+
+    \solution
+    Suponha, por absurdo, que ela convirja para algum valor $L$,
+    então dado $\varepsilon=\sfrac{1}{3}$, é impossível que $\abs{0-L}<\sfrac{1}{3}$ e $\abs{1-L}<\sfrac{1}{3}$, pois
+    \[
+      \abs{0-L}<\frac{1}{\,3\,}
+      \quad \Rightarrow \quad
+      L\in\left(-\frac{1}{\,3\,}, \frac{1}{\,3\,}\right) \,,
+    \]
+    enquanto que
+    \[
+      \abs{1-L}<\frac{1}{\,3\,}
+      \quad \Rightarrow \quad
+      L\in\left(\frac{2}{\,3\,}, \frac{4}{\,3\,}\right) \,.
+    \]
+    Porém, esses intervalos são disjuntos, ou seja, não tem interseção.
+    Assim, é impossível que exista $L$ que seja limite dessa sequência.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Quando uma sequência é covergente, existe um único valor para $L$ que
+atende as condições da Definição~\ref{def:sequencia}.
+Mesmo que essa afirmação pareça bastante intuitiva, não podemos acreditar nela
+sem antes demostrá-la. Por isso precisamos do próximo teorema.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Unicidade do Limite}{teo:unicidade-limite}
+    Uma sequência convergente $(a_n)$ tem apenas um limite.
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+    Suponha que existam $L_1$ e $L_2$ tais que $a_n\to L_1$ e $a_n\to L_2$.
+    Então, para todo $\varepsilon>0$ existem naturais $N_1$ e $N_2$ tais que
+    \[
+      \abs{a_n-L_1}<\varepsilon \quad \forall \; n>N_1
+      \qquad\text{e}\qquad
+      \abs{a_n-L_2}<\varepsilon \quad \forall \; n>N_2 \,.
+    \]
+    Seja $N=\max(N_1, N_2)$, então para todo $n>N$, pela desigualdade triangular,
+    \[
+      \abs{L_1-L_2}
+      =    \abs{L_1-a_n+a_n-L_2}
+      \leq \abs{L_1-a_n} + \abs{a_n-L_2}
+      <   2\varepsilon \,.
+    \]
+    Como $\varepsilon>0$ é arbitrário, segue que $L_1=L_2$.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Muitas vezes estaremos interessados em apenas alguns termos de uma sequência,
+selecionando esses termos criamos uma subsequência como definido a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Subsequências}{def:subsequencia}
+	Uma \emph{subsequência}\index{Subsequência} $(b_k)$ de $(a_n)$
+  \[
+    (b_k) = (a_{n_k})
+  \]
+  é uma nova sequência com índices $k\in\N$
+	formada por elementos de $(a_n)$, mantendo sua ordem, ou seja, $n_{k+1}>n_k$.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+O próximo exemplo apresenta alguns casos de subsequências.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Dada a sequência
+  \[
+    a_n = \frac{(-1)^{n-1}}{n} \,,
+  \]
+  calcule primeiros termos e esboce o gráfico dessa sequência e das suas subsequências com
+  índices pares e ímpares.
+	\solution
+	A sequência original, $n = 1, 2, 3, \dots$
+	\[
+	  (a_n) = \left( 1, \frac{-1\,}{  2  },
+                      \frac{ 1  }{\,3\,},
+                      \frac{-1\,}{  4  },
+                      \frac{ 1  }{\,5\,}, \dots \right) \,.
+	\]
+  \begin{center}
+    \vspace{-\baselineskip}
+    \input{fig_exemplo_subsequencia}
+    \vspace{-\baselineskip}
+  \end{center}
+	A subsequência dos termos pares, $n = 2k$, $k = 1, 2, 3, \dots$
+	\[
+		(b_k) = \left(a_{2k}\right)
+          = \left( \frac{-1\,}{2},
+                   \frac{-1\,}{4},
+                   \frac{-1\,}{6},
+                   \frac{-1\,}{8}, \dots \right)  \,.
+	\]
+  \begin{center}
+    \vspace{-\baselineskip}
+    \input{fig_exemplo_subsequencia_par}
+    \vspace{-\baselineskip}
+  \end{center}
+	A subsequência dos termos ímpares, $n = 2l-1$, $l = 1, 2, 3, \dots$
+	\[
+		(c_l) = \left(a_{2l-1}\right)
+          = \left( 1, \frac{1}{\,3\,},
+                      \frac{1}{\,5\,},
+                      \frac{1}{\,7\,}, \ldots \right)   \,.
+	\]
+  \begin{center}
+    \vspace{-\baselineskip}
+    \input{fig_exemplo_subsequencia_impar}
+  \end{center}
+\end{example}
+%------------------------------------------------------------------------------%
+
+O corolário a seguir relaciona o limite de uma subsequência com o limite da
+sequência original.
+
+%------------------------------------------------------------------------------%
+\begin{corolario}{Convergência de Subsequências}{cor:convergencia-subsequencias}
+	Toda subsequências $(b_k)$ de uma sequência convertente $(a_n)$
+  converge para o limite de $a_n$
+	\[
+		\lim_{k\to\infty} b_k = \lim_{n\to \infty} a_n  \,.
+	\]
+\end{corolario}
+%------------------------------------------------------------------------------%
+
+Esse resultado pode ser usado para determinar o limite de uma subsequência ou,
+como mostrado no exemplo a seguir, provar que uma sequência não poder ser
+convergente.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+	Mostre que a sequência $a_n = (-1)^n$ diverge.
+	\solution
+	Vamos assumir por absurdo que $a_n$ seja convergente,
+	nesse caso suas subsequências precisam convergir para o mesmo limite.
+	Tomamos agora a subsequência de termos pares
+	\[
+		b_k = a_{2k} = (-1)^{2k} = 1
+	\]
+	e a subsequência de termos ímpares
+	\[
+		c_k = a_{2k-1} = (-1)^{2k-1} = -1  \,.
+	\]
+	Como elas convergem para valores diferentes,
+	$b_k\to 1$ e $c_k\to -1$,
+	temos um absurdo,
+	portanto $a_n$ não pode convergir.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Quando desejamos operar com sequências convergentes podemos utilizar
+as propriedades do cálculo do limite descritas no teorema a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Propriedades de Sequências Convergentes}{teo:propriedades-sequencias}
+  Sejam $(a_n)$ e $(b_n)$ duas \emph{sequências convergentes},
+  então, valem as seguintes regras:
+  \index{Sequência!propriedades}
+  \begin{enumerate}
+    \item \(\lim (a_n+b_n) = \lim a_n + \lim b_n\)                                       \tabto{78mm}Regra da soma
+    \item \(\lim (a_n-b_n) = \lim a_n - \lim b_n\)                                       \tabto{78mm}Regra da diferença
+    \item \(\lim (k a_n)   = k\lim a_n,\quad \forall\; k\in\R\)                          \tabto{78mm}Regra da multiplicação por escalar
+    \item \(\lim (a_n\,b_n)= (\lim a_n)(\lim b_n)\)                                      \tabto{78mm}Regra do produto
+    \item \(\lim \frac{a_n}{b_n} = \frac{\,\lim a_n\,}{\lim b_n},\quad \lim b_n \neq 0\) \tabto{78mm}Regra do quociente
+  \end{enumerate}
+\end{teorema}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  Sejam $A=\lim a_n$ e $B=\lim b_n$.
+  Dado $\varepsilon>0$, existem $N_1$, $N_2\in\N$
+  tais que \( \abs{a_n-A} < \sfrac{\varepsilon}{2} \) se $n>N_1$
+  e        \( \abs{b_n-B} < \sfrac{\varepsilon}{2} \) se $n>N_2$.
+
+  Então tomando $N=\max(N_1, N_2)$, segue, pela desigualdade triangular, que
+  \[
+    \abs{a_n+b_n-(A+B)}
+    \leq \abs{a_n-A} + \abs{b_n-B}
+    < \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+    = \varepsilon \,.
+  \]
+  de onde, temos $\lim (a_n+b_n)=\lim a_n+\lim b_n$.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+As demais demonstrações são equivalentes e deixadas como exercício.
+Compare, em um livro de Cálculo I, com a demonstração das propriedades
+equivalentes para limites de funções reais.
+
+A seguir apresentamos alguns exemplos de como as propriedades do
+Teorema~\ref{teo:propriedades-sequencias} podem ser usadas para calcular
+o limite de sequências que são definidas como combinações
+de sequências convergentes.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Sendo $0<a<1$, calcule o limite da sequência \(-5a^n\)
+  \solution
+  \[
+    \lim -5a^n = -5\lim a^n= -5 \cdot 0 = 0  \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Sendo $0<a<1$, calcule o limite da sequência \(10+a^n\)
+  \solution
+  \[
+    \lim (10+a^n) = 10+\lim a^n = 10+0 = 10  \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+    Sendo $0<a<1$, calcule o limite da sequência
+    \(
+      \dfrac{\;-\frac{1}{a^n}+7\;}{ 1 + \frac{5}{a^n}}
+    \).
+    \solution
+    \vspace{-0.5\baselineskip}
+    \begin{align*}
+      \lim \left(\frac{-\sfrac{1}{a^n}+7}{1+ \sfrac{5}{a^n}}\right)
+          & = \lim \left(\frac{-1+7a^n}{a^n+5}\right) \\[3mm]
+          & = \dfrac{-1+7\lim(a^n)}{\lim(a^n) + 5}
+            =-\frac{1}{5}  \,.
+    \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Uma técnica para calcular o limite de uma sequência
+recursiva\index{Sequência!recursiva}, $(a_n)$, que sabemos ser convergente, é
+usar o fato de que as sequências $(a_n)$ e $(a_{n+1})$ convergem para o mesmo
+valor. O exemplo a seguir ilustra essa técnica.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule o limite da sequência convergente definida pela relação de recorrência
+  \[
+    a_1 = 2  \,,
+    \qquad
+    a_{n+1} = \frac{6}{1+a_n}  \,.
+  \]
+\solution
+  Como sabemos que a sequência converge podemos escrever
+  \[
+    \lim_{n\to\infty} a_n     = L \qquad \text{ e } \qquad
+    \lim_{n\to\infty} a_{n+1} = L \,.
+  \]
+  Agora podemos aplicar as propriedades de limite na expressão para $a_{n+1}$
+  \[
+    \lim_{n\to\infty} a_{n+1} =
+    \lim \frac{6}{1+a_n}  =
+    \frac{6}{1+\lim a_n}  \,.
+  \]
+  Substituindo os limites por $L$ temos uma equação algébrica
+  \begin{gather*}
+  	L = \frac{6}{1+L} \,, \\[2mm]
+  	L(1+L) = 6        \,, \\[2mm]
+  	L^2 + L - 6  = 0  \,.
+  \end{gather*}
+  Usando a fórmula de Bhaskara\index{Fórmula!Bhaskara}
+  \begin{gather*}
+    L = \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}
+      = \frac{-1\pm\sqrt{25}}{2}
+      = \frac{-1\pm 5}{2}  \,,
+  \end{gather*}
+  temos
+  \[
+    L = \frac{-1-5}{2} = \frac{-6}{2} = -3
+    \qquad\text{ ou }\qquad
+    L = \frac{-1+5}{2} = \frac{4}{2} = 2
+  \]
+  Encontramos dois candidatos para $L$ os valores $-3$ e $2$,
+  porém, o limite é único. O segundo candidato surge no momento
+  que elevamos as expressões ao quadrado, mas uma das alternativas
+  precisa ser descartada. Qual alternativa deve ser descartada depende do
+  valor dado para o primeiro termo $a_1$. Observamos que
+  com $a_1=2$ portanto os valores de $a_n$
+  nunca são negativos. Então o limite da sequência é~$2$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+A Figura~\ref{fig:sequencia_divergente} nos mostra as formas como uma sequência
+diverge. Entre esses casos, os dois primeiros, onde a sequência diverge para
+mais ou menos infinito, merecem uma atenção especial pois, mesmo que a
+sequência seja divergente, é possível realizar alguns cálculos com ela.
+Para isso vamos definir com precisão o que significa divergir para o infinito.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Divergência ao Infinito}{def:divergencia-infinito}
+  Dizemos que a sequência $(a_n)$ \emph{diverge para o infinito} se para cada número $M$ dado,
+  existe $N\in\N$ tal que se $n>N$, então $a_n>M$.
+  Quando isso ocorre, escrevemos
+  \[ \lim_{n\to\infty} a_n=\infty
+  \qquad\text{ ou }\qquad
+  a_n\to \infty
+  \qquad\text{ ou }\qquad
+  \lim a_n=\infty   \,.
+  \]
+
+  Analogamente, se para cada número real $m$ existir $N\in \N$ tal que se $n>N$, $a_n<m$,
+  então diremos que a sequência \emph{diverge para menos infinito} e escrevemos
+  \[
+  \lim_{n\to\infty} a_n=-\infty
+  \qquad\text{ ou }\qquad
+  a_n\to-\infty
+  \qquad\text{ ou }\qquad
+  \lim a_n=-\infty \,.
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \vspace{0.5\baselineskip}
+  \input{fig_sequencia_infinity}
+  \caption{Ilustração da divergência para o infinito de sequências numéricas.}
+  \label{fig:sequencia_infinity}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+A Figura~\ref{fig:sequencia_infinity} apresenta uma sequência $(a_n)$ que
+diverge para infinito positivo. Isso significa que para qualquer valor $M$
+que escolhermos, não importa o quão grande ele seja, sempre vai existir um
+índice $N$ a partir do qual todos os valores de $a_n$ são maiores do que $M$.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Mostre que a sequência $a_n=n^a$, diverge ao infinito para todo $a>0$.
+
+  \solution
+  Dado qualquer número $M$, podemos supor sem perda de generalidade que $M>0$,
+  \[
+  n^a > M \quad \Leftrightarrow \quad n > M^{\sfrac{1}{a}}  \,.
+  \]
+  Agora basta escolher $N=M^{\sfrac{1}{a}}$, de modo que se $n>N$, segue que $a_n=n^a>M$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Da mesma forma que toda subsequência $b_k$ de uma sequência convergente, $a_n$,
+converge para o limite de $a_n$, toda subsequência $c_k$ de uma sequência $d_n$, que
+diverge para o infinito precisa também divergir para o infinito.
+
+\clearpage
+
+%------------------------------------------------------------------------------%
