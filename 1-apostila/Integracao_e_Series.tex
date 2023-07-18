@@ -1,0 +1,71 @@
+%------------------------------------------------------------------------------%
+\documentclass[cc=by-nc-sa,fast]{nice-booklet}
+
+\usepackage{integracao_e_series}
+
+\makeatletter
+\graphicspath{  {./0-Introducao/figs/}}
+\def\input@path{{./0-Introducao/figs/}}
+\makeatother
+
+\addbibresource{disciplinas.bib}
+
+%------------------------------------------------------------------------------%
+
+\title{Integração e Séries}
+\author{
+  Luis A. D'Afonseca\\
+  Jônathas Douglas Santos de Oliveira
+}
+
+\institute{Centro Federal de Educação Tecnológica de Minas Gerais --
+  \href{https://www.cefetmg.br}{CEFET-MG}
+}
+
+\coverArt{capa}
+\coverArtCredit{
+  \href{https://www.pexels.com/photo/wood-music-classic-sound-34221}{Fotografia}
+  de \href{https://www.pexels.com/@pixabay}{Pixabay}
+  baixada de \href{https://www.pexels.com/pt-br}{Pexels}
+}
+
+\bookInformation{
+  Apostila para a disciplina
+  ``Integração e Séries''
+  do CEFET-MG.
+
+  \bookInfoLink{https://sites.google.com/view/prof-luis-dafonseca}
+}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\frontmatter
+\dominitoc[n]
+\tableofcontents
+\adjustmtc
+
+%------------------------------------------------------------------------------%
+
+\mainmatter
+\include{0-Introducao/prefacio}
+\include{1-Definidas/definidas}
+\include{2-Indefinidas/indefinidas}
+\include{3-Series/series}
+\include{4-Potencias/potencias}
+
+\appendix
+\include{A-Apendice/complementar}
+\include{A-Apendice/online}
+
+%------------------------------------------------------------------------------%
+
+\nocite{*}
+
+\backmatter
+\WriteAnswers
+\printbibliography
+\printindex
+
+\end{document}
+%------------------------------------------------------------------------------%
