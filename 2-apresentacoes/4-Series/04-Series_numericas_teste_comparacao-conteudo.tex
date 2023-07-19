@@ -1,0 +1,150 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+\newcommand{\mytitle}   {Teste da Comparação}
+\newcommand{\mysubtitle}{Séries Numéricas -- Testes de Convergência}
+\title   {\mytitle}
+\subtitle{\mysubtitle}
+\author  {\large Luis Alberto D'Afonseca}
+\date    {}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teste da Comparação}
+
+%------------------------------------------------------------------------------%
+\definecolor{c1}{rgb}{0,.7,0}
+\definecolor{c2}{rgb}{0,0,.7}
+\definecolor{c3}{rgb}{.7,0,0}
+\begin{frame}{Teste da Comparação}
+  Sejam três séries com termos não negativos
+  \[
+    {\color{c1} \sum_{n=1}^{\infty} p_n} \qquad
+    {\color{c2} \sum_{n=1}^{\infty} a_n} \qquad
+    {\color{c3} \sum_{n=1}^{\infty} q_n}
+  \]
+  com \( \quad {\color{c1}p_n} \;\leq\; {\color{c2}a_n} \;\leq\; {\color{c3}q_n} \quad \) para todo $n>N$
+
+  \pause
+  \hspace{\baselineskip}
+  \begin{enumerate}
+    \item se \tabto{8mm} \(\color{c3} \sum q_n \) convergir \tabto{40mm} então  \(\color{c2} \sum a_n \) converge \\[6mm]\pause
+    \item se \tabto{8mm} \(\color{c1} \sum p_n \) divergir  \tabto{40mm} então  \(\color{c2} \sum a_n \) diverge
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Para analisar a série do \emph{inverso do fatorial}
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{\,n!\,}
+    = 1             \;+\;
+      \frac{1}{2}   \;+\;
+      \frac{1}{3!}  \;+\;
+      \frac{1}{4!}  \;+\;
+      \frac{1}{5!}  \;+\;
+      \cdots
+  \]
+  \pause
+  comparamos com a série geométrica
+  \[ \sum_{n=1}^{\infty} \frac{1}{2^{n-1}}
+    = 1              \;+\;
+      \frac{1}{2}    \;+\;
+      \frac{1}{2^2}  \;+\;
+      \frac{1}{2^3}  \;+\;
+      \frac{1}{2^4}  \;+\;
+      \cdots
+      \qquad
+      \qquad
+      r=\frac{1}{2}
+  \]
+  \pause
+  a série geométrica converge e
+  \(\quad \frac{1}{n!} < \frac{1}{2^{n-1}}\quad\)
+  para $n>2$
+
+  \vfill
+  então a série do inverso do fatorial converge
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Comparação no Limite}
+  Sejam as séries
+  \(\; \sum {\color{c1} a_n} \;\) e
+  \(\; \sum {\color{c3} b_n} \;\)
+  com $\;{\color{c1} a_n} > 0\;$ e $\;{\color{c3} b_n}>0\;$ para todo $n>N$
+  \pause
+  \vspace{\baselineskip}
+  \begin{enumerate}
+    \item
+    \emph{Se} \(\;\lim \frac{\;{\color{c1} a_n}\;}{{\color{c3} b_n}} = c > 0 \) \;\;
+    \emph{então}\; ambas convergem ou ambas divergem
+
+    \pause
+    \vfill
+    \item
+    \emph{Se} \(\;\sum {\color{c3} b_n}\) converge
+    \tabto{36mm} \emph{e} \(\;\lim \frac{\;{\color{c1} a_n}\;}{{\color{c3} b_n}} = 0\)
+    \tabto{66mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também converge
+
+    \pause
+    \vfill
+    \item
+    \emph{Se} \(\;\sum {\color{c3} b_n}\) diverge
+    \tabto{36mm} \emph{e} \(\;\lim \frac{\;{\color{c1} a_n}\;}{{\color{c3} b_n}} = \infty\)
+    \tabto{66mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também diverge
+
+    \vfill
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Verificar a convergência da série
+  \tabto{60mm}
+  \( \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{2n+1}{\;n^2+2n+1\;} \)
+
+  \pause
+  \vspace{1.7\baselineskip}
+  comparamos com
+  \tabto{60mm}
+  \( \sum_{n=1}^{\infty} b_n = \sum_{n=1}^{\infty} \frac{1}{\;n\;}\qquad \) (Série Harmônica)
+
+  \pause
+  \vspace{0.3\baselineskip}
+  \[
+    \lim_{n\to\infty} \frac{a_n}{b_n}             \pause \;=\;
+    \lim_{n\to\infty} \frac{(2n+1)n}{\;n^2+2n+1\;} \pause \;=\;
+    \lim_{n\to\infty} \frac{4n+1}{\;2n+2\;}       \pause \;=\;
+    \lim_{n\to\infty} \frac{\,4\,}{2}             \;=\; 2
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Como a soma de \(b_n\) diverge então a de \(a_n\) também diverge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\mytitle}{\mysubtitle}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

@@ -1,0 +1,173 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+\newcommand{\mytitle}   {Testes da Razão e Raiz}
+\newcommand{\mysubtitle}{Séries Numéricas -- Testes de Convergência}
+\title   {\mytitle}
+\subtitle{\mysubtitle}
+\author  {\large Luis Alberto D'Afonseca}
+\date    {}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teste da Razão}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Analisando a Série Geométrica}
+	Considere a série geométrica com $a$ e $r$ positivos
+	\[ \sum_{n=1}^{\infty} ar^{n-1} \]
+	\pause
+	Podemos comparar o crescimento de seus termos calculando a razão
+	\[ \rho = \frac{\,a_{n+1}\,}{a_n} \pause = \frac{ar^n}{\,ar^{n-1}\,} = r \]
+	\pause
+	\vspace{-0.5\baselineskip}
+	\begin{enumerate}
+		\item se $\rho<1$     \tabto{17mm} a série converge
+		\item se $\rho\geq 1$ \tabto{17mm} a série diverge
+	\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Razão}
+	Seja $\;\sum a_n\;$ tal que $\;a_n>0\;$ \pause e
+	\[ \lim_{n\to\infty}\frac{a_{n+1}}{a_n} = \rho \]
+	\pause
+	Então,
+	\begin{enumerate}[<+->]
+		\item se $\rho<1$                  \tabto{37mm} a série converge
+		\item se $\rho>1$ ou $\rho=\infty$ \tabto{37mm} a série diverge
+		\item se $\rho=1$                  \tabto{37mm} o teste é inconclusivo
+	\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+	Analisar a convergência da série
+	\[ \sum_{n=1}^{\infty} \frac{(2n)!}{n!n!} \]
+	\pause
+	Calculando os termos
+	\begin{align*}
+		a_n & = \frac{(2n)!}{n!n!} \\[2mm]
+		a_{n+1} & = \frac{\big(2(n+1)\big)!}{(n+1)!(n+1)!}
+	\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+	\begin{align*}
+		\action<+->{\frac{a_{n+1}}{a_n}}
+		\action<+->{& = \left(\,\frac{(2n+2)!}{\,(n+1)!(n+1)!\,}\,\right) \; \left(\,\frac{n!n!}{\,(2n)!\,}\,\right) \\[2mm]}
+		\action<+->{& = \frac{n!}{(n+1)!} \; \frac{n!}{(n+1)!} \; \frac{(2n+2)!}{(2n)!}                              \\[2mm]}
+		\action<+->{& = \frac{n!}{(n+1)n!} \; \frac{n!}{(n+1)n!} \; \frac{(2n+2)(2n+1)(2n)!}{(2n)!}                  \\[2mm]}
+		\action<+->{& = \frac{1}{(n+1)} \; \frac{1}{(n+1)} \; (2n+2)(2n+1)                                           \\[2mm]}
+		\action<+->{& = \frac{\,2(n+1)(2n+1)\,}{(n+1)(n+1)}}
+		\action<+->{\; = \;\frac{\,4n+2\,}{n+1}}
+		\action<+->{\; \to\; 4}
+    \action<+->{\; > 1}
+		\action<+->{\qquad\text{série divergente}}
+	\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teste da Raiz}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Raiz}
+	Seja $\;\sum a_n\;$ tal que $\;a_n\geq 0\;$ para $\;n\geq N\;$ \pause e
+	\[\lim_{n\to \infty} \sqrt[n]{a_n}=\rho\]
+	\pause
+	Então,
+	\begin{enumerate}[<+->]
+		\item se $\rho<1$                  \tabto{37mm} a série converge
+		\item se $\rho>1$ ou $\rho=\infty$ \tabto{37mm} a série diverge
+		\item se $\rho=1$                  \tabto{37mm} o teste é inconclusivo
+	\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limite Importante}
+	\begin{align*}
+		\action<+->{\lim_{n\to\infty} \sqrt[n]{n}}
+		\action<+->{& = \lim n^{\sfrac{1}{n}} \\[2mm]}
+		\action<+->{& = \lim \exp \big( \ln n^{\sfrac{1}{n}} \,\big) \\[2mm]}
+		\action<+->{& = \lim \exp \left( \frac{\ln n}{n} \right)}
+	\end{align*}
+
+	\[
+		\action<+->{\lim_{x\to\infty} \frac{\ln x}{x}}
+		\action<+->{\;=\; \lim \frac{\,\sfrac{1}{x}\,}{1}}
+		\action<+->{\;=\; \lim \frac{1}{x}}
+		\action<+->{\;=\; 0}
+	\]
+
+	\[
+		\action<+->{\lim_{n\to\infty} \sqrt[n]{n}}
+		\action<+->{\;=\; \exp \left( \lim \frac{\ln n}{n} \right)}
+		\action<+->{\;=\; e^0}
+		\action<+->{\;=\; 1}
+	\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+	\begin{columns}
+		\column{0.48\textwidth}
+		\[
+		a_n = \begin{cases}
+			\displaystyle \;\dfrac{n}{\,2^n\,} & n \text{ impar} \\[5mm]
+			\displaystyle \;\dfrac{1}{\,2^n\,} & n \text{ par}
+		\end{cases}
+		\]
+
+		\pause
+		\vspace{0.5\baselineskip}
+		\[
+		\sqrt[n]{a_n} = \begin{cases}
+			\displaystyle \;\dfrac{\,\sqrt[n]{n}\,}{2} & n \text{ impar} \\[5mm]
+			\displaystyle \;\;\,\dfrac{1}{\,2\,}       & n \text{ par}
+		\end{cases}
+		\]
+
+		\column{0.48\textwidth}
+		\pause
+		\[
+		\frac{1}{\,2\,} \;\leq\; \sqrt[n]{a_n} \;\leq\; \frac{\,\sqrt[n]{n}\,}{2}
+		\]
+
+		\pause
+		Sabemos que \(\; \lim\sqrt[n]{n} = 1 \)
+
+		\pause
+		\vspace{.5\baselineskip}
+		Pelo teorema do confronto
+		\[\lim\sqrt[n]{a_n} = \frac{1}{2} \]
+
+		\pause
+		Portanto a série é convergente
+
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\mytitle}{\mysubtitle}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

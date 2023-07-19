@@ -1,0 +1,340 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcommand{\mytitle}   {Teste da Integral}
+\newcommand{\mysubtitle}{Séries Numéricas -- Testes de Convergência}
+\title   {\mytitle}
+\subtitle{\mysubtitle}
+\author  {\large Luis Alberto D'Afonseca}
+\date    {}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Recapitulando}
+
+\begin{frame}{Recapitulando}
+  Sequências numéricas
+  \[
+    \big( a_k \big)_{k=1}^\infty \qquad\qquad\qquad a_1,\; a_2,\; a_3,\; \dots
+  \]
+  \pause
+  Séries numéricas
+  \[
+    \sum_{k=1}^\infty a_k = a_1 + a_2 + a_3 + \cdots + a_k + \cdots
+  \]
+  \pause
+  Somas parciais
+  \[
+    S_n = \sum_{k=1}^n a_k = a_1 + a_2 + a_3 + \cdots + a_n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Série com Termos Não-Negativos}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série com Termos Não-Negativos}
+
+Caso particular de séries onde $\quad a_n \geq 0 \quad \forall n$
+
+\pause
+\vspace{\baselineskip}
+Uma série
+\[\sum_{n=1}^\infty a_n \qquad \text{com} \qquad a_n\geq 0 \]
+é \emph{convergente} se, e somente se, sua sequência de somas parciais, $S_n$, \\
+é uma sequência \emph{limitada superiormente}.
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teste da Integral}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Integral}
+  \begin{itemize}
+    \item Trocamos o problema de verificar se uma série converge para o de
+    verificar se uma integral converge
+    \[ \sum_{n=1}^{\infty} a_n  \;\text{ converge?}
+       \qquad \text{ por } \qquad
+       \int_{1}^{\infty} f(x) \,dx  \;\text{ converge?}
+    \]
+    \pause
+    \item O valor da integral \emph{\textbf{não é}} uma boa aproximação para a soma da série
+    \[ \sum_{n=1}^{\infty} a_n  \quad \not\approx \quad \int_{1}^{\infty} f(x) \,dx\]
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Diferença Entre a Integral e a Série}
+  \begin{center}
+    \input{fig_teste_integral_comparacao}
+  \end{center}
+\end{frame}
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Teste da Integral}
+  Seja $(a_n)$ uma sequência tal que
+  \begin{enumerate}[<+->]
+    \item seus termos são positivos, $a_n>0$
+    \item $a_n=f(n)$
+    \item $f$ é contínua, positiva e decrescente para todo $x \geq N$
+  \end{enumerate}
+
+	\only<+->{
+	  \vspace{1.3\baselineskip}
+	  Então, a série                      \tabto{53mm}\(\sum_{n=N}^\infty a_n\) \tabto{77mm} converge \\[6mm]
+	  \emph{se, e somente se}, a integral \tabto{53mm}\(\int_N^\infty f(x)dx \) \tabto{77mm} converge
+  }
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Ilustração do Teste da Integral -- 1}
+  \begin{center}
+    \scalebox{.9}{\input{fig_teste_integral_right}}
+  \end{center}
+
+  \pause
+  A série é \emph{``maior''} do que a integral
+  \pause
+  \(
+    \qquad\qquad
+    \int_{N}^{\infty} f(x)\,dx
+    \quad\leq\quad
+    \sum_{n=N}^{\infty} a_n
+  \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Ilustração do Teste da Integral -- 2}
+  \begin{center}
+    \scalebox{.9}{\input{fig_teste_integral_left}}
+  \end{center}
+
+  \pause
+  A série é \emph{``menor''} do que a integral
+  \pause
+  \(
+    \qquad\qquad
+    \sum_{n=N}^\infty a_k
+    \quad\leq\quad
+    a_{N} + \int_{N}^\infty f(x)\,dx
+  \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Comparação entre a Série e a Integral}
+  Temos portanto as relações
+  \[
+  \int_{N}^{\infty} f(x)\,dx
+  \quad\leq\quad
+  \sum_{k=N}^{\infty} a_k
+  \quad\leq\quad
+  a_N + \int_{N}^{\infty} f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lembrando como Calcular uma Integral Imprópria}
+  \[
+    \int_{a}^{\infty} f(x)\,dx
+    \pause \;=\;
+    \lim_{b\to\infty} \; \int_{a}^{b} f(x)\,dx
+    \pause \;=\;
+    \lim_{b\to\infty} \left( F(x) \evalat{a}{b} \; \right)
+    \pause \;=\;
+    \lim_{b\to\infty} \big( F(b) - F(a) \big)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série $p$}
+  \emph{Série $p$} ou $p$-série
+  \[ \sum_{n=1}^{\infty} \frac{1}{n^p} \;=\;
+     \frac{1}{1} +
+     \frac{1}{2^p} +
+     \frac{1}{3^p} +
+     \frac{1}{4^p} +
+     \frac{1}{5^p} + \cdots
+  \]
+  onde $p$ é uma constante real
+
+  \pause
+  \vspace{\baselineskip}
+  Não confundir com a \emph{série geométrica}
+  \[
+    \sum_{n=1}^{\infty} \alpha r^n
+    \;=\; \alpha + \alpha r + \alpha r^2 + \alpha r^3 + \alpha r^4 + \cdots
+  \]
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série Harmônica ($p=1$)}
+  \emph{Série Harmônica} é um caso particular da série $p$ com $p=1$
+  \[ \sum_{n=1}^{\infty} \frac{1}{n} \;=\;
+     \frac{1}{1} +
+     \frac{1}{2} +
+     \frac{1}{3} +
+     \frac{1}{4} +
+     \frac{1}{5} + \cdots
+  \]
+  \pause
+  Essa série passa no teste da divergência pois \(\quad a_n = \frac{1}{\,n\,}\to 0\) \\[3mm]
+  mas mesmo assim diverge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somas Parciais da Série Harmônica}
+
+	{\color<3->{gray}
+	\[
+			S_2 \;=\; 1 + \frac{1}{2} \pause \;=\; \frac{3}{2}
+	\]}
+	\pause
+	{\color<6->{gray}
+	\[
+		S_4 \;=\; S_2 + \frac{1}{3} + \frac{1}{4} \pause
+	      \;>\; S_2 + \frac{1}{4} + \frac{1}{4} \pause
+	      \;=\; \frac{3}{2} + \frac{1}{2}
+	      \;=\; \frac{4}{2}
+	\]}
+	\pause
+	{\color<9->{gray}
+	\[ S_8 \;=\; S_4 + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \pause
+	       \;>\; S_4 + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \pause
+	       \;>\; \frac{4}{2} + \frac{1}{2}
+	       \;=\; \frac{5}{2}
+	\]}
+	\pause
+	\[ S_{16} \;=\; S_8 + \frac{1}{9}  + \frac{1}{10} + \frac{1}{11}
+	                    + \frac{1}{12} + \frac{1}{13} + \frac{1}{14}
+	                    + \frac{1}{15} + \frac{1}{16} \pause
+	          \;>\; S_8 + \frac{8}{16} \pause
+	          \;>\; \frac{5}{2} + \frac{1}{2}
+	          \;=\; \frac{6}{2}
+	\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somas Parciais da Série Harmônica}
+  Considerando os termos $\;n\,=\,2^k$ da sequência de somas parciais
+
+  observamos que
+  \[  S_{2^k} \;\geq\; \frac{2+k}{2}\]
+
+  portanto $S_n\to\infty$ e a série harmônica diverge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Aplicando o Teste da Integral para $p\neq 1$}
+  Observamos que
+  \[
+  	a_n = \frac{1}{n^p} = f(n) \qquad \text{para} \qquad f(x) = \frac{1}{x^p}
+  \]
+  \pause
+  Como $f(x)$ é monótona, contínua e positiva, pelo Teste da Integral, temos
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^p} \quad\text{converge}
+    \qquad\Leftrightarrow\qquad
+    \int_{1}^{\infty} \frac{1}{x^p}\,dx \quad\text{converge}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Calculando a Integral}
+  \begin{align*}
+  	\action<+->{\int_{1}^{\infty} \frac{1}{x^p}\,dx}
+    & \action<+->{= \lim_{b\to\infty} \int_{1}^{b} x^{-p}\,dx           \\[2mm]}
+  	& \action<+->{= \lim_{b\to\infty} \left[ \;\frac{\,x^{1-p}\,}{\,1-p\,}\evalat{1}{b}\;\, \right] \\[2mm]}
+  	& \action<+->{= \frac{1}{\,1-p\,} \lim_{b\to\infty} \Big( b^{1-p} - 1 \Big)}
+  \end{align*}
+
+  \vspace{\baselineskip}
+  \action<+->{A convergência de \(\quad\lim_{b\to\infty} b^{1-p}\quad\) depende do valor de $p$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência}
+  Se \emph{$p>1$}
+  \onslide<2->{\[1-p < 0 \qquad \qquad \lim_{b\to\infty} b^{1-p} = 0\]}
+
+  \vspace{\baselineskip}
+  Se \emph{$p<1$}
+  \onslide<3->{\[1-p > 0 \qquad \qquad \lim_{b\to\infty} b^{1-p} \quad\text{diverge}\]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência da Série $p$}
+  A série $p$ converge para $p>1$ e diverge caso contrário.
+
+  \pause
+  \vspace{\baselineskip}
+  Não temos uma fórmula para a soma da série
+
+  \pause
+  \vspace{\baselineskip}
+  Podemos usar as somas parciais para aproximar a soma
+
+  \pause
+  \vspace{\baselineskip}
+  Quantos termos precisamos?
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Estimativa de Erro}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Resto ou Erro}
+  \begin{align*}
+    \action<+->{S & = \sum_{k=1}^{\infty} a_k} \\[2mm]
+    \action<+->{  & = \sum_{k=1}^{n} a_k + \sum_{k=n+1}^{\infty} a_k} \\[2mm]
+    \action<+->{  & = S_n + R_n}
+  \end{align*}
+  \action<+->{
+  $R_n$ é o \emph{resto da série}, isso é, o que faltou ser calculado
+  \[ R_n = \sum_{k=n+1}^{\infty} a_k \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Estimativa de Erro}
+  Se uma série é \emph{convergente pelo teste da integral} podemos estimar o resto
+  \[ R_n = a_{n+1} + a_{n+2} + a_{n+3} + a_{n+4} + \cdots \]
+  \pause
+  comparando a área dos retângulos com a da integral temos
+  \pause
+  \[ R_n \geq \int_{n+1}^{\infty} f(x)\,dx \]
+  \pause
+  \[ R_n \leq \int_{n}^{\infty} f(x)\,dx \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limitantes para o resto no teste da integral}
+  Se a série
+  \(\quad \sum_{k=1}^{\infty} a_k \)
+
+  \vspace{0.5\baselineskip}
+  converge segundo o teste da integral, então o resto satisfaz
+  \[ \int_{n+1}^{\infty} f(x)\,dx \quad\leq\quad R_n \quad\leq\quad \int_{n}^{\infty} f(x)\,dx \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\mytitle}{\mysubtitle}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

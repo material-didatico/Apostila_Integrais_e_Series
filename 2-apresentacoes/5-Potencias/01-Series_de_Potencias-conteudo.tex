@@ -1,0 +1,264 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{tabto}
+
+\graphicspath{{./figs/}}
+
+%------------------------------------------------------------------------------%
+\newcommand{\mytitle}   {Séries de Potências}
+\newcommand{\mysubtitle}{Definição e propriedades}
+\title   {\mytitle}
+\subtitle{\mysubtitle}
+\author  {\large Luis Alberto D'Afonseca}
+\date    {}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Séries de Funções}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Funções}
+  Queremos estudar séries da forma
+  \[
+    F(x) = \sum_{n=0}^\infty\; f_n(x)
+  \]
+  \pause
+  onde $f_n:D \subset \R\to\R$ são \emph{funções} da variável real $x$ \\[5mm]
+
+  \pause
+  Para cada $x$ fixo temos uma série numérica \\[5mm]
+
+  \pause
+  Queremos saber para quais valores de $x$ podemos somar a série \\[5mm]
+
+  \pause
+  O domínio de $F$ é o conjunto de valores de $x$ para os quais a série converge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Funções}
+  \begin{description}[<+->]
+    \item[Séries de Potências] Séries de potências de $x$
+    \[
+      \sum_{n=0}^\infty a_n x^n
+    \]
+
+    \item[Séries de Fourier] Série de funções trigonométricas
+    \[
+      \sum_{n=0}^\infty a_n \cos(nx) + b_n \sin(nx)
+    \]
+  \end{description}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Séries de Potências}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Potências}
+  Uma série da forma
+  \[\sum_{n=0}^\infty {\color{blue}c_n} (x-{\color{magenta}a})^n \;=\;
+                      {\color{blue}c_0} +
+                      {\color{blue}c_1} (x-{\color{magenta}a}) +
+                      {\color{blue}c_2} (x-{\color{magenta}a})^2 + \cdots +
+                      {\color{blue}c_n} (x-{\color{magenta}a})^n + \cdots
+  \]
+  onde ${\color{blue}c_n}$ e ${\color{magenta}a}$ são constantes e $x\in\R$ é uma variável \\[3mm]
+  é chamada de \emph{Série de Potências} centrada em $x={\color{magenta}a}$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Atenção}
+  Séries de Potência e Séries de Taylor \emph{não} são exatamente a mesma coisa
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- Série de Potências}
+
+  Escolhendo $\;a=0\;$ e $\;c_n=1$, para todo $n=0, 1, 2,\dots$, temos
+  \[
+    \sum_{n=0}^\infty x^n = 1 + x + x^2 + x^3 + \cdots + x^n + \cdots
+  \]
+
+  \pause
+  Fixando $x$, temos uma \emph{série geométrica} que converge quando $\abs{x}<1$
+
+  \pause
+  \vspace{\baselineskip}
+  Assim no intervalo aberto $(-1,\,1)$ temos
+  \[ \sum_{n=0}^\infty x^n = \frac{1}{1-x} \]
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Convergência das Séries de Potências}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência das Séries de Potências}
+  \begin{itemize}[<+->]
+    \item \emph{Convergência Trivial:} Toda Série de Potências converge em seu centro\\[5mm]
+    \item Tipicamente empregamos o Teste da \emph{Razão} ou da \emph{Raiz}
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência -- Exemplo 1}
+Considerando a série
+\[
+  \sum_{n=1}^{\infty} \frac{x^n}{n}
+  = x + \frac{x^2}{2}
+      + \frac{x^3}{3}
+      + \frac{x^4}{4}
+      + \frac{x^5}{5}
+      + \cdots
+\]
+\pause
+Aplicando o teste da razão para $x\neq 0$
+\[
+  \lim_{n\to\infty} \frac{\;\abs{u_{n+1}}\;}{\abs{u_n}}
+  \pause = \lim_{n\to\infty} \frac{\abs{x^{n+1}}}{\;n+1\;} \frac{n}{\;\abs{x^n}\;}
+  \pause = \lim_{n\to\infty} \frac{n}{\;n+1\;} \abs{x}
+  \pause = \abs{x} \lim_{n\to\infty} \frac{n}{\;n+1\;}
+  \pause = \abs{x}
+\]
+\pause
+\emph{Converge absolutamente} para todo $x$ no intervalo aberto $(-1,\,1\,)$
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência -- Exemplo 2}
+Considerando a série
+\[
+  \sum_{n=0}^{\infty} \frac{x^n}{n!}
+  = 1 + x
+      + \frac{x^2}{2}
+      + \frac{x^3}{3!}
+      + \frac{x^4}{4!}
+      + \frac{x^5}{5!}
+      + \cdots
+\]
+\pause
+Aplicando o teste da razão para $x\neq 0$
+\[
+  \lim_{n\to\infty} \frac{\;\abs{u_{n+1}}\;}{\abs{u_n}}
+  \pause = \lim_{n\to\infty} \frac{\abs{x^{n+1}}}{\;(n+1)!\;} \frac{n!}{\;\abs{x^n}\;}
+  \pause = \lim_{n\to\infty} \frac{1}{\;n+1\;} \abs{x}
+  \pause = \abs{x} \lim_{n\to\infty} \frac{1}{\;n+1\;}
+  \pause = 0
+\]
+\pause
+\emph{Converge absolutamente} para todo $x$ no intervalo $(-\infty,\,\infty\,)$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência de uma Série de Potências}
+  Dada a série de potências
+  \[\sum_{n=0}^\infty c_n(x-a)^n\]
+
+  \pause
+  \vspace{\baselineskip}
+  Se ela converge em $\;{\color{blue}L}=x-a\neq 0$ \\[1mm] \pause
+  então ela converge absolutamente para todo $x$ com $\abs{x-a}<\abs{{\color{blue}L}}$
+
+  \pause
+  \vspace{\baselineskip}
+  Se ela diverge em ${\color{blue}M}=x-a$ \\[1mm] \pause
+  então ela diverge para todo $x$ tal que $\abs{x-a}>\abs{{\color{blue}M}}$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência de uma Série de Potências}
+  Sobre a convergência de
+  \(\quad\sum_{n=0}^\infty c_n(x-a)^n\quad\)
+
+  \pause
+  \vspace{\baselineskip}
+  \begin{enumerate}[<+->]
+    \item Existe um número ${\color{blue}R>0}$ tal que a série \\[1mm]
+          \tabto{10mm} converge absolutamente para \tabto{70mm} \(\abs{x-a}<{\color{blue}R}\) \\
+          \tabto{10mm} diverge para                \tabto{70mm} \(\abs{x-a}>{\color{blue}R}\)
+    \vspace{\baselineskip}
+    \item A série converge para todo $x$, nesse caso escrevemos ${\color{blue}R=\infty}$
+    \vspace{\baselineskip}
+    \item A série diverge para todo $x\neq a$, nesse caso ${\color{blue}R=0}$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Raio e Intervalo de Convergência}
+  \begin{itemize}[<+->]
+  \item ${\color{blue}R}$ é o de \emph{raio de convergência} \\[\baselineskip]
+  \item o \emph{intervalo de convergência} é o intervalo centrado em $a$ com raio ${\color{blue}R}$
+  \end{itemize}
+
+  \action<+->{
+  \vspace{\baselineskip}
+  Os extremos do intervalo de convergência, $x=a\pm {\color{blue}R}$, \\
+  podem ser abertos ou fechados}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Testando a Convergência}
+\begin{enumerate}[<+->]
+\item Utilize o teste da razão (ou da raiz) para determinar o raio de convergência
+\vspace{\baselineskip}
+\item Se $R$ for finito teste os extremos do intervalo
+      \begin{itemize}
+        \item teste da comparação
+        \item teste da integral
+        \item teste da série alternada
+      \end{itemize}
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Função Definida por Série de Potências}
+  Se $\sum c_n(x-a)^n$ possui um raio de convergência $R>0$ \\[3mm]
+  então a função
+  \[
+    f(x)=\sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  \pause
+  está definida no intervalo $(a-R,\,a+R)$ \\[3mm] \pause
+  é infinitamente derivável nesse intervalo
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivação Termo a Termo}
+  Podemos calcular a derivada de $f(x)$ construindo a série
+  \begin{align*}
+    \action<+->{f'(x) & = {\color{blue}\frac{d}{dx} \Bigg(} \sum_{n=0}^\infty c_n(x-a)^n {\color{blue}\Bigg)} \\[2mm]}
+    \action<+->{      & = \sum_{n=0}^\infty {\color{blue}\frac{d}{dx} \Big(} c_n(x-a)^n {\color{blue}\Big)} \\[2mm]}
+    \action<+->{      & = \sum_{n=1}^\infty c_n n\big(x-a\big)^{n-1}}
+    \action<+->{\qquad\text{(note que o índice dessa série começa em 1)}}
+  \end{align*}
+  \action<+->{que também converge em $(a-R, a+R)$}
+  \end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integração Termo a Termo}
+  Para calcularmos a integral de $f$ construímos a série
+  \begin{align*}
+    \action<+->{\int f(x)dx & = {\color{blue}\int} \left(\sum_{n=0}^\infty c_n(x-a)^n\right){\color{blue}dx} \\[2mm]}
+    \action<+->{            & = \sum_{n=0}^\infty \left({\color{blue}\int} c_n(x-a)^n {\color{blue}dx}\right) \\[2mm]}
+    \action<+->{            & = \sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}+ C}
+\end{align*}
+  \action<+->{que também converge em $(a-R, a+R)$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\mytitle}{\mysubtitle}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

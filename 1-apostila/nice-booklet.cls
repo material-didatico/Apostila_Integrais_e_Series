@@ -1091,6 +1091,14 @@
 %------------------------------------------------------------------------------%
 %------------------------------------------------------------------------------%
 
+\newcommand{\chapterPrefacio}
+{
+  \chapter*{Prefácio}
+  \addcontentsline{toc}{chapter}{Prefácio}
+  \markboth{Prefácio}{Prefácio}
+  \label{cap:prefacio}
+}
+
 \RequirePackage[explicit,nobottomtitles]{titlesec}
 
 % \titleformat{command}[shape]{format}{label}{sep}{before}[after]

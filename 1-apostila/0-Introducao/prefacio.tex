@@ -1,4 +1,105 @@
 %------------------------------------------------------------------------------%
-\chapter*{Prefácio}
+\chapterPrefacio
+
+\vspace{3cm}
+\begin{observation}
+  Esse texto ainda está em construção e portanto está incompleto e contém erros,
+  ele não é um substituto para as aulas e livros da bibliografia.
+\end{observation}
+\vspace{3cm}
+
+Essa apostila foi idealizada para apresentar o conteúdo programático previsto para
+a disciplina de \emph{Cálculo 4} no \emph{CEFET-MG}, cuja ementa contém os tópicos:
+\vspace{-0.5\baselineskip}
+\begin{enumerate}[nosep]
+  \item séries numéricas e de potências;
+  \item séries de Taylor e aplicações;
+  \item séries de Fourier;
+  \item transformada de Fourier;
+  \item equações diferenciais parciais;
+  \item equações da onda, do calor e de Laplace.
+\end{enumerate}
+Porém, não conhecemos um livro didático que apresente esses assuntos de forma
+adequada para a disciplina. Tradicionalmente os professores responsáveis por
+ministrá-la recorrem a diferentes materiais bibliográficos extraindo apenas uma
+parte de cada.
+Nosso objetivo é suprir a ausência de um material compatível com a ementa,
+produzindo uma apostila específica para a disciplina.
+
+O conteúdo dessa apostila está distribuído nos seguintes capítulos:
+\vspace{-0.5\baselineskip}
+\begin{enumerate}[nosep]
+  \setcounter{enumi}{2}
+  \item \nameref{cap:sequencias_numericas}
+  \item \nameref{cap:series_numericas}
+  \item \nameref{cap:series_de_taylor}
+  \item \nameref{cap:series_de_fourier}
+  \item \nameref{cap:equacoes_diferenciais_parciais}
+  \item \nameref{cap:transformada_de_fourier}
+\end{enumerate}
+Cada capítulo apresenta a teoria, exemplos e exercícios sobre o tópico correspondente.
+Sempre que possível apresentamos também exemplos e ilustrações implementadas em
+\href{https://www.python.org}{Python} disponibilizadas como
+\textit{notebooks} no
+\href{https://colab.research.google.com}{Google Colaboratory} ou Colab.
+Nenhuma das atividades em Python é necessária para o estudo da apostila,
+elas foram criadas apenas como atividades complementares para os alunos interessados.
+A seguir está o \textit{link} para o \textit{notebook} que apresenta as bibliotecas
+\href{https://numpy.org}{NumPy}, usada para computação numérica, e
+\href{https://www.sympy.org}{SymPy}, usada para computação simbólica.
+
+\OnlineBox{https://colab.research.google.com/drive/1XV6A0l2plJHVPVfb2xBVDmJA4Hkm3MhL?usp=share_link}
+{
+  Notebook introduz as bibliotecas NumPy e SymPy.
+}
+
+Como os textos matemáticos costumam ser muito densos em informação,
+não absorvemos todas as sutilezas apenas em uma leitura. Por isso, fazer exercícios é
+parte fundamental do processo de aprendizado, ao manipularmos os conceitos no processo
+de resolução do exercício somos forçados a utilizar os resultados e a explorar suas
+sutilezas. A regra geral é que cada passagem da resolução precisa ser embasada em um
+resultado verdadeiro explicitamente descrito antes, essa é a razão pela qual os textos
+numeraram os resultados e fórmulas. Mesmo que não escrevamos essas referências,
+precisamos estar plenamente conscientes delas.
+
+Uma sugestão é utilizar os exemplos contidos no texto como exercícios, tente resolver
+o problema proposto antes de ler a resolução apresentada. Depois dessa tentativa leia
+a resolução e a compare criticamente à sua resposta.
+Seu resultado coincide com o apresentado? Se sim verifique se você apresentou todos os
+argumentos necessários para embasar sua resposta.
+Quando os resultados ou argumentos não coincidirem revise
+sua resolução e verifique se ela corresponde a uma solução alternativa ou contém
+algum erro. Nas disciplinas de Matemática, na maioria das vezes, a argumentação
+é muito mais importante do que o resultado.
+
+Nesse texto foi inserida uma lista de exercícios após cada seção e uma lista de revisão
+no final de cada capítulo. Ao estudar uma seção, teste sua compreensão resolvendo alguns
+exercícios da seção. Ao fazer uma revisão ou se preparar para uma avaliação, resolva
+os exercícios da revisão. O fato deles não estarem organizados por temas introduz o
+processo de identificação do problema e escolha da teoria adequada para resolvê-los.
+
+Alguns exercícios possuem resposta no final da apostila, nesses casos o
+\textit{link} \textcolor{cpLinks}{[resp]} no enunciado do exercício
+leva para sua resposta. Para retornar ao enunciado clique no número da resposta.
+Em alguns casos a resposta consiste apenas do resultado final, em outros toda a
+resolução está escrita.
+
+Alguns resultados matemáticos necessários para a disciplina, como números complexos e
+funções hiperbólicas, são apresentados sucintamente no apêndice
+\nameref{cap:Conteudo_Complementar}.
+O apêndice \nameref{cap:Recursos_Online} apresenta diversos materiais complementares,
+como videoaulas e atividades \textit{online}, que podem ser acessados gratuitamente
+e contribuir para o estudo de cada tópico.
+O \nameref{cap:indice_remissivo} traz \textit{links} para os principais termos
+discutidos dentro do texto.
+
+%------------------------------------------------------------------------------%
+
+\vspace{\baselineskip}
+Agradeço aos professores
+\textit{André Ferreira e Pereira},
+\textit{Éden Amorim} e
+\textit{José Luiz Acebal}
+pela valiosa contribuição para a confecção desse material.
 
 %------------------------------------------------------------------------------%
