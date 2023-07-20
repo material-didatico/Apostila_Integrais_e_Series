@@ -1,0 +1,55 @@
+%------------------------------------------------------------------------------%
+\section{Integral definida}
+
+Interpretação Geométrica da integral definida.
+Considere $f$ uma função não negativa no intervalo $[a,b]$ conforme a
+Figura~\ref{fig:integral_definida_1}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=6cm,height=5cm]{integral_definida_01}
+  \caption{Gráfico da função $y=x^2$.}
+  \label{fig:integral_definida_1}
+\end{figure}
+
+Então a integral $\int_a^b f(x)dx$ significa a área sob a curva $y=f(x)$
+no intervalo $[a,b]$, conforme indica a Figura~\ref{fig:integral_definida_2}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=6cm,height=5cm]{integral_definida_02}
+  \caption{Gráfico da função $y=x^2$.}
+  \label{fig:integral_definida_2}
+\end{figure}
+
+Se $f(x)$ é uma função que muda de sinal no intervalo $[a,b]$,
+então $\int_a^b f(x)dx$ pode ser interpretada como a diferença
+de áreas conforme ilustra a Figura~\ref{fig:integral_definida_3}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=6cm,height=5cm]{integral_definida_03}
+  \caption{Gráfico da função $y=x^2$.}
+  \label{fig:integral_definida_3}
+\end{figure}
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Propriedades da integral definida}{teo:propriedades-integral-definida}
+  \begin{enumerate}
+    \item \(\int_{a}^b f(x)dx= -\int_{b}^a f(x)dx\)
+    \item \(\int_{a}^a f(x)dx=0\)
+    \item \(\int_{a}^b cdx = c(b-a)\), $c$ é uma constante.
+    \item \(\int_{a}^b [f(x)+g(x)]dx = \int_{a}^b f(x)dx + \int_{a}^b g(x)dx\)
+    \item \(\int_{a}^b cf(x)dx= c \int_{a}^b f(x)dx\), $c$ é uma constante.
+    \item \(\int_{a}^b [f(x)-g(x)]dx= \int_{a}^b f(x)dx- \int_{a}^b g(x)dx\)
+    \item \(\int_{a}^b f(x)dx=\int_{a}^c f(x)dx+ \int_{c}^b f(x)dx\)
+    \item Se $f(x)\geq 0$, $a \leq x \leq b$, então \(\int_{a}^b f(x)dx \geq 0\).
+    \item Se $f(x) \geq g(x)$, $a \leq x \leq b$, então \(\int_{a}^b f(x)dx \geq \int_{a}^b g(x)dx\)
+    \item Se $m \leq f(x) \leq M$, para $a \leq x \leq b$ então
+    \[
+    m(b-a) \leq \int_{a}^b f(x)dx \leq M(b-a)
+    \]
+  \end{enumerate}
+\end{teorema}
+
+%------------------------------------------------------------------------------%

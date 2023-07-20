@@ -1,0 +1,54 @@
+%------------------------------------------------------------------------------%
+\section{Área entre curvas}
+
+Ao definirmos integral definida, definimos também o que seria a área sob
+uma curva para uma função não negativa. Aqui, usaremos integrais para
+encontrar áreas de regiões entre gráficos de duas funções.
+
+Considere que queremos calcular a área da região $S$ entre duas curvas
+$y=f(x)$ e $y=g(x)$ e as retas verticais $x=a$ e $x=b$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{area_entre_curvas_01}
+  \caption{Gráfico da região.}
+  \label{fig:area_entre_curvas_01}
+\end{figure}
+
+Vamos dividir a região $S$ em $n$ faixas de mesma largura e então
+aproximamos a $k$-ésima faixa por um retângulo com base
+$\Delta x$ e altura $f(c_k)- g(c_k)$, conforme mostra a
+Figura~\ref{fig:area_entre_curvas_07}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{area_entre_curvas_07}
+  \caption{Gráfico da região.}
+  \label{fig:area_entre_curvas_07}
+\end{figure}
+
+Podemos aproximar a área da região $S$ como soma da área desses $n$
+retângulos
+\[
+  \sum_{k=1}^{n}[f(c_k)-g(c_k)]\Delta
+\]
+
+Essa aproximação fica cada vez melhor quando $n \to \infty$ e assim,
+definimos a área da região $S$ como sendo
+\[
+  A= \displaystyle \lim_{k \to \infty}\sum_{k=1}^{n}[f(c_k)-g(c_k)]\delta x
+\]
+
+Reconhecemos o limite acima como a integral definida de $f-g$.
+Assim, podemos apresentara definição a seguir.
+
+\begin{definicao}{Área entre curvas}{def:area-entre-curvas}
+  A área $A$ da região limitada pelas curvas $y=f(x)$ e $y=g(x)$ e
+  pelas retas $x=a$, $x=b$, onde $f$ e $g$ são contínuas e
+  $f(x) \geq g(x)$ para todo $x \in [a,b]$, é
+  \[
+    A= \int_a^b [f(x)-g(x)]dx
+  \]
+\end{definicao}
+
+%------------------------------------------------------------------------------%

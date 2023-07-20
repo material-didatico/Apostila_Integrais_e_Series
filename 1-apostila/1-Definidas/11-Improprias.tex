@@ -1,0 +1,191 @@
+%------------------------------------------------------------------------------%
+\section{Integrais Impróprias}
+
+Integrais impróprias do tipo I: intervalo de integração ilimitado.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Imprópria do tipo I}{def:intergal-impropria}
+Seja $f$ função contínua em intervalo ilimitado, do tipo $[a,\infty)$,
+$(-\infty,b]$ ou $(-\infty,\infty)$.  A integral definida de $f$ em cada
+um desses intervalos é dita imprópria e é dada respectivamente por
+\begin{align*}
+  \int_a^{\infty}         f(x) \, dx & = \lim_{t \rightarrow  \infty} \int_a^t f(x) \, dx                                                                                    \\
+  \int_{-\infty}^b        f(x) \, dx & = \lim_{t \rightarrow -\infty} \int_t^b f(x) \, dx                                                                                    \\
+  \int_{-\infty}^{\infty} f(x) \, dx & = \lim_{t \rightarrow -\infty} \int_t^c f(x) \, dx + \lim_{t \rightarrow \infty} \int_c^t f(x) \, dx, \, \text{para algum } c \in \R.
+\end{align*}
+Dizemos que a integral imprópria converge se o(s) limite(s) existe(m);
+caso contrário, diverge.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Se \(\int_a^{\infty} f(x) dx\)
+converge, então \(\lim_{x \to \infty} f(x) = 0\).
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine se a integral \(\int \frac{1}{x} dx\) é convergente ou divergente.
+  \solution
+  De acordo com a definição de integrais impróprias do tipo $I$, temos
+  \begin{align*}
+    \int \frac{1}{x} dx
+    & = \lim_{t \to \infty} \int_1^{t} \frac{1}{x} dx     \\
+    & = \lim_{t \to \infty} \big( \ln\abs{x} \big) \evalat{1}{t} \\
+    & = \lim_{t \to \infty} \big(\ln(t)- \ln(1)\big)      \\
+    & = \lim_{t \to \infty} \ln(t)= \infty.
+  \end{align*}
+  Portanto, a integral imprópria $\int \frac{1}{x} dx$ é divergente.
+  \color{black}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine se a integral \(\int_{-\infty}^0 2^x dx\)
+  é convergente ou divergente.
+  \solution
+  Pela definição de integral imprópria
+  \begin{align*}
+    \int_{-\infty}^0 2^x dx
+    & = \lim_{t \to - \infty} \int_t^{0} 2^x dx \\
+    & = \lim_{t \to - \infty} \left[ \frac{2^x}{\ln(2)} \right]_t^0  \\
+    & = \lim_{t \to - \infty} \frac{1}{\ln(2)} (2^0-2^t) \\
+    & = \frac{1}{\ln(2)}
+  \end{align*}
+  Logo a integral imprópria \(\int_{-\infty}^0 2^x dx\) é convergente e vale
+  \(\frac{1}{\ln(2)}\).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine se a integral \(\int_{-\infty}^{\infty} x^3e^{-x^4} dx\)
+  é convergente ou divergente.
+  \solution
+  Usando  definição de integral imprópria
+  \begin{equation}
+    \label{exemplo_eqimp}
+      \int_{-\infty}^{\infty} x^3e^{-x^4} dx
+    = \lim_{t \to-\infty} \int_{t}^{0} x^3e^{-x^4} dx
+    + \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx
+  \end{equation}
+  Para resolvermos a integral indefinida $\int x^3e^{-x^4} dx$,
+  usamos a substituição $u=-x^4 \Rightarrow du=-4x^3dx$. Logo,
+  \[
+    \int x^3e^{-x^4} dx
+    = -\frac{1}{4}\int e^u du
+    = -\frac{1}{4}e^u+C
+    = -\frac{1}{4}e^{-x^4}+C
+  \]
+  Usando o Teorema Fundamental do cálculo temos
+  \begin{align*}
+    \int_{-\infty}^{0} x^3e^{-x^4} dx
+    & = \lim_{t \to -\infty} \int_{t}^{0} x^3e^{-x^4} dx \\
+    & = \lim_{t \to -\infty} -\frac{1}{4}\left( e^0-e^t \right) \\
+    & =-\frac{1}{4}
+  \end{align*}
+  \begin{align*}
+    \int_{0}^{\infty} x^3e^{-x^4} dx
+    & = \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx \\
+    & = \lim_{t \to -\infty} -\frac{1}{4}\left( e^t-e^0 \right) \\
+    & =-\infty
+  \end{align*}
+  Como uma das integrais do lado direito da equação
+  \ref{exemplo_eqimp} diverge então
+  \(\int_{-\infty}^{\infty} x^3e^{-x^4} dx\)
+  é divergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine se a integral
+  \(\int_{-\infty}^{\infty} \frac{1}{1+x^2} dx\)
+  é convergente ou divergente.
+  \solution
+  Mais uma vez iremos usar a definição de integral imprópria do tipo $I$.
+  Nessa definição é coveniente escolher $a=0$, assim
+  \[
+    \int_{-\infty}^{\infty} \frac{1}{1+x^2} dx
+    = \int_{-\infty}^{0} \frac{1}{1+x^2} dx
+    + \int_{0}^{\infty}  \frac{1}{1+x^2} dx
+  \]
+  É necessário calcular as integrais do lado direito separadamente
+  \begin{align*}
+    \int_{0}^{\infty} \frac{1}{1+x^2} dx
+    & = \lim_{t \to \infty} \int_0^t \frac{dx}{1+x^2} \\
+    & = \lim_{t \to \infty} \left[ \arctan(x) \right] \evalat{0}{t} \\
+    & = \lim_{t \to \infty} \left(\arctan(t)- \arctan(0)\right) \\
+    & = \lim_{t \to \infty} \arctan(t) \\
+    & = \frac{\pi}{2}.
+  \end{align*}
+  \begin{align*}
+    \int_{-\infty}^{0} \frac{1-}{1+x^2} dx
+    & = \lim_{t \to  \infty} \int_t^0 \frac{dx}{1+x^2} \\
+    & = \lim_{t \to  \infty} \left[\arctan(x) \right] \evalat{t}{0} \\
+    & = \lim_{t \to -\infty} \left(\arctan(0)- \arctan(t)\right) \\
+    & = \lim_{t \to  \infty} 0-\left(-\frac{\pi}{2}\right) \\
+    & = \frac{\pi}{2}.
+  \end{align*}
+  Como ambas as integrais são convergentes, a integral dada é convergente
+  \[
+    \int_{-\infty}^{\infty} \frac{1}{1+x^2} dx
+    = \frac{\pi}{2} + \frac{\pi}{2}
+    = \pi
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Como $\frac{1}{1+x^2}>0$, a integral imprópria pode ser interpretada
+como a área da região infinita sob a curva $y=\frac{1}{1+x^2}$
+e acima do eixo $x$, conforme mostra a Figura~\ref{fig:integral_impropria}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{integral_impropria}
+  \caption{Integral Imprópria.}
+  \label{fig:integral_impropria}
+\end{figure}
+
+A próxima definição é um outro tipo de integral imprópria,
+que envolve descontinuídade.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integrais de função contínua por partes}{def:integral-funcao-partes}
+  Seja $f$ função definida em $[a,b]$, contínua exceto em um ponto
+  $c \in [a,b]$. Se $c$ é uma descontinuidade de $f$ tal que os
+  limites laterais em $c$ existem (salto ou descontinuidade removível),
+  então $f$ é integrável e temos
+  \[
+    \int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre
+  \(\int_{2}^5 \frac{1}{\sqrt{x-2}} dx\).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine se a integral
+  \(\int_{0}^{\frac{\pi}{2}} \sec(x) dx\)
+  é convergente ou divergente.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_{0}^3 \frac{1}{x-1} dx\), se possível.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_{0}^1 \ln(x) dx\).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

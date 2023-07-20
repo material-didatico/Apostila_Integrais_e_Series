@@ -1,0 +1,267 @@
+%------------------------------------------------------------------------------%
+\section{Técnicas de Integração: Integração por partes}
+
+\textbf{Quando usar?} Normalmente, usamos integração por partes quando queremos
+integrar o produto de duas funções onde uma delas é a derivada de alguma função
+conhecida, isto é
+\[
+  \int f(x) g'(x) dx
+\]
+
+\textbf{Exemplos:}
+\begin{itemize}
+  \item Em $\int x \sin(x) dx$, temos um produto de funções onde $\sin(x)$, por
+      exemplo, é a derivada de alguém que conheço, isto é, de $-cos(x)$.
+
+  \item $\int x lnx dx$, aqui também temos um produto de funções e $x$ é a
+      derivada de $\frac{x^2}{2}$
+
+  \item $\int (x^2+1) e^{-x} dx$, aqui temos um produto de duas funções e
+      $e^{-x}$ é a derivada de $-e^{-x}$.
+
+  \item Nossa intenção ao usarmos integração por partes é obtermos uma integral
+  mais simples que aquela de partida.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Fórmula de Integração por partes}{teo:formula-integral-partes}
+  Nem sempre é imediato o cálculo de integrais.
+  Por isso, assim como em derivadas,
+  precisamos de algumas técnicas para o cálculo dessas
+  \begin{equation}
+    \label{eq:formula_partes-1}
+    \int f(x) g'(x) dx= f(x) g(x)- \int g(x) f'(x)dx
+  \end{equation}
+  Chamando $u=f(x)$ e $v=g(x)$, então $du=f'(x)dx$ e $dv=g'(x)dx$
+  \begin{equation}
+    \label{eq:formula_partes-2}
+    \int u dv=uv- \int v du
+  \end{equation}
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Para demonstrar a fórmula de integração por partes,
+lembremos da regra do produto para derivadas
+\[
+  (f(x)g(x))'= f'(x)g(x)+f(x)g'(x)
+\]
+Integrando ambos os lados da equação com relação a $x$, temos
+\[
+  \int (f(x)g(x))' dx= \int f'(x)g(x) dx+ \int f(x)g'(x) dx
+\]
+ou seja,
+\[
+  (f(x)g(x)) = \int f'(x)g(x) dx+ \int f(x)g'(x) dx
+\]
+Isolando o termo que queremos temos que
+\[
+  \int f(x)g'(x) dx= f(x)g(x)-\int f'(x)g(x) dx+ \int f(x)g'(x) dx
+\]
+
+\begin{itemize}
+  \item É útil chamar $u=f(x)$ e $dv=g'(x)dx$ e usar o padrão
+    \begin{align*}
+      u  & = f(x)    &  dv & = g'(x)dx \\
+      du & = f'(x)dx &  v  & = g(x)
+    \end{align*}
+    quando temos uma integral do tipo $\int f(x)g'(x)dx$,
+    pois facilita a memorização da fórmula de integração por partes.
+
+  \item Na fórmula de integração por partes, $g$ é qualquer
+    antiderivada de $g'$, pegamos a com constante $0$ por simplicidade.
+
+  \item Você não deve escolher $u$ e $dv$ de qualquer maneira.
+    Essa escolha deve ser feita de modo a obter uma integral mais
+    simples do que a que tínhamos inicialmente. Com a prática de
+    exercícios essa escolha fica simples.
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a Integral \(\int x \sin(x)dx\)
+
+  \solution
+  \emph{Solução 1} -- usando a fórmula \eqref{eq:formula_partes-1}:
+  Vamos escolher $f(x)=x$ e $g'(x)= \sin(x)$.
+  Logo $f'(x)=1$ e $g(x)= -\cos(x)$ (Lembre-se que para $g$
+  podemos escolher qualquer antiderivada de $g'$.).
+  Assim, usando a fórmula \ref{f1}, obtemos
+  \begin{align*}
+    \int x\sin(x)dx
+    & = f(x)g(x)- \int g(x)f'(x)dx \\
+    & = x(-\cos(x))- \int (-\cos(x))dx \\
+    & = -x \cos(x) + \int \cos(x) dx \\
+    & = -x \cos(x) + \sin(x) dx + C
+  \end{align*}
+
+  \emph{Solução 2} -- usando a fórmula \eqref{eq:formula_partes-2}:
+  Usando o padrão
+  \begin{align*}
+    u  & =  x & dv & = \sin(x) dx \\
+    du & = dx & v  & = -\cos(x)
+  \end{align*}
+  Assim, fórmula \eqref{eq:formula_partes-2} nos dá
+  \begin{align*}
+    \int x\sin(x)dx
+    & = uv- \int vdu \\
+    & = x(-\cos(x))- \int (-\cos(x))dx \\
+    & = -x \cos(x) + \int \cos(x) dx \\
+    & = -x \cos(x) + \sin(x) dx + C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Você poderia perguntar: Eu não poderia escolher $u= \sin(x)$ e $dv=x $, uma vez
+que conseguimos encontrar uma antiderivada de modo fácil para $x$? Como
+comentamos anteriormente, a escolha de $u$ e $dv$ deve ser feita de modo a
+obter uma integral mais simples. Caso tivéssemos feito essa escolha chegaríamos
+na  integral
+\[
+    \int x \sin(x) dx= \sin(x) \frac{x^2}{2}- \frac{1}{2} \int x^2\cos(x)dx
+\]
+que é uma integral mais difícil que aquela que começamos.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \ln(x) dx\)
+  \solution
+  Primeiro note que podemos resscrever
+  \[
+    \int \ln(x) dx= \int ln(x). 1 dx
+  \]
+  Usando o padrão temos
+  \begin{align*}
+    u  & = \ln(x)        & dv & = 1 dx \\
+    du & = \frac{1}{x}dx & v  & = x
+  \end{align*}
+  Integrando por partes chegamos que
+  \begin{align*}
+    \int \ln(x) dx
+    & = x \ln(x)- \int  x \frac{dx}{x} \\
+    & = x \ln(x)-\int dx \\
+    & = x \ln(x)-x +C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int t^2 e^t dt\)
+  \solution
+  Note que $t^2$ torna-se mais simples quando derivamos enquanto que
+  $e^t$ permanece inalterada quando integramos ou derivamos.
+  Assim, escolhemos
+  \begin{align*}
+    u  & = t^2  & dv & = e^t dt \\
+    du & = 2tdt & v  & = e^t
+  \end{align*}
+  Logo, a fórmula \eqref{eq:formula_partes-2} de integração por partes
+  resulta em
+  \begin{equation}
+    \label{eq:exemplo_r}
+    \int t^2 e^t dt= t^2 e^t-2 \int te^t dt
+  \end{equation}
+  Observe que a integral $ \int te^t dt $ não é imediata.
+  Nesse caso, temos que usar novamente Integração por partes.
+  Escolhemos,
+  \begin{align*}
+    u  &= t  & dv & = e^t dt \\
+    du &= dt & v  & = e^t
+  \end{align*}
+  Assim,
+  \[
+    \int te^t dt
+    = t e^t - \int e^t dt
+    = t e^t - e^t + C
+  \]
+  Substituindo esse resultado na equação \ref{eq:exemplo_r}, obtemos
+  \begin{align*}
+    \int t^2 e^t dt
+    & = t^2 e^t - 2\int te^tdt  \\
+    & = t^2 e^t - 2(te^t-e^t+C) \\
+    & = t^2 e^t - 2te^t+2e^t+C_1
+  \end{align*}
+  onde $C_1=2C$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int e^x \sin(x) dx\)
+  \solution
+  Usando integração por partes
+  \begin{align*}
+    u  & = e^x   & dv & = \sin(x) dx \\
+    du & = e^xdx & v  & = -\cos(x)
+  \end{align*}
+  Assim
+  \begin{equation}
+    \label{eq:exemplo_p1}
+    \int e^x \sin(x) dx = -e^x \cos(x)+ \int e^x \cos(x)dx
+  \end{equation}
+  Parece que ainda não resolvemos o nosso problema, uma vez que
+  $\int e^x \cos(x) dx$ não é uma integral elementar, mas pelo menos
+  não é mais complicada. Vamos integrar novamente a integração por
+  partes para ver onde chegamos. Dessa vez usaremos $u=e^x$ e
+  $dv=\cos(x)dx$. Assim $du=e^x dx$, $v=\sin(x)$, e
+  \begin{equation}
+    \label{eq:exemplo_p2}
+    \int e^x \cos(x) dx= e^x \sin(x)-\int e^x \sin(x) dx
+  \end{equation}
+  Parece que estamos andando em círculos e que voltamos para o
+  mesmo lugar que começamos.
+  Porém, se substituirmos a expressão $\int e^x \cos(x)dx$ da
+  equação \eqref{eq:exemplo_p2} na
+  equação \eqref{eq:exemplo_p1}, temos
+  \[
+    \int e^x \sin(x) dx
+    = -e^x \cos(x)+ e^x \sin(x)-\int e^x \sin(x) dx
+  \]
+  Assim, temos uma equação para a integral desconhecida e,
+  para encontrar o seu valor, basta deixar o termo
+  $\int e^x \sin(x) dx$ do lado esquerdo da equação. Assim,
+  \[
+    2\int e^x \sin(x) dx = -e^x \cos(x)+ e^x \sin(x)
+  \]
+  Dividindo a equação por 2 e adicionando a constante de integração temos
+  \[
+    \int e^x \sin(x) dx = \frac{e^x}{2}( -\cos(x) +\sin(x))+ C
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int_0^1 \frac{y}{e^{2y}} dy\)
+  \solution
+  Quando queremos calcular uma integral definida e precisamos usar alguma
+  técnica de integração, primeiro calculamos a integral indefinida e depois
+  usamos o Teorema Fundamental do Cálculo Parte 2.
+
+  Para encontrar
+  \[
+    \int \frac{y}{e^{2y}} dy= \int y e^{-2y} dy,
+  \]
+  usaremos integração por partes e escolhemos
+  \begin{align*}
+    u  & = y  & dv & = e^{-2y} dy \\
+    du & = dy & v  & = -\frac{e^{-2y}}{2}
+  \end{align*}
+  Portanto,
+  \begin{align*}
+    \int \frac{y}{e^{2y}} dy
+    & =  -\frac{ye^{-2y}}{2}- \int -\frac{e^{-2y}}{2} dy \\
+    & = -\frac{ye^{-2y}}{2} + \frac{1}{2} \int e^{-2y} dy \\
+    & =  -\frac{ye^{-2y}}{2} - \frac{1}{4} e^{-2y}+ C
+  \end{align*}
+  Usando o Teorema Fundamental do Cálculo, parte 2
+  \begin{align*}
+    \int_0^1 \frac{y}{e^{2y}} dy
+    & = \left[  -\frac{ye^{-2y}}{2} - \frac{1}{4} e^{-2y} \right] _0^1 \\
+    & = \left( -\frac{1}{2}e^{-2}- \frac{1}{4}e^{-2}\right)- \left(0- \frac{1}{4} \right) \\
+    & = \frac{1}{4}-\frac{3}{4}e^{-2}
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,354 @@
+%------------------------------------------------------------------------------%
+\section{Integração por substituição trigonométrica}
+
+\begin{itemize}
+  \item Quando tentamos resolver a integral $\int x \sqrt{a^2-x^2}dx$,
+        podemos usar uma substituição simples $u=a^2-x^2$.
+
+  \item No geral fazemos a seguinte mudança
+        \[
+          \int f(g(x))g'(x) dx= \int f(u)du
+        \]
+
+  \item Para a integral $\int \sqrt{a^2-x^2}dx$ não conseguimos fazer a
+        substituição simples
+
+  \item Nesse caso fazemos uma substituição ``inversa''
+  $x=a\sin( \theta )$, assim:
+  \begin{align*}
+    \int \sqrt{a^2-x^2}dx
+    & = \int \sqrt{a^2-a^2 \sin^2(\theta)} a\cos(\theta) d \theta \\
+    & = \int \sqrt{a^2(1-\sin^2(\theta))} \cos(\theta) d\theta \\
+    & = \int a^2 \cos^2 (\theta) d\theta
+  \end{align*}
+
+  \item Nesse caso geral temos
+        \[
+          \int f(x)dx= \int f(g(\theta)) g'(\theta) d \theta
+        \]
+
+  \item Podemos fazer a substituição inversa desde que $g$ seja injetiva.
+
+  \item No nosso caso  podemos fazer a substituição inversa $x=a\sin(\theta)$,
+        desde que essa função seja injetora. Isso pode ser conseguido se
+        restrigirmos $\theta$ ao intervalo
+        \(\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\)
+
+\end{itemize}
+Nessa seção estudaremos a técnica de substituição trigonométrica e ela serve
+para integrar funções que tem uma ''raíz'' e não conseguimos usar nenhuma das
+técnicas estudadas até aqui. A Tabela~\ref{tab:substituicoes_trigonometricas}
+apresenta os casos onde usaremos a substituição trigonométrica.
+
+%------------------------------------------------------------------------------%
+\begin{table}
+  \centering
+  \renewcommand*{\arraystretch}{2.2}
+  \caption{Substituições Trigonométircas}
+  \label{tab:substituicoes_trigonometricas}
+  \begin{tabular}{cp{7cm}c}
+    \hline
+       Expressão     & Substituição                                                       &             Identidade             \\ \hline
+    $\sqrt{a^2-x^2}$ & $x=a\sin(\theta)$, $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$ & $1-\sin^2(\theta)= \cos^2(\theta)$ \\
+    $\sqrt{a^2+x^2}$ & $x=a\tan(\theta)$, $-\frac{\pi}{2}< \theta < \frac{\pi}{2}$        & $1+\tan^2(\theta)= \sec^2(\theta)$ \\
+    $\sqrt{x^2-a^2}$ & $x=a\sec(\theta)$, $0 \leq \theta < \frac{\pi}{2}$                 &  $\sec^2(\theta)-1=\tan^2(\theta)$ \\
+                     & ou $\pi \leq \theta < \frac{3\pi}{2}$                              &                                    \\ \hline
+  \end{tabular}
+\end{table}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \frac{\sqrt{9-x^2}}{x^2}dx\)
+  \solution
+  Note que aqui temos uma integral que envolve a raiz
+  \[
+    \sqrt{9-x^2} = \sqrt{3^2-x^2}
+  \]
+  então vamos fazer a substituição
+  $x=a \sin(\theta)$, onde $a=3$.
+
+  Seja $x= 3\sin(\theta)$, com
+  \(-\frac{\pi}{2} \leq x \leq \frac{\pi}{2}\).
+  Então $dx=3 \cos(\theta) d\theta$.
+  Assim,
+  \begin{align*}
+    I
+    & = \int \frac{\sqrt{9-x^2}}{x^2}dx \\
+    & = \int \frac{\sqrt{9-9\sin^2(\theta)}}{9 \sin^2(\theta)} 3 \cos(\theta) d\theta \\
+    & = \frac{1}{3}\int \frac{\sqrt{9(1-\sin^2(\theta))}}{ \sin^2(\theta)} \cos(\theta) d\theta
+  \end{align*}
+  Usando agora que
+  \(1-\sin^2(x)= \cos^2(x)\)
+  \begin{align*}
+    I
+    & = \frac{1}{3}\int \frac{\sqrt{9\cos^2(x)}}{ \sin^2(\theta)} \cos(\theta) d\theta \\
+    & = \frac{1}{3}\int \frac{3\cos(\theta)}{\sin^2(\theta)}\cos(\theta) d\theta  \\
+    & = \int \frac{\cos^2(\theta)}{\sin^2(\theta)} d\theta \\
+    & = \int \cot^2(x) d\theta
+  \end{align*}
+  Usando
+  \(\csc^2(\theta)-1 = \cot^2(x)\)
+  temos
+  \begin{align*}
+  I
+    & =  \int (\csc^2(\theta)-1) d \theta  \\
+    & = -\cot(\theta)- \theta +C
+  \end{align*}
+  Agora precisamos voltar para a variável original $x$, ou seja, é necessário
+  expressar $\cot(\theta)$ e $\theta$ em função de $x$. Ora, temos que
+  $x=3\sin(\theta) \Rightarrow \sin(\theta)= \frac{x}{3}$. Se interpretarmos
+  $\theta$ como um ângulo de um triângulo retângulo então podemos escolher $x$
+  como o cateto oposto e $3$ como hipotenusa, uma vez que
+  $\sin(\theta)=\frac{x}{3}$.
+  O Teorema de Pitágoras nos dá que o cateto adjascente é
+  $\sqrt{9-x^2}$. Assim,
+  \[
+    \cot(\theta)= \frac{\sqrt{9-x^2}}{x}
+  \]
+
+  Embora no diagrama $\theta >0$, essa expressão para $\cot(\theta)$ também é
+  válida para $\theta <0$. Uma vez que $\sin(\theta)= \frac{x}{3}$ e
+  $y=\sin(\theta)$ é injetiva no intervalo
+  $-\frac{\pi}{2} \leq \theta \leq\frac{\pi}{2}$
+  então $\theta = \arcsin(\frac{x}{3})$, logo
+  \[
+    \int \frac{\sqrt{9-x^2}}{x^2}dx
+    = -\cot(\theta)-\theta+C
+    = \frac{\sqrt{9-x^2}}{x}-\arcsin\left(\frac{x}{3}\right)+C
+  \]
+
+  \IncludeGraphicCentred{exemplo_triangulo_1}[0.4][-1]
+\end{example}
+%------------------------------------------------------------------------------%
+Durante a resolução do exercício usamos que $\sqrt{\cos^2(\theta)}=
+\cos(\theta)$, fizemos isso porque $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$
+e $\cos(x)$ é não-negativo nesse intervalo, assim, $|\cos(x)|= \cos(x)$, nesse
+caso.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \frac{1}{x^2\sqrt{x^2+4}}dx\)
+  \solution
+  Fazendo a substituição trigonométrica
+  $x=2\tan(\theta)$, com $-\frac{\pi}{2}< \theta < \frac{\pi}{2}$,
+  temos que $dx=2\sec^2(\theta)d \theta$.
+  Assim,
+  \begin{align*}
+    I
+    & = \int \frac{1}{x^2\sqrt{x^2+4}}dx \\
+    & = \int \frac{1}{\tan^2(\theta) \sqrt{4\tan^2(\theta)+4}}2\sec^2(\theta) d \theta \\
+    & = \frac{1}{2}\int \frac{\sec^2(\theta) }{\tan^2(\theta) \sqrt{4(1+ \tan^2(\theta))}} d\theta
+  \end{align*}
+  Usando \(1+\tan^2(\theta)= \sec^2(\theta)\)
+  \begin{align*}
+    I
+    & = \frac{1}{2} \int \frac{\sec^2(\theta)}{\tan^2(\theta) \sqrt{4\sec^2(\theta)}} d \theta \\
+    & = \frac{1}{2} \int \frac{\sec^2(\theta)}{\tan^2(\theta) 2\sec(\theta)}  d \theta \\
+    & = \frac{1}{4} \int \frac{\sec(\theta)}{\tan^2(\theta)} d \theta \\
+    & = \frac{1}{4} \int \frac{\;\;\dfrac{1}{\cos(\theta)}\;\;}{\dfrac{\sin^2(\theta)}{\cos^2(\theta)}} d\theta \\
+    & = \frac{1}{4} \int \frac{\cos(\theta)}{\sin^2(\theta)} d \theta
+  \end{align*}
+  Usando a substituição $u=\sin(\theta)$ temos que
+  $du=\cos(\theta) d\theta$, logo
+  \begin{align*}
+    \frac{1}{4} \int \frac{\cos(\theta)}{\sin^2(\theta)} d \theta
+    & = \frac{1}{4} \int \frac{du}{u^2} \\
+    & = \frac{1}{4} - \frac{1}{u}+C \\
+    & = \frac{1}{4\sin(\theta)} + C \\
+    & = \frac{-\csc(\theta)}{4}+ C
+  \end{align*}
+  Usando a informação que $x= 2 \tan(\theta) \Rightarrow \tan(\theta)= \frac{x}{2}$
+  e olhando o diagrama
+  \IncludeGraphicCentred{exemplo_triangulo_2}[0.4][-1][-1]
+  temos que $\csc(\theta)=\frac{x^2+4}{x}$.
+  Assim,
+  \[
+    \int \frac{dx}{x^2\sqrt{x^2+4}} =- \frac{\sqrt{x^2+4}}{4x}+C.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \frac{dx}{\sqrt{x^2-a^2}}\), onde $a>0$.
+  \solution
+  Aqui usamos a substituição trigonométrica
+  $x=a\sec(\theta ) \Rightarrow dx= a \sec(\theta) \tan(\theta) d \theta$,
+  onde $0 < \theta < \frac{\pi}{2}$ ou $\pi < \theta  < \frac{3\pi}{2}$.
+  Assim,
+  \begin{align*}
+    I
+    & = \int \frac{dx}{\sqrt{x^2-a^2}} \\
+    & = \int  \frac{ a \sec(\theta) \tan(\theta) d \theta}{\sqrt{a^2 \sec^2(\theta)}-a^2} \\
+    & = a\int \frac{ \sec(\theta) \tan(\theta) d \theta}{\sqrt{a^2(\sec^2(\theta)-1)}}
+  \end{align*}
+  Usando \(\sec^2(\theta)-1= \tan^2(\theta)\)
+  \begin{align*}
+    I
+    & = a \int \frac{\sec(\theta) \tan(\theta) d \theta}{a \sqrt{\tan^2(\theta)}} \\
+    & = \int \frac{\sec(\theta)\tan(\theta) d \theta}{\tan(\theta)}= \int \sec(\theta) d \theta \\
+    & = \ln \abs{\sec(\theta)+ \tan(\theta)} + C
+  \end{align*}
+  Já temos que $\sec(\theta)= \frac{x}{a}$ e usando o triângulo da figura
+  \IncludeGraphicCentred{exemplo_triangulo_3}[0.4][-1][-1]
+  temos que $\tan(\theta)=\frac{\sqrt{x^2-a^2}}{a}$.
+  Logo,
+  \[
+    \int \frac{dx}{\sqrt{x^2-a^2}}
+    = \ln \abs{\frac{x}{a}+ \frac{\sqrt{x^2-a^2}}{a}}+ C
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Durante a resolução do exercício usamos o fato de que
+$\int \sec(x) dx = \ln \abs{\sec(x)+\tan(x)}+ C$,
+para demonstrar esse fato multiplicamos o numerador e o denominador
+por $\sec(x)+\tan(x)$, assim
+\[
+  \int \sec(x) dx
+  = \int \sec(x) \frac{\sec(x)+\tan(x)}{\sec(x)+\tan(x)}dx
+  = \int \frac{\sec^2(x)+ \sec(x)\tan(x)}{\sec(x)+\tan(x)} dx
+\]
+Usando a substituição $u=\sec(x)+\tan(x)$
+temos que $du= (\sec(x)\tan(x)+ \sec^2(x))dx$.
+Então,
+\[
+  \int \sec(x) dx
+  = \int \frac{1}{u} du
+  = \ln\abs{u}+C
+  = \ln \abs{\sec(x)+\tan(x)}+ C
+\]
+
+O próximo exemplo nos mostra que mesmo quando as substituições
+trigonométricas são possíveis, elas nem sempre nos dão a solução mais fácil.
+Você deve primeiro procurar um método mais simples.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \frac{x}{\sqrt{x^2+4}} dx\)
+  \solution
+  Aqui poderíamos pensar em usar a substituição trigonométrica
+  $x=2 \tan(\theta)$ (e até pode), no entanto fazer a substituição
+  simples $u=x^2+4$ é mais fácil, uma vez que $du=2x dx$ e
+  \[
+    \int \frac{x}{\sqrt{x^2+4}} dx
+    = \frac{1}{2} \int \frac{1}{\sqrt{u}} du
+    = \sqrt{u}+ C
+    = \sqrt{x^2+4}+C
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Muitas vezes precisamos usar mais de uma técnica ou a mesma técnica
+de integração para resolver uma integral. O próximo exemplo ilustra
+uma situação dessa.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int x \arcsin(x) dx\)
+  \solution
+  Vamos começar resolvendo a integral usando integração por partes.
+  Chame $u=\arcsin(x)$ e $dv=xdx$, de modo que
+  $du=\frac{1}{\sqrt{1-x^2}}dx$ e $v=\frac{x^2}{2}$.
+  Assim, usando integração por partes,
+  \begin{equation}
+    \label{eq:exemplo_substtri}
+    \int x \arcsin(x) dx
+    = \frac{x^2 \arcsin(x)}{2}-\frac{1}{2}\int \frac{x^2}{\sqrt{1-x^2}}dx
+  \end{equation}
+  Para resolvermos a integral $\int \frac{x^2}{\sqrt{1-x^2}}dx$,
+  usaremos a substituição trigonométrica $x=\sin(\theta)$,
+  assim $dx=\cos(\theta)d\theta$ e
+  $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$.
+  Portanto,
+  \begin{align*}
+    \int \frac{x^2}{\sqrt{1-x^2}}dx
+    & = \int \frac{\sin^2(\theta)\cos(\theta)}{\sqrt{1-\sin^2(\theta)}} \\
+    & = \int \frac{\sin^2(\theta)\cos(\theta)}{\sqrt{\cos^2(\theta)}} \\
+    & = \int \frac{\sin^2(\theta)\cos(\theta)}{\cos(\theta)} d \theta \\
+    & = \int \sin^2(\theta) d \theta
+  \end{align*}
+
+  Sabendo que $\sin^2(\theta)= \frac{1}{2}(1-\cos(2 \theta))$,
+  chegamos que
+  \begin{align*}
+    \int \sin^2(\theta) d \theta
+    & = \frac{1}{2}\int(1-\cos(2 \theta)) \\
+    & = \frac{1}{2}(\theta -\frac{\sin(2\theta)}{2}) \\
+    & = \frac{1}{2}(\theta -\frac{2\sin(\theta)\cos(\theta)}{2})  \\
+    & = \frac{1}{2}(\theta -\sin(\theta)\cos(\theta)) +C.
+  \end{align*}
+  Já sabemos que $x=\sin(\theta) \Rightarrow \theta=\arcsin(x)$.
+  Do triângulo
+  \IncludeGraphicCentred{exemplo_triangulo_4}[0.4][-1][-1]
+  tiramos que $\cos(\theta)= \sqrt{1-x^2}$.
+  Assim,
+  \begin{align*}
+    \int \frac{x^2}{\sqrt{1-x^2}}dx
+    & =\frac{1}{2}(\theta -\sin(\theta)\cos(\theta)) \\
+    & =\frac{1}{2}(\arcsin(x)-x\sqrt{1-x^2})+C
+  \end{align*}
+  Voltando para \eqref{eq:exemplo_substtri}, obtemos
+  \[
+    \int x \arcsin(x) dx
+    = \frac{x^2\arcsin(x)}{2}-\frac{1}{4}(\arcsin(x)-x\sqrt{1-x^2})+C.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \frac{dt}{\sqrt{t^2-6t+13}}\)
+  \solution
+  Aqui não temos nenhuma expressão como aquelas da tabela de
+  substituições trigonométricas. No entanto, temos uma raíz no denominador.
+  Vamos manipular a expressão dentro da raíz para chegarmos em uma das
+  expressões da tabela.
+
+  Note que, completando quadrado temos
+  \[
+    t^2-6t+13
+    =(t-3)^2-9+13
+    =(t-3)^2+4.
+  \]
+  Fazendo a substituição trigonométrica $u=t-3 \Rightarrow du=dt$, obtemos:
+  \[
+    \int   \frac{dt}{\sqrt{t^2-6t+13}}
+    = \int \frac{dt}{\sqrt{(t-3)^2+4}}
+    = \int \frac{du}{\sqrt{u^2+4}}
+    = \int \frac{du}{\sqrt{u^2+2^2}}
+  \]
+  Agora, temos uma integral que envolve uma daquelas expressões
+  que aparece na tabela de substituições trigonométricas.
+  Portanto, fazendo a substituição trigonométrica
+  $u=2\tan(\theta) \Rightarrow du=2\sec^2(\theta) d\theta$. Assim,
+  \begin{align*}
+    I
+    \int \frac{du}{u^2+2^2}
+    & = \int \frac{2\sec^2(\theta) }{\sqrt{4\tan^2(\theta)+4}}d\theta \\
+    & = \int \frac{2\sec^2(\theta) }{2\sqrt{(\tan^2(\theta)+1)}}d\theta
+  \end{align*}
+  Usando \(\tan^2(\theta)+1= \sec^2(\theta)\)
+  \begin{align*}
+    I
+    & = \int \frac{2\sec^2(\theta)}{2\sec(\theta)}d\theta \\
+    & = \int \sec(\theta)d\theta \\
+    & = \ln \abs{\sec(\theta)+ \tan(\theta)} + K
+  \end{align*}
+  Já temos que
+  \[
+    u=2\tan(\theta) \Rightarrow \tan(\theta)=\frac{u}{2}=\frac{t-3}{2},
+  \]
+  então pela figura
+  \IncludeGraphicCentred{exemplo_triangulo_5}[0.4][-1][-1]
+  temos que \(\sec(\theta)=\frac{2}{\sqrt{t^2-6t+13}}\). Assim,
+  \[
+    \int \frac{dt}{\sqrt{t^2-6t+13}}
+    = \ln \left|\sec(\theta)
+    =\frac{2}{\sqrt{t^2-6t+13}}+ \frac{t-3}{2} \right| +K.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

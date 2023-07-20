@@ -1,0 +1,257 @@
+%------------------------------------------------------------------------------%
+\section{Integrais Trigonométricas}
+
+%------------------------------------------------------------------------------%
+Fórmulas úteis de trigonometria
+\begin{enumerate}
+  \item
+    Relação fundamental
+    \[
+      \sin^2(x)+ \cos^2(x)=1
+    \]
+
+  \item
+    Decorrências da relação fundamental
+    \begin{gather*}
+      \tan^2(x)+ 1  = \sec^2(x) \\
+      1 + \cot^2(x) = \csc^2(x)
+    \end{gather*}
+
+  \item
+    Arco duplo
+    \begin{gather*}
+      \sin(2x) = 2\sin(x) \cos(x) \\
+      \cos(2x) = \cos^2(x)-\sin^2(x)
+    \end{gather*}
+  \item
+    Arco metade
+    \begin{gather*}
+      \sin^2(x)= \frac{1}{2}(1-\cos(2x)) \\
+      \cos^2(x)= \frac{1}{2}\big(1+\cos(2x)\big)
+    \end{gather*}
+\end{enumerate}
+%------------------------------------------------------------------------------%
+
+Estratégias para calcular \(\int \sin^m(x) \cos^n(x)dx\)
+\begin{enumerate}
+  \item Se a potência de $\sin(x)$ for ímpar:
+    \begin{enumerate}
+      \item Guarda um fator $\sin(x)$ e use que $\sin^2(x)=1- \cos^2(x)$.
+      \item Faça a substituição $u=\cos(x)$.
+    \end{enumerate}
+
+  \item Se a potência de $\cos(x)$ for ímpar:
+    \begin{enumerate}
+      \item Guarda um fator $\cos(x)$ e use que $\cos^2(x)=1- \sin^2(x)$.
+      \item Faça a substituição $u=\sin(x)$.
+    \end{enumerate}
+
+  \item Se as potências de seno e cosseno forem pares, use uma das transformações:
+    \[
+      \sin^2(x)= \frac{1}{2}\big(1-\cos(2x)\big) \qquad\text{ou}\qquad
+      \cos^2(x)= \frac{1}{2}\big(1+\cos(2x)\big)
+    \]
+\end{enumerate}
+Algumas vezes a transformação $\sin(2x)=2\sin(x)\cos(x)$ pode ser útil.
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+Estratégias para calcular \(\int \tan^m(x) \sec^n(x)dx\):
+\begin{enumerate}
+  \item Se a potência da $\sec(x)$ é par ($n=2k$, $k \geq 2$).
+        \begin{enumerate}
+          \item Guarda um fator $\sec^2(x)$ e use que $\sec^2(x)=1+\tan^2(x)$.
+          \item Faça a substituição $u=\tan(x)$.
+        \end{enumerate}
+
+  \item Se a potência de $\tan(x)$ for ímpar:
+        \begin{enumerate}
+          \item Guarda um fator $\sec(x)\tan(x)$ e use que $\tan^2(x)=\sec^2(x)-1$.
+          \item Faça a substituição $u=\sec(x)$.
+        \end{enumerate}
+        Note que a mesma ideia pode ser usada para integrais do tipo
+        \(\int \cot^m(x) \csc^m(x)dx\)
+
+  \item Os outros casos não tem uma regra geral e requer manipulações
+        trigonométricas específicas para cada caso.
+\end{enumerate}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \sin^3(x)\cos^2(x)dx\)
+  \solution
+  Aqui, temos uma integral do tipo
+  $\int \sin^m(x) \cos^n(x)dx$ e a potência de $\sin(x)$ é ímpar,
+  por isso, guardamos um fator $\sin(x)$ e usamos a transformação
+  $\sin^2(x)= 1- \cos^2(x)$, decorrente da relação fundamental. Assim,
+  \[
+    \sin^3(x)\cos^2(x)= \sin^2(x)\cos^2(x)\sin(x)= (1-\cos^2)cos^2(x)\sin(x)
+  \]
+  e podemos reescrever a integral
+  \[
+    \int \sin^3(x)\cos^2(x)dx=\int  (1-\cos^2)cos^2(x)\sin(x) dx
+  \]
+  Usando a substituição simples $u= \cos(x)$, temos que $du=-\sin(x)dx$ e, assim,
+  \begin{align*}
+    \int \sin^3(x)\cos^2(x)dx
+    & = \int  (1-\cos^2(x))cos^2(x)\sin(x) dx \\
+    & = \int (1-u^2)u^2(-du)=- \int u^2-u^4 du \\
+    & = \frac{u^3}{3}- \frac{u^5}{5}+C \\
+    & = \frac{\cos^3(x)}{3}- \frac{\cos^5(x)}{5}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Vamos pensar um pouco sobre o porque que esse procedimento que fizemos é adequado.
+Você poderia questionar: Por que não usamos a transformação
+$\sin^2(x)=1-\cos^2(x)$?
+Bom, caso fizéssimos essa mudança, teríamos a seguinte integral resultante
+\[
+  \int \sin^3(x)\cos^2(x)dx
+  = \int   \sin^3(x)(1-\sin^2(x))dx
+  = \int [ \sin^3(x)- \sin^5(x)]dx
+\]
+ou seja, teríamos uma expressão em termos de $\sin(x)$ sem nenhum fator
+extra $\cos(x)$ necessário para usarmos substituição simples.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \cos^3(x)dx\)
+  \solution
+  Aqui temos uma integral que envolve apenas potência de
+  $\cos(x)$, mas mesmo assim usamos o mesmo procedimento.
+  Como o expoente do $\cos(x)$ é ímpar, então guardamos um fator
+  $\cos(x)$ e usamos a transformação $\cos^2(x)= 1-\sin^2(x)$ e assim,
+  usamos a substituição simples $u= \sin(x) dx \Leftrightarrow du=\cos(x)dx$.
+  Com isso,
+  \begin{align*}
+    \int \cos^3(x)dx & = \int \cos^2(x) \cos(x)dx       \\
+                     & = \int (1-\sin^2(x))\cos(x)dx    \\
+                     & = \int (1-u^2)du                 \\
+                     & = u- \frac{u^3}{3}+C             \\
+                     & = \cos(x)- \frac{\cos^3(x)}{3}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_0^{\pi} \sin^2(x) dx\)
+  \solution
+  Aqui temos apenas uma potência par de $\sin(x)$,
+  portanto usamos a transformação
+  $\sin^2(x)= \frac{1}{2}(1-\cos(2x))$.
+  Com isso,
+  \begin{align*}
+    \int_0^{\pi} \sin^2(x) dx
+    & = \int_0^\pi \frac{1}{2}(1-\cos(2x)) dx \\
+    & = \frac{1}{2} \int_0^\pi (1-\cos(2x)) dx \\
+    & = \frac{1}{2} \left[  x - \frac{\sin(2x)}{2}\right] \evalat{0}{\pi} \\
+    & = \frac{1}{2}
+        \left[
+          \left( \pi - \frac{\sin(2\pi)}{2} \right)
+         -\left(   0 - \frac{\sin(0)}{2}    \right)
+        \right] \\
+    & = \frac{\pi}{2}
+  \end{align*}
+  onde a penúltima igualdade decorre do Teorema fundamental do cálculo.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \sin^2(x) \cos^2(x) dx\)
+  \solution
+  Como aqui tanto a potência do $\sin(x)$ quanto a potência
+  do $\cos(x)$ são pares, vamos usar as transformações do arco metade.
+  Assim,
+  \begin{align*}
+    \int \sin^2(x) \cos^2(x) dx
+    & = \int \frac{1}{2}(1- \cos(2x)) \frac{1}{2}(1+ \cos(2x)) dx \\
+    & = \frac{1}{4} \int (1- \cos^2(2x)) dx
+  \end{align*}
+  Precisamos mais uma vez usar a fórmula do arco metade escrevendo
+  $\cos^2(2x)= \frac{1}{2}(1+ \cos(4x))$, portanto:
+  \begin{align*}
+    \int \sin^2(x) \cos^2(x) dx
+    & = \frac{1}{4} \int (1- \cos^2(2x)) dx \\
+    & = \frac{1}{4} \int 1-\frac{1}{2}(1+ \cos(4x))dx \\
+    & = \frac{1}{4} \int   \frac{1}{2} - \frac{1}{2} \cos(4x) dx \\
+    & = \frac{1}{2} \left( \frac{x}{2} - \frac{1}{8} \sin(4x))\right)+ C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \tan^6(x) \sec^4(x) dx\)
+  \solution
+  Nesse exercícios vamos separar um fator $\sec^2(x)$ e
+  expressar $\sec^2(x)$ em termos da tangente, usando a identidade
+  $\sec^2(x)=1+ \tan^2(x)$.
+  O próximo passo é usar substituição
+  $u=\tan(x)$, de modo que $du=\sec^2(x)dx$:
+  \begin{align*}
+    \int \tan^6(x) \sec^4(x) dx
+    & = \int \tan^6(x) \sec^2(x)  \sec^2(x)dx  \\
+    & = \int \tan^6(x) (1+ \tan^2(x))  \sec^2(x)dx \\
+    & = \int u^6(1+u^2) du \\
+    & = \frac{u^7}{7}+ \frac{u^9}{9}+ C \\
+    & = \frac{\tan^7(x)}{7}+ \frac{\tan^9(x)}{9}+ C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int \tan^5(x) \sec^7(x) dx\)
+  \solution
+  Nesse caso, temos que a potência de $\tan(x)$ é ímpar, então guardamos
+  o fator $\sec(x)\tan(x)$ e usamos a tranformação
+  $\tan^2(x)= \sec^2(x)-1$.
+  Para resolvermos a integral resultante usamos a substituição
+  $u= \sec(x)$, donde $du= \sec(x)\tan(x)dx$
+  \begin{align*}
+    \int \tan^5(x) \sec^7(x) dx
+    & = \int \tan^4(x) \sec^6(x) \sec(x) \tan(x) dx \\
+    & = \big(\tan^2(x)\big)^2 \sec^6(x) \sec(x) \tan(x) dx \\
+    & = \int (\sec^2(x)-1)^2\sec^6(x) \sec(x) \tan(x) dx \\
+    & = \int (u^2-1)^2 u^6 du \\
+    & = \int (u^4-2u^2+1)u^6 du \\
+    & = \int (u^{10}-2u^8+u^6 )du \\
+    & = \frac{u^{11}}{11}-\frac{2u^9}{9}+ \frac{u^7}{7}+C \\
+    & = \frac{\sec^{11}(x)}{11}-\frac{2\sec^9(x)}{9}+ \frac{\sec^7(x)}{7}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \tan^3(x) dx\)
+  \solution
+  Aqui temos apenas o termo $\tan(x)$, então usamos
+  $\tan^2(x)= \sec^2(x)-1$ para reescrever o fator
+  $\tan^2(x)$ em termos de $\sec^2(x)$
+  \begin{align*}
+    \int \tan^3(x) dx
+    & = \int \tan(x) \tan^2(x) dx \\
+    & = \int \tan(x)\big(\sec^2(x)-1\big) dx \\
+    & = \int \tan(x)\sec^2(x) dx- \int \tan(x) dx
+  \end{align*}
+  Para calcularmos $\int tan(x)\sec^2(x) dx$
+  usamos a substituição simples $u=\tan(x)$,
+  de modo que $du= \sec^2(x)dx$ e assim,
+  $\int tan(x)\sec^2(x) dx= \int udu= \frac{u^2}{2}+ C= \frac{\tan^2(x)}{2}$.
+  Logo,
+  \begin{align*}
+    \int \tan^3(x) dx
+    & = \int \tan(x) \tan^2(x) dx \\
+    & = \int \tan(x)\big(\sec^2(x)-1\big)dx \\
+    & = \int \tan(x)\sec^2(x) dx- \int \tan(x) dx \\
+    & = \frac{\tan^2(x)}{2}- \ln\abs{\sec(x)}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%

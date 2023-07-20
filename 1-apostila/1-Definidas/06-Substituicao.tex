@@ -1,0 +1,138 @@
+%------------------------------------------------------------------------------%
+\section{Técnicas de Integração: Integração por substituição simples}
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{A Regra da substituição}{teo:substituicao}
+  Se $u=g(x)$ for uma função derivável cuja imagem é um intervalo
+  $I$ e $f$ for contínua em $I$, então
+  \[
+    \int f(g(x)) g'(x) dx= \int f(u) du
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int 4x^3 \cos(x^4+2)dx\).
+  \solution
+  Note que, podemos escrever a integral
+  \[
+    \int 4x^3 \cos(x^4+2)dx =  \int  \cos(x^4+2) 4x^3dx
+  \]
+  como o produto de duas funções $f(x)=cos(x^4+2)$ e $h(x)= 4x^3$. Note que $f$
+  é uma composição de duas funções e a função $h$ é exatamente a derivada da
+  função ``de dentro'' da composição, ou seja, a deribada de $x^4+2$. Portanto,
+  nesse caso, a regra da substituição simples parece se encaixar bem.
+
+  Fazendo a substituição $u=x^4+2$ temos que a sua diferencial é $du=4x^3dx$ e
+  usando a regra da substituição temos
+  \begin{align*}
+    \int 4x^3 \cos(x^4+2)dx
+    & =  \int  \cos(x^4+2) 4x^3dx= \int cos(u) du \\
+    & = \sin(u)+C \\
+    & = -\sin(x^4+2)+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+\begin{itemize}
+  \item Note que, quando usamos a regra da substituição, após integrarmos com
+      relação a variável $u$ temos que voltar para a variável original.
+
+  \item Quando usamos a regra da substituição nossa intenção é transformar uma
+      integral complicada em uma mais simples de ser calculada.
+
+\end{itemize}
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \frac{x}{\sqrt{1-4x^2}}dx\)
+  \solution
+  Note que se fizermos a substituição $u=1-4x^2$, então
+  $du=-8x dx \Leftrightarrow xdx = -\frac{1}{8} du$.
+  Assim
+  \begin{align*}
+    \int \frac{x}{\sqrt{1-4x^2}}dx
+    & = -\frac{1}{8} \int \frac{1}{\sqrt{u}}du \\
+    & = -\frac{1}{8} \int u^{-\frac{1}{2}} du \\
+    & = -\frac{1}{8}(2 \sqrt{u})+C \\
+    & = -\frac{1}{4}\sqrt{1-4x^2}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int \tan(x) dx\)
+  \solution
+  Sabemos que
+  \[
+    \tan(x)=\frac{\sin(x)}{\cos(x)},
+  \]
+  portanto
+  \[
+    \int \tan(x) dx= \int \frac{\sin(x)}{\cos(x)} dx
+  \]
+  Isso nos sugere fazer a substituição $u=\cos(x)$, com isso,
+  $du=-\sin(x)dx \Leftrightarrow -du= \sin(x)dx$.
+  Assim, usando a regra da substituição simples
+  \begin{align*}
+    \int \tan(x) dx
+    & = \int \frac{\sin(x)}{\cos(x)} dx \\
+    & = \int \frac{1}{u} -du \\
+    & = - \int \frac{1}{u} du \\
+    & = - \ln \abs{\cos(x)}+C
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre \(\int_1^e \frac{\ln(x)}{x}dx\)
+  \solution
+  Vamos resolver esse exercício de duas maneiras.
+
+  \emph{1\textsuperscript{o} modo}:
+  Primeiro vamos calcular a integral indefinida
+  $\int \frac{\ln(x)}{x} dx$ e depois usaremos o
+  Teorema Fundamental do Cálculo parte 2 para
+  calcular a integral indefinida.
+
+  Para calcular a integral indefinida iremos usar a substituição
+  $u=\ln(x)$ e com isso, $du= \frac{1}{x}dx$.
+  \begin{align}
+    \int \frac{\ln(x)}{x} dx
+    & = \ln(x) \frac{1}{x} dx \\
+    & = \int u du \\
+    & = \frac{u^2}{2}+C \\
+    & = \frac{(\ln(x))^2}{2}+C
+  \end{align}
+
+  Usando o Teorema fundamental do Cálculo parte 2:
+  \begin{align*}
+    \int_1^e \frac{\ln(x)}{x} dx
+    & = \left[ \frac{(\ln(x))^2}{2} \right]_1^e    \\
+    & = \frac{(\ln(e))^2}{2} -\frac{(\ln(1))^2}{2} \\
+    & = \frac{1}{2}
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Algumas observações importantes
+\begin{itemize}
+  \item Seja $F$ a primitiva mais geral de $f$, ou seja,
+  \[
+    \int f(x)dx= F(x)+c,
+  \]
+    então
+  \[
+    \int f(kx) dx= \frac{F(kx)}{k}+C.
+  \]
+  \item Além disso, \(\int f(kx+b)dx= \frac{F(kx+b)}{k}+C\).
+  \item \(\int \cos(5x) dx= \frac{\sin(5x)}{5}+C\).
+  \item \(\int e^{8x}= \frac{e^{8x}}{8}+C\).
+  \item \(\int \frac{1}{x+3}dx= \ln\abs{x+3}+C\).
+\end{itemize}
+Essas observações podem ser demonstradas usando substituição simples.
+
+%------------------------------------------------------------------------------%

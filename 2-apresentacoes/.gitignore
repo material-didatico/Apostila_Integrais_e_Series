@@ -1,10 +1,6 @@
 *-apresentacao.pdf
 *-handout.pdf
 
-exercises*
-sandbox*
-
-octave-workspace
 *.rubbercache
 
 *.mtc*
