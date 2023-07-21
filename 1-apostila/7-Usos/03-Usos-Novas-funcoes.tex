@@ -1,0 +1,140 @@
+%------------------------------------------------------------------------------%
+\section{Definição de Novas Funções}
+
+Podemos definir novas funções como a soma de uma Série de Taylor, essa é uma
+forma para definir as funções reais conhecidas para variáveis complexas,
+como ilustrado na próxima subseção,
+e também é como definimos várias funções especiais. Como exemplo vamos
+definir uma das \emph{Funções de Bessel}\index{Função!de Bessel},
+que são as soluções da equação de Bessel
+\begin{equation}
+  \label{eq:bessel}
+  x^2 y'' + xy' + (x^2-\alpha^2)y = 0 \;.
+\end{equation}
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Exiba a Função de Bessel de Primeira Espécie de Ordem Zero, $J_0(x)$.
+  \solution
+  Essa função é uma solução da equação de Bessel~\eqref{eq:bessel} com
+  $\alpha=0$
+  \[
+  \mathcal{L}[y] = x^2 y'' + xy' + x^2y = 0 \;.
+  \]
+  Vamos buscar a solução com a forma
+  \[
+  y(x) = \sum_{n=0}^\infty a_n x^n \;.
+  \]
+  Calculando as derivadas de $y$ obtemos
+  \begin{align*}
+    y'(x)  & = \sum_{n=1}^\infty a_n n x^{n-1} \\[3mm]
+    y''(x) & = \sum_{n=2}^\infty a_n n(n-1) x^{n-2} \;.
+  \end{align*}
+  Substituindo na equação temos
+  \begin{align*}
+    \mathcal{L}[y] & = x^2 y'' + xy' + x^2y \\[3mm]
+    & = x^2 \sum_{n=2}^\infty a_n n(n-1) x^{n-2}
+    + x   \sum_{n=1}^\infty a_n n x^{n-1}
+    + x^2 \sum_{n=0}^\infty a_n x^n
+    \\[3mm]
+    & = \sum_{n=2}^\infty a_n n (n-1) x^n
+    + \sum_{n=1}^\infty a_n n       x^n
+    + \sum_{n=0}^\infty a_n         x^{n+2} \;.
+  \end{align*}
+  Queremos agrupar todos os termos em um único somatório,
+  para isso fazemos uma mudança de índice no último
+  para igualar as potências de $x$
+  \[
+  \mathcal{L}[y] = \sum_{n=2}^\infty a_n n (n-1) x^n
+  + \sum_{n=1}^\infty a_n n       x^n
+  + \sum_{n=2}^\infty a_{n-2}     x^n \;.
+  \]
+  Precisamos agora fazer o índice do segundo somatório começar em $n=2$,
+  conseguimos isso movendo o termo $n=1$ para fora
+  \begin{align*}
+    \mathcal{L}[y] & =        \sum_{n=2}^\infty a_n n (n-1) x^n
+    + a_1x + \sum_{n=2}^\infty a_n n       x^n
+    +        \sum_{n=2}^\infty a_{n-2}     x^n \\[3mm]
+    & = a_1x + \sum_{n=2}^\infty \big( a_n n (n-1) + a_n n + a_{n-2} \big) x^n \\[3mm]
+    & = a_1x + \sum_{n=2}^\infty \big( a_n n^2 + a_{n-2} \big) x^n \;.
+  \end{align*}
+  Para que
+  \(
+  \mathcal{L}[y] = 0
+  \)
+  precisamos que o coeficiente
+  de cada potência de $x$ seja zero. Ao analisarmos o
+  coeficiente de $x$ verificamos que
+  \[
+  a_1 = 0 \;.
+  \]
+  Para as demais potências, $x^n$, temos a condição
+  \[
+  a_n n^2 + a_{n-2} = 0
+  \]
+  que produz a relação de recorrência
+  \[
+  a_n = -\frac{a_{n-2}}{n^2} \;.
+  \]
+  Usando essa relação e a condição $a_1 = 0$ concluímos que todos
+  os coeficientes ímpares são nulos
+  \[
+  a_n = 0 \qquad n = 1, 3, 5, \dots
+  \]
+  Para encontrarmos os coeficientes pares fazemos $n=2k$
+  \[
+  a_{2k} = -\frac{a_{2k-2}}{(2k)^2} \qquad k = 1, 2, 3, \dots
+  \]
+  Observando que
+  \begin{align*}
+    a_2 & = -\frac{a_0}{2^2} \\[3mm]
+    a_4 & = -\frac{a_2}{4^2}
+    = -\frac{1}{4^2}\left(-\frac{a_0}{2^2}\right)
+    =  \frac{a_0}{2^6} \\[3mm]
+    a_6 & = -\frac{a_4}{6^2}
+    = -\frac{1}{6^2}\left(\frac{a_0}{2^6}\right)
+    = -\frac{a_0}{2^6(3\cdot 2)^2} \\[3mm]
+    a_8 & = -\frac{a_6}{8^2}
+    = -\frac{1}{8^2}\left(-\frac{a_0}{2^6(3\cdot 2)^2}\right)
+    =  \frac{a_0}{2^8(4\cdot 3\cdot 2)^2} \;.
+  \end{align*}
+  Generalizando temos
+  \[
+  a_{2k} = \frac{(-1)^k}{\,2^{2k}\,(k!)^2\,} a_0 \qquad k = 1, 2, 3, \dots
+  \]
+  Podemos agora escrever
+  \[
+  y(x) = a_0 \sum_{k=0}^\infty \frac{\,(-1)^k\,}{\,2^{2k}\,(k!)^2\,} \, x^{2k} \;.
+  \]
+  A \emph{Função de Bessel de Primeira Espécie de Ordem Zero} é definida como
+  \[
+  J_0(x) = \sum_{k=0}^\infty \frac{\,(-1)^k\,}{\,2^{2k}\,(k!)^2\,} \, x^{2k} \;.
+  \]
+  %----------------------------------------------------------------------------%
+  Vamos agora analisar a convergência dessa série usando o Teste da Razão
+  \[
+  \abs{\frac{u_{k+1}}{u_k}}
+  = \abs{ \frac{\,(-1)^{k+1} x^{2k+2}\,}{\,2^{2k+2}\,((k+1)!)^2\,}\;
+    \frac{\,2^{2k}\,(k!)^2\,}{\,(-1)^k x^{2k}\,} }
+  = \frac{x^2}{\,2^2 (k+1)^2\,}
+  \]
+  Quando $k\to\infty$ essa expressão vai para zero independentemente do valor
+  de $x$, portanto a série converge para qualquer $x\in\R$.
+  %----------------------------------------------------------------------------%
+\end{example}
+%------------------------------------------------------------------------------%
+
+\begin{figure}
+  \begin{center}%
+    \vspace{-0.2\baselineskip}%
+    \scalebox{0.9}{\input{fig_taylor_bessel}}%
+    \vspace{-\baselineskip}%
+  \end{center}
+  \caption{Comparação da função de Bessel com seus polinômios de Taylor.}
+  \label{fig:funcao_tayplor_bessel}
+\end{figure}
+
+A Figura~\ref{fig:funcao_tayplor_bessel} a seguir
+mostra o gráfico da função $J_0(x)$ e alguns dos seus Polinômios de Taylor.
+
+%------------------------------------------------------------------------------%

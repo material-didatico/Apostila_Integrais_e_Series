@@ -1,0 +1,122 @@
+%------------------------------------------------------------------------------%
+\section{Cálculo da Série de Taylor para o Arco Tangente}
+
+Vamos ilustrar uma forma alternativa para calcular a Série de Taylor da
+função $\arctan(x)$ para ilustrar algumas manipulações possíveis
+quando precisamos obter uma Série de Taylor.
+Vamos começar, como em outros casos, calculando as derivadas da função
+\begin{align*}
+  \frac{d}{dx}     & \arctan(x) = \frac{1}{1+x^2}                     \\[3mm]
+  \frac{d^2}{dx^2} & \arctan(x) = \frac{-2x}{(1+x^2)^2}               \\[3mm]
+  \frac{d^3}{dx^3} & \arctan(x) = \frac{6x^2-2}{(1+x^2)^3}            \\[3mm]
+  \frac{d^4}{dx^4} & \arctan(x) = \frac{24x(1-x^2)}{(1+x^2)^4}   \;.
+\end{align*}
+Não precisamos ir mais longe para perceber que esse não é um bom método,
+as expressões estão se tornando cada vez mais complexas,
+portanto, precisamos tentar outra abordagem.
+
+Inicialmente, nesse desenvolvimento, não vamos nos preocupar com o
+rigor matemático para obter uma candidata a Série de Taylor,
+depois justificamos o processo utilizado demonstrando a
+convergência da série.
+Começamos observando que a derivada da função arco tangente
+é igual a soma de uma Série Geométrica com $\alpha=1$ e $r=-x^2$
+\[
+\frac{d}{dx} \arctan(x)
+= \frac{1}{1+x^2}
+= \frac{\alpha}{1-r}
+= 1 - x^2 + x^4 - x^6 + x^8 - \cdots
+\]
+Escrevemos então que
+\[
+\frac{d}{dx} \arctan(x) =  1 - x^2 + x^4 - x^6 + x^8 - \cdots
+\]
+integrando os dois lados temos a candidata a Série de Taylor para $\arctan(x)$
+\[
+\arctan(x) = x -\frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \cdots
+\]
+Temos uma Série de Taylor, porém, nossos cálculos não foram cuidadosos.
+Precisamos demonstrar que a série obtida converge para a função.
+Faremos isso voltando para a fórmula da soma da Série Geométrica
+\begin{equation}
+  \label{eq:arctan_serie_geometrica}
+  \frac{1}{1+x^2}
+  = 1 - x^2 + x^4 - x^6 + \cdots
+  + (-1)^n x^{2n}
+  + (-1)^{n+1} x^{2(n+1)} + \cdots
+\end{equation}
+Note que para qualquer $n$ o resto dessa série, $R_n$,
+é uma Série Geométrica com $r=-x^2$ e $\alpha=(-1)^{n+1} x^{2(n+1)}$
+\[
+R_n =
+(-1)^{n+1} x^{2(n+1)} +
+(-1)^{n+2} x^{2(n+2)} +
+(-1)^{n+3} x^{2(n+3)} + \cdots
+\]
+Utilizando a fórmula da soma dos termos dessa série obtemos
+\[
+R_n = \frac{(-1)^{n+1} x^{2(n+1)}}{1+x^2}    \;.
+\]
+Podemos então escrever a série em \eqref{eq:arctan_serie_geometrica}
+como uma soma finita
+\[
+\frac{1}{1+x^2}
+= 1 - x^2 + x^4 - x^6 + \cdots
++ (-1)^n x^{2n}
++ \frac{(-1)^{n+1} x^{2(n+1)}}{1+x^2}
+\]
+Temos agora uma expressão finita para a derivada da função arco tangente
+\[
+\frac{d}{dx} \arctan(x)
+= 1 - x^2 + x^4 - x^6
++ \cdots
++ (-1)^n x^{2n}
++ \frac{(-1)^{n+1} x^{2(n+1)}}{1+x^2}
+\]
+Por ser uma soma finita podemos integrar termo a termo
+sem preocupações com a convergência
+\[
+\arctan(x) =
+x - \frac{x^3}{3}
++ \frac{x^5}{5}
+- \frac{x^7}{7}
++ \cdots
++ \frac{(-1)^n x^{2n+1}}{2n+1}
++ \int_0^x \frac{(-1)^{n+1} u^{2(n+1)}}{1+u^2} \,du   \;.
+\]
+Estamos agora em uma situação similar ao Teorema de Taylor~\ref{teo:teorema-taylor},
+onde podemos concluir que a série converge para a função se o erro
+\[
+R_n(x) = \int_0^x \frac{(-1)^{n+1} u^{2(n+1)}}{1+u^2} \,du
+\]
+convergir para zero, quando $n\to\infty$.
+
+Para garantirmos que $R_n$ tende para zero, basta verificar que seu módulo tente a zero,
+ou seja, queremos calcular o limite de
+\begin{align*}
+  \abs{R_n(x)}
+  & = \abs{\int_0^x \frac{(-1)^{n+1} u^{2(n+1)}}{1+u^2} \,du} \\[3mm]
+  & = \int_0^{\abs{x}} \abs{\frac{(-1)^{n+1} u^{2(n+1)}}{1+u^2}} \,du \\[3mm]
+  & = \int_0^{\abs{x}} \frac{u^{2(n+1)}}{1+u^2} \,du
+\end{align*}
+quando $n\to\infty$. Como $1+u^2\geq 1$ temos que
+\[
+\abs{R_n(x)}
+\leq \int_0^{\abs{x}} u^{2(n+1)} \,du
+= \frac{u^{2n+3}}{2n+3} \evalat{0}{\abs{x}}
+= \frac{\abs{x}^{2n+3}}{2n+3}    \;.
+\]
+Portanto, para todo $\abs{x} \leq 1$ sabemos que
+\[
+\lim_{n\to\infty} R_n(x) = 0
+\]
+e podemos concluir que, para todo $x\in[-1,\,1\,]$ a Série de Taylor da função
+arco tangente converge para a função
+\[
+\arctan(x) = x - \frac{x^3}{3}
++ \frac{x^5}{5}
+- \frac{x^7}{7}
++ \frac{x^9}{9}
+- \cdots
+\]
+

@@ -1,0 +1,67 @@
+%------------------------------------------------------------------------------%
+\section{Avaliando Formas Indeterminadas}
+
+Outra operação que pode ser complexa é o cálculo de limites indeterminados,
+nesse caso a Série de Taylor também pode ajudar.
+Vamos ilustrar a técnica caculando o limite
+\[
+\lim_{x\to 1} \frac{\ln x}{\;x-1\;} \;.
+\]
+Esse é um limite, com indeterminação do tipo $\sfrac{0}{0}$,
+onde podemos utilizar a regra de l'Hôpital
+\[
+\lim_{x\to 1} \frac{\ln x}{\;x-1\;}
+= \lim_{x\to 1} \frac{\;\sfrac{1}{x}\;}{1}
+= 1 \;.
+\]
+Entretanto, a Série de Taylor oferece uma forma alternativa
+para calcular esse limite que pode ser útil em outras situações.
+
+\begin{example}
+  Calcule o limite
+  \(
+  \lim_{x\to 1} \frac{\ln x}{\;x-1\;}
+  \).
+  \solution
+  Primeiro obtemos a Série de Taylor da função $\ln(x)$ com centro em $a=1$
+  \[
+  \ln(x) = (x-1) - \frac{(x-1)^2}{2}
+  + \frac{(x-1)^3}{3}
+  - \frac{(x-1)^4}{4}
+  + \cdots
+  \]
+  a igualdade é verdadeira para todo $x$ tal que $\abs{x-1} < 1$.
+  Agora substituímos o logaritmo pela sua série na função original
+  \[
+  \frac{\ln x}{\,x-1\,}
+  = \frac{1}{\,x-1\,}
+  \left( (x-1)
+  - \frac{(x-1)^2}{2}
+  + \frac{(x-1)^3}{3}
+  - \frac{(x-1)^4}{4}
+  + \cdots
+  \right) \;.
+  \]
+  Manipulamos os termos da série obtemos
+  \[
+  \frac{\ln x}{\,x-1\,}
+  = 1 - \frac{x-1}{2} + \frac{(x-1)^2}{3} - \frac{(x-1)^3}{4} + \cdots
+  \]
+  Agora calculamos o limite desejado
+  \[
+  \lim_{x\to 1} \frac{\ln x}{\,x-1\,}
+  = \lim_{x\to 1} \left( 1
+  - \frac{x-1}{2}
+  + \frac{(x-1)^2}{3}
+  - \frac{(x-1)^3}{4}
+  + \cdots
+  \right)
+  \]
+  como todos os termos da série, com exceção do primeiro, vão para zero,
+  quando $x\to 1$, temos que
+  \[
+  \lim_{x\to 1} \frac{\ln x}{\,x-1\,} = 1 \;.
+  \]
+\end{example}
+
+%------------------------------------------------------------------------------%
