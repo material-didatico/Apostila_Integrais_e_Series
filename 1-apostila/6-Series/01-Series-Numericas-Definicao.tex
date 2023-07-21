@@ -1,0 +1,473 @@
+%------------------------------------------------------------------------------%
+\section{Definição}
+
+Séries são somas com um número infinito de termos. As primeiras questões que
+precisamos responder é o que exatamente isso significa e quando essa soma faz
+sentido. Para isso vamos utilizar as ideias construídas no estudo das
+sequências numéricas.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série Numérica}{def:serie-numerica}
+  \emph{Série Numérica}\index{Série!numérica}\index{Série!termo geral}
+  é a soma dos infinitos termos de uma sequência numérica, $(a_n)$,
+  \[
+  	\sum_{n=1}^\infty a_n = a_1 + a_2 + a_3 + \cdots
+ 	\]
+  Cada termo $a_n$ é chamado de \emph{Termo Geral}\index{Série!termo geral} da série.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Para determinarmos se essa soma faz sentido precisamos construir um critério de convergência,
+para isso, vamos construir outra sequência numérica associada a série.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Sequência de Somas Parciais}{def:somas-parciais}
+  Seja $(a_n)$ uma sequência de números reais, sua
+  Sequência de Somas Parciais\index{Somas parciais}\index{Sequência!somas parciais}
+  é definida como
+  \[
+    S_n = a_1 + a_2 + \cdots + a_n = \sum_{k=1}^n a_k   \,.
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Podemos agora definir a convergência das séries numéricas usando a definição da convergência
+das sequências numéricas.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Convergência de Uma Série}{def:convergenia_series}
+  Dada uma série numérica\index{Série!convergência}
+  \[
+    \sum_{k=1}^\infty a_k
+  \]
+  dizemos que ela \emph{converge} para um número real $L$
+  quando sua sequência de somas parciais $(S_n)$ converge para $L$, isso é, \(S_n\to L\).
+  Nesse caso podemos escrever
+  \[
+    \sum_{k=1}^\infty a_k = L
+  \]
+  e dizemos que $L$ é a \emph{Soma da Série}\index{Soma da série}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+No caso em que a sequência de somas parciais diverge, dizemos que a série \emph{diverge}.
+
+Quando é evidente que os índices da série variam de $1$ até $\infty$,
+podemos usar apenas a notação \index{Série!notação}
+\[
+  \sum a_n   \,.
+\]
+Entretanto, muitas vezes as séries começam com índices diferentes de 1,
+nesses casos os índices precisam ser explicitados, por exemplo
+\[
+  \sum_{n= 0}^\infty a_n   \qquad \text{ou} \qquad
+  \sum_{n=-1}^\infty a_n   \,.
+\]
+
+%------------------------------------------------------------------------------%
+
+Para ilustrar os conceitos envolvendo séries infinitas apresentados,
+vamos explorar a série
+\[
+  \sum_{n=1}^{\infty} \frac{1}{2^k}  \,.
+\]
+Essa série é interessante pois podemos interpretá-la
+geometricamente com facilidade.
+Note que os primeiros termos da sequência que queremos somar são
+\[
+  a_1 = \frac{1}{2}   \,,\qquad
+  a_2 = \frac{1}{4}   \,,\qquad
+  a_3 = \frac{1}{8}   \,,\qquad
+  a_4 = \frac{1}{16}  \,,\qquad
+  a_5 = \frac{1}{32}  \,.
+\]
+Podemos imaginar que cada termo é a área de um retângulo e queremos
+encontrar a área da figura formada pela união de todos esses retângulos.
+A Figura~\ref{fig:soma-1div2n} ilustra geometricamente os cinco primeiros
+termos da sequência de somas parciais dessa série e sua soma. O próximo exemplo
+efetua os cálculos para mostrar que a série realmente converge e que
+sua soma é igual a $1$.
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+	\centering
+  \input{fig_serie_1div2n_sum_01}
+	\input{fig_serie_1div2n_sum_02}
+	\input{fig_serie_1div2n_sum_03} \\
+	\input{fig_serie_1div2n_sum_04}
+	\input{fig_serie_1div2n_sum_05}
+	\input{fig_serie_1div2n_sum}   \\
+	\caption{Ilustração das somas parciais da série \(\sum_{n=1}^\infty\frac{1}{2^n}\).}
+	\label{fig:soma-1div2n}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+	Calcular a soma os termos da sequência \( a_k = \frac{1}{2^{k}} \).
+	\solution
+	Queremos calcular a soma da série
+	\[
+		\sum_{n=1}^{\infty} \frac{1}{2^k}   \,.
+	\]
+  O gráfico a seguir ilustra a soma dessa série, cada retângulo tem base igual a um
+  e altura igual ao termo correspondente da série $a_n$.
+  %----------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_serie_1div2n_exemplo_1}[0][-1]
+  %----------------------------------------------------------------------------%
+	Para analisarmos se a série converge e qual seria o valor da sua soma, vamos construir a
+	sequência de somas parciais dessa série:
+	\[
+		\begin{array}{ll}
+			S_1 = a_1                   & = \dfrac{1}{2}                                               \,,\\[3mm]
+			S_2 = a_1 + a_2             & = \dfrac{1}{2} + \dfrac{1}{4}                                \,,\\[3mm]
+			S_3 = a_1 + a_2 + a_3       & = \dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{8}                 \,,\\[3mm]
+			S_4 = a_1 + a_2 + a_3 + a_4 & = \dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{8} + \dfrac{1}{16} \,.
+		\end{array}
+	\]
+  O próximo gráfico mostra os primeiros termos da sequência de somas parciais.
+  %----------------------------------------------------------------------------%
+  \IncludeTexGraphicCentred{fig_serie_1div2n_exemplo_S}[-1][-1]
+  %----------------------------------------------------------------------------%
+
+  Podemos observar nos gráficos que, como esperado, a série converge para um.
+  Porém, não podemos ficar dependentes da evidencia gráfica, que muitas vezes
+  é enganosa. Precisamos verificar rigorosamente esse resultado.
+  Para isso precisamos identificar a fórmula geral para cada soma parcial.
+	Esse é um ponto onde alguns livros escrevem ``\textit{é fácil ver que}''
+	para não serem forçados a escrever ``\textit{após muita dor e sofrimento descobrimos que}''
+	\[
+		S_1 = 1 - \dfrac{1}{2}     \,,\qquad\quad
+		S_2 = 1 - \dfrac{1}{4}     \,,\qquad\quad
+		S_3 = 1 - \dfrac{1}{8}     \,,\qquad\quad
+		S_4 = 1 - \dfrac{1}{16}    \,.
+	\]
+	Observando o padrão podemos escrever uma conjectura sobre como a fórmula geral deve ser
+	\[
+		S_n = 1 - \frac{1}{2^{n}} \,.
+	\]
+	Agora precisamos verificar se ela é verdadeira para todos os valores de $n\in\N$.
+	Uma técnica para fazer essa demonstração é utilizar a
+	\emph{Indução Finita}\index{Indução!finita}, veja a Seção~\ref{sec:Inducao-Finita}.
+	Para isso precisamos primeiro mostrar
+	que a fórmula vale para $n=1$. Depois assumimos que ela vale para um $n$ qualquer
+	e, partido dessa hipótese, mostrarmos que ela vale para o próximo, $n+1$.
+
+  A demostração que a fórmula vale para $n=1$ pode ser feita por mera avaliação.
+  Vamos agora assumir que a fórmula vale para um valor qualquer $n=k-1$
+  \begin{equation}
+  	\label{eq:hipotese-inducao-exemplo}
+  	S_{k-1} = 1 - \frac{1}{2^{k-1}} \,,
+  \end{equation}
+  queremos mostrar que isso implica que ela também vale para o próximo $n=k$.
+  Começamos calculando $S_{k}$
+  \[
+  	S_{k} = S_{k-1} + a_{k} = S_{k-1} + \frac{1}{2^{k}} \,,
+  \]
+  substituindo a
+  \emph{hipótese de indução}\index{Hipótese de indução}~\eqref{eq:hipotese-inducao-exemplo}
+  temos
+  \begin{align*}
+  	S_{k} & = 1 - \frac{1}{2^{k-1}} + \frac{1}{2^{k}} \\[3mm]
+  	      & = 1 - \frac{2}{2^{k}}   + \frac{1}{2^{k}} \\[3mm]
+  	      & = 1 - \frac{1}{2^{k}} \,,
+  \end{align*}
+	que é a fórmula que desejamos demonstrar.
+
+ Tendo uma expressão explícita para os termos da sequência de somas parciais,
+ podemos calcular seu limite e determinar a soma da série.
+ \begin{align*}
+		\lim_{n\to\infty} S_n & = \lim \left(1 - \frac{1}{2^{n}}\right) \\[2mm]
+		                      & = \lim 1 -   \lim\frac{1}{2^{n}}        \\[2mm]
+		                      & = 1 - 0 = 1    \,.
+	\end{align*}
+	Portanto, a série converge e podemos escrever
+	\[
+		\sum_{n=1}^{\infty} \frac{1}{\;2^{n}\;} = 1  \,.
+	\]
+\end{example}
+%------------------------------------------------------------------------------%
+
+\OnlineBox{https://colab.research.google.com/drive/1CE55fvSVp98H4I45LttLroZcLQVljhbZ?usp=sharing}
+{
+  Código Python para ilustrar algumas séries e suas somas parciais.
+}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\subsection*{Exemplos de Séries}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+Apresentamos agora alguns exemplos de séries numéricas importantes.
+A série geométrica e a telescópica são exemplos para os quais podemos calcular
+a soma da série com relativa facilidade.
+Além dessas duas séries, também apresentaremos nessa seção as
+séries do inverso do quadrado e inverso do fatorial.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série Geométrica}{def:serie-geometrica}
+  Sejam $\alpha$ e $r$ números reais com $\alpha\neq 0$, uma série com a forma
+  \[
+    \sum_{n=1}^\infty \alpha r^{n-1} =
+    \alpha + \alpha r + \alpha r^2 + \alpha r^3 + \cdots + \alpha r^{n-1} + \cdots
+  \]
+  é chamada de \emph{Série Geométrica}\index{Série!geométrica}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+No ensino básico a sequência dos termos dessa série é chamada de
+Progressão Geométrica\index{Progressão!geométrica}.
+Esse é um exemplo especialmente importante pois conseguimos verificar sua convergência
+e calcular sua soma com relativa facilidade.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Convergência da Série Geométrica}{pro:covnergencia-serie-geometrica}
+  A série geométrica converge se $\abs{r}<1$ e diverge se  $\abs{r}\geq 1$.
+
+  No caso em que a série converge, isso é, se $\abs{r}<1$ a soma da série é dada por
+  \begin{equation}
+    \label{eq:soma-serie-geometrica}
+    \sum_{n=1}^\infty \alpha r^{n-1} = \frac{\alpha}{1-r}  \,.
+  \end{equation}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+\begin{proof}
+  A sequência de somas parciais da série geométrica é
+  \[
+    S_n = \sum_{k=1}^n \alpha r^{k-1}  \,.
+  \]
+  Subtraindo $rS_n$ de $S_n$, obtemos
+  \begin{align*}
+    S_n(1-r) & = S_n-rS_n                                  \\
+             & = \sum_{k=1}^n \alpha r^{k-1}-\sum_{k=1}^n \alpha r^{k}  \\
+             & = \left( \alpha
+                      + \alpha r
+                      + \cdots
+                      + \alpha r^{n-1}
+                 \right) -
+                 \left( \alpha r
+                      + \cdots
+                      + \alpha r^{n-1}
+                      + \alpha r^{n}
+                 \right) \\
+             & = \alpha - \alpha r^n   \,.
+  \end{align*}
+  Temos então que
+  \[
+    S_n = \frac{\alpha \left(1-r^n\right)}{1-r}   \,.
+  \]
+  Como $r^n\to 0$ se $\abs{r}<1$ e $\abs{r^n}\to\infty$ se $\abs{r}\geq 1$,
+  segue que
+  \[
+    S_n\to \frac{\alpha}{1-r}
+  \]
+  se $\abs{r}<1$ e $S_n$ diverge se $\abs{r}\geq 1$.
+\end{proof}
+%------------------------------------------------------------------------------%
+
+Observe que na demonstração todas as manipulações algébricas aconteceram com as
+somas parciais, que são somas finitas e não envolvem limites. Só depois de
+obtermos uma expressão explícita para $S_n$ é que fizemos $n$ tender para o
+infinito e calculamos o limite.
+
+Ao aplicar a proposição acima, cuidado com os índices, por exemplo, a série
+\[
+  \sum_{n=1}^\infty br^n
+\]
+também é uma série geométrica, mas a proposição não pode ser aplicada diretamente.
+Primeiro precisamos reescrever a série de modo que os índices sejam compatíveis com os da proposição.
+Nesse caso,
+\[
+  \sum_{n=1}^\infty br^n=\sum_{n=1}^\infty brr^{n-1}   \,.
+\]
+Então podemos tomar $\alpha = br$ e se $\abs{r}<1$ teremos que
+\[
+  \sum_{n=1}^\infty br^n = \frac{br}{1-r}   \,.
+\]
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Verifique a convergência da série
+  \(
+    \sum_{n=1}^\infty \frac{2^{n+1}}{5^n}
+  \).
+
+  \solution
+  Essa série pode ser reescrita da seguinte maneira
+  \[
+    \sum_{n=1}^\infty \frac{4}{5}\left(\frac{2}{5}\right)^{n-1}  \,.
+  \]
+  Então é uma série geométrica com $\alpha =\sfrac{4}{5}$ e $r=\sfrac{2}{5}$.
+  Como $\abs{r}=\sfrac{2}{5}<1$, segue do critério de convergência da série geométrica que
+  \[
+    \sum_{n=1}^\infty \frac{2^{n+1}}{5^n}
+      = \frac{\sfrac{4}{5}}{1-\sfrac{2}{5}}
+      = \frac{\sfrac{4}{5}}{\sfrac{3}{5}}
+      = \frac{4}{3}    \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+    Escreva a dízima periódica $0,\overline{d}=0,ddddd\dots$
+    (onde $d\neq0$ é um dígito) como a razão de dois números.
+
+    \solution
+    \begin{align*}
+      0,ddd\,ddd\dots & =\frac{d}{10}+\frac{d}{(10)^2}+\frac{d}{(10)^3}+\cdots           \\
+                      & =\frac{d}{10}\left(1+\frac{1}{10}+\frac{1}{(10)^2}+\cdots\right) \\
+                      & =\frac{d}{10}\sum_{n=1}^\infty \left(\frac{1}{10}\right)^{n-1}   \\
+                      & =\frac{d}{10}\left(\frac{1}{1-\sfrac{1}{10}}\right)              \\
+                      & =\frac{d}{10}\left(\frac{1}{0,9}\right)                          \\
+                      & =\frac{d}{9}                                                     \,.
+    \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+Note que o resultado obtido nesse exemplo mostra que $0,999\,999\dots$ é \emph{igual} a 1.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série Telescópica}{def:serie_telescopica}
+  Dizemos que uma série é \emph{telescópica}\index{Série!telescópica}
+  se todos os termos, exceto o primeiro e o último, da $n$-ésima soma parcial se anulam.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Essa definição e seu uso para calcular o limite de uma série são melhor
+explicados com a utilização de um exemplo.
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a soma da série
+  \(
+    \sum_{n=1}^\infty \frac{1}{2n+1} - \frac{1}{2n+3}
+  \).
+
+  \solution
+  Escrevendo os primeiros temos dessa série percebemos que eles se anulam quando somados
+  \begin{align*}
+  a_1 & \;=\; \frac{1}{2\cdot 1+1}-\frac{1}{2\cdot 1+3} \;=\; \frac{1}{3}-\frac{1}{5} \,,\\[2mm]
+  a_2 & \;=\; \frac{1}{2\cdot 2+1}-\frac{1}{2\cdot 2+3} \;=\; \frac{1}{5}-\frac{1}{7} \,,\\[2mm]
+  a_3 & \;=\; \frac{1}{2\cdot 3+1}-\frac{1}{2\cdot 3+3} \;=\; \frac{1}{7}-\frac{1}{9} \,.
+  \end{align*}
+  Assim, expandindo os termos da série e cancelando a segunda
+  fração de um termo com a primeira do termo seguinte temos
+  \begin{align*}
+  	S_k & = a_1 + a_2 + \cdots + a_k \\
+        & = \left( \frac{1}{3}    - \frac{1}{5}    \right)
+          + \left( \frac{1}{5}    - \frac{1}{7}    \right)
+          + \left( \frac{1}{7}    - \frac{1}{9}    \right) + \cdots
+          + \left( \frac{1}{2k+1} - \frac{1}{2k+3} \right) \\[2mm]
+  	    & = \frac{1}{3}-\frac{1}{2k+3}  \,.
+  \end{align*}
+  Dessa forma,
+  \[
+    \sum_{n=1}^\infty a_n
+    = \lim_{k\to \infty} S_k
+    = \lim_{k\to \infty} \left( \frac{1}{3}-\frac{1}{2k+3} \right)
+    = \frac{1}{3}   \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a soma da série
+  \(
+    \sum_{n=1}^\infty \frac{4}{(4n-3)(4n+1)}
+  \).
+
+  \solution
+  Primeiro escrevemos o termo geral em somas parciais
+  \[
+    a_n = \frac{4}{(4n-3)(4n+1)}=\frac{A}{4n-3}+\frac{B}{4n+1}   \,.
+  \]
+  Então, $A(4n+1)+B(4n-3)=4$. Assim, para $n=1$ e $n=2$, temos o seguinte sistema
+  \[
+    \systeme[AB]{ \;5A + B = 4, \;9A + 5B = 4}
+  \]
+  Resolvendo, temos $A=1$ e $B=-1$, ou seja,
+  \[
+    a_n = \frac{4}{(4n-3)(4n+1)}=\frac{1}{4n-3}-\frac{1}{4n+1}  \,.
+  \]
+  Escrevendo agora os primeiros temos da série:
+  \begin{align*}
+    a_1 & \;=\; \frac{1}{4\cdot 1-3}-\frac{1}{4\cdot 1+1} \;=\; \frac{1}{1}-\frac{1}{5}   \,,\\[2mm]
+    a_2 & \;=\; \frac{1}{4\cdot 2-3}-\frac{1}{4\cdot 2+1} \;=\; \frac{1}{5}-\frac{1}{9}   \,,\\[2mm]
+    a_3 & \;=\; \frac{1}{4\cdot 3-3}-\frac{1}{4\cdot 3+1} \;=\; \frac{1}{9}-\frac{1}{13}  \,.
+  \end{align*}
+  Assim, expandindo os termos da série e cancelando a segunda fração
+  de um termo com a primeira do termo seguinte temos
+  \begin{align*}
+    S_k & = \left(        1       - \frac{1}{5}    \right)
+          + \left( \frac{1}{5}    - \frac{1}{9}    \right) + \cdots
+          + \left( \frac{1}{4k-3} - \frac{1}{4k+1} \right) \\[2mm]
+        & = 1-\frac{1}{4k+1}  \,.
+  \end{align*}
+  Dessa forma,
+  \[
+    \sum_{n=1}^\infty \frac{4}{(4n-3)(4n+1)}
+    = \lim_{k\to \infty} S_k
+    = 1   \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+Dada uma sequência $(x_n)$ qualquer, podemos construir uma série $\sum a_n$
+cujo termo geral é dado por
+\[
+  a_1 = x_1  \,, \qquad a_{n+1} = x_{n+1}-x_n
+\]
+para todo $n\in \N$.
+Então a sequência de somas parciais é dada por
+\begin{align*}
+	S_n & = a_1 + a_2 + \cdots + a_n  \\
+	    & = {x_1} + ({x_2}-{x_1})
+                + ({x_3}-{x_2})
+                + \cdots
+                + (x_n-{x_{n-1}}) \\
+	    & = x_n   \,.
+\end{align*}
+Assim, se a sequência $(x_n)$ converge para $L$, a série $\sum a_n$ também converge para $L$.
+Por outro lado, se a sequência $(x_n)$ diverge, a série também diverge.
+Essa é uma forma de construir uma infinidade de séries telescópicas.
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+Apresentamos a seguir as Séries do Inverso do Quadrado e do Inverso do Fatorial
+e suas somas.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série do Inverso do Quadrado}{def:serie-inverso-quadrado}
+	A série
+  \[
+    \sum_{n=1}^\infty \frac{1}{\,n^2\,} = \frac{\,\pi^2}{6} \approx 1,6449
+  \]
+  é conhecida como \emph{Série do Inverso do Quadrado}\index{Série!inverso do quadrado}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Série do Inverso do Fatorial}{def:serie-inverso-fatorial}
+	A série
+  \[
+   \sum_{n=0}^\infty \frac{1}{\,n!\,} = e = \approx 2,7183
+  \]
+	é chamada de \emph{Série do Inverso do Fatorial}\index{Série!inverso do fatorial}.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Para calcular as somas dessas séries precisamos de resultados que serão
+apresentados mais a frente neste capítulo.
+Vamos mostrar que a Série do Inverso do Quadrado Converge no
+Exemplo~\ref{ex:convergencia-serie-inverso-quadrado}
+e calculamos seu valor na subseção sobre o problema de
+Basileia~\ref{sec:problema-Basileia}.
+A verificação da convergência da Série do Inverso do Fatorial
+está no Exemplo~\ref{ex:convergencia-serie-inverso-fatorial}
+e o cálculo da sua soma é feito no
+Exemplo~\ref{ex:soma-serie-inverso-fatorial}.
+
+%------------------------------------------------------------------------------%

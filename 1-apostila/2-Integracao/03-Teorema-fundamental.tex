@@ -1,0 +1,281 @@
+%------------------------------------------------------------------------------%
+\section{O Teorema Fundamental do Cálculo}
+
+Nessa seção veremos um resultado importante para o cálculo das integrais
+definidas: O Terema Fundamental do Cálculo. Esse Teorema será dividido as duas
+partes e estabelece uma conexão entre dois tópicos importantes do cálculo:
+integração e derivação.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema Fundamental do Cálculo -- Parte 1}{teo:fundamental-1}
+  Se $f$ for contínua em $[a,b]$, então a função $F$ definida por
+  $$F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b$$
+  é contínua em $[a,b]$ e derivável em $(a,b)$ e $F'(x)=f(x)$
+  note que em outras palavras temos que
+  $\frac{d}{dx} \left( \int_a^x f(t)dt \right)=f(x)$
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a derivada da função \(g(x)=\int_0^x \sqrt{1+t^2} dt\)
+  \solution
+  Sendo $f(t)= \sqrt{1+t^2}$ contínua em todo o conjunto dos números reais,
+  pela parte 1 do Teorema Fundamental do Cálculo
+  \[
+  g'(x)=\sqrt{1+x^2}
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a derivada da função \(h(x)=\int_1^{x^4} \sec(t)dt\)
+  \solution
+  Nesse item devemos ter cuidado ao aplicarmos o Teorema Fundamental do
+  Cálculo uma vez que $h(x)=p(q(x))$, onde
+  \(p(x)=\int_0^x \sec(t)dt\) e $q(x)= x^4$.
+  Portanto, para encontrar $\frac{d}{dx}(h(x))$ temos que usar a regra da
+  cadeia. Ora, o Teorema Fundamental do Cálculo Parte 1 nos diz que
+  \[
+  \frac{d}{dx}(p(x))= \frac{d}{dx} \int_0^x \sec(t)dt= \sec(x),
+  \]
+  além disso, $\frac{d}{dx}(x^4)= 4x^3$. Assim, pela regra da cadeia
+  \[
+  \frac{d}{dx}\int_1^{x^4} \sec(t)dt= 4x^3\sec(x^4)
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a derivada da função \(p(x)= \int_{1-2x}^{1+2x} t\sin(t)dt\)
+  \solution
+  Inicialmente, vamos usar as propriedades de integral para manipular a
+  integral. Pela propriedade 7. de integral definida, podemos escrever
+  \[
+  \int_{1-2x}^{1+2x} t\sin(t)dt
+  = \int_{1-2x}^{0} t\sin(t)dt
+  = \int_{0}^{1+2x} t\sin(t)dt
+  \]
+  Pela propriedade 1. de Integral definida
+  \[
+  \int_{1-2x}^{1+2x} t\sin(t)dt
+  = - \int_{0}^{1-2x} t\sin(t)dt
+  + \int_{0}^{1+2x} t\sin(t)dt
+  \]
+  Usando a parte 1 do Teorema Fundamental do Cálculo e a Regra da cadeia,
+  temos
+  \begin{align*}
+    \frac{d}{dx} \int_{1-2x}^{1+2x} t\sin(t)dt
+    & = \frac{d}{dx} \left(
+    - \int_{0}^{1-2x} t\sin(t)dt
+    + \int_{0}^{1+2x} t\sin(t)dt
+    \right) \\
+    & = 2x \sin(x)+2x \sin(x)=4x\sin(x).
+  \end{align*}
+
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Determine $f'(\frac{\pi}{4})$,
+  onde $f(x)= e^{h(x)}$ e $h(x)= \int^{\tan(x)}_1 e^t dt$
+  \solution
+  Note que $f$ é uma função composta, para derivar usamos a regra da cadeia.
+  Assim,
+  \[
+  f'(x)= e^{h(x)}h'(x)
+  \]
+  Para encontrar $h'(x)$ usamos o Teorema Fundamental do Cálculo parte 1,
+  combinado com a regra da cadeia. Portanto,
+  \[
+  h'(x)=e^{\tan(x)}\sec^2(x)
+  \]
+  Logo,
+  \[
+    f'(x)
+    = e^{h(x)}h'(x)
+    =e^{h(x)}e^{\tan(x)}\sec^2(x)
+  \]
+  e
+  \[
+    f'\left(\frac{\pi}{4}\right)
+    = e^{h(\frac{\pi}{4})}
+    e^{\tan(\frac{\pi}{4})}
+    \sec^2\left(\frac{\pi}{4}\right)
+    = 0 \cdot e^1 \cdot \left(\frac{2}{\sqrt{2}}\right)^2=0
+  \]
+  onde, $h\left(\frac{\pi}{4} \right)= \int_1^1 e^t dt=0$.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{O Teorema Fundamental do Cálculo -- Parte 2}{teo:fundamental-2}
+  Se $f$ for contínua em $[a,b]$ então
+  \[
+  \int_a^{b}f(x)dx= F(b)-F(a)
+  \]
+  onde $F$ é qualquer primitiva de $f$. isto é $F'=f$
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_1^3 e^x dx\)
+  \solution
+  Inicialmente, note que $f(x)=e^x$ é contínua no intervalo $[1,3]$. Além
+  disso, a primitiva mais geral para $f$ é $G(x)=e^x+ C$, como no Teorema
+  Fundamental do cálculo precisamos de qualquer primitiva, então pegamos a
+  primitiva mais simples $F(x)=e^x$. Logo, usando o Teorema Fundamental do
+  Cálculo 2 temos
+  \[
+  \int_1^3 e^x dx= \left[ e^x \right]_1^3= e^3-e^1=e^3=e.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_3^6 \frac{dx}{x}\)
+  \solution
+  Note que $f(x)=\frac{1}{x}$ é contínua no intervalo $[3,6]$. Além disso, a
+  primitiva mais geral para $f$ é $G(x)=\ln|x|+ C$, como no Teorema Fundamental
+  do cálculo precisamos de qualquer primitiva, então pegamos a primitiva mais
+  simples $F(x)=\ln|x|$. Logo, usando o Teorema Fundamental do Cálculo 2 temos
+  \[
+  \int_3^6 \frac{dx}{x}
+  = \left[ \ln|x| \right]_1^3
+  = \ln(6)- \ln(3)= \ln(\frac{6}{3})=\ln(2).
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule \(\int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx\)
+  \solution
+  Note que  $f(x)=20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 $ é contínua no
+  intervalo $[0,1]$, uma vez que é soma de funções contínuas.
+
+  Para calcularmos a integral definida pedida, iniciaremos primeiro calculando
+  a integral indefinida, usando a linearidade da integral.
+  \begin{align*}
+    & \int [ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3] dx \\
+    & = \int [20x^5-e^x+ 3x^6 - \cos x+ 3\frac{1}{1+x^2}-3] dx \\
+    & = 20 \int x^5 dx
+    -   \int e^x dx
+    + 3 \int x^6 dx
+    -   \int \cos(x) dx
+    + 3 \int \frac{1}{1+x^2} dx
+    - 3 \int dx \\
+    & = \frac{20x^6}{6}
+    - e^x
+    + \frac{3x^7}{7}
+    - \sin(x)
+    + 3\arctan(x)
+    - 3x + C
+  \end{align*}
+  Para encontrarmos a integral definida, usamos o Teorema Fundamental do
+  Cálculo parte 2 temos que
+  \begin{align*}
+    & \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx \\
+    &= \left[ \frac{20x^6}{6}
+    - e^x
+    + \frac{3x^7}{7}
+    - \sin(x)
+    + 3\arctan(x)
+    - 3x \right]_0^1 \\
+    &= \left( \frac{20}{6}
+    - e
+    + \frac{3}{7}
+    - \sin(1)
+    + 3 \arctan(1)
+    - 3 \right) \\
+    & - \left( 0 - e^0 + 0 - \sin(0) + 3\arctan(0) - 0 \right) \\
+    & = \left(\frac{10}{3}-e+\frac{3}{7}-\sin(1) + \frac{3\pi}{4} - 3 \right) - (-1) \\
+    & = \frac{10}{3} - e + \frac{3}{7} - \sin(1) + \frac{3\pi}{4} - 3 + 1 \\
+    & = \frac{148 - 84e - 84 \sin(1) + 63 \pi}{84}
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a área sob a parábola $y=x^2$ de 0 até 1.
+  \solution
+  A figura a seguir mostra o gráfico da função $y=x^2$.
+
+  \IncludeGraphicCentred{exemplo_area_sob_parabola}[0.5][-1][-1]
+
+  Note que $y=x^2$ é uma função positiva no intervalo $[0,1]$
+  então
+  \[
+  A
+  = \int^{0}_{1} x^2 dx
+  = \left[ \frac{x^3}{3} \right]^1_0
+  = \frac{1}{3}-0= \frac{1}{3}
+  \]
+  onde, para calcularmos a integral definida usamos o
+  Teorema Fundamental do Cálculo parte 2.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a área sob a curva $y=\cos(x) $ de $0$ até $b$, onde
+  \(0 \leq b \leq \frac{\pi}{2}\)
+  \solution
+  Note que a função $y=\cos(x)$ é positiva e contínua no intervalo $[0,b]$,
+  uma vez que \(b \in [0, \frac{\pi}{2}]\), conforme a figura .
+
+  \IncludeGraphicCentred{exemplo_area_sob_cosseno}[0.5][-1][-1]
+
+  Portanto, usando o Teorema Fundamental do Cálculo parte 2
+  \[
+  A
+  = \int_0^b \cos(x) dx
+  = \left[ \sin(x) \right]^{b}_{0}
+  = \sin(b)- \sin(0)
+  = \sin(b).
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  O que está errado no seguinte cálculo
+  \[
+  \int_{-1}^3 \frac{1}{x^2} dx
+  = \frac{x^-1}{-1} \evalat{-1}{3}
+  = - \frac{1}{3} - 1
+  = - \frac{4}{3}
+  \]
+  \solution
+  Para começarmos podemos observar, pela propriedade 8 de integrais, que esse
+  resultado está errado, uma vez que $f(x)= \frac{1}{x^2} \geq 0$ no intervalo
+  $[-1,3]$ teríamos que ter que $\int_{-1}^3 \frac{1}{x^2} dx \geq 0$.
+  Portanto, devemos está atentos as hipóteses quando quisermos usar o Teorema
+  fundamental do cálculo. Note que $f(x)=\frac{1}{x^2}$ não é contínua no
+  intervalo $[-1,3]$, uma vez que existe uma descontinuidade em $x=0$ ($f$ não
+  está definida em $x=0$). Nesse caso, não podemos usar cegamente o Teorema
+  Fundamental do Cálculo. Veremos como resolver esse tipo de problema quando
+  estudarmos \emph{Integrais impróprias}.
+\end{example}
+%------------------------------------------------------------------------------%
+
+Podemos justapor as duas partes do Teorema Fundamental do cálculo
+
+\begin{teorema}{Teorema Fundamental do Cálculo}{teo:fundamental}
+  Se $f$ for contínua em $[a,b]$ então
+  \begin{enumerate}
+    \item Se $F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b$
+    então $F'(x)=f(x)$
+    \item \(\int_a^{b}f(x)dx= F(b)-F(a)\),
+    onde $F$ é qualquer primitiva de $f$. isto é $F'=f$
+  \end{enumerate}
+\end{teorema}
+
+%------------------------------------------------------------------------------%
