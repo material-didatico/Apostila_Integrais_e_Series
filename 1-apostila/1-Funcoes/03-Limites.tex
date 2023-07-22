@@ -1,0 +1,71 @@
+%------------------------------------------------------------------------------%
+\section{Limites e Continuidade}
+\label{sec:limites_Continuidade}
+
+A seguir apresentamos a definição formal do limite de uma função real.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Limite de Função Real}{def:limite-funcao-real}
+  Seja $f$ uma função definida em intervalo aberto que contém do ponto $a\in\R$,
+  podendo não ser definida em $a$. Dizemos que o \emph{Limite}\index{Limite!função real}
+  de $f(x)$ quando $x$ se aproxima de $a$ é $L\in\R$ e escrevemos
+  \[
+  \lim_{x\to a} f(x) = L
+  \]
+  se para cada $\varepsilon>0$ existir $\delta>0$ tal que
+  \[
+  0 < \abs{x-a} < \delta \qquad\Rightarrow\qquad \abs{f(x)-L} < \varepsilon
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Essa definição pode ser estendida para o caso em que $a$ é $\pm\infty$.
+Quando o limite existe ele possui as propriedades descritas na proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades do Limite de Funções Reais}{pro:limite-funcao-real}
+  Supondo que $c$ é uma constante, $f$ e $g$ são funções reais e que os limites
+  \[
+  \lim_{x\to a} f(x) \qquad\text{ e }\qquad \lim_{x\to a} g(x)
+  \]
+  existem, então valem as \emph{Propriedades do Limite}
+  \begin{enumerate}
+    \item \( \lim_{x\to a} \Big[ f(x) + g(x) \Big] = \lim_{x\to a} f(x) + \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} \Big[ f(x) - g(x) \Big] = \lim_{x\to a} f(x) - \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} cf(x) = c \lim_{x\to a} f(x) \)
+    \item \( \lim_{x\to a} \Big[ f(x)g(x) \Big] = \lim_{x\to a} f(x) \cdot \lim_{x\to a} g(x) \)
+    \item \( \lim_{x\to a} \frac{f(x)}{g(x)} = \dfrac{\displaystyle\lim_{x\to a} f(x)}
+    {\displaystyle\lim_{x\to a} d(x)} \)
+    \qquad desde que \(\lim_{x\to a} d(x) \neq 0\)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+Uma propriedade de algumas funções reais é não possuir buracos ou saltos em seu
+gráfico. Dizemos que essa funções são contínuas e a próxima definição nos fornece
+uma caracterização para essas funções.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Continuidade de Função Real}{def:continuidade-funcao-real}
+  Uma função real é \emph{Contínua}\index{Função!contínua} em um ponto $a$ se
+  \begin{enumerate}
+    \item \( f(a) \) existe
+    \item \( \lim_{x\to a} f(x) \) existe
+    \item \( \lim_{x\to a} f(x) = f(a) \)
+  \end{enumerate}
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+Um resultado importante sobre funções contínuas é o Teorema do Valor Intermediário.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema do Valor Intermediário}{teo:valor-intermediario}
+  Suponha\index{Teorema!valor intermediário}
+  que a função $f$ é contínua em todos os pontos de um intervalo fechado
+  $[a, b]$ e que \(f(a)\neq f(b)\). Assuma que $p$ é um valor entre $f(a)$ e $f(b)$
+  então existe um número $c\in(a, b)$ tal que $f(c)=p$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+
+%------------------------------------------------------------------------------%

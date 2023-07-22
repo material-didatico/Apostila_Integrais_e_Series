@@ -1,5 +1,33 @@
 %------------------------------------------------------------------------------%
-\section{O Teorema Fundamental do Cálculo}
+\section{Teorema Fundamental do Cálculo}
+\label{sec:teorema_fundamental_calculo}
+
+O Teorema Fundamental do Cálculo é o resultado que determina as relações
+entre a derivada e as integrais definida e indefinida de uma função.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Teorema Fundamental do Cálculo}{teo:fundamental-calculo}
+  \begin{description}
+    \item[Parte 1]\index{Teorema!fundamental do Cálculo}
+    Se $f$ é uma função contínua em $[a, b]$ então a função $F$ definida por
+    \[
+    F(x) = \int_a^x f(t)\, dt \qquad\qquad a \leq x \leq b
+    \]
+    é contínua em $[a, b]$, diferenciável em $(a, b)$ e
+    \[
+    F'(x) = f(x)
+    \]
+    \item[Parte 2]
+    Se $f$ é contínua em $[a, b]$ então
+    \[
+    \int_a^b f(x)\,dx = F(b) - F(a) = F(x)\evalat{a}{b}
+    \]
+    onde $F$ é qualquer primitiva de $f$.
+  \end{description}
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+\hrulefill
 
 Nessa seção veremos um resultado importante para o cálculo das integrais
 definidas: O Terema Fundamental do Cálculo. Esse Teorema será dividido as duas

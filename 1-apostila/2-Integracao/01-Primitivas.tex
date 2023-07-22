@@ -1,5 +1,39 @@
 %------------------------------------------------------------------------------%
-\section{Primitivas e Integrais Indefinidas}
+\section{Primitivas}
+\label{sec:Primitivas}
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Primitiva de Função Real}{def:primitiva-funcao-real}
+  A \emph{Primitiva}\index{Primitiva},
+  \emph{Antiderivada}\index{Antiderivada} ou
+  \emph{Integral Indefinida}\index{Integral!indefinida}
+  de uma função $f$ é a função $F$ tal que
+  \[
+    \frac{dF}{dx}(x) = f(x)
+  \]
+  Denotamos a primitiva por
+  \[
+    F(x) = \int f(x)\, dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+É importante observar que a primitiva não é única, se $F(x)$ é uma primitiva de $f(x)$
+então $F(x)+c$ também será para qualquer constante $c$. A proposição a seguir
+apresenta algumas propriedades da primitiva.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades da Primitiva}{pro:propriedades-primitiva}
+  Dadas funções integráveis $f$ e $g$ e a constante $c$ temos que
+  \begin{enumerate}
+    \item \( \int f(x)+g(x)\,dx = \int f(x)\,dx + \int g(x)\,dx\)
+    \item \( \int f(x)-g(x)\,dx = \int f(x)\,dx - \int g(x)\,dx\)
+    \item \( \int cf(x)\,dx   = c \int f(x)\,dx \)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+\hrulefill
 
 %------------------------------------------------------------------------------%
 \begin{definicao}{Primitiva ou Antiderivada}{def:primitiva}

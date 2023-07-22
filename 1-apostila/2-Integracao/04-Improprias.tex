@@ -1,5 +1,55 @@
 %------------------------------------------------------------------------------%
 \section{Integrais Impróprias}
+\label{sec:Integrais_Improprias}
+
+As integrais definidas são calculadas em um intervalo finito e a função $f$
+não deve ter nenhuma descontinuidade infinita. Porém, mesmo se o intervalo for infinito
+ou $f$ possuir uma descontinuidade infinita, em alguns casos, é possível
+calcular a área sob o gráfico usando a integral imprópria.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Imprópria -- Tipo 1}{def:integral-impropria-1}
+  A \emph{Integral Imprópria}\index{Integral!imprópria} do tipo 1
+  é a integral definida de uma função $f$ em um intervalo infinito.
+
+  Se \( \int_a^b f(x)\, dx \)
+  existe para todo $b\geq a$ e o limite existir, temos que
+  \[
+  \int_a^\infty f(x)\,dx = \lim_{b\to\infty}\int_a^b f(x)\, dx
+  \]
+  Se \( \int_a^b f(x)\, dx \)
+  existe para todo $a\leq b$ e o limite existir, temos que
+  \[
+  \int_{-\infty}^b f(x)\,dx = \lim_{a\to-\infty}\int_a^b f(x)\, dx
+  \]
+  Se \( \int_a^\infty    f(x)\,dx \)
+  e  \( \int_{-\infty}^b f(x)\,dx \)
+  são convergentes, então
+  \[
+  \int_{-\infty}^\infty f(x)\,dx = \int_{-\infty}^c f(x)\, dx
+  + \int_c^\infty    f(x)\, dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Imprópria -- Tipo 2}{def:integral-impropria-2}
+  Se $f$ é contínua em $[a, b)$ e descontínua em $b$, e o limite existir,
+  temos que
+  \[
+  \int_a^b f(x)\,dx = \lim_{t\to b} \int_a^t f(x)\,dx
+  \]
+  Se $f$ é contínua em $(a, b]$ e descontínua em $a$, e o limite existir,
+  temos que
+  \[
+  \int_a^b f(x)\,dx = \lim_{t\to a} \int_t^b f(x)\,dx
+  \]
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+
+\hrulefill
+
 
 Integrais impróprias do tipo I: intervalo de integração ilimitado.
 

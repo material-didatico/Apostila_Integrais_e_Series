@@ -1,5 +1,39 @@
 %------------------------------------------------------------------------------%
-\section{Integral definida}
+\section{Integrais Definidas}
+\label{sec:Integrais_Definidas}
+
+Uma operação relacionada é o cálculo da área entre o gráfico da função $f$ e
+o eixo-$x$, chamamos essa operação de integral definida como descrito na
+próxima definição.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral Definida}{def:integral-defnida}
+  A \emph{Integral Definida}\index{Integral!definida} de uma função real $f$
+  é a área, considerando o sinal, entre o gráfico da função e o eixo-$x$
+  no intervalo $[a, b]$
+  \[
+  \int_{a}^{b} f(x) \, dx
+  \]
+  Essa área é o limite da \emph{Soma de Riemman} correspondente.
+\end{definicao}
+%------------------------------------------------------------------------------%
+
+A integral definida possui as propriedades descrita na proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Propriedades da Integral Definida}{pro:propriedade-integral-definida}
+  Dadas funções integráveis $f$ e $g$ e a constante $c$ temos que
+  \begin{enumerate}
+    \item \( \int_a^b c\,dx = c(b-a) \)
+    \item \( \int_a^b f(x)+g(x)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx\)
+    \item \( \int_a^b f(x)-g(x)\,dx = \int_a^b f(x)\,dx - \int_a^b g(x)\,dx\)
+    \item \( \int_a^b cf(x)\,dx = c \int_a^b f(x)\,dx \)
+    \item \( \int_a^c f(x)\,dx + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx \)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+\hrulefill
 
 Interpretação Geométrica da integral definida.
 Considere $f$ uma função não negativa no intervalo $[a,b]$ conforme a
