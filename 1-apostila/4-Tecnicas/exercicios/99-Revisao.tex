@@ -4,6 +4,359 @@
 \begin{exercises*}
 
 %------------------------------------------------------------------------------%
+\begin{exercise}
+Calcule as Integrais, usando as técnicas estudadas em sala.
+\begin{mathlist}
+  \item \int x \cos(5x)dx
+  \item \int p^5 \ln(p) dp
+  \item \int \arccos(x) dx
+  \item \int_4^9 \frac{\ln(y)}{\sqrt{y}} dy
+  \item \int_0^1 (x^2+1)e^{-x}dx
+  \item \int x \sin(x^2) dx
+  \item \int \frac{(\ln x)^2}{x} dx
+  \item \int e^{\tan(x)} \sec^2(x)dx
+  \item \int \frac{dx}{\sqrt{1-x^2} \arcsin(x)}
+  \item \int \sin(t) \sec^2(\cos(t))dt
+  \item \int x^3\sqrt{x^2+1} dx
+  \item \int_e^{e^4} \frac{dx}{x \sqrt{\ln(x)}}
+  \item \int_0^1 (3t-1)^{50} dt
+  \item \int \sin^6(x)\cos^3(x)dx
+  \item \int_0^{\pi} cos^4(2t) dt
+  \item \int  \cos(\theta) \cos^5(\sin(\theta)) d \theta
+  \item \int_0^1 x^3 \sqrt{1-x^2} dx
+  \item \int_{\sqrt{2}}^2 \frac{1}{t^3(\sqrt{t^2-1})} dt
+  \item \int \frac{dx}{\sqrt{x^2+16}} dx
+  \item \int_0^{a} x^2 \sqrt{a^2-x^2}dx
+  \item \int \frac{x-9}{(x+5)(x-2)} dx
+  \item \int_0^1 \frac{2}{2x^2+3x+1} dx
+  \item \int_3^4 \frac{x^3-2x^2-4}{x^3+2x^2} dx
+  \item \int \frac{x^2+1}{(x-3)(x-2)^2} dx
+  \item \int \frac{10}{(x-2)(x^2+9)} dx
+\end{mathlist}
+\begin{answer}
+\begin{mathlist}
+  \item \frac{1}{5}x \sin(5x)+\frac{1}{25} \cos(5x)+c
+  \item \frac{1}{6}p^6 \ln(p) +\frac{1}{36}p^6+C
+  \item ~
+  \item 6\ln(9)-4\ln(4)-4
+  \item -\frac{6}{e}+3
+  \item -\frac{1}{2} \cos(x^2)+C
+  \item \frac{1}{2}(\ln(x))^2+C
+  \item e^{\tan(x)}+C
+  \item \ln(\vert \arcsin(x) \vert)+ C
+  \item -\tan(\cos(x))+C
+  \item \frac{1}{5}(x^2+1)^{\frac{5}{2}}- \frac{1}{3}(x^2+1)^{\frac{3}{2}}+C
+  \item 2
+  \item \frac{1}{153}(2^{51}+1)
+  \item \frac{1}{7} \sin^7(x)-\frac{1}{5} \sin^5(x)+C
+  \item \frac{3\pi}{8}
+  \item \sin(\sin(\theta))- \frac{2}{3}\sin^5(\sin(\theta))+ \frac{1}{5} \sin^5(\sin(\theta))+C
+  \item \frac{2}{5}
+  \item \frac{\pi}{4}+ \frac{\sqrt{3}}{8}-\frac{1}{4}
+  \item \ln(\sqrt{x^2+16}+x)-\ln(4)+C
+  \item \frac{\pi}{16}a^4
+  \item 2 \ln \vert x+5 \vert-\ln \vert x-2 \vert+C
+  \item 2\ln(\frac{3}{2})
+  \item \frac{7}{6}+ \ln(\frac{2}{3})
+  \item 10\ln \vert x-3 \vert-9 \ln \vert x-2 \vert+ \frac{5}{x-2}+C
+  \item \frac{3}{8} \pi
+\end{mathlist}
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Calcule as Integrais. Em cada um dos itens você poderá de usar mais de uma
+técnica ou até a mesma técnica mais de uma vez,
+\begin{mathlist}
+  \item \int_0^{\pi} t \cos^2(t) dt
+  \item \int x \arccos(x)dx
+  \item \int \frac{cos^3(\sqrt{x})}{\sqrt{x} \hspace{0,1cm} cossec(\sqrt{x})}dx
+  \item \int \frac{e^{-x}}{\sqrt{1-e^{-2x}}}dx
+ %\item \int \frac{r}{\sqrt{r^2-2r}} dr
+  \item \int x^5e^{-x^3} dx
+  \item \int \frac{\sec(\theta)\tan(\theta)}{\sec^2(\theta)- \sec(\theta)}d \theta
+  \item \int \frac{\ln(x)}{x \sqrt{1+(\ln(x))^2}}dx
+  \item \int \frac{e^x}{(e^{2x}+6e^x+10)^{\frac{3}{2}}} dx
+  \item \int \frac{3x^2-2}{x^3-2x-8}dx
+  \item \int \frac{(\ln(x))^2}{x^3}dx
+  \item \int \frac{\ln(x+1)}{x^2}dx
+  \item \int x^2 \arcsin(x)dx
+  \item \int \frac{\sin^3(\frac{1}{x})}{x^2}dx
+  \item \int \frac{\sin^3(x)\cos(x)}{\sqrt{16+\sin^2(x)}}dx
+  \item \int x \arctan(x) dx
+  \item \int \frac{\sec^2(t)}{\tan^2(t)+3\tan(t)+2}dt
+\end{mathlist}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Uma partícula se move ao longo de uma reta com uma velocidade
+$v(t)= t^2-t$, onde $v$ é medida em metros por segundo. Ache
+\begin{alphalist}
+  \item O deslocamento.
+  \item A distância percorrida pela partícula no intervalo de tempo $[0,5]$.
+\end{alphalist}
+\textit{Lembrete}: Se $s(t)$ é a função deslocamento, então a velocidade
+$v(t)=s'(t)$. da mesma forma se $v(t)$ é a equação da velocidade então
+a função posição (deslocamento) é $s(t)=\int v(t) dt$, caso venha pedido
+a distância percorrida no intervalo $[a,b]$ então \(s= \int_a^b v(t) dt\).
+O deslocamento nos primeiros $t$ segundos é dado por \(s(t)= \int_0^t v(t) dt\).
+\begin{answer}
+\begin{mathlist}
+  \item s(t)= \frac{t^3}{3}-\frac{t^2}{2}+C
+  \item \frac{175}{6}m/s
+\end{mathlist}
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Se $f$ for uma função contínua tal que
+\[
+  \int_1^x f(t) dt= (x-1)e^{2x}+ \int_1^x e^{-t}f(t) dt
+\]
+para todo $x$, ache uma formula explícita para $f(x)$.
+\hint Use o Teorema Fundamental do cálculo parte 1.
+\begin{answer}
+  \(f(x)= \frac{e^{2x}(2x-1)}{1-e^{-x}}\)
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+  Seja
+  \(g(x)=\int_1^x f(t) dx\) e
+  \(f(t)=\int_1^{t^2} \frac{\sqrt{1+u^7}}{\sqrt{u^5}}du\),
+  encontre $g''(2)$.
+\begin{answer}
+  \(\frac{\sqrt{1+2^{14}}}{16}\)
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Seja \(f(x)=\int_0^x (1-t^2)e^{t^2} dt\).
+\begin{alphalist}
+  \item Encontre e classifique os pontos críticos de $f$.
+  \item Analise o crescimento e o decrescimento de $f$.
+\end{alphalist}
+\begin{answer}
+\begin{alphalist}
+  \item Pontos críticos: $x=-1$ e $x=1$.
+  \item $f$ é crescente no intervalo $(-1,1)$ e
+        decrescente nos intervalos $(-\infty,-1)$ e $(1, \infty)$.
+\end{alphalist}
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Uma partícula se move ao longo de uma reta com velocidade igual a
+$v(t)=t^2e^{-t}$ metros por segundo após $t$ segundos.
+Qual a distância que essa partícula percorrerá nos primeiros $t$ segundos.
+\begin{answer}
+  $s(t)=-e^{-t}(t^2+2t+2)+K$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Uma partícula se move em linha reta com função velocidade
+$v(t)= \sin(\omega t) \cos^2(\omega t)$.
+Encontre a sua função posição $s=f(t) $ se $f(0)=0$?
+\begin{answer}
+  \(S=\frac{1-\cos^3(\omega t)}{3\omega}\)
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Use substituição trigonométrica para mostrar que
+\[
+  \int \frac{dx}{\sqrt{x^2+a^2}}= \ln(x+\sqrt{x^2+a^2})+C
+\]
+\end{exercise}
+
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área delimitada pela elipse
+\[
+  \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+\]
+\begin{answer}
+  $\pi ab$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área sob a curva $y=e^{\sin(x)}\sin(2x)$ de $x=0$ a $x=\frac{\pi}{2}$.
+
+\textit{Lembrete}:
+Lembre que a área sob (abaixo) de uma curva $y=f(x)$ (limitada pelo eixo x),
+no intervalo $[a,b]$  é dada por \(A=\int_a^b f(x) dx\).
+Além disso, lembre-se que $\sin(2x)=2\sin(x)\cos(x)$.
+\begin{answer}
+  $A=2$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Se $f$ é uma função contínua no intervalo $[a,b]$,
+o valor médio de $f$ é definido como
+\[
+  f_{\text{med}} = \frac{1}{b-a} \int_a^b f(x) dx
+\]
+Encontre o valor médio das seguintes funções
+\begin{enumerate}
+  \item $f(x)=x \sec^2(x)$ no intervalo $[0, \frac{\pi}{4}]$.
+  \item $f(x)=\frac{\sqrt{x^2-1}}{x}$, $1 \leq x \leq 7$.
+\end{enumerate}
+\begin{answer}
+\begin{mathlist}
+  \item V_m=1-\frac{\ln(4)}{\pi}
+  \item \frac{1}{6}(4\sqrt{3}-arcsec(7))
+\end{mathlist}
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Nas figuras a  seguir, a área 1 ($A_1$) representa a área sob a curva
+$f(x)=x^2 \arcsin(x)$ e a área 2  ($A_2$) representa a área sob a curva
+$g(x)=x \arccos(x^2)$. Encontre a diferença $A_2-A_1$.
+\textit{OBS}: Para calcular a integral envolvida no cálculo da área
+$A_2$, você deve OBRIGATORIAMENTE começar usando uma substituição simples.
+\begin{center}
+  \includegraphics[width=0.7\linewidth]{exercicio_area_1_1}
+  \includegraphics[width=0.7\linewidth]{exercicio_area_1_2}
+\end{center}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área delimitada pelas curvas $y=1-x^2$ e $y=3x^2$.
+\begin{answer}
+  \(A= \frac{11}{24}\)
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área delimitada pelas curvas $y=3x$ e $y=2x^2+x$.
+\begin{answer}
+  $A= \sfrac{1}{3}$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área delimitada pelas curvas $y=\sqrt[3]{x}$ e $y=x$.
+\begin{answer}
+  $A= \sfrac{1}{2}$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Encontre a área delimitada pelas curvas $y= \cos(x)$ e $y= \cos^2(x)$
+entre $x=0$ e $x=\pi$.
+\begin{answer}
+  $A= 2$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Um arquiteto propôs colocar no piso de uma praça pastilhas coloridas em uma
+região plana cujo o formato se assemelha (respeitando a escala) a região
+delimitada simutâneamente pelas quarto curvas $y= \ln(x)$, $y=e^x$,
+$y=1-x$ e $x=e$. Esboce a região e calcule a área.
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Determine a área da região limitada exatamente pelas três curvas
+$y =x^2$, $ y = 2- x^2$ e $y = 2x + 8$.
+\begin{answer}
+  $\frac{100}{3}$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Avalie as seguintes integrais impróprias:
+\begin{mathlist}
+  \item \int_{1}^{\infty} \frac{1}{(3x+1)^2}dx
+  \item \int_{-\infty}^{\infty} x^3e^{-x^4} dx
+  \item \int_{-1}^0 \frac{e^{\frac{1}{x}}}{x^3}dx
+  \item \int_3^5 \frac{dx}{x^2-5x+6}
+  \item \int_{-2}^{3} \frac{1}{x^4} dx
+\end{mathlist}
+\begin{answer}
+\begin{alphalist}
+  \item $\sfrac{1}{12}$
+  \item 0
+  \item $\sfrac{-2}{e}$.
+  \item A integral é divergente.
+  \item A integral é divergente.
+\end{alphalist}
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+A área sob a curva $y=xe^{-x}$ definida no intervalo $[0,\infty)$ é convergente?
+\begin{answer}
+  A área converge e vale 1
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Podemos estender a nossa definição de valor médio de uma função contínua
+a um intervalo definindo o valor médio de $f$ no intervalo $[a, \infty)$
+como
+\[
+  \lim_{ t \to \infty} \frac{1}{t-a} \int_a^t f(x) dx
+\]
+Calcule o valor médio de $y=\arctan(x)$ no intervalo $[0, \infty)$.
+\begin{answer}
+  $A= \frac{\pi}{2}$
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+%Se $f$ for uma função contínua tal que
+%$$ \int_1^{x^2} f(t) dt= x\arctan(e^x)+ \int_1^x e^{x}f(t) dt$$
+%para todo $x$, ache uma formula explícita para $f(x) $.
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
+Avalie a integral imprópria \(\int_0^{\infty} \frac{e^{-x}}{1-e^{-2x}}dx\).
+Lembre-se que a integral indefinida já foi resolvida no exercício 2-d.
+\begin{answer}
+  A integral é divergente.
+\end{answer}
+\end{exercise}
+
+%------------------------------------------------------------------------------%
+%\begin{exercise}
+% Seja $g(x)=\int_1^x f(t) dx$ e $f(t)=\int_1^{t^2} \frac{\sqrt{1+u^7}}{\sqrt{u^5}}du$, encontre $g''(2)$.
+%\item Determine os pontos de inflexão da curva $f(x)= \int_0^x \frac{1}{3+2t+4t^2}$.
+%\item Calcule $\displaystyle \lim_{x \to 3} \left( \frac{x}{x-3} \int_3^x \frac{\sin(t)}{t}dt\right)$.
+%\begin{answer}
+%\end{answer}
+%\end{exercise}
+
+%------------------------------------------------------------------------------%
 %\begin{exercise}
 %\begin{answer}
 %\end{answer}
