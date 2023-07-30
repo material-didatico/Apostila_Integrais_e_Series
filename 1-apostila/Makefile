@@ -18,11 +18,11 @@ RUBBER_PDF= ${RUBBER} --pdf
 .PHONY: clean
 clean:
 	-@ rm -vf *~ .*~  *.bak \
-      *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc \
-		  *.bcf *.run.xml .*.sw? *.synctex.gz *.txss *.idx \
-			*.ilg *.ind *.lod 
+       *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc \
+       *.bcf *.run.xml .*.sw? *.synctex.gz *.txss *.idx \
+       *.ilg *.ind *.lod *.mtc*
 	-@ for T in $(NON_FILES) ; do ${RUBBER} --clean --verbose $$T ; done
-	-@ for D in $(SUBDIRS)      ; do make -C $$D clean               ; done
+	-@ for D in $(SUBDIRS)   ; do make -C $$D clean               ; done
 
 .PHONY: distclean
 distclean: clean

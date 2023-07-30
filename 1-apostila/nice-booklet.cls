@@ -626,8 +626,6 @@
 %------------------------------------------------------------------------------%
 %------------------------------------------------------------------------------%
 
-\newcommand*{\hint}[1]{\underline{Dica}: \textit{#1}}
-
 \NewDocumentEnvironment{exercicesfmt}{o}
 {%
 \begin{small}%
@@ -1231,6 +1229,7 @@
 \renewcommand{\mtcSfont}{\small\mdseries}
 
 \xpretocmd{\tableofcontents}{%
+  \dominitoc[n]%
   \begingroup%
   \setlength{\parskip}{3mm plus 1mm minus 1mm}%
   \addtocontents{toc}{\protect\label{cap:toc}}%
@@ -1238,6 +1237,7 @@
 
 \xapptocmd{\tableofcontents}{%
   \endgroup%
+  \adjustmtc%
 }{}{}
 
 %------------------------------------------------------------------------------%
