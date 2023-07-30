@@ -34,20 +34,11 @@ A seguim estão algumas funções importantes.
 %------------------------------------------------------------------------------%
 \subsection*{Funções Exponencial e Logarítmica}
 
-A \emph{Função Exponencial}\index{Função!exponencial} pode ser definida de
-diversas formas, por exemplo, pela sua série de Taylor
+A \emph{Função Exponencial}\index{Função!exponencial} é a função
 \[
-  e^x = \exp(x)
-      = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots
-      = \sum_{n=0}^{\infty} \frac{x^n}{\;n!\;}
+  e^x
 \]
-para todo $x$ real.
-Consequentemente, o número $e$ é a soma da série
-\[
-  e = 2 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots
-    = \sum_{n=0}^{\infty} \frac{1}{\;n!\;}
-\]
-e tem o valor
+onde a constante $e$ tem o valor
 \[
  e = 2,71828\;18284\;59045\;23536\;02874\;71352\;66249\;77572\;47093\;69995\dots
 \]
@@ -58,11 +49,9 @@ Alternativamente podemos definir essa função pelo limite
   \label{eq:exponencial-pelo-limite}
   \exp(x) = \lim_{n\to\infty} \left( 1 + \frac{x}{n} \right)^n
 \end{equation}
-A derivada e a integral da função exponencial são
+A derivada da função exponencial é
 \[
- \frac{d}{dx} e^x = e^x
- \qquad\qquad
- \int e^x\,dx = e^x + C
+  \frac{d}{dx} e^x = e^x
 \]
 
 %------------------------------------------------------------------------------%
@@ -104,21 +93,9 @@ $\abs{x}$ estendendo assim o domínio para valores negativos de $x$.
 \end{figure}
 %------------------------------------------------------------------------------%
 
-A série de Taylor da função logaritmo normalmente é escrita como
-\[
-  \ln(x+1)
-  = x - \frac{x^2}{2}
-  + \frac{x^3}{3}
-  - \frac{x^4}{4}
-  + \cdots
-  = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}x^n}{n}
-\]
-e tem raio de convergência $R=1$.
-A derivada e a integral da função exponencial são
+A derivada da função exponencial é
 \[
   \frac{d}{dx} \ln(x) = \frac{1}{\,x\,}
-  \qquad\qquad
-  \int \ln(x)\,dx = x\big( \ln(x) - 1 \big) + C
 \]
 
 %------------------------------------------------------------------------------%
@@ -212,8 +189,8 @@ Fórmulas de ângulo duplo
 \end{align*}
 Fórmulas de metade do ângulo
 \begin{align*}
-	\sin^2(\frac{x}{2}) & = \frac{1-\cos(x)}{2} &
-  \cos^2(\frac{x}{2}) & = \frac{1+\cos(x)}{2}
+  \sin^2\left(\frac{x}{2}\right) & = \frac{1-\cos(x)}{2} &
+  \cos^2\left(\frac{x}{2}\right) & = \frac{1+\cos(x)}{2}
 \end{align*}
 
 %------------------------------------------------------------------------------%
@@ -320,12 +297,6 @@ Os gráficos dessas funções podem ser vistos na Figura~\ref{fig:functions_hype
 \end{figure}
 %------------------------------------------------------------------------------%
 
-Também podemos definir essas funções com o uso de expressões envolvendo números complexos
-\begin{align*}
-\sinh(x) & = -i \sin(ix) &
-\cosh(x) & =    \cos(ix)
-\end{align*}
-
 Derivadas das funções hiperbólicas
 \begin{align*}
 \frac{d  }{dx  } \sinh(x) & = \cosh(x) & \frac{d  }{dx  } \cosh(x) & = \sinh(x) \\[3mm]
@@ -344,27 +315,14 @@ Algumas relações úteis
 \sinh(-x) & = -\sinh(x) &
 \cosh(-x) & =  \cosh(x)
 \end{align*}
-Relação com a exponencial e \emph{Fórmula de Euler}\index{Fórmula!Euler}
-\begin{align*}
-	e^x     & = \cosh(x) + \sinh(x) \\
-	e^{-x}  & = \cosh(x) - \sinh(x) \\
-	e^{-ix} & = \cos(x) + i\sin(x)
-\end{align*}
 Identidade similar a relação pitagórica
-\[ \cosh^2(x) - \sinh^1(x) = 1 \]
+\[ \cosh^2(x) - \sinh^2(x) = 1 \]
 Somando e subtraindo os argumentos
 \begin{gather*}
 \sinh(x+y) = \sinh(x)\cosh(y) + \cosh(x)\sinh(y) \\
 \sinh(x-y) = \sinh(x)\cosh(y) - \cosh(x)\sinh(y) \\
 \cosh(x+y) = \cosh(x)\cosh(y) + \sinh(x)\sinh(y) \\
 \cosh(x-y) = \cosh(x)\cosh(y) - \sinh(x)\sinh(y)
-\end{gather*}
-Séries de Taylor
-\begin{gather*}
-\sinh(x) = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots
-         = \sum_{n=0}^{\infty} \frac{x^{2n+1}}{\;(2n+1)!\;} \\
-\cosh(x) = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots
-         = \sum_{n=0}^{\infty} \frac{x^{2n}}{\;(2n)!\;}
 \end{gather*}
 Da mesma forma como as funções trigonométricas podem ser definidas a partir do seno e
 cosseno, podemos definir as seguintes funções hiperbólicas
@@ -442,10 +400,6 @@ Derivada da sinc
 \[
   \frac{d}{dx} \sinc(x) = \frac{\cos(x)-\sinc(x)}{x}
 \]
-Série de Taylor da sinc
-\[
-  \sinc(x) = \sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2n}}{(2n+1)!}
-\]
 Cuidado para não confundir a definição utilizada aqui com
 uma definição alternativa comumente utilizada no processamento digital de sinais,
 da função \emph{sinc normalizada}\index{sinc!normalizada}
@@ -455,6 +409,11 @@ da função \emph{sinc normalizada}\index{sinc!normalizada}
 
 %------------------------------------------------------------------------------%
 \subsection*{Outras Funções}
+
+Apresentamos aqui algumas funções muito usadas em aplicações.
+Essas funções são exemplos de funções definidas por partes, isso é, não temos
+uma única expressão matemática que defina a função como um todo.
+Assim, usamos expressões diferentes em partes diferentes do domínio.
 
 %------------------------------------------------------------------------------%
 \begin{figure}
@@ -478,12 +437,6 @@ da função \emph{sinc normalizada}\index{sinc!normalizada}
     \input{fig_functions_rampa}
     \caption{Gráfico da função rampa}
     \label{fig:functions_rampa}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\linewidth}
-    \centering
-    \input{fig_functions_delta}
-    \caption{Representação da Delta de Dirac}
-    \label{fig:functions_delta}
   \end{subfigure}\\[0.5\baselineskip]
   %--------------------------------------------------------------%
   \caption{Gráficos das funções característica, Heaviside, rampa e Delta de Dirac}
@@ -535,30 +488,6 @@ função de Heaviside, que é definida por
   \end{cases}
 \end{equation}
 
-A \emph{Delta de Dirac}\index{Delta de Dirac}, \(\delta(t)\),
-que representa um \emph{Impulso Unitário Instantâneo}\index{Impulso unitário instantâneo}
-em \(t=0\). Ela é definida pela propriedade
-\begin{equation}
-  \label{eq:delta_dirac}
-  \int_{-\infty}^\infty \delta(t)\; f(t)\, dt \;=\; f(0)
-\end{equation}
-Cuidado com o delta pois ele \emph{não é uma função} segundo a definição empregada no Cálculo.
-Esclarecer seu significado preciso demanda a teoria de distribuições.
-Mesmo assim, baseados em uma teoria matemática mais elaborada, escrevemos
-informalmente que
-\[
-  \delta(t) = \lim_{h\to 0^+} d_h(t) =
-    \begin{cases}
-      \;\, 0      & \quad t\neq 0 \\
-      \;   \infty & \quad t = 0
-    \end{cases}
-\]
-A Seção~\ref{sec:convergencia_transformada_fourier} discute um pouco mais sobre essa função.
-
 A Figura~\ref{fig:functions_other} mostra o gráfico dessas funções.
-Porém, não podemos dizer que a Figura~\ref{fig:functions_delta} seja o gráfico
-do Delta de Dirac. Essa é uma representação onde a seta indica que a função não
-assume um valor real nesse ponto. Normalmente o valor $y$ onde a seta aponta
-indica a constante multiplicando o delta.
 
 %------------------------------------------------------------------------------%

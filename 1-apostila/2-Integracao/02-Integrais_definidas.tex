@@ -87,3 +87,49 @@ de áreas conforme ilustra a Figura~\ref{fig:integral_definida_3}.
 \end{teorema}
 
 %------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a integral da função de Heaviside
+  no intervalo $[-1, 2]$.
+  \solution
+  Primeiro precisamos relembrar a definição da função de
+  Heaviside~\eqref{eq:funcao_heaviside}
+  \[
+    \heaviside(x) = \begin{cases}
+      \; 0 & \; x < 0 \\
+      \; 1 & \; x > 0
+    \end{cases}
+  \]
+  Notamos que essa função é definida por partes, assim precisamos usar
+  a propriedade 7 do Teorema~\ref{teo:propriedades-integral-definida}
+  para dividir a integral em duas partes
+  \[
+    \int_{-1}^{2} \heaviside(x) \,dx
+    = \int_{-1}^{0} 0 \,dx
+    + \int_{0}^{2} 1 \,dx \,.
+  \]
+  Agora precisamos calcular separadamente as áreas entre cada função e o
+  eixo-$x$.
+
+  Na primeira integral a função é sempre zero e portanto a área também
+  será zero
+  \[
+    \int_{-1}^{0} 0 \,dx = 0 \,.
+  \]
+  Na segunda integral a função é constante igual a 1, portanto a área entre
+  o gráfico e o eixo será a área do retângulo de altura 1 e base igual
+  a o comprimento do intervalo de integração
+  \begin{align*}
+    \int_{0}^{2} 1 \,dx
+    & = \int_{0}^{2} dx  \\[3mm]
+    & = \text{base} \times \text{altura} \\[3mm]
+    & = (2-0)\times 1 = 2
+  \end{align*}
+  Concluímos que
+  \[
+    \int_{-1}^{2} \heaviside(x) \,dx = 0 + 2 = 2 \,.
+  \]
+\end{example}
+%------------------------------------------------------------------------------%
+
+
+%------------------------------------------------------------------------------%

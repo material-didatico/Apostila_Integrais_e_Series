@@ -119,6 +119,45 @@
 \end{example}
 %------------------------------------------------------------------------------%
 
+\begin{example}
+  Determine se a integral \(\int_{-\infty}^{\infty} x^3e^{-x^4} dx\)
+  é convergente ou divergente.
+  \solution
+  Usando  definição de integral imprópria
+  \begin{equation}
+    \label{exemplo_eqimp}
+      \int_{-\infty}^{\infty} x^3e^{-x^4} dx
+    = \lim_{t \to-\infty} \int_{t}^{0} x^3e^{-x^4} dx
+    + \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx
+  \end{equation}
+  Para resolvermos a integral indefinida $\int x^3e^{-x^4} dx$,
+  usamos a substituição $u=-x^4 \Rightarrow du=-4x^3dx$. Logo,
+  \[
+    \int x^3e^{-x^4} dx
+    = -\frac{1}{4}\int e^u du
+    = -\frac{1}{4}e^u+C
+    = -\frac{1}{4}e^{-x^4}+C
+  \]
+  Usando o Teorema Fundamental do cálculo temos
+  \begin{align*}
+    \int_{-\infty}^{0} x^3e^{-x^4} dx
+    & = \lim_{t \to -\infty} \int_{t}^{0} x^3e^{-x^4} dx \\
+    & = \lim_{t \to -\infty} -\frac{1}{4}\left( e^0-e^t \right) \\
+    & =-\frac{1}{4}
+  \end{align*}
+  \begin{align*}
+    \int_{0}^{\infty} x^3e^{-x^4} dx
+    & = \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx \\
+    & = \lim_{t \to -\infty} -\frac{1}{4}\left( e^t-e^0 \right) \\
+    & =-\infty
+  \end{align*}
+  Como uma das integrais do lado direito da equação
+  \ref{exemplo_eqimp} diverge então
+  \(\int_{-\infty}^{\infty} x^3e^{-x^4} dx\)
+  é divergente.
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------
 Algumas observações importantes
 \begin{itemize}
   \item Seja $F$ a primitiva mais geral de $f$, ou seja,

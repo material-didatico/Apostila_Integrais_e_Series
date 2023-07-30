@@ -73,17 +73,17 @@ converge, então \(\lim_{x \to \infty} f(x) = 0\).
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Determine se a integral \(\int \frac{1}{x} dx\) é convergente ou divergente.
+  Determine se a integral \(\int_1^{\infty} \frac{1}{x} dx\) é convergente ou divergente.
   \solution
   De acordo com a definição de integrais impróprias do tipo $I$, temos
   \begin{align*}
-    \int \frac{1}{x} dx
+   \int_1^{\infty}  \frac{1}{x} dx
     & = \lim_{t \to \infty} \int_1^{t} \frac{1}{x} dx     \\
     & = \lim_{t \to \infty} \big( \ln\abs{x} \big) \evalat{1}{t} \\
     & = \lim_{t \to \infty} \big(\ln(t)- \ln(1)\big)      \\
     & = \lim_{t \to \infty} \ln(t)= \infty.
   \end{align*}
-  Portanto, a integral imprópria $\int \frac{1}{x} dx$ é divergente.
+  Portanto, a integral imprópria $\int_1^{\infty} \frac{1}{x}dx$ é divergente.
   \color{black}
 \end{example}
 %------------------------------------------------------------------------------%
