@@ -3,9 +3,9 @@
 \label{sec:Integrais_Indefinidas}
 
 Nesta seção vamos apresentar a operação inversa da derivação, que chamamos
-de primitivação. 
+de primitivação.
 A primitiva de uma função real é uma função que quando derivada nos retorna
-a função inicial. A definição a seguir apresenta esta ideia de forma mais 
+a função inicial. A definição a seguir apresenta esta ideia de forma mais
 rigorosa.
 
 %------------------------------------------------------------------------------%
@@ -29,7 +29,7 @@ Observe um exemplo mais concreto a seguir.
   \solution
   A função
   \(
-    F(x) = \frac{x^3}{3} 
+    F(x) = \frac{x^3}{3}
   \)
   é uma primitiva para a função $f(x)=x^2$, uma vez que
   \begin{align*}
@@ -37,7 +37,7 @@ Observe um exemplo mais concreto a seguir.
             & = \frac{1}{3}\left(x^3\right)' \\[2mm]
             & = \frac{1}{3}\, 3\, x^{3-1} \\[2mm]
             & = x^2 \\
-            & = f(x)            
+            & = f(x)
   \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
@@ -47,7 +47,7 @@ Note que no exemplo anterior a função
   F(x) = \frac{x^3}{3} + 345
 \]
 também é uma primitiva para $f$, o que nos leva a concluir que a
-primitiva de uma função não é única, isso é, se $F(x)$ é uma primitiva 
+primitiva de uma função não é única, isso é, se $F(x)$ é uma primitiva
 de $f(x)$ então $F(x)+C$ também será para qualquer constante $C$.
 O Teorema a seguir caracteriza todas as primitivas de uma função.
 
@@ -88,46 +88,47 @@ Os próximos exemplos obtém a forma mais geral para uma primitiva de uma funç�
 \begin{example}
   Encontre a primitiva mais geral da função \(f(x)= \frac{1}{x}\).
   \solution
-  Lembre-se que 
+  Lembre-se que
   \[
     \frac{d}{dx} \big(\ln(x) \big) = \frac{1}{x} \,,
-  \] 
+  \]
   no intervalo $(0, \infty)$.
   Portanto, a primitiva mais geral no intervalo $(0, \infty)$
-  para 
+  para
   \(f(x)=\frac{1}{x}\)
-  é 
+  é
   \[
-    G(x)=\ln(x)+c \,, 
+    G(x)=\ln(x)+c \,,
   \]
   onde $c$ é uma constante.
 \end{example}
 %------------------------------------------------------------------------------%
 
-No exemplo anterior trabalhamos apenas no intercalo $(0, \infty)$, 
+No exemplo anterior trabalhamos apenas no intercalo $(0, \infty)$,
 mas podemos expandir para toda a reta exceto o zero.
-Note que 
+Note que
 \[
     \frac{d}{dx}\big(\ln\abs{x}\big) = \frac{1}{x}
 \]
 em qualquer intervalo que não inclua o zero, isso nos diz que
 \(\ln\abs{x}+ C\)
 é a primitiva mais geral para
-\(f(x)= \frac{1}{x}\) 
+\(f(x)= \sfrac{1}{x}\)
 tanto no intervalo $(-\infty,0)$ quanto no intervalo $(0, \infty)$.
 
 Em síntese, a primitiva mais geral para $f$ é
 \[
-F(x) 
+F(x)
 = \begin{cases}
     \,\ln(\hpm x) + C, & x > 0 \\[1mm]
     \,\ln(   - x) + C, & x < 0
   \end{cases}
 \]
-ou de forma mais simplificada 
-\[
-F(x) = \ln\abs{x} + C
-\]
+ou de forma mais simplificada
+\begin{equation}
+  \label{eq:prmitiva_ln}
+  F(x) = \ln\abs{x} + C
+\end{equation}
 para todo $x \neq 0$.
 
 %------------------------------------------------------------------------------%
@@ -150,31 +151,8 @@ para todo $x \neq 0$.
 \end{example}
 %------------------------------------------------------------------------------%
 
-Como a derivação é uma operação linear, isso é, podemos trocar a ordem
-da soma de funções ou multiplicação por uma constante com a derivação,
-a primitiva também possui essa propriedade, como descrito na
-proposição a seguir.
-
 %------------------------------------------------------------------------------%
-\begin{proposicao}{Linearidade da Primitiva}{pro:linearidade-primitiva}
-  Dadas funções $f$ e $g$ com primitivas $F$ e $G$, respectivamente,
-  e uma constante $k$ temos que
-  \begin{enumerate}[parsep=11pt]
-    \item A primitiva de \( f(x)+g(x)\) é a função \(F(x) + G(x)\)
-    \item A primitiva de \( kf(x)\) é a função \(kF(x)\)
-  \end{enumerate}
-\end{proposicao}
-%------------------------------------------------------------------------------%
-    
-A seguir apresentaremos, na Tabela \ref{tab:primitivas}, algumas primitivas
-particulares ou \textit{primitivas mais simples}, que nada mais é que a
-primitiva sem a constante, isso é, com constante igual a zero. 
-Usaremos a notação $F$ e $G$,
-significando que $F$ é uma primitiva para $f$ e $G$ é uma primitiva para $g$.
-Uma tabela mais completa está na Seção~\ref{sec:Tabela_de_integrais}.
-
-%------------------------------------------------------------------------------%
-\begin{table}
+\begin{table}[b]
   \centering
   \caption{Tabela de primitivas}
   \label{tab:primitivas}
@@ -199,6 +177,29 @@ Uma tabela mais completa está na Seção~\ref{sec:Tabela_de_integrais}.
 \end{table}
 %------------------------------------------------------------------------------%
 
+Como a derivação é uma operação linear, isso é, podemos trocar a ordem
+da soma de funções ou multiplicação por uma constante com a derivação,
+a primitiva também possui essa propriedade, como descrito na
+proposição a seguir.
+
+%------------------------------------------------------------------------------%
+\begin{proposicao}{Linearidade da Primitiva}{pro:linearidade-primitiva}
+  Dadas funções $f$ e $g$ com primitivas $F$ e $G$, respectivamente,
+  e uma constante $k$ temos que
+  \begin{enumerate}[parsep=11pt]
+    \item A primitiva de \( f(x)+g(x)\) é a função \(F(x) + G(x)\)
+    \item A primitiva de \( kf(x)\) é a função \(kF(x)\)
+  \end{enumerate}
+\end{proposicao}
+%------------------------------------------------------------------------------%
+
+A seguir apresentaremos, na Tabela \ref{tab:primitivas}, algumas primitivas
+particulares ou \textit{primitivas mais simples}, que nada mais é que a
+primitiva sem a constante, isso é, com constante igual a zero.
+Usaremos a notação $F$ e $G$,
+significando que $F$ é uma primitiva para $f$ e $G$ é uma primitiva para $g$.
+Uma tabela mais completa está na Seção~\ref{sec:Tabela_de_integrais}.
+
 %------------------------------------------------------------------------------%
 \begin{example}
   Encontre todas as funções $g$ tais que
@@ -213,13 +214,13 @@ Uma tabela mais completa está na Seção~\ref{sec:Tabela_de_integrais}.
     g'(x)
     & = 4 \sin(x) + \frac{2x^5- \sqrt{x}}{x} \\[2mm]
     & = 4 \sin(x) + \frac{2x^5}{x} - \frac{x^{\sfrac{1}{2}}}{x} \\[2mm]
-    & = 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}}  
+    & = 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}}
   \end{align*}
   Assim, usando a Tabela~\ref{tab:primitivas} e o
   Teorema~\ref{teo:primitiva-geral}, temos que
   \begin{align*}
-    g(x) 
-    & = 4\big(-\cos(x)\big) 
+    g(x)
+    & = 4\big(-\cos(x)\big)
       + 2 \frac{x^5}{5}
       - \frac{x^{\sfrac{1}{2}}}{\sfrac{1}{2}}
       + C \\
@@ -259,13 +260,13 @@ Uma tabela mais completa está na Seção~\ref{sec:Tabela_de_integrais}.
 \end{example}
 %------------------------------------------------------------------------------%
 
-Até aqui nesta seção fizemos o processo inverso do que fazíamos ao 
+Até aqui nesta seção fizemos o processo inverso do que fazíamos ao
 calcular derivadas.
 Antes, tínhamos uma função $f$ e gostaríamos de encontrar a sua derivada,
 agora dada uma determinada função $f'$ estamos interessado em encontrar uma
 função (na verdade, um família de funções) $f$ cuja a derivada seja $f'$.
 
-Em síntese temos que 
+Em síntese temos que
 \begin{ceqn}
 \[
     \Big(\,f' \text{ é derivada de } f \,\Big)
@@ -279,11 +280,11 @@ primitivas da função.
 
 %------------------------------------------------------------------------------%
 \begin{definicao}{Integral Indefinida}{def:integral-indefinida}
-  A notação 
+  A notação
   \[
     \int f(x) \,dx
   \]
-  é tradicionalmente usada para a primitiva de $f$ e é chamada de 
+  é tradicionalmente usada para a primitiva de $f$ e é chamada de
   \emph{integral indefinida}\index{Integral!indefinida}.
 \end{definicao}
 %------------------------------------------------------------------------------%
@@ -292,12 +293,12 @@ A definição anterior determina que
 \[
     \int f(x) \,dx = F(x)
 \]
-significa que $F$ é a primitiva mais geral de $f$, ou seja, 
+significa que $F$ é a primitiva mais geral de $f$, ou seja,
 \[
   F'(x) = f(x)
 \]
 
-Decorre das propriedades de primitiva que a integral indefinida 
+Decorre das propriedades de primitiva que a integral indefinida
 é uma operação linear, assim podemos reescrever uma nova versão da
 Proposição~\ref{pro:linearidade-primitiva}.
 
@@ -311,7 +312,7 @@ Proposição~\ref{pro:linearidade-primitiva}.
 \end{proposicao}
 %------------------------------------------------------------------------------%
 
-Note que usamos o termo \emph{integrável}\index{Função!integrável} para 
+Note que usamos o termo \emph{integrável}\index{Função!integrável} para
 indicar qualquer função que possua uma primitiva.
 
 %------------------------------------------------------------------------------%
@@ -321,8 +322,8 @@ indicar qualquer função que possua uma primitiva.
     A integral indefinida de \(x^2\) é
     \[
       \int x^2 \,dx = \frac{x^3}{3} + C
-    \]    
-    pois 
+    \]
+    pois
     \[
       \frac{d}{dx} \left( \frac{x^3}{3}+C \right) = x^2 \,.
     \]
@@ -335,9 +336,9 @@ indicar qualquer função que possua uma primitiva.
   \solution
     A integral indefinida de \(\sec^2(x)\) é
     \[
-      \int \sec^2(x) \,dx = \tan(x)+C 
+      \int \sec^2(x) \,dx = \tan(x)+C
     \]
-    pois 
+    pois
     \[
       \frac{d}{dx} \big( \tan(x)+C \big) = \sec^2(x) \,.
     \]
@@ -350,7 +351,8 @@ indicar qualquer função que possua uma primitiva.
   \solution
   Usando as propriedades de integral indefinida
   \begin{align*}
-    \int 10x^4 - 2\sec^2(x) \,dx
+    F
+    & = \int 10x^4 - 2\sec^2(x) \,dx \\[2mm]
     & = 10 \int x^4 \,dx - 2 \int \sec^2(x) \,dx \\[2mm]
     & = 10 \frac{x^5}{5} - 2\tan(x) + C \\[2mm]
     & = 2x^5 - 2\tan(x) + C
@@ -364,11 +366,11 @@ os termos ficamos com apenas uma constante.
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Uma partícula move-se em uma reta e tem aceleração dada por 
+  Uma partícula move-se em uma reta e tem aceleração dada por
   \[
     a(t) = 6t + 4 \,.
   \]
-  Sua velocidade inicial é $v(0) = \SI{6}{\centi\meter/\second}$, 
+  Sua velocidade inicial é $v(0) = \SI{6}{\centi\meter/\second}$,
   e seu deslocamento inicial é $s(0) = \SI{9}{\centi\meter}$.
   Encontre sua função posição.
 
@@ -384,7 +386,7 @@ os termos ficamos com apenas uma constante.
     3 \cdot 0^2 + 4 \cdot 0 + C & = 6 \\
     C & = 6
   \end{align*}
-  Assim, 
+  Assim,
   \[
     v(t) = 3t^2 + 4t + 6 \,.
   \]
@@ -393,9 +395,9 @@ os termos ficamos com apenas uma constante.
   s(t)
   & = \int v(t) dt \\[2mm]
   & = \int 3t^2 + 4t + 6 dt  \\[2mm]
-  & = t^3 + 2t^2 + 6t + D 
+  & = t^3 + 2t^2 + 6t + D
   \end{align*}
-  Sabendo que $s(0) = 9$, verificamos que $D=9$. 
+  Sabendo que $s(0) = 9$, verificamos que $D=9$.
   Portanto, a função posição pedida é
   \[
       s(t) = t^3 + 2t^2 - 6t + 9 \,.

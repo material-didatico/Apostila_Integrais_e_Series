@@ -53,7 +53,7 @@ Seja \(f(x)=\int_0^x (1-t^2)e^{t^2} dt\)
 
 %------------------------------------------------------------------------------%
 \begin{exercise}
-Em qual intervalo a curva $y= \int_0^x \frac{t^2}{t^2+t+2} dt$
+Em qual intervalo a curva \(y= \int_0^x \frac{t^2}{t^2+t+2} dt\)
 é côncava para baixo?
 \begin{answer}
   No intervalo $(-4,0)$
@@ -63,7 +63,7 @@ Em qual intervalo a curva $y= \int_0^x \frac{t^2}{t^2+t+2} dt$
 
 %------------------------------------------------------------------------------%
 \begin{exercise}
-Calcule $f'(2)$ se $f(x)= e^{g(x)}$ e $g(x)= \int_2^x \frac{t}{1+t^4}dt$.
+Calcule $f'(2)$ se $f(x)= e^{g(x)}$ e \(g(x)= \int_2^x \frac{t}{1+t^4}dt\).
 \begin{answer}
   $f'(2)=\frac{2}{17}$
 \end{answer}
@@ -105,36 +105,36 @@ Calcule a integral definida
   \item \int_{-2}^{2} f(x)dx \)
         se \(
               f(x) = \begin{cases}
-                       2 &    -2 \leq x  \leq 0 \\
-                       4-x^2 & 0  \leq x  \leq 2
+                       2 &    -2 \leq x \leq 0 \\
+                       4-x^2 & 0 \leq x \leq 2
                      \end{cases}
            \)
   \item \int_0^1 5x-5^x dx
   \item \int_0^1 x(\sqrt[3]{x}+ \sqrt[4]{x})dx
-  \item \int_{0}^{\frac{\pi}{3}} \frac{\sin(\theta)+\sin(\theta) \tan(\theta)}{\sec^2(\theta)} d\theta
+  \item \int_0^{\frac{\pi}{3}} \frac{\sin(\theta)+\sin(\theta) \tan(\theta)}{\sec^2(\theta)} d\theta
   \item \int_0^{\frac{1}{\sqrt{3}}} \frac{t^2-1}{t^4-1}dt
   \item \int_1^4 \frac{\sqrt{y}-y}{y^2}dy
-  \item \int_0^2 \vert 2x-1 \vert dx
+  \item \int_0^2 \abs{2x-1} dx
   \item \int_1^2 \left( \frac{1}{x^2}-\frac{4}{x^3}\right)dx
 \end{mathlist}
 \begin{answer}
   \begin{mathlist}
     \item 63
     \item \frac{52}{3}
-    \item frac{128}{15}
+    \item \frac{128}{15}
     \item 3
     \item 1+ \frac{\sqrt{3}}{2}
-    \item \frac{3}{2}+ ln(2)
+    \item \frac{3}{2}+ \ln(2)
     \item 3-2\cos(3)+e^3
     \item \frac{\pi}{3}
     \item e^2-1
     \item \frac{4\pi}{3}
     \item \frac{28}{3}
-    \item \frac{5}{2}-\frac{4}{ln(5)}
+    \item \frac{5}{2}-\frac{4}{\ln(5)}
     \item \frac{55}{63}
     \item \frac{1}{2}
     \item \frac{\pi}{6}
-    \item 1-ln(4)
+    \item 1-\ln(4)
     \item -\frac{7}{2}
     \item -1
   \end{mathlist}
@@ -171,15 +171,61 @@ faça um esboço da região.
 
 %------------------------------------------------------------------------------%
 \begin{exercise}
+Nos exercícios a seguir, encontre:
+\begin{romanlist}
+    \item O valor médio de $f$ no intervalo dado.
+    \item O valor de $c$ tal que $f_{\text{médio}}=f(c)$.
+    \item Esboce o gráfico de $f$ e um retângulo cuja área é a
+          mesma que a área sob o gráfico de $f$ nesse intervalo.
+\end{romanlist}
+\begin{mathlist}
+  \item f(x)=(x-3)^2,    \) \tabto{50mm} \([2, 5]\)
+  \item f(x)=\sqrt{x},   \) \tabto{50mm} \([0, 4]\)
+  \item f(x)=-3x^2-1,    \) \tabto{50mm} \([0, 1]\)
+  \item f(x)= \abs{x}-1, \) \tabto{50mm} \([-1, 1]\)
+\end{mathlist}
+\begin{answer}
+\begin{alphalist}
+  \item
+    \begin{romanlist}[2]
+      \item \(1\)
+      \item \(c = 2\) e \(c = 4\)
+    \end{romanlist}
+  \item
+    \begin{romanlist}[2]
+      \item \(\frac{4}{3}\)
+      \item \(c=\frac{16}{9}\) e \(c=4\)
+    \end{romanlist}
+  \item
+    \begin{romanlist}[2]
+      \item \(-2\)
+      \item \(c=2\)
+    \end{romanlist}
+  \item
+    \begin{romanlist}[2]
+      \item \(\frac{-1}{2}\)
+      \item \(c=-\frac{1}{2}\) e \(c=\frac{1}{2}\)
+    \end{romanlist}
+\end{alphalist}
+\end{answer}
+\end{exercise}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{exercise}
 Use a propriedade 10 de integrais para estimar o valor da integral.
 \begin{mathlist}
   \item \int_{0}^2 xe^{-x} dx
-  \item \int_{\frac{\pi}{4}}^{\frac{\pi}{3}} \tan(x)dx
+  \item \int_{\sfrac{\pi}{4}}^{\sfrac{\pi}{3}} \tan(x)dx
 \end{mathlist}
 \begin{answer}
   \begin{mathlist}
-    \item 0 \leq \int_{0}^2 xe^{-x} dx \frac{1}{e}
-    \item \frac{\pi}{12} \leq \int_{\frac{\pi}{4}}^{\frac{\pi}{3}} \tan(x)dx \leq \frac{\pi}{2} \sqrt{3}
+    \item 0
+          \leq \int_{0}^2 xe^{-x} dx
+          \leq \frac{1}{e}
+    \item \frac{\pi}{12}
+          \leq \int_{\sfrac{\pi}{4}}^{\sfrac{\pi}{3}} \tan(x)dx
+          \leq \frac{\pi}{2} \sqrt{3}
   \end{mathlist}
 \end{answer}
 \end{exercise}

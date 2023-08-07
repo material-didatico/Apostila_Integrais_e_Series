@@ -95,7 +95,7 @@ Isolando o termo que queremos temos que
 \end{itemize}
 
 %------------------------------------------------------------------------------%
-\begin{example}
+\begin{example} \label{ex:ex1partes}
   Encontre a Integral \(\int x \sin(x)dx\)
 
   \solution
@@ -109,7 +109,7 @@ Isolando o termo que queremos temos que
     & = f(x)g(x)- \int g(x)f'(x)dx \\
     & = x(-\cos(x))- \int (-\cos(x))dx \\
     & = -x \cos(x) + \int \cos(x) dx \\
-    & = -x \cos(x) + \sin(x) dx + C
+    & = -x \cos(x) + \sin(x)  + C
   \end{align*}
 
   \emph{Solução 2} -- usando a fórmula \eqref{eq:formula_partes-2}:
@@ -124,7 +124,7 @@ Isolando o termo que queremos temos que
     & = uv- \int vdu \\
     & = x(-\cos(x))- \int (-\cos(x))dx \\
     & = -x \cos(x) + \int \cos(x) dx \\
-    & = -x \cos(x) + \sin(x) dx + C
+    & = -x \cos(x) + \sin(x)  + C
   \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
@@ -279,6 +279,87 @@ que é uma integral mais difícil que aquela que começamos.
     & = \left( -\frac{1}{2}e^{-2}- \frac{1}{4}e^{-2}\right)- \left(0- \frac{1}{4} \right) \\
     & = \frac{1}{4}-\frac{3}{4}e^{-2}
   \end{align*}
+\end{example}
+
+\begin{example}
+  A figura a seguir mostra a região do primeiro quadrante delimitada pelo eixo
+  $y=0$ e pela curva $f(x)=x \sin(x)$, $0 \leq x \leq \pi$.
+  \begin{enumerate}[label=\alph*)]
+    \item Encontre a área dessa região.
+    \item Encontre o volume do sólido de revolução gerado pela
+          rotação dessa região em torno do eixo $y$.
+    \item Encontre o volume do sólido de revolução gerado pela
+          rotação dessa região em torno do da reta $x=\pi$.
+  \end{enumerate}
+\solution
+\begin{enumerate}[label=\alph*)]
+
+\item
+  Lembre que a fórmula para calcular a área sob a curva de uma função
+  $f(x)$ entre os limites $a$ e $b$ é dada por
+  \[
+    A = \int_a^b f(x)dx
+  \]
+  No nosso caso, a função é $f(x) = x \sin(x)$ e os limites são $a=0$ e $b=\pi$.
+  Então, a área é
+  \[
+    A = \int_0^{\pi} x\sin(x)dx
+  \]
+  Para resolver essa integral definida, precisamos, inicialmente,
+  encontrar a integral indefinida $\int x\sin(x)dx$.
+  No exemplo \ref{ex:ex1partes} essa integral já foi calculada.
+  Assim, usando o Teorema Fundamental do Cálculo-Parte 2
+  \[
+    A = \left[ -x \cos(x) + \sin(x) \right]_0^{\pi}
+    = (-\pi\cos(\pi+ \sin(\pi)))-(-0\cos(0)+ \cos(0))=\pi.
+  \]
+
+  \item
+  Agora, para encontrar o volume do sólido de revolução gerado pela rotação
+  da região delimitada pela curva \(f(x) = x \sin(x)\) e o eixo \(y = 0\)
+  em torno do eixo \(y\), usamos o método de cascas cilíndricas, que é
+  o mais apropriado. O raio da casca é $x$ e a altura $f(x)$.
+
+  Integrando sobre a região entre \(x = 0\) e \(x = \pi\), obtemos o volume
+  \[
+    V = \int_{0}^{\pi} 2\pi x \cdot (x \sin(x)) \, dx
+      = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx
+  \]
+  Para calcular a integral indefinida, usamos integração por partes.
+  Escolhemos \(u = x^2\) e \(dv = \sin(x) \, dx\).
+  Então, \(du = 2x \, dx\) e \(v = -\cos(x)\).
+  \[
+    \int x^2 \sin(x) \, dx = -x^2 \cos(x) - \int -2x \cos(x) \, dx
+  \]
+  Integramos o segundo termo usando novamente integração por partes.
+  Escolhemos \(u = -2x\) e \(dv = \cos(x) \, dx\).
+  Então, \(du = -2 \, dx\) e \(v = \sin(x)\).
+  \[
+    \int -2x \cos(x) \, dx = -2x \sin(x) - \int -2 \sin(x) \, dx
+  \]
+  \[
+    \int -2x \cos(x) \, dx = -2x \sin(x) - 2 \cos(x)+K
+  \]
+  Agora, voltamos à primeira expressão
+  \[
+    \int x^2 \sin(x) \, dx = -x^2 \cos(x) - (-2x \sin(x) - 2 \cos(x))+K
+  \]
+
+  \[
+    \int x^2 \sin(x) \, dx = -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x)+K
+  \]
+  Agora, usando o Teorema Fundamental do Cálculo-Parte 2
+  \begin{align*}
+    V & = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx                                     \\
+      & = 2\pi \left( -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x) \right) \evalat{0}{\pi} \\
+      & = 2\pi \Big[ -\pi^2 \cos(\pi) + 2\pi \sin(\pi) + 2 \cos(\pi)                \\
+      & \hspace{14mm} - (0^2 \cos(0) + 2(0) \sin(0) + 2 \cos(0)) \Big]
+  \end{align*}
+  Lembrando que \(\cos(\pi) = -1\) e \(\sin(\pi) = 0\), temos
+  \[
+    V = 2\pi \left( \pi^2 + 2 \right) = 2\pi^3 - 8\pi
+  \]
+\end{enumerate}
 \end{example}
 %------------------------------------------------------------------------------%
 

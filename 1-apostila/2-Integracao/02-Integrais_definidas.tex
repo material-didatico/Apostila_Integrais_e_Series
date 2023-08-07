@@ -2,70 +2,311 @@
 \section{Integrais Definidas}
 \label{sec:Integrais_Definidas}
 
-Uma operação relacionada é o cálculo da área entre o gráfico da função $f$ e
-o eixo-$x$, chamamos essa operação de integral definida como descrito na
-próxima definição.
+%------------------------------------------------------------------------------%
+Nesta seção, exploraremos duas questões aparentemente distintas, mas interligadas:
+\begin{enumerate}
+  \item Sob quais condições podemos afirmar que uma função dada
+    $f\colon I \rightarrow \R$, definida em um intervalo aberto $I$ da reta,
+    é a derivada de outra função $F\colon I \rightarrow \R$?
+    Ou seja, existe uma função $F$ tal que $F'(x) = f(x)$ para todo $x \in I$?
+
+    \item Como podemos generalizar a noção clássica de área de figuras planas
+        triangularizáveis para figuras mais gerais?
+        Quais figuras não triangularizáveis podem ser incluídas nesse processo?
+\end{enumerate}
+É importante notar que, na primeira questão, buscamos uma função específica como
+resposta, enquanto na segunda questão, estamos interessados em obter valores
+numéricos como respostas. Apesar da aparente diferença entre as duas questões,
+veremos que o cálculo de integrais definidas é a chave para solucioná-las,
+estabelecendo assim uma relação fundamental entre esses dois problemas
+aparentemente distintos. Existe um Teorema, chamado
+\textit{Teorema Fundamental do Cálculo}, que faz essa ligação.
+
+%----------------------------------------------------------------------------------
+\section{A área sob uma curva}
+\begin{figure}
+   \centering
+   \input{fig_area_x2}
+   \caption{Área sob o gráfico de $y=x^2$.}
+   \label{fig:areax2}
+\end{figure}
+%----------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------
+\begin{figure}
+   \centering
+   \input{fig_area_x2_retangulos}
+   \caption{Partição do intervalo $[0, b]$ em $n$ subintervalos.}
+   \label{fig:particaox2}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+Ao estudarmos funções contínuas, nos deparamos com uma questão interessante:
+como calcular a área delimitada entre a curva da função $f(x) \geq 0$
+e o eixo $x$ em um intervalo específico $[a, b]$, conforme mostra a
+Figura~\ref{fig:areasobumacurva}? A resposta para essa pergunta está
+intimamente relacionada com o conceito de integral definida.
+
+%----------------------------------------------------------------------------------
+\begin{figure}[h!]
+   \centering
+   \input{fig_integral_definida_area}
+   \caption{Ilustração da área sob a curva $y=f(x)$\\no intervalo $[a, b]$.}
+   \label{fig:areasobumacurva}
+\end{figure}
+%----------------------------------------------------------------------------------
+
+Para iniciarmos a construção, vamos considerar $f(x)$ uma função não-negativa,
+contínua em um intervalo $[a, b]$ e suponhamos
+que estamos interessados em encontrar a área sob a curva $y=f(x)$
+no intervalo $[a, b]$. Para isso, vamos subdividir esse intervalo em
+$n$ subintervalos menores, onde
+\[
+  a = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = b \,,
+\]
+conforme mostra a
+Figura~\ref{fig:particao}.
+A escolha de $n$ subintervalos depende do grau de precisão desejado.
+
+%------------------------------------------------------------------------------------
+\begin{figure}
+   \centering
+   \input{fig_soma_riemman_particao}
+   \caption{Partição do intervalo $[a, b]$.}
+   \label{fig:particao}
+\end{figure}
+%----------------------------------------------------------------------------------
+
+Em seguida, em cada subintervalo $[x_{i-1}, x_i]$, escolhemos um ponto
+representativo $c_i$. Pode ser o ponto médio, o extremo direito de cada
+subintervalo, o extremo esquerdo de cada subintervalo ou qualquer outro
+ponto dentro do subintervalo. Sem perda de generalidade, vamos escolher
+$c_i$ como sendo o extremo direito de cada $i-$ésimo subintervalo
+$[x_{i-1}, x_1]$. A largura do primeiro subintervalo $[x_0, x_1]$ é
+indicada por $\Delta x_1$, a largura do segundo subintervalo $[x_1, x_2]$
+é indicada por $\Delta x_2 $ e a largura do $i-$ésimo subintervalo
+$[x_{i-1}, x_1]$ por $\Delta x_i$. Para nossa construção vamos considerar
+que todos esses subintervalos tem mesma largura, ou seja, que dividimos
+o intervalo $[a, b]$ em $n$ subintervalos de mesma largura $\Delta x$.
+Assim, temos que
+\[
+  \Delta x= \frac{b-a}{n} \,.
+\]
+
+Para nossa construção, vamos escolher como pontos amostrais $c_i$
+como sendo os extremos direitos de cada subintervalos. Assim, $c_i=x_i$ e
+\begin{align*}
+  x_1 & =a+\Delta x                \\
+  x_2 & =x_1+\Delta x= a+2\Delta x \\
+      & \;\vdots                   \\
+  x_i & =a+i\Delta x               \\
+      & \;\vdots                   \\
+  x_n & =b
+\end{align*}
+
+Com isso, vamos considerar os $n$ retângulos cuja base é $\Delta x$ e
+altura é $f(x_i)$. Assim, denotando $A_n$ como sendo a área do $i$-ésimo
+retângulo $R_i$ , temos que $A_i= f(x_i) \Delta x$.
+A Figura~\ref{fig:retangulos-1} ilustra essa situação.
+
+%----------------------------------------------------------------------------------
+\begin{figure}
+   \centering
+   \input{fig_soma_riemman_retangulos}
+   \caption{Aproximação por retângulos da área sob a curva $y=f(x)$
+      no intervalo $[a, b]$.}
+   \label{fig:retangulos-1}
+\end{figure}
+%----------------------------------------------------------------------------------
+
+Portanto, podemos aproximar a área requerida, como soma das áreas desses
+$n$ retângulos, ou seja:
+\begin{align}
+A & \approx A_1+A_2+A_3+\cdots+ A_n \nonumber \\
+  & = f(x_1)\Delta x+ f(x_2) \Delta x+ f(x_3) \Delta x + \cdots + f(x_n)\Delta x
+\end{align}
+Essa soma, é chamada de, \textit{Soma de Riemman}, em homenagem ao
+matemático Bernard Riemman.
+
+Frequentemente usamos a notação de somatória para expressar uma soma de
+muitos termos de uma forma compacta. Por exemplo,
+\[
+  \sum_{i=1}^n f(x_i) \Delta x
+  = f(x_1) \Delta x
+  + f(x_2) \Delta x
+  + f(x_3) \Delta x
+  + \cdots
+  + f(x_n) \Delta x
+\]
+
+Observe que, a medida que aumentamos o valor de $n$ e, consequentemente,
+o número de retângulos, obtemos uma aproximação melhor para a área $A$.
+Assim, podemos definir $A$ da seguinte forma.
 
 %------------------------------------------------------------------------------%
-\begin{definicao}{Integral Definida}{def:integral-defnida}
-  A \emph{Integral Definida}\index{Integral!definida} de uma função real $f$
-  é a área, considerando o sinal, entre o gráfico da função e o eixo-$x$
-  no intervalo $[a, b]$
+\begin{definicao}{Área via soma de Riemann}{def:area-soma-de-riemann}
+  A área $A$ da região sob o gráfico de uma função contínua $f$
+  no intervalo $[a, b]$ é dada pelo limite.
   \[
-  \int_{a}^{b} f(x) \, dx
+    A = \lim_{n \to \infty} \sum_{i=1}^n f(x_i) \Delta x
   \]
-  Essa área é o limite da \emph{Soma de Riemman} correspondente.
 \end{definicao}
 %------------------------------------------------------------------------------%
 
-A integral definida possui as propriedades descrita na proposição a seguir.
+A definição \ref{def:area-soma-de-riemann} da soma de Riemann é independente
+dos pontos amostrais escolhidos. Se utilizarmos os extremos direitos de
+cada subintervalo como os pontos representativos $c_i$, a soma
+\[
+  \sum_{i=1}^n f(c_i) \Delta x
+\]
+é chamada \textit{soma superior}.
+Por outro lado, se escolhermos os extremos esquerdos de cada subintervalo
+como os pontos representativos $c_i$, a soma
+\[
+  \sum_{i=1}^n f(c_i) \Delta x
+\]
+é chamada \textit{soma inferior}.
 
 %------------------------------------------------------------------------------%
-\begin{proposicao}{Propriedades da Integral Definida}{pro:propriedade-integral-definida}
-  Dadas funções integráveis $f$ e $g$ e a constante $c$ temos que
-  \begin{enumerate}
-    \item \( \int_a^b c\,dx = c(b-a) \)
-    \item \( \int_a^b f(x)+g(x)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx\)
-    \item \( \int_a^b f(x)-g(x)\,dx = \int_a^b f(x)\,dx - \int_a^b g(x)\,dx\)
-    \item \( \int_a^b cf(x)\,dx = c \int_a^b f(x)\,dx \)
-    \item \( \int_a^c f(x)\,dx + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx \)
-  \end{enumerate}
-\end{proposicao}
+%------------------------------------------------------------------------------%
+\subsection{A integral definida}
+
+Na seção anterior, exploramos o uso da soma de Riemann para calcular a área
+abaixo do gráfico de uma função contínua e não-negativa em um intervalo
+$[a, b]$. Agora, avançaremos para o conceito de integral definida, o qual está
+intrinsecamente relacionado ao problema da área. Mais precisamente, a integral
+definida nos proporciona uma forma precisa de calcular a área sob o gráfico de
+uma função contínua e não-negativa. Esse poderoso conceito nos permite
+generalizar o cálculo de áreas para uma variedade de funções e é fundamental
+para a análise matemática, encontrando aplicações em diversos campos da ciência
+e da engenharia. Nesta seção, exploraremos a definição e as propriedades da
+integral definida, aprofundando nosso entendimento sobre a área sob uma curva e
+suas importantes aplicações práticas.
+
+%------------------------------------------------------------------------------%
+\begin{definicao}{Integral definida}{def:integraldefinida}
+  Seja $f$ uma função contínua definida em $a \leq x \leq b$, dividimos o
+  intervalo $[a,b]$ em $n$ subintervalos de comprimentos iguais a
+  \[
+    \Delta x= \frac{b-a}{n} \,.
+  \]
+  Sejam
+  \[
+    a = x_0, x_1, x_2, \dots, x_n = b
+  \]
+  as extremidades desses
+  subintervalos, escolhemos os
+  \emph{pontos amostrais}\index{Pontos amostrais}
+  $c_1$, $c_2$, \dots, $c_n$ nesses
+  subintervalos, de modo que $c_i$ esteja no $i$-ésimo intervalo $[x_{i-1},x_1]$.
+  Então a
+  \emph{Integral definida}\index{Integral!definida}
+  de $f$ de $a$ até $b$ é
+  \[
+      \int_a^b f(x) dx
+      = \lim_{n \to \infty} \sum_{i=1}^n f(c_i) \Delta x
+  \]
+  Desde que esse limite exista. Caso exista, dizemos que $f$ é
+  \emph{integrável}\index{Integrável}
+  em $[a, b]$.
+\end{definicao}
 %------------------------------------------------------------------------------%
 
-\hrulefill
+%----------------------------------------------------------------------------------
+\begin{figure}
+   \centering
+   \caption{Termos da integral definida.}
+   \label{fig:retangulos}
+\end{figure}
+%----------------------------------------------------------------------------------
 
-Interpretação Geométrica da integral definida.
-Considere $f$ uma função não negativa no intervalo $[a,b]$ conforme a
+Cabe salientar que nem todas funções definidas no intervalo $[a, b]$ é
+integrável. O Teorema \ref{teo:intcontinuas}, que é demonstrado em cursos
+avançados, mostra que toda função contínua em $[a, b]$ é integrável. Mais que
+isso, que se uma função tem um número finito de descontinuidades ela é
+integrável.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Integrabilidade de funções contínuas}{teo:intcontinuas}
+  Se $f$ é uma função contínua em $[a, b]$, ou se $f$ tem um número finito de
+  descontinuidades tipo salto, então a integral
+  \[
+    \int_a^b f(x) dx
+  \]
+  existe e $f$ é integrável em $[a, b]$.
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+Além disso, se $f$ é integrável, o limite da
+Definição~\ref{def:integraldefinida}
+independe da escolha dos pontos amostrais $c_i$,
+para simplificar o cálculo da integral, vamos tomar como pontos amostrais as
+extremidades direitas de cada subintervalo. Com isso, $c_i=x_i$ e a definição
+de integral pode ser reescrita conforme o
+Teorema~\ref{teo:integraldefinidareescrito}.
+
+%------------------------------------------------------------------------------%
+\begin{teorema}{Integral definida}{teo:integraldefinidareescrito}
+  Se $f$ for integrável em $[a, b]$, então
+  \[
+    \int_a^b f(x) dx
+    =  \lim_{n \to \infty} \sum_{i=1}^n f(x_i) \Delta x
+  \]
+  onde
+  \[
+    \Delta x = \frac{b-a}{n} \qquad\text{e}\qquad
+    x_i = a + i\Delta x
+  \]
+\end{teorema}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\subsection{Interpretação Geométrica da integral definida}
+
+Considere $f$ uma função não negativa no intervalo $[a, b]$ conforme a
 Figura~\ref{fig:integral_definida_1}.
 
+%------------------------------------------------------------------------------%
 \begin{figure}
   \centering
-  \includegraphics[width=6cm,height=5cm]{integral_definida_01}
-  \caption{Gráfico da função $y=x^2$.}
+  \includegraphics[height=5cm]{integral_definida_01}
+  \caption{Gráfico de uma função não-negativa em $[a, b]$.}
   \label{fig:integral_definida_1}
 \end{figure}
+%------------------------------------------------------------------------------%
 
-Então a integral $\int_a^b f(x)dx$ significa a área sob a curva $y=f(x)$
-no intervalo $[a,b]$, conforme indica a Figura~\ref{fig:integral_definida_2}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=6cm,height=5cm]{integral_definida_02}
-  \caption{Gráfico da função $y=x^2$.}
-  \label{fig:integral_definida_2}
-\end{figure}
-
-Se $f(x)$ é uma função que muda de sinal no intervalo $[a,b]$,
-então $\int_a^b f(x)dx$ pode ser interpretada como a diferença
+Então a integral
+\[
+  \int_a^b f(x)dx
+\]
+significa a área sob a curva $y=f(x)$
+no intervalo $[a, b]$, conforme indica a Figura~\ref{fig:integral_definida_2}.
+Se $f(x)$ é uma função que muda de sinal no intervalo $[a, b]$, então
+\[
+\int_a^b f(x)dx
+\]
+pode ser interpretada como a diferença
 de áreas conforme ilustra a Figura~\ref{fig:integral_definida_3}.
 
+%------------------------------------------------------------------------------%
 \begin{figure}
   \centering
-  \includegraphics[width=6cm,height=5cm]{integral_definida_03}
-  \caption{Gráfico da função $y=x^2$.}
-  \label{fig:integral_definida_3}
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[height=5cm]{integral_definida_02}
+    \caption{Quado $f$ é não-negativa em $[a, b]$.}
+    \label{fig:integral_definida_2}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[height=5cm]{integral_definida_03}
+    \caption{Quando $f$ que muda de sinal em $[a, b]$.}
+    \label{fig:integral_definida_3}
+  \end{subfigure}
+  \caption{Interpretação da integral definida para $f(x)$ em $[a, b]$.}
 \end{figure}
+%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \begin{teorema}{Propriedades da integral definida}{teo:propriedades-integral-definida}
@@ -128,8 +369,11 @@ de áreas conforme ilustra a Figura~\ref{fig:integral_definida_3}.
   \[
     \int_{-1}^{2} \heaviside(x) \,dx = 0 + 2 = 2 \,.
   \]
+  Isso nos dá um exemplo de uma função não- contínua em um intervalo fechado,
+  que é integrável. Esse fato acontece porque $H(x)$ possui um número finito de
+  descontinuidades em $[-1, 2]$, conforme já sabíamos pelo Teorema
+  \ref{teo:integraldefinidareescrito}.
 \end{example}
 %------------------------------------------------------------------------------%
-
 
 %------------------------------------------------------------------------------%

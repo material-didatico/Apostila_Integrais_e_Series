@@ -2,47 +2,129 @@
 \section{Teorema Fundamental do Cálculo}
 \label{sec:teorema_fundamental_calculo}
 
-O Teorema Fundamental do Cálculo é o resultado que determina as relações
-entre a derivada e as integrais definida e indefinida de uma função.
-
-%------------------------------------------------------------------------------%
-\begin{teorema}{Teorema Fundamental do Cálculo}{teo:fundamental-calculo}
-  \begin{description}
-    \item[Parte 1]\index{Teorema!fundamental do Cálculo}
-    Se $f$ é uma função contínua em $[a, b]$ então a função $F$ definida por
-    \[
-    F(x) = \int_a^x f(t)\, dt \qquad\qquad a \leq x \leq b
-    \]
-    é contínua em $[a, b]$, diferenciável em $(a, b)$ e
-    \[
-    F'(x) = f(x)
-    \]
-    \item[Parte 2]
-    Se $f$ é contínua em $[a, b]$ então
-    \[
-    \int_a^b f(x)\,dx = F(b) - F(a) = F(x)\evalat{a}{b}
-    \]
-    onde $F$ é qualquer primitiva de $f$.
-  \end{description}
-\end{teorema}
-%------------------------------------------------------------------------------%
-
-\hrulefill
-
-Nessa seção veremos um resultado importante para o cálculo das integrais
-definidas: O Terema Fundamental do Cálculo. Esse Teorema será dividido as duas
+Nessa seção veremos um resultado importante e que facilita o cálculo das integrais
+definidas: O Teorema Fundamental do Cálculo. Esse Teorema será dividido as duas
 partes e estabelece uma conexão entre dois tópicos importantes do cálculo:
 integração e derivação.
 
+Antes de falarmos desse importante Teorema precisamos de um resultado auxiliar
+chamado: Teorema do valor médio para integrais.
+
+No início do capítulo anterior, definimos como encontrar a área sob uma curva
+$y=f(x)$ contínua e não-negativa no intervalo $[a, b]$, conforme mostra a
+Figura~\ref{fig:areasobumacurva2}.
+
+%----------------------------------------------------------------------------------
+\begin{figure}[h!]
+   \centering
+   \input{fig_integral_definida}
+   \caption{Área sob uma curva.}
+   \label{fig:areasobumacurva2}
+\end{figure}
+%----------------------------------------------------------------------------------
+
+A pergunta que surge agora é: Será que existe $c \in [a, b]$, de modo que a área
+sob a curva $y=f(x)$ seja igual área do retângulo de altura $f(c)$ e base $b-a$?
+O Teorema do Valor médio para integrais responde esse questionamento.
+
+%----------------------------------------------------------------------------------
+%\begin{figure}
+%   \centering
+%   \input{fig_valor_medio_minimo}
+%   \caption{Teorema valor médio -- mínimo.}
+%   \label{fig:retangulos}
+%\end{figure}
+%----------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------
+%\begin{figure}
+%   \centering
+%   \input{fig_valor_medio_maximo}
+%   \caption{Teorema valor médio -- máximo.}
+ %  \label{fig:retangulos}
+%\end{figure}
+%----------------------------------------------------------------------------------
+
+\begin{teorema}{Teorema do Valor Médio para Integrais}{teo:tvmi}
+  Seja $f$ uma função contínua no intervalo $[a, b]$, então existe $c \in (a, b)$
+  tal que
+  \[
+      f(c)(b-a)= \int_a^b f(x)dx
+  \]
+  ou equivalentemente,
+  \[
+      f(c)= \frac{1}{b-a}\int_a^b f(x)dx.
+  \]
+  O valor $f(c)$ é chamado \textit{Valor médio} de $f$ no intervalo $[a, b]$
+  e denotamos por $f_{\text{médio}}$.
+\end{teorema}
+
+Geometricamente, o Teorema \ref{teo:tvmi} afirma que existe um $c \in (a, b)$
+tal que
+\[
+  \int_a^bf(x) dx
+\]
+(a área sob o gráfico de f) é igual a
+$f(c) (b-a)$ (a área do retângulo de base $[a, b]$ e altura $f(c)$),
+como ilustra a Figura~\ref{fig:valormedio_media}.
+
+\begin{figure}
+   \centering
+   \input{fig_valor_medio_media}
+   \caption{Teorema valor médio -- média.}
+   \label{fig:valormedio_media}
+\end{figure}
+
+\begin{proof}
+  Para iniciarmos a demonstração, devemos lembrar que como $f$ é contínua em
+  $[a, b]$, então $f$ assume um valor máximo $f(v)$ e um valor mínimo
+  $f(v)$ para $u,v \in [a, b]$ (Teorema de Weierstrass\ref{teo:weistress}).
+  Assim,
+  \[
+      f(u) \leq f(x) \leq f(v)
+  \]
+  Como já vimos que a integral preserva desigualdade, temos que
+  \[
+      \int_a^b f(u) dx \leq \int_a^b f(x) dx\leq \int_a^b f(v) dx
+  \]
+  Portanto,
+  \[
+      f(u)(b-a) \leq \int_a^b f(x) dx \leq f(v)(b-a)
+  \]
+  Dividindo essa última desigualdade por $b-a$, chegamos que
+  \[
+      f(u) \leq \frac{1}{b-a}\int_a^b f(x)dx \leq f(v)
+  \]
+  Como $f$ é contínua em $[a, b]$, pelo Teorema do Valor
+  Intermediário~\ref{teo:valor-intermediario}, $f$ deve assumir
+  todos os valores entre o mínimo, $f(u)$, e o máximo, $f(v)$,
+  de $f$. Portanto, deve assumir o valor
+  \[
+      \frac{1}{b-a}\int_a^b f(x)dx
+  \]
+  para algum valor $c \in (a, b)$. Em outras palavras, existe
+  $c \in (a, b)$ tal que
+  \[
+      f(c)= \frac{1}{b-a}\int_a^b f(x)dx \,.
+  \]
+\end{proof}
+
+Observe que a continuidade de $f$ em $[a, b]$ foi uma hipótese crucial na
+demonstração do Teorema~\ref{teo:tvmi}. Sem essa hipótese, é possível que
+uma função descontínua não assuma seu valor médio.
+
 %------------------------------------------------------------------------------%
 \begin{teorema}{Teorema Fundamental do Cálculo -- Parte 1}{teo:fundamental-1}
-  Se $f$ for contínua em $[a,b]$, então a função $F$ definida por
-  $$F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b$$
-  é contínua em $[a,b]$ e derivável em $(a,b)$ e $F'(x)=f(x)$
+  Se $f$ for contínua em $[a, b]$, então a função $F$ definida por
+  \[
+    F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b
+  \]
+  é contínua em $[a,b]$ e derivável em $(a, b)$ e $F'(x)=f(x)$
   note que em outras palavras temos que
-  $\frac{d}{dx} \left( \int_a^x f(t)dt \right)=f(x)$
+  \[
+    \frac{d}{dx} \left( \int_a^x f(t)dt \right)=f(x)
+  \]
 \end{teorema}
-%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \begin{example}
@@ -51,7 +133,7 @@ integração e derivação.
   Sendo $f(t)= \sqrt{1+t^2}$ contínua em todo o conjunto dos números reais,
   pela parte 1 do Teorema Fundamental do Cálculo
   \[
-  g'(x)=\sqrt{1+x^2}
+    g'(x)=\sqrt{1+x^2}
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -62,15 +144,27 @@ integração e derivação.
   \solution
   Nesse item devemos ter cuidado ao aplicarmos o Teorema Fundamental do
   Cálculo uma vez que $h(x)=p(q(x))$, onde
-  \(p(x)=\int_0^x \sec(t)dt\) e $q(x)= x^4$.
-  Portanto, para encontrar $\frac{d}{dx}(h(x))$ temos que usar a regra da
+  \[
+    p(x)=\int_0^x \sec(t)dt
+    \qquad\text{e}\qquad
+    q(x)= x^4
+  \]
+  Portanto, para encontrar
+  \[
+    \frac{d}{dx}\big(h(x)\big)
+  \]
+  temos que usar a regra da
   cadeia. Ora, o Teorema Fundamental do Cálculo Parte 1 nos diz que
   \[
-  \frac{d}{dx}(p(x))= \frac{d}{dx} \int_0^x \sec(t)dt= \sec(x),
+    \frac{d}{dx}\big(p(x)\big)= \frac{d}{dx} \int_0^x \sec(t)dt= \sec(x),
   \]
-  além disso, $\frac{d}{dx}(x^4)= 4x^3$. Assim, pela regra da cadeia
+  além disso,
   \[
-  \frac{d}{dx}\int_1^{x^4} \sec(t)dt= 4x^3\sec(x^4)
+  \frac{d}{dx}\left(x^4\right) = 4x^3
+  \]
+  Assim, pela regra da cadeia
+  \[
+    \frac{d}{dx}\int_1^{x^4} \sec(t)dt= 4x^3\sec\left(x^4\right)
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -82,25 +176,27 @@ integração e derivação.
   Inicialmente, vamos usar as propriedades de integral para manipular a
   integral. Pela propriedade 7. de integral definida, podemos escrever
   \[
-  \int_{1-2x}^{1+2x} t\sin(t)dt
-  = \int_{1-2x}^{0} t\sin(t)dt
-  = \int_{0}^{1+2x} t\sin(t)dt
+      \int_{1-2x}^{1+2x} t\sin(t)dt
+      = \int_{1-2x}^{0} t\sin(t)dt
+      = \int_{0}^{1+2x} t\sin(t)dt
   \]
   Pela propriedade 1. de Integral definida
   \[
-  \int_{1-2x}^{1+2x} t\sin(t)dt
-  = - \int_{0}^{1-2x} t\sin(t)dt
-  + \int_{0}^{1+2x} t\sin(t)dt
+      \int_{1-2x}^{1+2x} t\sin(t)dt
+      = - \int_{0}^{1-2x} t\sin(t)dt
+      + \int_{0}^{1+2x} t\sin(t)dt
   \]
   Usando a parte 1 do Teorema Fundamental do Cálculo e a Regra da cadeia,
   temos
   \begin{align*}
-    \frac{d}{dx} \int_{1-2x}^{1+2x} t\sin(t)dt
+    p'(x)
+    & = \frac{d}{dx} \int_{1-2x}^{1+2x} t\sin(t)dt \\
     & = \frac{d}{dx} \left(
     - \int_{0}^{1-2x} t\sin(t)dt
     + \int_{0}^{1+2x} t\sin(t)dt
     \right) \\
-    & = 2x \sin(x)+2x \sin(x)=4x\sin(x).
+    & = 2x \sin(x)+2x \sin(x) \\
+    & = 4x\sin(x).
   \end{align*}
 
 \end{example}
@@ -108,18 +204,20 @@ integração e derivação.
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Determine $f'(\frac{\pi}{4})$,
-  onde $f(x)= e^{h(x)}$ e $h(x)= \int^{\tan(x)}_1 e^t dt$
+  Determine
+  \(f'\left(\frac{\pi}{4}\right)\), onde
+  \(f(x)= e^{h(x)}\) e
+  \(h(x)= \int^{\tan(x)}_1 e^t dt\)
   \solution
   Note que $f$ é uma função composta, para derivar usamos a regra da cadeia.
   Assim,
   \[
-  f'(x)= e^{h(x)}h'(x)
+    f'(x)= e^{h(x)}h'(x)
   \]
   Para encontrar $h'(x)$ usamos o Teorema Fundamental do Cálculo parte 1,
   combinado com a regra da cadeia. Portanto,
   \[
-  h'(x)=e^{\tan(x)}\sec^2(x)
+    h'(x)=e^{\tan(x)}\sec^2(x)
   \]
   Logo,
   \[
@@ -130,36 +228,82 @@ integração e derivação.
   e
   \[
     f'\left(\frac{\pi}{4}\right)
-    = e^{h(\frac{\pi}{4})}
-    e^{\tan(\frac{\pi}{4})}
-    \sec^2\left(\frac{\pi}{4}\right)
+    = e^{h(\sfrac{\pi}{4})}
+      e^{\tan(\sfrac{\pi}{4})}
+      \sec^2\left(\frac{\pi}{4}\right)
     = 0 \cdot e^1 \cdot \left(\frac{2}{\sqrt{2}}\right)^2=0
   \]
-  onde, $h\left(\frac{\pi}{4} \right)= \int_1^1 e^t dt=0$.
+  onde,
+  \[
+    h\left(\frac{\pi}{4} \right)= \int_1^1 e^t dt=0.
+  \]
 \end{example}
 %------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \begin{teorema}{O Teorema Fundamental do Cálculo -- Parte 2}{teo:fundamental-2}
-  Se $f$ for contínua em $[a,b]$ então
+  Se $f$ for contínua em $[a, b]$ então
   \[
-  \int_a^{b}f(x)dx= F(b)-F(a)
+    \int_a^{b}f(x)dx= F(b)-F(a)
   \]
-  onde $F$ é qualquer primitiva de $f$. isto é $F'=f$
+  onde $F$ é qualquer primitiva de $f$, isto é $F'=f$
 \end{teorema}
 %------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
+\begin{proof}
+  Seja
+  \[
+    G(x)= \int_a^x f(x)dx \,.
+  \]
+  Pela parte 1 do Teorema Fundamental do Cálculo,
+  $g$ é uma primitiva de $f$. Se $F$ for qualquer outra primitiva de $f$,
+  então sabemos que $F$ e $G$ se diferem por uma constante, ou seja:
+  \[
+      F(x)= G(x)+K
+  \]
+  Assim,
+  \begin{align*}
+    F(b)-F(a)
+      & = \big[ G(b) + K \big]
+        - \big[ G(a) + K \big] \\
+      & = \int_a^b f(x)dx -  \int_a^a f(x)dx \\
+      & = \int_a^b f(x)dx \,.
+  \end{align*}
+\end{proof}
+%------------------------------------------------------------------------------%
+
+O Teorema \ref{teo:fundamental-2} nos diz que para calcular a integral
+definida
+\[\int_a^b f(x)dx,\]
+precisamos fazer duas coisas:
+\begin{enumerate}
+    \item Determinar uma primitiva $F$ qualquer para $f$.
+    \item Calcular o número $F(b)-F(a)$.
+\end{enumerate}
+Além disso, vale ressaltar que enquanto a integral indefinida
+\[\int f(x)dx\]
+é uma função (ou uma família de funções),
+a integral definida
+\[\int_a^b f(x)dx\]
+é um número.
+
+%------------------------------------------------------------------------------%
+Agora temos uma ferramenta importante para calcular integrais definidas.
+Vamos aos exemplos.
 \begin{example}
   Calcule \(\int_1^3 e^x dx\)
   \solution
-  Inicialmente, note que $f(x)=e^x$ é contínua no intervalo $[1,3]$. Além
+  Inicialmente, note que $f(x)=e^x$ é contínua no intervalo $[1, 3]$. Além
   disso, a primitiva mais geral para $f$ é $G(x)=e^x+ C$, como no Teorema
   Fundamental do cálculo precisamos de qualquer primitiva, então pegamos a
   primitiva mais simples $F(x)=e^x$. Logo, usando o Teorema Fundamental do
   Cálculo 2 temos
   \[
-  \int_1^3 e^x dx= \left[ e^x \right]_1^3= e^3-e^1=e^3=e.
+    \int_1^3 e^x dx
+    = e^x \evalat{1}{3}
+    = e^3-e^1
+    = e^3 - e.
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -168,60 +312,73 @@ integração e derivação.
 \begin{example}
   Calcule \(\int_3^6 \frac{dx}{x}\)
   \solution
-  Note que $f(x)=\frac{1}{x}$ é contínua no intervalo $[3,6]$. Além disso, a
-  primitiva mais geral para $f$ é $G(x)=\ln|x|+ C$, como no Teorema Fundamental
+  Note que $f(x)=\sfrac{1}{x}$ é contínua no intervalo $[3, 6]$. Além disso, a
+  primitiva mais geral para $f$ é $G(x)=\ln\abs{x}+ C$, como no Teorema Fundamental
   do cálculo precisamos de qualquer primitiva, então pegamos a primitiva mais
-  simples $F(x)=\ln|x|$. Logo, usando o Teorema Fundamental do Cálculo 2 temos
+  simples $F(x)=\ln\abs{x}$. Logo, usando o Teorema Fundamental do Cálculo 2 temos
   \[
-  \int_3^6 \frac{dx}{x}
-  = \left[ \ln|x| \right]_1^3
-  = \ln(6)- \ln(3)= \ln(\frac{6}{3})=\ln(2).
+    \int_3^6 \frac{dx}{x}
+    = \ln\abs{x} \evalat{1}{3}
+    = \ln(6) - \ln(3)
+    = \ln\left(\frac{6}{3}\right)
+    = \ln(2).
   \]
 \end{example}
 %------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Calcule \(\int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx\)
+  Calcule
+  \(
+    \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx
+  \)
   \solution
-  Note que  $f(x)=20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 $ é contínua no
-  intervalo $[0,1]$, uma vez que é soma de funções contínuas.
+  Note que
+  \[
+    f(x)=20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3
+  \]
+  é contínua no
+  intervalo $[0, 1]$, uma vez que é soma de funções contínuas.
 
   Para calcularmos a integral definida pedida, iniciaremos primeiro calculando
   a integral indefinida, usando a linearidade da integral.
   \begin{align*}
-    & \int [ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3] dx \\
-    & = \int [20x^5-e^x+ 3x^6 - \cos x+ 3\frac{1}{1+x^2}-3] dx \\
+    F(x)
+    & = \int \left[ 20x^5-e^x+ 3x^6 - \cos x+  \frac{3}{1+x^2}-3 \right] dx \\
+    & = \int \left[ 20x^5-e^x+ 3x^6 - \cos x+ 3\frac{1}{1+x^2}-3 \right] dx \\
     & = 20 \int x^5 dx
-    -   \int e^x dx
-    + 3 \int x^6 dx
-    -   \int \cos(x) dx
-    + 3 \int \frac{1}{1+x^2} dx
-    - 3 \int dx \\
+      -    \int e^x dx
+      + 3  \int x^6 dx
+      -    \int \cos(x) dx \\
+    & \hspace{10mm}
+      + 3  \int \frac{1}{1+x^2} dx
+      - 3  \int dx \\
     & = \frac{20x^6}{6}
-    - e^x
-    + \frac{3x^7}{7}
-    - \sin(x)
-    + 3\arctan(x)
-    - 3x + C
+      - e^x
+      + \frac{3x^7}{7}
+      - \sin(x)
+      + 3\arctan(x)
+      - 3x + C
   \end{align*}
   Para encontrarmos a integral definida, usamos o Teorema Fundamental do
   Cálculo parte 2 temos que
   \begin{align*}
-    & \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx \\
-    &= \left[ \frac{20x^6}{6}
-    - e^x
-    + \frac{3x^7}{7}
-    - \sin(x)
-    + 3\arctan(x)
-    - 3x \right]_0^1 \\
-    &= \left( \frac{20}{6}
-    - e
-    + \frac{3}{7}
-    - \sin(1)
-    + 3 \arctan(1)
-    - 3 \right) \\
-    & - \left( 0 - e^0 + 0 - \sin(0) + 3\arctan(0) - 0 \right) \\
+    I
+    & = \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx \\
+    & = \left[ \frac{20x^6}{6}
+      - e^x
+      + \frac{3x^7}{7}
+      - \sin(x)
+      + 3\arctan(x)
+      - 3x \right] \evalat{0}{1} \\
+    & = \left( \frac{20}{6}
+      - e
+      + \frac{3}{7}
+      - \sin(1)
+      + 3 \arctan(1)
+      - 3 \right) \\
+    & \hspace{10mm}
+      - \left( 0 - e^0 + 0 - \sin(0) + 3\arctan(0) - 0 \right) \\
     & = \left(\frac{10}{3}-e+\frac{3}{7}-\sin(1) + \frac{3\pi}{4} - 3 \right) - (-1) \\
     & = \frac{10}{3} - e + \frac{3}{7} - \sin(1) + \frac{3\pi}{4} - 3 + 1 \\
     & = \frac{148 - 84e - 84 \sin(1) + 63 \pi}{84}
@@ -236,15 +393,16 @@ integração e derivação.
   \solution
   A figura a seguir mostra o gráfico da função $y=x^2$.
 
-  \IncludeGraphicCentred{exemplo_area_sob_parabola}[0.5][-1][-1]
+  \IncludeGraphicCentred{exemplo_area_sob_parabola}[0.5][-1][-1.5]
 
-  Note que $y=x^2$ é uma função positiva no intervalo $[0,1]$
+  Note que $y=x^2$ é uma função positiva no intervalo $[0, 1]$
   então
   \[
-  A
-  = \int^{0}_{1} x^2 dx
-  = \left[ \frac{x^3}{3} \right]^1_0
-  = \frac{1}{3}-0= \frac{1}{3}
+    A
+    = \int^{0}_{1} x^2 dx
+    = \frac{x^3}{3} \evalat{0}{1}
+    = \frac{1}{3}-0
+    = \frac{1}{3}
   \]
   onde, para calcularmos a integral definida usamos o
   Teorema Fundamental do Cálculo parte 2.
@@ -254,20 +412,20 @@ integração e derivação.
 %------------------------------------------------------------------------------%
 \begin{example}
   Encontre a área sob a curva $y=\cos(x) $ de $0$ até $b$, onde
-  \(0 \leq b \leq \frac{\pi}{2}\)
+  \(0 \leq b \leq \sfrac{\pi}{2}\)
   \solution
-  Note que a função $y=\cos(x)$ é positiva e contínua no intervalo $[0,b]$,
-  uma vez que \(b \in [0, \frac{\pi}{2}]\), conforme a figura .
+  Note que a função $y=\cos(x)$ é positiva e contínua no intervalo $[0, b]$,
+  uma vez que \(b \in \left[0, \sfrac{\pi}{2}\right]\), conforme a figura .
 
-  \IncludeGraphicCentred{exemplo_area_sob_cosseno}[0.5][-1][-1]
+  \IncludeGraphicCentred{exemplo_area_sob_cosseno}[0.5][-1.5][-1.5]
 
   Portanto, usando o Teorema Fundamental do Cálculo parte 2
   \[
-  A
-  = \int_0^b \cos(x) dx
-  = \left[ \sin(x) \right]^{b}_{0}
-  = \sin(b)- \sin(0)
-  = \sin(b).
+    A
+    = \int_0^b \cos(x) dx
+    = \sin(x) \evalat{0}{b}
+    = \sin(b) - \sin(0)
+    = \sin(b) \,.
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -276,33 +434,96 @@ integração e derivação.
 \begin{example}
   O que está errado no seguinte cálculo
   \[
-  \int_{-1}^3 \frac{1}{x^2} dx
-  = \frac{x^-1}{-1} \evalat{-1}{3}
-  = - \frac{1}{3} - 1
-  = - \frac{4}{3}
+    \int_{-1}^3 \frac{1}{x^2} dx
+    = \frac{x^{-1}}{-1} \evalat{-1}{3}
+    = - \frac{1}{3} - 1
+    = - \frac{4}{3}
   \]
   \solution
   Para começarmos podemos observar, pela propriedade 8 de integrais, que esse
-  resultado está errado, uma vez que $f(x)= \frac{1}{x^2} \geq 0$ no intervalo
-  $[-1,3]$ teríamos que ter que $\int_{-1}^3 \frac{1}{x^2} dx \geq 0$.
+  resultado está errado, uma vez que
+  \[
+    f(x) = \frac{1}{x^2} \geq 0
+  \]
+  no intervalo
+  $[-1, 3]$ teríamos que ter que
+  \[
+    \int_{-1}^3 \frac{1}{x^2} dx \geq 0.
+  \]
   Portanto, devemos está atentos as hipóteses quando quisermos usar o Teorema
-  fundamental do cálculo. Note que $f(x)=\frac{1}{x^2}$ não é contínua no
-  intervalo $[-1,3]$, uma vez que existe uma descontinuidade em $x=0$ ($f$ não
-  está definida em $x=0$). Nesse caso, não podemos usar cegamente o Teorema
+  fundamental do cálculo. Note que
+  \[
+    f(x)=\frac{1}{x^2}
+  \]
+  não é contínua no intervalo $[-1, 3]$, uma vez que existe uma descontinuidade
+  em $x=0$ ($f$ não está definida em $x=0$).
+  Nesse caso, não podemos usar cegamente o Teorema
   Fundamental do Cálculo. Veremos como resolver esse tipo de problema quando
   estudarmos \emph{Integrais impróprias}.
 \end{example}
 %------------------------------------------------------------------------------%
 
-Podemos justapor as duas partes do Teorema Fundamental do cálculo
+%------------------------------------------------------------------------------%
+\begin{example}
+Seja $f(x)= x^2+2$
+\begin{enumerate}[label=\alph*)]
+  \item Encontre o valor médio (média) de $f(x)$ no intervalo $[-1, 3]$.
+  \item Encontre o(s) valor(es) de $c$ que satisfaz(em)
+        o Teorema do Valor médio para integrais.
+\end{enumerate}
+\solution
+\begin{enumerate}[label=\alph*)]
+  \item Observando que $f(x)$ é contínua $[-1, 3]$, um vez que é um polinômio.
+    Então o valor médio de $f$ no intervalo $[-1, 3]$ é:
+    \begin{align*}
+      f_{\textrm{médio}}
+      & = \frac{1}{b-a}\int_{-1}^{3} f(x)dx \\
+      & = \frac{1}{3-(-1)}\int_{-1}^{3} (x^2+2)dx
+    \end{align*}
+    Usamos agora o Teorema Fundamental do Cálculo
+    \begin{align*}
+      f_{\textrm{médio}}
+      & = \frac{1}{4}\left[ \frac{x^3}{3}+2x\right] \evalat{-1}{3} \\
+      & = \frac{1}{4}\left( \frac{27}{3}+6\right)
+        - \frac{1}{4}\left( \frac{-1}{3}-2\right) \\
+      & = \frac{13}{3}
+    \end{align*}
+
+  \item O(s) valor(es) de $c$ que atende(m) o Teorema do valor médio para
+    integrais \ref{teo:tvmi} satisfaz(em)
+    \[
+      f(c) = f_{\textrm{médio}}= \frac{13}{3}.
+    \]
+    Uma vez que $f(c)= c^2+2$, temos
+    \begin{align*}
+      c^2+2 & = \frac{13}{3}                 \\
+      c^2   & = \frac{13}{3}-2 = \frac{7}{3} \\
+      c     & = \pm \sqrt{\frac{7}{3}}
+    \end{align*}
+    Assim existem dois valores para $c$
+    \[
+      c= \pm \sqrt{\frac{7}{3}} \approx \pm 1,5275
+    \]
+    no intervalo $[-1, 3]$, que satisfazem o Teorema do Valor Médio para integrais.
+\end{enumerate}
+\end{example}
+%----------------------------------------------------------------------------------
+
+Podemos justapor as duas partes do Teorema Fundamental do cálculo.
 
 \begin{teorema}{Teorema Fundamental do Cálculo}{teo:fundamental}
-  Se $f$ for contínua em $[a,b]$ então
+  Se $f$ for contínua em $[a, b]$ valem as afirmações:
   \begin{enumerate}
-    \item Se $F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b$
-    então $F'(x)=f(x)$
-    \item \(\int_a^{b}f(x)dx= F(b)-F(a)\),
-    onde $F$ é qualquer primitiva de $f$. isto é $F'=f$
+    \item Se \(a \leq x \leq b\)
+      \[
+        F(x)  = \int_a^x f(t)dt
+        \qquad\Rightarrow\qquad
+        F'(x) = f(x)
+      \]
+    \item Se $F$ for qualquer primitiva de $f$, isto é $F'=f$, então
+      \[
+        \int_a^{b}f(x)dx= F(b)-F(a)
+      \]
   \end{enumerate}
 \end{teorema}
 

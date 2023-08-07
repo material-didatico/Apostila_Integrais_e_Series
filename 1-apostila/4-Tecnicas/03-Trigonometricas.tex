@@ -71,7 +71,9 @@ Estratégias para calcular \(\int \tan^m(x) \sec^n(x)dx\):
           \item Faça a substituição $u=\sec(x)$.
         \end{enumerate}
         Note que a mesma ideia pode ser usada para integrais do tipo
-        \(\int \cot^m(x) \csc^m(x)dx\)
+        \[
+          \int \cot^m(x) \csc^m(x)dx
+        \]
 
   \item Os outros casos não tem uma regra geral e requer manipulações
         trigonométricas específicas para cada caso.
@@ -240,10 +242,18 @@ extra $\cos(x)$ necessário para usarmos substituição simples.
     & = \int \tan(x)\big(\sec^2(x)-1\big) dx \\
     & = \int \tan(x)\sec^2(x) dx- \int \tan(x) dx
   \end{align*}
-  Para calcularmos $\int tan(x)\sec^2(x) dx$
+  Para calcularmos
+  \[
+    \int \tan(x)\sec^2(x) dx
+  \]
   usamos a substituição simples $u=\tan(x)$,
   de modo que $du= \sec^2(x)dx$ e assim,
-  $\int tan(x)\sec^2(x) dx= \int udu= \frac{u^2}{2}+ C= \frac{\tan^2(x)}{2}$.
+  \[
+    \int \tan(x)\sec^2(x) dx
+    = \int udu
+    = \frac{u^2}{2}+ C
+    = \frac{\tan^2(x)}{2} \,.
+  \]
   Logo,
   \begin{align*}
     \int \tan^3(x) dx
