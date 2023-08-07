@@ -31,13 +31,13 @@ Figura~\ref{fig:area_entre_curvas_07}.
 Podemos aproximar a área da região $S$ como soma da área desses $n$
 retângulos
 \[
-  \sum_{k=1}^{n}[f(c_k)-g(c_k)]\Delta
+  \sum_{k=1}^{n}[f(c_k)-g(c_k)]\Delta x
 \]
 
 Essa aproximação fica cada vez melhor quando $n \to \infty$ e assim,
 definimos a área da região $S$ como sendo
 \[
-  A= \displaystyle \lim_{k \to \infty}\sum_{k=1}^{n}[f(c_k)-g(c_k)]\delta x
+  A = \lim_{k \to \infty} \sum_{k=1}^{n} \big[ f(c_k) - g(c_k) \big]\Delta x
 \]
 
 Reconhecemos o limite acima como a integral definida de $f-g$.
@@ -46,10 +46,236 @@ Assim, podemos apresentara definição a seguir.
 \begin{definicao}{Área entre curvas}{def:area-entre-curvas}
   A área $A$ da região limitada pelas curvas $y=f(x)$ e $y=g(x)$ e
   pelas retas $x=a$, $x=b$, onde $f$ e $g$ são contínuas e
-  $f(x) \geq g(x)$ para todo $x \in [a,b]$, é
+  $f(x) \geq g(x)$ para todo $x \in [a, b]$, é
   \[
-    A= \int_a^b [f(x)-g(x)]dx
+    A = \int_a^b \big[ f(x) - g(x)\big] dx
   \]
 \end{definicao}
 
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre a área da região limitada abaixo por $f(x)= x$ e acima por
+  $g(x)=e^x+1$ e limitada nos lados pelas retas $x=0$ e $x=1$.
+  \solution
+  O esboço da região pedida pode ser visto na Figura~\ref{fig:area1}.
+  A área pedida pode ser calculada através da integral definida:
+  \begin{align*}
+    \int_0^1 (e^x+1-x) dx
+    & = \left( e^x+x-\frac{x^2}{2} \right) \evalat{0}{1} \\
+    & = \left(e+1-\frac{1}{2}\right)-\left(e^0+0-\frac{0}{2}\right) \\
+    & = e-\frac{1}{2}.
+  \end{align*}
+  Onde a primeira igualdade é decorrente do Teorema Fundamental do Cálculo,
+  parte 2.
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{areae1}
+  \caption{Esboço da região delimitada pelas curvas
+    $y=e^x+1$, $y=x$, $x=0$ e $x=1$.}
+  \label{fig:area1}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a área da região delimitada pelas curvas $y = x^2$ e $y = 2x$.
+  \solution
+  Observe que a curva $y = x^2$ é uma parábola e a curva $y = 2x$ é uma reta
+  que passa pela origem. O esboço da região pedida pode ser visto na
+  Figura~\label{fig:area2} e note que a curva que está ``por cima''
+  é $y=2x$ e a curva que está ``por baixo'' é $y=x^2$.
+
+  Precisamos encontrar os pontos de intersecção dessas curvas e para isso,
+  precisamos encontrar as soluções da equação:
+  \[
+    x^2=2x
+  \]
+  Cujas soluções são $x=0$ e $x=2$.
+
+  Assim, a área pedida pode ser calculada resolvendo a integral
+  \begin{align*}
+    \int_0^2 (2x-x^2) dx
+    & \stackTFCD  \left( x^2-\frac{x^3}{3} \right) \evalat{0}{2} \\
+    & = \left( 4- \frac{8}{3}\right) - \left( 0-\frac{0}{3}\right) \\
+    & = \frac{4}{3} \,.
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{areae2}
+  \caption{Esboço da área entre as curvas $y=x^2$ e $y=2x$.}
+  \label{fig:areae2}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  calcular a área da região delimitada pelas curvas
+  $y = -x^2 + 3x + 2$ e $y = x^2+6x$.
+  \solution
+
+%  \begin{observation}
+  Você deve lembrar que a curva $y = -x^2 +3x + 2$ é uma parábola com
+  concavidade voltada para baixo, com vértice $(\sfrac{3}{2}, \sfrac{17}{4})$,
+  zeros
+  \[
+    x = \frac{3+\sqrt{17}}{2}
+    \qquad\text{e}\qquad
+    x = \frac{3-\sqrt{17}}{2}
+  \]
+  e intercepta o eixo $y$ no ponto $(0, 2)$.
+  Já a curva $y = x^2 + 6x$ é uma parábola com concavidade voltada para cima,
+  com vértice $(-3, -9)$, zeros $x=0$ e $x=-6$ e intercepta o eixo $y$
+  no ponto $(0, 0)$.
+%  \end{observation}
+
+  Para encontrar os pontos de intersecção, igualamos as duas funções
+  \[
+    -x^2 +3x + 2 = x^2 + 6x.
+  \]
+  Resolvendo a equação, encontramos $x =-2$ e $x = \sfrac{1}{2}$.
+  O esboço da região pode ser visto na Figura~\ref{fig:area3}.
+
+  Agora, podemos calcular a área, através da integral
+  \begin{align*}
+   A
+   & = \int_{-2}^{\sfrac{1}{2}} \left(-x^2 + 3x +  2\right) - \left( x^2 +6x \right) \, dx \\
+   & = \int_{-2}^{\sfrac{1}{2}} \left(-2x^2 - 3x + 2 \right) \, dx \\
+   & \stackTFCD \left(\frac{2}{3}x^3-4x^2+3 \right) \evalat{-2}{\sfrac{1}{2}} \\
+   & =\frac{125}{24}
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{areae3}
+  \caption{Esboço da região entre as curvas $y=-x^2 +3x + 2$ e $y=x^2 + 6x$.}
+  \label{fig:area3}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a área da região delimitada pelas curvas
+  $f(x) = \sin(x)$ e $g(x) =\cos(x)$, no intervalo $[0, \sfrac{\pi}{2}]$.
+  \solution
+  Inicialmente, observamos que os pontos de interseção ocorrem quando
+  $\sin(x) = \cos(x)$ e $0 \leq x \leq \sfrac{\pi}{2}$, ou seja, quando
+  $x = \sfrac{\pi}{4}$. Ao esboçarmos o gráfico da região pedida, conforme a
+  Figura~\ref{fig:area4}, podemos notar que $\cos(x) \geq \sin(x)$ quando
+  $0 \leq x \leq \sfrac{\pi}{4}$, porém $\sin(x) \geq \cos(x)$ quando
+  $\sfrac{\pi}{4} \leq x \leq \sfrac{\pi}{2}$. Portanto, precisamos dividir a
+  região dada em duas partes, com áreas $A_1$ e $A_2$. Dessa forma, a área
+  $A$ da região pedida é a soma dessas duas áreas, ou seja
+  \begin{align*}
+      A
+      & = A_1+A_2 \\
+      & = \int_0^{\sfrac{\pi}{4}} \big( \cos(x) - \sin(x) \big) dx
+        + \int_{\sfrac{\pi}{4}}^{\sfrac{\pi}{2}} \big( \sin(x) - \cos(x) \big) dx \\
+      & \stackTFCD
+          \big(  \sin(x) + \cos(x) \big) \evalat{0}{\sfrac{\pi}{4}}
+        + \big( -\cos(x) - \sin(x) \big) \evalat{\sfrac{\pi}{4}}{\sfrac{\pi}{2}} \\
+      & = \left( \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} -0 -1 \right)
+        + \left( -0 -1 + \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \right) \\
+      & = 2\sqrt{2}-2
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%\begin{observation}
+Observe que, neste exercício específico, poderíamos ter aproveitado a
+simetria da região em relação à reta $x = \sfrac{\pi}{4}$,
+o que nos permitiria economizar esforço ao calcular a área, uma vez que
+\[
+  A
+  = 2 A_1
+  = 2 \int_0^{\sfrac{\pi}{4}} \big(\cos(x)-\sin(x) \big)dx.
+\]
+%\end{observation}
+
+%------------------------------------------------------------------------------%
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{areae4}
+  \caption{Região delimitada pelas curvas $y=\sin(x)$ e $y=\cos(x)$,
+    no intervalo $0 \leq x \leq \sfrac{\pi}{2}$.}
+  \label{fig:area4}
+\end{figure}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Calcule a área da região  expressa na figura, que é uma das regiões
+  delimitada simultaneamente pelas três curvas
+  \[
+    f(x) = 2x-1, \qquad
+    g(x) =-\frac{x}{2}+4\quad\text{e}\quad
+    h(x)=(x-2)^2 \,.
+  \]
+  \solution
+%  \begin{observation}
+    Observe que as curvas $f(x)$ e $g(x)$ são retas e
+    \[h(x)=(x-2)^2=x^2-4x+4\]
+    é uma parábola, com concavidade para cima, cujo vértice é o ponto $(2, 0)$
+    e possui um único zero, $x=2$.
+%  \end{observation}
+
+  O esboço da região pedida é mostrado na figura a seguir.
+  \IncludeGraphicCentred{areae51}[0.6]
+
+  Note que precisamos dividir a região que queremos encontrar a área em duas
+  regiões: Na primeira região, o intervalo de integração é de 0 até 1
+  e a reta
+  $g(x) = -\sfrac{x}{2}+4$ está ``por cima'', enquanto que a parábola
+  $h(x)=(x-2)^2$ está ``por baixo'';
+  Na segunda região, o intervalo de integração e a curva
+  $g(x)=-\sfrac{x}{2}+4$ está ``por cima'', enquanto que a curva que está
+  ``por baixo'' é
+  $f(x)=2x-1$.
+
+  Portanto, temos
+  \begin{align*}
+    A_1 & = \int_0^1 \big( g(x)-h(x) \big) dx \\
+    A_2 & = \int_1^2 \big( g(x)-f(x) \big) dx
+  \end{align*}
+  Calculando as integrais separadamente
+  \begin{align*}
+      A_1
+      & = \int_0^1 \left( -\frac{x}{2}+4-x^2+4x-4 \right) dx \\
+      & = \int_0^1 \left( -x^2 + \frac{7}{2}x\right) dx \\
+      & \stackTFCD \left( -\frac{x^3}{3}+\frac{7}{4}x^2 \right) \evalat{0}{1} \\
+      & = \left(-\frac{1}{3}+7/4 \right)-(0-0) \\
+      & =\frac{17}{12}
+  \end{align*}
+  \begin{align*}
+        A_2
+      & = \int_1^2 \left( -\frac{x}{2}+4-x^2-2x+1 \right) dx \\
+      & = \int_1^2 \left( -\frac{5x}{2}+5 \right) dx \\
+      & \stackTFCD \left( -\frac{5x^2}{4}+5x \right) \evalat{1}{2} \\
+      & = \left(-\frac{20}{4}+10 \right)-\left(-\frac{5}{4}+5 \right) \\
+      & =\frac{5}{4}
+  \end{align*}
+  Portanto, a área pedida é
+  \(
+    A
+    = A_1 + A_2
+    = \frac{17}{12} + \frac{5}{4}
+    = \frac{8}{3}
+  \).
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------
+\begin{example}
+  Encontre a área da região limitada pela reta $y=x-1$ e a parábola $y^2=2x+6$.
+\end{example}
 %------------------------------------------------------------------------------%
