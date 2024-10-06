@@ -19,14 +19,14 @@ for infinito ou $f$ possuir uma descontinuidade infinita, em alguns casos,
   A integral definida de $f$ em cada
   um desses intervalos é dita imprópria e é dada respectivamente por
   \begin{align*}
-    \int_a^{\infty} f(x)                 \, dx
-    & = \lim_{t\to\infty} \int_a^t f(x)  \, dx \\[3mm]
-    \int_{-\infty}^b f(x)                \, dx
-    & = \lim_{t\to-\infty} \int_t^b f(x) \, dx \\[3mm]
-    \int_{-\infty}^{\infty} f(x) \, dx
-    & = \lim_{t\to-\infty} \int_t^c f(x) \, dx
-      + \lim_{t \rightarrow \infty} \int_c^t f(x) \, dx,
-      \quad \text{para algum } c \in \R.
+    \int_a^{\infty} f(x)                  \, dx
+    & = \lim_{t\to\infty} \int_a^t f(x)   \, dx \\[3mm]
+        \int_{-\infty}^b f(x)             \, dx
+    & = \lim_{t\to-\infty} \int_t^b f(x)  \, dx \\[3mm]
+        \int_{-\infty}^{\infty} f(x)      \, dx
+    & = \lim_{t\to-\infty} \int_t^c f(x)  \, dx
+      + \lim_{t \to \infty} \int_c^t f(x) \, dx,
+        \quad \text{para algum } c \in \R.
   \end{align*}
   Dizemos que a integral imprópria converge se o(s) limite(s) existe(m);
   caso contrário, diverge.
@@ -164,7 +164,7 @@ e acima do eixo $x$, conforme mostra a Figura~\ref{fig:integral_impropria}.
   \label{fig:integral_impropria}
 \end{figure}
 
-A próxima definição é um outro tipo de integral imprópria,
+A próxima definição é outro tipo de integral imprópria,
 que envolve descontinuidade.
 
 %------------------------------------------------------------------------------%
@@ -314,9 +314,9 @@ poderíamos ter feito \textbf{erroneamente} o seguinte cálculo
   \int_{0}^3 \frac{1}{x-1} dx
   = \ln\abs{t-1} \evalat{0}{3}
   = \ln 2 - \ln 1
-  = \ln 2
+  = \ln 2 \,\,
 \]
-No entanto, esse procedimento está incorreto, uma vez que a integral
+no entanto, esse procedimento está incorreto, uma vez que a integral
 imprópria deve ser calculada em termos de limite. Isso nos leva a
 uma importante lição: a partir de agora, sempre que for solicitado
 calcular

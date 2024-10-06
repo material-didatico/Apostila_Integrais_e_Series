@@ -17,7 +17,17 @@ presentation: $(PRESENT_PDF_FILES)
 
 RUBBER= rubber --inplace --quiet --short 
 
-%.pdf: %.tex             \
+%-handout.pdf: %-handout.tex %-conteudo.tex \
+       $(wildcard *.cls) \
+       $(wildcard *.sty) \
+       $(wildcard *.bib) \
+       $(wildcard ./figs/*)
+	# ${RUBBER} --pdf $(<:.tex=)
+	pdflatex -halt-on-error $(<)
+	pdflatex -halt-on-error $(<)
+	pdflatex -halt-on-error $(<)
+
+%-apresentacao.pdf: %-apresentacao.tex %-conteudo.tex \
        $(wildcard *.cls) \
        $(wildcard *.sty) \
        $(wildcard *.bib) \

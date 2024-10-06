@@ -1,0 +1,186 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcommand{\fmedio}{f_{\text{médio}}}
+
+%------------------------------------------------------------------------------%
+\title {Integrais Impróprias}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integrais Impróprias}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias}
+\begin{enumerate}[<+->]
+  \setlength\itemsep{1em}
+  \item Intervalo de integração infinito
+  \item Descontinuidade no extremo do intervalo
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias}
+\begin{enumerate}[<+->]
+  \setlength\itemsep{1em}
+  \item Envolve o calculo de um limite
+  \item Se o limite existe a integral é \emph{convergente}
+  \item Se algum limite não existir a integral é \emph{divergente}
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integrais Impróprias -- Tipo 1}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 1}
+  $f$ função contínua em intervalo ilimitado,
+  \emph{\([a, \infty)\)},
+  \emph{\((-\infty, b]\)},
+  \emph{\((-\infty, \infty)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 1}
+  $f$ é função contínua em \([a, \infty)\)
+  \large
+  \[
+    \int_a^{{\color<2>{blue} \infty}} f(x) \, dx
+    \;=\;  {{\color<2>{blue} \lim_{t\to\infty}}}
+    \int_a^{{\color<2>{blue} t}} f(x)  \, dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 1}
+  $f$ é função contínua em \((-\infty, b]\)
+  \large
+  \[
+    \int_{{\color<2>{blue} -\infty}}^b f(x) \, dx
+    \;=\; {\color<2>{blue} \lim_{t\to-\infty}}
+    \int_{{\color<2>{blue} t}}^{b} f(x) \,dx
+  \]
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 1}
+
+  $f$ é função contínua em \((-\infty, \infty)\)
+
+  {\large
+  \[
+    \int_{{\color<3>{blue}  -\infty}}
+        ^{{\color<4>{magenta}\infty}} f(x) \, dx
+    \;=\; {\color<3>{blue}   \lim_{r\to-\infty}}
+    \int_{{\color<3>{blue}{r}}}
+        ^{{\color<2>{red} c}} f(x) \, dx
+    \;+\; {\color<4>{magenta}\lim_{s \to \infty}}
+    \int_{{\color<2>{red} c}}
+        ^{{\color<4>{magenta}s}} f(x) \, dx
+  \]}
+  para algum {\color<2>{red} $c$} $\in\R$
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integrais Impróprias -- Tipo 2}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 1}
+  $f$ função \emph{contínua no interior} do intervalo,
+  mas tende ao \emph{infinito} em algum ponto
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 2}
+  $f$ é contínua em {\color{blue} $[a, b)$} e descontínua em $b$,
+  {
+  \large
+  \[
+    \int_{a}^{{\color<2>{blue} b}} f(x)\,dx
+    \;=\;     {\color<2>{blue} \lim_{t\to b^{-}}}
+    \int_{a}^{{\color<2>{blue} t}} f(x)\,dx
+  \]}
+  Atenção ao limite lateral
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 2}
+  $f$ é contínua em {\color{blue} $(a, b]$} e descontínua em $a$,
+  {
+  \large
+  \[
+    \int_{{\color<2>{blue} a}}^b f(x)\,dx
+    \;=\; {\color<2>{blue} \lim_{t\to a^+}}
+    \int_{{\color<2>{blue} t}}^b f(x)\,dx
+  \]}
+  Atenção ao limite lateral
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrais Impróprias -- Tipo 2}
+  $f$ é uma função definida em $[a, b]$, contínua exceto em um ponto
+  {\color{blue} $c \in (a, b)$}
+  {
+  \large
+  \begin{align*}
+      \int_a^b f(x) \, dx
+    & \;=\; \int^{{\color<2>{blue} c}}_a f(x) \, dx
+      \;+\; \int_{{\color<2>{blue} c}}^b f(x) \, dx \\[3mm]
+    & \;=\; {\color<2>{blue} \lim_{r\to c^-}} \int^{{\color<2>{blue} r}}_a f(x) \, dx
+      \;+\; {\color<2>{blue} \lim_{s\to c^+}} \int_{{\color<2>{blue} s}}^b f(x) \, dx
+  \end{align*}
+
+  }
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+\onslide<+->{Calcular a integral \(\int_{-\infty}^0 2^x\, dx\)}
+\begin{align*}
+  \onslide<+->{\int_{{\color<2>{blue}-\infty}}^0 2^x\, dx
+    & = {\color<2>{blue}\lim_{t\to-\infty}}
+        \left[\;\int_{{\color<2>{blue} t}}^{0} 2^x\, dx \;\right]
+    & & \text{definição integral imprópria}                       \\}
+  \onslide<+->{
+    & = \lim_{t\to-\infty}
+        \left[\;{\color<3>{blue} \frac{2^x}{\ln(2)}} \,\evalat{t}{0} \;\right]
+    & & \int a^u \,du = \frac{a^u}{\,\ln(a)\,} + C \\}
+  \onslide<+->{
+    & = \lim_{t\to-\infty} \left[\;\frac{1}{\ln(2)} \left( 2^0 - 2^t \right) \;\right] \\}
+  \onslide<+->{
+    & = \frac{1}{\ln(2)} \lim_{t\to-\infty} \left( 2^0 - 2^t \right) }
+  \onslide<+->{
+      \;=\; \frac{1}{\ln(2)}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

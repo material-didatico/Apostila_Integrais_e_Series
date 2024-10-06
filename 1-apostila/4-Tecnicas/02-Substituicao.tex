@@ -14,15 +14,15 @@
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Encontre \(\int 4x^3 \cos(x^4+2)dx\).
+  Encontre \(\int 4x^3 \cos\left(x^4+2\right)dx\).
   \solution
   Note que, podemos escrever a integral
   \[
-    \int 4x^3 \cos(x^4+2)dx =  \int  \cos(x^4+2) 4x^3dx
+    \int 4x^3 \cos\left(x^4+2\right)dx =  \int  \cos\left(x^4+2\right) 4x^3\,dx
   \]
   como o produto de duas funções
   \[
-    f(x) = \cos(x^4+2) \qquad \text{e} \qquad
+    f(x) = \cos\left(x^4+2\right) \qquad \text{e} \qquad
     h(x) = 4x^3 \,.
   \]
   Note que $f$
@@ -33,11 +33,11 @@
   Fazendo a substituição $u=x^4+2$ temos que a sua diferencial é $du=4x^3dx$ e
   usando a regra da substituição temos
   \begin{align*}
-    \int 4x^3 \cos(x^4+2)dx
-    & = \int  \cos(x^4+2) 4x^3dx \\
+    \int 4x^3 \cos\left(x^4+2\right)dx
+    & = \int  \cos\left(x^4+2\right) 4x^3dx \\
     & = \int \cos(u) du \\
-    & = \sin(u)+C \\
-    & = -\sin(x^4+2)+C
+    & = -\sin(u)+C \\
+    & = -\sin\left(x^4+2\right)+C
   \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
@@ -86,9 +86,10 @@
   \begin{align*}
     \int \tan(x) dx
     & = \int \frac{\sin(x)}{\cos(x)} dx \\
-    & = \int \frac{1}{u} -du \\
+    & = \int \frac{1}{u} (-du) \\
     & = - \int \frac{1}{u} du \\
     & = - \ln \abs{\cos(x)}+C
+    & = \ln \abs{\sec(x)}+C
   \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
@@ -97,7 +98,7 @@
 \begin{example}
 \begin{enumerate}[label=\alph*)]
   \item Encontre \(\int_1^e \frac{\ln(x)}{x}dx\).
-  \item Encontre o valor médio de \(f(x)=\frac{\ln(x)}{x}dx\)
+  \item Encontre o valor médio de \(f(x)=\frac{\ln(x)}{x}\)
         no intervalo $[1, e]$.
 \end{enumerate}
 \solution
@@ -112,7 +113,7 @@
   $u=\ln(x)$ e com isso, $du= \frac{1}{x}dx$.
   \begin{align*}
     \int \frac{\ln(x)}{x} dx
-    & = \ln(x) \frac{1}{x} dx \\
+    & = \int \ln(x) \frac{1}{x} dx \\
     & = \int u du \\
     & = \frac{u^2}{2}+C \\
     & = \frac{(\ln(x))^2}{2}+C
@@ -167,7 +168,7 @@
   \begin{align*}
     \int_{0}^{\infty} x^3e^{-x^4} dx
     & = \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx \\
-    & = \lim_{t \to -\infty} -\frac{1}{4}\left( e^t-e^0 \right) \\
+    & = \lim_{t \to \infty} -\frac{1}{4}\left( e^t-e^0 \right) \\
     & =-\infty
   \end{align*}
   Como uma das integrais do lado direito da equação
@@ -178,7 +179,7 @@
   é divergente.
 \end{example}
 
-%---------------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
 Algumas observações importantes
 \begin{itemize}
   \item Seja $F$ a primitiva mais geral de $f$, ou seja,

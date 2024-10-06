@@ -1,0 +1,295 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+\DeclareMathOperator{\bessel}{J}
+
+%------------------------------------------------------------------------------%
+\title {Séries de Potências -- Manipulações}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Função Definida por Série de Potências}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Função Definida por Série de Potências}
+  Se
+  \[
+    \sum_{n=0}^\infty c_n (x-a)^n
+  \]
+  \pause
+  possui um raio de convergência \(R>0\),
+  \pause
+  então a função
+  \[
+    f(x)=\sum_{n=0}^\infty c_n(x-a)^n
+  \]
+  \pause
+  está definida no intervalo $(a-R,\,a+R)$ \\[3mm] \pause
+  é infinitamente derivável nesse intervalo
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Manipulando Funções Definidas por Séries}
+  Podemos fazer mudanças de variáveis e somar as séries
+
+  \pause
+  \vspace{2\baselineskip}
+  Desde que estejamos atentos ao intervalo de convergência
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Escreva \(f(x) = \frac{1}{1-x^2}\) como uma série de potências
+
+  \pause
+  \vspace{\baselineskip}
+  Sabemos que
+  \[
+    \frac{1}{1-u}
+    \;=\; \sum_{n=0}^\infty u^n
+    \;=\; 1 + u + u^2 + u^3 + \cdots + u^n + \cdots
+  \]
+  para \(\abs{u}<1\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Fazendo \(u = x^2\)}\onslide<+->{, temos
+  \[
+    \frac{1}{1-u}
+    \;=\; \sum_{n=0}^\infty u^n
+    \;=\; 1 + u + u^2 + u^3 + \cdots + u^n + \cdots
+  \]}
+  \[
+    \onslide<+->{\frac{1}{1-x^2}
+    \;=\; \sum_{n=0}^\infty (x^2)^n}
+    \onslide<+->{\;=\; \sum_{n=0}^\infty x^{2n}}
+    \onslide<+->{\;=\; 1 + x^2 + x^4 + x^6 + \cdots + x^{2n} + \cdots}
+  \]
+
+  \onslide<+->{Analisando o intervalo de convergência}
+  \begin{align*}
+    \onslide<+->{\abs{u} & < 1        \\}
+    \onslide<+->{x^2     & < 1        \\}
+    \onslide<+->{\abs{x} & < \sqrt{1} \\}
+    \onslide<+->{-1 < x  & < 1}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Escreva \(f(x) = \frac{1}{x+2}\) como uma série de potências
+
+  \pause
+  \vspace{\baselineskip}
+  Sabemos que
+  \[
+    \frac{1}{1-u}
+    \;=\; \sum_{n=0}^\infty u^n
+    \;=\; 1 + u + u^2 + u^3 + \cdots + u^n + \cdots
+  \]
+  para \(\abs{u}<1\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Precisamos manipular $f$
+  \pause
+  \[
+    f(x)
+    \;=\; \frac{1}{x+2}
+    \pause
+    \;=\; \frac{1}{2\left(1+\dfrac{x}{2}\right)}
+    \pause
+    \;=\; \frac{1}{2}\,\frac{1}{\left[1-\left(-\dfrac{x}{2}\right)\right]}
+  \]
+
+  \pause
+  Fazendo \(u=-\frac{x}{2}\)\pause, temos
+  \[
+    f(x)
+    \;=\; \frac{1}{2} \, \sum_{n=0}^\infty \left(-\frac{x}{2}\right)^n
+    \pause
+    \;=\; \sum_{n=0}^\infty \frac{1}{2} \, \frac{(-1)^n\,x^n}{2^n}
+    \pause
+    \;=\; \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}\,x^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Analisando o intervalo de convergência}
+  \begin{align*}
+    \onslide<+->{\abs{u}    \;\;        & < 1 \\[1mm]}
+    \onslide<+->{\abs{-\frac{x}{2}}     & < 1 \\[1mm]}
+    \onslide<+->{\frac{\abs{x}}{2} \;\; & < 1 \\[1mm]}
+    \onslide<+->{\abs{x} \;\;           & < 2}
+  \end{align*}
+  \onslide<+->{A série converge para \(x\in(-2, 2)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Derivada da Série}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivação Termo a Termo}
+  Podemos calcular a derivada de $f(x)$ construindo a série
+  \begin{align*}
+    \action<+->{f'(x) & = {\color{blue}\frac{d}{dx} \Bigg(} \sum_{n=0}^\infty c_n(x-a)^n {\color{blue}\Bigg)} \\[2mm]}
+    \action<+->{      & = \sum_{n=0}^\infty {\color{blue}\frac{d}{dx} \Big(} c_n(x-a)^n {\color{blue}\Big)} \\[2mm]}
+    \action<+->{      & = \sum_{{\color<5->{red}n=1}}^\infty c_n \,n\, \big(x-a\big)^{n-1}}
+    \action<5->{\qquad\text{Note que o índice dessa série começa em {\color{red}1}}}
+  \end{align*}
+  \action<+->{que converge em $(a-R, a+R)$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a derivada da função de Bessel
+  \pause
+  \[
+  \bessel_0(x) = \sum_{n=0}^\infty \frac{\,(-1)^n\,x^{2n}\,}{2^{2n}\,(n!)^2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{columns}
+    \column{0.5\baselineskip}
+    \begin{align*}
+      \onslide<+->{\bessel'_0(x)}
+      \onslide<+->{& = \frac{d}{dx} \left(\sum_{n=0}^\infty \frac{(-1)^nx^{2n}}{2^{2n}(n!)^2}\right) \\[3mm]}
+      \onslide<+->{& = \sum_{n=0}^\infty \frac{d}{dx} \left(\frac{(-1)^nx^{2n}}{2^{2n}(n!)^2}\right) \\[3mm]}
+      \onslide<+->{& = \sum_{n=0}^\infty \frac{(-1)^n}{2^{2n}(n!)^2} \frac{d}{dx} \left(x^{2n}\right)}
+    \end{align*}
+    \column{0.5\baselineskip}
+    \begin{align*}
+      \onslide<+->{\bessel'_0(x)
+        & = \sum_{n=1}^\infty \frac{(-1)^n}{2^{2n}(n!)^2} \; 2n x^{2n-1} \\[3mm]}
+      \onslide<+->{& = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\, x^{2n-1}\,}{2^{2n-1}(n!)^2}}
+    \end{align*}
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integral da Série}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integração Termo a Termo}
+  Para calcularmos a integral de $f$ construímos a série
+  \begin{align*}
+    \action<+->{\int f(x)dx & = {\color{blue}\int} \left(\sum_{n=0}^\infty c_n(x-a)^n\right){\color{blue}dx} \\[2mm]}
+    \action<+->{            & = \sum_{n=0}^\infty \left({\color{blue}\int} c_n(x-a)^n {\color{blue}dx}\right) \\[2mm]}
+    \action<+->{            & = \sum_{n=0}^\infty c_n\frac{(x-a)^{n+1}}{n+1}+ C}
+\end{align*}
+  \action<+->{que também converge em $(a-R, a+R)$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre uma série de potências centrada em \(x=0\) para a função
+  \[
+    f(x) = \ln \left( 1 + x^2 \right)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Ainda não temos uma técnica para obter a série diretamente\pause,
+  mas sabemos que
+  \[
+    \frac{d}{dx} \ln\left( 1+x^2 \right)
+    \;=\; \frac{2x}{1+x^2}
+    \pause\;=\; \frac{2x}{1-\left(-x^2\right)}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Enquanto que a soma da Série Geométrica com \(\alpha=2x\) e \( r = -x^2 \) é
+  \[
+    \sum_{n=0}^\infty 2x \left(-x^2\right)^n
+    \;=\; \frac{2x}{1-\left(-x^2\right)}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Nos pontos onde a série converge
+  \[
+    \frac{d}{dx}\ln\left( 1+x^2 \right)
+    \pause\;=\; \frac{2x}{1-\left(-x^2\right)}
+    \pause\;=\; \sum_{n=0}^\infty 2x \left(-x^2 \right)^n
+    \pause\;=\; 2 \sum_{n=0}^\infty (-1)^n\,x^{2n+1}
+  \]
+
+  \pause
+  Basta integrar para obtermos a série desejada
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\ln\left( 1+x^2 \right)
+      = \int \frac{d}{dx} \ln\left( 1+x^2 \right) dx}
+    \onslide<+->{& = \int 2 \sum_{n=0}^\infty (-1)^n\,x^{2n+1} dx \\[2mm]}
+    \onslide<+->{& = 2 \sum_{n=0}^\infty (-1)^n \int x^{2n+1} dx \\[2mm]}
+    \onslide<+->{& = 2 \sum_{n=0}^\infty (-1)^n \left(\frac{x^{2n+2}}{\,2n+2\,} + c_n\right) \\[2mm]}
+    \onslide<+->{& = C + \sum_{n=0}^\infty (-1)^n \frac{x^{2n+2}}{\,n+1\,}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Falta determinar \(C\)
+
+  \pause
+  Avaliando a função e a série em $x=0$
+  \pause
+  \[
+    \ln\left( 1+x^2 \right) \;=\; \ln(1) \;=\; 0
+  \]
+  \pause
+  \vspace{-\baselineskip}
+  \[
+    C + \sum_{n=0}^\infty (-1)^n \frac{x^{2n+2}}{\,n+1\,}
+    = C
+  \]
+  \pause
+  portanto \(C=0\)\pause, então
+  \[
+    \ln\left( 1+x^2 \right) = \sum_{n=0}^\infty \frac{(-1)^n}{n+1}\, x^{2n+2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

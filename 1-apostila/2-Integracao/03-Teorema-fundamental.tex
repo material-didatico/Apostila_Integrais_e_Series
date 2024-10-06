@@ -77,35 +77,37 @@ como ilustra a Figura~\ref{fig:valormedio_media}.
 
 \begin{proof}
   Para iniciarmos a demonstração, devemos lembrar que como $f$ é contínua em
-  $[a, b]$, então $f$ assume um valor máximo $f(v)$ e um valor mínimo
-  $f(v)$ para $u,v \in [a, b]$ (Teorema de Weierstrass\ref{teo:weistress}).
+  $[a, b]$, então $f$ assume um
+  valor mínimo $f(u)$ e um
+  valor máximo $f(v)$ com $u, v \in [a, b]$
+  (Teorema de Weierstrass~\ref{teo:weistress}).
   Assim,
   \[
-      f(u) \leq f(x) \leq f(v)
+    f(u) \leq f(x) \leq f(v)
   \]
   Como já vimos que a integral preserva desigualdade, temos que
   \[
-      \int_a^b f(u) dx \leq \int_a^b f(x) dx\leq \int_a^b f(v) dx
+    \int_a^b f(u) dx \leq \int_a^b f(x) dx\leq \int_a^b f(v) dx
   \]
   Portanto,
   \[
-      f(u)(b-a) \leq \int_a^b f(x) dx \leq f(v)(b-a)
+    f(u)(b-a) \leq \int_a^b f(x) dx \leq f(v)(b-a)
   \]
   Dividindo essa última desigualdade por $b-a$, chegamos que
   \[
-      f(u) \leq \frac{1}{b-a}\int_a^b f(x)dx \leq f(v)
+    f(u) \leq \frac{1}{b-a}\int_a^b f(x)dx \leq f(v)
   \]
   Como $f$ é contínua em $[a, b]$, pelo Teorema do Valor
   Intermediário~\ref{teo:valor-intermediario}, $f$ deve assumir
   todos os valores entre o mínimo, $f(u)$, e o máximo, $f(v)$,
   de $f$. Portanto, deve assumir o valor
   \[
-      \frac{1}{b-a}\int_a^b f(x)dx
+    \frac{1}{b-a}\int_a^b f(x)dx
   \]
   para algum valor $c \in (a, b)$. Em outras palavras, existe
   $c \in (a, b)$ tal que
   \[
-      f(c)= \frac{1}{b-a}\int_a^b f(x)dx \,.
+    f(c)= \frac{1}{b-a}\int_a^b f(x)dx \,.
   \]
 \end{proof}
 
@@ -119,7 +121,7 @@ uma função descontínua não assuma seu valor médio.
   \[
     F(x)= \int_a^x f(t)dt, \hspace{1cm} a \leq x \leq b
   \]
-  é contínua em $[a,b]$ e derivável em $(a, b)$ e $F'(x)=f(x)$
+  é contínua em $[a, b]$ e derivável em $(a, b)$ e $F'(x)=f(x)$
   note que em outras palavras temos que
   \[
     \frac{d}{dx} \left( \int_a^x f(t)dt \right)=f(x)
@@ -450,7 +452,7 @@ Vamos aos exemplos.
   \[
     \int_{-1}^3 \frac{1}{x^2} dx \geq 0.
   \]
-  Portanto, devemos está atentos as hipóteses quando quisermos usar o Teorema
+  Portanto, devemos estar atentos as hipóteses quando quisermos usar o Teorema
   fundamental do cálculo. Note que
   \[
     f(x)=\frac{1}{x^2}
@@ -473,7 +475,7 @@ Seja $f(x)= x^2+2$
 \end{enumerate}
 \solution
 \begin{enumerate}[label=\alph*)]
-  \item Observando que $f(x)$ é contínua $[-1, 3]$, um vez que é um polinômio.
+  \item Observando que $f(x)$ é contínua $[-1, 3]$, uma vez que é um polinômio.
     Então o valor médio de $f$ no intervalo $[-1, 3]$ é:
     \begin{align*}
       f_{\textrm{médio}}

@@ -1,0 +1,282 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Séries de Taylor}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Séries de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Potência e Séries de Taylor}
+  \begin{itemize}[<+->]
+    \item \emph{Séries de Potências} \\[3mm]
+          Dada uma Série de Potências construímos uma função \\[11mm]
+    \item \emph{Séries de Taylor}   \\[3mm]
+          Dada uma função construímos uma Série de Potências
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Taylor e Séries de Maclaurin}
+  \begin{itemize}[<+->]
+    \item \emph{Séries de Taylor}   \\[3mm]
+    Centrada em um ponto \emph{$a$ qualquer} \\[11mm]
+    \item \emph{Séries de Maclaurin}   \\[3mm]
+    Série de Taylor centrada na origem, \emph{$a=0$}
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Coeficientes da Série de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Construção da Série de Taylor}
+  Supomos que uma função pode ser escrita como uma Série de Potências
+  \[
+    f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \action<+->{f(x)                 & = \sum_{n=0}^{\infty} c_n (x-a)^n      \\[2mm]}
+    \action<+->{\phantom{f^{(3)}(x)} & = \memph{c_0} + c_1(x-a) + c_2(x-a)^2 + \cdots \\[5mm]}
+    \action<+->{f(a)                 & = \memph{c_0}}
+  \end{align*}
+  \action<+->{
+  \[ \memph{c_0} = f(a) = \frac{f(a)}{0!} \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \action<+->{f'(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[c_0
+        + \memph{c_1}(x-a)
+        + c_2(x-a)^2
+        + \cdots\Big] \\[2mm]}
+    \action<+->{\phantom{f^{(3)}(x)}
+      & = \memph{c_1}
+        + 2c_2(x-a)
+        + 3c_3(x-a)^2
+        + \cdots \\[5mm]}
+    \action<+->{f'(a) & = \memph{c_1}}
+  \end{align*}
+  \action<+->{
+  \[
+    \memph{c_1} = f'(a) = \frac{f'(a)}{1!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \action<+->{f''(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[ c_1
+        + 2\memph{c_2}(x-a)
+        + 3c_3(x-a)^2
+        + \cdots\Big] \\[2mm]}
+    \action<+->{\phantom{f^{(3)}(x)}
+      & = (2\times 1)\memph{c_2}
+        + (3\times 2)c_3(x-a)
+        + (4\times 3)c_4(x-a)^2
+        + \cdots \\[5mm]}
+    \action<+->{f''(a)
+      & = (2\times 1)\memph{c_2}}
+  \end{align*}
+  \action<+->{\[
+    \memph{c_2} = \frac{f''(a)}{2!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \action<+->{f^{(3)}(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[(2\times 1)c_2
+        + (3\times 2)\memph{c_3}(x-a)
+        + (4\times 3)c_4(x-a)^2
+        + \cdots\Big]
+      \\[2mm]}
+    \action<+->{\phantom{f^{(3)}(x)}
+      & = (3\times 2\times 1)\memph{c_3}
+        + (4\times 3\times 2)c_4(x-a)
+        + (5\times 4\times 3)c_5(x-a)^2
+        + \cdots \\[5mm]}
+    \action<+->{f^{(3)}(a)
+      & = (3\times 2\times 1)\memph{c_3}}
+  \end{align*}
+  \action<+->{
+  \[
+    \memph{c_3} = \frac{f^{(3)}(a)}{3!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \action<+->{f^{(4)}(x)
+      &  \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[(3\times 2\times 1)c_3
+        + (4\times 3\times 2)\memph{c_4}(x-a)
+        + (5\times 4\times 3)c_5(x-a)^2
+        + \cdots\Big]
+       \\[2mm]}
+    \action<+->{\phantom{f^{(3)}(x)}
+      & = (4\times 3\times 2\times 1)\memph{c_4}
+        + (5\times 4\times 3\times 2)c_5(x-a)
+        + \cdots \\[5mm]}
+    \action<+->{f^{(4)}(a)
+      & = (4\times 3\times 2\times 1)\memph{c_4}}
+  \end{align*}
+  \action<+->{
+  \[
+    \memph{c_4} = \frac{f^{(4)}(a)}{4!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Construção da Série de Taylor}
+  Generalizando
+  \[
+    f^{(k)}(a) = k!c_k  \qquad\qquad c_k = \frac{\;f^{(k)}(a)\;}{k!}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Se    \(\quad f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n \quad \)
+  então \(\quad c_k = \frac{\;f^{(k)}(a)\;}{k!} \quad \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Definição da Série de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série de Taylor}
+  Se $f$ é uma função infinitamente derivável \\
+  sua \emph{Série de Taylor} centrada em $\;x=a\;$ é
+  \begin{multline*}
+    \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n = \\
+    f(a)\;+\;f'(a)(x-a)\;+\;\frac{f''(a)}{2!}(x-a)^2\;+\cdots+\;\frac{f^{(n)}(a)}{n!}(x-a)^n\;+\cdots
+  \end{multline*}
+
+  \pause
+  \vspace{\baselineskip}
+  Observe que \emph{não} escrevemos que $f(x)$ é igual a sua série de Taylor
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série de Maclaurin}
+  Uma Série de Maclaurin é uma Série de Taylor centrada em zero, $a=0$
+  \[
+    \sum_{n=0}^\infty \frac{\;f^{(n)\;}(0)}{n!}\,x^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Polinômios de Taylor}
+  Se $f$ é uma função com $k$ derivadas \\
+  seu \emph{Polinômio de Taylor} de ordem $k$ centrado em $\;x=a\;$ é
+  \[
+    \sum_{n=0}^k \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+      \;=\; f(a)
+      \;+\;f'(a)(x-a)
+      \;+\cdots+\; \frac{f^{(k)}(a)}{k!}(x-a)^k
+    \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Calcular a Série de Taylor da função \emph{$f(x)=e^x$} centrada em \emph{$a=0$}
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Derivando
+  \[
+    f^{(k)}(x) = \frac{d^k}{dx^k}\,e^x = e^x
+  \]
+  \pause
+  Avaliando em $a=0$
+  \[
+    f^{(k)}(0) = e^0 = 1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- Calculando os Coeficientes}
+  \begin{align*}
+    \action<+->{c_0 & = \frac{f^{(0)}(0)}{0!} = 1  \\[3mm]}
+    \action<+->{c_1 & = \frac{f^{(1)}(0)}{1!} = 1 \\[3mm]}
+    \action<+->{c_2 & = \frac{f^{(2)}(0)}{2!} = \frac{1}{2} \\[7mm]}
+    \action<+->{c_k & = \frac{f^{(k)}(0)}{k!} = \frac{1}{k!}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- Construindo a Série}
+  \begin{align*}
+    \action<+->{S(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n \\[3mm]}
+    \action<+->{     & = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n     \\[3mm]}
+    \action<+->{     & = \sum_{n=0}^\infty \frac{x^n}{n!}}
+    \action<+->{     \;=\; 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}+\cdots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- Convergência}
+\begin{itemize}[<+->]
+  \item Vimos que a série converge para todo $x\in\R$ \\[5mm]
+  \item A série converge para a função? \\[5mm]
+  \[
+     e^x \;\;{\color{red}\stackrel{?}{ = }}\;\; \sum_{n=0}^\infty \frac{\;x^n\;}{n!}
+  \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Polinômios de Taylor a Função Exponencial}
+    \vspace{\baselineskip}
+  \scalebox{0.85}{\input{fig_taylor_exp}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

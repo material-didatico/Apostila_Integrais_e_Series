@@ -1,7 +1,14 @@
 %------------------------------------------------------------------------------%
 
 \usepackage{apresentacao}
+\usepackage{mathconfig}
 \usepackage{tabto}
+%\usepackage{systeme}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
 
 \makeatletter
 \graphicspath  {{./figs/}}
@@ -9,12 +16,9 @@
 \makeatother
 
 %------------------------------------------------------------------------------%
-\newcommand{\mytitle}   {Sequências Numéricas}
-\newcommand{\mysubtitle}{Definição e Convergência}
-\title   {\mytitle}
-\subtitle{\mysubtitle}
-\author  {\large Luis Alberto D'Afonseca}
-\date    {}
+\title {Sequências Numéricas}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -30,41 +34,47 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Definição de Sequências}
     Uma sequência é uma \emph{lista de números} em uma ordem determinada
-    \[a_1,\;a_2,\;a_3,\; \dots,\; a_n,\; \dots\]
+    \[a_1,\;a_2,\;a_3,\; \dots,\; a_k,\; \dots\]
 
     \pause
-    $\memph{a_n}$ são os \emph{termos} e $\memph{n}$ são os \emph{índices} da sequência
+    $\memph{a_k}$ são os \emph{termos}
+    \pause
+    \;e\; $\memph{k}$ são os \emph{índices} da sequência
 
     \pause
     \vspace{\baselineskip}
     Uma sequência também é uma função
-    \[f:\N\to\R \qquad \memph{a_n = f(n)}\]
+    \[f\colon\N\to\R \qquad \memph{a_k = f(k)}\]
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Definição de Sequências}
 \begin{columns}
-  \column{0.5\textwidth}\scalebox{0.9}{\input{fig_representation_cartesian}}
-  \column{0.5\textwidth}\scalebox{0.9}{\input{fig_representation_axis}}
+  \column{0.5\textwidth}\centerline{\scalebox{0.9}{\input{fig_representation_cartesian}}}  \pause
+  \column{0.5\textwidth}\centerline{\scalebox{0.9}{\input{fig_representation_axis}}}
 \end{columns}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência de Sequências}
-    $(a_n)$ \emph{converge} para $L$ se, para todo $\memph{\varepsilon}>0$
+    $(a_k)$ \emph{converge} para $L$ se, para todo $\memph{\varepsilon}>0$
     existe $\memph{N}\in \N$ tal que
     \[
-    	n>\memph{N} \quad \Rightarrow  \quad \abs{a_n-L}<\memph{\varepsilon}
+    	k>\memph{N} \quad \Rightarrow  \quad \abs{a_k-L}<\memph{\varepsilon}
     \]
 
     \pause
     \vspace{\baselineskip}
     Notação
-    \[\lim_{n\to \infty} a_n=L \qquad\text{ ou }\qquad a_n\to L \qquad\text{ ou }\qquad \lim a_n=L\]
+    \[
+      \lim_{k\to \infty} a_k = L \qquad\text{ ou }\qquad
+      a_k \to L                  \qquad\text{ ou }\qquad
+      \lim a_k = L
+    \]
 
     \pause
     \vspace{\baselineskip}
-    Uma sequência convergente $(a_n)$ tem apenas \emph{um limite}.
+    Uma sequência convergente $(a_k)$ tem apenas \emph{um limite}.
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -75,59 +85,63 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Explorando a Definição}
-    Percebemos que a sequência \(a_n = \frac{1}{n}\) converge para $L = 0$
+    Percebemos que a sequência \(a_k = \frac{1}{k}\) converge para $L = 0$
 
     \pause
     \vspace{\baselineskip}
-    Para $\varepsilon=1$     \tabto{28mm} basta      \tabto{50mm} $N=1$    \\
+    Para $\varepsilon=1$     \tabto{28mm} basta      \tabto{50mm} $N=1$
+
+    \pause
     Para $\varepsilon=0,001$ \tabto{28mm} precisamos \tabto{50mm} $N=1000$
 
     \pause
     \vspace{\baselineskip}
-    Quantos passos precisamos que garantir uma precisão de $\varepsilon$?
+    Quantos passos precisamos para garantir uma precisão de $\varepsilon$ qualquer?
 
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Explorando a Definição}
     Precisamos encontrar um $N$ que garanta
-    \(\abs{a_n-L}<\varepsilon\)
-    para todo $n>N$
+    \(\abs{a_k-L}<\varepsilon\)
+    para todo $k>N$
     \pause
-    \[\abs{\,a_n-L\,} = \abs{\,\frac{1}{n}-0\,} = \frac{1}{\,n\,} \]
+    \[\abs{\,a_k-L\,} = \abs{\,\frac{1}{k}-0\,} = \frac{1}{\,k\,} \]
     \pause
     então
     \[
-        \abs{\,a_n-L\,}<\varepsilon
+        \abs{\,a_k-L\,}<\varepsilon
         \pause
         \quad\Leftrightarrow\quad
-        \frac{1}{\,n\,} < \varepsilon
+        \frac{1}{\,k\,} < \varepsilon
         \pause
         \quad\Leftrightarrow\quad
-        \frac{1}{\,\varepsilon\,} < n
+        \frac{1}{\,\varepsilon\,} < k
     \]
     \pause
     escolhemos
     \[
-        N = \ceil*{\;\frac{1}{\;\varepsilon\;}\;}
-        \qquad\qquad\text{menor inteiro maior do que } \frac{1}{\;\varepsilon\;}
+        N = \ceil{\;\frac{1}{\;\varepsilon\;}\;}
+        \qquad\qquad\text{menor inteiro maior ou igual a } \frac{1}{\;\varepsilon\;}
     \]
-
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Divergência ao infinito}
-    $(a_n)$ \emph{\textbf{diverge} ao infinito} se dado $\memph{M}\in\R$ existe $\memph{N}\in\N$ tal que
-    \[ n>\memph{N} \quad \Rightarrow \quad a_n > \memph{M} \]
+    $(a_k)$ \emph{\textbf{diverge} ao infinito} se dado
+    $\memph{M}\in\R$ existe $\memph{N}\in\N$ tal que
+    \[
+      k > \memph{N} \quad \Rightarrow \quad a_k > \memph{M}
+    \]
 
     \pause
     \vspace{\baselineskip}
     Notação
-    \[ \lim_{n\to\infty} a_n=\infty
+    \[ \lim_{k\to\infty} a_k=\infty
     \qquad\text{ ou }\qquad
-    a_n\to \infty
+    a_k\to \infty
     \qquad\text{ ou }\qquad
-    \lim a_n=\infty
+    \lim a_k=\infty
     \]
 
 \end{frame}
@@ -139,48 +153,79 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\begin{frame}{Casos Particulares Importantes}
+  \begin{itemize}[<+->]
+    \setlength\itemsep{1.5em}
+    \item Se $\abs{r}<1$, \tabto{25mm} então \(\lim r^k=0\)
+    \item Se $r = 1$,     \tabto{25mm} então \(\lim r^k=1\)
+    \item Se $r > 1$,     \tabto{25mm} então \(\lim r^k=\infty\)
+    \item Se $r \leq -1$, \tabto{25mm} então \(\lim r^k\) diverge
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
 \begin{frame}{Propriedades de Sequências Convergentes}
-    Sejam $(a_n)$ e $(b_n)$ sequências \emph{convergentes}, então temos as regras: \\[4mm]
+    Sejam $(a_k)$ e $(b_k)$ sequências \emph{convergentes}, então temos as regras \\[4mm]
     \pause
     \begin{enumerate}[<+->]
-        \item $\lim (a_n+b_n) = \lim a_n + \lim b_n$                                                 \tabto{77mm} Soma                      \\[5mm]
-        \item $\lim (a_n-b_n) = \lim a_n - \lim b_n$                                                 \tabto{77mm} Diferença                 \\[5mm]
-        \item $\lim (k a_n)   = k\lim a_n,\quad \forall\; k\in\R$                                    \tabto{77mm} Multiplicação por escalar \\[5mm]
-        \item $\lim (a_n\,b_n)= (\lim a_n)(\lim b_n)$                                                \tabto{77mm} Produto                   \\[5mm]
-        \item \(\lim \frac{a_n}{b_n} = \frac{\lim a_n}{\lim b_n}\quad\) desde que $\;\lim b_n \neq 0$  \tabto{77mm} Quociente
+        \item $\lim (a_k+b_k) = \lim a_k + \lim b_k$                                                 \tabto{77mm} Soma                      \\[5mm]
+        \item $\lim (a_k-b_k) = \lim a_k - \lim b_k$                                                 \tabto{77mm} Diferença                 \\[5mm]
+        \item $\lim (c a_k)   = c\lim a_k,\quad \forall\; c\in\R$                                    \tabto{77mm} Multiplicação por escalar \\[5mm]
+        \item $\lim (a_k\,b_k)= (\lim a_k)(\lim b_k)$                                                \tabto{77mm} Produto                   \\[5mm]
+        \item \(\lim \frac{a_k}{b_k} = \frac{\lim a_k}{\lim b_k}\quad\) desde que $\;\lim b_k \neq 0$  \tabto{77mm} Quociente
     \end{enumerate}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Propriedades de Sequências Convergentes}
-	Notem que o contrário não vale
+	Note que o contrário não vale
 
 	\pause
 	\vspace{\baselineskip}
-	Considerem as sequências divergentes
+	Considere as sequências divergentes
 	\[
-		a_n = n \qquad\qquad b_n = -n
+		a_k = k \qquad\qquad b_k = -k
 	\]
-	sua soma é convergente
+	\pause
+  a soma é convergente
 	\[
-		c_n \;=\; a_n + b_n \;=\; n + (-n) \;=\; 0
+		c_k \;=\; a_k + b_k \;=\; k + (-k) \;=\; 0
 	\]
-
 \end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  \onslide<+->{
+  Sendo $0<r<1$, calcule o limite da sequência
+  \(
+    a_k = \dfrac{\;-\dfrac{1}{r^k}+7\;}{ 1 + \dfrac{5}{r^k}}
+  \)}
+  \begin{align*}
+    \onslide<+->{\lim a_k
+                 & = \lim \left(\frac{-\dfrac{1}{r^k}+7}{1+ \dfrac{5}{r^k}}\right) }
+    \onslide<+->{  = \lim \left(\frac{\dfrac{-1+7r^k}{r^k}}
+                                     {\dfrac{r^k + 5}{r^k}}\right) }
+    \onslide<+->{  = \lim \left(\frac{-1+7r^k}{r^k+5}\right) \\[3mm]}
+    \onslide<+->{& = \dfrac{-1+7\lim(r^k)}{\lim(r^k) + 5}}
+    \onslide<+->{\hspace{70mm} \lim r^k=0\\[3mm]}
+    \onslide<+->{& = -\frac{1}{5}}
+  \end{align*}
+\end{frame}
+%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \section{Teoremas}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Teorema do Confronto}
-  Sejam $(a_n)$, $(b_n)$ e $(c_n)$ tais que
+  Sejam $(a_k)$, $(b_k)$ e $(c_k)$ tais que
   \[
-   	\memph{a_n \;\leq\; b_n \;\leq\; c_n} \qquad\qquad \forall\; n > N
+   	\memph{a_k \;\leq\; b_k \;\leq\; c_k} \qquad\qquad \forall\; k > N
  	\]
 
 	\pause
   \vspace{\baselineskip}
-  Se $\quad a_n\to L\quad$ e $\quad c_n\to L\quad$ então $\quad b_n\to L$
+  Se $\quad a_k\to L\quad$ e $\quad c_k\to L\quad$ então $\quad b_k\to L$
 \end{frame}
 
 
@@ -194,25 +239,63 @@
 \begin{frame}{Teorema da Função Contínua}
 É verdade que \quad
 \emph{\(
-  \lim_{n\to \infty} f(a_n) = f\!\left(\lim_{n\to \infty} a_n\right)
+  \lim_{k\to \infty} f(a_k) = f\!\left(\lim_{k\to \infty} a_k\right)
 \)} \quad?
 
 \pause
 \vspace{2\baselineskip}
-Se $a_n$ é uma sequência numérica real convergente, $a_n\to L$, e
-$f\colon D\in\R\to\R$ é uma função real contínua em $D$,
+Se $a_k$ é uma sequência numérica real convergente, $a_k\to L$, e\\[1mm]
+$f\colon D\subset\R\to\R$ é uma função real contínua em $D$,
 com $L\in D$
 então
 \[
-  \lim f(a_n) = f(L)
+  \lim f(a_k) = f(L)
 \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\begin{frame}{Teorema da Função Contínua}
+  \begin{columns}
+    \column{0.5\textwidth}\centerline{\scalebox{0.8}{\input{fig_teorema_funcao_continua_1}}} \pause
+    \column{0.5\textwidth}\centerline{\scalebox{0.8}{\input{fig_teorema_funcao_continua_2}}}
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Calcular \(\lim\cos(\alpha^k)=1\) com $0<\alpha<1$
+
+  \pause
+  \vspace{\baselineskip}
+  \qquad Sequência \( a_k = \alpha^k\)
+
+  \qquad Sabemos que \(\lim a_k=0\)
+
+  \pause
+  \qquad A função cosseno é contínua em zero
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Portanto
+  \[
+    \lim\cos(\alpha^k)
+    = \lim\cos(a_k)
+    \pause
+    = \cos\big(\lim a_k\big)
+    \pause
+    = \cos(0)
+    \pause
+    = 1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
 \begin{frame}{Limite de sequência definida por função}
-    Se $f$ é uma função e $\quad a_n=f(n)\quad$ então
+    Se $f$ é uma função real e \(a_k=f(k)\) então
+
     \[
-    	\lim_{x\to\infty}f(x)=L \quad \Rightarrow \quad \lim_{n\to \infty} a_n=L
+    	\lim_{x\to\infty} f(x) = L \quad \Rightarrow \quad
+      \lim_{k\to\infty} a_k = L
     \]
 
     \pause
@@ -221,15 +304,52 @@ então
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Mostre que \( \lim\frac{1-5k^4}{k^4+8k^3} = -5 \)
+
+  \pause
+  A função
+  \[
+    f(x) = \frac{1-5x^4}{x^4+8x^3}
+  \]
+  está definida para todo $x>0$
+  \pause
+  e a sequência
+  \[
+    a_k = f(k)=\frac{1-5k^4}{k^4+8k^3}
+  \]
+  para todo $n > 0$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  \onslide<+->{Assim podemos aplicar a regra de L'Hôpital}
+  \begin{align*}
+    \onslide<+->{\lim_{x\to\infty} \frac{1-5x^4}{x^4+8x^3}
+    & = \lim_{x\to\infty} \frac{-20x^3}{4x^3+24x^2} \\[2mm]}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{-60x^2}{12x^2+48x}  \\[2mm]}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{-120x}{24x+48}      \\[2mm]}
+    \onslide<+->{& = \lim_{x\to\infty} -\frac{120}{24}           \\[2mm]}
+    \onslide<+->{& = -5}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Gráficos da função e da sequência
+  \centerline{\input{fig_exemplo_sequencia_por_funcao_racional}  }
+\end{frame}
+
+%------------------------------------------------------------------------------%
 \begin{frame}{Sequências Limitadas}
-	Uma sequência $(a_n)$ é
+	Uma sequência $(a_k)$ é
 
 	\vspace{\baselineskip}
-	\emph{Limitada inferiormente} \tabto{50mm} se existe $m\in\R$ tal que \emph{$m\leq a_n$} para todo $n\in\N$
+	\emph{Limitada inferiormente} \tabto{50mm} se existe $m\in\R$ tal que \emph{$m\leq a_k$} para todo $k\in\N$
 
 	\pause
 	\vspace{\baselineskip}
-	\emph{Limitada superiormente} \tabto{50mm} se existe $M\in\R$ tal que \emph{$M\geq a_n$} para todo $n\in\N$
+	\emph{Limitada superiormente} \tabto{50mm} se existe $M\in\R$ tal que \emph{$M\geq a_k$} para todo $k\in\N$
 
 	\pause
 	\vspace{\baselineskip}
@@ -246,11 +366,13 @@ então
     Limitada inferiormente
   \end{center}
   \column{0.33\textwidth}
+  \pause
   \begin{center}
     \scalebox{0.9}{\input{fig_sequencia_limitada_2}} \\[5mm]
     Limitada superiormente
   \end{center}
   \column{0.33\textwidth}
+  \pause
   \begin{center}
     \scalebox{0.9}{\input{fig_sequencia_limitada_3}} \\[5mm]
     Limitada
@@ -260,14 +382,14 @@ então
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Sequências Crescentes e Decrescentes}
-	Uma sequência $(a_n)$ é
+	Uma sequência $(a_k)$ é
 
 	\vspace{\baselineskip}
-	\emph{Crescente}   \tabto{30mm} se \emph{$\;a_n \leq a_{n+1}\;$} para todo $n\in\N$
+	\emph{Crescente}   \tabto{30mm} se \emph{$\;a_k \leq a_{k+1}\;$} para todo $k\in\N$
 
 	\pause
 	\vspace{\baselineskip}
-	\emph{Decrescente} \tabto{30mm} se \emph{$\;a_n \geq a_{n+1}\;$} para todo $n\in\N$
+	\emph{Decrescente} \tabto{30mm} se \emph{$\;a_k \geq a_{k+1}\;$} para todo $k\in\N$
 
 	\pause
 	\vspace{\baselineskip}
@@ -284,6 +406,7 @@ então
       Crescente
     \end{center}
     \column{0.5\textwidth}
+    \pause
     \begin{center}
       \scalebox{0.9}{\input{fig_sequencia_monotona_2}} \\[5mm]
       Decrescente
@@ -293,7 +416,7 @@ então
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência de sequência monótona}
-	Se uma sequência $(a_n)$ é \emph{limitada e monotônica}, então ela é \emph{convergente}
+	Se uma sequência $(a_k)$ é \emph{limitada e monotônica}, então ela é \emph{convergente}
 
 	\pause
 	\vspace{2\baselineskip}
@@ -301,20 +424,7 @@ então
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\section{Próximo Módulo}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Séries Numéricas}
-\begin{itemize}[<+->]
-	\item Somatórios com infinitos termos
-	\item Criamos uma sequência de somas parciais
-	\item Definimos convergência usando sequências
-	\item Em geral não conseguimos somar as séries
-\end{itemize}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{\mytitle}{\mysubtitle}
+\begin{frame}
   \tableofcontents
 \end{frame}
 

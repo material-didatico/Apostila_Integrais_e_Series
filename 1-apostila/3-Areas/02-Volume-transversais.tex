@@ -6,8 +6,8 @@
 
 Nesta seção, iremos explorar uma aplicação importante das integrais no
 cálculo de volumes de sólidos específicos. Em particular, abordaremos o
-cálculo de volumes para cilindros e sólidos de rotação. 
-Todas as figuras dessa seção foram tiradas do livro do 
+cálculo de volumes para cilindros e sólidos de rotação.
+Todas as figuras dessa seção foram tiradas do livro do
 James Stewart \cite{stewart_1}.
 
 %------------------------------------------------------------------------------%
@@ -20,13 +20,15 @@ James Stewart \cite{stewart_1}.
     V = \lim_{n \to \infty} \sum_{i=1}^{n} A(x_i) \Delta x_i
       = \int_a^b A(x)dx
   \]
-  Essa definição é válida sempre que $A(x)$ for integrável, em particular, quando for contínua.
+  Essa definição é válida sempre que $A(x)$ for integrável, em particular,
+  quando for contínua.
 \end{definicao}
 %------------------------------------------------------------------------------%
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{volume-secoes-01}
-  \caption{Ilustração do plano $P_x$ interceptando um sólido $S$ (Figura extraída do livro \cite{stewart_1}).}
+  \caption{Ilustração do plano $P_x$ interceptando um sólido $S$
+           (Figura extraída do livro \cite{stewart_1}).}
   \label{fig:volume_secoes_01}
 \end{figure}
 %------------------------------------------------------------------------------%
@@ -35,7 +37,8 @@ James Stewart \cite{stewart_1}.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{volume-secoes-03}
-  \caption{Ilustração do método das seções transversais (Figura extraída do livro \cite{stewart_1}).}
+  \caption{Ilustração do método das seções transversais
+           (Figura extraída do livro \cite{stewart_1}).}
   \label{fig:volume_secoes_03}
 \end{figure}
 %------------------------------------------------------------------------------%
@@ -50,7 +53,10 @@ Para o cálculo do volume do sólido, siga os seguintes passos:
 
 %------------------------------------------------------------------------------%
 \begin{example}
-  Uma pirâmide de base quadrada com lado $3$ metros, tem $3$ metros de altura. A seção transversal da pirâmide, perpendicular a altura e a $x$ metros abaixo do vértice, é um quadrado com $x$ metros de lado. Determine o volume dessa pirâmide.
+  Uma pirâmide de base quadrada com lado $3$ metros, tem $3$ metros de altura.
+  A seção transversal da pirâmide, perpendicular a altura e a $x$ metros abaixo
+  do vértice, é um quadrado com $x$ metros de lado. Determine o volume dessa
+  pirâmide.
   \solution
   \[
     V
@@ -68,12 +74,12 @@ Para o cálculo do volume do sólido, siga os seguintes passos:
   Usando integrais, encontre o volume $V$ de uma esfera de raio $r$,
   mostrando que \(V= \frac{4}{3}\pi r^3\).
   \solution
-  Para ilustrar a situação, vamos posicionar a esfera de modo que seu centro 
-esteja na origem, conforme figura a seguir
+  Para ilustrar a situação, vamos posicionar a esfera de modo que seu centro
+  esteja na origem, conforme figura a seguir
   \IncludeGraphicCentred{volume-secoes-05}[0.4]
-   Fazendo um corte $P_x$ perpendicular ao eixo $x$, temos que o plano $P_x$ 
-intercepta a seção transversal em um círculo é $y=\sqrt{r^2-x^2}$ 
-(pelo Teorema de Pitágoras). Assim, a área da seção transversal é
+  Fazendo um corte $P_x$ perpendicular ao eixo $x$, temos que o plano $P_x$
+  intercepta a seção transversal em um círculo é $y=\sqrt{r^2-x^2}$
+  (pelo Teorema de Pitágoras). Assim, a área da seção transversal é
   \[A(x)=\pi y^2 =\pi (r^2-x^2)\]
   Usando a definição de volume com $a=-r$ e $b=r$, temos
   \begin{align*}
@@ -110,14 +116,15 @@ intercepta a seção transversal em um círculo é $y=\sqrt{r^2-x^2}$
   \solution
   A região é apresentada na figura a seguir.
   \IncludeGraphicCentred{volume-secoes-07}[0.5]
-  A seção transversal é um círculo de raio $R(x) = y = \sqrt{x}$ cuja área é dada por
+  A seção transversal é um círculo de raio
+  $R(x) = y = \sqrt{x}$ cuja área é dada por
   \[
     A(x)
     = \pi R(x)^2
     = \pi \left(\sqrt{x}\right)^2
     = \pi x \,.
   \]
-  Além disso, o sólido está entre $0$ e $1$. Portanto
+  Além disso, o sólido está entre $0$ e $1$. Portanto,
   \[
     V
     = \int_0^1 \pi x dx
@@ -182,7 +189,7 @@ Em síntese, temos que:
 %------------------------------------------------------------------------------%
 \begin{example}
   A região $\mathcal{R}$, limitada pelas curvas delimitada pelas curvas
-  $y = x$ e $y = x^2$ é girada em torno do eixo x. Encontre o volume do
+  $y = x$ e $y = x^2$ é girada em torno do eixo $x$. Encontre o volume do
   sólido resultante.
   \solution
   A primeira observação importante é que as curvas $y = x$ e $y = x^2$
@@ -214,57 +221,59 @@ podemos ter o interesse de calcular o volume de um sólido $S$ gerado pela
 rotação de uma região plana em torno de uma reta paralela a esses eixos,
 como ilustrado no exemplo a seguir.
 
+%------------------------------------------------------------------------------%
 \begin{example}
   Encontre o volume do sólido obtido pela rotação da região do
-  exemplo anterior:
-  \begin{enumerate}[label=\alph*)]
-    \item Em torno da reta $x=-1$.
-    \item Em torno da reta $y=2$
-  \end{enumerate}
-  \solution
-  \begin{enumerate}[label=\alph*)]
-    \item
-    Devemos notar que, nessa situação, a seção transversal é um anel,
-    mas dessa vez o raio interno $2-x$ e raio externo $2-x^2$, 
-    conforme mostra a figura a seguir.
-    \IncludeGraphicCentred{volume-secoes-11}[0.5]
-    Assim, a área da seção transversal é dada por
-    \[
-      A(x)
-      = \pi \left( 2 - x^2 \right)^2 - \pi (2-x)^2
-      = \pi \left( x^4-5x^2+4x \right)
-    \]
-    Assim, o volume do sólido resultante é
-    \begin{align*}
-      V
-      & = \int_0^1 \pi \left( x^4 - 5x^2 + 4x \right) dx \\
-      & \stackTFCD \pi \left(
-            \frac{x^5}{5} - 5 \frac{x^3}{3} + 4 \frac{x^2}{2}
-          \right) \evalat{0}{1} \\
-      & = \pi \left(\frac{1}{5} - \frac{5}{3} + \frac{4}{2}\right) \\
-      & = \frac{8\pi}{15}
-    \end{align*}
+  exemplo anterior em torno da reta $x=-1$.
 
-    \item
-    Aqui, a seção transversal é um anel, com raio interno $1+y$ e
-    raio externo $1+ \sqrt{y}$.
-    Assim, a área da seção transversal é dada por
-    \[
-      A(y)
-      = \pi \left( 1+\sqrt{y} \right)^2 - \pi (1+y)^2
-      = \pi \left( 2\sqrt{y}-y-y^2 \right)
-    \]
-    Portanto, o volume pedido é dado por
-    \begin{align*}
-      V
-      & = \int_0^1 \pi \left(2\sqrt{y}-y-y^2\right) dy \\
-      & \stackTFCD \pi \left(
-          \frac{4y^{\sfrac{3}{2}}}{3}-  \frac{y^2}{2}- \frac{y^3}{3}
+  \solution
+  Devemos notar que, nessa situação, a seção transversal é um anel,
+  mas dessa vez o raio interno $2-x$ e raio externo $2-x^2$,
+  conforme mostra a figura a seguir.
+  \IncludeGraphicCentred{volume-secoes-11}[0.5]
+  Assim, a área da seção transversal é dada por
+  \[
+    A(x)
+    = \pi \left( 2 - x^2 \right)^2 - \pi (2-x)^2
+    = \pi \left( x^4-5x^2+4x \right)
+  \]
+  Assim, o volume do sólido resultante é
+  \begin{align*}
+    V
+    & = \int_0^1 \pi \left( x^4 - 5x^2 + 4x \right) dx \\
+    & \stackTFCD \pi \left(
+          \frac{x^5}{5} - 5 \frac{x^3}{3} + 4 \frac{x^2}{2}
         \right) \evalat{0}{1} \\
-      & = \pi \left( \frac{4}{3} - \frac{1}{2} - \frac{1}{3}\right) \\
-      & = \frac{\pi}{2}.
-    \end{align*}
-  \end{enumerate}
+    & = \pi \left(\frac{1}{5} - \frac{5}{3} + \frac{4}{2}\right) \\
+    & = \frac{8\pi}{15}
+  \end{align*}
+\end{example}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{example}
+  Encontre o volume do sólido obtido pela rotação da região do
+  exemplo anterior em torno da reta $y=2$.
+
+  \solution
+  Aqui, a seção transversal é um anel, com raio interno $1+y$ e
+  raio externo $1+ \sqrt{y}$.
+  Assim, a área da seção transversal é dada por
+  \[
+  A(y)
+  = \pi \left( 1+\sqrt{y} \right)^2 - \pi (1+y)^2
+  = \pi \left( 2\sqrt{y}-y-y^2 \right)
+  \]
+  Portanto, o volume pedido é dado por
+  \begin{align*}
+    V
+    & = \int_0^1 \pi \left(2\sqrt{y}-y-y^2\right) dy \\
+    & \stackTFCD \pi \left(
+    \frac{4y^{\sfrac{3}{2}}}{3}-  \frac{y^2}{2}- \frac{y^3}{3}
+    \right) \evalat{0}{1} \\
+    & = \pi \left( \frac{4}{3} - \frac{1}{2} - \frac{1}{3}\right) \\
+    & = \frac{\pi}{2}.
+  \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
 

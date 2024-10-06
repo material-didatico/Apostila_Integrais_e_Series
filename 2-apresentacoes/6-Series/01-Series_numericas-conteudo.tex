@@ -1,18 +1,16 @@
 %------------------------------------------------------------------------------%
 
 \usepackage{apresentacao}
+\usepackage{mathconfig}
 \usepackage{tabto}
 \usepackage{cancel}
 
 \graphicspath{{./figs/}}
 
 %------------------------------------------------------------------------------%
-\newcommand{\mytitle}   {Séries Numéricas}
-\newcommand{\mysubtitle}{Definição e Exemplos}
-\title   {\mytitle}
-\subtitle{\mysubtitle}
-\author  {\large Luis Alberto D'Afonseca}
-\date    {}
+\title {Séries Numéricas -- Definição e Exemplos}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -32,7 +30,11 @@
     \pause
     \vspace{\baselineskip}
     Se existir, essa \emph{soma} pode ser escrita como
-    \[ S = \; a_1 + a_2 + \cdots + a_n + \cdots \; = \sum_{n=1}^\infty a_n \]
+    \[
+      \sum_{n=1}^\infty a_n
+      \;=\; a_1 + a_2 + \cdots + a_n + \cdots
+      \;=\; S
+    \]
 
     \pause
     Cada valor $a_n$ é chamado de \emph{Termo da Série}
@@ -55,7 +57,7 @@
     \]
 
     \pause
-    Temos agora uma nova sequência de \emph{Somas Parciais} $(S_n)$
+    Temos agora uma nova sequência: \emph{Somas Parciais} $(S_n)$
 
     \pause
     \vspace{\baselineskip}
@@ -116,14 +118,24 @@
 	Para mostrar que uma afirmação é verdadeira para todo $n\in\N$ devemos provar que
 	\begin{enumerate}[<+->]
 		\item ela é verdadeira para $n=1$
-		\item se ela for verdadeira pra $n$ então também será para $n+1$
+		\item se ela for verdadeira para $n$ então também será para $n+1$
 	\end{enumerate}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstração da Fórmula das Somas Parciais}
     Assumimos por \emph{indução finita} que
-    \(\quad S_{n-1} = 2 - \frac{1}{2^{n-2}} \) \pause
+    \quad
+    \(S_{n-1} = 2 - \frac{1}{2^{n-2}} \)
+    \quad
+    para um \emph{$n$ dado}
+    \pause
+
+    Queremos mostrar que
+    \quad
+    \(S_n = 2 - \frac{1}{2^{n-1}} \)
+
+    \pause
     \begin{align*}
     	\action<+->{S_n & = 1 + \frac{1}{2}
                             + \frac{1}{4}
@@ -131,10 +143,10 @@
                             + \cdots
                             + \frac{1}{2^{n-2}}
                             + \frac{1}{2^{n-1}}} \\[2mm]
-    	\action<+->{& = S_{n-1} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = \textcolor{blue}{2 - \frac{1}{2^{n-2}}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = 2 - \frac{2}{2^{n-1}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = 2 - \frac{1}{2^{n-1}}}
+    	\action<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^{n-1}}\\[2mm]}
+    	\action<+->{& = {\color<5->{blue}2 - \frac{1}{2^{n-2}}} + \frac{1}{2^{n-1}}\\[2mm]}
+    	\action<+->{& = 2 - \frac{2}{2^{n-1}} + \frac{1}{2^{n-1}}}
+    	\action<+->{\;=\; 2 - \frac{1}{2^{n-1}}}
     \end{align*}
 \end{frame}
 
@@ -168,14 +180,16 @@
     \alpha + \alpha r + \alpha r^2 + \alpha r^3 + \cdots + \alpha r^{n-1} + \cdots
     = \sum_{n=1}^\infty \alpha r^{n-1}
   \]
-	onde
-	\begin{description}
-		\item[$\alpha$] $\in\R\quad$ número fixo não nulo, $\alpha\neq 0$
-		\item[$r$]      $\in\R\quad$ é a \emph{razão} da série
-	\end{description}
 
-	\pause
-	\vspace{\baselineskip}
+  \pause\qquad\(\alpha\in\R\)          \tabto{33mm} número fixo não nulo, $\alpha\neq 0$
+
+	\vspace{0.5\baselineskip}
+  \pause\qquad\(r\in\R\)               \tabto{33mm} \emph{razão} da série
+
+  \vspace{0.5\baselineskip}
+  \pause\qquad\(a_n = \alpha r^{n-1}\) \tabto{33mm} termo geral
+
+	\pause\vspace{\baselineskip}
 	Especial pois sabemos quando converge e qual sua soma
 \end{frame}
 
@@ -269,22 +283,24 @@
 			+ \left( \frac{1}{n-1} - \frac{1}{n} \right)
 			+ \left( \frac{1}{n} - \frac{1}{n+1} \right)
 			\\[3mm]}
-		\onslide<+->{& = \left( \frac{1}{1} - \cancel{\frac{1}{2}} \right)
-			+ \left( \cancel{\frac{1}{2}} - \cancel{\frac{1}{3}} \right)
+		\onslide<+->{&
+      = \frac{1}{1} - {\color<4->{blue}\frac{1}{2}}
+			+ {\color<4->{blue}\frac{1}{2}} - {\color<5->{red}\frac{1}{3}}
+      + {\color<5->{red}\frac{1}{3}}  - {\color<6->{gray}\frac{1}{4}}
 			+ \cdots
-			+ \left( \cancel{\frac{1}{n-1}} - \cancel{\frac{1}{n}} \right)
-			+ \left( \cancel{\frac{1}{n}} - \frac{1}{n+1} \right)
+      + {\color<6->{gray}\frac{1}{n-2}}  - {\color<7->{green}\frac{1}{n-1}}
+			+ {\color<7->{green}\frac{1}{n-1}} - {\color<8->{magenta}\frac{1}{n}}
+			+ {\color<8->{magenta}\frac{1}{n}} - \frac{1}{n+1}
 			\\[3mm]}
-		\onslide<+->{& = 1 - \frac{1}{n+1}}
+		\onslide<9->{& = 1 - \frac{1}{n+1}}
 	\end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Calculando o Limite}
 	\begin{align*}
-		\onslide<+->{ \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
-			& = \lim_{n\to\infty} \; \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
-			= \lim_{n\to\infty} S_n   \\[3mm]}
+		\onslide<+->{\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
+                  & = \lim_{n\to\infty} S_n \\[3mm]}
 		\onslide<+->{ & = \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right)  \\[3mm]}
 		\onslide<+->{ & = 1}
 	\end{align*}
@@ -356,7 +372,7 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\mytitle}{\mysubtitle}
+\begin{frame}{\contentsname}
   \tableofcontents
 \end{frame}
 

@@ -1,0 +1,116 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+\title {Técnicas Integração}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Técnicas Integração}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Técnicas Integração}
+  Obter a \emph{primitiva} de uma função
+  \[
+    F(x) = \int f(x)\,dx
+  \]
+  \pause
+  \vspace{-\baselineskip}
+  \begin{itemize}[<+->]
+    \setlength\itemsep{1em}
+    \item Buscar a função em uma \emph{tabela}
+    \item \emph{Linearidade} -- soma e produto por constante
+    \item \emph{Manipulações} algébricas
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Regra do Produto}
+  Regra do produto na derivação
+  \[
+    \frac{d}{dx}\big(f(x)g(x)\big) \;=\; \frac{df}{dx}\,g + f\, \frac{dg}{dx}
+  \]
+
+  \pause
+  Portanto
+
+  \vspace{5mm}
+  \hspace{7mm}
+  \(
+    \int f(x)g(x)dx
+  \)
+  \;{\Large\color{red}$\neq$}\;
+  \(
+    \int f(x)dx\, \int g(x)dx
+  \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Regra da Cadeia}
+  Regra do cadeia na derivação
+  \[
+    \frac{d}{dx} \, f\big(g(x)\big)
+    \;=\; \frac{df}{dg}\, \frac{dg}{dx}
+    \;=\; f'\big(g(x)\big)\,g'(x)
+  \]
+
+  \pause
+  Portanto
+
+  \vspace{5mm}
+  \hspace{7mm}
+  \(
+  \int f\big(g(x)\big)dx
+  \)
+  \;{\Large\color{red}$\neq$}\;
+  \(
+    F\big(G(x)\big)
+  \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{~}
+  \centering
+  \Large
+  O que fazer?
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Técnicas de Integração}
+\begin{itemize}[<+->]
+  \setlength\itemsep{1em}
+  \item Integração por partes
+  \item Integração por substituição simples
+  \item Integração trigonométrica
+  \item Integração por substituição trigonométrica
+  \item Integração por frações parciais
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

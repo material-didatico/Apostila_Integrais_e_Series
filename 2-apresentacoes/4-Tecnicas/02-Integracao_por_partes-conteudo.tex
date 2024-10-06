@@ -1,0 +1,498 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Integração por Partes}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integração por Partes}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Justificativa}
+  \onslide<+->{Assumindo que
+  \[
+    F'(x) = f(x)
+    \qquad\qquad
+    G'(x) = g(x)
+  \]}
+  \onslide<+->{temos}
+  \begin{align*}
+    \onslide<2->{\big(F(x)G(x)\big)'
+      & \;=\; f(x)G(x)
+        \;+\; {\color<3>{blue}F(x)g(x)} \\[3mm]}
+    \onslide<+->{{\color<3>{blue}F(x)g(x)}
+      & \;=\; \big(F(x)G(x)\big)'
+        \;-\; f(x)G(x) \\[2mm]}
+    \onslide<+->{\int F(x)g(x)\,dx
+      & \;=\; {\color<5>{blue}\int \big(}F(x)G(x){\color<5>{blue}\big)'\,dx}
+        \;-\; \int f(x)G(x)\,dx \\[2mm]}
+    \onslide<+->{\int {\color<6>{blue}F(x)}   \, {\color<6>{magenta}g(x)}dx
+      & \;=\;         {\color<6>{blue}F(x)}   \, {\color<6>{magenta}G(x)}
+        \;-\; \int    {\color<6>{magenta}G(x)}\, {\color<6>{blue}f(x)}dx }
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Escolhendo as Funções}
+  \[
+    \int       {\color<4,5>{blue}F(x)}   \, {\color<2,3>{magenta}g(x)}\,dx
+    \;=\;      {\color<4,5>{blue}F(x)}   \, {\color<2,3>{magenta}G(x)}
+    \;-\; \int {\color<2,3>{magenta}G(x)}\, {\color<4,5>{blue}f(x)}\,dx
+  \]
+
+  \pause
+  Integramos
+  \tabto{21mm} {\color<2,3>{magenta}\(g(x)\)}
+  \pause
+  \tabto{33mm} -- \;
+  essa função não deve ``complicar'' ao ser integrada
+
+  \pause
+  Derivamos
+  \tabto{21mm} {\color<4,5>{blue}\(F(x)\)}
+  \pause
+  \tabto{33mm} -- \;
+  essa função deve ``simplificar'' ao ser derivada
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integração por Partes}
+  Mnemônico
+  \[
+    \int u\, dv \;=\; u\,v \;-\; \int v\,du
+  \]
+  usamos \(u=F(x)\) e \(dv = g(x)dx\)
+
+  \pause
+  \vspace{\baselineskip}
+  Integrais definidas
+  \[
+    \int_a^b u\, dv \;=\; u\,v\, \evalat{a}{b} \;-\; \int_a^b v\,du
+  \]
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a integral \(\int x \sin(x)\,dx\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & =  x & dv & = \sin(x) dx                 & \hspace{1cm}~ \\
+    du & = dx & v  & = \int \sin(x) dx = -\cos(x) &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int x\sin(x)dx = x\big(-\cos(x)\big)- \int \big(-\cos(x)\big)dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int x\sin(x)dx\; & = uv- \int vdu                                   \\}
+    \onslide<+->{                  & = x\big(-\cos(x)\big)- \int \big(-\cos(x)\big)dx \\}
+    \onslide<+->{                  & = -x \cos(x) + \int \cos(x) dx                   \\[1mm]}
+    \onslide<+->{                  & = -x \cos(x) + \sin(x)  + C}
+  \end{align*}
+\end{frame}
+
+% 2
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a integral \(\int \ln(x) dx\)
+  \pause
+  \( = \int \ln(x) \cdot 1 dx \)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = \ln(x)        & dv & = 1 dx  & \hspace{4cm}~ \\
+    du & = \frac{1}{x}dx & v  & = \int dx = x
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int \ln(x) dx = x \ln(x) - \int x\, \frac{1}{x}\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int \ln(x) dx\; & = uv- \int vdu                        \\[2mm]}
+    \onslide<+->{                 & = x \ln(x) - \int x\, \frac{1}{x}\,dx \\[2mm]}
+    \onslide<+->{                 & = x \ln(x) - \int dx                  \\[3mm]}
+    \onslide<+->{                 & = x \ln(x) - x + C}
+  \end{align*}
+\end{frame}
+
+% 3
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a integral \(\int t^2 e^t dt\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = t^2  & dv & = e^t dt            & \hspace{3cm}~ \\
+    du & = 2tdt & v  & = \int e^t dt = e^t &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int t^2 e^t\, dt
+    = t^2 e^t - 2 \int t e^t\, dt
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Temos que integrar \(\int t e^t\, dt\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = t  & dv & = e^t dt             & \hspace{3cm}~ \\
+    du & = dt & v  & = \int e^t dt  = e^t &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int te^t dt = t e^t - \int e^t dt
+    \pause
+    = t e^t - e^t + C
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Substituindo na expressão anterior
+  \begin{align*}
+    \onslide<+->{\int t^2 e^t dt & = t^2 e^t - 2\int te^tdt                   \\}
+    \onslide<+->{                & = t^2 e^t - 2\left( te^t - e^t + C \right) \\[2mm]}
+    \onslide<+->{                & = t^2 e^t - 2te^t + 2e^t + 2C              \\[2mm]}
+    \onslide<+->{                & = t^2 e^t - 2te^t + 2e^t + C_1}
+  \end{align*}
+\end{frame}
+
+% 4
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a integral \(\int e^x \sin(x) dx\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = e^x   & dv & = \sin(x) dx                 & \hspace{3cm}~ \\
+    du & = e^xdx & v  & = \int \sin(x) dx = -\cos(x) &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int e^x \sin(x) dx = -e^x \cos(x)+ \int e^x \cos(x)dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\  -- Andando em Círculos}
+  Calcule a integral \(\int e^x \cos(x) dx\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = e^x   & dv & = \cos(x) dx                & \hspace{3cm}~ \\
+    du & = e^xdx & v  & = \int \cos(x) dx = \sin(x) &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int e^x \cos(x) dx
+    = e^x \sin(x) - \int e^x \sin(x) dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align}
+    \int e^x \sin(x) dx & = -e^x \cos(x)+ \int e^x \cos(x) dx      \label{eq:1} \\
+    \int e^x \cos(x) dx & = \hpm e^x \sin(x) - \int e^x \sin(x) dx \label{eq:2}
+  \end{align}
+
+  \pause
+  Substituindo \eqref{eq:2} em \eqref{eq:1}
+  \[
+    \int e^x \sin(x) dx
+    = -e^x \cos(x) + e^x \sin(x) - \int e^x \sin(x) dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[ \int e^x \sin(x) dx  = -e^x \cos(x) + e^x \sin(x) - \int e^x \sin(x) dx \]
+  \pause
+  \[ 2\int e^x \sin(x) dx = -e^x \cos(x)+ e^x \sin(x)                        \]
+  \pause
+  \[ \int e^x \sin(x) dx  = \frac{e^x}{2}\big(\sin(x) -\cos(x)\big) + C      \]
+\end{frame}
+
+% 5
+%------------------------------------------------------------------------------%
+%\addtocounter{exemplo}{1}
+%\section{Exemplo \theexemplo}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  Calcule a integral \(\int_0^1 \frac{y}{e^{2y}} dy\)
+%
+%  \pause
+%  \vspace{\baselineskip}
+%  Primeiro precisamos encontrar a primitiva de \(\frac{y}{e^{2y}}\)
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  Calcule a integral \(\int \frac{y}{e^{2y}} dy\)
+%  \pause
+%  \(= \int y \,e^{-2y}\, dy\)
+%
+%  \pause
+%  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+%  \pause
+%  \begin{align*}
+%    u  & = y  & dv & = e^{-2y} dy                           & \hspace{3cm}~ \\
+%    du & = dy & v  & = \int e^{-2y} dy = -\frac{e^{-2y}}{2} &
+%  \end{align*}
+%  \pause
+%  Temos
+%  \[
+%   \int \frac{y}{e^{2y}} dy
+%   =  -\frac{ye^{-2y}}{2}- \int -\frac{e^{-2y}}{2} dy
+%  \]
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%\begin{align*}
+%  \int \frac{y}{e^{2y}} dy
+%  & = -\frac{y}{2}e^{-2y} - \int -\frac{e^{-2y}}{2} dy  \\[5mm]
+%  & = -\frac{y}{2}e^{-2y} + \frac{1}{2} \int e^{-2y} dy \\[5mm]
+%  & = -\frac{y}{2}e^{-2y} - \frac{1}{4} e^{-2y}+ C
+%\end{align*}
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  Usando o Teorema Fundamental do Cálculo, parte 2
+%  \begin{align*}
+%    \int_0^1 \frac{y}{e^{2y}} dy
+%    & = \left( -\frac{y}{2}e^{-2y} - \frac{1}{4} e^{-2y} \right) \evalat{0}{1} \\[5mm]
+%    & = \left( -\frac{1}{2}e^{-2}- \frac{1}{4}e^{-2}\right)- \left(0- \frac{1}{4} \right) \\[5mm]
+%    & = \frac{1}{4}-\frac{3}{4}e^{-2}
+%  \end{align*}
+%\end{frame}
+
+% 6
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+Considere a região do primeiro quadrante delimitada pelo eixo $y=0$\\
+e pela curva $f(x)=x \sin(x)$, $0 \leq x \leq \pi$.
+\begin{enumerate}
+  \item Encontre a área dessa região
+  \item Encontre o volume do sólido de revolução gerado pela
+  rotação dessa região em torno do eixo $y$
+%  \item Encontre o volume do sólido de revolução gerado pela
+%  rotação dessa região em torno do da reta $x=\pi$
+\end{enumerate}
+\end{frame}
+
+\framedgraphic{Exemplo \theexemplo}{exemplo_x_sinx}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Cálculo da Área}
+Área
+\[
+  A
+  = \int_a^b f(x)\,dx
+  \pause
+  = \int_0^{\pi} x\sin(x)\,dx
+\]
+
+\pause
+Precisamos da primitiva
+\[
+  \int x\sin(x)dx = -x \cos(x) + \sin(x)  + C
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Cálculo da Área}
+Usando o Teorema Fundamental do Cálculo - parte 2
+\begin{align*}
+  \onslide<+->{A & = \big( -x \cos(x) + \sin(x) \big) \evalat{0}{\pi} \\}
+  \onslide<+->{  & = \big(-\pi\cos(\pi) + \sin(\pi)\big)
+                   - \big(-  0\cos(0)   + \cos(0)\big)     \\[2mm]}
+  \onslide<+->{  & = \pi}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Volume rotação no eixo $y$}
+
+Método de cascas cilíndricas com
+
+\pause
+Raio \(r(x)=x\)
+
+\pause
+Altura \(h(x) = f(x)\)
+
+\pause
+Região de \(x = 0\) até \(x = \pi\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Volume rotação no eixo $y$}
+\begin{align*}
+  \onslide<+->{V & = \int_a^b 2\pi r(x) h(x) \, dx                   \\[2mm]}
+  \onslide<+->{  & = \int_{0}^{\pi} 2\pi x \big(x \sin(x)\big) \, dx \\[2mm]}
+  \onslide<+->{  & = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Volume rotação no eixo $y$}
+  Calcular \(\int x^2 \sin(x) \, dxs\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = x^2  & dv & = \sin(x) dx                 & \hspace{3cm}~ \\
+    du & = 2xdx & v  & = \int \sin(x) dx = -\cos(x) &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int x^2 \sin(x) \, dx = -x^2 \cos(x) +2 \int x \cos(x) \, dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Volume rotação no eixo $y$}
+  Calcular \(\int x \cos(x) \, dxs\)
+
+  \pause
+  Usando \({\color{blue}\int udv = uv - \int v  du}\), escolhemos
+  \pause
+  \begin{align*}
+    u  & = x  & dv & = \cos(x) dx                & \hspace{3cm}~ \\
+    du & = dx & v  & = \int \cos(x) dx = \sin(x) &
+  \end{align*}
+  \pause
+  Temos
+  \[
+    \int x \cos(x) \, dx
+    = x \sin(x) - \int \sin(x) \, dx
+    \pause
+    = x \sin(x) + \cos(x) + C
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Volume rotação no eixo $y$}
+  \[
+    \int x^2 \sin(x) \, dx = -x^2 \cos(x) +2 \int x \cos(x) \, dx
+  \]
+
+  \pause
+  \[
+    \int x \cos(x) \, dx = x \sin(x) + \cos(x) + C
+  \]
+
+  \pause
+  \[
+    \int x^2 \sin(x) \, dx
+    = -x^2 \cos(x) + 2x \sin(x) + 2\cos(x) + C
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Usando o Teorema Fundamental do Cálculo - parte 2}
+  \begin{align*}
+    \onslide<1->{V & = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx                                     \\}
+    \onslide<+->{  & = 2\pi \left( -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x) \right) \evalat{0}{\pi} \\}
+    \onslide<+->{  & = 2\pi \Big[
+                              \big( - \pi^2 \cos(\pi) + 2\pi \sin(\pi) + 2 \cos(\pi) \big)
+                            - \big(0 + 0 + 2 \cos(0)\big)
+                            \Big]}
+  \end{align*}
+  \onslide<+->{Como \(\cos(0) = 1\), \(\cos(\pi) = -1\) e \(\sin(\pi) = 0\)}
+  \[
+    \onslide<+->{V = 2\pi \Big[ \left( \pi^2 + 0 - 2 \right) - 2 \Big]}
+      \onslide<+->{  = 2\pi \left( \pi^2 - 4 \right) }
+    \onslide<+->{  = 2\pi^3 - 8\pi}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

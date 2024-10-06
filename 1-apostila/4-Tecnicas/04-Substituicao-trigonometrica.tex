@@ -25,7 +25,7 @@
   \item Nesse caso fazemos uma substituição ``inversa''
   $x=a\sin( \theta )$, assim:
   \begin{align*}
-    \int \sqrt{a^2-x^2}dx
+    \int \sqrt{a^2-x^2}\,dx
     & = \int \sqrt{a^2-a^2 \sin^2(\theta)} a\cos(\theta) d \theta \\
     & = \int \sqrt{a^2(1-\sin^2(\theta))} \cos(\theta) d\theta \\
     & = \int a^2 \cos^2 (\theta) d\theta
@@ -45,7 +45,7 @@
 
 \end{itemize}
 Nessa seção estudaremos a técnica de substituição trigonométrica e ela serve
-para integrar funções que tem uma ''raíz'' e não conseguimos usar nenhuma das
+para integrar funções que tem uma ``raiz'' e não conseguimos usar nenhuma das
 técnicas estudadas até aqui. A Tabela~\ref{tab:substituicoes_trigonometricas}
 apresenta os casos onde usaremos a substituição trigonométrica.
 
@@ -53,7 +53,7 @@ apresenta os casos onde usaremos a substituição trigonométrica.
 \begin{table}
   \centering
   \renewcommand*{\arraystretch}{2.2}
-  \caption{Substituições Trigonométircas}
+  \caption{Substituições Trigonométricas}
   \label{tab:substituicoes_trigonometricas}
   \begin{tabular}{cp{7cm}c}
     \hline
@@ -110,7 +110,7 @@ apresenta os casos onde usaremos a substituição trigonométrica.
   $\theta$ como um ângulo de um triângulo retângulo então podemos escolher $x$
   como o cateto oposto e $3$ como hipotenusa, uma vez que
   $\sin(\theta)=\frac{x}{3}$.
-  O Teorema de Pitágoras nos dá que o cateto adjascente é
+  O Teorema de Pitágoras nos dá que o cateto adjacente é
   $\sqrt{9-x^2}$. Assim,
   \[
     \cot(\theta)= \frac{\sqrt{9-x^2}}{x}
@@ -210,7 +210,7 @@ caso.
 \end{example}
 %------------------------------------------------------------------------------%
 
-Durante a resolução do exercício usamos o fato de que
+Durante a resolução do exercício usamos o fato que
 $\int \sec(x) dx = \ln \abs{\sec(x)+\tan(x)}+ C$,
 para demonstrar esse fato multiplicamos o numerador e o denominador
 por $\sec(x)+\tan(x)$, assim
@@ -238,7 +238,7 @@ Você deve primeiro procurar um método mais simples.
   Encontre \(\int \frac{x}{\sqrt{x^2+4}} dx\)
   \solution
   Aqui poderíamos pensar em usar a substituição trigonométrica
-  $x=2 \tan(\theta)$ (e até pode), no entanto fazer a substituição
+  $x=2 \tan(\theta)$ (e até pode), no entanto, fazer a substituição
   simples $u=x^2+4$ é mais fácil, uma vez que $du=2x dx$ e
   \[
     \int \frac{x}{\sqrt{x^2+4}} dx
@@ -311,8 +311,8 @@ uma situação dessa.
   Calcule \(\int \frac{dt}{\sqrt{t^2-6t+13}}\)
   \solution
   Aqui não temos nenhuma expressão como aquelas da tabela de
-  substituições trigonométricas. No entanto, temos uma raíz no denominador.
-  Vamos manipular a expressão dentro da raíz para chegarmos em uma das
+  substituições trigonométricas. No entanto, temos uma raiz no denominador.
+  Vamos manipular a expressão dentro da raiz para chegarmos em uma das
   expressões da tabela.
 
   Note que, completando quadrado temos
@@ -321,7 +321,7 @@ uma situação dessa.
     =(t-3)^2-9+13
     =(t-3)^2+4.
   \]
-  Fazendo a substituição trigonométrica $u=t-3 \Rightarrow du=dt$, obtemos:
+  Fazendo a substituição trigonométrica $u=t-3 \Rightarrow du=dt$, obtemos
   \[
     \int   \frac{dt}{\sqrt{t^2-6t+13}}
     = \int \frac{dt}{\sqrt{(t-3)^2+4}}

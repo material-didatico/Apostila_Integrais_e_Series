@@ -1,18 +1,16 @@
 %------------------------------------------------------------------------------%
 
 \usepackage{apresentacao}
+\usepackage{mathconfig}
 \usepackage{tabto}
 \usepackage{cancel}
 
 \graphicspath{{./figs/}}
 
 %------------------------------------------------------------------------------%
-\newcommand{\mytitle}   {Séries Numéricas}
-\newcommand{\mysubtitle}{Definição e Exemplos}
-\title   {\mytitle}
-\subtitle{\mysubtitle}
-\author  {\large Luis Alberto D'Afonseca}
-\date    {}
+\title {Séries Numéricas -- Propriedades}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -23,340 +21,73 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\section{Definição}
+\section{Propriedades}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Séries}
-    Uma \emph{Série Infinita} é a soma dos termos de uma \emph{Sequência Infinita} $(a_n)$
+\begin{frame}{Linearidade das Séries}
+  Se \(\sum a_n\) e \(\sum b_n\)
+  são \emph{séries convergentes} e $c\in\R$,
+  \pause
+  então
 
-    \pause
-    \vspace{\baselineskip}
-    Se existir, essa \emph{soma} pode ser escrita como
-    \[ S = \; a_1 + a_2 + \cdots + a_n + \cdots \; = \sum_{n=1}^\infty a_n \]
-
-    \pause
-    Cada valor $a_n$ é chamado de \emph{Termo da Série}
-
-		\only<beamer>{
-    \pause
-    \vspace{\baselineskip}
-    \begin{center}
-        \textbf{\color{red}Como saber se a soma existe?}
-    \end{center}}
+  \vspace{\baselineskip}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item \( \sum_{n=1}^\infty (a_n+b_n) =  \sum_{n=1}^\infty a_n +\sum_{n=1}^\infty b_n \)
+    \item \( \sum_{n=1}^\infty (a_n-b_n) =  \sum_{n=1}^\infty a_n -\sum_{n=1}^\infty b_n \)
+    \item \( \sum_{n=1}^\infty ka_n      = k\sum_{n=1}^\infty a_n \)
+  \end{enumerate}
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Sequência de Somas Parciais}
-    Soma dos primeiros $n$ \emph{termos} de uma sequência $(a_k)$
-    \[
-      S_{\memph{n}}
-      = \; a_1 + a_2 + \cdots + a_{\memph{n}} \;
-      = \sum_{k=1}^{\memph{n}} a_k
-    \]
+\begin{frame}{Ordem dos termos}
+  Não podemos alterar a ordem em que os termos são somados
 
-    \pause
-    Temos agora uma nova sequência de \emph{Somas Parciais} $(S_n)$
-
-    \pause
-    \vspace{\baselineskip}
-    Podemos usar as técnicas definidas para sequências
-
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência de uma Série}
-    A \emph{soma da série} é $S$
-    \[ \sum_{n=1}^\infty a_n = S \]
-    quando a sequência de \emph{somas parciais} $(S_n)$ converge para $S$
-    \pause
-    \[ \lim_{n\to\infty} S_n \;=\; \lim_{n\to\infty} \sum_{k=1}^n a_k \;=\; S \]
-    \pause
-    Se sequência de somas parciais diverge a série \emph{diverge}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-    Somar os termos da sequência
-    \[ a_k = \frac{1}{2^{k-1}} \]
-
-    \pause
-    \vspace{.5\baselineskip}
-    \[
-    	a_1 = 1            \qquad\pause
-    	a_2 = \frac{1}{2}  \qquad\pause
-    	a_3 = \frac{1}{4}  \qquad\pause
-    	a_4 = \frac{1}{8}  \qquad\pause
-      a_5 = \frac{1}{16} \qquad\cdots
-    \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Somas Parciais}
-    \begin{align*}
-    	\action<+->{a_1 & = 1 &
-    		\qquad    S_1 & = 1 &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{1}   \\[2mm]}
-    	\action<+->{a_2 & = \frac{1}{2}       &
-    		\qquad    S_2 & = 1 + \frac{1}{2}   &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{2}   \\[2mm]}
-    	\action<+->{a_3 & = \frac{1}{4}       &
-    		\qquad    S_3 & = 1 + \frac{1}{2} + \frac{1}{4}               &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{4}   \\[2mm]}
-    	\action<+->{a_4 & = \frac{1}{8}       &
-    		\qquad    S_4 & = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{8}   \\[2mm]}
-    	\action<+->{a_n & = \frac{1}{2^{n-1}} &
-    		\qquad    S_n & = \sum_{k=1}^{n} \frac{1}{2^{k-1}}            &  &
-    		\hspace{-20mm}  = \emph{2 - \frac{1}{2^{n-1}} \quad (?) }}
-    \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Demonstração dor Indução Finita}
-	Para mostrar que uma afirmação é verdadeira para todo $n\in\N$ devemos provar que
-	\begin{enumerate}[<+->]
-		\item ela é verdadeira para $n=1$
-		\item se ela for verdadeira pra $n$ então também será para $n+1$
-	\end{enumerate}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Demonstração da Fórmula das Somas Parciais}
-    Assumimos por \emph{indução finita} que
-    \(\quad S_{n-1} = 2 - \frac{1}{2^{n-2}} \) \pause
-    \begin{align*}
-    	\action<+->{S_n & = 1 + \frac{1}{2}
-                            + \frac{1}{4}
-                            + \frac{1}{8}
-                            + \cdots
-                            + \frac{1}{2^{n-2}}
-                            + \frac{1}{2^{n-1}}} \\[2mm]
-    	\action<+->{& = S_{n-1} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = \textcolor{blue}{2 - \frac{1}{2^{n-2}}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = 2 - \frac{2}{2^{n-1}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = 2 - \frac{1}{2^{n-1}}}
-    \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Calculando o Limite das Somas Parciais}
-    \begin{align*}
-    	\action<+->{\lim_{n\to\infty} S_n & = \lim \left(2 - \frac{1}{2^{n-1}}\right) \\[2mm]}
-    	\action<+->{                      & = \lim 2 - \lim\frac{1}{2^{n-1}}          \\[2mm]}
-    	\action<+->{                      & = 2 - 0 = 2}
-    \end{align*}
-
-
-    \action<+->
-    {
-        Portanto a série converge e podemos escrever
-        \[ \sum_{n=1}^{\infty} \frac{1}{\;2^{n-1}\;} = 2 \]
-    }
-
-\end{frame}
-
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Séries Geométricas}
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Séries Geométricas}
-	Uma \emph{Série Geométrica} é uma série com a forma
-	\[
-    \alpha + \alpha r + \alpha r^2 + \alpha r^3 + \cdots + \alpha r^{n-1} + \cdots
-    = \sum_{n=1}^\infty \alpha r^{n-1}
-  \]
-	onde
-	\begin{description}
-		\item[$\alpha$] $\in\R\quad$ número fixo não nulo, $\alpha\neq 0$
-		\item[$r$]      $\in\R\quad$ é a \emph{razão} da série
-	\end{description}
-
-	\pause
-	\vspace{\baselineskip}
-	Especial pois sabemos quando converge e qual sua soma
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência da Série Geométrica -- Caso 1}
-	Se $r=1$ temos
-	\[
-    S_n
-    = \sum_{k=1}^{n} \alpha \,1^{k-1}
-    = \underbrace{\alpha + \cdots + \alpha}_{n \text{ vezes}}
-    = n\alpha
+  \pause
+  \[
+    1-1+1-1+1-1+1-1+1-1+\cdots \text{ diverge}
   \]
 
-	\pause
-	\vspace{\baselineskip}
-	Portanto $S_n$ diverge quando $n\to\infty$
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência da Série Geométrica -- Caso 2}
-	Se $r\neq 1$ temos
-	\begin{align*}
-		\action<+->{S_n      & = \alpha  +    \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1}                \\[2mm]}
-		\action<+->{rS_n     & = \hspace{7mm} \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1} + \alpha r^{n} \\[2mm]}
-		\action<+->{S_n-rS_n & = \alpha - \alpha r^{n} \\[2mm]}
-		\action<+->{S_n(1-r) & = \alpha - \alpha r^{n}        }
-	\end{align*}
-	\action<+->{
-    \[
-      S_n = \frac{\alpha (1-r^n)}{1-r} \qquad\qquad (r\neq 1)
-    \]
-    }
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Calculando o Limite}
-	Com $r\neq 1$, temos \(S_n = \frac{\alpha(1-r^n)}{1-r}\), portanto
-	\vspace{\baselineskip}
-	\begin{description}
-		\item[$r=-1$] \tabto{10mm}
-		\onslide<2->{$r^n=(-1)^n\;$ diverge quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
-		\item[$\abs{r}>1$] \tabto{10mm}
-		\onslide<3->{$\abs{r^n}\to\infty$ quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
-		\item[$\abs{r}<1$] \tabto{10mm}
-		\onslide<4->{$r^n\to 0$ quando $n\to\infty$ portanto \( S_n \to \frac{\alpha}{1-r} \)}
-	\end{description}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Séries Geométricas}
-	Uma série geométrica
-	\[
-    \sum_{n=1}^\infty \alpha r^{n-1}
+  \pause
+  \[
+    (1-1)+(1-1)+(1-1)+(1-1)+(1-1)+\cdots = 0
   \]
-	é convergente se $\abs{r}<1$ com soma
-	\[
-    \sum_{n=1}^\infty \alpha r^{n-1} = \frac{\alpha }{1-r}
+
+  \pause
+  \[
+    1-(1+1)-(1+1)-(1+1)-(1+1)-(1+1)-\cdots = -\infty
   \]
-	e divergente se $\abs{r}\geq 1$
 \end{frame}
 
 %------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Séries Telescópicas}
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
+\begin{frame}{Verificando a Convergência}
+  Basta analisar a soma dos termos a partir de um índice $N$
 
-%------------------------------------------------------------------------------%
-\begin{frame}{Séries Telescópicas}
-	Raramente conseguimos fórmulas exatas para a soma de séries
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Séries Telescópicas} são um caso especial onde quase todos os termos se anulam
+  \pause
+  \vspace{0.5\baselineskip}
+  Se
+  \[
+    \sum_{n={\color{blue}N}}^\infty a_n
+  \]
+  converge, ou diverge, então
+  \[
+    \sum_{n={\color{blue}0}}^\infty a_n
+  \]
+  também
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-	Calcular a soma da série
-	\[\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right) \]
+\begin{frame}{Alterando os Termos de uma Série}
+  Adicionar, retirar ou permutar um \emph{número finito de termos} em uma série,\\
+  não altera o fato da série convergir ou divergir
+
+  \pause
+  \vspace{\baselineskip}
+  Porém, pode alterar o valor da soma da série, caso ele exista
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Somas Parciais}
-	\begin{align*}
-		\onslide<+->{S_n & = \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
-			\\[3mm]}
-		\onslide<+->{& = \left( \frac{1}{1} - \frac{1}{1+1} \right)
-			+ \left( \frac{1}{2} - \frac{1}{2+1} \right)
-			+ \cdots
-			+ \left( \frac{1}{n-1} - \frac{1}{n} \right)
-			+ \left( \frac{1}{n} - \frac{1}{n+1} \right)
-			\\[3mm]}
-		\onslide<+->{& = \left( \frac{1}{1} - \cancel{\frac{1}{2}} \right)
-			+ \left( \cancel{\frac{1}{2}} - \cancel{\frac{1}{3}} \right)
-			+ \cdots
-			+ \left( \cancel{\frac{1}{n-1}} - \cancel{\frac{1}{n}} \right)
-			+ \left( \cancel{\frac{1}{n}} - \frac{1}{n+1} \right)
-			\\[3mm]}
-		\onslide<+->{& = 1 - \frac{1}{n+1}}
-	\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Calculando o Limite}
-	\begin{align*}
-		\onslide<+->{ \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
-			& = \lim_{n\to\infty} \; \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
-			= \lim_{n\to\infty} S_n   \\[3mm]}
-		\onslide<+->{ & = \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right)  \\[3mm]}
-		\onslide<+->{ & = 1}
-	\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Pode Não Ser Óbvio}
-	Calcular a soma da série
-	\[\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;} \]
-	\pause
-	Usando frações parciais
-	\[ \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \]
-	\pause
-	Temos
-	\[
-	\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;}
-	\;=\; \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
-	\;=\; 1
-	\]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Testes da Divergência}
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Testes de Convergência}
-	\begin{itemize}[<+->]
-		\item Em geral não temos uma fórmula fechada para $S_n$ \\[2mm]
-		\item Queremos saber se a série converge \\[2mm]
-		\item Abrimos mão de calcular sua soma exata \\[2mm]
-		\item Podemos calcular aproximações computacionalmente
-	\end{itemize}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Termo Geral de uma Serie Convergente}
-	Como somamos infintos termos se eles não forem ``pequenos'' a série não converge
-
-	\pause
-	\vspace{\baselineskip}
-	Para que \(\;\sum_{n=1}^\infty a_n\;\) seja convergente $a_n$ precisa ir para zero
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Limite do Termo Geral}
-
-	Se a série \(\sum_{n=1}^\infty a_n\) é convergente, então $a_n\to 0$
-
-	\pause
-	\vspace{\baselineskip}
-	Como a série converge
-	\[ \lim S_n  = S \]
-
-	\pause
-	Calculando
-	\begin{align*}
-		\action<+->{\lim a_n & = \lim(S_n-S_{n-1})       \\}
-		\action<+->{         & = \lim S_n - \lim S_{n-1} \\}
-		\action<+->{         & = S - S = 0}
-	\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teste da Divergência}
-	Se a sequência $a_n$ não converge para zero, então a série $\sum a_n$ diverge
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{\mytitle}{\mysubtitle}
+\begin{frame}{\contentsname}
   \tableofcontents
 \end{frame}
 

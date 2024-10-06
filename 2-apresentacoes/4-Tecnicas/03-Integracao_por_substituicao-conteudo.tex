@@ -1,0 +1,355 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Integração por Substituição Simples}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integração por Substituição Simples}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Justificativa}
+  \onslide<+->{
+    Assumindo que \(F'(x)=f(x)\) e \(g'(x)\) é a derivada e \(g(x)\)
+  }
+
+  \onslide<+->{temos}
+  \begin{align*}
+    \onslide<2->{\Big(F\big(g(x)\big)\Big)'
+    & \;=\; f\big(g(x)\big) g'(x) \\[1mm]}
+    \onslide<+->{{\color<4>{magenta}\int \Big(}F\big(g(x)\big){\color<4>{magenta}\Big)' dx}
+    & \;=\; \int f\big(g(x)\big) g'(x) \, dx \\[1mm]}
+    \onslide<+->{F\big(g(x)\big)
+    & \;=\; \int f\big(g(x)\big) g'(x) \, dx \\}
+    \onslide<+->{\int f\big(g(x)\big) g'(x) \, dx
+    & \;=\; F\big(g(x)\big)}
+    \onslide<+->{\;=\; \int f({\color<6>{blue}u})\,{\color<6>{blue}du}}
+  \end{align*}
+  \onslide<6->{onde fizemos \({\color<6>{blue}u} = g(x)\) e \({\color<6>{blue}du} = g'(x)\,dx\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integração por Substituição Simples}
+  Regra
+  \[
+    \int f\big(g(x)\big) g'(x) \, dx
+    = \int f(u)\,{du}
+  \]
+  onde \(u = g(x)\) e \(du = g'(x)\,dx\)
+
+  \pause
+  \vspace{\baselineskip}
+  Integrais definidas
+  \[
+    \int_a^b f\big(g(x)\big) g'(x) \, dx
+    = \int_{u(a)}^{u(b)} f(u)\,{du}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Casos Particulares}
+  Se\;
+  \(
+    \int f(x) dx = F(x) + C
+  \)\; e \(k\) é uma constante
+
+  \pause
+  \vspace{\baselineskip}
+  \[ \int f(kx)  dx \;=\; \frac{1}{\,k\,}F(kx)   + C \]
+
+  \pause
+  \[ \int f(kx+b)dx \;=\; \frac{1}{\,k\,}F(kx+b) + C \]
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int 4x^3 \cos\left(x^4+2\right)dx\)}
+  \onslide<+->{\( = \int  {\color<3>{blue}\cos\left({\color<4,5>{magenta}x^4+2}\right)}
+    {\color<5>{teal}4x^3}\, dx  \)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Identificando as funções}
+  \begin{align*}
+    \onslide<3->{f  & = {\color<3>{blue}\cos\left({\color<4,5>{magenta}x^4+2}\right)} \\[2mm]}
+    \onslide<+->{   & = \cos\big({\color<4,5>{magenta}g(x)}\big)     \\[2mm]}
+    \onslide<+->{g  & = {\color<5>{magenta}x^4+2}                  \\[2mm]}
+    \onslide<5->{g' & = {\color<5>{teal}4x^3}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Nova variável
+  \[
+    {\color<2>{magenta}u  = x^4+2}
+    \qquad\text{e}\qquad
+    {\color<2>{blue}du = 4x^3\,dx}
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{\int \cos\left({\color<2>{magenta}x^4+2}\right) \,{\color<2>{blue}4x^3dx}
+      & = \int \cos({\color<2>{magenta}u}) {\color<2>{blue}du}                       \\}
+    \onslide<+->{
+      & = \sin(u) + C                          \\[2mm]}
+    \onslide<+->{
+      & = \sin\left( {\color{magenta}x^4 + 2} \right) + C}
+  \end{align*}
+\end{frame}
+
+% 2
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \frac{x}{\sqrt{1-4x^2}} dx\)}
+  \onslide<+->{\(= \int \left(1-4x^2\right)^{-\sfrac{1}{2}} \,x\,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Identificando as funções}
+  \begin{align*}
+    \onslide<3->{f  & = \frac{1}{\sqrt{1-4x^2}} = \left(1-4x^2\right)^{-\sfrac{1}{2}}\\[2mm]}
+    \onslide<+->{   & = \big(g(x)\big)^{-\sfrac{1}{2}}\\[2mm]}
+    \onslide<+->{g  & = 1-4x^2\\[2mm]
+                 g' & = -8x}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Substituição
+  \[
+    u = 1-4x^2
+    \qquad\text{e}\qquad
+    du  =-8x dx
+    \quad\Leftrightarrow\quad
+    xdx = -\frac{1}{8} du
+  \]}
+  \begin{align*}
+    \onslide<+->{\int \frac{x}{\sqrt{1-4x^2}}dx & = -\frac{1}{8} \int \frac{1}{\sqrt{u}}du \\[2mm]}
+    \onslide<+->{                               & = -\frac{1}{8} \int u^{-\sfrac{1}{2}} du \\[2mm]}
+    \onslide<+->{                               & = -\frac{1}{8} \left(2 \sqrt{u}\right)+C \\[2mm]}
+    \onslide<+->{                               & = -\frac{1}{4}\sqrt{1-4x^2}+C}
+  \end{align*}
+\end{frame}
+
+% 3
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \tan(x) dx\)}
+  \onslide<+->{\(= \int \frac{\sin(x)}{\cos(x)} dx\)}
+  \onslide<+->{\(= \int \big(\cos(x)\big)^{-1} \sin(x)\,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Identificando as funções}
+  \begin{align*}
+    \onslide<4->{f  & = \big(\cos(x)\big)^{-1}\\[2mm]}
+    \onslide<+->{   & = \big(g(x)\big)^{-1}\\[2mm]}
+    \onslide<+->{g  & = \cos(x) \\[2mm]
+                 g' & = -\sin(x)}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Substituição
+  \[
+    u = \cos(x)
+    \qquad\text{e}\qquad
+    du = -\sin(x)dx
+    \quad\Leftrightarrow\quad
+    -du = \sin(x)dx
+  \]}
+  \begin{align*}
+    \onslide<+->{\int \tan(x) dx & = \int \big(\cos(x)\big)^{-1} \sin(x)\,dx \\}
+    \onslide<+->{                & = \int u^{-1} (-du)                       \\}
+    \onslide<+->{                & = - \int u^{-1} du                        \\}
+    \onslide<+->{                & = - \ln \abs{u} + C                       \\[2mm]}
+    \onslide<+->{                & = - \ln \abs{\cos(x)} + C}
+  \end{align*}
+\end{frame}
+
+% 4
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre o valor médio de \;
+  \(
+    f(x)=\frac{\ln(x)}{x}
+  \)
+  \; no intervalo $[1, e]$}
+
+  \vspace{2\baselineskip}
+  \onslide<+->{Valor médio
+  \[
+    f_{\text{médio}}
+    = \frac{1}{b-a} \int_a^b f(x)\, dx
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Indefinida}
+  \onslide<+->{Calcular \(\int \frac{\ln(x)}{x} dx\)}
+  \onslide<+->{\(= \int \ln(x) x^{-1} dx\)}
+
+  \vspace{0.5\baselineskip}
+  \onslide<+->{Substituição \quad
+  \(
+    u = \ln(x)
+    \qquad\text{e}\qquad
+    du = x^{-1} dx
+  \)}
+
+  \vspace{0.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{\int \frac{\ln(x)}{x} dx & = \int u\, du            \\[2mm]}
+    \onslide<+->{                         & = \frac{u^2}{2}+C        \\[2mm]}
+    \onslide<+->{                         & = \frac{1}{2}\big(\ln(x)\big)^2 + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Definida}
+  \begin{align*}
+    \onslide<+->{\int_1^e \frac{\ln(x)}{x} dx
+      & = \frac{1}{2}\big(\ln(x)\big)^2 \evalat{1}{e}                 \\[2mm]}
+    \onslide<+->{
+      & = \frac{\big(\ln(e)\big)^2}{2} - \frac{\big(\ln(1)\big)^2}{2} \\[2mm]}
+    \onslide<+->{
+      & = \frac{1}{2}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Valor Médio}
+  \begin{align*}
+    \onslide<+->{f_{\text{médio}} & = \frac{1}{b-a} \int_a^b f(x)\, dx           \\[2mm]}
+    \onslide<+->{                 & = \frac{1}{e-1} \int_1^e \frac{\ln(x)}{x} dx \\[2mm]}
+    \onslide<+->{                 & = \frac{1}{e-1} \frac{1}{2}                  \\[2mm]}
+    \onslide<+->{                 & = \frac{1}{2(e-1)}}
+  \end{align*}
+\end{frame}
+
+% 6
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Determine se a integral \(\int_{-\infty}^{\infty} x^3e^{-x^4} dx\)
+  é convergente ou divergente
+
+  \pause
+  \vspace{\baselineskip}
+  Integral Imprópria
+  \[
+    \int_{-\infty}^{\infty} x^3e^{-x^4} dx
+    \;=\; \lim_{r \to-\infty} \int_{r}^{0} x^3e^{-x^4} dx
+    \;+\; \lim_{s \to \infty} \int_{0}^{s} x^3e^{-x^4} dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Indefinida}
+  \onslide<+->{Calcular \(\int x^3e^{-x^4} dx\)}
+
+  \onslide<+->{\vspace{0.1\baselineskip}
+  Substituição \quad
+  \(
+    u  = -x^4
+    \qquad\text{e}\qquad
+    du = -4x^3dx
+    \quad\Leftrightarrow\quad
+    x^3dx = \frac{du}{-4}
+  \)}
+
+  \vspace{0.1\baselineskip}
+  \begin{align*}
+    \onslide<+->{\int x^3e^{-x^4} dx & = \int e^u \left(-\frac{du}{4}\right) \\[1mm]}
+    \onslide<+->{                    & = -\frac{1}{4}\int e^u du             \\[1mm]}
+    \onslide<+->{                    & = -\frac{1}{4}e^u+C                   \\[1mm]}
+    \onslide<+->{                    & = -\frac{1}{4}e^{-x^4}+C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Imprópria 1}
+\begin{align*}
+  \onslide<+->{\int_{-\infty}^{0} x^3e^{-x^4} dx
+                 & = \lim_{r \to -\infty} \int_r^0 x^3e^{-x^4} dx                \\[3mm]}
+  \onslide<+->{  & = \lim_{s \to -\infty} \left(-\frac{e^{-x^4}}{4}\right) \evalat{r}{0} \\[3mm]}
+  \onslide<+->{  & = \lim_{r \to -\infty} \left(-\frac{1}{4}\left( e^0 - e^{-r^4} \right)\right) \\[3mm]}
+  \onslide<+->{  & = -\frac{1}{4}\left( 1 - \lim_{r \to -\infty} e^{-r^4} \right)               \\[3mm]}
+  \onslide<+->{  & = -\frac{1}{4}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Imprópria 2}
+  \begin{align*}
+    \onslide<+->{\int_{0}^{\infty} x^3e^{-x^4} dx
+                 & = \lim_{s \to \infty} \int_0^s x^3e^{-x^4} dx                           \\[3mm]}
+    \onslide<+->{& = \lim_{s \to \infty} \left(-\frac{e^{-x^4}}{4}\right) \evalat{0}{s} \\[3mm]}
+    \onslide<+->{& = \lim_{s \to \infty} \left(-\frac{1}{4}\left( e^{-s^4} - e^0 \right)\right) \\[3mm]}
+    \onslide<+->{& = -\frac{1}{4}\left( \lim_{s \to \infty}e^{-s^4} - 1 \right)                \\[3mm]}
+    \onslide<+->{& = \frac{1}{4}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Conclusão}
+  \begin{align*}
+  \onslide<+->{\int_{-\infty}^{\infty} x^3e^{-x^4} dx
+   & = \lim_{r \to-\infty} \int_{r}^{0} x^3e^{-x^4} dx
+     + \lim_{s \to \infty} \int_{0}^{s} x^3e^{-x^4} dx \\[3mm]}
+  \onslide<+->{& = -\frac{1}{4} +\frac{1}{4}  \\[3mm]}
+  \onslide<+->{& = 0}
+\end{align*}
+\onslide<+->{A integral converge para zero}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

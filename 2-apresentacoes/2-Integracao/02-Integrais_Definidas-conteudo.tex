@@ -1,6 +1,7 @@
 %------------------------------------------------------------------------------%
 
 \usepackage{apresentacao}
+\usepackage{mathconfig}
 \usepackage{tabto}
 
 \makeatletter
@@ -9,12 +10,9 @@
 \makeatother
 
 %------------------------------------------------------------------------------%
-\newcommand{\mytitle}   {Integrais e Séries}
-\newcommand{\mysubtitle}{Integrais Definidas}
-\title   {\mytitle}
-\subtitle{\mysubtitle}
-\author  {\large Luis Alberto D'Afonseca}
-\date    {}
+\title {Integrais Definidas}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -28,7 +26,284 @@
 \section{Integrais Definidas}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\mytitle}{\mysubtitle}
+\begin{frame}{Fórmulas para o cálculo de áreas}
+  Figuras regulares
+
+  \pause
+  \vspace{1.6\baselineskip}
+  Área de um Retângulo
+  \tabto{45mm}
+  \(
+    A = (\text{base}) \times (\text{altura}) = bh
+  \)
+
+  \pause
+  \vspace{1.5\baselineskip}
+  Área de um Triângulo
+  \tabto{45mm}
+  \(
+    A = \frac{(\text{base}) \times (\text{altura})}{2} = \frac{bh}{2}
+  \)
+
+  \pause
+  \vspace{1.3\baselineskip}
+  Área de um Círculo
+  \tabto{45mm}
+  \(
+    A = \pi (\text{raio})^2 = \pi r^2
+  \)
+
+  \pause
+  \vspace{1.4\baselineskip}
+  O que fazer com as figuras irregulares?
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Área entre o gráfico de uma função e o eixo $x$}
+  \centering
+  \vspace{2\baselineskip}
+  \input{fig_integral_definida_area}
+  \pause
+  \emph{Como calcular a área?}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo: área sob o gráfico de $x^2$ entre 0 e $b$}
+  \centering
+  \vspace{2\baselineskip}
+  \input{fig_area_x2}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Aproximando a área sob o gráfico}
+  \centering
+  \vspace{1.6\baselineskip}
+  \input{fig_area_x2_retangulos}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Aproximando a área sob o gráfico}
+Partição do intervalo $[0, b]$ em $n$ subintervalos iguais
+\[
+  0 = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = b
+\]
+\pause
+Tamanho de cada subintervalo
+\[
+  \Delta x
+  = x_{i+1} - x_i
+  \pause
+  = \frac{b}{n}
+\]
+\pause
+Valor de $x_i$
+\[
+  x_i
+  = i \Delta x
+  \pause
+  = i\frac{b}{n}
+\]
+\pause
+Área de cada retângulo
+\[
+  A_i
+  = x_i^2 \Delta x
+  \pause
+  = \left(i\frac{b}{n}\right)^2 \frac{b}{n}
+  \pause
+  = \frac{b^3}{n^3}i^2
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somando os Retângulos}
+\begin{align*}
+  \onslide<+->{ \tilde{A}_n & = \sum_{i=1}^n A_i }
+  \onslide<+->{ \;=\; \sum_{i=1}^n \frac{b^3}{n^3}i^2               }
+  \onslide<+->{ \;=\; \frac{b^3}{n^3} \sum_{i=1}^n i^2             \\[5mm]}
+  \onslide<+->{ & = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[5mm]}
+  \onslide<+->{ & = \frac{b^3}{n^3} \; \frac{2n^3+3n^2+n}{6}       \\[5mm]}
+  \onslide<+->{ & = \frac{b^3}{6} \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) }
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Calculando pelo limite}
+  \begin{align*}
+    \onslide<+->{ A & = \lim_{n\to\infty} \tilde{A}_n                   \\[7mm]}
+    \onslide<+->{   & = \lim_{n\to\infty}
+                        \frac{b^3}{6}
+                        \left( 2+\frac{3}{n}+\frac{1}{n^2} \right)       \\[7mm]}
+    \onslide<+->{   & = \frac{b^3}{6}
+                        \left( 2 + 3 \lim_{n\to\infty} \frac{1}{n}
+                                 +   \lim_{n\to\infty} \frac{1}{n^2} \right) \\[7mm]}
+    \onslide<+->{   & = \frac{b^3}{6} 2 \;=\; \frac{b^3}{3}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Área entre o gráfico de $f$ e o eixo $x$ no intervalo $[a, b]$}
+  \centering
+  \vspace{2.3\baselineskip}
+  \input{fig_integral_definida_area}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Partição do intervalo $[a, b]$}
+  \centering
+  \vspace{2\baselineskip}
+  \input{fig_soma_riemman_particao}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Aproximação por retângulos}
+  \centering
+  \vspace{2\baselineskip}
+  \input{fig_soma_riemman_retangulos}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Aproximação por retângulos}
+\begin{align*}
+  \onslide<+->{\Delta x & = \frac{b-a}{n} \\[2mm]}
+  \onslide<+->{x_i & = a + i\Delta x \\[3mm]}
+  \onslide<+->{A_i & = f(x_i)\Delta x \\[8mm]}
+  \onslide<+->{A & \approx A_1+A_2+A_3+\cdots+ A_n \\[2mm]}
+  \onslide<+->{  & = f(x_1)\Delta x+ f(x_2) \Delta x+ f(x_3) \Delta x + \cdots + f(x_n)\Delta x}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Área via soma de Riemann}
+  A \emph{área} da região sob o gráfico de uma \emph{função contínua} $f$
+  no intervalo $[a, b]$\\
+  é dada pelo limite.
+  \[
+    A = \lim_{n \to \infty} \; \sum_{i=1}^n f(x_i) \Delta x
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Definição Integral Definida}
+  A \emph{Integral Definida} de $f$ de $a$ até $b$ é
+  \[
+    \int_a^b f(x) dx
+    \;=\; \lim_{n \to \infty} \; \sum_{i=1}^n f(c_i) \Delta x
+  \]
+  Desde que esse limite exista.
+
+  \vspace{\baselineskip}
+  $c_i\in[x_{i-1}, x_i]$ são os \emph{pontos amostrais}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Consequência da Definição}
+  A área tem o mesmo \emph{sinal} da função
+
+  \begin{center}
+    \includegraphics[height=5cm]{integral_definida_03}
+  \end{center}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Propriedades da integral definida}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Sentido de integração}
+  \Large
+  \[
+    \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{b}} f(x)\,dx
+    = \textcolor{red}{-}
+    \int^{\textcolor{blue}{a}}_{\textcolor{magenta}{b}} f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Intervalo de comprimento nulo}
+  \Large
+  \[
+    \int_{\textcolor{blue}{a}}^{\textcolor{blue}{a}} f(x)dx
+    = \textcolor{blue}{0}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Área de um retângulo}{}
+  {\Large
+  \[
+    \int_{a}^b {\color{blue}c}\,dx = {\color{blue}c}(b-a)
+  \]}
+  {\color{blue}$c$} constante
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Soma e subtração de funções}
+  \Large
+  \[
+    \int_{a}^b \big[ f(x) \;{\color{blue}+}\; g(x) \big] dx
+    = \int_{a}^b f(x)\,dx \;{\color{blue}+}\, \int_{a}^b g(x)\,dx
+  \]
+  ~
+  \[
+    \int_{a}^b \big[ f(x) \;{\color{blue}-}\; g(x) \big] dx
+    = \int_{a}^b f(x)\,dx \;{\color{blue}-}\, \int_{a}^b g(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Multiplicação de função por constante}{}
+  {\Large
+  \[
+    \int_{a}^b \textcolor{blue}{c}\,f(x)\,dx
+    = \textcolor{blue}{c} \int_{a}^b f(x)\,dx
+  \]}
+  ~
+
+  \textcolor{blue}{$c$} constante
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Separando o intervalo em dois}
+  \Large
+  \[
+    \int_{\textcolor{blue}{a}}^{\textcolor{blue}{b}} f(x)\,dx
+    = \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{c}} f(x)\,dx
+    + \int_{\textcolor{magenta}{c}}^{\textcolor{blue}{b}} f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Área positiva}
+  \Large
+  Se \(f(x)\textcolor{blue}{\,\geq\,} 0\) para \(a \leq x \leq b\), então
+  \(
+    \int_{a}^b f(x)\,dx \textcolor{blue}{\,\geq\,} 0
+  \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Comparação entre áreas}
+  \Large
+  Se \textcolor{blue}{$f(x) \geq g(x)$}
+  para $a \leq x \leq b$, então \\[9mm]
+  \[
+    \int_{a}^b f(x)\,dx \;\textcolor{blue}{\,\geq\,}\; \int_{a}^b g(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limitação inferior e superior}
+  \Large
+  Se {${\color{blue}m} \leq f(x) \leq {\color{red}M}$} para $a \leq x \leq b$ então \\[9mm]
+  \[
+    {\color{blue} m}(b-a)                 \quad\geq\quad
+    \int_{a}^b f(x)\,dx    \quad\geq\quad
+    {\color{red} M}(b-a)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
   \tableofcontents
 \end{frame}
 

@@ -122,7 +122,7 @@ Isolando o termo que queremos temos que
   \begin{align*}
     \int x\sin(x)dx
     & = uv- \int vdu \\
-    & = x(-\cos(x))- \int (-\cos(x))dx \\
+    & = x\big(-\cos(x)\big)- \int \big(-\cos(x)\big)dx \\
     & = -x \cos(x) + \int \cos(x) dx \\
     & = -x \cos(x) + \sin(x)  + C
   \end{align*}
@@ -133,7 +133,7 @@ Você poderia perguntar: Eu não poderia escolher $u= \sin(x)$ e $dv=x $, uma ve
 que conseguimos encontrar uma antiderivada de modo fácil para $x$? Como
 comentamos anteriormente, a escolha de $u$ e $dv$ deve ser feita de modo a
 obter uma integral mais simples. Caso tivéssemos feito essa escolha chegaríamos
-na  integral
+na integral
 \[
     \int x \sin(x) dx= \sin(x) \frac{x^2}{2}- \frac{1}{2} \int x^2\cos(x)dx
 \]
@@ -143,9 +143,9 @@ que é uma integral mais difícil que aquela que começamos.
 \begin{example}
   Calcule \(\int \ln(x) dx\)
   \solution
-  Primeiro note que podemos resscrever
+  Primeiro note que podemos rescrever
   \[
-    \int \ln(x) dx= \int ln(x). 1 dx
+    \int \ln(x) dx= \int \ln(x) \cdot 1 dx
   \]
   Usando o padrão temos
   \begin{align*}

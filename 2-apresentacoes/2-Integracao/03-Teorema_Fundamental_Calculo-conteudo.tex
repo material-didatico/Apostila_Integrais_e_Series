@@ -1,0 +1,322 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcommand{\fmedio}{f_{\text{médio}}}
+
+%------------------------------------------------------------------------------%
+\title {Teorema Fundamental do Cálculo}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teorema do Valor Médio}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivadas e Integrais}
+\emph{Derivada} de $f$: \quad taxa de variação de $f$
+\[
+  f'(x) = \frac{df}{dx}
+\]
+
+\pause
+\emph{Integral indefinida} de $f$: \quad antiderivada de $f$
+\[
+  F(x) = \int f(x)\,dx \qquad\Rightarrow\qquad \frac{dF}{dx} = f(x)
+\]
+
+\pause
+\emph{Integral definida} de $f$: \quad diferença de áreas sob o gráfico de $f$
+\[
+  \text{``Área''} = \int_a^b f(x)\,dx
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+  Seja $f$ uma função {\color{blue} contínua} em $[a, b]$, \pause
+  então existe ${\color{blue} c} \in (a, b)$ \pause
+  tal que
+  \[
+    f({\color{blue}c})(b-a)
+    \;=\; \int_a^b f(x)\,dx
+  \]
+  \pause
+  ou
+  \[
+    f({\color{blue}c})
+    \;=\; \frac{1}{b-a}\int_a^b f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Valor Médio}
+  ${\color{blue}f(c)}$ é o \emph{Valor Médio} de $f$ em $[a, b]$
+  que denotamos por ${\color{blue}f_{\text{médio}}}$.
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Valor Médio}
+  \centering
+  \vspace{\baselineskip}
+  \input{fig_valor_medio_media}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Teorema Fundamental do Cálculo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+  Se $f$ for {\color{blue} contínua} em $[a, b]$,
+  \pause
+  então a função $F$ definida por
+  \[
+    F({\color{blue}x})
+    \;=\; \int_a^{{\color{blue}x}} f(t)\,dt
+    \hspace{15mm} a \leq x \leq b
+  \]
+  \pause
+  é contínua em $[a, b]$,
+  \pause
+  derivável em $(a, b)$
+  \pause
+  e
+  \[
+    \frac{dF}{dx}(x) \;=\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Em outras palavras}
+  Se
+  \[
+    F({\color{blue}x})
+    \;=\; \int_a^{{\color{blue}x}} f(t)\,dt
+  \]
+  \pause
+  então
+  \[
+    \frac{d}{d{\color{blue}x}}
+    \left[\; \int_a^{{\color{blue}x}} f(t)\,dt \;\right]
+    = f({\color{blue}x})
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 2}
+  Se $f$ for {\color{blue} contínua} em $[a, b]$
+  \pause
+  então, para {\color{blue}qualquer primitiva} $F$ de $f$
+  \[
+    \int_a^b f(x) \,dx      \pause
+    \;=\; F(b) - F(a)       \pause
+    \;=\; F(x) \evalat{a}{b}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Usando o TFC para Calcular Áreas}
+  Calcular a área sob o gráfico de \(f(x)=x^2\) entre 0 e $b$
+  \pause
+  \[
+    \text{Área}
+    \;=\; \int_0^b f(x) \,dx \pause
+    \;=\; \int_0^b x^2  \,dx
+  \]
+  \pause
+  Sabemos que a primitiva de $f$ é
+  \[
+    F(x)
+    \;=\; \int x^2  \,dx \pause
+    \;=\; \frac{x^{2+1}}{2+1} + C \pause
+    \;=\; \frac{x^3}{3} + C
+  \]
+  \pause
+  então
+  \[
+    \text{Área}
+    \;=\; F(x) \evalat{0}{b} \pause
+    \;=\; F(b) - F(0)        \pause
+    \;=\; \left[ \frac{b^3}{3} + C \right]
+      -   \left[ \frac{0^3}{3} + C \right] \pause
+    \;=\; \frac{b^3}{3}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Demonstrações}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+  Queremos mostrar que existe $c \in (a, b)$ tal que
+  \[
+    f(c) = \frac{1}{b-a}\int_a^b f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+  \centering
+  \vspace{\baselineskip}
+  \input{fig_valor_medio_media}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+\onslide<+->{Teorema de Weierstrass \\
+\qquad $f$ é \emph{contínua} em $[a, b]$
+então existe um \emph{mínimo} $f(u)$ e um \emph{máximo} $f(v)$}
+
+\vspace{0.5\baselineskip}
+\onslide<+->{Como a integral \emph{preserva a desigualdade}}
+\begin{align*}
+  \onslide<+->{\int_a^b f(u)\,dx \;\leq\; & \int_a^b f(x)\,dx \;\leq\; \int_a^b f(v) \,dx \\[3mm]}
+  \onslide<+->{f(u)(b-a) \;\leq\;         & \int_a^b f(x)\, dx \;\leq \;f(v)(b-a)         \\[3mm]}
+  \onslide<+->{f(u) \;\leq\;               \frac{1}{b-a} & \int_a^b f(x)\,dx \;\leq\; f(v)}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+Valor médio
+\[
+  \fmedio = \frac{1}{b-a} \int_a^b f(x)\,dx
+\]
+\pause
+\[
+  f(u) \;\leq\; f_{\text{médio}} \;\leq\; f(v)
+\]
+
+\pause
+\vspace{\baselineskip}
+Teorema do Valor Intermediário \\
+\qquad $f$ precisa assumir o valor \(\fmedio\) em algum $c\in[a, b]$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+  Queremos mostrar que, se
+  \[
+    F(x) = \int_a^x f(t)\,dt
+  \]
+  então
+  \[
+    \frac{dF}{dx} = f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+\onslide<+->{Sejam $x$ e $x+h$ em $(a, b)$}
+\begin{align*}
+  \onslide<+->{F(x+h) - F(x)
+    & = {\color<3>{blue}\int_a^{x+h} f(t)\,dt} - \int_a^x f(t)\,dt                     \\[3mm]}
+  \onslide<+->{
+    & = {\color<3>{blue}\int_a^x f(t)\,dt + \int_x^{x+h} f(t)\,dt} - \int_a^x f(t)\,dt \\[3mm]}
+  \onslide<+->{
+    & = \int_x^{x+h} f(t)\,dt}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+  Considerando $h\neq 0$
+  \[
+    \frac{F(x+h) - F(x)}{h} = \frac{1}{h} \int_x^{x+h} f(t)\,dt
+  \]
+  \pause
+  Calculando o limite $h\to 0$
+  \[
+    \lim_{h\to0} \frac{F(x+h) - F(x)}{h} = \frac{dF}{dx}
+  \]
+  \pause
+  Falta mostrar que
+  \[
+    \lim_{h\to 0} \frac{1}{h} \int_x^{x+h} f(t)\,dt \;\stackrel{?}{=}\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+  Pelo Teorema Valor Médio existe \(c\in[x, x+h]\) tal que
+  \[
+    \int_x^{x+h} f(t)\,dt = f(c)h
+  \]
+  \pause
+  então
+  \[
+    \frac{1}{h} \int_x^{x+h} f(t)\,dt = f(c)
+  \]
+  \pause
+  Quando $h\to0$ então $c\to x$, portanto
+  \[
+    \lim_{h\to 0} \frac{1}{h} \int_x^{x+h} f(t)\,dt = f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 2}
+  Queremos mostrar que
+  \[
+    \int_a^b f(x) \,dx = F(b) - F(a)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 2}
+Teorema Fundamental do Cálculo -- Parte 1
+\[
+  G(x) = \int_a^x f(x)\,dx
+\]
+é uma primitiva de $f$
+
+\pause
+\vspace{\baselineskip}
+Qualquer outra primitiva tem a forma
+\[
+  F(x) = G(x) + C
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 2}
+\begin{align*}
+  \onslide<+->{F(b) - F(a) & = \big(G(b) + C\big) - \big(G(a) + C\big) \\[5mm]}
+  \onslide<+->{            & = G(b) - G(a)                             \\[3mm]}
+  \onslide<+->{            & = \int_a^b f(x)\,dx - \int_a^a f(x)\,dx   \\[3mm]}
+  \onslide<+->{            & = \int_a^b f(x)\,dx}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

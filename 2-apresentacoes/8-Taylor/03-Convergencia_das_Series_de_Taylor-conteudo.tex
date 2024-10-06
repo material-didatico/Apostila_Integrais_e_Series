@@ -1,0 +1,353 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Convergência das Séries de Taylor}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Convergência da Série de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Polinômios e Séries de Taylor}
+  Se $f$ é $k$-derivável, em uma vizinhança de $\;x=a$, temos o \emph{Polinômio de Taylor}
+  \[
+    P_k(x) = \sum_{n=0}^k \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Se $f$ é infinitamente derivável temos a \emph{Série de Taylor}
+  \[
+    \tilde{f}(x) = \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Questões}
+  \begin{itemize}[<+->]
+    \item Quão próximo o polinômio $\;P_k(x)\;$ está da função $\;f(x)\;$?
+    \vspace{\baselineskip}
+    \item A série converge, isso é, $\;\tilde{f}(x)\;$ existe?
+    \vspace{\baselineskip}
+    \item Se $\;\tilde{f}(x)\;$ existe, qual sua relação com $\;f(x)\;$?
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Contraexemplo}
+  Considere a função
+  \[
+    f(x) = \begin{cases}
+      0                 & x \leq 0 \\[2mm]
+      e^{\sfrac{-1}{x}} & x > 0
+    \end{cases}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Contraexemplo}
+  \centering
+  \scalebox{0.8}{\input{fig_functions_exp_1dx}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Contraexemplo}
+  Suas derivadas em \(x=0\) são zero
+  \[
+    f^{(n)}(0) = 0 \qquad n = 0, 1, 2, \dots
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Sua Série de Taylor converge para
+  \[
+    T(x) = 0
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teorema de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema de Taylor}
+  Sejam
+  \begin{itemize}
+  \item \(f\colon\mathcal{I}\rightarrow \R\) uma função com \emph{$n+1$
+        derivadas contínuas} em $\mathcal{I}$
+  \item $a$, $x$ $\in\mathcal{I}$
+  \end{itemize}
+
+  \pause
+  \vspace{\baselineskip}
+  Então existe {\color{red}\(c\)} \emph{entre \(a\) e \(x\)} \pause tal que
+  \[
+    f(x)=P_n(x)+R_n(x)\
+    \qquad \text{onde} \qquad
+    R_n(x)=\frac{\;f^{(n+1)}({\color{red}c})\;}{(n+1)!}(x-a)^{n+1}
+  \]
+
+  \vspace{.5\baselineskip}
+  $R_n(x)\;$ é o \emph{Resto de Ordem $n$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência da Série de Taylor}
+Se \emph{\(\;R_n(x)\to 0\;\)} quando \emph{\(\;n\to\infty\;\)}
+para todo \(\;x\in\mathcal{I}\;\)
+
+\vspace{\baselineskip}
+A série de Taylor gerada por $f$ converge para $f$ em \(\;\mathcal{I}\;\)
+\[
+  f(x) = \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Estimativa de Erro}
+Se existir \(\;M\;\) tal que  \emph{\(\;\abs{\,f^{(n+1)}(t)} \leq M \;\)}
+para todo \(t\) entre \(x\) e \(a\), inclusive
+
+\pause
+\vspace{\baselineskip}
+\[
+  \abs{R_n(x)}
+  = \abs{\frac{\;{\color{blue}f^{(n+1)}({\color{red}c})}\;}{(n+1)!}(x-a)^{n+1}} \pause
+  \leq {\color{blue} M}\, \frac{\;\,\abs{x-a}^{n+1}}{(n+1)!\;\;}
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+    Estimar o erro ao aproximar \(e^x\), no intervalo \([-1, 1]\), \\
+    por seu Polinômio de Taylor centrado em zero
+
+   \vspace{0.5\baselineskip}
+   \pause
+   Série de Taylor da exponencial
+   \[
+     f(x) = \sum_{n=0}^\infty \frac{x^n}{n!}
+   \]
+
+   \pause
+   Erro após a soma de $n$ termos,\(P_n(x)\)
+   \[
+     R_n(x)=\frac{\;f^{(n+1)}(c)\;}{(n+1)!}x^{n+1}
+   \]
+   Para algum $c$ entre zero e $x$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Não temos como saber o valor de $c$\pause, mas sabemos que
+  \[
+    f^{(n+1)}(c) = e^c \pause \leq e^1 \pause < 3
+  \]
+  \pause
+  Portanto
+  \[
+    \abs{R_n(x)} < \frac{\;3\abs{x^{n+1}}\;}{(n+1)!} \pause
+                 < \frac{\;3\;}{(n+1)!}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Mostre que a Série de Taylor de \(e^x\) converge para a \(e^x\) para todo
+  \(x\in[-1, 1]\)
+
+  \pause
+  \vspace{\baselineskip}
+  Verificamos que para qualquer \(x\in[-1, 1]\)
+  \[
+    \abs{R_n(x)} < \frac{\;3\;}{(n+1)!}
+    \qquad
+    n = 1, 2, 3, \dots
+  \]
+
+  \pause
+  Como
+  \[
+    \lim_{n\to\infty} \frac{\;3\;}{(n+1)!} = 0
+  \]
+  \pause
+  O \emph{Teorema do Confronto} garante que
+  \[
+    \lim_{n\to\infty} R_n(x) = 0
+  \]
+  \pause
+  Portanto a série de Taylor da exponencial converge para a exponencial
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Mostre que a Série de Taylor de \(e^x\) converge para a \(e^x\) para todo
+  \(x\in\R\)
+
+  \pause
+  \vspace{\baselineskip}
+  Sabemos que
+  \(
+    f^{(n+1)}(c) = e^c
+  \)
+  para \(c\) entre \(x\) e \(0\)
+
+  \pause
+  \vspace{\baselineskip}
+  Se \(x>0\), \(c\in[0, x]\)
+  \pause
+  e \;
+  \(
+    f^{(n+1)}(c) = e^c \leq e^x
+  \)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Se \(x<0\), \(c\in[x, 0]\)
+  \pause
+  e \;
+  \(
+    f^{(n+1)}(c) = e^c \leq e^0
+    \pause
+    \leq e^{\abs{x}}
+  \)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Portanto
+  \[
+    \abs{f^{(n+1)}(c)} \leq e^{\abs{x}}
+    \qquad
+    \text{ para todo } x \in \R
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Para qualquer \(x\in\R\)
+  \[
+    \abs{R_n(x)}
+    \;=\;    \frac{\abs{f^{(n+1)}(c)}}{(n+1)!}\abs{x}^{n+1}
+    \;\leq\; \frac{\;e^{\abs{x}}\;}{(n+1)!}\abs{x}^{n+1}
+  \]
+
+  \pause
+  Como
+  \[
+    \lim_{n\to\infty} \frac{\;e^{\abs{x}}\;}{(n+1)!}\abs{x}^{n+1}
+    \;=\; e^{\abs{x}} \lim_{n\to\infty} \frac{\abs{x}^{n+1}}{(n+1)!}
+    \;=\; 0
+  \]
+  \pause
+  O \emph{Teorema do Confronto} garante que
+  \[
+    \lim_{n\to\infty} R_n(x) = 0
+  \]
+  \pause
+  Portanto a Série de Taylor da exponencial converge para a exponencial
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Mostre que a Série de Taylor de \(\cos(x)\) centrada em zero
+  converge para a \(\cos(x)\) para todo
+  \(x\in\R\)
+
+  \pause
+  \vspace{\baselineskip}
+  Série de Taylor da função \(\cos(x)\)
+  \[
+    T(x)
+    = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}\, x^{2n}
+    = 1 - \frac{x^2}{2}
+    + \frac{x^4}{4!}
+    - \frac{x^6}{6!}
+    + \cdots
+  \]
+
+  \pause
+  Erro após a soma de $n$ termos,\(P_n(x)\)
+  \[
+    R_n(x) = \frac{\;f^{(n+1)}(c)\;}{(n+1)!}x^{n+1}
+  \]
+  Para algum $c$ entre zero e $x$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Sabemos que
+  \[
+    \frac{d^{n+1}}{dx^{n+1}} \cos(x)
+    = \begin{cases}
+       \pm \sin(x) & \text{ou} \\
+       \pm \cos(x)
+    \end{cases}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  \[
+    \abs{\frac{d^{n+1}}{dx^{n+1}} \cos(x)} \leq 1
+    \qquad
+    \forall x\in\R
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Portanto
+  \[
+    \abs{R_n(x)}
+    \;=\;    \frac{\abs{f^{(n+1)}(c)}}{(n+1)!}\abs{x}^{n+1}
+    \;\leq\; \frac{\abs{x}^{n+1}}{(n+1)!}
+  \]
+
+  \pause
+  Como
+  \[
+    \lim_{n\to\infty} \frac{\abs{x}^{n+1}}{(n+1)!} = 0
+  \]
+  \pause
+  O \emph{Teorema do Confronto} garante que
+  \[
+    \lim_{n\to\infty} R_n(x) = 0
+  \]
+  \pause
+  Portanto a série de Taylor do cosseno converge para o cosseno
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

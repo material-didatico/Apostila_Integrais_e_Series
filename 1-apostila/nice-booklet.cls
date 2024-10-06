@@ -421,9 +421,8 @@
   fonttitle = \scshape,
   boxrule   = 1pt,
   arc       = 0.5mm,
-  title     = {Exemplo~\thetcbcounter:},
+  before upper={\textsc{Exemplo~{\thetcbcounter}}:~\ },
   lower separated       = false,
-  attach title to upper = \par,
   underlay={%
     \begin{tcbclipinterior}
       \draw[help lines,
@@ -1088,14 +1087,6 @@
 % Titles configuration
 %------------------------------------------------------------------------------%
 %------------------------------------------------------------------------------%
-
-\newcommand{\chapterPrefacio}
-{
-  \chapter*{Prefácio}
-  \addcontentsline{toc}{chapter}{Prefácio}
-  \markboth{Prefácio}{Prefácio}
-  \label{cap:prefacio}
-}
 
 \RequirePackage[explicit,nobottomtitles]{titlesec}
 

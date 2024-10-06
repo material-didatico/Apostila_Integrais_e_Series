@@ -1,6 +1,7 @@
 %------------------------------------------------------------------------------%
 
 \usepackage{apresentacao}
+\usepackage{mathconfig}
 \usepackage{tabto}
 
 \makeatletter
@@ -8,19 +9,17 @@
 \def\input@path{{./figs/}}
 \makeatother
 
-\newcommand{\mytitle}   {Teste da Integral}
-\newcommand{\mysubtitle}{Séries Numéricas -- Testes de Convergência}
-\title   {\mytitle}
-\subtitle{\mysubtitle}
-\author  {\large Luis Alberto D'Afonseca}
-\date    {}
+%------------------------------------------------------------------------------%
+\title {Séries Numéricas -- Teste da Integral}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
 
 %------------------------------------------------------------------------------%
 \begin{document}
 
 %------------------------------------------------------------------------------%
 \begin{frame}
-    \titlepage
+  \titlepage
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -323,15 +322,177 @@ Uma série
 %------------------------------------------------------------------------------%
 \begin{frame}{Limitantes para o resto no teste da integral}
   Se a série
-  \(\quad \sum_{k=1}^{\infty} a_k \)
+  \(
+    \quad \sum_{k=1}^{\infty} a_k
+  \)
 
   \vspace{0.5\baselineskip}
   converge segundo o teste da integral, então o resto satisfaz
-  \[ \int_{n+1}^{\infty} f(x)\,dx \quad\leq\quad R_n \quad\leq\quad \int_{n}^{\infty} f(x)\,dx \]
+  \[
+    \int_{n+1}^{\infty} f(x)\,dx
+    \quad\leq\quad
+    R_n
+    \quad\leq\quad
+    \int_{n}^{\infty} f(x)\,dx
+  \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\mytitle}{\mysubtitle}
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  Use o teste da integral para determinar se a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^2}
+  \]
+  converge ou diverge
+
+  \vspace{\baselineskip}
+  Certifique-se de que as condições do teste da integral sejam satisfeitas
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  \onslide<+->{Podemos aplicar o teste da integral pois a função $f(x)=\frac{1}{x^2}$ \\[2mm]
+  é \emph{positiva}, \emph{contínua} e \emph{decrescente} para $x\geq 1$}
+
+  \begin{align*}
+    \onslide<+->{\int_{1}^{\infty} \frac{1}{x^2}\,dx}
+    \onslide<+->{& = \lim_{b\to\infty} \int_{1}^{b} \frac{1}{x^2}\,dx           \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{x} \right)\evalat{1}{b} \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{b} +1 \right)}
+    \onslide<+->{ \;=\; 1}
+  \end{align*}
+
+  \onslide<+->{Como a integral converge a série também converge}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  Note que
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1,6449 \;\neq\; 1
+  \]
+
+  \vspace{\baselineskip}
+  O cálculo da soma da série está na Seção 9.6 -- Problema de Basileia
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 2}
+  Use o teste da integral para determinar se a série converge ou diverge.
+  Certifique-se de que as condições do teste da integral sejam satisfeitas.
+  \[
+  \sum_{n=1}^{\infty} \frac{n}{n^2+4}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 2}
+  A função \(f(x)=\frac{x}{x^2+4}\) é \emph{positiva} e \emph{contínua} para $x\geq 1$
+
+  \pause
+  \vspace{\baselineskip}
+  Para verificar que ela é \emph{decrescente}, calculamos sua derivada
+  \[
+    f'(x)
+    \pause
+    = \frac{1(x^2+4) - x(2x)}{(x^2+4)^2}
+    \pause
+    = \frac{4-x^2}{(x^2+4)^2}
+  \]
+  ~
+
+  \pause
+  $f'(x)<0$, e portanto $f$ é decrescente, para todo $x>2$
+
+  \pause
+  \vspace{\baselineskip}
+  Precisamos de um $N$ inteiro a partir do qual $f$ seja decrescente
+
+  \pause
+  \vspace{\baselineskip}
+  Escolhemos $N=3$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 2}
+  \onslide<+->{Podemos, agora, aplicar o teste da integral}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Primeiro calculamos a primitiva de \(f(x)=\frac{x}{x^2+4}\)}
+  \onslide<+->{usando substituição
+  \[
+    u=x^2+4 \qquad \text{e} \qquad du=2xdx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{F(x) = \int\frac{x}{x^2+4}\,dx
+                 & = \int \frac{1}{2u}\,du      \\[2mm]}
+    \onslide<+->{& = \frac{1}{2}\ln u + C       \\[2mm]}
+    \onslide<+->{& = \frac{1}{2}\ln \left(x^2+4\right) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 2}
+  \onslide<+->{Calculando a integral imprópria temos}
+  \begin{align*}
+    \onslide<+->{\int_{3}^{\infty}
+    & \frac{x}{x^2+4}\,dx = \lim_{b\to\infty} \int_{3}^{b} \! \frac{x}{x^2+4}\,dx  \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ F(x) \right]\evalat{3}{b}       \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{1}{2} \ln\left(x^2+4\right) \right]\evalat{3}{b}       \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{\; \ln\left(b^2+4\right) -\ln\left(3^2+4\right) \:}{2} \right]}
+    \onslide<+->{\;=\; \infty}
+  \end{align*}
+  \onslide<+->{Como a integral diverge a série também diverge}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 3}
+  Sabemos que a série
+  \[
+    \sum_{n=1}^\infty\frac{1}{\,n^2\,}
+  \]
+  converge, pois é uma série $p$, com $p=2$
+
+  \vspace{\baselineskip}
+  Descubra $n$ tal que o resto $R_n$ da aproximação $S_n$ seja menor que \num{0.01}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 3}
+  Sabemos que o Teste da Integral pode ser aplicado, pois
+  \[
+    \int_n^\infty\frac{\,dx\,}{x^2}
+    = \lim_{b\to\infty}\left[ -\frac{1}{\,b\,} + \frac{1}{\,n\,} \right]
+    = \frac{1}{\,n\,}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Assim
+  \[
+    \frac{1}{\,n+1\,} \;\leq\; R_n \;\leq\; \frac{1}{\,n\,}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 3}
+  Para garantir que $R_n<\num{0.01}$ impomos que
+  \[
+    \frac{1}{\,n\,} < \num{0.01}
+  \]
+  isolando $n$ obtemos $n>100$
+
+  \pause
+  \vspace{\baselineskip}
+  A aproximação $S_{100}$ tem um erro menor do que \num{0.01}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
   \tableofcontents
 \end{frame}
 

@@ -1,0 +1,428 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+\title {Volumes por Seções Transversais}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Volume por Seções Transversais}
+
+%------------------------------------------------------------------------------%
+\framedgraphic{Volume por Seções Transversais}{volume-secoes-01}{}
+\framedgraphic{Volume por Seções Transversais}{volume-secoes-02}{}
+\framedgraphic{Volume por Seções Transversais}{volume-secoes-03}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Volume por Seções Transversais}
+  \emph{$S$}    \tabto{10mm} um sólido
+
+  \pause
+  \vspace{\baselineskip}
+  \emph{$P_x$}  \tabto{10mm} plano passando por $x$ e perpendicular ao
+                             eixo $x$ para $a \leq x \leq b$
+
+  \pause
+  \vspace{\baselineskip}
+  \emph{$A(x)$} \tabto{10mm} área da secção transversal de $S$ em $P_x$
+
+  \pause
+  \vspace{\baselineskip}
+  O volume de $S$ é
+  \[
+    V = \int_a^b A(x)dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Passo a Passo}
+\begin{enumerate}[<+->]
+  \setlength\itemsep{1em}
+  \item Faça o \emph{esboço} do sólido e uma seção transversal típica
+  \item Encontre uma \emph{expressão para $A(x)$}
+  \item Determine os \emph{limites de integração}
+  \item \emph{Integre} $A(x)$ para determinar o volume
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 1}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 1}
+  Uma pirâmide de base quadrada com lado \SI{3}{\meter}, tem \SI{3}{\meter}
+  de altura.
+
+  \vspace{\baselineskip}
+  A seção transversal da pirâmide, perpendicular a altura e a
+  $x$ metros abaixo do vértice, é um quadrado com $x$ metros de lado.
+
+  \vspace{\baselineskip}
+  Determine o volume dessa pirâmide.
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 1 -- Volume}
+\onslide<+->{\addgraphic{7}{7,2.5}{volume_piramide}}
+\begin{align*}
+  \onslide<+->{V & = \int_0^3 A(x) dx            \\[2mm]}
+  \onslide<+->{  & = \int_0^3 x^2 dx             \\[2mm]}
+  \onslide<+->{  & = \frac{x^3}{3} \evalat{0}{3} \\[2mm]}
+  \onslide<+->{  & = \frac{27}{3}                }
+  \onslide<+->{  \;=\; 9 \,\si{\meter^3}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 2}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+  Encontre o volume de uma esfera de raio $r$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2 -- Área da seção transversal}
+  \addgraphic{6.5}{8,2}{volume_esfera}
+
+  \pause
+  $P_x$ perpendicular ao eixo $x$
+
+  \pause
+  \vspace{\baselineskip}
+  Raio do círculo $y=\sqrt{r^2-x^2}$
+
+  \pause
+  \vspace{\baselineskip}
+  Área da seção transversal
+  \[
+    A(x)
+    = \pi y^2
+    \pause
+    = \pi (r^2-x^2)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2 -- Volume}
+  \begin{align*}
+    \onslide<+->{V & = \int_{-r}^{r}A(x) \,dx                  &  \\}
+    \onslide<+->{  & = \int_{-r}^{r}\pi \left(r^2-x^2\right)dx &  \\}
+    \onslide<+->{  & = 2 \pi \int_{0}^{r} r^2-x^2dx            &  & \text{simetria} \hspace{60mm}} ~ \\
+    \onslide<+->{  & = 2 \pi \left( r^2 x-\frac{x^3}{3}\right) \evalat{0}{r} & & \text{TFC 2} \\}
+    \onslide<+->{  & = 2 \pi \left( r^3-\frac{r^3}{3}\right)                  \\}
+    \onslide<+->{  & = \frac{4}{3} \pi r^3                                  }
+  \end{align*}
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Sólidos de Revolução}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Sólidos de Revolução}
+
+  Sólido de revolução é obtido pela rotação de uma região plana em torno de um eixo.
+
+  \pause
+  \vspace{\baselineskip}
+  Seção transversal será um \emph{disco} de raio $R(x)$
+  \[
+  A(x) = \pi R(x)^2
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  \emph{Anel} circular de raio externo $R(x)$ e raio interno $r(x)$
+  \[
+  A(x) = \pi \left(\, R(x)^2 - r(x)^2 \,\right)
+  \]
+\end{frame}
+%------------------------------------------------------------------------------%
+
+\framedgraphic{Sólidos de Revolução}{solido_revolucao_secoes_transversais}{}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 3}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 3}
+  Encontre o volume do sólido obtido pela rotação em torno do eixo $x$ \\
+  da região sob a curva \(f(x) = \sqrt{x}\) de 0 até 1
+\end{frame}
+
+\framedgraphic{Exemplo 3}{volume_revolucao_sqrt}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 3 -- Área da seção transversal}
+  A seção transversal é um círculo de raio
+  \[
+    R(x)
+    \;=\; \sqrt{x}
+  \]
+  \pause
+  com área
+  \[
+    A(x)
+    \;=\; \pi R(x)^2
+    \;=\; \pi \left(\sqrt{x}\right)^2
+    \;=\; \pi x
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 3 -- Volume}
+  \[
+    V
+    \;=\; \int_0^1 \pi x \, dx
+    \pause
+    \;=\; \pi \left( \frac{x^2}{2}\right) \evalat{0}{1}
+    \pause
+    \;=\; \frac{\pi}{2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 4}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 4}
+  Encontre o volume do sólido obtido pela rotação da região \\
+  limitada por $y = x^3$, $y = 8$, e $x = 0$ em torno do eixo $y$
+\end{frame}
+
+\framedgraphic{Exemplo 4}{volume_revolucao_y}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 3 -- Área da seção transversal}
+  Seção transversal é um círculo de raio $x$
+  \[
+    x = \sqrt[3]{y}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Área da seção transversal
+  \[
+    A(y)
+    = \pi R(y)^2
+    = \pi \left( \,\sqrt[3]{y}\, \right)^2
+    = \pi y^{\sfrac{2}{3}}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 4 -- Volume}
+  \[
+    V
+    \;=\; \int_0^8 \pi y^{\sfrac{2}{3}}dy
+    \pause
+    \;=\; \pi \left( \frac{3}{5} y^{\sfrac{5}{3}}\right) \evalat{0}{8}
+    \pause
+    \;=\; \pi \frac{3}{5} 8^{\sfrac{5}{3}}
+    \pause
+    \;=\; \frac{96 \pi}{5}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 5}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 5}
+A região $\mathcal{R}$, limitada pelas curvas delimitada pelas curvas
+\[
+  y = x
+  \qquad\text{e}\qquad
+  y = x^2
+\]
+é girada em torno do eixo $x$.
+
+\vspace{\baselineskip}
+Encontre o volume do sólido resultante.
+\end{frame}
+
+\framedgraphic{Exemplo 5}{solido_revolucao_secoes_transversais}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 5 -- Área da seção transversal}
+As curvas $y = x$ e $y = x^2$ se intersectam nos pontos $(0, 0)$ e $(1, 1)$
+
+\pause
+\vspace{0.5\baselineskip}
+A seção transversal é um anel
+
+\pause
+\vspace{0.5\baselineskip}
+Raio interno
+\[
+  r(x) = x^2
+\]
+
+\pause
+Raio externo
+\[
+  R(x) = x
+\]
+
+\pause
+Área da seção transversal
+\[
+  A(x)
+  \;=\; \pi \left( x^2 - \left(x^2\right)^2 \right)
+  \pause
+  \;=\; \pi \left( x^2 - x^4 \right)
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 5 -- Volume}
+  \[
+    V
+    \;=\; \int_0^1 \pi (x^2-x^4) dx
+    \pause
+    \;=\; \pi \left( \frac{x^3}{3}-\frac{x^5}{5} \right) \evalat{0}{1}
+    \pause
+    \;=\; \pi \left( \frac{1}{3} - \frac{1}{5} \right)
+    \pause
+    \;=\; \frac{2\pi}{15}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 6}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 6}
+  Encontre o volume do sólido obtido pela rotação da região\\
+  do exemplo anterior em torno da reta $x=-1$
+\end{frame}
+
+\framedgraphic{Exemplo 6}{volume_revolucao_x-1}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 6 -- Área da seção transversal}
+  \begin{columns}
+  \column{0.4\linewidth}
+    A seção transversal é um anel
+
+    \pause
+    \vspace{\baselineskip}
+    Raio interno
+    \[
+      r(y) = 1 + y
+    \]
+
+    \pause
+    \vspace{\baselineskip}
+    Raio externo
+    \[
+      R(y) = 1 + \sqrt{y}
+    \]
+
+  \column{0.4\linewidth}
+    \pause
+    Área da seção transversal
+    \begin{align*}
+      \onslide<+->{A(y) & = \pi \left(R(y)^2 - r(y)^2\right)                                               \\[2mm]}
+      \onslide<+->{     & = \pi \left[\left( 1 + \sqrt{y} \right)^2 - \left( 1 + y \right)^2\right]        \\[2mm]}
+      \onslide<+->{     & = \pi \left[\left( 1 + 2\sqrt{y} + y \right) - \left( 1 + 2y + y^2\right)\right] \\[2mm]}
+      \onslide<+->{     & = \pi \left( 2\sqrt{y} - y - y^2 \right)}
+    \end{align*}
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 6 -- Volume}
+\begin{align*}
+  \onslide<+->{V & = \int_0^1 A(y) \,dy \\}
+  \onslide<+->{  & = \int_0^1 \pi \left( 2\sqrt{y} - y - y^2 \right) dy \\}
+  \onslide<+->{  & = \pi \left(
+                      \frac{4y^{\sfrac{3}{2}}}{3}
+                      - \frac{y^2}{2}
+                      - \frac{y^3}{3}
+                      \right) \evalat{0}{1} \\}
+  \onslide<+->{  & = \pi \left(\frac{4}{3} - \frac{1}{2} - \frac{1}{3}\right) \\}
+  \onslide<+->{  & = \frac{\pi}{2}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplo 7}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 7}
+  Encontre o volume do sólido obtido pela rotação da região\\
+  do exemplo anterior em torno da reta $y=2$
+\end{frame}
+
+
+\framedgraphic{Exemplo 7}{volume_revolucao_y2}{}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 7 -- Área da seção transversal}
+  A seção transversal é um anel
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Raio interno
+  \[
+    r(x) = 2-x
+  \]
+
+  \pause
+  Raio externo
+  \[
+    R(x) = 2-x^2
+  \]
+
+  \pause
+  Área
+  \[
+    A(x)
+    = \pi \left( 2 - x^2 \right)^2 - \pi (2-x)^2
+    \pause
+    = \pi \left( x^4-5x^2+4x \right)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 7 -- Volume}
+  \begin{align*}
+    \onslide<+->{V & = \int_0^1 A(x)\, dx           \\}
+    \onslide<+->{& = \int_0^1 \pi \left( x^4 - 5x^2 + 4x \right) dx           \\}
+    \onslide<+->{& = \pi \left(
+        \frac{x^5}{5}
+        - 5 \frac{x^3}{3}
+        + 4 \frac{x^2}{2}
+        \right) \evalat{0}{1}                                    \\}
+    \onslide<+->{& = \pi \left(\frac{1}{5} - \frac{5}{3} + \frac{4}{2}\right) \\}
+    \onslide<+->{& = \frac{8\pi}{15}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

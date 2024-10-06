@@ -1,0 +1,224 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Séries de Potências -- Definição}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Séries de Potências}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Potências}
+  Uma série da forma
+  \[
+    \sum_{n=0}^\infty {\color{blue}c_n} (x-{\color{magenta}a})^n
+    \pause \;=\;      {\color{blue}c_0} +
+                      {\color{blue}c_1} (x-{\color{magenta}a}) +
+                      {\color{blue}c_2} (x-{\color{magenta}a})^2 + \cdots +
+                      {\color{blue}c_n} (x-{\color{magenta}a})^n + \cdots
+  \]
+  \pause
+  onde ${\color{blue}c_n}$ e ${\color{magenta}a}$ são constantes e $x\in\R$ é uma variável \\[3mm]
+  \pause
+  é chamada de \emph{Série de Potências}
+  \pause
+  centrada em \({\color{magenta}a}\)
+
+  \pause
+  \vspace{\baselineskip}
+  Note que o índice começa em zero
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Atenção}
+  Séries de Potência e Séries de Taylor \emph{não} são a mesma coisa
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somas Parciais}
+  \onslide<+->{As \emph{Somas Parciais} de uma Série de Potências são \emph{Polinômios}}
+
+  \vspace{0.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{P_n(x)
+                 & \;=\; \sum_{k=0}^n {\color{blue}c_k} (x-{\color{magenta}a})^k} \\[5mm]
+    \onslide<+->{& \;=\; {\color{blue}c_0} +
+                         {\color{blue}c_1} (x-{\color{magenta}a}) +
+                         {\color{blue}c_2} (x-{\color{magenta}a})^2 + \cdots +
+                         {\color{blue}c_n} (x-{\color{magenta}a})^n}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Determine a soma da série
+  \[
+    \sum_{n=0}^\infty x^n
+  \]
+
+  \pause
+  Essa é uma Série de Potências com $\;a=0\;$ e $\;c_n=1$, para $n=0, 1, 2,\dots$
+  \[
+    \sum_{n=0}^\infty x^n = 1 + x + x^2 + x^3 + \cdots + x^n + \cdots
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+
+  Fixando $x$, temos uma \emph{Série Geométrica}
+  \pause
+  com
+  \[
+    \alpha = 1
+    \qquad
+    r = x
+  \]
+  \pause
+  converge quando \(\abs{r} = \abs{x} < 1\)
+
+  \pause
+  \vspace{\baselineskip}
+  Assim no intervalo aberto $(-1,\,1)$ temos
+  \[
+    \sum_{n=0}^\infty x^n
+    \;=\; \frac{\alpha}{1-r}
+    \pause
+    \;=\; \frac{1}{1-x}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \vspace{1.5\baselineskip}
+  \scalebox{0.86}{\input{fig_taylor_1div1mx}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a soma da série
+  \[
+    \sum_{n=0}^\infty \,{\color{blue}\beta}^n\,(x-{\color{magenta}a})^n
+  \]
+  \(\color{magenta}a\) e \({\color{blue}\beta}\neq 0\) números reais
+
+  \pause
+  \vspace{\baselineskip}
+  Série de Potências centrada em \(a\) com coeficientes \(c_n=\beta^n\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    \onslide<+->{\sum_{n=0}^\infty \beta^n(x-a)^n}
+    \onslide<+->{\;=\;\sum_{n=0}^\infty \big(\beta(x-a)\big)^n}
+  \]
+
+  \onslide<+->{
+  Para cada \(x\) fixo, é uma Série Geométrica com \(\alpha=1\) e \(r=\beta(x-a)\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{
+  Converge quando \(\abs{r}<1\)}
+  \begin{align*}
+    \onslide<+->{\abs{\beta(x-a)}                   & \;<\; 1                         \\[2mm]}
+    \onslide<+->{-\frac{1}{\abs{\beta}}  \;<\;  x-a & \;<\; \frac{1}{\abs{\beta}}     \\[2mm]}
+    \onslide<+->{a-\frac{1}{\abs{\beta}} \;<\;  x   & \;<\; a + \frac{1}{\abs{\beta}}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  A série converge no intervalo
+  \[
+    I = \left(a-\frac{1}{\abs{\beta}} \;,\; a + \frac{1}{\abs{\beta}}\right)
+  \]
+
+  \pause
+  Sua soma é
+  \[
+    \sum_{n=0}^\infty \beta^n(x-a)^n
+    \;=\;
+    \frac{\alpha}{1-r}
+    \pause
+    \;=\;
+    \frac{1}{1-\beta(x-a)}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a soma da série
+  \[
+    \sum_{n=0}^\infty \left(\frac{x-2}{2}\right)^{\!\!n}
+  \]
+  \pause
+  Caso particular do exemplo anterior
+  com $\beta=\frac{1}{2}$ e $a=2$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Série Geométrica com \(\alpha=1\) e \(r=\frac{x-2}{2}\)}
+  \begin{align*}
+    \onslide<+->{\abs{r} & < 1             \\[2mm]}
+    \onslide<+->{\abs{\frac{x-2}{2}} & < 1 \\[2mm]}
+    \onslide<+->{-1 < \frac{x-2}{2} & < 1  \\[2mm]}
+    \onslide<+->{-2 < x-2 & < 2            \\[2mm]}
+    \onslide<+->{ 0 < x & < 4}
+  \end{align*}
+  \onslide<+->{A série converge no intervalo \((0, 4)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Para \(x\in (0, 4)\)
+  \[
+    \sum_{n=0}^\infty \left(\frac{x-2}{2}\right)^{\!\!n}
+    \pause \;=\;
+    \frac{\alpha}{1-r}
+    \pause \;=\;
+    \frac{1}{1-\frac{x-2}{2}}
+    \pause \;=\;
+    \frac{2}{2-(x-2)}
+    \pause \;=\;
+    \frac{2}{4-x}
+  \]
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

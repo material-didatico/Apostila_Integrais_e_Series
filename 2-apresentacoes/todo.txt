@@ -1,0 +1,23 @@
+
+Erros
+
+Frações parciais
+- trocar x-1
+- corrigir sistema exemplo
+
+Todo
+- desmembrar as apresentações
+- incluir mais exemplos
+- detalhar o passo a passo
+- Incluir as listas minimas
+
+
+LIsta minima técnicas de Integração
+
+Thomas 12 ed
+
+5.5 Regra da substituição          4, 10, 20, 23, 28, 38, 48
+8.1 Integração por partes          2, 6, 8, 20, 22, 32, 46
+8.2 Integrais trigonométricas      4, 6, 10, 12, 17, 20, 24
+8.3 Substituições trigonométricas  2, 6, 8, 10, 12, 14, 16, 20
+8.4 Frações Parciais               2, 4, 6, 8, 10

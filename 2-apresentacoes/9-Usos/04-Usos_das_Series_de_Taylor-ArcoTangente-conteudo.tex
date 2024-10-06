@@ -1,0 +1,167 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Usos da Séries de Taylor -- Arco Tangente}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Cálculo da Série de Taylor para o Arco Tangente}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Arco Tangente}
+  Calcular a Série de Taylor de
+  \[
+    \arctan(x)
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Sabemos que
+  \[
+    \frac{d}{dx}\arctan(x) = \frac{1}{1+x^2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Arco Tangente}
+  Calculando as derivadas
+  \begin{align*}
+    \action<+->{\frac{d}{dx}     & \arctan(x) = \hpm \frac{1}{1+x^2}               \\[3mm]}
+    \action<+->{\frac{d^2}{dx^2} & \arctan(x) =    - \frac{2x}{(1+x^2)^2}          \\[3mm]}
+    \action<+->{\frac{d^3}{dx^3} & \arctan(x) = \hpm \frac{6x^2-2}{(1+x^2)^3}      \\[3mm]}
+    \action<+->{\frac{d^4}{dx^4} & \arctan(x) =    - \frac{24x(x^2-1)}{(1+x^2)^4}}
+  \end{align*}
+  \action<+->{\emph{Não é um bom método!}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Arco Tangente}
+  Cálculos formais (sem rigor)
+  \pause
+  \[
+    \frac{d}{dx} \arctan(x) = \frac{1}{1+x^2}
+  \]
+  \pause
+  Soma de uma série geométrica com $a=1$ e $r=-x^2$
+  \[
+    \frac{d}{dx} \arctan(x) = \frac{1}{1+x^2}
+                            = \frac{a}{1-r}
+                            = 1 - x^2 + x^4 - x^6 + x^8 - \cdots
+  \]
+  \pause
+  Integrando os dois lados
+  \[
+    \arctan(x) = x -\frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \cdots
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Problema}
+  Como sabemos se os limites convergem?
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstrando a Série de Taylor do Arco Tangente}
+  \[
+    \frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots
+                    + (-1)^n t^{2n}
+                    + {\color<2->{blue}(-1)^{n+1} t^{2(n+1)} + \cdots}
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Usando a fórmula da soma da Série Geométrica a partir de $n+1$
+  \[
+    \frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots
+                    + (-1)^n t^{2n}
+                    + {\color{blue}\frac{(-1)^{n+1} t^{2(n+1)}}{1+t^2}}
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Agora temos um número finito de termos
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integrando a Soma Finita}
+  Escrevendo a derivada como uma soma finita
+  \[
+    \frac{d}{dx} \arctan x = 1 - x^2 + x^4 - x^6
+                           + \cdots
+                           + (-1)^n x^{2n}
+                           + \frac{(-1)^{n+1} x^{2(n+1)}}{1+x^2}
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Integrando
+  \[
+    \arctan x = x - \frac{x^3}{3}
+                  + \frac{x^5}{5}
+                  - \frac{x^7}{7}
+                  + \cdots
+                  + \frac{(-1)^n x^{2n+1}}{2n+1}
+                  + \int_0^x \frac{(-1)^{n+1} t^{2(n+1)}}{1+t^2} \,dt
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{A Série de Taylor Converge se o Erro Tende a Zero}
+  \[
+    R_n(x) = \int_0^x \frac{(-1)^{n+1} t^{2(n+1)}}{1+t^2} \,dt
+  \]
+  \pause
+  como \(\;1+t^2\geq 1\;\)
+  \[
+    \abs{R_n(x)} \leq \int_0^{\abs{x}} t^{2(n+1)} \,dt \pause
+      \; = \; \frac{t^{2n+3}}{2n+3}\evalat{0}{\abs{x}} \pause
+      \; = \; \frac{\abs{x}^{2n+3}}{2n+3}
+  \]
+  \pause
+  Portanto
+  \[
+    \lim_{n\to\infty} R_n(x) = 0 \qquad\text{quando}\qquad \abs{x} \leq 1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série de Taylor do Arco Tangente}
+  Para todo \(\;x\in[-1,\,´1\,]\;\) temos
+  \[
+    \arctan x = x - \frac{x^3}{3}
+                  + \frac{x^5}{5}
+                  - \frac{x^7}{7}
+                  + \frac{x^9}{9}
+                  - \cdots
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

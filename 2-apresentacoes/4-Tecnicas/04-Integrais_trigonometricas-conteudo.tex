@@ -1,0 +1,572 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+\usepackage{multicol}
+
+\AtBeginSection{
+  \begin{frame}{\contentsname}
+    \begin{multicols}{2}
+      \raggedcolumns
+      \setlength{\parskip}{\baselineskip}
+      \tableofcontents[currentsection]
+    \end{multicols}
+  \end{frame}
+}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+\title {Integrais de Funções Trigonométricas}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integrais de Funções Trigonométricas}
+
+\begin{frame}{Objetivo}
+  Estratégias para calcular
+  \[\int \sin^m(x) \cos^n(x)\,dx\]
+
+  \[\int \tan^m(x) \sec^n(x)\,dx\]
+
+  \[\int \cot^m(x) \csc^m(x)\,dx\]
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituição Simples -- Abordagem Ingenua}
+\begin{align*}
+  \onslide<+->{I & = \int \sin^3(x) \cos^2(x)dx                     &  & \cos^2(x) = 1 - \sin^2(x)                      \\[2mm]}
+  \onslide<+->{  & = \int \sin^3(x) \left( 1 - \sin^2(x) \right) dx &  &                                                \\[2mm]}
+  \onslide<+->{  & = \int \sin^3(x) - \sin^5(x)\,dx                 &  &                                                \\[2mm]}
+  \onslide<+->{  & = \int \sin^3(x)\,dx - \int\sin^5(x)\,dx         &  & u = \sin(x) \qquad du = {\color{red}\cos(x)}dx \\[2mm]}
+  \onslide<+->{  & = \;?                                            &  &}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Relações Trigonometrias Úteis}
+\begin{columns}
+\column{0.5\linewidth}
+  \onslide<+->{Relação fundamental
+  \[
+    \sin^2(x) + \cos^2(x) = 1
+  \]}
+
+  \onslide<+->{Decorrências da relação fundamental
+  \begin{gather*}
+    \tan^2(x)+ 1  = \sec^2(x) \\
+    1 + \cot^2(x) = \csc^2(x)
+  \end{gather*}}
+
+\column{0.5\linewidth}
+  \onslide<+->{Arco duplo
+  \begin{gather*}
+    \sin(2x) = 2\sin(x) \cos(x) \\
+    \cos(2x) = \cos^2(x)-\sin^2(x)
+  \end{gather*}}
+
+  \onslide<+->{Arco metade
+  \begin{gather*}
+    \sin^2(x) = \frac{1}{2}\big(1-\cos(2x)\big) \\[2mm]
+    \cos^2(x) = \frac{1}{2}\big(1+\cos(2x)\big)
+  \end{gather*}}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivadas}
+  \begin{align*}
+    \big(\sin(x)\big)' & = \cos(x)        \\[2mm]
+    \big(\cos(x)\big)' & = -\sin(x)       \\[2mm]
+    \big(\tan(x)\big)' & = \sec^2(x)      \\[2mm]
+    \big(\sec(x)\big)' & = \tan(x)\sec(x) \\[2mm]
+    \big(\csc(x)\big)' & = \cot(x)\csc(x) \\[2mm]
+    \big(\cot(x)\big)' & = \csc^2(x)
+  \end{align*}
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Senos $\times$ cossenos}
+
+\begin{frame}{Senos $\times$ cossenos}
+  Estratégias para calcular
+  \[
+    \int \sin^m(x) \cos^n(x)\,dx
+  \]
+
+  Depende se $m$ ou $n$ são pares ou ímpares
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência do $\sin(x)$ é ímpar}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\sin(x)$
+    \item Use que $\sin^2(x) = 1 - \cos^2(x)$
+    \item Faça a substituição $u=\cos(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência do $\cos(x)$ é ímpar}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\cos(x)$
+    \item Use que $\cos^2(x) = 1 - \sin^2(x)$
+    \item Faça a substituição $u=\sin(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Ambas são pares}
+  \onslide<+->{Use
+  \[
+    \sin^2(x)= \frac{1}{2}\big(1-\cos(2x)\big) \qquad\text{ou}\qquad
+    \cos^2(x)= \frac{1}{2}\big(1+\cos(2x)\big)
+  \]}
+
+  \onslide<+->{Transformação útil
+  \[
+    \sin(2x) = 2\sin(x)\cos(x)
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Tangente $\times$ secante}
+
+\begin{frame}{Tangente $\times$ secante}
+  \onslide<+->{Estratégias para calcular
+  \[
+    \int \tan^m(x) \sec^n(x)\, dx
+  \]}
+
+  \onslide<+->{Depende se $m$ ou $n$ são pares ou ímpares}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência da $\sec(x)$ é par}
+  Se $n = 2k$ com $k \geq 2$
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\sec^2(x)$
+    \item Use que $\sec^2(x) = 1 + \tan^2(x)$
+    \item Faça a substituição $u = \tan(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência da $\tan(x)$ é ímpar}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\sec(x)\tan(x)$
+    \item Use que $\tan^2(x)=\sec^2(x)-1$
+    \item Faça a substituição $u=\sec(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Outros Casos}
+  Não tem regra geral
+
+  Dependem de manipulações trigonométricas específicas
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Cotangente $\times$ cossecante}
+  Mesmas estratégias
+  \[
+    \int \cot^m(x) \csc^m(x)\,dx
+  \]
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \sin^3(x)\cos^2(x)\,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \sin^m(x) \cos^n(x)\,dx \qquad m \;\text{ ímpar}
+  \]}
+
+  \onslide<+->{Guardar $\sin(x)$}
+
+  \onslide<+->{Usar \(\sin^2(x)= 1- \cos^2(x)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \sin^3(x) \cos^2(x) \,dx                            \\[2mm]}
+    \onslide<+->{  & = \int \sin^2(x)                 \cos^2(x) \sin(x) \,dx    \\[2mm]}
+    \onslide<+->{  & = \int \left( 1 - \cos^2(x) \right) \cos^2(x) \sin(x) \,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  =  \cos(x)     \qquad
+    du = -\sin(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int \left( 1 - u^2 \right) u^2 \,(-du)
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \left( 1 - u^2 \right) u^2 \,(-du) \\[2mm]}
+    \onslide<+->{  & = \int \left( u^2 - 1\right) u^2 \,du     \\[2mm]}
+    \onslide<+->{  & = \int u^4 - u^2 \, du                    \\[2mm]}
+    \onslide<+->{  & = \frac{u^5}{5} - \frac{u^3}{3} + C       \\[2mm]}
+    \onslide<+->{  & = \frac{1}{5}\cos^5(x) - \frac{1}{3}\cos^3(x) + C}
+  \end{align*}
+\end{frame}
+
+% 2
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int \cos^3(x)\,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \sin^m(x) \cos^n(x)\,dx \qquad m=0 \;\text{ e }\; n \;\text{ ímpar}
+  \]}
+
+  \onslide<+->{Guardar $\cos(x)$}
+
+  \onslide<+->{Usar \(\cos^2(x)= 1- \sin^2(x)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \cos^3(x)\,dx                            \\[2mm]}
+    \onslide<+->{  & = \int \cos^2(x) \cos(x)\,dx                    \\[2mm]}
+    \onslide<+->{  & = \int \left( 1 - \sin^2(x) \right) \cos(x)\,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  = \sin(x)     \qquad
+    du = \cos(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int \left( 1 - u^2 \right) \,du
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int 1 - u^2 \,du                  \\[2mm]}
+    \onslide<+->{  & = u - \frac{u^3}{3} + C              \\[2mm]}
+    \onslide<+->{  & = \sin(x) - \frac{1}{3}\sin^3(x) + C}
+  \end{align*}
+\end{frame}
+
+% 3
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int_0^{\pi} \sin^2(x) dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \sin^m(x) \cos^n(x)\,dx \qquad n=0 \;\text{ e }\; m \;\text{ par}
+  \]}
+
+  \onslide<+->{Usar \(\sin^2(x)= \frac{1}{2}\big( 1 - \cos(2x) \big)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int_0^{\pi} \sin^2(x)\, dx
+    & = \int_0^\pi \frac{1}{2}\big( 1 - \cos(2x) \big) dx                 \\[2mm]}
+    \onslide<+->{& = \frac{1}{2} \int_0^\pi 1-\cos(2x)\, dx                            \\[2mm]}
+    \onslide<+->{& = \frac{1}{2} \left( x - \frac{\sin(2x)}{2} \right) \evalat{0}{\pi} \\[2mm]}
+    \onslide<+->{& = \frac{1}{2}
+        \left[
+           \left( \pi - \frac{\sin(2\pi)}{2} \right)
+          -\left(   0 - \frac{\sin(0)}{2}    \right)
+        \right]                                                           \\[2mm]}
+    \onslide<+->{& = \frac{\pi}{2}}
+  \end{align*}
+\end{frame}
+
+% 4
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \sin^2(x) \cos^2(x) dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \sin^m(x) \cos^n(x)\,dx \qquad m \;\text{ e }\; n \;\text{ pares}
+  \]}
+
+  \onslide<+->{Usar
+  \begin{gather*}
+    \sin^2(x) = \frac{1}{2}\big(1-\cos(2x)\big) \\[2mm]
+    \cos^2(x) = \frac{1}{2}\big(1+\cos(2x)\big)
+  \end{gather*}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \sin^2(x) \cos^2(x) dx \\[2mm]}
+    \onslide<+->{  & = \int \frac{1}{2} \big( 1 - \cos(2x) \big)
+                            \frac{1}{2} \big( 1 + \cos(2x) \big) dx   \\[2mm]}
+    \onslide<+->{  & = \frac{1}{4} \int 1 - \cos^2(2x)\, dx & & (a-b)(a+b) = a^2 - b^2 \\[2mm]}
+    \onslide<+->{  & = \frac{1}{4} \int \sin^2(2x) dx       & & \sin^2(\alpha) + \cos^2(\alpha)=1\\[2mm]}
+    \onslide<+->{  & = \frac{1}{4} \int \frac{1}{2} \big( 1 - \cos(4x) \big) dx }
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{align*}
+  \onslide<+->{F & = \frac{1}{4} \int \frac{1}{2} \big( 1 - \cos(4x) \big) dx \\[2mm]}
+  \onslide<+->{  & = \frac{1}{8} \left(\int 1 dx - \int \cos(4x) dx\right)  \\[2mm]}
+  \onslide<+->{  & = \frac{1}{8} \left(x - \frac{\sin(4x)}{4} + c \right)   \\[2mm]}
+  \onslide<+->{  & = \frac{x}{8} - \frac{\sin(4x)}{32} + c}
+\end{align*}
+\end{frame}
+
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \begin{align*}
+%    \onslide<+->{G & = \int \cos^2(2x) dx                                     \\[2mm]}
+%    \onslide<+->{  & = \int \frac{1}{2} \big( 1 + \cos(4x) \big)dx
+%      & \cos^2(\alpha) = \frac{1}{2}\big( 1+ \cos(2\alpha) \big) \\[2mm]}
+%    \onslide<+->{  & = \int \frac{1}{2} - \frac{1}{2} \cos(4x) \,dx           \\[2mm]}
+%    \onslide<+->{  & = \frac{x}{2} - \frac{1}{8} \sin(4x) + C}
+%  \end{align*}
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \begin{align*}
+%    \onslide<+->{F & = \frac{x}{4} - \frac{1}{4}\int \cos^2(2x)\, dx                                 \\[2mm]}
+%    \onslide<+->{  & = \frac{x}{4} - \frac{G}{4}                                                     \\[2mm]}
+%    \onslide<+->{  & = \frac{x}{4} - \frac{1}{4} \left(\frac{x}{2} - \frac{1}{8} \sin(4x) + C\right) \\[2mm]}
+%    \onslide<+->{  & = \frac{x}{4} - \frac{x}{8} + \frac{1}{64} \sin(4x) + C_1                       \\[2mm]}
+%    \onslide<+->{  & = \frac{x}{4} + \frac{1}{64} \sin(4x) + C_1}
+%  \end{align*}
+%\end{frame}
+
+% 5
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int \tan^6(x) \sec^4(x)\, dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad n = 2k \quad k \geq 2
+  \]}
+
+  \onslide<+->{Guardar \(\sec^2(x)\)}
+
+  \onslide<+->{Usar \(\sec^2(x) = 1 + \tan^2(x)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^6(x) \sec^4(x)\,dx                              \\[2mm]}
+    \onslide<+->{  & = \int \tan^6(x) \sec^2(x) \sec^2(x) \,dx                   \\[2mm]}
+    \onslide<+->{  & = \int \tan^6(x) \left( 1 + \tan^2(x) \right) \sec^2(x)\,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  = \tan(x)     \qquad
+    du = \sec^2(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int u^6 \left( 1 - u^2 \right) \,du
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F = & \int u^6 \left( 1 + u^2 \right) du            \\[2mm]}
+    \onslide<+->{    & \int u^6 + u^8 \, du                          \\[2mm]}
+    \onslide<+->{    & = \frac{u^7}{7} + \frac{u^9}{9} + C           \\[2mm]}
+    \onslide<+->{    & = \frac{1}{7}\tan^7(x) + \frac{1}{9}\tan^9(x) + C}
+  \end{align*}
+\end{frame}
+
+% 6
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int \tan^5(x) \sec^7(x) dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad m \; \text{ ímpar}
+  \]}
+
+  \onslide<+->{Guardar \(\sec(x)\tan(x)\)}
+
+  \onslide<+->{Usar \(\tan^2(x) = \sec^2(x) - 1\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^5(x) \sec^7(x) \,dx                                          \\[1mm]}
+    \onslide<+->{  & = \int \tan^4(x) \sec^6(x)                     \quad\sec(x) \tan(x) \,dx \\[1mm]}
+    \onslide<+->{  & = \int \big[\tan^2(x)\big]^2 \sec^6(x)         \quad\sec(x) \tan(x) \,dx \\[1mm]}
+    \onslide<+->{  & = \int \left[ \sec^2(x) - 1 \right]^2\sec^6(x) \quad\sec(x) \tan(x) \,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  = \sec(x)     \qquad
+    du = \sec(x)\tan(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int \left( u^2 - 1 \right)^2 u^6 \,du
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \left( u^2 - 1 \right)^2 u^6 \,du                              \\[2mm]}
+    \onslide<+->{  & = \int \left( u^4 - 2u^2 + 1 \right) u^6 \,du                         \\[2mm]}
+    \onslide<+->{  & = \int u^{10}-2u^8+u^6 \,du                                           \\[2mm]}
+    \onslide<+->{  & = \frac{u^{11}}{11}-\frac{2u^9}{9}+ \frac{u^7}{7}+C                   \\[2mm]}
+    \onslide<+->{  & = \frac{1}{11} \sec^{11}(x)
+        - \frac{2}{9}  \sec^9(x)
+        + \frac{1}{7}  \sec^7(x)
+        + C}
+  \end{align*}
+\end{frame}
+
+% 7
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \tan^3(x) \,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad n=0 \quad m \; \text{ ímpar}
+  \]}
+
+  \onslide<+->{Usar \(\tan^2(x) = \sec^2(x) - 1\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^3(x) \,dx                                     \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \tan^2(x) \,dx                             \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \big( \sec^2(x) - 1 \big) dx               \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \sec^2(x) \,dx
+        - \int \tan(x) \,dx}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{columns}
+\column{0.5\linewidth}
+  \onslide<+->{\[
+    G = \int \tan(x)\sec^2(x) \,dx
+  \]}
+  \onslide<+->{Substituição
+  \[
+    u  = \tan(x)    \qquad
+    du = \sec^2(x)dx
+  \]}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{G & = \int \tan(x)\sec^2(x) \,dx \\[2mm]}
+    \onslide<+->{  & = \int u \,du                \\[2mm]}
+    \onslide<+->{  & = \frac{u^2}{2}+ C           \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\tan^2(x) + C}
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Logo,}
+  \begin{align*}
+    \onslide<1->{F & = \int \tan^3(x) dx                          \\[2mm]}
+    \onslide<+->{  & = \int \tan(x)\sec^2(x) dx - \int \tan(x) dx \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\tan^2(x) + \ln\abs{\cos(x)} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \begin{multicols}{2}
+    \raggedcolumns
+    \setlength{\parskip}{\baselineskip}
+    \tableofcontents
+  \end{multicols}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
