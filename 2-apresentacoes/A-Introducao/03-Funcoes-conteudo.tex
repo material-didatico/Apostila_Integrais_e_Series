@@ -1,0 +1,106 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+\usepackage{tabto}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+\title {Funções}
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integrais e Séries}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Funções}
+
+\begin{frame}{Função}
+  \emph{Função} de $D$ em $C$
+  \[
+    \begin{array}{rccl}
+      f\colon & D & \to & C \\
+              & x & \to & y=f(x)
+    \end{array}
+  \]
+  \pause
+  associa a cada elemento, $x$, do \emph{domínio}, $D$, \\
+  um único elemento, $y$, do \emph{contradomínio} $C$
+
+  \vspace{\baselineskip}
+  \pause
+  \emph{Imagem} \\
+  \pause
+  Conjunto dos elementos $y$ associados a algum $x$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Função Real}
+  \emph{Função} de $\R$ em $\R$
+  \[
+  \begin{array}{rccl}
+    f\colon & \R & \to & \R \\
+    & x & \to & y=f(x)
+  \end{array}
+  \]
+  domínio e contra domínio são $\R$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Funções Comuns}
+  \begin{description}[<+->]
+    \item[Função constante]  \tabto{30mm} \(f(x) = c\)      \\[5mm]
+    \item[Função afim]       \tabto{30mm} \(f(x) = ax + b\) \\[5mm]
+    \item[Função potência]   \tabto{30mm} \(f(x) = x^n\)    \\[5mm]
+    \item[Função polinômial] \tabto{30mm} \(f(x) = a_nx^n + a_{n-1}x^{n-1}
+                                                 + \cdots + a_1 x + a_0\)
+  \end{description}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Funções Exponencial e Logarítmica}
+  \begin{description}[<+->]
+    \item[Função exponencial]          \tabto{30mm} \(f(x) = a^x\)       \\[5mm]
+    \item[Função exponencial natural]  \tabto{30mm} \(f(x) = e^x\)       \\[5mm]
+    \item[Função logarítmo]            \tabto{30mm} \(f(x) = \log_b(x)\) \\[5mm]
+    \item[Função logarítmo natural]    \tabto{30mm} \(f(x) = \ln(x) = \log_e(x)\)
+  \end{description}
+  \onslide<+->{
+  \begin{align*}
+    y & = \log_b(x) & \quad\Rightarrow\qquad b^y = x & \hspace{90mm}~\\[3mm]
+    y & = \ln(x)    & \quad\Rightarrow\qquad e^y = x &
+  \end{align*}
+  \vspace{-\baselineskip}
+  }
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Funções Trigonométricas}
+  \begin{description}[<+->]
+    \item[Seno]       \tabto{30mm} \(f(x) = \sin(x)\)       \\[5mm]
+    \item[Cosseno]    \tabto{30mm} \(f(x) = \cos(x)\)       \\[5mm]
+    \item[Tangente]   \tabto{30mm} \(f(x) = \tan(x) = \frac{\sin(x)}{\cos(x)}\) \\[5mm]
+    \item[Cotangente] \tabto{30mm} \(f(x) = \cot(x) = \frac{\cos(x)}{\sin(x)} = \frac{1}{\tan(x)}\) \\[5mm]
+    \item[Secante]    \tabto{30mm} \(f(x) = \sec(x) = \frac{1}{\cos(x)} \)      \\[5mm]
+    \item[Cossecante] \tabto{30mm} \(f(x) = \csc(x) = \frac{1}{\sin(x)} \)
+  \end{description}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
