@@ -1,41 +1,26 @@
 %------------------------------------------------------------------------------%
 
-\usepackage{apresentacao}
-\usepackage{mathconfig}
-\usepackage{tabto}
+\usepackage{integracao_e_series}
 
-\makeatletter
-\graphicspath  {{./figs/}}
-\def\input@path{{./figs/}}
-\makeatother
-
-%------------------------------------------------------------------------------%
-\title {Funções}
-\author{\large Luis Alberto D'Afonseca}
-\date  {Integrais e Séries}
+\title{Funções}
 
 %------------------------------------------------------------------------------%
 \begin{document}
 
-%------------------------------------------------------------------------------%
-\begin{frame}
-    \titlepage
-\end{frame}
+\addtitle
 
 %------------------------------------------------------------------------------%
 \section{Funções}
 
 \begin{frame}{Função}
   \emph{Função} de $D$ em $C$
-  \[
-    \begin{array}{rccl}
-      f\colon & D & \to & C \\
-              & x & \to & y=f(x)
-    \end{array}
-  \]
+  \begin{align*}
+    f\colon D & \to C       \\
+    x         & \to  y=f(x)
+  \end{align*}
   \pause
-  associa a cada elemento, $x$, do \emph{domínio}, $D$, \\
-  um único elemento, $y$, do \emph{contradomínio} $C$
+  associa a cada elemento $x$ do \emph{domínio}, $D$, \\
+  um único elemento $y$ do \emph{contradomínio}, $C$
 
   \vspace{\baselineskip}
   \pause
@@ -47,13 +32,11 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Função Real}
   \emph{Função} de $\R$ em $\R$
-  \[
-  \begin{array}{rccl}
-    f\colon & \R & \to & \R \\
-    & x & \to & y=f(x)
-  \end{array}
-  \]
-  domínio e contra domínio são $\R$
+  \begin{align*}
+    f\colon D \subset \R & \to \R      \\
+    x                    & \to  y=f(x)
+  \end{align*}
+  domínio, $D$, e contradomínio, $\R$, são números reais
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -70,7 +53,7 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Funções Exponencial e Logarítmica}
   \begin{description}[<+->]
-    \item[Função exponencial]          \tabto{30mm} \(f(x) = a^x\)       \\[5mm]
+    \item[Função exponencial]          \tabto{30mm} \(f(x) = b^x\)       \\[5mm]
     \item[Função exponencial natural]  \tabto{30mm} \(f(x) = e^x\)       \\[5mm]
     \item[Função logarítmo]            \tabto{30mm} \(f(x) = \log_b(x)\) \\[5mm]
     \item[Função logarítmo natural]    \tabto{30mm} \(f(x) = \ln(x) = \log_e(x)\)
@@ -97,8 +80,16 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}
-  \tableofcontents
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Apostila ``\href{https://sites.google.com/view/prof-luis-dafonseca/gradua\%C3\%A7\%C3\%A3o/Integrais-e-Series}{Integração e Séries}''
+  \begin{enumerate}
+    \item Estudar atentamente texto do Capítulo 1
+  \end{enumerate}
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%

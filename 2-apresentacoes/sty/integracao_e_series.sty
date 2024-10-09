@@ -1,0 +1,34 @@
+%------------------------------------------------------------------------------%
+% Definições particulares para as Apresentações de Integração e Séries
+%------------------------------------------------------------------------------%
+
+\usepackage{apresentacao}
+\usepackage{mathconfig}
+
+%------------------------------------------------------------------------------%
+
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+
+%------------------------------------------------------------------------------%
+
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integração e Séries}
+
+\newcommand{\addtitle}{
+\begin{frame}
+  \titlepage
+  \addtext{4}{0.3,8.6}{\scriptsize\today}
+\end{frame}
+}
+
+%------------------------------------------------------------------------------%
+
+\newcommand{\vpt}{\vphantom{\int_{\int}^{\int}}}
+
+\newcommand*{\hint}[1]{\underline{Dica}: \textit{#1}}
+
+\newcommand{\stackTFCU}{\stackrel{\text{\scriptsize TFC1}}{=}}
+\newcommand{\stackTFCD}{\stackrel{\text{\scriptsize TFC2}}{=}}
+
+%------------------------------------------------------------------------------%
