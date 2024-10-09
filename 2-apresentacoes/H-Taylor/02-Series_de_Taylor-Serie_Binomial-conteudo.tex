@@ -1,29 +1,16 @@
 %------------------------------------------------------------------------------%
 
-\usepackage{apresentacao}
-\usepackage{mathconfig}
-\usepackage{tabto}
+\usepackage{integracao_e_series}
 
-\makeatletter
-\graphicspath  {{./figs/}}
-\def\input@path{{./figs/}}
-\makeatother
-
-\newcounter{exemplo}
-\setcounter{exemplo}{0}
-
-%------------------------------------------------------------------------------%
-\title {Séries de Taylor -- Série Binomial}
-\author{\large Luis Alberto D'Afonseca}
-\date  {Integrais e Séries}
+\title{Séries de Taylor -- Série Binomial}
 
 %------------------------------------------------------------------------------%
 \begin{document}
 
+\addtitle
+
 %------------------------------------------------------------------------------%
-\begin{frame}
-    \titlepage
-\end{frame}
+\section{Série Binomial}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Como avaliar funções potência?}
@@ -148,7 +135,7 @@ Para \(-1<x<1\) temos
     \begin{align*}
         -1 < y & < 1 \\
         -1 < x-1 & < 1 \\
-        0 < x & < 2 
+        0 < x & < 2
     \end{align*}
     A série converge para $x \in(0, 2)$
 \end{frame}
@@ -163,9 +150,9 @@ Para \(-1<x<1\) temos
        + \!\binom{\sfrac{1}{3}}{2} (x-1)^2
        + \!\binom{\sfrac{1}{3}}{3} (x-1)^3
        + \cdots \\[3mm]}
-     \onslide<+->{& = 1 + \frac{1}{3}(x-1) 
+     \onslide<+->{& = 1 + \frac{1}{3}(x-1)
      + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)}{2}(x-1)^2 \\[3mm]
-     &\hphantom{=1 + \frac{1}{3}(x-1) \;} 
+     &\hphantom{=1 + \frac{1}{3}(x-1) \;}
      + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)\left(\sfrac{1}{3}-2\right)}{3!}(x-1)^3
        + \cdots \\[3mm]}
      \onslide<+->{& = 1 + \frac{1}{3}(x-1) - \frac{1}{9}(x-1)^2 + \frac{5}{81}(x-1)^3 + \cdots}

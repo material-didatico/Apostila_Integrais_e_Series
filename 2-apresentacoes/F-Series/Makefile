@@ -15,27 +15,21 @@ handout: $(HANDOUT_PDF_FILES)
 .PHONY: presentation
 presentation: $(PRESENT_PDF_FILES)
 
-RUBBER= rubber --inplace --quiet --short 
+RUBBER= rubber --quiet --short --inplace
 
 %-handout.pdf: %-handout.tex %-conteudo.tex \
        $(wildcard *.cls) \
        $(wildcard *.sty) \
        $(wildcard *.bib) \
        $(wildcard ./figs/*)
-	# ${RUBBER} --pdf $(<:.tex=)
-	pdflatex -halt-on-error $(<)
-	pdflatex -halt-on-error $(<)
-	pdflatex -halt-on-error $(<)
+	${RUBBER} --pdf $(<:.tex=)
 
 %-apresentacao.pdf: %-apresentacao.tex %-conteudo.tex \
        $(wildcard *.cls) \
        $(wildcard *.sty) \
        $(wildcard *.bib) \
        $(wildcard ./figs/*)
-	# ${RUBBER} --pdf $(<:.tex=)
-	pdflatex -halt-on-error $(<)
-	pdflatex -halt-on-error $(<)
-	pdflatex -halt-on-error $(<)
+	${RUBBER} --pdf $(<:.tex=)
 
 # Cleaning
 #------------------------------------------------------------------------------#
