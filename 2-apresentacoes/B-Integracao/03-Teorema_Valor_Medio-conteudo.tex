@@ -1,0 +1,150 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{integracao_e_series}
+
+\title{Teorema do Valor Médio para Integrais}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Recapitulando}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivadas e Integrais}
+\emph{Derivada}
+\tabto{37mm}Taxa de variação de $f$
+\[
+  \hspace{45mm}
+  f'(x) = \frac{df}{dx}
+\]
+
+\pause
+\emph{Integral indefinida}
+\tabto{37mm}Antiderivada de $f$
+\[
+  \hspace{45mm}
+  F(x) = \int f(x)\,dx \qquad\Rightarrow\qquad \frac{dF}{dx} = f(x)
+\]
+
+\pause
+\emph{Integral definida}
+\tabto{37mm}Diferença de áreas sob o gráfico de $f$
+\[
+  \hspace{45mm}
+  \text{``Área''} = \int_a^b f(x)\,dx
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Teorema do Valor Médio para Integrais}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Valor Médio para Integrais}
+  Seja $f$ uma função {\color{blue} contínua} em $[a, b]$, \pause
+  então existe ${\color{blue} c} \in (a, b)$ \pause
+  tal que
+  \[
+    f({\color{blue}c})(b-a)
+    \;=\; \int_a^b f(x)\,dx
+  \]
+  \pause
+  ou
+  \[
+    f({\color{blue}c})
+    \;=\; \frac{1}{b-a}\int_a^b f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Valor Médio}
+  ${\color{blue}f(c)}$ é o \emph{Valor Médio} de $f$ em $[a, b]$
+  que denotamos por ${\color{blue}f_{\text{médio}}}$.
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Valor Médio}
+  \centering
+  \vspace{\baselineskip}
+  \input{fig_valor_medio_media}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Demonstração}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+  Queremos mostrar que existe $c \in (a, b)$ tal que
+  \[
+    f(c) = \frac{1}{b-a}\int_a^b f(x)\,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+  \centering
+  \vspace{\baselineskip}
+  \input{fig_valor_medio_media}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+\onslide<+->{Teorema de Weierstrass \\
+\qquad $f$ é \emph{contínua} em $[a, b]$
+então existe um \emph{mínimo} $f(u)$ e um \emph{máximo} $f(v)$}
+
+\vspace{0.5\baselineskip}
+\onslide<+->{Como a integral \emph{preserva a desigualdade}}
+\begin{align*}
+  \onslide<+->{\int_a^b f(u)\,dx \;\leq\; & \int_a^b f(x)\,dx \;\leq\; \int_a^b f(v) \,dx \\[3mm]}
+  \onslide<+->{f(u)(b-a) \;\leq\;         & \int_a^b f(x)\, dx \;\leq \;f(v)(b-a)         \\[3mm]}
+  \onslide<+->{f(u) \;\leq\;               \frac{1}{b-a} & \int_a^b f(x)\,dx \;\leq\; f(v)}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+Valor médio
+\[
+  \fmedio = \frac{1}{b-a} \int_a^b f(x)\,dx
+\]
+\pause
+\[
+  f(u) \;\leq\; f_{\text{médio}} \;\leq\; f(v)
+\]
+
+\pause
+\vspace{\baselineskip}
+Teorema do Valor Intermediário \\
+\qquad $f$ precisa assumir o valor \(\fmedio\) em algum $c\in[a, b]$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Cálcule \(\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 2.? da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
