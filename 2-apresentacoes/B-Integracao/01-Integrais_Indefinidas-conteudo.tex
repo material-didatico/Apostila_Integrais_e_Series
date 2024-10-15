@@ -2,7 +2,7 @@
 
 \usepackage{integracao_e_series}
 
-\title {Integrais Indefinidas}
+\title{Integrais Indefinidas}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -15,7 +15,7 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Integrais Indefinidas}
   Sinônimos
-  \begin{itemize}
+  \begin{itemize}[<+->]
     \item Integral indefinida
     \item Primitiva
     \item Antiderivada
@@ -24,18 +24,25 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Definição}
-  Uma função $F$ é a \emph{Primitiva}
-  da função $f$ em um intervalo $I$ se
+  Uma função $F$ é a \emph{Primitiva} da função $f$
+  \pause
+  em um intervalo $I$
+  \pause
+  se
   \[
     \frac{dF}{dx}(x) = f(x)
   \]
+  \pause
   para todo $x\in I$
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Primitiva Mais Geral}
-  Se $G$ é uma primitiva de $f$ no intervalo $I$, então a
-  \emph{primitiva mais geral} de $f$ em $I$ é
+  Se $G$ é uma primitiva de $f$ no intervalo $I$,
+  \pause
+  então a \emph{primitiva mais geral} de $f$ em $I$
+  \pause
+  é
   \[
     F(x) = G(x) + C
   \]
@@ -45,16 +52,17 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Notação}
   Notação da Primitiva, Antiderivada e Integral Indefinida de uma função $f$
+
   \[
     \int f(x) \, dx
   \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\section{Cálculos e Propriedades}
+\section{Encontrando uma Primitiva}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Calculando Raízes Quadradas}
+\begin{frame}{Calculando Inversas -- Raízes Quadradas}
 \(\sqrt{x}\) é a operação inversa de \(x^2\) para \(x\geq0\)
 
 \pause
@@ -86,10 +94,9 @@ Para os demais valores precisamos de uma nova técnica
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo}
-  \emph{Encontrar a primitiva mais geral de \(f(x)= \cos(x)\)}
+  Encontrar a primitiva mais geral de \(f(x)= \cos(x)\)
 
   \pause
-  \vspace{\baselineskip}
   Sabemos que
   \(
     G(x) = \sin(x)
@@ -140,6 +147,9 @@ Para os demais valores precisamos de uma nova técnica
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\section{Propriedades}
+
+%------------------------------------------------------------------------------%
 \begin{frame}{Linearidade da Integral Indefinida}
   Sejam $f$ e $g$ integráveis e $k$ uma constante temos \\[7mm]
   \pause
@@ -151,8 +161,181 @@ Para os demais valores precisamos de uma nova técnica
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}
-  \tableofcontents
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre a primitiva mais geral da função \(f(x)=3x^2 + 2x + 5\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F(x)
+    & = \int f(x) dx \\[2mm]}
+    \onslide<+->{& = \int 3x^2 + 2x + 5 \,dx \\[2mm]}
+    \onslide<+->{& = \int 3x^2 dx + \int 2x\, dx + \int 5 dx
+      & & \text{(Linearidade)}\\[2mm]}
+    \onslide<+->{& = 3\int x^2 dx + 2\int x\, dx + 5 \int dx
+      & & \text{(Linearidade)}\\[2mm]}
+    \onslide<+->{& = 3\frac{x^{2+1}}{2+1} + 2 \frac{x^{1+1}}{1+1} + 5 \frac{x^{0+1}}{0+1} + C
+      & & \text{(Tabela)}\\[3mm]}
+    \onslide<+->{& = x^3 + x^2 + 5x + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Multiplicação da Variável por Constante}
+%  Se \(F(x)\) é uma primitida de \(f(x)\)
+%  \pause
+%  e $a$ e $b$ são constantes,
+%  \pause
+%
+%  \vspace{0.5\baselineskip}
+%  então
+%  \(\frac{F(ax+b)}{a}\)
+%  é primitiva de
+%  \(f(ax+b)\)
+%
+%  \pause
+%  \vspace{0.5\baselineskip}
+%  Pois
+%  \[
+%    \frac{d}{dx}F(ax+b)
+%    \pause
+%    \;=\; F'(ax+b) \frac{d}{dx}(ax+b)
+%    \pause
+%    \;=\; f(ax+b) a
+%  \]
+%  \[
+%    \pause
+%    \frac{d}{dx}\frac{F(ax+b)}{a}
+%    \;=\; f(ax+b)
+%  \]
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Multiplicação da Variável por Constante}
+  Qual a Primitiva da função \(f(ax+b)\), onde $a$ e $b$ são constantes?
+
+  Se \(F(x)\) é uma primitiva de \(f(x)\)
+  \[
+    \pause
+    \frac{d}{dx}F(ax+b)
+    \pause
+    \;=\; F'(ax+b) \frac{d}{dx}(ax+b)
+    \pause
+    \;=\; f(ax+b) a
+  \]
+  \[
+    \pause
+    \frac{d}{dx}\frac{F(ax+b)}{a}
+    \;=\; f(ax+b)
+    \]
+
+  \pause
+  Então
+  \emph{\[
+    \int f(ax+b) dx \;=\; \frac{F(ax+b)}{a} + C
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int \cos(3\pi x) - \sqrt{x} \, dx\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F(x)
+    & = \int \cos(3\pi x) - \sqrt{x} \, dx \\[2mm]}
+    \onslide<+->{& = \int \cos(3\pi x) dx - \int \sqrt{x} \, dx \\[2mm]}
+    \onslide<+->{& = \int \cos(3\pi x) dx - \int x^{\sfrac{1}{2}} \, dx \\[2mm]}
+    \onslide<+->{& = \frac{\sin(3\pi x)}{3\pi} - \frac{x^{\sfrac{1}{2}+1}}{\sfrac{1}{2}+1} + C \\[2mm]}
+    \onslide<+->{& = \frac{\sin(3\pi x)}{3\pi} - \frac{2x^{\sfrac{3}{2}}}{3} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre todas as funções $g$, tais que
+  \(
+  g'(x)= 4 \sin(x)+ \frac{2x^5- \sqrt{x}}{x}
+  \)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Queremos as primitivas de $g'$}
+
+  \onslide<+->{Reescrevemos $g'$ como}
+  \begin{align*}
+    \onslide<+->{g'(x) & = 4 \sin(x) + \frac{2x^5- \sqrt{x}}{x} \\[2mm]}
+    \onslide<+->{& = 4 \sin(x) + \frac{2x^5}{x} - \frac{x^{\sfrac{1}{2}}}{x} \\[2mm]}
+    \onslide<+->{& = 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}}}
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{g(x) & = \int g'(x) dx \\[2mm]}
+    \onslide<+->{& = \int 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}} dx \\[2mm]}
+    \onslide<+->{& = 4 \int \sin(x) dx + 2 \int x^4 dx - \int x^{-\sfrac{1}{2}} dx \\[2mm]}
+    \onslide<+->{& = 4\big(-\cos(x)\big) + 2 \frac{x^5}{5} - \frac{x^{\sfrac{1}{2}}}{\sfrac{1}{2}} + C \\[2mm]}
+    \onslide<+->{& = -4 \cos(x) + \frac{2}{5}x^5 - 2 \sqrt{x} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre $f$ se\; \(f'(x)= e^x+20\left(1+x^2\right)^{-1}\) \;e\; \(f(0)=-2\)
+
+  \pause
+  \vspace{\baselineskip}
+  Primeiro vamos encontrar a família de funções $f$ que são primitivas de $f'$
+
+  Depios usamos a condição \(f(0)=-2\) para encontrar a primitiva solicitada
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Primitiva mais geral}
+  \begin{align*}
+    \onslide<+->{f(x) & = \int f'(x) dx \\[2mm]}
+    \onslide<+->{& = \int e^x+20\left(1+x^2\right)^{-1} dx \\[2mm]}
+    \onslide<+->{& = \int e^x + 20\frac{1}{1+x^2} dx  \\[2mm]}
+    \onslide<+->{& = \int e^x dx + 20\int \frac{1}{1+x^2} dx  \\[2mm]}
+    \onslide<+->{& = e^x + 20\arctan(x) + C}
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Vamos determinar o valor de $C$ usando $f(0)=-2$}
+  \begin{align*}
+    \onslide<+->{f(0)                    & = -2                       \\}
+    \onslide<+->{e^0 + 20 \arctan(0) + C & = -2                       \\}
+    \onslide<+->{C                       & = -2 - e^0 - 20 \arctan(0) \\}
+    \onslide<+->{                        & = -2 - 1 - 0               \\}
+    \onslide<+->{                        & = -3}
+  \end{align*}
+  \onslide<+->{Portanto
+  \[
+    f(x) = e^x + 20 \arctan(x) -3
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 2.2 da Apostila
+
+  Exercícios: 1a-f, 2, 3
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%

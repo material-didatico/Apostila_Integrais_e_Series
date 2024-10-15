@@ -17,7 +17,7 @@
   Figuras regulares
 
   \pause
-  \vspace{1.6\baselineskip}
+  \vspace{\baselineskip}
   Área de um Retângulo
   \tabto{45mm}
   \(
@@ -25,7 +25,7 @@
   \)
 
   \pause
-  \vspace{1.5\baselineskip}
+  \vspace{\baselineskip}
   Área de um Triângulo
   \tabto{45mm}
   \(
@@ -33,7 +33,7 @@
   \)
 
   \pause
-  \vspace{1.3\baselineskip}
+  \vspace{0.9\baselineskip}
   Área de um Círculo
   \tabto{45mm}
   \(
@@ -41,7 +41,7 @@
   \)
 
   \pause
-  \vspace{1.4\baselineskip}
+  \vspace{\baselineskip}
   O que fazer com as figuras irregulares?
 \end{frame}
 
@@ -105,7 +105,7 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \begin{frame}{Somando os Retângulos}
 \begin{align*}
-  \onslide<+->{ \tilde{A}_n & = \sum_{i=1}^n A_i }
+  \onslide<+->{ S_n & = \sum_{i=1}^n A_i }
   \onslide<+->{ \;=\; \sum_{i=1}^n \frac{b^3}{n^3}i^2               }
   \onslide<+->{ \;=\; \frac{b^3}{n^3} \sum_{i=1}^n i^2             \\[5mm]}
   \onslide<+->{ & = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[5mm]}
@@ -117,7 +117,7 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \begin{frame}{Calculando pelo limite}
   \begin{align*}
-    \onslide<+->{ A & = \lim_{n\to\infty} \tilde{A}_n                   \\[7mm]}
+    \onslide<+->{ A & = \lim_{n\to\infty} S_n                   \\[7mm]}
     \onslide<+->{   & = \lim_{n\to\infty}
                         \frac{b^3}{6}
                         \left( 2+\frac{3}{n}+\frac{1}{n^2} \right)       \\[7mm]}
@@ -164,23 +164,28 @@ Valor de $x_i$
 \begin{frame}{Área via soma de Riemann}
   A \emph{área} da região sob o gráfico de uma \emph{função contínua} $f$
   no intervalo $[a, b]$\\
-  é dada pelo limite.
+  é dada pelo limite
   \[
     A = \lim_{n \to \infty} \; \sum_{i=1}^n f(x_i) \Delta x
   \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Definição Integral Definida}
-  A \emph{Integral Definida} de $f$ de $a$ até $b$ é
+\begin{frame}{Definição Integral Definida -- Soma de Riemann}
+  A \emph{Integral Definida} da função \(f\) no intervalo \([a, b]\) é
+
   \[
     \int_a^b f(x) dx
-    \;=\; \lim_{n \to \infty} \; \sum_{i=1}^n f(c_i) \Delta x
+    \;=\; \lim_{n \to \infty} \; \sum_{i=1}^n f({\color<2->{magenta}c_i}) \Delta x
   \]
-  Desde que esse limite exista.
 
+  \pause
+  ${\color{magenta}c_i}\in[x_{i-1}, x_i]$ são os \emph{pontos amostrais}
+
+  \pause
   \vspace{\baselineskip}
-  $c_i\in[x_{i-1}, x_i]$ são os \emph{pontos amostrais}
+  Desde que o limite exista
+
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -197,7 +202,7 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Sentido de integração}
-  \Large
+  \large
   \[
     \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{b}} f(x)\,dx
     = \textcolor{red}{-}
@@ -207,7 +212,7 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Intervalo de comprimento nulo}
-  \Large
+  \large
   \[
     \int_{\textcolor{blue}{a}}^{\textcolor{blue}{a}} f(x)dx
     = \textcolor{blue}{0}
@@ -216,16 +221,17 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área de um retângulo}{}
-  {\Large
+  {\large
   \[
     \int_{a}^b {\color{blue}c}\,dx = {\color{blue}c}(b-a)
   \]}
-  {\color{blue}$c$} constante
+
+  Para {\color{blue}$c$} constante
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Soma e subtração de funções}
-  \Large
+  \large
   \[
     \int_{a}^b \big[ f(x) \;{\color{blue}+}\; g(x) \big] dx
     = \int_{a}^b f(x)\,dx \;{\color{blue}+}\, \int_{a}^b g(x)\,dx
@@ -239,19 +245,19 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Multiplicação de função por constante}{}
-  {\Large
+  {\large
   \[
     \int_{a}^b \textcolor{blue}{c}\,f(x)\,dx
     = \textcolor{blue}{c} \int_{a}^b f(x)\,dx
   \]}
   ~
 
-  \textcolor{blue}{$c$} constante
+  Para \textcolor{blue}{$c$} constante
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Separando o intervalo em dois}
-  \Large
+  \large
   \[
     \int_{\textcolor{blue}{a}}^{\textcolor{blue}{b}} f(x)\,dx
     = \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{c}} f(x)\,dx
@@ -261,7 +267,7 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área positiva}
-  \Large
+  \large
   Se \(f(x)\textcolor{blue}{\,\geq\,} 0\) para \(a \leq x \leq b\), então
   \(
     \int_{a}^b f(x)\,dx \textcolor{blue}{\,\geq\,} 0
@@ -270,7 +276,7 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Comparação entre áreas}
-  \Large
+  \large
   Se \textcolor{blue}{$f(x) \geq g(x)$}
   para $a \leq x \leq b$, então \\[9mm]
   \[
@@ -280,18 +286,133 @@ Valor de $x_i$
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Limitação inferior e superior}
-  \Large
+  \large
   Se {${\color{blue}m} \leq f(x) \leq {\color{red}M}$} para $a \leq x \leq b$ então \\[9mm]
   \[
-    {\color{blue} m}(b-a)                 \quad\geq\quad
+    {\color{blue} m}(b-a)  \quad\geq\quad
     \int_{a}^b f(x)\,dx    \quad\geq\quad
     {\color{red} M}(b-a)
   \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}
-  \tableofcontents
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a área abaixo do gráfico da função \(f(x) = x + 2\) no intervalo
+  \([0, b]\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+      \onslide<+->{A & = \int_0^b f(x)\,dx    \\[2mm]}
+      \onslide<+->{& = \int_0^b x + 2 \,dx    \\[2mm]}
+      \onslide<+->{& = \int_0^b x\, dx + 2 \int_0^b dx
+                   & & \text{(Área do triângulo e do retângulo)}  \\[2mm]}
+      \onslide<+->{& = \frac{b^2}{2} + 2b}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Cálcule \(\int_{-7}^7 x^3 dx\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    A
+    = \int_{-7}^7 x^3 dx
+    \pause
+    = \int_{-7}^0 x^3 dx + \int_0^7 x^3 dx
+  \]
+  \pause
+  por simetria
+  \[
+    \int_{-7}^0 x^3 dx = - \int_0^7 x^3 dx
+  \]
+  \pause
+  portanto
+  \[
+    A = 0
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Cálcule \(\int_{-2}^4 \abs{x} dx\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{A
+    & = \int_{-2}^4 \abs{x} dx                        \\[2mm]}
+    \onslide<+->{& = \int_{-2}^0 \abs{x} dx + \int_0^4 \abs{x} dx  \\[2mm]}
+    \onslide<+->{& = \int_{-2}^0 -x dx + \int_0^4 x dx             \\[2mm]}
+    \onslide<+->{& = \frac{2^2}{2} + \frac{4^2}{2}                 \\[2mm]}
+    \onslide<+->{& = 2 + 8                                         \\[2mm]}
+    \onslide<+->{& = 10}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a integral da função de Heaviside
+  \[
+  \heaviside(x) = \begin{cases}
+    \; 0 & \; x < 0 \\
+    \; 1 & \; x \geq 0
+  \end{cases}
+  \]
+  no intervalo $[-1, 2]$.
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    A
+    = \int_{-1}^{2} \heaviside(x) \,dx
+    \pause
+    = \int_{-1}^{0} 0 \,dx
+    + \int_{0}^{2}  1 \,dx
+  \]
+  \pause
+  \[
+    \int_{-1}^{0} 0 \,dx
+    \pause
+    = 0
+  \]
+  \pause
+  \[
+    \int_{0}^{2} 1 \,dx
+    \pause
+    \;=\; \text{base} \times \text{altura}
+    \pause
+    \;=\; (2-0)\times 1
+    \pause
+    \;=\; 2
+  \]
+  \pause
+  \[
+    A
+    \pause
+    = 0 + 2
+    \pause
+    = 2
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 2.3 da Apostila
+
+  Exercícios: 4, 5
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%
