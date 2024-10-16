@@ -70,15 +70,25 @@
 % Add page numbering
 \setbeamertemplate{footline}[frame number]
 
-% Removing visual polution
+% Remove visual polution
 \setbeamertemplate{sidebar left}{}
 \beamertemplatenavigationsymbolsempty
 
-% Adding a Outline frame at each section
+% Rename content frame
 \AtBeginDocument{\renewcommand{\contentsname}{Conteúdo}}
+
+% Add a outline frame at each section
 \AtBeginSection{
   \begin{frame}{\contentsname}
+    \setlength{\parskip}{1pt}
     \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Adding a frame at each subsection
+\AtBeginSubsection{
+  \begin{frame}{~}
+    \emph{\Large \subsecname}
   \end{frame}
 }
 
@@ -149,7 +159,9 @@
 \newcommand{\addboxedgraphic}[4]%
 {%
   \begin{textblock}{#1}(#2)%
-    \fcolorbox{#3}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#4}}%
+    \fcolorbox{#3}{white}{%
+      \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#4}%
+      }%
   \end{textblock}%
 }
 
@@ -157,7 +169,9 @@
 \newcommand{\hidegraphic}[3]%
 {%
     \begin{textblock}{#1}(#2)%
-    \colorbox{lightgray}{\phantom{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#3}}}%
+    \colorbox{lightgray}{%
+      \phantom{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#3}}%
+      }%
     \end{textblock}%
 }
 

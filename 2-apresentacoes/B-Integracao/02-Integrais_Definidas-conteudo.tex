@@ -155,8 +155,9 @@ Valor de $x_i$
   \onslide<+->{\Delta x & = \frac{b-a}{n} \\[2mm]}
   \onslide<+->{x_i & = a + i\Delta x \\[3mm]}
   \onslide<+->{A_i & = f(x_i)\Delta x \\[8mm]}
-  \onslide<+->{A & \approx A_1+A_2+A_3+\cdots+ A_n \\[2mm]}
-  \onslide<+->{  & = f(x_1)\Delta x+ f(x_2) \Delta x+ f(x_3) \Delta x + \cdots + f(x_n)\Delta x}
+  \onslide<+->{S_n & = A_1+A_2+A_3+\cdots+ A_n \\[2mm]}
+  \onslide<+->{    & = f(x_1)\Delta x+ f(x_2) \Delta x+ f(x_3) \Delta x + \cdots + f(x_n)\Delta x\\}
+  \onslide<+->{    & = \sum_{i=1}^n f(x_i)\Delta x}
 \end{align*}
 \end{frame}
 
@@ -233,13 +234,15 @@ Valor de $x_i$
 \begin{frame}{Soma e subtração de funções}
   \large
   \[
-    \int_{a}^b \big[ f(x) \;{\color{blue}+}\; g(x) \big] dx
-    = \int_{a}^b f(x)\,dx \;{\color{blue}+}\, \int_{a}^b g(x)\,dx
+    \int_{a}^b f(x) \;\memph{+}\; g(x)\, dx =
+    \int_{a}^b f(x)\,dx \;\memph{+}\,
+    \int_{a}^b g(x)\,dx
   \]
   ~
   \[
-    \int_{a}^b \big[ f(x) \;{\color{blue}-}\; g(x) \big] dx
-    = \int_{a}^b f(x)\,dx \;{\color{blue}-}\, \int_{a}^b g(x)\,dx
+    \int_{a}^b f(x) \;\memph{-}\; g(x)\, dx =
+    \int_{a}^b f(x)\,dx \;\memph{-}\,
+    \int_{a}^b g(x)\,dx
   \]
 \end{frame}
 
@@ -287,10 +290,10 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \begin{frame}{Limitação inferior e superior}
   \large
-  Se {${\color{blue}m} \leq f(x) \leq {\color{red}M}$} para $a \leq x \leq b$ então \\[9mm]
+  Se \({\color{blue}m} \leq f(x) \leq {\color{red}M}\) para $a \leq x \leq b$ então \\[9mm]
   \[
-    {\color{blue} m}(b-a)  \quad\geq\quad
-    \int_{a}^b f(x)\,dx    \quad\geq\quad
+    {\color{blue} m}(b-a)  \quad\leq\quad
+    \int_{a}^b f(x)\,dx    \quad\leq\quad
     {\color{red} M}(b-a)
   \]
 \end{frame}
@@ -307,8 +310,9 @@ Valor de $x_i$
       \onslide<+->{A & = \int_0^b f(x)\,dx    \\[2mm]}
       \onslide<+->{& = \int_0^b x + 2 \,dx    \\[2mm]}
       \onslide<+->{& = \int_0^b x\, dx + 2 \int_0^b dx
-                   & & \text{(Área do triângulo e do retângulo)}  \\[2mm]}
-      \onslide<+->{& = \frac{b^2}{2} + 2b}
+                   & & \text{(Linearidade)}  \\[2mm]}
+      \onslide<+->{& = \frac{b^2}{2} + 2b
+                   & & \text{(Área do triângulo e do retângulo)}}
   \end{align*}
 \end{frame}
 
