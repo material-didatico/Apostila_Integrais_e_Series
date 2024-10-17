@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------#
 
 # List of all subderectories
-SUBDIRS=`find -mindepth 1 -maxdepth 1 -type d -not -name '.git' -not -name '_*'`
+SUBDIRS=`find -mindepth 1 -maxdepth 1 -type d -not -name '.*' -not -name '_*'`
 
 TEX_FILES=Integracao_e_Series.tex
 PDF_FILES=$(TEX_FILES:.tex=.pdf)
@@ -27,5 +27,6 @@ clean:
 .PHONY: distclean
 distclean: clean
 	-@ rm -vf $(PDF_FILES)
+	-@ rm -vf _sandbox.pdf _exercises.pdf
 
 #------------------------------------------------------------------------------#
