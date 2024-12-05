@@ -1,0 +1,291 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{integracao_e_series}
+\usepackage{ulem}
+
+\title{Integração por Substituição Trigonométrica}
+\subtitle{2 -- Substituição pela tangente}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Integração por Substituição Trigonométrica}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituições Trigonométricas}
+\addtext{16}{0.35,2.2}{
+\renewcommand*{\arraystretch}{2.3}
+\begin{tabular}{c<{\;}>{\;}c<{\;}>{\;}c<{\;}>{\;}c} \hline
+  Expressão
+  & Substituição
+  & Intervalo
+  & Identidade \\ \hline
+  \(\sqrt{a^2-x^2}\)
+  & \(x=a\sin(\theta)\)
+  & \(-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\)
+  & \(1-\sin^2(\theta) = \cos^2(\theta)\) \\
+  {\color{blue}\(\sqrt{a^2+x^2}\)}
+  & {\color{blue}\(x=a\tan(\theta)\)}
+  & \(-\frac{\pi}{2}< \theta < \frac{\pi}{2} \)
+  & \(1+\tan^2(\theta)= \sec^2(\theta)\) \\
+  \(\sqrt{x^2-a^2}\)
+  & \(x=a\sec(\theta)\)
+  & \(0 \leq \theta < \frac{\pi}{2} \) ou \(\pi \leq \theta < \frac{3\pi}{2} \)
+  & \(\sec^2(\theta)-1= \tan^2(\theta)\) \\ \hline
+\end{tabular}}
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Encontre \(\int \frac{dx}{x^2\sqrt{x^2+4}}\)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Note
+  \(
+    \sqrt{x^2+4} = \sqrt{2^2+x^2}
+  \)
+
+  \pause
+  \vspace{\baselineskip}
+  Substituição inversa
+  \[
+    x = 2\tan(\theta)
+    \qquad\qquad
+    dx = 2\sec^2(\theta) d\theta
+    \qquad\text{com}\qquad
+    -\frac{\pi}{2} < \theta < \frac{\pi}{2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{1}{x^2\sqrt{x^2+4}}dx
+                   & & x = 2\tan(\theta)                       \\[2mm]}
+    \onslide<+->{  & = \int \frac{1}{4\tan^2(\theta) \sqrt{4\tan^2(\theta)+4}}\,2\sec^2(\theta) d\theta      \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sec^2(\theta)}{2\tan^2(\theta) \sqrt{4\big(1+ \tan^2(\theta)\big)}} d\theta \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sec^2(\theta)}{4\tan^2(\theta) \sqrt{1+ \tan^2(\theta)}} d\theta
+                   & & 1 + \tan^2(\theta) = \sec^2(\theta) \\[2mm]}
+    \onslide<+->{  & = \frac{1}{4} \int \frac{\sec^2(\theta)}{\tan^2(\theta) \sqrt{\sec^2(\theta)}} d\theta}
+    %
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \frac{1}{4} \int \frac{\sec^2(\theta)}{\tan^2(\theta) \sqrt{\sec^2(\theta)}} d\theta\\[3mm]}
+%    & = \int \frac{\sec^2(\theta)}{\tan^2(\theta) \sec(\theta)}  d\theta \\[2mm]
+    \onslide<+->{  & = \frac{1}{4} \int \frac{\sec(\theta)}{\tan^2(\theta)} d\theta              \\[3mm]}
+    \onslide<+->{  & = \frac{1}{4} \int \frac{1}{\cos(\theta)}
+                                   \left(\frac{\cos(\theta)}{\sin(\theta)}\right)^{\!\!2} d\theta \\[3mm]}
+    \onslide<+->{  & = \frac{1}{4} \int \frac{\cos(\theta)}{\sin^2(\theta)} d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Integrar
+  \(
+    F = \frac{1}{4} \int \frac{\cos(\theta)}{\sin^2(\theta)} d\theta
+  \)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Substituição simples
+  \[
+    u = \sin(\theta)
+    \qquad
+    du = \cos(\theta) d\theta
+  \]
+
+  \pause
+  Temos
+  \[
+    F
+    = \frac{1}{4} \int \frac{du}{u^2}
+    \pause
+    = \frac{1}{4} \int u^{-2} du
+    \pause
+    = \frac{1}{4} \left(\frac{u^{-1}}{-1} + C\right)
+    \pause
+    = \frac{-1}{4\sin(\theta)} + C_1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    x= 2 \tan(\theta) \qquad\Rightarrow\qquad \tan(\theta) = \frac{x}{2}
+  \]
+
+  \addgraphic{6}{10,3}{exemplo_triangulo_2}
+
+  \pause
+  \[
+    \frac{1}{\sin(\theta)}
+    = \csc(\theta)
+    \pause
+    = \frac{\text{hipotenusa}}{\text{cateto oposto}}
+    \pause
+    = \frac{\sqrt{x^2+4}}{x}
+  \]
+
+  \pause
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{dx}{x^2\sqrt{x^2+4}}  \\[2mm]}
+    \onslide<+->{  & = \frac{-1}{4\sin(\theta)} + C \\[2mm]}
+    \onslide<+->{  & = -\frac{\sqrt{x^2+4}}{4x} + C}
+  \end{align*}
+\end{frame}
+
+% 2
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<1->{Encontre \(\int \frac{x}{\sqrt{x^2+4}} dx\)}
+
+  \vspace{0.5\baselineskip}
+  \only<1|handout:0>{\vphantom{Substituição trigonométrica \(x = 2 \tan(\theta)\)}}
+  \only<2|handout:0>{Substituição trigonométrica \(x = 2 \tan(\theta)\)}
+  \only<3:->{\sout{Substituição trigonométrica \(x = 2 \tan(\theta)\)}}
+
+  \vspace{0.5\baselineskip}
+  \onslide<4->{Substituição simples \(u=x^2+4 \qquad du=2x dx\)}
+  \[
+    \onslide<5->{\int \frac{x}{\sqrt{x^2+4}} dx
+                 = \frac{1}{2} \int \frac{du}{\sqrt{u}}}
+    \onslide<6->{= \sqrt{u}+ C}
+    \onslide<7->{= \sqrt{x^2+4}+C}
+  \]
+\end{frame}
+
+% 3
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int \frac{dt}{\sqrt{t^2-6t+13}}\)
+
+  \pause
+  \vspace{\baselineskip}
+  Completando quadrado temos
+  \[
+    t^2 - 6t + 13
+    \pause
+    \;=\; (t-3)^2 - 9 + 13
+    \pause
+    \;=\; (t-3)^2 + 4
+  \]
+
+  \pause
+  \[
+    F = \int \frac{dt}{\sqrt{t^2-6t+13}}
+    \pause
+      = \int \frac{dt}{\sqrt{(t-3)^2 + 4}}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Substituição Simples}
+  \onslide<+->{\[
+    u = t - 3 \qquad\qquad du = dt
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{dt}{\sqrt{(t-3)^2+4}}   \\[2mm]}
+    \onslide<+->{  & = \int \frac{du}{\sqrt{u^2+4}}       \\[2mm]}
+    \onslide<+->{  & = \int \frac{du}{\sqrt{u^2+2^2}}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Substituição Trigonométrica}
+  \onslide<+->{\[
+    u  = 2\tan(\theta) \quad\Rightarrow\quad
+    du = 2\sec^2(\theta) d\theta
+  \]}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{du}{\sqrt{u^2+2^2}}                                  \\[2mm]}
+    \onslide<+->{  & = \int \frac{2\sec^2(\theta) }{\sqrt{4\tan^2(\theta)+4}}d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Substituição Trigonométrica}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{2\sec^2(\theta) }{\sqrt{4\tan^2(\theta)+4}}d\theta   \\[2mm]}
+    \onslide<+->{  & = \int \frac{2\sec^2(\theta) }{2\sqrt{\tan^2(\theta)+1}}d\theta
+      & \tan^2(\theta)+1= \sec^2(\theta)                                  \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sec^2(\theta)}{\sec(\theta)}d\theta                 \\[2mm]}
+    \onslide<+->{  & = \int \sec(\theta)d\theta                                        \\[2mm]}
+    \onslide<+->{  & = \ln \abs{\sec(\theta)+ \tan(\theta)} + K}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Desfazendo as Transformações}
+  \onslide<+->{\[
+    u = 2\tan(\theta)
+    \quad\Rightarrow\quad
+    \tan(\theta) = \frac{u}{2} = \frac{t-3}{2}
+  \]}
+
+  \addgraphic{5.5}{10,3}{exemplo_triangulo_5}
+
+  \onslide<+->{Hipotenusa}
+  \begin{align*}
+    \onslide<2->{\sqrt{(t-3)^2+2^2}
+                 & = \sqrt{t^2-6t+9+4} \\}
+    \onslide<+->{& = \sqrt{t^2-6t+13}}
+  \end{align*}
+  \onslide<+->{
+  \[
+    \sec(\theta)=\frac{\sqrt{t^2-6t+13}}{2}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Desfazendo as Transformações}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{dt}{\sqrt{t^2-6t+13}}         \\[4mm]}
+    \onslide<+->{  & = \ln \abs{\sec(\theta)+ \tan(\theta)} + K \\[4mm]}
+    \onslide<+->{  & = \ln \abs{\frac{\sqrt{t^2-6t+13}}{2} + \frac{t-3}{2}} + K \\[4mm]}
+    \onslide<+->{  & = \ln \abs{\sqrt{t^2-6t+13} + t-3} - \ln(2) + K \\[4mm]}
+    \onslide<+->{  & = \ln \abs{\sqrt{t^2-6t+13} + t-3} + K_1}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.4 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

@@ -195,8 +195,8 @@
   \begin{align*}
     \onslide<+->{\int t^2 e^t dt & = t^2 e^t - 2\int te^tdt                   \\}
     \onslide<+->{                & = t^2 e^t - 2\left( te^t - e^t + C \right) \\[2mm]}
-    \onslide<+->{                & = t^2 e^t - 2te^t + 2e^t + 2C              \\[2mm]}
-    \onslide<+->{                & = t^2 e^t - 2te^t + 2e^t + C_1}
+    \onslide<+->{                & = t^2 e^t - 2te^t + 2e^t - 2C              \\[2mm]}
+    \onslide<+->{                & = \left(t^2 - 2t + 2\right)e^t + C_1}
   \end{align*}
 \end{frame}
 
@@ -363,9 +363,11 @@ Precisamos da primitiva
 \begin{frame}{Exemplo \theexemplo\ -- Cálculo da Área}
 Usando o Teorema Fundamental do Cálculo - parte 2
 \begin{align*}
-  \onslide<+->{A & = \big( -x \cos(x) + \sin(x) \big) \evalat{0}{\pi} \\}
+  \onslide<+->{A & = \big( -x \cos(x) + \sin(x) \big) \evalat{0}{\pi} \\[2mm]}
   \onslide<+->{  & = \big(-\pi\cos(\pi) + \sin(\pi)\big)
-                   - \big(-  0\cos(0)   + \cos(0)\big)     \\[2mm]}
+                   - \big(-  0\cos(0)   + \sin(0)\big)     \\[2mm]}
+  \onslide<+->{  & = \big(-\pi(-1) + 0\big)
+                   - \big(-  0   + 0\big)     \\[2mm]}
   \onslide<+->{  & = \pi}
 \end{align*}
 \end{frame}

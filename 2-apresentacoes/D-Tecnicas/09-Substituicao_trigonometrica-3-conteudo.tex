@@ -1,0 +1,152 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{integracao_e_series}
+\usepackage{ulem}
+
+\title{Integração por Substituição Trigonométrica}
+\subtitle{3 -- Substituição pela secante}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Integração por Substituição Trigonométrica}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituições Trigonométricas}
+\addtext{16}{0.35,2.2}{
+\renewcommand*{\arraystretch}{2.3}
+\begin{tabular}{c<{\;}>{\;}c<{\;}>{\;}c<{\;}>{\;}c} \hline
+  Expressão
+  & Substituição
+  & Intervalo
+  & Identidade \\ \hline
+  \(\sqrt{a^2-x^2}\)
+  & \(x=a\sin(\theta)\)
+  & \(-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\)
+  & \(1-\sin^2(\theta) = \cos^2(\theta)\) \\
+  \(\sqrt{a^2+x^2}\)
+  & \(x=a\tan(\theta)\)
+  & \(-\frac{\pi}{2}< \theta < \frac{\pi}{2} \)
+  & \(1+\tan^2(\theta)= \sec^2(\theta)\) \\
+  {\color{blue}\(\sqrt{x^2-a^2}\)}
+  & {\color{blue}\(x=a\sec(\theta)\)}
+  & \(0 \leq \theta < \frac{\pi}{2} \) ou \(\pi \leq \theta < \frac{3\pi}{2} \)
+  & \(\sec^2(\theta)-1= \tan^2(\theta)\) \\ \hline
+\end{tabular}}
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Encontre \(\int\!\!\frac{dx}{\sqrt{x^2-a^2}}\) com $a>0$
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Substituição
+  \[
+    x = a\sec(\theta)
+    \qquad
+    dx = a \sec(\theta)\tan(\theta) d\theta
+  \]
+  onde \(0 < \theta < \frac{\pi}{2}\) ou \(\pi < \theta  < \frac{3\pi}{2}\)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  \[
+    F = \int \frac{ a \sec(\theta) \tan(\theta) }
+                  { \sqrt{a^2 \sec^2(\theta) - a^2 }} d\theta
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{columns}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{dx}{\sqrt{x^2-a^2}}                                       \\[4mm]}
+    \onslide<+->{  & = \int  \frac{ a \sec(\theta) \tan(\theta)}{\sqrt{a^2 \sec^2(\theta)-a^2}}  d\theta \\[4mm]}
+    \onslide<+->{  & = \int \frac{a \sec(\theta) \tan(\theta)}{a\sqrt{\sec^2(\theta)-1}}  d\theta}
+  \end{align*}
+\column{0.5\linewidth}
+  \onslide<+->{Usando \(\sec^2(\theta)-1= \tan^2(\theta)\)}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{\sec(\theta) \tan(\theta)}{\sqrt{\tan^2(\theta)}} d\theta \\[4mm]}
+    \onslide<+->{  & = \int \frac{\sec(\theta)\tan(\theta)}{\tan(\theta)} d\theta           \\[4mm]}
+    \onslide<+->{  & = \int \sec(\theta) d\theta                                            }
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \sec(\theta) d\theta \\[2mm]}
+    \onslide<+->{  & = \int \sec(\theta)
+                          \;\frac{\sec(\theta)+\tan(\theta)}
+                                 {\sec(\theta)+\tan(\theta)}\; d\theta \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sec^2(\theta)+ \sec(\theta)\tan(\theta)}
+                                 {\sec(\theta)+\tan(\theta)} d\theta}
+  \end{align*}
+
+  \onslide<+->{Substituição
+  \(
+    u = \sec(\theta) + \tan(\theta)
+    \qquad
+    du = \big(\sec(\theta)\tan(\theta) + \sec^2(\theta)\big) d\theta
+  \)}
+  \[
+    \onslide<+->{F = \int \frac{du}{u}}
+    \onslide<+->{  = \ln\abs{u}+C}
+    \onslide<+->{  = \ln \abs{\sec(\theta)+\tan(\theta)}+ C}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    \onslide<+->{x = a\sec(\theta)}
+    \onslide<+->{\quad\Rightarrow\quad
+    \sec(\theta)
+      = \frac{\text{hipotenusa}}{\text{cateto adjacente}}
+      = \frac{x}{a}}
+  \]
+
+  \addgraphic{6}{10,3}{exemplo_triangulo_3}
+
+  \onslide<+->{\[
+    \tan(\theta)
+    = \frac{\text{cateto oposto}}{\text{cateto adjacente}}
+    = \frac{\sqrt{x^2-a^2}}{a}
+  \]}
+
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{dx}{\sqrt{x^2-a^2}}                     \\[2mm]}
+    \onslide<+->{  & = \ln \abs{\sec(\theta)+ \tan(\theta)} + C           \\[2mm]}
+    \onslide<+->{  & = \ln \abs{\frac{x}{a}+ \frac{\sqrt{x^2-a^2}}{a}}+ C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.4 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
