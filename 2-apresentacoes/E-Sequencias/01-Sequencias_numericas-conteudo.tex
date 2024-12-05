@@ -1,4 +1,4 @@
-%------------------------------------------------------------------------------%
+  %------------------------------------------------------------------------------%
 
 \usepackage{integracao_e_series}
 
@@ -10,7 +10,7 @@
 \addtitle
 
 %------------------------------------------------------------------------------%
-\section{Definição e Convergência}
+\section{Definição}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Definição de Sequências}
@@ -35,6 +35,76 @@
   \column{0.5\textwidth}\centerline{\scalebox{0.9}{\input{fig_representation_axis}}}
 \end{columns}
 \end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 1}
+Dada a fórmula para o $n$-ésimo termo, $a_n$, de uma sequência $(a_n)$,\\
+encontre os valores de $a_1$, $a_2$, $a_3$ e $a_4$.
+\[
+  a_n = \frac{1-n}{n^2}
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+\begin{align*}
+  \onslide<+->{a_1 }
+  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=1}{} }
+  \onslide<+->{= \dfrac{\;1-1\;}{1^2} }
+  \onslide<+->{= 0              \\[3mm]}
+  \onslide<+->{a_2 }
+  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=2}{} }
+  \onslide<+->{= \dfrac{\;1-2\;}{2^2} }
+  \onslide<+->{= -\dfrac{1}{4}  \\[3mm]}
+  \onslide<+->{a_3 }
+  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=3}{} }
+  \onslide<+->{= \dfrac{\;1-3\;}{3^2} }
+  \onslide<+->{= -\dfrac{2}{9}  \\[3mm]}
+  \onslide<+->{a_4 }
+  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=4}{} }
+  \onslide<+->{= \dfrac{\;1-4\;}{4^2} }
+  \onslide<+->{= -\dfrac{3}{16}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+  Encontre uma fórmula explícita para o $n$-ésimo termo da sequência
+  \[
+    \left(0,\, 3,\, 8,\, 15,\, 24,\, \dots \right)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+  Sequência dos quadrados dos inteiros positivos menos um
+  \[
+    a_n = n^2-1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+  Verificando
+  \begin{align*}
+    \onslide<+->{a_1 & = (n^2-1)\evalat{n=1}{} = 1^2-1 = 1^2-1 = 0  \\}
+    \onslide<+->{a_2 & = (n^2-1)\evalat{n=2}{} = 2^2-1 = 2^2-1 = 3  \\}
+    \onslide<+->{a_3 & = (n^2-1)\evalat{n=3}{} = 3^2-1 = 3^2-1 = 8  \\}
+    \onslide<+->{a_4 & = (n^2-1)\evalat{n=4}{} = 4^2-1 = 4^2-1 = 15 \\}
+    \onslide<+->{a_5 & = (n^2-1)\evalat{n=5}{} = 5^2-1 = 5^2-1 = 24}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo 2}
+  \emph{Expressão alternativa}
+  \[
+    a_n = -\frac{1}{3}n^4 +\frac{10}{3}n^3 -\frac{32}{3}n^2 +\frac{50}{3}n -9
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Convergência}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência de Sequências}
@@ -149,11 +219,12 @@
     Sejam $(a_k)$ e $(b_k)$ sequências \emph{convergentes}, então temos as regras \\[4mm]
     \pause
     \begin{enumerate}[<+->]
-        \item $\lim (a_k+b_k) = \lim a_k + \lim b_k$                                                 \tabto{77mm} Soma                      \\[5mm]
-        \item $\lim (a_k-b_k) = \lim a_k - \lim b_k$                                                 \tabto{77mm} Diferença                 \\[5mm]
-        \item $\lim (c a_k)   = c\lim a_k,\quad \forall\; c\in\R$                                    \tabto{77mm} Multiplicação por escalar \\[5mm]
-        \item $\lim (a_k\,b_k)= (\lim a_k)(\lim b_k)$                                                \tabto{77mm} Produto                   \\[5mm]
-        \item \(\lim \frac{a_k}{b_k} = \frac{\lim a_k}{\lim b_k}\quad\) desde que $\;\lim b_k \neq 0$  \tabto{77mm} Quociente
+        \item $\lim (a_k+b_k) = \lim a_k + \lim b_k$                                                 \tabto{79mm} Soma                      \\[5mm]
+        \item $\lim (a_k-b_k) = \lim a_k - \lim b_k$
+        \tabto{79mm} Diferença                 \\[5mm]
+        \item $\lim (c a_k)   = c\lim a_k,\quad \forall\; c\in\R$                                    \tabto{79mm} Multiplicação por escalar \\[5mm]
+        \item $\lim (a_k\,b_k)= (\lim a_k)(\lim b_k)$                                                \tabto{79mm} Produto                   \\[5mm]
+        \item \(\lim \frac{a_k}{b_k} = \frac{\lim a_k}{\lim b_k}\quad\) desde que $\;\lim b_k \neq 0$  \tabto{79mm} Quociente
     \end{enumerate}
 \end{frame}
 
@@ -192,221 +263,19 @@
     \onslide<+->{& = -\frac{1}{5}}
   \end{align*}
 \end{frame}
-%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
-\section{Teoremas}
+\section{Lista Mínima}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Teorema do Confronto}
-  Sejam $(a_k)$, $(b_k)$ e $(c_k)$ tais que
-  \[
-   	\memph{a_k \;\leq\; b_k \;\leq\; c_k} \qquad\qquad \forall\; k > N
- 	\]
+\begin{frame}{Lista Mínima}
+  Estudar as Seções 5.1 e 5.2 da Apostila
 
-	\pause
-  \vspace{\baselineskip}
-  Se $\quad a_k\to L\quad$ e $\quad c_k\to L\quad$ então $\quad b_k\to L$
-\end{frame}
+  \vfill
+  Exercícios Seção 5.2: 3a-d, 4, 7, 11, 12, 13
 
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teorema do Confronto}
-  \centering
-  \scalebox{1}{\input{fig_teorema_confronto}}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teorema da Função Contínua}
-É verdade que \quad
-\emph{\(
-  \lim_{k\to \infty} f(a_k) = f\!\left(\lim_{k\to \infty} a_k\right)
-\)} \quad?
-
-\pause
-\vspace{2\baselineskip}
-Se $a_k$ é uma sequência numérica real convergente, $a_k\to L$, e\\[1mm]
-$f\colon D\subset\R\to\R$ é uma função real contínua em $D$,
-com $L\in D$
-então
-\[
-  \lim f(a_k) = f(L)
-\]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teorema da Função Contínua}
-  \begin{columns}
-    \column{0.5\textwidth}\centerline{\scalebox{0.8}{\input{fig_teorema_funcao_continua_1}}} \pause
-    \column{0.5\textwidth}\centerline{\scalebox{0.8}{\input{fig_teorema_funcao_continua_2}}}
-  \end{columns}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  Calcular \(\lim\cos(\alpha^k)=1\) com $0<\alpha<1$
-
-  \pause
-  \vspace{\baselineskip}
-  \qquad Sequência \( a_k = \alpha^k\)
-
-  \qquad Sabemos que \(\lim a_k=0\)
-
-  \pause
-  \qquad A função cosseno é contínua em zero
-
-  \pause
-  \vspace{0.5\baselineskip}
-  Portanto
-  \[
-    \lim\cos(\alpha^k)
-    = \lim\cos(a_k)
-    \pause
-    = \cos\big(\lim a_k\big)
-    \pause
-    = \cos(0)
-    \pause
-    = 1
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Limite de sequência definida por função}
-    Se $f$ é uma função real e \(a_k=f(k)\) então
-
-    \[
-    	\lim_{x\to\infty} f(x) = L \quad \Rightarrow \quad
-      \lim_{k\to\infty} a_k = L
-    \]
-
-    \pause
-    \vspace{\baselineskip}
-    Esse resultado nos permite usar a regra de l'Hôpital (em $x$)
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  Mostre que \( \lim\frac{1-5k^4}{k^4+8k^3} = -5 \)
-
-  \pause
-  A função
-  \[
-    f(x) = \frac{1-5x^4}{x^4+8x^3}
-  \]
-  está definida para todo $x>0$
-  \pause
-  e a sequência
-  \[
-    a_k = f(k)=\frac{1-5k^4}{k^4+8k^3}
-  \]
-  para todo $n > 0$
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  \onslide<+->{Assim podemos aplicar a regra de L'Hôpital}
-  \begin{align*}
-    \onslide<+->{\lim_{x\to\infty} \frac{1-5x^4}{x^4+8x^3}
-    & = \lim_{x\to\infty} \frac{-20x^3}{4x^3+24x^2} \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{-60x^2}{12x^2+48x}  \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{-120x}{24x+48}      \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} -\frac{120}{24}           \\[2mm]}
-    \onslide<+->{& = -5}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  Gráficos da função e da sequência
-  \centerline{\input{fig_exemplo_sequencia_por_funcao_racional}  }
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Sequências Limitadas}
-	Uma sequência $(a_k)$ é
-
-	\vspace{\baselineskip}
-	\emph{Limitada inferiormente} \tabto{50mm} se existe $m\in\R$ tal que \emph{$m\leq a_k$} para todo $k\in\N$
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Limitada superiormente} \tabto{50mm} se existe $M\in\R$ tal que \emph{$M\geq a_k$} para todo $k\in\N$
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Limitada}               \tabto{50mm} se é limitada superiormente e inferiormente
-
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Sequências Limitadas}
-\begin{columns}
-  \column{0.33\textwidth}
-  \begin{center}
-    \scalebox{0.9}{\input{fig_sequencia_limitada_1}} \\[5mm]
-    Limitada inferiormente
-  \end{center}
-  \column{0.33\textwidth}
-  \pause
-  \begin{center}
-    \scalebox{0.9}{\input{fig_sequencia_limitada_2}} \\[5mm]
-    Limitada superiormente
-  \end{center}
-  \column{0.33\textwidth}
-  \pause
-  \begin{center}
-    \scalebox{0.9}{\input{fig_sequencia_limitada_3}} \\[5mm]
-    Limitada
-  \end{center}
-\end{columns}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Sequências Crescentes e Decrescentes}
-	Uma sequência $(a_k)$ é
-
-	\vspace{\baselineskip}
-	\emph{Crescente}   \tabto{30mm} se \emph{$\;a_k \leq a_{k+1}\;$} para todo $k\in\N$
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Decrescente} \tabto{30mm} se \emph{$\;a_k \geq a_{k+1}\;$} para todo $k\in\N$
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Monótona}    \tabto{30mm} se é crescente ou decrescente
-\end{frame}
-
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Sequências Crescentes e Decrescentes}
-  \begin{columns}
-    \column{0.5\textwidth}
-    \begin{center}
-      \scalebox{0.9}{\input{fig_sequencia_monotona_1}} \\[5mm]
-      Crescente
-    \end{center}
-    \column{0.5\textwidth}
-    \pause
-    \begin{center}
-      \scalebox{0.9}{\input{fig_sequencia_monotona_2}} \\[5mm]
-      Decrescente
-    \end{center}
-  \end{columns}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência de sequência monótona}
-	Se uma sequência $(a_k)$ é \emph{limitada e monotônica}, então ela é \emph{convergente}
-
-	\pause
-	\vspace{2\baselineskip}
-	Importante porque permite decidir a convergência sem calcular o limite
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}
-  \tableofcontents
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%
