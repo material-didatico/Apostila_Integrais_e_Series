@@ -3,7 +3,7 @@
 \usepackage{integracao_e_series}
 \usepackage{cancel}
 
-\title {Séries Numéricas -- Definição e Exemplos}
+\title{Séries Numéricas -- Definição e Exemplos}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -58,10 +58,16 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência de uma Série}
     A \emph{soma da série} é $S$
-    \[ \sum_{n=1}^\infty a_n = S \]
+    \[
+      \sum_{n=1}^\infty a_n = S
+    \]
     quando a sequência de \emph{somas parciais} $(S_n)$ converge para $S$
     \pause
-    \[ \lim_{n\to\infty} S_n \;=\; \lim_{n\to\infty} \sum_{k=1}^n a_k \;=\; S \]
+    \[
+      \lim_{n\to\infty} S_n
+      \;=\; \lim_{n\to\infty} \sum_{k=1}^n a_k
+      \;=\; S
+    \]
     \pause
     Se sequência de somas parciais diverge a série \emph{diverge}
 \end{frame}
@@ -69,43 +75,50 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo}
     Somar os termos da sequência
-    \[ a_k = \frac{1}{2^{k-1}} \]
+    \[ a_k = \frac{1}{2^k} \]
 
     \pause
     \vspace{.5\baselineskip}
     \[
-    	a_1 = 1            \qquad\pause
-    	a_2 = \frac{1}{2}  \qquad\pause
-    	a_3 = \frac{1}{4}  \qquad\pause
-    	a_4 = \frac{1}{8}  \qquad\pause
-      a_5 = \frac{1}{16} \qquad\cdots
+    	a_1 = \frac{1}{2}  \qquad\pause
+    	a_2 = \frac{1}{4}  \qquad\pause
+    	a_3 = \frac{1}{8}  \qquad\pause
+      a_4 = \frac{1}{16} \qquad\pause
+      a_5 = \frac{1}{32} \qquad\pause\cdots
     \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Somas Parciais}
     \begin{align*}
-    	\action<+->{a_1 & = 1 &
-    		\qquad    S_1 & = 1 &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{1}   \\[2mm]}
-    	\action<+->{a_2 & = \frac{1}{2}       &
-    		\qquad    S_2 & = 1 + \frac{1}{2}   &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{2}   \\[2mm]}
-    	\action<+->{a_3 & = \frac{1}{4}       &
-    		\qquad    S_3 & = 1 + \frac{1}{2} + \frac{1}{4}               &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{4}   \\[2mm]}
-    	\action<+->{a_4 & = \frac{1}{8}       &
-    		\qquad    S_4 & = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} &  &
-    		\hspace{-20mm}  = 2 - \frac{1}{8}   \\[2mm]}
-    	\action<+->{a_n & = \frac{1}{2^{n-1}} &
-    		\qquad    S_n & = \sum_{k=1}^{n} \frac{1}{2^{k-1}}            &  &
-    		\hspace{-20mm}  = \emph{2 - \frac{1}{2^{n-1}} \quad (?) }}
+      \onslide<+->{a_1 & = \frac{1}{2}   & }
+      \onslide<+->{S_1 & = \frac{1}{2}                             &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{2}   \\[2mm]}
+    	\onslide<+->{a_2 & = \frac{1}{4}   & }
+      \onslide<+->{S_2 & = \frac{1}{2} + \frac{1}{4}               &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{4}   \\[2mm]}
+    	\onslide<+->{a_3 & = \frac{1}{8}   & }
+      \onslide<+->{S_3 & = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{8}   \\[2mm]}
+    	\onslide<+->{a_4 & = \frac{1}{16}  & }
+      \onslide<+->{S_4 & = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{16}   \\[7mm]}
+      \onslide<+->{a_n & = \frac{1}{2^n} & }
+      \onslide<+->{S_n & = \sum_{k=1}^{n} \frac{1}{2^k}        &  & }
+      \onslide<+->{\hspace{-17mm}  = \emph{1 - \frac{1}{2^n} \quad \text{(Conjectura)} }}
     \end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstração dor Indução Finita}
-	Para mostrar que uma afirmação é verdadeira para todo $n\in\N$ devemos provar que
+  Demonstração dor Indução Finita
+
+  \pause
+  \vspace{\baselineskip}
+	Para mostrar que uma afirmação é verdadeira para todo $n\in\N$
+
+  devemos provar que
+  \pause
 	\begin{enumerate}[<+->]
 		\item ela é verdadeira para $n=1$
 		\item se ela for verdadeira para $n$ então também será para $n+1$
@@ -114,45 +127,61 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstração da Fórmula das Somas Parciais}
-    Assumimos por \emph{indução finita} que
-    \quad
-    \(S_{n-1} = 2 - \frac{1}{2^{n-2}} \)
-    \quad
-    para um \emph{$n$ dado}
-    \pause
+\begin{columns}
+\column{0.5\linewidth}
+  Assumimos por \emph{indução finita} que
+  \quad
+  \[
+    S_{n-1} = 1 - \frac{1}{2^{n-1}}
+  \]
+  para um \emph{$n$ dado qualquer}
 
-    Queremos mostrar que
-    \quad
-    \(S_n = 2 - \frac{1}{2^{n-1}} \)
+  \pause
+  \vspace{\baselineskip}
+  Queremos mostrar que
+  \[
+    S_n = 1 - \frac{1}{2^n}
+  \]
 
-    \pause
-    \begin{align*}
-    	\action<+->{S_n & = 1 + \frac{1}{2}
-                            + \frac{1}{4}
-                            + \frac{1}{8}
-                            + \cdots
-                            + \frac{1}{2^{n-2}}
-                            + \frac{1}{2^{n-1}}} \\[2mm]
-    	\action<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = {\color<5->{blue}2 - \frac{1}{2^{n-2}}} + \frac{1}{2^{n-1}}\\[2mm]}
-    	\action<+->{& = 2 - \frac{2}{2^{n-1}} + \frac{1}{2^{n-1}}}
-    	\action<+->{\;=\; 2 - \frac{1}{2^{n-1}}}
-    \end{align*}
+  \pause
+  \column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{S_n & = \frac{1}{2}
+                       + \frac{1}{4}
+                       + \frac{1}{8}
+                       + \cdots
+                       + \frac{1}{2^{n-1}}
+                       + \frac{1}{2^n}} \\[2mm]
+      \onslide<+->{& = \left(\frac{1}{2}
+                     + \frac{1}{4}
+                     + \frac{1}{8}
+                     + \cdots
+                     + \frac{1}{2^{n-1}}\right)
+                     + \frac{1}{2^n}} \\[2mm]
+    \onslide<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = {\color<5->{blue}1 - \frac{1}{2^{n-1}}} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = 1 - \frac{2}{2^n} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = 1 - \frac{1}{2^n}}
+  \end{align*}
+\end{columns}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Calculando o Limite das Somas Parciais}
     \begin{align*}
-    	\action<+->{\lim_{n\to\infty} S_n & = \lim \left(2 - \frac{1}{2^{n-1}}\right) \\[2mm]}
-    	\action<+->{                      & = \lim 2 - \lim\frac{1}{2^{n-1}}          \\[2mm]}
-    	\action<+->{                      & = 2 - 0 = 2}
+    	\onslide<+->{\lim_{n\to\infty} S_n}
+      \onslide<+->{& = \lim \left(1 - \frac{1}{2^n}\right)     \\[2mm]}
+    	\onslide<+->{& = \lim 1 - \lim\left(\frac{1}{2}\right)^{\!\!n} \\[2mm]}
+    	\onslide<+->{& = 1 - 0 \\[2mm]}
+      \onslide<+->{& = 1}
     \end{align*}
 
-
-    \action<+->
+    \onslide<+->
     {
-        Portanto a série converge e podemos escrever
-        \[ \sum_{n=1}^{\infty} \frac{1}{\;2^{n-1}\;} = 2 \]
+      Portanto a série converge e podemos escrever
+      \[
+        \sum_{n=1}^{\infty} \frac{1}{\;2^n\;} = 2
+      \]
     }
 
 \end{frame}
@@ -185,11 +214,17 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência da Série Geométrica -- Caso 1}
-	Se $r=1$ temos
+	Se $r=1$
+  \pause
+  temos
 	\[
     S_n
     = \sum_{k=1}^{n} \alpha \,1^{k-1}
+    \pause
+    = \sum_{k=1}^{n} \alpha
+    \pause
     = \underbrace{\alpha + \cdots + \alpha}_{n \text{ vezes}}
+    \pause
     = n\alpha
   \]
 
@@ -202,12 +237,12 @@
 \begin{frame}{Convergência da Série Geométrica -- Caso 2}
 	Se $r\neq 1$ temos
 	\begin{align*}
-		\action<+->{S_n      & = \alpha  +    \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1}                \\[2mm]}
-		\action<+->{rS_n     & = \hspace{7mm} \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1} + \alpha r^{n} \\[2mm]}
-		\action<+->{S_n-rS_n & = \alpha - \alpha r^{n} \\[2mm]}
-		\action<+->{S_n(1-r) & = \alpha - \alpha r^{n}        }
+		\onslide<+->{S_n      & = \alpha  +    \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1}                \\[2mm]}
+		\onslide<+->{rS_n     & = \hspace{7mm} \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1} + \alpha r^{n} \\[2mm]}
+		\onslide<+->{S_n-rS_n & = \alpha - \alpha r^{n} \\[2mm]}
+		\onslide<+->{S_n(1-r) & = \alpha - \alpha r^{n}        }
 	\end{align*}
-	\action<+->{
+	\onslide<+->{
     \[
       S_n = \frac{\alpha (1-r^n)}{1-r} \qquad\qquad (r\neq 1)
     \]
@@ -216,15 +251,25 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Calculando o Limite}
-	Com $r\neq 1$, temos \(S_n = \frac{\alpha(1-r^n)}{1-r}\), portanto
-	\vspace{\baselineskip}
+	Com $r\neq 1$, temos \(S_n = \frac{\alpha(1-r^n)}{1-r}\),
+  \pause
+  portanto
+  \[
+    \lim S_n
+    \pause
+    = \lim \frac{\alpha(1-r^n)}{1-r}
+    \pause
+    = \frac{\alpha}{1-r} -\frac{\alpha}{1-r} \lim r^n
+  \]
+  \pause
+  \vspace{-\baselineskip}
 	\begin{description}
 		\item[$r=-1$] \tabto{10mm}
-		\onslide<2->{$r^n=(-1)^n\;$ diverge quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
+		\onslide<6->{$r^n=(-1)^n\;$ diverge quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
 		\item[$\abs{r}>1$] \tabto{10mm}
-		\onslide<3->{$\abs{r^n}\to\infty$ quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
+		\onslide<7->{$\abs{r^n}\to\infty$ quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
 		\item[$\abs{r}<1$] \tabto{10mm}
-		\onslide<4->{$r^n\to 0$ quando $n\to\infty$ portanto \( S_n \to \frac{\alpha}{1-r} \)}
+		\onslide<8->{$r^n\to 0$ quando $n\to\infty$ portanto \( S_n \to \frac{\alpha}{1-r} \)}
 	\end{description}
 \end{frame}
 
@@ -350,9 +395,9 @@
 	\pause
 	Calculando
 	\begin{align*}
-		\action<+->{\lim a_n & = \lim(S_n-S_{n-1})       \\}
-		\action<+->{         & = \lim S_n - \lim S_{n-1} \\}
-		\action<+->{         & = S - S = 0}
+		\onslide<+->{\lim a_n & = \lim(S_n-S_{n-1})       \\}
+		\onslide<+->{         & = \lim S_n - \lim S_{n-1} \\}
+		\onslide<+->{         & = S - S = 0}
 	\end{align*}
 \end{frame}
 
@@ -362,9 +407,25 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\contentsname}
-  \tableofcontents
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar as Seções 6.1 , 6.2 e 6.3 da Apostila
+
+  \vfill
+  Exercícios:
+
+  \quad Seção 6.1: 1, 2, 4a-c, 6a-b, 8a-c, 10, 11a-b
+
+  \quad Seção 6.2: 1
+
+  \quad Seção 6.3: 3a-d
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
+
 
 %------------------------------------------------------------------------------%
 \end{document}
