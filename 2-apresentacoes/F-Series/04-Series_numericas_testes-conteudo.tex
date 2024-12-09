@@ -1,0 +1,78 @@
+%------------------------------------------------------------------------------%
+
+\usepackage{integracao_e_series}
+\usepackage{cancel}
+
+\title{Séries Numéricas -- Testes de Convergência}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+  \addtitle
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Testes da Divergência}
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Testes de Convergência}
+  \begin{itemize}[<+->]
+    \item Em geral não temos uma fórmula fechada para $S_n$ \\[2mm]
+    \item Queremos saber se a série converge \\[2mm]
+    \item Abrimos mão de calcular sua soma exata \\[2mm]
+    \item Podemos calcular aproximações computacionalmente
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Termo Geral de uma Serie Convergente}
+  Como somamos infintos termos se eles não forem ``pequenos'' a série não converge
+
+  \pause
+  \vspace{\baselineskip}
+  Para que \(\;\sum_{n=1}^\infty a_n\;\) seja convergente $a_n$ precisa ir para zero
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limite do Termo Geral}
+
+  Se a série \(\sum_{n=1}^\infty a_n\) é convergente, então $a_n\to 0$
+
+  \pause
+  \vspace{\baselineskip}
+  Como a série converge
+  \[ \lim S_n  = S \]
+
+  \pause
+  Calculando
+  \begin{align*}
+    \onslide<+->{\lim a_n & = \lim(S_n-S_{n-1})       \\}
+    \onslide<+->{         & = \lim S_n - \lim S_{n-1} \\}
+    \onslide<+->{         & = S - S = 0}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Divergência}
+  Se a sequência $a_n$ não converge para zero, então a série $\sum a_n$ diverge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar as Seção 6.3 da Apostila
+
+  \vspace{\baselineskip}
+  Exercícios: 3a-d
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
