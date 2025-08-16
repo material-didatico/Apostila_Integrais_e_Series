@@ -1,0 +1,155 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova 3 -- Turma 8}{10/09/2024}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Determine se a série
+\(
+  \sum_{n=1} \frac{n-2}{n^3-n^2+3}
+\)
+covnerge ou diverge.
+Explicite o teste usado.
+
+\begin{answer}
+  Vamos usar o teste da comparação no limite, comparando com a série
+  \[
+    \sum_{n=1} \frac{1}{n^2}
+  \]
+  que é uma série convergente pois é uma série $p$ com $p=2>1$.
+
+  \vspace{\baselineskip}
+  Calculando o limite
+  \begin{align*}
+    L
+    & = \lim_{n\to\infty} \frac{n-2}{n^3-n^2+3} \left(\frac{1}{n^2}\right)^{-1} \\[2mm]
+    & = \lim_{n\to\infty} \frac{(n-2)n^2}{n^3-n^2+3} \\[2mm]
+    & = \lim_{n\to\infty} \frac{n^3-2n^2}{n^3-n^2+3} \\[2mm]
+    & = \lim_{n\to\infty} \frac{1-\sfrac{2}{n}}{1-\sfrac{1}{n}+\sfrac{3}{n^3}} \\[2mm]
+    & = 1
+  \end{align*}
+
+  Como o $L=1>0$ a série
+  \(
+    \sum_{n=1} \frac{n-2}{n^3-n^2+3}
+  \)
+  converge.
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Determine o interior do intervalo onde a série
+\(
+  \sum_{n=1}^\infty \frac{(-1)^n(x+2)^n}{n}
+\)
+converge.
+
+\begin{answer}
+  Vamos aplicar o teste da razão (seria possível aplicar o teste da raiz também).
+
+  O termo geral da série é
+  \[
+    u_n = \frac{(-1)^n(x+2)^n}{n}
+  \]
+  seu sucessor é
+  \[
+    u_{n+1} = \frac{(-1)^{n+1}(x+2)^{n+1}}{n+1}
+  \]
+  Calculando o quociente dos módulos
+  \begin{align*}
+    \frac{\abs{u_{n+1}}}{\abs{u_n}}
+    & = \abs{\frac{(-1)^{n+1}(x+2)^{n+1}}{n+1}} \; \abs{\frac{n}{(-1)^n(x+2)^n}} \\[2mm]
+    & = \frac{\abs{x+2}^{n+1}}{n+1} \; \frac{n}{\abs{x+2}^n} \\[2mm]
+    & = \frac{\abs{x+2}n}{n+1}
+  \end{align*}
+  Calculando o limite
+  \[
+    \rho
+    = \lim_{n\to\infty} \frac{\abs{u_{n+1}}}{\abs{u_n}}
+    = \lim_{n\to\infty} \frac{\abs{x+2}n}{n+1}
+    = \abs{x+2} \lim_{n\to\infty} \frac{n}{n+1}
+    = \abs{x+2}
+  \]
+  A condição de convergência do teste da razão é $\rho<1$ portanto
+  \begin{align*}
+    \rho & < 1 \\
+    \abs{x+2} & < 1 \\
+    -1 < x+2 & < 1 \\
+    -1 -2 < x & < 1 - 2 \\
+    -3 < x & < -1
+  \end{align*}
+  A série converge absolutamente no intervalo \((-3, -1)\).
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a integral indefinida da função
+\(
+  f(x) = \sum_{n=0}^\infty \frac{(n!)^2x^n}{2^n(2n)!}
+\)
+
+\begin{answer}
+  \begin{align*}
+    I
+    & = \int \left(\sum_{n=0}^\infty \frac{(n!)^2x^n}{2^n(2n)!}\right) dx \\[2mm]
+    & = \sum_{n=0}^\infty \left(\int \frac{(n!)^2x^n}{2^n(2n)!} dx\right) \\[2mm]
+    & = \sum_{n=0}^\infty \frac{(n!)^2}{2^n(2n)!} \int x^n dx \\[2mm]
+    & = C + \sum_{n=0}^\infty \frac{(n!)^2}{2^n(2n)!} \frac{x^{n+1}}{n+1} \\[2mm]
+    & = C + \sum_{n=0}^\infty \frac{(n!)^2x^{n+1}}{2^n(n+1)(2n)!}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Encontre a Série de Taylor, centrada em 2, da função \( f(x) = e^x \)
+
+\begin{answer}
+  Calculando as derivadas de
+  \( f(x) = e^x\)
+  temos
+  \[
+    f^{(n)}(x) = e^x
+  \]
+  Avaliando em $x=2$ temos
+  \[
+    f^{(n)}(2) = e^2
+  \]
+  O coeficiente da Série de Taylos será
+  \[
+    c_n
+    = \frac{f^{(n)}(2)}{n!}
+    = \frac{e^2}{n!}
+  \]
+  A Série de Taylor é
+  \[
+    \sum_{n=0}^\infty c_n (x-1)^n
+    = \sum_{n=0}^\infty \frac{e^2}{n!} (x-2)^n
+  \]
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

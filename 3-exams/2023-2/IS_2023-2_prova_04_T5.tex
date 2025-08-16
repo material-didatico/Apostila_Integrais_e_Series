@@ -1,0 +1,151 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 4 -- Turma 5}{12/12/2023}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{30}
+Calcule a Série de Taylor da função
+\(
+  f(x) = \int e^{-x^2} dx
+\)
+
+\begin{answer}
+  Sabemos que a Série de Taylor da função exponencial é
+  \[
+    e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+  \]
+  Primeiro calculamos a Série de Taylor da função
+  \[
+    e^{-x^2}
+    = \sum_{n=0}^\infty \frac{\left(-x^2\right)^n}{n!}
+    = \sum_{n=0}^\infty \frac{(-1)^n}{n!} x^{2n}
+  \]
+  Agora integramos
+  \begin{align*}
+    f(x)
+    & = \int e^{-x^2} dx \\[2mm]
+    & = \int \sum_{n=0}^\infty \frac{(-1)^n}{n!} x^{2n} \;dx \\[2mm]
+    & = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \int x^{2n} dx \\[2mm]
+    & = C + \sum_{n=0}^\infty \frac{(-1)^n}{n!} \frac{x^{2n+1}}{2n+1} \\[2mm]
+    & = C + \sum_{n=0}^\infty \frac{(-1)^nx^{2n+1}}{(2n+1)n!}
+  \end{align*}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{40}
+Seja \( f(x) = \ln(x+1)\)
+\begin{enumerate}
+  \item[{a) [12]}] Encontre um padrão para \(f^{(n)}(x)\)
+  \item[{b) [14]}] Usando o padrão do item anterior, encontre a
+                   Serie de Taylor de $f(x)$, centrada em zero
+  \item[{c) [14]}] Obtenha o raio de convergência da série de potências
+\end{enumerate}
+
+\begin{answer}
+  \begin{enumerate}[label=\alph*)]
+    \item Calculando as primeiras derivadas
+    \begin{align*}
+      f^{(0)}(x) & = \ln(x+1) \\[2mm]
+      f^{(1)}(x) & = \frac{\,d\;}{\,dx\;}\ln(x+1) = \frac{1}{x+1}(x+1)' = (x+1)^{-1} \\[2mm]
+      f^{(2)}(x) & = \frac{d^2}{dx^2}    \ln(x+1) =    -                  (x+1)^{-2} \\[2mm]
+      f^{(3)}(x) & = \frac{d^3}{dx^3}    \ln(x+1) = \hpm 2              \,(x+1)^{-3} \\[2mm]
+      f^{(4)}(x) & = \frac{d^4}{dx^4}    \ln(x+1) =    - 2\cdot 3       \,(x+1)^{-4} \\[2mm]
+      f^{(5)}(x) & = \frac{d^5}{dx^5}    \ln(x+1) = \hpm 2\cdot 3\cdot 4\,(x+1)^{-5}
+    \end{align*}
+    Vemos que, para $\bm{n\geq1}$,
+    \[
+      f^{(n)}(x)
+      = \frac{d^n}{dx^n} \ln(x+1)
+      = (-1)^{n+1} (n-1)! (x+1)^{-n}
+      = \frac{(-1)^{n+1} (n-1)!}{(x+1)^n}
+    \]
+    \item O primeiro coeficiente, $n=0$, da Série de Taylor é
+      \[
+        c_0 = \frac{\ln(0+1)}{0!} = \frac{0}{1} = 0
+      \]
+      portanto, a série começa com $n=1$.
+      Os demais coeficientes, $n\geq 1$, são
+      \[
+        c_n
+        = \frac{f^{(n)}(0)}{n!}
+        = \frac{(-1)^{n+1} (n-1)!}{(0+1)^nn!}
+        = \frac{(-1)^{n+1}}{n}
+      \]
+      Montando a série temos
+      \[
+        T(x)
+        = \sum_{n=0}^\infty c_n x^n
+        = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} x^n
+      \]
+      \item Aplicando o Teste da Razão temos
+      \begin{align*}
+        \rho
+        & = \lim_{n\to\infty} \frac{\abs{u_{n+1}}}{\abs{u_n}} \\[2mm]
+        & = \lim_{n\to\infty} \abs{\frac{(-1)^{n+2} x^{n+1}}{n+1}} \abs{\frac{n}{(-1)^{n+1} x^n}} \\[2mm]
+        & = \lim_{n\to\infty} \frac{\abs{x}^{n+1}}{n+1} \frac{n}{\abs{x}^n} \\[2mm]
+        & = \lim_{n\to\infty} \frac{n}{n+1} \abs{x}\\[2mm]
+        & = \abs{x} \lim_{n\to\infty} \frac{n}{n+1}\\[2mm]
+        & = \abs{x}
+      \end{align*}
+      Impondo a condição de convergência $\rho<1$ temos
+      \[
+        \rho = \abs{x} < 1
+      \]
+      portanto o raio de convergência é $R=1$
+
+
+  \end{enumerate}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{30}
+Prove que a série de Maclaurin de $e^x$
+converge para a própria função, para todo $x\in\R$
+
+\begin{answer}
+  Pelo \textbf{Teorema de Taylor}, sabemos que o erro cometido ao aproximarmos
+  $e^x$ pelo seu polinômio de Taylor centrado em zero de grau $n$ é
+  \[
+    R_n(x) = \frac{\exp^{(n+1)}(\xi)}{(n+1)!} \, x^{n+1}
+  \]
+  para algum $\xi$ entre zero e $x$.
+  Como $\exp^{(k)}(x) = e^x$, para qualquer $k\in\N$, temos que
+  \[
+    \abs{\exp^{(k)}(t)} \leq e^{\abs{x}}
+  \]
+  para todo $k\in\N$ e $\abs{t}\leq\abs{x}$.
+  Portanto, para todo \(x\in\R\)
+  \[
+    \abs{R_n(x)}
+    = \frac{\abs{\exp^{(n+1)}(\xi)}}{(n+1)!}\abs{x^{n+1}}
+    \leq \frac{e^{\abs{x}}}{(n+1)!}\abs{x^{n+1}}
+  \]
+  Calculando o limite
+  \[
+    \lim_{n\to\infty} \frac{e^{\abs{x}}}{(n+1)!}\abs{x^{n+1}}
+    = e^{\abs{x}}\abs{x^{n+1}} \lim_{n\to\infty} \frac{1}{(n+1)!}
+    = e^{\abs{x}}\abs{x^{n+1}} \cdot 0
+    = 0
+  \]
+  podemos usar o \textbf{Teorema do Confronto} para mostrar que \(R_n(x)\)
+  vai para zero, quando $n$ vai para o infinito.
+  Portanto, a série converge para a função.
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

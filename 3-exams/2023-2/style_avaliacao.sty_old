@@ -1,0 +1,199 @@
+%------------------------------------------------------------------------------%
+
+% Pacotes para escrever em português
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{ae}
+\usepackage{icomma}
+
+%--------------------------------------------------------------------------------------------------%
+
+% Pacote para controlar as margens da página
+\usepackage[margin=20mm]{geometry}
+
+% Pacote para escrever em duas colunas
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\newlist{alphalist}{enumerate}{1}
+\setlist[alphalist,1]{label={\alph*)},itemindent=1em,leftmargin=2em}
+
+\setlength{\parindent}{0cm}
+\renewcommand{\baselinestretch}{1.3}
+\pagestyle{empty}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+% Math packages and definitions
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{latexsym}
+\RequirePackage{bm}
+\RequirePackage{systeme}
+\RequirePackage{xfrac}
+\RequirePackage{mathtools}
+\RequirePackage{nccmath}
+\RequirePackage{array}
+
+\everymath{\displaystyle}
+\allowdisplaybreaks
+
+
+% Translating mathematical function names to Portuguese
+\let\sin\relax
+\let\csc\relax
+\let\tan\relax
+\let\cot\relax
+
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\tan}{tg}
+\DeclareMathOperator{\cot}{cot}
+\DeclareMathOperator{\csc}{cossec}
+\let\sinh\relax
+\let\tanh\relax
+\let\coth\relax
+
+\DeclareMathOperator{\sinh}{senh}
+\DeclareMathOperator{\tanh}{tgh}
+\DeclareMathOperator{\coth}{coth}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{cossech}
+
+\let\arcsin\relax
+\let\arctan\relax
+
+\DeclareMathOperator{\arcsin}{arcsen}
+\DeclareMathOperator{\arctan}{arctg}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccossec}
+\DeclareMathOperator{\sinc}{sinc}
+
+% Common numerical sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\let\Re\relax  \DeclareMathOperator{\Re}{Re}
+\let\Im\relax  \DeclareMathOperator{\Im}{Im}
+
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\inv}{inv}
+
+% Command to define minor complement
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\minor}[1]{\overbar{#1}}
+
+\let\parallel\relax
+\newcommand{\parallel}{\mathbin{\!/\mkern-5mu/\!}}
+
+\newcommand{\st}{\mathrel{}\big/\mathrel{}}
+
+\DeclarePairedDelimiter{\abs}    {\lvert} {\rvert}
+\DeclarePairedDelimiter{\norm}   {\lVert} {\rVert}
+\DeclarePairedDelimiter{\ceil}   {\lceil} {\rceil}
+\DeclarePairedDelimiter{\floor}  {\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\dotprod}{<}      {>}
+
+\let\oldabs\abs         \def\abs    {\@ifstar{\oldabs}    {\oldabs*}}
+\let\oldnorm\norm       \def\norm   {\@ifstar{\oldnorm}   {\oldnorm*}}
+\let\oldceil\ceil       \def\ceil   {\@ifstar{\oldceil}   {\oldceil*}}
+\let\oldfloor\floor     \def\floor  {\@ifstar{\oldfloor}  {\oldfloor*}}
+\let\olddotprod\dotprod \def\dotprod{\@ifstar{\olddotprod}{\olddotprod*}}
+
+% Define the evaluation operator
+\newcommand{\evalat}[2]{\bigg\rvert_{#1}^{#2}}
+
+\newcommand{\ddfrac}[2]{\dfrac{\displaystyle {#1}}{\displaystyle {#2}}}
+\newcommand{\ep}{\hphantom{+}}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+% International System of Units
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+
+\RequirePackage{siunitx}
+
+\sisetup{output-decimal-marker={,}}
+
+\newcommand{\reais}[1]{%
+  \SI[round-precision=2,
+  round-mode=places,
+  round-integer-to-decimal]{#1}[R\$\,]{}%
+}
+%------------------------------------------------------------------------------%
+
+\newcounter{TestNumber}
+\newcounter{ExerciseNumber}[TestNumber]
+\newcounter{ExerciseItemNumber}[ExerciseNumber]
+
+%------------------------------------------------------------------------------%
+
+\newcommand{\messages}
+{
+\begin{enumerate}[itemsep=-2pt,parsep=0pt]
+    \item Não é permitido o uso de celulares, calculadoras ou dispositivos eletrônicos!
+    \item A avaliação é individual e não é permitida consulta!
+    \item Não utilize caneta vermelha ou corretivo!
+    \item Todas as respostas devem ser devidamente justificadas!
+    \item Não pule passagens e use a notação matemática correta!
+\end{enumerate}
+}
+
+\newcommand{\makeHeader}[3]{%
+\stepcounter{TestNumber}
+\clearpage
+\begin{flushleft}
+  {\sc \large {#1} -- {#2} } \hfill {\small {#3}} \\
+  \vspace{\baselineskip}
+  {\sc Nome \hrulefill }\\
+\end{flushleft}
+\messages\par
+}
+
+\newcommand{\selfEvaluation}[1]{
+\begin{itemize}[label={\large $\square$}]
+    \item Segundo minha auto avaliação, considero que devo receber {#1}
+    pontos como nota total desta prova.
+    Assinatura  \hrulefill
+\end{itemize}
+}
+
+%------------------------------------------------------------------------------%
+
+\newcommand{\exercise}[1]{\par%
+  \vspace{\baselineskip}%
+  \noindent%
+  \stepcounter{ExerciseNumber}%
+  \null\hspace{-5mm}\makebox[5mm][r]{\textbf{{\theExerciseNumber}}} \makebox[7mm][r]{{\small [{#1}]}}
+}
+
+\newcommand{\exerciseItem}[1]{\par%
+  \stepcounter{ExerciseItemNumber}%
+  \makebox[5mm][r]{\textbf{{\alph{ExerciseItemNumber}}} \makebox[5mm][r]{{\small [{#1}]}}}%
+  \hspace{1mm}
+}
+
+\abovedisplayskip=-50pt
+
+%------------------------------------------------------------------------------%
+\usepackage{graphicx}
+
+\makeatletter
+\graphicspath  {{./figs/}}
+\def\input@path{{./figs/}}
+\makeatother
+
+%------------------------------------------------------------------------------%
+

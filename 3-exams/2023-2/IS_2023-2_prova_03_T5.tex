@@ -1,0 +1,243 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 3 -- Turma 5}{09/11/2023}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Considerando a série
+\[
+  \sum_{n=1}^{\infty} \frac{5}{n^2 + 5n + 6}
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Calcule a soma da série
+  \item Calcule o valor do erro ao aproximar a soma por \(S_{100}\)
+\end{enumerate}
+
+\begin{answer}
+  \begin{enumerate}[label=\alph*)]
+    \item Vamos verificar que a série é telescópica.
+
+    Calculando as raízes de \(x^2 + 5x + 6=0\), temos
+    \[
+      \Delta
+      = b^2 - 4ac
+      = 5^2 - 4\times 1\times 6
+      = 25 - 24
+      = 1
+    \]
+    \[
+      x
+      = \frac{-b\pm \sqrt{\Delta}}{2a}
+      = \frac{-5\pm 1}{2}
+      \qquad
+      x_1 = \frac{-6}{2} = -3
+      \qquad
+      x_2 = \frac{-4}{2} = -2
+    \]
+    Portanto
+    \[
+      x^2 + 5x + 6 = (x+2)(x+3)
+    \]
+    e podemos escrever o termo geral da série como
+    \[
+      a_n
+      = \frac{5}{n^2 + 5n + 6}
+      = \frac{5}{(n+2)(n+3)}
+    \]
+    Usando frações parciais
+    \[
+      \frac{5}{(n+2)(n+3)}
+      = \frac{A}{n+2} + \frac{B}{n+3}
+      = \frac{A(n+3) + B(n+2)}{(n+2)(n+3)}
+    \]
+    Portanto
+    \[
+      5
+      = A(n+3) + B(n+2)
+      = An + 3A + Bn + 2B
+      = (A+B)n + (3A+2B)
+    \]
+    \[
+      \systeme[AB]
+      {
+        A+B=0,
+        3A+2B=5
+      }
+    \]
+    \[
+      B = -A
+      \qquad\qquad
+      3A-2A = 5
+      \qquad\qquad
+      A = 5
+      \qquad\qquad
+      B = -5
+    \]
+    Assim
+    \[
+      a_n = \frac{5}{n+2} - \frac{5}{n+3}
+    \]
+    O que comprova que a série é telescópica. Consequentemente, as somas parciais são
+    \[
+      S_n = \frac{5}{3} - \frac{5}{n+3}
+    \]
+    Calculando o limite
+    \[
+      S
+      = \lim_{n\to\infty} S_n
+      = \lim_{n\to\infty} \frac{5}{3} - \frac{5}{n+3}
+      = \frac{5}{3}
+    \]
+    \item
+    \[
+      R_{100}
+      = S - S_{100}
+      = \frac{5}{3} - \left(\frac{5}{3} - \frac{5}{100+3}\right)
+      = \frac{5}{103}
+    \]
+  \end{enumerate}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule o limite da sequência
+\(
+a_n = \begin{cases}
+  \frac{n}{\pi-n^2}, & \; n \text{ par}   \\[2mm]
+  \;\;\; 2^{-n},    & \; n \text{ ímpar}
+\end{cases}
+\)
+
+\begin{answer}
+  Observando que
+  \(\frac{n}{\pi-n^2}<0\) para todo \(n>1\) e
+  \(2^{-n}\) é sempre positivo, temos que, para \(n>1\),
+  \[
+    \frac{n}{\pi-n^2} \;\leq\; a_n \;\leq\; 2^{-n}
+  \]
+  Como
+  \[
+    \lim_{n\to\infty} \frac{n}{\pi-n^2}
+    = \lim_{n\to\infty} \frac{\sfrac{1}{n}}{\sfrac{\pi}{n}-1}
+    = 0
+  \]
+  e
+  \[
+    \lim_{n\to\infty} 2^{-n}
+    = \lim_{n\to\infty} \left(\frac{1}{2}\right)^n
+    = 0
+  \]
+  o \textbf{Teorema do Confronto} garante que \(\lim_{n\to 0} a_n = 0\)
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Verifique se a série converge
+\[
+  \sum_{n=1}^\infty \frac{\sin^2(n)}{n^\pi}
+\]
+
+\begin{answer}
+  Como os termos são não-negativos podemos usar o teste da comparação.
+  Observando que
+  \(
+    \sin^2(n) \leq 1
+  \)
+  temos que
+  \[
+    a_n = \frac{\sin^2(n)}{n^\pi} \leq \frac{1}{n^\pi}
+  \]
+  Como \(b_n = \frac{1}{n^\pi} \) são os termos de uma $p$-série convergente
+  (\(p=\pi>1\))
+  o teste da comparação garante que a série
+  \[
+    \sum_{n=1}^\infty \frac{\sin^2(n)}{n^\pi}
+  \]
+  converge.
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Use o teste da integral para verificar se a soma da série existe
+\[
+  \sum_{n=1}^{\infty} n e^{-n^2}
+\]
+Não se esqueça de verificar que as condições do teste são satisfeitas.
+
+\begin{answer}
+  Vamos usar a função real
+  \[
+    f(x) = x e^{-x^2}
+  \]
+
+  Precisamos verificar as três condições do teste
+  \begin{enumerate}[label=\roman*)]
+    \item \(f(x)>0\) em \([1, \infty)\) \\[2mm]
+      Como a exponencial é sempre positiva e \(x\geq 1\) temos que \(f(x)>0\)
+
+  \item \(f(x)\) é contínua em \([1, \infty)\) \\[2mm]
+    Como a exponencial é contínua, \(f(x)\) é contínua em \(\R\)
+
+  \item \(f(x)\) é decrescente em  \([1, \infty)\) \\[2mm]
+    A derivada de \(f(x)\) é
+    \begin{align*}
+    f'(x)
+    & = (x)'e^{-x^2} + x \left(e^{-x^2}\right)' \\
+    & = e^{-x^2} + x e^{-x^2} \left(-x^2\right)' \\
+    & = e^{-x^2} + x e^{-x^2} \left(-2x\right) \\
+    & = e^{-x^2} -2 x^2 e^{-x^2} \\
+    & = e^{-x^2}\left(1 -2 x^2\right)
+    \end{align*}
+    portanto \(f'(x)<0\) para \(x>1\), assim \(f\) é decrescente no intervalo \([1, \infty)\)
+  \end{enumerate}
+  Calculando agora a primitiva de \(f\)
+  \[
+    F(x) = \int x e^{-x^2} dx
+  \]
+  Fazendo a mudança de variáveis
+  \[
+    u = -x^2
+    \qquad
+    du = -2xdx
+    \qquad
+    dx = \frac{du}{-2x}
+  \]
+  \[
+    F(x)
+    = \int x e^{-x^2} dx
+    = \int x e^{u} \frac{du}{-2x}
+    = \frac{-1}{2} \int e^{u} du
+    = \frac{-e^u}{2} + c
+    = \frac{-e^{-x^2}}{2} + c
+  \]
+  Calculando a integral imprópria
+  \[
+    A
+    = \int_1^\infty f(x) dx
+    = \lim_{b\to\infty}\int_1^b f(x)dx
+    = \lim_{b\to\infty} F(x)\evalat{1}{b}
+    = \lim_{b\to\infty} \left(\frac{-e^{-b^2}}{2} - \frac{-e^{-1^2}}{2}\right)
+    = \frac{e^{-1}}{2}
+    = \frac{1}{2e}
+  \]
+  Como a integral converge a série também converge e portanto sua soma existe.
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

@@ -1,0 +1,150 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova Substitutiva -- Turma 8}{13/09/2024}
+
+\textbf{O exercício correspondente a prova que será substituida vale 50 pontos}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule o volume do sólido formado pela rotação da região entre as curvas
+\[
+y = x+2 \qquad
+y = x^2
+\]
+em torno da reta \(x=-1\).
+
+\begin{answer}
+  Vamos usar cascas cilíndricas, para isso precisamos encontrar o raio e a
+  altura da casca cilindica
+  \[
+    r(x) = x - (-1) = x + 1
+  \]
+  \[
+    h(x) = (x + 2) - x^2 = 2 + x - x^2
+  \]
+  O intervalo de integração, \([a, b]\), vai ser entre os pontos
+  comuns entre as curvas \(y=x+2\) e \(y=x^2\),
+  ou seja \(a=0\) e
+  \begin{align*}
+    (x + 2) & = x^2 \\
+    x^2 - x - 2 = 0
+  \end{align*}
+  \[
+    \Delta
+    = b^2-4ac
+    = (-1)^2 - 4(1)(-2)
+    = 9
+    \qquad\qquad
+    \sqrt{\Delta} = 3
+  \]
+  \[
+    x
+    = \frac{-b\pm\sqrt{\Delta}}{2a}
+    = \frac{-(-1)\pm 3}{2\times 1}
+    = \frac{1\pm 3}{2}
+  \]
+  portanto
+  \[
+    x_1 = \frac{1-3}{2} = \frac{-2}{2} = -1
+    \qquad
+    x_2 = \frac{1+3}{2} = \frac{4}{2} = 2
+  \]
+  O intervalo de integração é \([-1, 2]\)
+
+  \vspace{\baselineskip}
+  Calculando o volume
+    \begin{align*}
+      V
+      & = \int_a^b 2\pi \;r(x) \;h(x)\; dx  \\[2mm]
+      & = 2\pi \int_{-1}^2 (x + 1) (2 + x - x^2) dx  \\[2mm]
+      & = 2\pi \int_{-1}^2 2x + x^2 - x^3 + 2 + x - x^2  dx \\[2mm]
+      & = 2\pi \int_{-1}^2 2 + 3x -x^3 dx \\[2mm]
+      & = 2\pi \left(2x + 3\frac{x^2}{2} - \frac{x^4}{4}\right) \evalat{-1}{2} \\[2mm]
+      & = 2\pi \left(
+                 \left[2\times 2 + 3\frac{2^2}{2} - \frac{2^4}{4}\right] -
+                 \left[2(-1) + 3\frac{(-1)^2}{2} - \frac{(-1)^4}{4}\right]
+               \right) \\[2mm]
+      & = 2\pi \left(
+                 \left[4 + 6 - 4\right] -
+                 \left[-2 + \frac{3}{2} - \frac{1}{4}\right]
+               \right) \\[2mm]
+      & = 2\pi \left( 6 - \frac{-8 + 6 - 1}{4} \right) \\[2mm]
+      & = 2\pi \left( \frac{24+3}{4} \right) \\[2mm]
+      & = \frac{27\times 2\pi}{4} \\[2mm]
+      & = \frac{27\pi}{2}
+    \end{align*}
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a integral
+\(
+  \int_1^e x^3\ln(x) dx
+\)
+
+\begin{answer}
+  Para calcular a primitiva
+  \[
+    F(x) = \int x^3\ln(x) dx
+  \]
+  vamos usar integração por partes com
+  \[
+    u = \ln(x) \qquad du = \frac{dx}{x} \qquad\qquad
+    dv = x^3dx \qquad v = \frac{x^4}{4}
+  \]
+  obtendo
+  \begin{align*}
+    F(x)
+    & = \int x^3\ln(x) dx \\[2mm]
+    & = \ln(x)\frac{x^4}{4} - \int \frac{x^4}{4} \frac{dx}{x} \\[2mm]
+    & = \frac{x^4\ln(x)}{4} - \frac{1}{4} \int x^3 dx  \\[2mm]
+    & = \frac{x^4\ln(x)}{4} - \frac{1}{4} \frac{x^4}{4} + C  \\[2mm]
+    & = \frac{x^4}{4}\left(\ln(x) - \frac{1}{4}\right) + C
+  \end{align*}
+  Agora podemos calcular
+  \begin{align*}
+    I
+    & = \int_1^e x^3\ln(x) dx \\[2mm]
+    & = F(x)\evalat{1}{e} \\[2mm]
+    & = \left(\frac{x^4}{4}\left(\ln(x) - \frac{1}{4}\right)\right)\evalat{1}{e} \\[2mm]
+    & = \left(\frac{e^4}{4}\left(\ln(e) - \frac{1}{4}\right)\right)
+      - \left(\frac{1^4}{4}\left(\ln(1) - \frac{1}{4}\right)\right) \\[2mm]
+    & = \frac{e^4}{4}\left(1 - \frac{1}{4}\right)
+      - \frac{1}{4}\left(0 - \frac{1}{4}\right) \\[2mm]
+    & = \frac{e^4}{4}\;\frac{3}{4}
+      + \frac{1}{4}\frac{1}{4} \\[2mm]
+    & = \frac{3e^4+ 1}{16}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Encontre a série de Taylor, centrada em zero, da função \(e^{-x}\)
+
+\begin{answer}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

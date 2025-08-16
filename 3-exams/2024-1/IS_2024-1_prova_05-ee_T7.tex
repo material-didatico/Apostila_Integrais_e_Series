@@ -1,0 +1,321 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Exame Especial -- Turma 7}{17/09/2024}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule o volume do sólido formado pela rotação da região entre as curvas
+\[
+y = x+2 \qquad
+y = x^2
+\]
+em torno da reta \(x=-1\).
+
+\begin{answer}
+  Vamos usar cascas cilíndricas, para isso precisamos encontrar o raio e a
+  altura da casca cilindica
+  \[
+  r(x) = x - (-1) = x + 1
+  \]
+  \[
+  h(x) = (x + 2) - x^2 = 2 + x - x^2
+  \]
+  O intervalo de integração, \([a, b]\), vai ser entre os pontos
+  comuns entre as curvas \(y=x+2\) e \(y=x^2\),
+  ou seja \(a=0\) e
+  \begin{align*}
+    (x + 2) & = x^2 \\
+    x^2 - x - 2 = 0
+  \end{align*}
+  \[
+  \Delta
+  = b^2-4ac
+  = (-1)^2 - 4(1)(-2)
+  = 9
+  \qquad\qquad
+  \sqrt{\Delta} = 3
+  \]
+  \[
+  x
+  = \frac{-b\pm\sqrt{\Delta}}{2a}
+  = \frac{-(-1)\pm 3}{2\times 1}
+  = \frac{1\pm 3}{2}
+  \]
+  portanto
+  \[
+  x_1 = \frac{1-3}{2} = \frac{-2}{2} = -1
+  \qquad
+  x_2 = \frac{1+3}{2} = \frac{4}{2} = 2
+  \]
+  O intervalo de integração é \([-1, 2]\)
+
+  \vspace{\baselineskip}
+  Calculando o volume
+  \begin{align*}
+    V
+    & = \int_a^b 2\pi \;r(x) \;h(x)\; dx  \\[2mm]
+    & = 2\pi \int_{-1}^2 (x + 1) (2 + x - x^2) dx  \\[2mm]
+    & = 2\pi \int_{-1}^2 2x + x^2 - x^3 + 2 + x - x^2  dx \\[2mm]
+    & = 2\pi \int_{-1}^2 2 + 3x -x^3 dx \\[2mm]
+    & = 2\pi \left(2x + 3\frac{x^2}{2} - \frac{x^4}{4}\right) \evalat{-1}{2} \\[2mm]
+    & = 2\pi \left(
+    \left[2\times 2 + 3\frac{2^2}{2} - \frac{2^4}{4}\right] -
+    \left[2(-1) + 3\frac{(-1)^2}{2} - \frac{(-1)^4}{4}\right]
+    \right) \\[2mm]
+    & = 2\pi \left(
+    \left[4 + 6 - 4\right] -
+    \left[-2 + \frac{3}{2} - \frac{1}{4}\right]
+    \right) \\[2mm]
+    & = 2\pi \left( 6 - \frac{-8 + 6 - 1}{4} \right) \\[2mm]
+    & = 2\pi \left( \frac{24+3}{4} \right) \\[2mm]
+    & = \frac{27\times 2\pi}{4} \\[2mm]
+    & = \frac{27\pi}{2}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a integral
+\(
+\int_1^e x^3\ln(x) dx
+\)
+
+\begin{answer}
+  Para calcular a primitiva
+  \[
+  F(x) = \int x^3\ln(x) dx
+  \]
+  vamos usar integração por partes com
+  \[
+  u = \ln(x) \qquad du = \frac{dx}{x} \qquad\qquad
+  dv = x^3dx \qquad v = \frac{x^4}{4}
+  \]
+  obtendo
+  \begin{align*}
+    F(x)
+    & = \int x^3\ln(x) dx \\[2mm]
+    & = \ln(x)\frac{x^4}{4} - \int \frac{x^4}{4} \frac{dx}{x} \\[2mm]
+    & = \frac{x^4\ln(x)}{4} - \frac{1}{4} \int x^3 dx  \\[2mm]
+    & = \frac{x^4\ln(x)}{4} - \frac{1}{4} \frac{x^4}{4} + C  \\[2mm]
+    & = \frac{x^4}{4}\left(\ln(x) - \frac{1}{4}\right) + C
+  \end{align*}
+  Agora podemos calcular
+  \begin{align*}
+    I
+    & = \int_1^e x^3\ln(x) dx \\[2mm]
+    & = F(x)\evalat{1}{e} \\[2mm]
+    & = \left(\frac{x^4}{4}\left(\ln(x) - \frac{1}{4}\right)\right)\evalat{1}{e} \\[2mm]
+    & = \left(\frac{e^4}{4}\left(\ln(e) - \frac{1}{4}\right)\right)
+    - \left(\frac{1^4}{4}\left(\ln(1) - \frac{1}{4}\right)\right) \\[2mm]
+    & = \frac{e^4}{4}\left(1 - \frac{1}{4}\right)
+    - \frac{1}{4}\left(0 - \frac{1}{4}\right) \\[2mm]
+    & = \frac{e^4}{4}\;\frac{3}{4}
+    + \frac{1}{4}\frac{1}{4} \\[2mm]
+    & = \frac{3e^4+ 1}{16}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a soma da série
+\(
+  \sum_{n=1}^{\infty} \frac{6}{(2n-1)(2n+1)}
+\)
+
+\begin{answer}
+  Por frações parciais
+  \begin{align*}
+    \frac{6}{(2n-1)(2n+1)} & = \frac{A}{2n-1} + \frac{B}{2n+1} \\[2mm]
+    6 & = A(2n+1) + B (2n-1) \\[2mm]
+      & = 2(A+B)n + (A-B)
+  \end{align*}
+  Precisamos resolver o sistema
+  \[\systeme[AB]{
+    2A + 2B = 0,
+    A - B = 6
+  }\]
+  Que podemos reescrever como
+  \[\systeme[AB]{
+    A + B = 0,
+    A - B = 6
+  }\]
+  Da primeira equação temos que $B=-A$. Substituindo na segunda temos
+  \[
+    6 = A - B = A - (-A) = 2A
+  \]
+  portanto \(A=3\) e \(B=-3\)
+
+  Podemos agora reescrever a série como
+  \[
+    \sum_{n=1}^{\infty} \frac{6}{(2n-1)(2n+1)}
+    = \sum_{n=1}^{\infty} \frac{3}{2n-1} - \frac{3}{2n+1}
+  \]
+  que é uma série telescópica com soma parcial igual a
+  \[
+    S_n
+    = \left(\frac{3}{2n-1}\right)\evalat{n=1}{}  - \frac{3}{2n+1}
+    = 3 - \frac{3}{2n+1}
+  \]
+  Calculando o limite das somas parciais temos o valor da soma
+  \[
+    S
+    = \lim_{n\o\infty} S_n
+    = \lim_{n\o\infty} \left(3 - \frac{3}{2n+1}\right)
+    = 3 - 3\lim_{n\o\infty} \left(\frac{1}{2n+1}\right)
+    = 3
+  \]
+  \clearpage
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{20}
+Encontre o interiror do intervalo de convergêcia da série
+\(
+  \sum_{n=1}^\infty \frac{(-1)^n x^{n+1}}{\sqrt{n^2 + 3}}
+\)
+
+\begin{answer}
+  O módulo do termo geral é
+  \[
+    u_n
+    = \abs{\frac{(-1)^n x^{n+1}}{\sqrt{n^2 + 3}}}
+    = \frac{\abs{x}^{n+1}}{\sqrt{n^2 + 3}}
+  \]
+  o módulo do seu sucessor é
+  \[
+    u_{n+1}
+    = \frac{\abs{x}^{n+2}}{\sqrt{(n+1)^2 + 3}}
+    = \frac{\abs{x}^{n+2}}{\sqrt{n^2+2n+ 1 + 3}}
+    = \frac{\abs{x}^{n+2}}{\sqrt{n^2+2n+ 4}}
+  \]
+  USando o teste da razão temos
+  \[
+    \frac{u_{n+1}}{u_n}
+    = \frac{\abs{x}^{n+2}}{\sqrt{n^2+2n+ 4}} \frac{\sqrt{n^2 + 3}}{\abs{x}^{n+1}}
+    = \abs{x} \frac{\sqrt{n^2 + 3}}{\sqrt{n^2+2n+ 4}}
+    = \abs{x} \sqrt{\frac{n^2 + 3}{n^2+2n+ 4}}
+  \]
+  Calculando o $\rho$
+  \begin{align*}
+    \rho
+    & = \lim_{n\o\infty} \frac{u_{n+1}}{u_n} \\[2mm]
+    & = \lim_{n\o\infty} \left(\abs{x} \sqrt{\frac{n^2 + 3}{n^2+2n+ 4}}\right) \\[2mm]
+    & =  \abs{x} \sqrt{\lim_{n\o\infty}{\frac{n^2 + 3}{n^2+2n+ 4}}}
+    & & \text{Pois a raiz é uma função contínua} \\[2mm]
+    & =  \abs{x} \sqrt{\lim_{n\o\infty}
+                          \frac{ 1 +  \sfrac{3}{n^2}}
+                           { 1 + 2\sfrac{2}{n} + \sfrac{4}{n^2}}
+                      } \\[2mm]
+    & =  \abs{x} \sqrt{1}\\[2mm]
+    & =  \abs{x}
+  \end{align*}
+  A condição de convergência do teste da razão é \(\rho<1\), ou seja
+  \begin{align*}
+    \rho    & < 1 \\
+    \abs{x} & < 1 \\
+    -1 < x  & < 1
+  \end{align*}
+  O interiror do intervalo de convergência é o intervalo aberto \((-1, 1)\)
+  \clearpage
+\end{answer}
+
+% 05
+%------------------------------------------------------------------------------%
+\exercise{20}
+Encontre a série de Taylor, centrada em \(a=-1\), da função
+\(
+  f(x) = 3x^5 - x^4 + 2x^3 + x^2 - 2
+\)
+
+\begin{answer}
+  Calculando as derivadas da função
+  \begin{align*}
+    f^{(0)}(x) & = 3x^5 - x^4 + 2x^3 + x^2 - 2 \\
+    f^{(1)}(x) & = 15x^4 - 4x^3 + 6x^2 + 2x  \\
+    f^{(2)}(x) & = 60x^3 - 12x^2 + 12x + 2 \\
+    f^{(3)}(x) & = 180x^2 - 24x + 12  \\
+    f^{(4)}(x) & = 360x - 24  \\
+    f^{(5)}(x) & = 360  \\
+    f^{(n)}(x) & = 0 \qquad n>5
+  \end{align*}
+  Avaliando as derivadas em \(a=-1\)
+  \begin{align*}
+    f^{(0)}(-1) & = 3(-1)^5 - (-1)^4 + 2(-1)^3 + (-1)^2 - 2 \\
+                & = -3 - 1 - 2 + 1 - 2                      \\
+                & = -7                                      \\
+    f^{(1)}(-1) & = 15(-1)^4 - 4(-1)^3 + 6(-1)^2 + 2(-1)    \\
+                & = 15 + 4 + 6 - 2                          \\
+                & = 23                                      \\
+    f^{(2)}(-1) & = 60(-1)^3 - 12(-1)^2 + 12(-1) + 2        \\
+                & = -60 - 12 - 12 + 2                       \\
+                & = -82                                     \\
+    f^{(3)}(-1) & = 180(-1)^2 - 24(-1) + 12                 \\
+                & = 180 + 24 + 12                           \\
+                & = 216                                     \\
+    f^{(4)}(-1) & = 360(-1) - 24                            \\
+                & = -360 - 24                               \\
+                & = -384                                    \\
+    f^{(5)}(-1) & = 360                                     \\
+    f^{(n)}(-1) & = 0 \qquad n>5
+  \end{align*}
+  A série de Taylor é
+  \begin{align*}
+    T(x)
+    & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!} (x-a)^n \\[2mm]
+    & = \sum_{n=0}^\infty \frac{f^{(n)}(-1)}{n!} (x+1)^n \\[2mm]
+    & = \sum_{n=0}^5 \frac{f^{(n)}(-1)}{n!} (x+1)^n
+    \qquad\qquad \text{Pois as demais derivadas são zero} \\[2mm]
+    & = \frac{f^{(0)}(-1)}{0!} (x+1)^0
+      + \frac{f^{(1)}(-1)}{1!} (x+1)^1
+      + \frac{f^{(2)}(-1)}{2!} (x+1)^2
+      + \frac{f^{(3)}(-1)}{3!} (x+1)^3 \\[2mm]
+    & \hphantom{==}
+      + \frac{f^{(4)}(-1)}{4!} (x+1)^4
+      + \frac{f^{(1)}(-1)}{5!} (x+1)^5
+      \\[2mm]
+    & = f^{(0)}(-1)
+      + f^{(1)}(-1) (x+1)
+      + \frac{f^{(2)}(-1)}{2} (x+1)^2
+      + \frac{f^{(3)}(-1)}{6} (x+1)^3 \\[2mm]
+   &  \hphantom{==}
+      + \frac{f^{(4)}(-1)}{24} (x+1)^4
+      + \frac{f^{(1)}(-1)}{120} (x+1)^5
+      \\[2mm]
+    & = -7
+      + 23(x+1)
+      - \frac{82}{2} (x+1)^2
+      + \frac{216}{6} (x+1)^3
+      - \frac{384}{24} (x+1)^4
+      + \frac{360}{120} (x+1)^5
+      \\[2mm]
+    & = -7
+      + 23(x+1)
+      - 41(x+1)^2
+      + 36 (x+1)^3
+      - 16 (x+1)^4
+      + 3(x+1)^5
+  \end{align*}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

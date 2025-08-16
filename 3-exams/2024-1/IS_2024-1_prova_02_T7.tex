@@ -1,0 +1,251 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova 2 -- Turma 7}{02/08/2024}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{20}
+Use substituição simples para calcular a integral
+\(
+  \int \cos(x) e^{\sin(x)}dx
+\)
+
+\begin{answer}
+  Queremos calcular
+  \[
+    F = \int \cos(x) e^{\sin(x)} dx
+  \]
+  Faremos a substituição
+  \[
+    u = \sin(x)
+    \qquad
+    du = \cos(x) dx
+  \]
+  Assim
+  \begin{align*}
+    F
+    & = \int e^{\sin(x)} \cos(x) dx \\[2mm]
+    & = \int e^{u} du \\[2mm]
+    & = e^{u} + C \\[2mm]
+    & = e^{\sin(x)} + C
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{20}
+Use integração por partes para calcular a integral
+\(
+  \int_1^e \frac{\ln(x)}{x^2} dx
+\)
+
+\begin{answer}
+  Queremos calcular
+  \[
+    I = \int_1^e \frac{\ln(x)}{x^2} dx
+  \]
+  Primeiro vamos encontrar a primitiva
+  \[
+    F = \int \frac{\ln(x)}{x^2} dx
+  \]
+  Usamos
+  \[
+    u = \ln(x) \qquad du = \frac{1}{x} dx
+  \]
+  \[
+    dv = \frac{1}{x^2}dx \qquad v = \frac{-1}{x}
+  \]
+  Assim
+  \begin{align*}
+    F(x)
+    & = \int \frac{1}{x^2} \ln(x) dx \\[2mm]
+    & = -\ln(x) \frac{1}{x} - \int \frac{-1}{x} \frac{1}{x} dx \\[2mm]
+    & = -\frac{\ln(x)}{x} + \int x^{-2} dx \\[2mm]
+    & = -\frac{\ln(x)}{x} + \frac{x^{-1}}{-1} + C \\[2mm]
+    & = -\frac{\ln(x)}{x} - \frac{1}{x} + C
+  \end{align*}
+  Agora podemos aplicar o Teorema Fundamental do Cálculo
+  \begin{align*}
+    I
+    & = \int_1^e \frac{\ln(x)}{x^2} dx \\[2mm]
+    & = F(x)\evalat{1}{e} \\[2mm]
+    & = F(e) - F(1) \\[2mm]
+    & = \left(-\frac{\ln(e)}{e} - \frac{1}{e} + C\right)
+      - \left(-\frac{\ln(1)}{1} - \frac{1}{1} + C\right) \\[2mm]
+    & = -\frac{1}{e} - \frac{1}{e}
+        +\frac{0}{1} + \frac{1}{1} \\[2mm]
+    & = -\frac{2}{e} + 1 \\[2mm]
+    & = 1 -\frac{2}{e}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a integral
+\(
+  \int \frac{1}{\sqrt{9-x^2}} dx
+\)
+
+\begin{answer}
+  \[
+    F = \int \frac{1}{\sqrt{9-x^2}} dx
+  \]
+  \[
+    x = 3\sin(\theta) \qquad dx = 3\cos(\theta) d\theta
+  \]
+  \begin{align*}
+    F
+    & = \int \frac{1}{\sqrt{9-x^2}} dx \\[2mm]
+    & = \int \frac{1}{\sqrt{9-\left(3\sin(\theta)\right)^2}}  3\cos(\theta) d\theta \\[2mm]
+    & = \int \frac{3\cos(\theta)}{\sqrt{9-9\sin^2(\theta)}} d\theta \\[2mm]
+    & = \int \frac{3\cos(\theta)}{\sqrt{9}\sqrt{1-\sin^2(\theta)}} d\theta \\[2mm]
+    & = \int \frac{3\cos(\theta)}{3\sqrt{\cos^2(\theta)}} d\theta \\[2mm]
+    & = \int \frac{\cos(\theta)}{\cos(\theta)} d\theta\\[2mm]
+    & = \int d\theta \\[2mm]
+    & = \theta + C\\[2mm]
+    & = \arcsin(x) + C
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a integral
+\(
+  \int \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} dx
+\)
+
+\begin{answer}
+  \[
+    F = \int \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} dx
+  \]
+  Vamos aplicar frações parciais, para isso precisamos das raizes de \(Q(x)=x^3-2x^2-3x\)
+  \begin{align*}
+    x^3-2x^2-3x & = 0 \\
+    x(x^2-2x-3) & = 0
+  \end{align*}
+  Uma das raizes de $Q$ é zero, $x_1=0$, usamos Bhaskara para encontrar as demais
+  \[
+    x^2-2x-3 = 0
+  \]
+  \[
+    \Delta
+    = b^2 - 4ac
+    = (-2)^2 - 4\times 1 \times (-3)
+    = 4 + 12
+    = 16
+  \]
+  \[
+    \sqrt{\Delta} = 4
+  \]
+  \[
+    x
+    = \frac{-b\pm\sqrt{\Delta}}{2a}
+    = \frac{2\pm 4}{2}
+  \]
+  \[
+    x_2
+    = \frac{2-4}{2}
+    = \frac{-2}{2}
+    = -1
+  \]
+  \[
+    x_3
+    = \frac{2+4}{2}
+    = \frac{6}{2}
+    = 3
+  \]
+  Podemos fatorar $Q$
+  \[
+    Q(x) = x(x-3)(x+1)
+  \]
+  Usando frações parciais
+  \[
+    \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} = \frac{A}{x} + \frac{B}{x-3} + \frac{C}{x+1}
+  \]
+  Multiplicando os dois lados por \(x(x-3)(x+1)\)
+  \begin{align*}
+    2x^2 -3x + 3
+     & = A(x-3)(x+1) + Bx(x+1) + C x(x-3) \\
+     & = A(x^2 +x -3x -3) + B(x^2+x) + C(x^2-3x) \\
+     & = Ax^2 - 2Ax -3A + Bx^2 +Bx +Cx^2 - 3Cx \\
+     & = (A+B+C)x^2 + (-2A+B-3C)x -3A
+  \end{align*}
+  Igualando os polinômios construimos o sistema linear
+  \[
+    \systeme[ABC]{
+        A +B + C = 2,
+      -2A +B -3C =-3,
+      -3A        = 3
+    }
+  \]
+  Verificamos que \(A=-1\) e reduzimos o sistema para
+  \[
+    \systeme[ABC]{
+      B +  C =  3,
+      B - 3C = -5
+    }
+  \]
+  Isolando $B$ na primeira equação temos $B=3-C$, substituindo na segunda temos
+  \begin{align*}
+    B - 3C     & = -5 \\
+    (3-C) - 3C & = -5 \\
+    3 - C - 3C & = -5 \\
+    -4C        & = -8 \\
+    C          & = 2
+  \end{align*}
+  portanto $B=1$, temos então que
+  \[
+    \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} = -\frac{1}{x} + \frac{1}{x-3} + \frac{2}{x+1}
+  \]
+  então
+  \begin{align*}
+    \int \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} dx
+    & = -\int \frac{1}{x} dx + \int \frac{1}{x-3} dx + 2\int \frac{1}{x+1} dx \\[2mm]
+    & = -\ln\abs{x} + \ln\abs{x-3} + 2\ln\abs{x+1} + C \\[2mm]
+    & = \ln\abs{x-3} - \ln\abs{x} + 2\ln\abs{x+1} + C
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 05
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a limite da sequência \(a_k = \frac{1-2k}{1+2k}\)
+
+\begin{answer}
+  \begin{align*}
+    \lim a_k
+    & = \lim \frac{1-2k}{1+2k} \\[2mm]
+    & = \lim \frac{(1-2k)\sfrac{1}{k}}{(1+2k)\sfrac{1}{k}} \\[2mm]
+    & = \lim \frac{\sfrac{1}{k}-2}{\sfrac{1}{k}+2} \\[2mm]
+    & = \frac{\lim \sfrac{1}{k}-\lim 2}{\lim \sfrac{1}{k}+\lim 2} \\[2mm]
+    & = \frac{0-2}{0+2} \\[2mm]
+    & = -1
+  \end{align*}
+  \clearpage
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

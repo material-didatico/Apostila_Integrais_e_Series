@@ -1,0 +1,359 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova 2 -- Turma 8}{02/08/2024}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{20}
+Use substituição simples para calcular a integral
+\(
+  \int \sqrt{x}\sin\left(x^{\sfrac{3}{2}}+1\right)dx
+\)
+
+\begin{answer}
+  Queremos calcular
+  \[
+    F = \int \sqrt{x}\sin\left(x^{\sfrac{3}{2}}+1\right)dx
+  \]
+  Faremos a substituição
+  \[
+    u = x^{\sfrac{3}{2}}+1
+    \qquad
+    du = \frac{3}{2} x^{\sfrac{1}{2}} dx = \frac{3}{2} \sqrt{x} dx
+    \qquad
+     \sqrt{x} dx = \frac{2}{3} du
+  \]
+  Assim
+  \begin{align*}
+    F
+    & = \int \sin\left(x^{\sfrac{3}{2}}+1\right) \sqrt{x} dx \\[2mm]
+    & = \int \sin\left(u\right) \frac{2}{3} du \\[2mm]
+    & = \frac{2}{3} \int \sin\left(u\right) du \\[2mm]
+    & = \frac{2}{3} \cos\left(u\right) + C \\[2mm]
+    & = \frac{2}{3} \cos\left(x^{\sfrac{3}{2}}+1\right) + C
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{20}
+Use integração por partes para calcular a integral
+\(
+\int_1^e x^3\ln(x) dx
+\)
+
+\begin{answer}
+  Queremos calcular
+  \[
+    I = \int_1^e x^3\ln(x) dx
+  \]
+  Primeiro vamos encontrar a primitiva
+  \[
+    F = \int x^3\ln(x) dx
+  \]
+  Usamos
+  \[
+    u = \ln(x) \qquad du = \frac{1}{x} dx
+  \]
+  \[
+    dv = x^3 dx \qquad v = \frac{x^4}{4}
+  \]
+  Assim
+  \begin{align*}
+    F(x)
+    & = \int x^3 \ln(x) dx \\[2mm]
+    & = \ln(x) \frac{x^4}{4} - \int \frac{x^4}{4} \frac{1}{x} dx \\[2mm]
+    & = \frac{x^4\ln(x) }{4} - \frac{1}{4}\int x^3 dx \\[2mm]
+    & = \frac{x^4\ln(x) }{4} - \frac{1}{4} \frac{x^4}{4} + C \\[2mm]
+    & = \frac{x^4\ln(x) }{4} - \frac{x^4}{16} + C
+  \end{align*}
+  Agora podemos aplicar o Teorema Fundamental do Cálculo
+  \begin{align*}
+    I
+    & = \int_1^e x^3\ln(x) dx \\[2mm]
+    & = F(x)\evalat{1}{e} \\[2mm]
+    & = F(e) - F(1) \\[2mm]
+    & = \left(\frac{e^4\ln(e) }{4} - \frac{e^4}{16} + C\right)
+      - \left(\frac{1^4\ln(1) }{4} - \frac{1^4}{16} + C\right) \\[2mm]
+    & = \frac{e^4}{4} - \frac{e^4}{16}
+      - \frac{0}{4}   + \frac{1}{16} \\[2mm]
+    & = \frac{4e^4 - e^4 + 1}{16} \\[2mm]
+    & = \frac{3e^4 + 1}{16}
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a integral
+\(
+  \int \cos^5(x) dx
+\)
+
+\begin{answer}
+  \begin{align*}
+    F
+    & = \int \cos^5(x) dx \\[2mm]
+    & = \int \cos^4(x) \cos(x) dx \\[2mm]
+    & = \int \left(\cos^2(x)\right)^2 \cos(x) dx \\[2mm]
+    & = \int \left(1 - \sin^2(x)\right)^2 \cos(x) dx
+  \end{align*}
+  \[
+    u = \sin(x) \qquad du = \cos(x) dx
+  \]
+  \begin{align*}
+    F
+    & = \int \left(1 - u^2\right)^2 du \\[2mm]
+    & = \int 1 - 2u^2 + u^4 du \\[2mm]
+    & = u - 2\frac{u^3}{3} + \frac{u^5}{5} + C \\[2mm]
+    & = u - \frac{2}{3}u^3 + \frac{1}{5}u^5 + C\\[2mm]
+    & = \sin(x) - \frac{2}{3}\sin^3(x) + \frac{1}{5}\sin^5(x) + C
+  \end{align*}
+  \clearpage
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a integral
+\(
+  \int \frac{dx}{x^3 + x^2 - 2x}
+\)
+
+\begin{answer}
+  \[
+    F = \int \frac{dx}{x^3 + x^2 - 2x}
+  \]
+  Vamos aplicar frações parciais, para isso precisamos das raizes de \(Q(x)=x^3 + x^2 - 2x\)
+  \begin{align*}
+    x^3 + x^2 - 2x & = 0 \\
+    x(x^2+x-2) & = 0
+  \end{align*}
+  Uma das raizes de $Q$ é zero, $x_1=0$, usamos Bhaskara para encontrar as demais
+  \[
+    x^2+x-2 = 0
+  \]
+  \[
+    \Delta
+    = b^2 - 4ac
+    = (1)^2 - 4\times (1) \times (-2)
+    = 1 + 8
+    = 9
+  \]
+  \[
+    \sqrt{\Delta} = 3
+  \]
+  \[
+    x
+    = \frac{-b\pm\sqrt{\Delta}}{2a}
+    = \frac{1\pm 3}{2}
+  \]
+  \[
+    x_2
+    = \frac{1-3}{2}
+    = \frac{-2}{2}
+    = -1
+  \]
+  \[
+    x_3
+    = \frac{1+3}{2}
+    = \frac{4}{2}
+    = 2
+  \]
+  Podemos fatorar $Q$
+  \[
+    Q(x) = x(x+1)(x-2)
+  \]
+  Usando frações parciais
+  \[
+    \frac{1}{x^3 + x^2 - 2x} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{x-2}
+  \]
+  Multiplicando os dois lados por \(x(x+1)(x-2)\)
+  \begin{align*}
+      1
+      & = A(x+1)(x-2) + Bx(x-2) + Cx(x+1) \\
+      & = A(x^2 -2x + x -2) + B(x^2 -2x) + C(x^2+x) \\
+      & = Ax^2 -Ax + 2A + Bx^2 -2Bx + Cx^2 + Cx \\
+      & = x^2(A+B+C) + x(-A-2B+ C) + 2A
+    \end{align*}
+  Igualando os polinômios construimos o sistema linear
+  \[
+  \systeme[ABC]{
+       A +B + C = 0,
+      -A -2B +C = 0,
+      2A        = 1
+    }
+  \]
+  Verificamos que \(A=\sfrac{1}{2}\) e reduzimos o sistema para
+  \[
+  \systeme[ABC]{
+      B +  C =  -\frac{1}{2},
+      -2B + C = \frac{1}{2}
+    }
+  \]
+  Isolando $B$ na primeira equação temos $B=\sfrac{1}{2}-C$, substituindo na segunda temos
+  \begin{align*}
+    -2B + C                          & = \frac{1}{2}    \\[2mm]
+    -2\left(\frac{1}{2}-C\right) + C & = \frac{1}{2}    \\[2mm]
+    -1 -2C + C                       & = \frac{1}{2}    \\[2mm]
+    -C                               & = \frac{1}{2}+ 1 = \frac{3}{2}    \\[2mm]
+    C                                & = -\frac{3}{2}
+  \end{align*}
+  portanto
+  \[
+    B
+    = \frac{1}{2} - C
+    = \frac{1}{2} + \frac{3}{2}
+    = \frac{4}{2}
+    = 2
+  \]
+  temos então que
+  \[
+    \frac{1}{{x^3 + x^2 - 2x}}
+    = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{x-2}
+    = \frac{1}{2x} + \frac{2}{x+1} - \frac{3}{2(x-2)}
+  \]
+  então
+  \begin{align*}
+      \int \frac{1}{{x^3 + x^2 - 2x}} dx
+      & = \int \frac{1}{2x} + \frac{2}{x+1} - \frac{3}{2(x-2)} dx \\[2mm]
+      & = \frac{1}{2} \int \frac{1}{x} dx
+        + 2\int \frac{1}{x+1} dx
+        - \frac{3}{2} \int \frac{1}{x-2} dx \\[2mm]
+      & = \frac{1}{2}\ln\abs{x} + 2\ln\abs{x+1} - \frac{3}{2}\ln\abs{x-2} + C
+    \end{align*}
+  \clearpage
+\end{answer}
+
+
+%\begin{answer}
+%  \[
+%  F = \int \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} dx
+%  \]
+%  Vamos aplicar frações parciais, para isso precisamos das raizes de \(Q(x)=x^3-2x^2-3x\)
+%  \begin{align*}
+%    x^3-2x^2-3x & = 0 \\
+%    x(x^2-2x-3) & = 0
+%  \end{align*}
+%  Uma das raizes de $Q$ é zero, $x_1=0$, usamos Bhaskara para encontrar as demais
+%  \[
+%  x^2-2x-3 = 0
+%  \]
+%  \[
+%  \Delta
+%  = b^2 - 4ac
+%  = (-2)^2 - 4\times 1 \times (-3)
+%  = 4 + 12
+%  = 16
+%  \]
+%  \[
+%  \sqrt{\Delta} = 4
+%  \]
+%  \[
+%  x
+%  = \frac{-b\pm\sqrt{\Delta}}{2a}
+%  = \frac{2\pm 4}{2}
+%  \]
+%  \[
+%  x_2
+%  = \frac{2-4}{2}
+%  = \frac{-2}{2}
+%  = -1
+%  \]
+%  \[
+%  x_3
+%  = \frac{2+4}{2}
+%  = \frac{6}{2}
+%  = 3
+%  \]
+%  Podemos fatorar $Q$
+%  \[
+%  Q(x) = x(x-3)(x+1)
+%  \]
+%  Usando frações parciais
+%  \[
+%  \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} = \frac{A}{x} + \frac{B}{x-3} + \frac{C}{x+1}
+%  \]
+%  Multiplicando os dois lados por \(x(x-3)(x+1)\)
+%  \begin{align*}
+%    2x^2 -3x + 3
+%    & = A(x-3)(x+1) + Bx(x+1) + C x(x-3) \\
+%    & = A(x^2 +x -3x -3) + B(x^2+x) + C(x^2-3x) \\
+%    & = Ax^2 - 2Ax -3A + Bx^2 +Bx +Cx^2 - 3Cx \\
+%    & = (A+B+C)x^2 + (-2A+B-3C)x -3A
+%  \end{align*}
+%  Igualando os polinômios construimos o sistema linear
+%  \[
+%  \systeme[ABC]{
+%    A +B + C = 2,
+%    -2A +B -3C =-3,
+%    -3A        = 3
+%  }
+%  \]
+%  Verificamos que \(A=-1\) e reduzimos o sistema para
+%  \[
+%  \systeme[ABC]{
+%    B +  C =  3,
+%    B - 3C = -5
+%  }
+%  \]
+%  Isolando $B$ na primeira equação temos $B=3-C$, substituindo na segunda temos
+%  \begin{align*}
+%    B - 3C     & = -5 \\
+%    (3-C) - 3C & = -5 \\
+%    3 - C - 3C & = -5 \\
+%    -4C        & = -8 \\
+%    C          & = 2
+%  \end{align*}
+%  portanto $B=1$, temos então que
+%  \[
+%  \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} = -\frac{1}{x} + \frac{1}{x-3} + \frac{2}{x+1}
+%  \]
+%  então
+%  \begin{align*}
+%    \int \frac{2x^2 -3 x + 3}{x^3-2x^2-3x} dx
+%    & = -\int \frac{1}{x} dx + \int \frac{1}{x-3} dx + 2\int \frac{1}{x+1} dx \\[2mm]
+%    & = -\ln\abs{x} + \ln\abs{x-3} + 2\ln\abs{x+1} + C \\[2mm]
+%    & = \ln\abs{x-3} - \ln\abs{x} + 2\ln\abs{x+1} + C
+%  \end{align*}
+%  \clearpage
+%\end{answer}
+
+% 05
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a limite da sequência \(a_k = \frac{3^{k+1}}{5^k}\)
+
+\begin{answer}
+  \begin{align*}
+    \lim a_k
+    & = \lim \frac{3^{k+1}}{5^k} \\[2mm]
+    & = \lim 3 \frac{3^{k}}{5^k} \\[2mm]
+    & = 3\lim \left(\frac{3}{5}\right)^k \\[2mm]
+    & = 3 \times 0 \\[2mm]
+    & = 0
+  \end{align*}
+  \clearpage
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

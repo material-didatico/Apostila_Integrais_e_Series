@@ -1,0 +1,142 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{multicol}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova Substitutiva -- Turma 7}{13/09/2024}
+
+\textbf{O exercício correspondente a prova que será substituida vale 50 pontos}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule o volume do sólido formado pela rotação da região entre as curvas
+\[
+  y = x^3 \qquad
+  y = 8 \qquad
+  x = 0
+\]
+em torno da reta \(x=-2\).
+
+\begin{answer}
+  Vamos usar cascas cilíndricas, para isso precisamos encontrar o raio e a
+  altura da casca cilindica
+  \[
+    r(x) = x - (-2) = x + 2
+  \]
+  \[
+    h(x) = 8 - x^3
+  \]
+  O intervalo de integração, \([a, b]\), vai ser entre os pontos onde \(y=x^3\) toca
+  \(x=0\) e \(y=8\),
+  ou seja \(a=0\) e
+  \begin{align*}
+    b^3 & = 8 \\
+    b & = \sqrt[3]{8} = 2
+  \end{align*}
+
+  Calculando o volume
+  \begin{multicols}{2}
+  \begin{align*}
+    V
+    & = \int_a^b 2\pi \;r(x) \;h(x)\; dx  \\[2mm]
+    & = 2\pi \int_0^2 (x+2) (8-x^3) dx  \\[2mm]
+    & = 2\pi \int_0^2 8x - x^4 + 16 - 2x^3 dx  \\[2mm]
+    & = 2\pi \int_0^2 16 + 8x - 2x^3 - x^4 dx  \\[2mm]
+    & = 2\pi \left( 16x + 8\frac{x^2}{2} -2\frac{x^4}{4} - \frac{x^5}{5}\right) \evalat{0}{2}  \\[2mm]
+    & = 2\pi \left( 16x + 4x^2 -\frac{x^4}{2} - \frac{x^5}{5}\right) \evalat{0}{2}  \\[2mm]
+    & = 2\pi \left( 16\times 2 + 4\times 2^2 -\frac{2^4}{2} - \frac{2^5}{5}\right)  \\[2mm]
+    & = 2\pi \left( 32 + 16 -8 - \frac{32}{5}\right)  \\[2mm]
+    & = 2\pi \left( 40 - \frac{32}{5}\right)  \\[2mm]
+    & = 2\pi \left( \frac{200 - 32}{5}\right) \\[2mm]
+    & = \frac{2\pi 168}{5} \\[2mm]
+    & = \frac{336\pi}{5}
+  \end{align*}
+  \end{multicols}
+  \clearpage
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a integral
+\(
+  \int e^x \sin(x) dx
+\)
+
+\begin{answer}
+  Para calcular a primitiva
+  \[
+    \int e^x \sin(x) dx
+  \]
+  vamos usar integração por partes com
+  \[
+    u = \sin(x) \qquad du = \cos(x)dx \qquad\qquad
+    dv = e^xdx \qquad v = e^x
+  \]
+  obtendo
+  \[
+    \int e^x \sin(x) dx = \sin(x)e^x - \int e^x \cos(x) dx
+  \]
+  Usando integração por partes mais uma vez, agora com
+  \[
+    u = \cos(x) \qquad du = -\sin(x)dx \qquad\qquad
+    dv = e^xdx \qquad v = e^x
+  \]
+  temos
+  \begin{align*}
+    \int e^x \sin(x) dx   & = \sin(x)e^x - \left( \cos(x)e^x - \int e^x(-\sin(x))dx\right) \\[2mm]
+                          & = \sin(x)e^x - \cos(x)e^x - \int e^x\sin(x)dx                  \\[2mm]
+    2 \int e^x \sin(x) dx & = \sin(x)e^x - \cos(x)e^x + C                                  \\[2mm]
+    \int e^x \sin(x) dx   & = \frac{e^x}{2}\big(\sin(x) - \cos(x)\big) + C
+  \end{align*}
+
+
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Encontre a série de Taylor, centrada em zero, da função \(xe^x\)
+
+\begin{answer}
+  Calculando as derivadas de $f$
+  \begin{align*}
+    f^{(0)}(x) & = xe^x       & f^{(0)}(0) & = 0e^0 = 0       \\
+    f^{(1)}(x) & = e^x + xe^x & f^{(1)}(0) & = e^0 + 0e^0 = 1 \\
+    f^{(2)}(x) & = 2e^x + xe^x & f^{(2)}(0) & = 2e^0 + 0e^0 = 2 \\
+    f^{(3)}(x) & = 3e^x + xe^x & f^{(3)}(0) & = 3e^0 + 0e^0 = 3 \\
+    f^{(4)}(x) & = 4e^x + xe^x & f^{(4)}(0) & = 4e^0 + 0e^0 = 4
+  \end{align*}
+  Identificamos o padrão
+  \[
+    f^{(n)}(x) = ne^x + xe^x \hspace{43mm} f^{(n)}(0) = ne^0 + 0e^0 = n
+  \]
+  A série de Taylor de \(f(x)=xe^x\) é
+  \begin{align*}
+    T(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!} (x-a)^n \\[2mm]
+         & = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} (x-0)^n \\[2mm]
+         & = \sum_{n=1}^\infty \frac{n}{n!} x^n
+         & & \text{Note que a soma começa em } n=1 \text{ pois } f^{(0)}(0) = 0\\[2mm]
+         & = \sum_{n=1}^\infty \frac{x^n}{(n-1)!}
+         & & \text{Se a soma começasse em } n = 0 \text{ teriamos } (-1)!
+  \end{align*}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

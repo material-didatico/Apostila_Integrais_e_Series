@@ -1,0 +1,301 @@
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{integracao_e_series}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 1 -- Turma 8}{01/11/24}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a integral
+\(
+  \int_0^2 \frac{dx}{\sqrt[3]{x^2}}
+\)
+
+\begin{answer}
+  Notamos que
+  \[
+    f(x) = \frac{1}{\sqrt[3]{x^2}}
+  \]
+  tende ao infinito quando $x\to 0$, portanto não podemos usar o
+  Teorema Fundamental do Cálculo diretamente, essa é uma
+  \textbf{integral imprópria}.
+
+  \begin{multicols}{2}
+  Calculando a primitiva
+  \begin{align*}
+    F(x) & = \int \frac{dx}{\sqrt[3]{x^2}}                   \\[2mm]
+         & = \int x^{-\sfrac{2}{3}} \,dx                     \\[2mm]
+         & = \frac{x^{-\sfrac{2}{3}+1}}{-\sfrac{2}{3}+1} + C \\[2mm]
+         & = \frac{x^{\sfrac{1}{3}}}{\sfrac{1}{3}} + C       \\[2mm]
+         & = 3\sqrt[3]{x} + C
+  \end{align*}
+
+  \columnbreak
+
+  Calculado a integral definida
+  \begin{align*}
+    I & = \int_0^2 \frac{dx}{\sqrt[3]{x^2}}                 \\[2mm]
+      & = \lim_{a\to 0} \int_a^2 \frac{dx}{\sqrt[3]{x^2}}   \\[2mm]
+      & = \lim_{a\to 0} \left(F(x)\evalat{a}{2}\right)      \\[2mm]
+      & = \lim_{a\to 0} \big(F(2)-F(a)\big)                 \\[2mm]
+      & = \lim_{a\to 0} \Big(3\sqrt[3]{2}-3\sqrt[3]{a}\Big) \\[2mm]
+      & = 3\sqrt[3]{2} - 3\lim_{a\to 0} \sqrt[3]{a}         \\[2mm]
+      & = 3\sqrt[3]{2} - 3\sqrt[3]{0}                       \\[2mm]
+      & = 3\sqrt[3]{2}
+  \end{align*}
+\end{multicols}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a integral
+\(
+  \int_1^3  e^{2t+1} - \cos(\pi t) - \frac{1}{5t} + 3x + 2 \;dt
+\)
+
+\begin{answer}
+  Calculando a primitiva
+  \begin{align*}
+    F(t) & = \int e^{2t+1} - \cos(\pi t) - \frac{1}{5t} + 3x + 2 \;dt \\[2mm]
+         & = \int e^{2t+1} \;dt
+           - \int \cos(\pi t) \;dt
+           - \int \frac{dt}{5t}
+           + \int 3x + 2 \;dt \\[2mm]
+         & = \frac{1}{2}e^{2t+1}
+           - \frac{1}{\pi}\sin(\pi t)
+           - \frac{1}{5}\ln\abs{t}
+           + (3x + 2) t + C
+  \end{align*}
+
+  Calculando a integral definida
+  \begin{align*}
+    I & = \int_1^3 e^{2t+1} - \cos(\pi t) - \frac{1}{5t} + 3x + 2 \;dt \\[2mm]
+      & = F(x)\evalat{1}{3}                 \\[2mm]
+      & = F(3) - F(1)                       \\[2mm]
+      & = \left(\frac{1}{2}e^{2\times3+1}
+              - \frac{1}{\pi}\sin(\pi 3)
+              - \frac{1}{5}\ln\abs{3}
+              + (3x + 2) 3\right)           \\[2mm]
+      & - \left(\frac{1}{2}e^{2\times1+1}
+              - \frac{1}{\pi}\sin(\pi 1)
+              - \frac{1}{5}\ln\abs{1}
+              + (3x + 2) 1\right)           \\[2mm]
+      & = \left(\frac{1}{2}e^7
+              - 0
+              - \frac{1}{5}\ln(3)
+              + 9x -6 \right)
+        - \left(\frac{1}{2}e^3
+              - 0
+              - 0
+              + 3x + 2\right)               \\[2mm]
+      & = \frac{1}{2}e^7
+        - \frac{1}{5}\ln(3)
+        + 9x +6
+        - \frac{1}{2}e^3
+        - 3x - 2                            \\[2mm]
+      & = \frac{e^7-e^3}{2}
+        - \frac{1}{5}\ln(3)
+        + 6x + 4
+  \end{align*}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Considerando as curvas
+\[
+  y = 2 - \abs{x}
+  \qquad\text{e}\qquad
+  y = x^2 - 4
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Esboce o gráfico das curvas e indique a área delimitada por elas
+  \item Calcule a área
+\end{enumerate}
+
+\begin{answer}
+  \textbf{1)}
+  As curvas se interceptam nos pontos que satisfazem a equação
+  \begin{align*}
+    2-\abs{x} & = x^2-4 \\
+    x^2 + \abs{x} -6 & = 0
+  \end{align*}
+  Para $x\geq 0$ a equação é
+  \(
+    x^2 + x -6 = 0
+  \)
+  e suas raizes são
+  \[
+    \Delta = b^2-4ac = 1^2 - 4\times 1 \times(-6) = 1+24 = 25
+  \]
+  \[
+    \sqrt{\Delta} = \sqrt{25} = 5
+  \]
+  \[
+    x = \frac{-b\pm\sqrt{\Delta}}{2a} = \frac{-1\pm 5}{2}
+    \qquad\qquad
+    x = \frac{-1+5}{2} = \frac{4}{2} = 2
+    \qquad\qquad
+    x = \frac{-1-5}{2} = \frac{-6}{2} = -3 < 0
+  \]
+
+  Para $x\geq 0$ a equação é
+  \(
+    x^2 - x -6 = 0
+  \)
+  e suas raizes são
+  \[
+    \Delta = b^2-4ac = 1^2 - 4\times 1 \times(-6) = 1+24 = 25
+  \]
+  \[
+    \sqrt{\Delta} = \sqrt{25} = 5
+  \]
+  \[
+    x = \frac{-b\pm\sqrt{\Delta}}{2a} = \frac{1\pm 5}{2}
+    \qquad\qquad
+    x = \frac{1+5}{2} = \frac{5}{2} = 3 > 0
+    \qquad\qquad
+    x = \frac{1-5}{2} = \frac{-4}{2} = -2
+  \]
+  Assim os pontos de interseção são $x=-2$ e $x=2$
+
+  Alternativamente poderiamos usar a simetria da região e resolver
+  apenas uma das equações acima.
+
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{area_entre_curvas_modulo}
+  \end{center}
+
+
+  \textbf{2)}
+  Como na região o módulo é a função maior, a área é
+  \begin{align*}
+    A & = \int_{-2}^2 \left(2-\abs{x}\right) - \left(x^2-4\right) dx \\[2mm]
+      & = \int_{-2}^2 6 -\abs{x} -x^2 \,dx \\[2mm]
+      & = \int_{-2}^0 6 -\abs{x} -x^2 \,dx
+        + \int_0^2    6 -\abs{x} -x^2 \,dx \\[2mm]
+      & = \int_{-2}^0 6 +x -x^2 \,dx
+        + \int_0^2    6 -x -x^2 \,dx \\[2mm]
+      & = \left( 6x +\frac{x^2}{2} -\frac{x^3}{3} \right)\evalat{-2}{0}
+        + \left( 6x -\frac{x^2}{2} -\frac{x^3}{3} \right)\evalat{0}{2} \\[2mm]
+      & = - \left[ 6(-2) +\frac{(-2)^2}{2} -\frac{(-2)^3}{3} \right]
+          + \left[ 6\times 2 -\frac{2^2}{2} -\frac{2^3}{3} \right] \\[2mm]
+      & = 12 -2 - \frac{8}{3}
+        + 12 -2 - \frac{8}{3} \\[2mm]
+      & = 20 - \frac{16}{3} \\[2mm]
+      & = \frac{60 - 16}{3} \\[2mm]
+      & = \frac{44}{3}
+  \end{align*}
+
+  Alternativamente podemos usar a simetria
+  \begin{align*}
+    A & = \int_{-2}^2 \left(2-\abs{x}\right) - \left(x^2-4\right) dx \\[2mm]
+      & = 2 \int_0^2  6 -\abs{x} -x^2 \,dx \\[2mm]
+      & = 2 \int_0^2  6 -x -x^2 \,dx\\[2mm]
+      & = 2\left( 6x -\frac{x^2}{2} -\frac{x^3}{3} \right)\evalat{0}{2} \\[2mm]
+      & = 2\left[ 6\times 2 -\frac{2^2}{2} -\frac{2^3}{3} \right] \\[2mm]
+      & = 2\left(12 -2 - \frac{8}{3}\right)\\[2mm]
+      & = 2\left(\frac{30-8}{3}\right) \\[2mm]
+      & = 2\frac{22}{3} \\[2mm]
+      & = \frac{44}{3}
+  \end{align*}
+
+
+
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Encontre o volume do sólido obtido pela rotação
+da região limitada pelas curvas
+\[
+  y=4-x^2
+  \qquad\text{e}\qquad
+  y=2-x
+\]
+em torno da reta
+\(
+  y = -1
+\)
+
+\begin{answer}
+  Esboço da região
+  \begin{center}
+    \includegraphics[width=0.6\linewidth]{volume_secoes}
+  \end{center}
+
+  Vamos integrar por seções transversais, que são aneis
+  \[
+    V = \int_a^b \pi \left[R^2(x)-r^2(x)\right] dx
+  \]
+
+  Os extremos do intervalo de integração são as soluções da equação
+  \begin{align*}
+    4-x^2     & = 2-x \\
+    x^2 -x -2 & = 0
+  \end{align*}
+  \[
+    \Delta = b^2-4ac = (-1)^2 -4\times 1\times(-2) = 1+8=9
+  \]
+  \[
+    \sqrt{\Delta} = \sqrt{9} = 3
+  \]
+  \[
+    x
+    = \frac{-b\pm\sqrt{\Delta}}{2a}
+    = \frac{1\pm 3}{2}
+    \qquad
+    x_1 = \frac{4}{2} = 2
+    \qquad
+    x_2 = \frac{-2}{-2} = -1
+  \]
+
+  O raio maior é
+  \[
+    R(x) = \left(4-x^2\right) + 1 = 5-x^2
+  \]
+  seu quadrado é
+  \[
+    R^2(x) = \left(5-x^2\right)^2 = 25 -10x^2 + x^4
+  \]
+
+  O raio menor é
+  \[
+    r(x) = \left(2-x\right) + 1 = 3-x
+  \]
+  seu quadrado é
+  \[
+    r^2(x) = \left(3-x\right)^2 = 9 -6x + x^2
+  \]
+
+  Portanto o volume é
+  \begin{align*}
+    V & = \int_a^b \pi \left[R^2(x)-r^2(x)\right] dx \\[2mm]
+      & = \pi \int_{-1}^2 \left(25 -10x^2 + x^4\right)
+                        - \left(9 -6x + x^2\right)\; dx  \\[2mm]
+      & = \pi \int_{-1}^2 16  +6x -11x^2 + x^4 \; dx \\[2mm]
+      & = \pi \left(16x + 6\frac{x^2}{2} -11\frac{x^3}{3} + \frac{x^5}{5}\right)\evalat{-1}{2} \\[2mm]
+      & = \pi \left[
+                \left(16\times 2 + 3\times 2^2 -11\frac{2^3}{3} + \frac{2^5}{5}\right)
+               -\left(-16 + 2(-1)^2 -11\frac{(-1)^3}{3} + \frac{(-1)^5}{5}\right)
+              \right] \\[2mm]
+      & = \pi \left[
+              32 + 12 -\frac{88}{3} + \frac{32}{5}
+              +16 - 2 -\frac{11}{3} + \frac{1}{5}
+              \right] \\[2mm]
+      & = \left( 58 -\frac{99}{3} + \frac{33}{5} \right)\pi
+  \end{align*}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

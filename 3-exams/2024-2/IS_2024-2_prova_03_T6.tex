@@ -1,0 +1,195 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 3 -- Turma 6}{14/01/2024}
+
+\addGrowthOrder
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Use o teste da integral para verificar se a soma da série existe \;
+\(
+  \sum_{n=1}^{\infty} \frac{n}{n^2+4}
+\)
+
+%\begin{answer}
+%  Vamos usar a função real
+%  \[
+%    f(x) = \frac{5}{\left(1+x\right)^2}
+%  \]
+%
+%  Precisamos verificar as três condições do teste
+%  \begin{enumerate}[label=\roman*)]
+%    \item \(f(x)>0\) em \([1, \infty)\) \\[2mm]
+%      Como \((1+x)^2>0\) para todo \(x\in\R\) então \(f(x)>0\)
+%
+%    \item \(f(x)\) é contínua em \([1, \infty)\) \\[2mm]
+%      Como \((1+x)^2>0\) a função \(f(x)\) é contínua em \(\R\)
+%
+%    \item \(f(x)\) é decrescente em  \([1, \infty)\) \\[2mm]
+%      A derivada de \(f(x)\) é
+%      \begin{align*}
+%        f'(x)
+%        & = \frac
+%          {(5)'\left(1+x\right)^2 - 5\left[\left(1+x\right)^2\right]'}
+%          {\left(1+x\right)^4} \\[2mm]
+%        & = \frac{-5\times 2\left(1+x\right) 1}{\left(1+x\right)^4} \\[2mm]
+%        & = \frac{-10\left(1+x\right)}{\left(1+x\right)^4} \\[2mm]
+%        & = \frac{-10}{\left(1+x\right)^3}
+%      \end{align*}
+%      portanto \(f'(x)<0\) para \(x>-1\), assim \(f\) é decrescente no intervalo \([1, \infty)\)
+%  \end{enumerate}
+%  Calculando a primitiva de \(f\)
+%  \[
+%    F(x) = \int \frac{5}{\left(1+x\right)^2} dx
+%  \]
+%  Fazendo a mudança de variáveis
+%  \[
+%    u = 1+x
+%    \qquad
+%    du = dx
+%  \]
+%  \[
+%    F(x)
+%     = \int \frac{5}{\left(1+x\right)^2} dx
+%     = 5 \int \frac{du}{u^2}
+%     = 5 \int u^{-2} du
+%     = 5 \frac{u^{-1}}{-1} + c
+%     = \frac{-5}{u} + c
+%     = \frac{-5}{1+x} + c
+%  \]
+%  Calculando a integral imprópria
+%  \[
+%    A
+%    = \int_1^\infty f(x)dx
+%    = \lim_{b\to\infty}\int_1^b f(x)dx
+%    = \lim_{b\to\infty} F(x)\evalat{1}{b}
+%    = \lim_{b\to\infty} \left(\frac{-5}{1+b} - \frac{-5}{1+1}\right)
+%    = \frac{5}{2}
+%  \]
+%  Como a integral converge a série também converge e portanto sua soma existe.
+%\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule o limite a sequência de somas parciais da série \;
+\(
+  \sum_{n=1}^{\infty} \frac{\sqrt{2}}{n^2 + n}
+\)
+
+%\begin{answer}
+%  Queremos calcular
+%  \[
+%    \lim_{n\to\infty}\frac{\cos(n) + 1}{\ln(n)}
+%  \]
+%  Como \(\lim_{n\to\infty}\cos(n)\) não existe,
+%  não podemos calcular o limite de cada termo
+%  separadamente, portanto, vamos usar o Teorema do Confronto.
+%  \begin{align*}
+%    -1 \leq & \cos(n) \leq 1 \\[2mm]
+%     0 \leq & \cos(n)+1 \leq 2 \\[2mm]
+%     \frac{0}{\,\ln(n)\,} \leq & \frac{\,\cos(n)+1\,}{\ln(n)} \leq \frac{2}{\,\ln(n)\,} \\[2mm]
+%     0 \leq & \frac{\,\cos(n)+1\,}{\ln(n)} \leq \frac{2}{\,\ln(n)\,}
+%  \end{align*}
+%  A penúltima desigualdade vale, pois, \(\ln(n)>0\) para todo \(n\geq2\).
+%
+%  Como \(\lim_{n\to\infty} 0 = \lim_{n\to\infty} \frac{2}{\ln(n)}=0\),
+%  concluímos que
+%  \[
+%    \lim_{n\to\infty}\frac{\cos(n) + 1}{\ln(n)} = 0
+%  \]
+%\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Verifique se a série converge \;
+\(
+  \sum_{n=1}^\infty \frac{n^3 - 5n + 1}{(n-2)(n^2+3)n^2}
+\)
+
+%\begin{answer}
+%  Como todos os termos são positivos, podemos usar o teste da comparação no limite.
+%
+%  Escolhemos \(b_n=\sfrac{1}{3^n}\), que são os termos de uma série
+%  geométrica convergente, pois \(\abs{r}=\sfrac{1}{3}<1\).
+%
+%  \begin{align*}
+%    c
+%    & = \lim_{n\to\infty} \frac{a_n}{b_n} \\[2mm]
+%    & = \lim_{n\to\infty} \frac{\;\dfrac{3^n}{3+9^n}\;}{\;\dfrac{1}{3^n}\;} \\[2mm]
+%    & = \lim_{n\to\infty} \frac{3^n}{3+9^n}\;3^n \\[2mm]
+%    & = \lim_{n\to\infty} \frac{9^n}{3+9^n} \\[2mm]
+%    & = \lim_{n\to\infty} \frac{1}{\sfrac{3}{9^n}+1} \\[2mm]
+%    & = 1
+%  \end{align*}
+%  Como \(c>0\) e finito, o teste da comparação no limite diz que ou ambas as séries
+%  convergem ou ambas divergem. Como a soma de \(b_n\) converge, então
+%  \[
+%    \sum_{n=1}^\infty \frac{3^n}{3+9^n}
+%  \]
+%  também converge.
+%\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Mostre que a série \;
+\(
+  \sum_{n=1}^\infty \frac{(-1)^n}{\,\ln(n+1)\,}
+\) \;
+é convergente e determine quantos termos precisam ser somados
+para garantir um erro menor do que $10^{-6}$
+
+%\begin{answer}
+%\begin{enumerate}[label=\alph*)]
+%  \item Essa é uma série geométrica com
+%    \(\alpha = -2\) e
+%    \(r=\frac{-2}{3}\),
+%    pois,
+%    \[
+%      \sum_{n=1}^{\infty} \frac{(-2)^n}{3^{n-1}}
+%      = \sum_{n=1}^{\infty} \frac{(-2)(-2)^{n-1}}{3^{n-1}}
+%      = \sum_{n=1}^{\infty} (-2)\left(\frac{-2}{3}\right)^{n-1}
+%    \]
+%    Como
+%    \(\abs{r} = \frac{2}{3} < 1\)
+%    a série é convergente.
+%  \item
+%    A soma da série geométrica é
+%    \[
+%      S
+%      = \frac{\alpha}{1-r}
+%      = \frac{-2}{1-\left(\frac{-2}{3}\right)}
+%      = \frac{-2}{\frac{3}{3}+\frac{2}{3}}
+%      = \frac{-2}{\frac{5}{3}}
+%      = -2\frac{3}{5}
+%      = \frac{-6}{5}
+%    \]
+%  \item Além de ser uma série geométrica essa série também é alternada, então
+%  \[
+%    R_{100} < \abs{a_{101}}
+%  \]
+%  como \(\abs{a_n}=\frac{2^n}{3^{n-1}}\), portanto
+%  \[
+%    R_{100} < \frac{2^{101}}{3^{100}}
+%    \approx 4,9193 \times 10^{-18}
+%  \]
+%\end{enumerate}
+%\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

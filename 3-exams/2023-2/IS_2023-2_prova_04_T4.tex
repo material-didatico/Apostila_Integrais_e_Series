@@ -1,0 +1,175 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 4 -- Turma 4}{12/12/2023}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{30}
+Calcule a Série de Taylor da função
+\(
+  f(x) = \int \sinh\left(x^2\right) dx
+\)
+
+\textit{Lembrete}: \(\sinh(x)=\frac{e^x-e^{-x}}{2}\)
+
+\begin{answer}
+  Sabemos que a Série de Taylor da função exponencial é
+  \[
+    e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+  \]
+  Primeiro calculamos a Série de Taylor das funções
+  \[
+    e^{x^2}
+    = \sum_{n=0}^\infty \frac{\left(x^2\right)^n}{n!}
+    = \sum_{n=0}^\infty \frac{x^{2n}}{n!}
+  \]
+  \[
+    e^{-x^2}
+    = \sum_{n=0}^\infty \frac{\left(-x^2\right)^n}{n!}
+    = \sum_{n=0}^\infty \frac{(-1)^nx^{2n}}{n!}
+  \]
+  agora da função
+  \begin{align*}
+    \sinh\left(x^2\right)
+    & = \frac{e^{x^2}-e^{-x^2}}{2} \\[2mm]
+    & = \frac{1}{2}\left(
+          \sum_{n=0}^\infty \frac{       x^{2n}}{n!} -
+          \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{n!}
+        \right) \\[2mm]
+    & = \frac{1}{2} \sum_{n=0}^\infty \frac{1}{n!}
+                    \big[x^{2n}-(-1)^n x^{2n}\big] \\[2mm]
+    & = \frac{1}{2} \sum_{n=0}^\infty \frac{1-(-1)^n}{n!} x^{2n}
+  \end{align*}
+  Observando que
+  \(
+    1 - (-1)^n = 1 + (-1)^{n+1}
+  \)
+  vale 2 para $n$ ímpar e zero para $n$ par,
+  podemos remover todos os índices pares e
+  fazer a mudança de índice \(n=2k+1\), obtendo
+  \[
+    \sinh\left(x^2\right)
+    = \frac{1}{2} \sum_{k=0}^\infty \frac{2}{(2k+1)!} x^{2(2k+1)}
+    = \sum_{k=0}^\infty \frac{x^{4k+2}}{(2k+1)!}
+  \]
+  Agora integramos
+  \begin{align*}
+    f(x)
+    & = \int \sinh\left(x^2\right) dx \\[2mm]
+    & = \int \sum_{k=0}^\infty \frac{x^{4k+2}}{(2k+1)!} \;dx \\[2mm]
+    & = \sum_{k=0}^\infty \frac{1}{(2k+1)!} \int x^{4k+2} dx \\[2mm]
+    & = C + \sum_{k=0}^\infty \frac{1}{(2k+1)!} \frac{x^{4k+3}}{4k+3} \\[2mm]
+    & = C + \sum_{k=0}^\infty \frac{x^{4k+3}}{(4k+3)(2k+1)!}
+  \end{align*}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{40}
+Seja \( f(x) = \frac{2}{1+x}\)
+\begin{enumerate}
+  \item[{a) [12]}] Encontre um padrão para \(f^{(n)}(x)\)
+  \item[{b) [14]}] Usando o padrão do item anterior, encontre a
+                   Serie de Taylor de $f(x)$, centrada em zero
+  \item[{c) [14]}] Obtenha o intervalo de convergência da série de potências
+\end{enumerate}
+
+\begin{answer}
+  \begin{enumerate}[label=\alph*)]
+    \item Calculando as primeiras derivadas
+    \begin{align*}
+      f^{(0)}(x) & = \frac{2}{1+x} = 2(1+x)^{-1} \\[2mm]
+      f^{(1)}(x) & = \frac{\,d\;}{\,dx\;}\left[2(1+x)^{-1}\right]
+      = 2(-1)(1+x)^{-1-1} (1+x)'
+      = -2 (1+x)^{-2} \\[2mm]
+      f^{(2)}(x) & = \frac{d^2}{dx^2}\left[2(1+x)^{-1}\right]
+      = \hpm 2 \cdot 2                 (1+x)^{-3} \\[2mm]
+      f^{(3)}(x) & = \frac{d^3}{dx^3}\left[2(1+x)^{-1}\right]
+      = -2 \cdot 2 \cdot 3         (1+x)^{-4} \\[2mm]
+      f^{(4)}(x) & = \frac{d^4}{dx^4}\left[2(1+x)^{-1}\right]
+      = \hpm 2 \cdot 2 \cdot 3 \cdot 4 (1+x)^{-5} \\[2mm]
+      f^{(5)}(x) & = \frac{d^5}{dx^5}\left[2(1+x)^{-1}\right]
+      = - 2 \cdot 2 \cdot 3 \cdot 4 \cdot 5 (1+x)^{-6}
+    \end{align*}
+    Por inspeção, vemos que
+    \[
+      f^{(n)}(x)
+      = \frac{d^n}{dx^n}\left[2(1+x)^{-1}\right]
+      = 2(-1)^n n! (1+x)^{-n-1}
+      = \frac{2 (-1)^n n!}{(1+x)^{n+1}}
+    \]
+    \item Os coeficientes da série de Taylor são
+    \[
+      c_n
+      = \frac{f^{(n)}(0)}{n!}
+      = \frac{2(-1)^n n!}{(1-0)^{n+1}n!}
+      = 2(-1)^n
+    \]
+    Montando a série temos
+    \[
+      T(x)
+      = \sum_{n=0}^\infty c_n x^n
+      = \sum_{n=0}^\infty 2(-1)^n x^n
+    \]
+    \item Reescrevendo a série temos
+    \[
+      T(x)
+      = \sum_{n=0}^\infty 2 (-1)^n x^n
+      = \sum_{n=0}^\infty 2 (-x)^n
+    \]
+    que é uma série geométrica com \(\alpha = 2\) e \(r = -x\),
+    portanto, convergente apenas quando \(\abs{r}<1\) ou seja \(x\in(-1, 1)\).
+  \end{enumerate}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{30}
+Prove que a série de Maclaurin da função cosseno
+converge para $\cos x$, em todo $x\in\R$
+
+\begin{answer}
+  Pelo \textbf{Teorema de Taylor}, sabemos que o erro cometido ao aproximarmos
+  $\cos(x)$ pelo seu polinômio de Taylor centrado em zero de grau $n$ é
+  \[
+    R_n(x) = \frac{\cos^{(n+1)}(\xi)}{(n+1)!} \, x^{n+1}
+  \]
+  para algum $\xi$ entre zero e $x$.
+  Como todas as derivadas do cosseno são cossenos ou senos alternando os sinais,
+  podemos escrever
+  \[
+    \abs{\cos^{(k)}(t)} \leq 1
+  \]
+  para todo \(k\in\N\) e \(t\in\R\).
+  Portanto, para todo \(x\in\R\)
+  \[
+    \abs{R_n(x)}
+    = \frac{\abs{\cos^{(n+1)}(\xi)}}{(n+1)!}\abs{x^{n+1}}
+    \leq \frac{\abs{x^{n+1}}}{(n+1)!}
+  \]
+  Calculando o limite
+  \[
+    \lim_{n\to\infty} \frac{\abs{x^{n+1}}}{(n+1)!}
+    = \abs{x^{n+1}} \lim_{n\to\infty} \frac{1}{(n+1)!}
+    = \abs{x^{n+1}} \cdot 0
+    = 0
+  \]
+  podemos usar o \textbf{Teorema do Confronto} para mostrar que \(R_n(x)\)
+  vai para zero, quando $n$ vai para o infinito.
+  Portanto, a série converge para a função.
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

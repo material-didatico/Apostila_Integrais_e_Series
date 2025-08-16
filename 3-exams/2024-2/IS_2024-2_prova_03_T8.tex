@@ -1,0 +1,228 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 3 -- Turma 8}{14/01/2024}
+
+\addGrowthOrder
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule o limite da sequência de somas parciais da série \;
+\(
+  \sum_{n=1}^\infty \frac{\pi}{n(n+1)}
+\)
+
+\begin{answer}
+  Usando frações parciais, podemos reescrever o termo geral
+  \[
+    a_n
+    = \frac{\pi}{n(n+1)}
+    = \frac{\pi}{n} - \frac{\pi}{n+1}
+  \]
+
+  Expandindo a soma parcial \( S_N \), temos
+  \[
+    S_N
+    = \sum_{n=1}^N \left( \frac{\pi}{n} - \frac{\pi}{n+1} \right)
+    = \left( \frac{\pi}{1} - \frac{\pi}{2} \right)
+    + \left( \frac{\pi}{2} - \frac{\pi}{3} \right)
+    + \cdots
+    + \left( \frac{\pi}{N} - \frac{\pi}{N+1} \right)
+  \]
+  Após o cancelamento telescópico, restam
+  \[
+    S_N = \pi - \frac{\pi}{N+1}
+  \]
+  Calculando o limite
+  \[
+    \lim_{N \to \infty} S_N
+    = \lim_{N \to \infty} \pi - \frac{\pi}{N+1}
+    = \pi
+  \]
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Analise a convergência da série \;
+\(
+  \sum_{n=1}^\infty \frac{(n!)^2}{(2n)!}
+\)
+
+\begin{answer}
+  \[
+    a_n
+    = \frac{(n!)^2}{(2n)!}
+    = \frac{n!n!}{(2n)!}
+  \]
+  \[
+    a_{n+1}
+    = \frac{[(n+1)!]^2}{[2(n+1)]!}
+    = \frac{(n+1)!(n+1)!}{(2n+2)!}
+  \]
+  \begin{align*}
+    \frac{a_{n+1}}{a_n}
+    & = \frac{(n+1)!(n+1)!}{(2n+2)!}\,\frac{(2n)!}{n!n!} \\[2mm]
+    & = \frac{(n+1)\,n!\,(n+1)\,n!\,(2n)!}{(2n+2)(2n+1)(2n)!\,n!\,n!} \\[2mm]
+    & = \frac{(n+1)(n+1)}{(2n+2)(2n+1)} \\[2mm]
+    & = \frac{(n+1)(n+1)}{2(n+1)(2n+1)} \\[2mm]
+    & = \frac{n+1}{4n+2} \\[2mm]
+    & = \frac{1+\sfrac{1}{n}}{4+\sfrac{2}{n}}
+  \end{align*}
+  \[
+    \rho
+    = \lim_{n\to\infty} \frac{a_{n+1}}{a_n}
+    = \lim_{n\to\infty} \frac{1+\sfrac{1}{n}}{4+\sfrac{2}{n}}
+    = \frac{1 + 0}{4 + 0}
+    = \frac{1}{4}
+  \]
+  Como \(\rho = \frac{1}{4} < 1\) a série converge pelo teste da razão.
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Verifique se a série converge \;
+\(
+  \sum_{n=1}^\infty \left[\frac{\sin(n)}{n}\right]^2
+\)
+
+\begin{answer}
+  Como os termos da série
+  \[
+    \sum_{n=1}^\infty \left[\frac{\sin(n)}{n}\right]^2
+    = \sum_{n=1}^\infty \frac{\sin^2(n)}{n^2}
+  \]
+  são não-negativos, podemos usar o teste da comparação.
+  Observando que
+  \(
+    0 \leq \sin^2(n) \leq 1
+  \)
+  temos que
+  \[
+    a_n = \frac{\sin^2(n)}{n^2} \leq \frac{1}{n^2}
+  \]
+  Como \(b_n = \frac{1}{n^2}\) são os termos de uma $p$-série convergente
+  (\(p=2>1\))
+  o teste da comparação garante que a série
+  \[
+    \sum_{n=1}^\infty \frac{\sin^2(n)}{n^2}
+  \]
+  converge
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Use o teste da integral para mostrar que a soma da série existe \;
+\(
+  \sum_{n=1}^{\infty} \frac{1}{n(n+1)}
+\)
+
+\begin{answer}
+  Vamos usar a função real
+  \[
+    f(x) = \frac{1}{x(x+1)}
+  \]
+
+  Precisamos verificar as três condições do teste
+  \begin{enumerate}[label=\roman*)]
+    \item \(f(x)>0\) sempre que \(x(x+1) > 0\).
+          isso é, $x<-1$ ou $x>0$
+
+    \item \(f(x)\) é contínua em para todo $x\in\R$, desde que $x\neq 0$
+          e $x\neq -1$
+
+    \item A derivada de \(f(x)\) é
+    \begin{align*}
+      f'(x)
+      & = \left[\frac{1}{x(x+1)}\right]' \\[2mm]
+      & = \left[\frac{1}{x^2+x}\right]' \\[2mm]
+      & = \frac{0-(2x+1)}{x^2(x+1)^2} \\[2mm]
+      & = -\frac{2x+1}{x^2(x+1)^2}
+    \end{align*}
+    A derivada será negativa sempre que \(2x+1>0\), ou seja,
+    \(f(x)\) é decrescente quando \(x>-\frac{1}{2}\)
+  \end{enumerate}
+
+  Portanto, a função \(f(x) = \frac{1}{x(x+1)}\) é apropriada para
+  o teste da integral. Vamos então calcular sua primitiva.
+  \[
+    F(x) = \int \frac{1}{x(x+1)} dx
+  \]
+  Por frações parciais temos que
+  \[
+    \frac{1}{x(x+1)} = \frac{1}{x} - \frac{1}{x+1}
+  \]
+  então
+  \[
+    F(x)
+    = \int \frac{1}{x} - \frac{1}{x+1} dx
+    = \ln\abs{x} - \ln\abs{x+1} + C
+  \]
+  Calculando a integral imprópria
+  \begin{align*}
+    A
+    & = \int_1^\infty f(x) dx \\[2mm]
+    & = \lim_{b\to\infty}\int_1^b f(x)dx \\[2mm]
+    & = \lim_{b\to\infty} F(x)\evalat{1}{b} \\[2mm]
+    & = \lim_{b\to\infty} \big(\ln\abs{x} - \ln\abs{x+1}\big)\evalat{1}{b} \\[2mm]
+    & = \lim_{b\to\infty}
+        \Big(
+          \big( \ln\abs{b} - \ln\abs{b+1}\big) -
+          \big( \ln\abs{1} - \ln\abs{1+1}\big)
+        \Big) \\[2mm]
+    & = \lim_{b\to\infty} \left( \ln\abs{\frac{b}{b+1}}\right)
+      + \ln(2) \\[2mm]
+    & = \ln\abs{\lim_{b\to\infty} \frac{b}{b+1}}
+      + \ln(2) \\[2mm]
+    & = \ln(1)
+      + \ln(2) \\[2mm]
+    & = \ln(2)
+  \end{align*}
+  Como a integral converge a série também converge.
+\end{answer}
+
+%% 05
+%%------------------------------------------------------------------------------%
+%\exercise{20}
+%Determine quantos termos precisam ser somados na série do exercício anterior
+%para que obter uma precisão de pelo menos \(10^{-6}\).
+%
+%\begin{answer}
+%  Sabemos que
+%  \[
+%    \abs{R_n} \leq \int_n^\infty \frac{1}{x(x+1)} dx
+%  \]
+%
+%  Calculando a integral imprópria
+%  \begin{align*}
+%    A
+%    & = \int_n^\infty f(x) dx \\[2mm]
+%    & = \lim_{b\to\infty} \big(\ln\abs{x} - \ln\abs{x+1}\big)\evalat{n}{b} \\[2mm]
+%    & = \lim_{b\to\infty}
+%      \Big(
+%      \big( \ln\abs{b} - \ln\abs{b+1}\big) -
+%      \big( \ln\abs{n} - \ln\abs{n+1}\big)
+%      \Big) \\[2mm]
+%    & = \ln\abs{\lim_{b\to\infty} \frac{b}{b+1}}
+%      - \ln\left(\frac{n}{n+1}\right) \\[2mm]
+%    & = - \ln\left(\frac{n}{n+1}\right) \\[2mm]
+%    & = \ln\left(\frac{n+1}{n}\right)
+%  \end{align*}
+%  Como a integral converge a série também converge.
+%\end{answer}
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

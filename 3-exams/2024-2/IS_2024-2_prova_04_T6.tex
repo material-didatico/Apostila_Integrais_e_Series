@@ -1,0 +1,232 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 4 -- Turma 6}{12/12/2023}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+  Escreva o polinômio de Taylor de terceiro grau, centrado no zero,
+  da função seno hiperbólico
+  \(
+      \sinh(x)=\frac{e^x-e^{-x}}{2}
+  \)
+
+\begin{answer}
+  O polinômio de Taylor de terceiro grau, centrado em zero, é
+  \[
+    P_3(x) = \sinh(0) + \sinh'(0) x + \frac{\sinh''(0)}{2}x^2 + \frac{\sinh^{(3)}(0)}{3!}x^3
+  \]
+  Calculando as derivadas
+  \begin{align*}
+    \sinh^{(1)}(x) & = \frac{1}{2}\frac{d}{dx}\left(e^x-e^{-x}\right)
+                     = \frac{1}{2}\left(e^x+e^{-x}\right) \\[2mm]
+    \sinh^{(2)}(x) & = \frac{1}{2}\frac{d}{dx}\left(e^x+e^{-x}\right)
+                     = \frac{1}{2}\left(e^x-e^{-x}\right) \\[2mm]
+    \sinh^{(3)}(x) & = \frac{1}{2}\frac{d}{dx}\left(e^x-e^{-x}\right)
+                     = \frac{1}{2}\left(e^x+e^{-x}\right)
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+  \sinh^{(0)}(0) & = \frac{e^0-e^{-0}}{2} = \frac{1-1}{2} = 0  \\[2mm]
+  \sinh^{(1)}(0) & = \frac{e^0+e^{-0}}{2} = \frac{1+1}{2} = 1  \\[2mm]
+  \sinh^{(2)}(0) & = \frac{e^0-e^{-0}}{2} = \frac{1-1}{2} = 0  \\[2mm]
+  \sinh^{(3)}(0) & = \frac{e^0+e^{-0}}{2} = \frac{1+1}{2} = 1
+  \end{align*}
+  Portanto
+  \[
+    P_3(x) = x + \frac{x^3}{6}
+  \]
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Seja \( f(x) = \frac{2}{1+x}\)
+\begin{enumerate}[label=\alph*)]
+  \item\ [10] encontre um padrão para \(f^{(n)}(x)\)
+  \item\ [15] usando o padrão do item anterior, encontre a
+                   Serie de Taylor de $f(x)$, centrada em zero
+\end{enumerate}
+
+\begin{answer}
+  \begin{enumerate}[label=\alph*)]
+    \item Calculando as primeiras derivadas
+    \begin{align*}
+      f^{(0)}(x) & = \frac{2}{1+x} = 2(1+x)^{-1} \\[2mm]
+      f^{(1)}(x) & = \frac{\,d\;}{\,dx\;}\left[2(1+x)^{-1}\right]
+      = 2(-1)(1+x)^{-1-1} (1+x)'
+      = -2 (1+x)^{-2} \\[2mm]
+      f^{(2)}(x) & = \frac{d^2}{dx^2}\left[2(1+x)^{-1}\right]
+      = \hpm 2 \cdot 2                 (1+x)^{-3} \\[2mm]
+      f^{(3)}(x) & = \frac{d^3}{dx^3}\left[2(1+x)^{-1}\right]
+      = -2 \cdot 2 \cdot 3         (1+x)^{-4} \\[2mm]
+      f^{(4)}(x) & = \frac{d^4}{dx^4}\left[2(1+x)^{-1}\right]
+      = \hpm 2 \cdot 2 \cdot 3 \cdot 4 (1+x)^{-5} \\[2mm]
+      f^{(5)}(x) & = \frac{d^5}{dx^5}\left[2(1+x)^{-1}\right]
+      = - 2 \cdot 2 \cdot 3 \cdot 4 \cdot 5 (1+x)^{-6}
+    \end{align*}
+    Por inspeção, vemos que
+    \[
+      f^{(n)}(x)
+      = \frac{d^n}{dx^n}\left[2(1+x)^{-1}\right]
+      = 2(-1)^n n! (1+x)^{-n-1}
+      = \frac{2 (-1)^n n!}{(1+x)^{n+1}}
+    \]
+    \item Os coeficientes da série de Taylor são
+    \[
+      c_n
+      = \frac{f^{(n)}(0)}{n!}
+      = \frac{2(-1)^n n!}{(1-0)^{n+1}n!}
+      = 2(-1)^n
+    \]
+    Montando a série temos
+    \[
+      T(x)
+      = \sum_{n=0}^\infty c_n x^n
+      = \sum_{n=0}^\infty 2(-1)^n x^n
+    \]
+  \end{enumerate}
+\end{answer}
+
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Considerando a série de potências
+\(
+  \sum_{n=0}^\infty (-2)^n x^n
+\)
+\begin{enumerate}[label=\alph*)]
+  \item\ [15] determine seu raio de convergência;
+  \item\ [10] calcule sua primitiva.
+\end{enumerate}
+
+\begin{answer}
+\begin{enumerate}[label=\alph*)]
+\item
+  \textbf{Solução 1}
+  Reescrevendo a série temos
+  \[
+    T(x)
+    = \sum_{n=0}^\infty (-2)^n x^n
+    = \sum_{n=0}^\infty (-2x)^n
+  \]
+  que é uma série geométrica com \(\alpha = 1\) e \(r = -2x\),
+  portanto, convergente apenas quando
+  \begin{align*}
+    \abs{r} & < 1 \\
+    \abs{-2x} & < 1 \\
+    2\abs{x} & < 1 \\
+    \abs{x} & < \frac{1}{2}
+  \end{align*}
+  Portando o raio de convergência é \(R=\sfrac{1}{2}\)
+
+  \textbf{Solução 2}
+  Usando o teste da razão
+  \begin{align*}
+    a_n     & = (-2)^n x^n         & \abs{a_n}     & = 2^n\abs{x}^n         \\
+    a_{n+1} & = (-2)^{n+1} x^{n+1} & \abs{a_{n+1}} & = 2^{n+1}\abs{x}^{n+1}
+  \end{align*}
+  \begin{align*}
+    \rho
+    & = \lim_{n\to\infty} \frac{\abs{a_{n+1}}}{\abs{a_n}} \\[2mm]
+    & = \lim_{n\to\infty} \frac{2^{n+1}\abs{x}^{n+1}}{2^n\abs{x}^n} \\[2mm]
+    & = \lim_{n\to\infty} 2\abs{x} \\[2mm]
+    & = 2\abs{x}
+  \end{align*}
+  A série converge quando \(\rho<1\), ou seja, \(\abs{x}<\sfrac{1}{2}\),
+  portanto, o raio é  \(R=\sfrac{1}{2}\)
+
+\item
+  \begin{align*}
+    F(x)
+    & = \int \sum_{n=0}^\infty (-2)^n x^n \,dx \\[2mm]
+    & = \sum_{n=0}^\infty (-2)^n \int x^n \,dx \\[2mm]
+    & = C + \sum_{n=0}^\infty (-2)^n \frac{x^{n+1}}{n+1} \\[2mm]
+    & = C + \sum_{n=0}^\infty \frac{(-2)^n}{n+1}x^{n+1}
+  \end{align*}
+\end{enumerate}
+\end{answer}
+
+
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Escreva uma aproximação para \(\cos\left(\sfrac{\pi}{8}\right)\)
+utilizando o polinômio de Taylor de quarto grau e
+estime o erro dessa aproximação.
+Não é necessário encontrar a representação decimal dos valores numéricos.
+
+\begin{answer}
+  Polinômio de Taylor
+  \[
+    P_4(x) = \sum_{n=0}^{4} \frac{f^{(n)}(0)}{n!} x^n
+  \]
+  Calculando as derivadas do cosseno e as avaliando em zero
+  \begin{align*}
+    \cos^{(1)}(x) & = -\sin(x) &
+    \cos^{(1)}(0) & = -\sin(0) = 0 \\
+    \cos^{(2)}(x) & = -\cos(x) &
+    \cos^{(2)}(0) & = -\cos(0) = -1 \\
+    \cos^{(3)}(x) & =  \sin(x) &
+    \cos^{(3)}(0) & =  \sin(0) = 0 \\
+    \cos^{(4)}(x) & =  \cos(x) &
+    \cos^{(4)}(0) & =  \cos(0) = 1
+  \end{align*}
+  então
+  \begin{align*}
+    P_4(x)
+    & = \cos(0)
+    - \sin(0)\, x
+    - \cos(0)\, x^2
+    + \sin(0)\, x^3
+    + \cos(0)\, x^4 \\
+    & = 1 - x^2 + x^4
+  \end{align*}
+  Em \(x=\sfrac{\pi}{8}\) temos
+  \[
+    \cos\left(\frac{\pi}{8}\right)
+    \approx
+    P_4\left(\frac{\pi}{8}\right)
+    = 1
+    - \frac{\pi^2}{8^2}
+    + \frac{\pi^4}{8^4}
+  \]
+
+  Pelo \textbf{Teorema de Taylor}, sabemos que o erro cometido ao aproximarmos
+  $\cos(x)$ pelo seu polinômio de Taylor centrado em zero de grau 4 é
+  \[
+    R_4(x)
+    = \frac{\cos^{(5)}(c)}{(5)!} \, x^5
+    = -\frac{\sin(c)}{120}x^5
+  \]
+  para algum $c$ entre zero e $x$.
+  Avaliando o erro em \(x=\frac{\pi}{8}\) temos
+  \[
+    \abs{R_4\left(\frac{\pi}{8}\right)}
+    = \abs{-\frac{\sin(c)}{120}\left(\frac{\pi}{8}\right)^5}
+    = \frac{\abs{\sin(c)}}{120}\left(\frac{\pi}{8}\right)^5
+  \]
+  Como para $c$ entre zero e \(\sfrac{\pi}{8}\) o máximo do seno será
+  em \(\sfrac{\pi}{8}\), portanto
+  \[
+    \abs{R_4\left(\frac{\pi}{8}\right)}
+    \leq \frac{\abs{\sin\left(\dfrac{\pi}{8}\right)}}{120}\left(\frac{\pi}{8}\right)^5
+  \]
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

@@ -1,0 +1,225 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova Substitutiva -- Turma 5}{14/12/2023}
+
+\vspace{\baselineskip}
+\textbf{Substitui a prova} \underline{\hspace{20mm}}
+\vspace{\baselineskip}
+
+Os exercícios 1 e 2 valem 30 para quem perdeu a prova 1 ou 2 \\[-1mm]
+O exercício 3 vale 40 para quem perdeu a prova 3 \\[-1mm]
+O exercício 4 vale 40 para quem perdeu a prova 4
+
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Calcule a integral \(\int_0^1 \frac{\ln(x)}{\sqrt{x}} dx\).
+\textit{Atenção ao intervalo de integração}.
+
+\begin{answer}
+  Calculando a primitiva
+  \(
+    F(x) = \int \frac{\ln(x)}{\sqrt{x}} dx
+  \)
+  por integral por partes
+  \[
+    u = \ln(x)
+    \qquad
+    dv = \frac{dx}{\sqrt{x}} = x^{-\sfrac{1}{2}}dx
+  \]
+  \[
+    du = \frac{dx}{x}
+    \qquad
+    v = \frac{x^{\sfrac{1}{2}}}{\sfrac{1}{2}} = 2\sqrt{x}
+  \]
+  \begin{align*}
+    F(x)
+    & = \int \frac{\ln(x)}{\sqrt{x}} dx \\[2mm]
+    & = \ln(x) 2 \sqrt{x} - \int 2\sqrt{x} \frac{dx}{x} \\[2mm]
+    & = 2\ln(x)\sqrt{x} - 2\int x^{\sfrac{1}{2}-1} dx \\[2mm]
+    & = 2\ln(x)\sqrt{x} - 2\int x^{-\sfrac{1}{2}} dx \\[2mm]
+    & = 2\ln(x)\sqrt{x} - 2\sqrt{x} + C \\[2mm]
+    & = 2\sqrt{x}\big( \ln(x) - 1\big) + C
+  \end{align*}
+  Para calcular a integral definida precisamos observar que temos uma assintota
+  vertical em $x=0$ portanto essa é uma integral imprópria
+  \begin{align*}
+    I
+    & = \int_0^1 \frac{\ln(x)}{\sqrt{x}} dx \\[2mm]
+    & = \lim_{t\to0} \int_t^1 \frac{\ln(x)}{\sqrt{x}} dx \\[2mm]
+    & = \lim_{t\to0} \left[ 2\sqrt{x}\big( \ln(x) - 1\big)\evalat{t}{1}\right]  \\[2mm]
+    & = \lim_{t\to0} \left[ 2\sqrt{1}\big( \ln(1) - 1\big)
+                          - 2\sqrt{t}\big( \ln(t) - 1\big) \right]   \\[2mm]
+    & = 2( 0 - 1) -2 \lim_{t\to0} \left[\sqrt{t}\big(\ln(t) - 1\big) \right] \\[2mm]
+    & = -2 -2 \lim_{t\to0} \left[\sqrt{t}\big(\ln(t) - 1\big) \right]
+  \end{align*}
+  Precisamos calcular o limite
+  \begin{align*}
+    L
+    & = \lim_{t\to0} \sqrt{t}\big(\ln(t) - 1\big)  \\[2mm]
+    & = \lim_{t\to0} \frac{\ln(t)-1}{t^{-\sfrac{1}{2}}} & \text{usando l'Hopital}\\[2mm]
+    & = \lim_{t\to0} \frac{t^{-1}}{-\sfrac{1}{2}t^{-\sfrac{3}{2}}} \\[2mm]
+    & = \lim_{t\to0} -2 t^{\sfrac{3}{2}-1} \\[2mm]
+    & = -2 \lim_{t\to0} t^{\sfrac{1}{2}} \\[2mm]
+    & = -2 \lim_{t\to0} \sqrt{t} = 0
+  \end{align*}
+  Portando
+  \[
+    I = \int_0^1 \frac{\ln(x)}{\sqrt{x}} dx = -2
+  \]
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Encontre o volume do sólido obtido pela rotação, em torno no eixo $y$,
+da região contida entre as curvas \(y=x^3\), \(y=8\) e \(x=0\).
+
+\begin{answer}
+  Integrando por seções transversais em $y$ temos
+  \[
+    V = \int_a^b A(y) dy
+  \]
+  onde \(a=0\), \(b=8\) e
+  \[
+    A(y) = \pi r^2 = \pi \left(x^{\sfrac{1}{3}}\right)^2 = \pi x^{\sfrac{2}{3}}
+  \]
+  Assim
+  \begin{align*}
+      V
+      & = \int_0^8 \pi x^{\sfrac{2}{3}} dy \\[2mm]
+      & = \pi \int_0^8 x^{\sfrac{2}{3}} dy \\[2mm]
+      & = \pi \frac{x^{\sfrac{5}{3}}}{\sfrac{5}{3}}\evalat{0}{8} \\[2mm]
+      & = \frac{3\pi}{5} \left(8^{\sfrac{5}{3}}-0^{\sfrac{5}{3}}\right) \\[2mm]
+      & = \frac{3\pi 2^5}{5} \\[2mm]
+      & = \frac{96\pi}{5}
+  \end{align*}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Analise a convergência da série \(\;\sum_{n=1}^\infty \frac{1}{2+3^n}\)
+
+\begin{answer}
+  Vamos comparar a série com a série geométrica convergente
+  \[
+    \sum_{n=1}^\infty \left(\frac{1}{3}\right)^n
+  \]
+  Primeiro verificamos que
+  \[
+    \frac{1}{2+3^n}
+    < \frac{1}{3^n}
+    = \left(\frac{1}{3}\right)^n
+  \]
+  Portanto, a série converge pelo teste da comparação.
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Sabendo que \(f^{(n)}(x) = \frac{(-1)^nn!}{x^{n+1}}\), para \(n=0, 1, 2, \dots\)
+\begin{enumerate}[label=\alph*)]
+  \item Construa o Polinômio de Taylor de grau $n$ centrado em 2 da função $f$
+  \item Determine o intervalo de convergência da Série de Taylor
+  \item Determine o grau necessário para que a diferença entre o polinômio e a função
+  seja menor do que $10^{-6}$ no intervalo $(2, 3)$
+\end{enumerate}
+
+\begin{answer}
+\begin{enumerate}[label=\alph*)]
+  \item O Polinômio de grau $n$ é
+  \[
+    P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(2)}{k!}\left(x-2\right)^k
+  \]
+  como
+  \[
+    f^{(k)}(2)
+    = \frac{(-1)^kk!}{x^{k+1}}
+    = \frac{(-1)^kk!}{2^{k+1}}
+  \]
+  temos
+  \begin{align*}
+    P_n(x)
+    & = \sum_{k=0}^n \frac{f^{(k)}(2)}{k!}\left(x-2\right)^k \\[2mm]
+    & = \sum_{k=0}^n \frac{(-1)^kk!}{2^{k+1}}\frac{1}{k!}\left(x-2\right)^k \\[2mm]
+    & = \sum_{k=0}^n \frac{(-1)^k}{2^{k+1}}\left(x-2\right)^k
+  \end{align*}
+
+  \item Podemos escrever a Série de Taylor omo uma série geométrica
+  \[
+    T(x)
+    = \sum_{k=0}^\infty \frac{(-1)^k}{2^{k+1}}\left(x-2\right)^k
+    = \frac{1}{2}\sum_{k=0}^\infty \left(\frac{2-x}{2}\right)^k
+  \]
+  que converge quando
+  \begin{align*}
+    \abs{r} = \abs{\frac{2-x}{2}} & < 1 \\[2mm]
+    \abs{2-x}                     & < 2 \\[2mm]
+    -2 < 2-x                      & < 2 \\[2mm]
+    -4 < -x                       & < 0 \\[2mm]
+    0  < x                        & < 4
+  \end{align*}
+  Portanto o intervalo de convergência é \((0, 4)\)
+
+  \item O erro ao aproximar a função pelo Polinômio de Taylor de grau $n$
+  é dada pelo Teorema de Taylor
+  \[
+    R_n(x)
+    = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-2)^{n+1}
+  \]
+  para algum $\xi$ entre 2 e $x$. Neste caso particular
+  \[
+    R_n(x)
+    = \frac{(-1)^{n+1}(n+1)!}{\xi^{n+2}}\frac{1}{(n+1)!}(x-2)^{n+1}
+    = (-1)^{n+1}\frac{(x-2)^{n+1}}{\xi^{n+2}}
+  \]
+  portanto,
+  \[
+    \abs{R_n(x)}
+    = \frac{\abs{x-2}^{n+1}}{\abs{\xi}^{n+2}}
+  \]
+  Como $2 \leq \xi \leq x < 3$, temos
+  \[
+    \frac{1}{\abs{\xi}^{n+2}}
+    = \frac{1}{\xi^{n+2}}
+    \leq \frac{1}{2^{n+2}}
+  \]
+  além disso,
+  \[
+    \abs{x-2}^{n+1}
+    = (x-2)^{n+1}
+    \leq 1^{n+1} = 1
+  \]
+  Assim
+  \[
+    \abs{R_n(x)}
+    \leq \frac{1}{2^{n+2}}
+  \]
+  Para garantir que o erro seja menor do que a tolerância impomos
+  \begin{align*}
+    \frac{1}{2^{n+2}} & < 10^{-6}   & n + 2 & > 6\,\frac{\ln(10)}{\ln(2)}                  \\
+    2^{n+2}           & > 10^6      & n     & > 6\,\frac{\ln(10)}{\ln(2)} - 2 \approx 17,9 \\
+    (n+2)\ln(2)       & > 6\ln(10)
+  \end{align*}
+
+\end{enumerate}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

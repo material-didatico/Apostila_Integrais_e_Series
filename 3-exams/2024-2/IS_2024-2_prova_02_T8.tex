@@ -1,0 +1,305 @@
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{integracao_e_series}
+\usepackage{systeme}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 2 -- Turma 8}{29/11/24}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule a área entre as curvas
+\(f(x) = -x e^x\),
+\(g(x) = e^x\) e
+\(x=1\)
+
+\begin{answer}
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{area_entre_x_exp}
+  \end{center}
+  Encontrando o ponto onde os gráficos das funções $f$ e $g$ se interceptam
+  \begin{align*}
+    f(x)     & = g(x) \\
+    -x e^{x} & = e^x  \\
+    x        & = -1
+  \end{align*}
+  Como no intervalo \([-1, 1]\) a função $g$ é maior do que $f$ a área é dada
+  pela integral
+  \begin{align*}
+    A & = \int_{-1}^1 g(x) - f(x) \,dx \\[2mm]
+      & = \int_{-1}^1 e^x + x e^x \,dx \\[2mm]
+      & = \int_{-1}^1 e^x \,dx  +  \int_{-1}^1x e^x \,dx
+  \end{align*}
+  Calculando a primitiva de \(h(x)=xe^x\) por integral por partes
+  \(\int u\,dv = uv - \int v\,du\)
+  \[
+    H(x) = \int x e^x \,dx
+  \]
+  \[
+    u = x
+    \qquad
+    du = dx
+    \qquad
+    dv = e^x\,dx
+    \qquad
+    v = e^x
+  \]
+  \begin{align*}
+    H(x) & = xe^x - \int e^x\,dx \\[2mm]
+         & = xe^x - e^x + C \\[2mm]
+         & = (x - 1)e^x + C
+  \end{align*}
+  Portanto
+  \begin{align*}
+    A & = \int_{-1}^1 e^x \,dx  +  \int_{-1}^1x e^x \,dx \\[2mm]
+      & = \left(e^x\right)\evalat{-1}{1} + \big((x - 1)e^x\big)\evalat{-1}{1} \\[2mm]
+      & = e^1 -e^{-1} + \big((1 - 1)e^1\big) - \big((-1 - 1)e^{-1}\big) \\[2mm]
+      & = e -\frac{1}{e} + 0 + \frac{2}{e} \\[2mm]
+      & = e + \frac{1}{e}
+  \end{align*}
+
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{20}
+Use substituição simples para calcular a integral
+\(
+  \int \frac{a+bx^2}{\sqrt{3ax+bx^3}} dx
+\)
+
+\begin{answer}
+  Escolhendo a substituição
+  \[
+    u = 3ax+bx^2
+    \qquad
+    du = \left(3a + 3bx^2\right) dx = 3\left(a + bx^2\right) dx
+  \]
+  portanto
+  \[
+    \left(a+bx^2\right)dx = \frac{du}{3}
+  \]
+  então
+  \begin{align*}
+    \int \frac{a+bx^2}{\sqrt{3ax+bx^3}} dx
+    & = \int \frac{1}{\sqrt{3ax+bx^3}} \left(a+bx^2\right)dx \\
+    & = \int \frac{1}{\sqrt{u}} \frac{du}{3} \\
+    & = \frac{1}{3} \int u^{-\sfrac{1}{2}} du \\
+    & = \frac{1}{3} \frac{u^{\sfrac{1}{2}}}{\sfrac{1}{2}} + c \\
+    & = \frac{2}{3} \sqrt{u} + c \\
+    & = \frac{2}{3} \sqrt{3ax+bx^2} + c
+  \end{align*}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{20}
+Encontre a primitiva da função  \( f(x) = \cos^2(x)\sin(2x)  \)
+
+\begin{answer}
+  \begin{align*}
+    F
+    & = \int f(x) dx \\
+    & = \int \cos^2(x)\sin(2x) dx \\
+    & = \int \cos^2(x)2\sin(x)\cos(x) dx \\
+    & = 2\int \cos^3(x)\sin(x) dx
+  \end{align*}
+  Fazendo a substituição
+  \(
+    \qquad
+    u = \cos(x)
+    \qquad
+    du = -\sin(x)dx
+  \)
+  \begin{align*}
+    F
+    & = -2\int u^3 du \\
+    & = -2 \frac{u^4}{4} + c \\
+    & = -\frac{1}{2}\cos^4(x) + c
+  \end{align*}
+\end{answer}
+
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{20}
+Encontre a primitiva da função \(h(x) = \frac{x^5}{\sqrt{4-x^2}} \)
+
+\begin{answer}
+  \[
+  H = \int \frac{x^5}{\sqrt{4-x^2}} dx
+  \]
+  Fazendo a substituição
+  \(
+  x = 2\sin(\theta)
+  \qquad
+  dx = 2\cos(\theta) d\theta
+  \)
+  \begin{spreadlines}{2ex}
+    \begin{align*}
+      H
+      & = \int \frac{2^5 \sin^5(\theta)}{\sqrt{4-4\sin^2(\theta)}} 2\cos(\theta) d\theta \\
+      & = 2^5 \int \frac{\sin^5(\theta)}{\sqrt{1-\sin^2(\theta)}} \cos(\theta) d\theta \\
+      & = 2^5 \int \frac{\sin^5(\theta)}{\cos(\theta)} \cos(\theta) d\theta \\
+      & = 2^5 \int \sin^5(\theta) d\theta \\
+      & = 2^5 \int \left(\sin^2(\theta)\right)^2 \sin(\theta) d\theta \\
+      & = 2^5 \int \left(1-\cos^2(\theta)\right)^2 \sin(\theta) d\theta
+    \end{align*}
+  \end{spreadlines}
+  Fazendo a substituição
+  \(
+  \qquad
+  u = \cos(\theta)
+  \qquad
+  du = -\sin(\theta)d\theta
+  \)
+  \begin{align*}
+    H
+    & = -2^5 \int \left(1-u^2\right)^2 du \\
+    & = -2^5 \int 1-2u^2 + u^4\, du \\
+    & = 2^5 \int 2u^2 - u^4 -1\, du \\
+    & = 2^5 \left(\frac{2}{3}u^3 - \frac{1}{5}u^5 - u \right) + c \\
+    & = 2^5 \left(\frac{2}{3}\cos^3(\theta)
+    - \frac{1}{5}\cos^5(\theta)
+    - \cos(\theta) \right) + c
+  \end{align*}
+  Para calcular \(\cos(\theta)\) usamos que \(\sin(\theta) = \sfrac{x}{2}\), portanto
+  a hipotenusa é 2 e o cateto oposto é $x$ assim o cateto adjacente é
+  \(
+  a = \sqrt{2^2-x^2} = \sqrt{4-x^2}
+  \)
+  e o cosseno é
+  \[
+  \cos(\theta) = \frac{\sqrt{4-x^2}}{2}
+  \]
+  Voltando para a integral
+  \begin{spreadlines}{2ex}
+    \begin{align*}
+      H
+      & = 2^5\left[
+      \frac{2}{3}\left(\frac{\sqrt{4-x^2}}{2}\right)^3
+      - \frac{1}{5}\left(\frac{\sqrt{4-x^2}}{2}\right)^5
+      - \frac{\sqrt{4-x^2}}{2}
+      \right] + c \\
+      & = 2^5\left[
+      \frac{2}{3\cdot 2^3}\left(\sqrt{4-x^2}\right)^3
+      - \frac{1}{5\cdot 2^5}\left(\sqrt{4-x^2}\right)^5
+      - \frac{1}{2} \sqrt{4-x^2}
+      \right] + c \\
+      & = \sqrt{4-x^2}
+      \left[
+      \frac{2^3}{3}\left(\sqrt{4-x^2}\right)^2
+      - \frac{1}  {5}\left(\sqrt{4-x^2}\right)^4
+      - 2^4
+      \right] + c \\
+      & = \sqrt{4-x^2}
+      \left[
+      \frac{8}{3}\left(4-x^2\right)
+      - \frac{1}{5}\left(4-x^2\right)^2
+      - 16
+      \right] + c \\
+      & = \sqrt{4-x^2}
+      \left[
+      \frac{32-8x^2}{3}
+      - \frac{16-8x^2+x^4}{5}
+      - 16
+      \right] + c \\
+      & = \sqrt{4-x^2}
+      \left[
+      \frac{5\cdot 32 - 5\cdot 8x^2}{15}
+      -\frac{3\cdot 16 - 3\cdot 8x^2 + 3x^4}{15} - \frac{16\cdot 15}{15}
+      \right] + c \\
+      & = \frac{\sqrt{4-x^2}}{15}
+      \Big[
+      16\cdot 5\cdot 2 - 16 \cdot 3 - 16\cdot 5 \cdot 3
+      - 5\cdot 8x^2 + 3\cdot 8x^2
+      - 3x^4
+      \Big] + c \\
+      & = \frac{\sqrt{4-x^2}}{15}
+      \Big[
+      - 16\cdot 5 -16 \cdot 3
+      - 2\cdot 8x^2
+      - 3x^4
+      \Big] + c \\
+      & = -\frac{\sqrt{4-x^2}}{15}
+      \Big[
+      16\cdot 8
+      + 2\cdot 8x^2
+      + 3x^4
+      \Big] + c \\
+      & = -\frac{\sqrt{4-x^2}}{15}
+      \Big[ 128 + 16x^2 + 3x^4 \Big] + c
+    \end{align*}
+  \end{spreadlines}
+\end{answer}
+
+% 05
+%------------------------------------------------------------------------------%
+\exercise{20}
+Calcule o volume do sólido de revolução gerado pela rotação,
+em torno da reta \(x=-1\), da região contida entre as curvas
+\[
+  f(x) = \frac{1}{4x-x^2} \qquad
+  y = 0 \qquad
+  x = 1 \qquad
+  x = 3
+\]
+
+\begin{answer}
+  Volume por castas cilíndricas
+  \begin{align*}
+    V & = \int_a^b 2\pi r(x) h(x) dx \\
+    a & = 1 \\
+    b & = 3 \\
+    r & = x+1 \\
+    h & = \frac{1}{4x-x^2}
+  \end{align*}
+  portanto
+  \[
+    V = 2\pi \int_1^3 \frac{x+1}{4x-x^2} dx
+  \]
+  Calculando a integral indefinida
+  \[
+    F = \int \frac{x+1}{4x-x^2} dx = \int \frac{x+1}{x(4-x)} dx
+  \]
+  Por frações parciais temos
+  \begin{align*}
+    \frac{x+1}{x(4-x)} & = \frac{A}{x} + \frac{B}{4-x} \\
+    x+1                & = A(4-x) + Bx                 \\
+                       & = (B-A)x + 4A
+  \end{align*}
+  Igualando os coeficientes
+  \[
+    \systeme[AB]{B-A=1,4A=1}
+  \]
+  obtemos os valores
+  \(A=\frac{1}{4}\) e
+  \(B=\frac{5}{4}\)
+  portanto
+  \begin{align*}
+    F & = \int \frac{1}{4x} + \frac{5}{4(4-x)} dx \\
+      & = \frac{1}{4}\ln(x) - \frac{5}{4}\ln(4-x) + c
+  \end{align*}
+  Voltando ao volume temos
+  \begin{align*}
+    V & = 2\pi F(x)\evalat{1}{3} \\
+      & = 2\pi \left[\frac{1}{4}\ln(x) - \frac{5}{4}\ln(4-x)\right] \evalat{1}{3} \\
+      & = 2\pi \left[
+                 \left(\frac{1}{4}\ln(3) - \frac{5}{4}\ln(4-3)\right)
+               - \left(\frac{1}{4}\ln(1) - \frac{5}{4}\ln(4-1)\right)
+               \right] \\
+      & = 2\pi \left(\frac{1}{4}\ln(3) + \frac{5}{4}\ln(3)\right) \\
+      & = 2\pi \frac{6}{4}\ln(3) \\
+      & = 3\pi \ln(3)
+  \end{align*}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

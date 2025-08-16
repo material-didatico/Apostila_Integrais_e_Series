@@ -1,0 +1,190 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+\usepackage{systeme}
+
+\ShowAnswers
+
+\newcommand{\D}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\DS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\DM}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{IS}{Prova 3 -- Turma 7}{10/09/2024}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Use o teste da integral para verificar se a série
+\(
+  \sum_{n=1} \frac{n}{n^2+4}
+\)
+é convergente. Verifique todas as condições do teste.
+
+\begin{answer}
+  Vamos usar a função
+  \(
+    f(x) = \frac{x}{x^2+4}
+  \)
+
+  Verificando as três condições do teste da integral.
+
+  1) A função é positiva para $x>0$.
+
+  2) A função é contínua pois \(x^2+4\) nunca será zero.
+
+  3) Para veerificar que $f$ é decrescente precisamos verificar o sinal da
+  dua derivada
+  \[
+    f'(x)
+    = \frac{(x)'(x^2+4)-x(x^2+4)'}{(x^2+4)^2}
+    = \frac{x^2+4 -x2x}{(x^2+4)^2}
+    = \frac{4-x^2}{(x^2+4)^2}
+  \]
+  A derivada será negativa para todo $x>2$ portanto a função é decrescente.
+
+  Calculando a primitiva de $f$
+  \begin{align*}
+    F(x)
+    & = \int f(x) dx \\[2mm]
+    & = \int \frac{x}{x^2+4} dx \qquad\qquad u=x^2+4 \qquad du = 2xdx \\[2mm]
+    & = \int \frac{1}{u}\; \frac{du}{2} \\[2mm]
+    & = \frac{1}{2} \int \frac{du}{u} \\[2mm]
+    & = \frac{1}{2} \ln\abs{u} \\[2mm]
+    & = \frac{1}{2} \ln\abs{x^2+4} \\[2mm]
+    & = \frac{1}{2} \ln\left(x^2+4\right)
+  \end{align*}
+
+  Calculando a integral de $f$ no intervalo onde ela atende as condições do teste
+  \begin{align*}
+    I
+    & = \int_3^\infty f(x) dx \\[2mm]
+    & = \lim_{b\to\infty} \int_3^b f(x) dx \\[2mm]
+    & = \lim_{b\to\infty} \left(F(x)\evalat{3}{b}\right) \\[2mm]
+    & = \lim_{b\to\infty}
+        \left(\frac{1}{2}\ln\left(b^2+4\right)-\frac{1}{2}\ln\left(3^2+4\right)\right)
+        \\[2mm]
+    & = \frac{1}{2}\lim_{b\to\infty} \left[\ln\left(b^2+4\right)\right] - \frac{1}{2}\ln\left(13\right)
+  \end{align*}
+  Como \(\lim_{b\to\infty} \ln\left(b^2+4\right)=\infty\)
+  a integral imprópria diverge e portanto a série também diverge.
+  \clearpage
+\end{answer}
+
+
+%------------------------------------------------------------------------------%
+\exercise{25}
+Determine o interior do intervalo onde a série
+\(
+  \sum_{n=1}^\infty \frac{4^nx^{2n}}{n}
+\)
+converge.
+
+\begin{answer}
+  Vamos aplicar o teste da razão.
+
+  O termo geral da série é
+  \[
+    u_n = \frac{4^nx^{2n}}{n}
+  \]
+  seu sucessor é
+  \[
+    u_{n+1}
+    = \frac{4^{n+1}x^{2(n+1)}}{n+1}
+    = \frac{4^{n+1}x^{2n+2}}{n+1}
+  \]
+  Calculando o quociente dos módulos
+  \begin{align*}
+    \frac{\abs{u_{n+1}}}{\abs{u_n}}
+    & = \abs{\frac{4^{n+1}x^{2n+2}}{n+1}} \; \abs{\frac{n}{4^nx^{2n}}} \\[2mm]
+    & = \frac{4^{n+1}\abs{x}^{2n+2}}{n+1} \; \frac{n}{4^n\abs{x}^{2n}} \\[2mm]
+    & = \frac{4\abs{x}^2n}{n+1} \\[2mm]
+    & = \frac{4nx^2}{n+1}
+  \end{align*}
+  Calculando o limite
+  \[
+    \rho
+    = \lim_{n\to\infty} \frac{\abs{u_{n+1}}}{\abs{u_n}}
+    = \lim_{n\to\infty} \frac{4nx^2}{n+1}
+    = 4x^2 \lim_{n\to\infty} \frac{n}{n+1}
+    = 4x^2
+  \]
+  A condição de convergência do teste da razão é $\rho<1$ portanto
+  \begin{align*}
+    \rho & < 1 \\
+    4x^2 & < 1 \\
+    x^2 & < \frac{1}{4} \\
+    \abs{x} & < \sqrt{\frac{1}{4}} = \frac{1}{2} \\
+    -\frac{1}{2} < x & < \frac{1}{2}
+  \end{align*}
+  A série converge absolutamente no intervalo \(\left(-\frac{1}{2}, \frac{1}{2}\right)\).
+  \clearpage
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Calcule a derivada da função
+\(
+  f(x) = \sum_{n=2}^\infty \frac{x^{n-2}}{n\ln n}
+\)
+
+\begin{answer}
+  \begin{align*}
+    f'(x)
+    & = \frac{d}{dx} \sum_{n=2}^\infty \frac{x^{n-2}}{n\ln n} \\[2mm]
+    & = \sum_{n=2}^\infty \frac{1}{n\ln n} \;\frac{d}{dx} x^{n-2} \\[2mm]
+    & = \sum_{n=3}^\infty \frac{1}{n\ln n} (n-2)x^{n-3} \\[2mm]
+    & = \sum_{n=3}^\infty \frac{n-2}{n\ln n} x^{n-3}
+  \end{align*}
+  A série da derivada começa em $n=3$ pois a derivada de $x^{n-2}$ com $n=2$
+  é zero.
+  \clearpage
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Encontre a Série de Taylor, centrada em 1, da função \( f(x) = \frac{1}{x^2} \)
+
+\begin{answer}
+  Calculando as derivadas de
+  \( f(x) = \frac{1}{x^2} = x^{-2}\)
+  \begin{align*}
+    f^{(1)}(x) & = \left(x^{-2}\right)' = -2x^{-3} \\
+    f^{(2)}(x) & = \left(-2x^{-3}\right)' = -2(-3)x^{-4} = 3!x^{-4} \\
+    f^{(3)}(x) & = \left(3!x^{-4}\right)' = 3!(-4)x^{-5} = -4!x^{-5} \\
+    f^{(4)}(x) & = \left(-4!x^{-5}\right)' = -4!(-5)x^{-6} = 5!x^{-6}
+  \end{align*}
+  Identificamos o padrão
+  \[
+    f^{(n)}(x) = (-1)^n (n+1)! x^{-n-2}
+  \]
+  Avaliando em $x=1$ temos
+  \[
+    f^{(n)}(1) = (-1)^n (n+1)!
+  \]
+  O coeficiente da Série de Taylos será
+  \[
+    c_n
+    = \frac{f^{(n)}(1)}{n!}
+    = \frac{(-1)^n (n+1)!}{n!}
+    = \frac{(-1)^n (n+1)n!}{n!}
+    = (-1)^n (n+1)
+  \]
+  A Série de Taylor é
+  \[
+    \sum_{n=0}^\infty c_n (x-1)^n
+    = \sum_{n=0}^\infty (-1)^n (n+1) (x-1)^n
+  \]
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

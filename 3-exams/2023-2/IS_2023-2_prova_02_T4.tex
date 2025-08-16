@@ -1,0 +1,352 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+%\usepackage{comment}
+%\excludecomment{resposta}
+\newenvironment{resposta}%
+{\begingroup\color{blue}\small\begin{spacing}{0.9}}%
+  {\end{spacing}\endgroup}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 2 -- Turma 4}{03/10/2023}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{20}
+
+a-b
+
+Use \textbf{integral por partes} para provar que
+\(
+  \int_0^1 x^n e^x \, dx  = e - n\int_{0}^1 x^{n-1} e^x dx
+\)
+
+\begin{resposta}
+  Calculando a integral indefinida por partes \(\int udv = uv - \int vdu\)
+
+  Escolhendo
+  \[
+    u=x^n \qquad dv = e^xdx
+  \]
+  temos
+  \[
+    du = nx^{n-1} dx
+    \qquad
+    v = e^x
+  \]
+  então
+  \begin{align*}
+    \int x^n e^x \, dx
+    & = x^n e^x - \int e^x nx^{n-1} dx \\
+    & = x^n e^x - n\int x^{n-1} e^x dx
+  \end{align*}
+  Calculando a integral definida
+  \begin{align*}
+    \int_0^1 x^n e^x \, dx
+    & = x^n e^x \evalat{0}{1}- n\int_{0}^1 x^{n-1} e^x dx \\
+    & = \left(1^n e^1\right) - \left(0^n e^0\right) - n\int_{0}^1 x^{n-1} e^x dx \\
+    & = e - n\int_{0}^1 x^{n-1} e^x dx
+  \end{align*}
+\end{resposta}
+
+
+% 02
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Use \textbf{substituição simples} para calcular a integral
+\(
+  \int \sqrt{x} \sin\left(1+\sqrt{x^3}\right)dx
+\)
+
+\begin{resposta}
+  Temos que
+  \[
+    \int \sqrt{x} \sin\left(1+\sqrt{x^3}\right)dx
+    = \int x^{\sfrac{1}{2}} \sin\left(1+x^{\sfrac{3}{2}}\right)dx
+  \]
+  Escolhemos a substituição
+  \[
+    u = 1+x^{\sfrac{3}{2}}
+    \qquad
+    du = \frac{3}{2} x^{\sfrac{1}{2}} dx
+    \qquad
+    x^{\sfrac{1}{2}} dx = \frac{2du}{3}
+  \]
+  portanto
+  \begin{align*}
+    \int \sqrt{x} \sin\left(1+\sqrt{x^3}\right)dx
+    & = \int \sin\left(1+x^{\sfrac{3}{2}}\right) x^{\sfrac{1}{2}} dx \\
+    & = \frac{2}{3}\int \sin(u)du \\
+    & = \frac{2}{3}(-\cos(u)) +c \\
+    & = -\frac{2}{3}\cos\left(1+x^{\sfrac{3}{2}}\right) +c \\
+    & = -\frac{2}{3}\cos\left(1+\sqrt{x^3}\right) + c
+  \end{align*}
+\end{resposta}
+
+% 03
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{40}
+Escolha dois itens e calcule as primitivas das funções correspondentes
+\begin{enumerate}[label=\alph*) \raisebox{-2mm}{\huge\(\square\)}]
+  \setlength\itemsep{1em}
+  \item \(\quad f(x) = \cos^5(x)\sin^2(x) \)
+  \item \(\quad g(x) = \tan^3(x)\sec^4(x) \)
+  \item \(\quad h(x) = \frac{x^5}{\sqrt{4-x^2}}  \)
+\end{enumerate}
+\textbf{Marque sua escolha nas caixas,
+caso contrário, serão corrigidos dois itens aleatoriamente.}
+
+\begin{resposta}
+  \begin{enumerate}[label=\alph*)]
+
+    %--------------------------------------------------------------------------%
+    \item
+    \begin{align*}
+      F
+      & = \int f(x) dx \\
+      & = \int \cos^5(x)\sin^2(x) dx \\
+      & = \int \left(\cos^2(x)\right)^2\sin^2(x)\cos(x) dx \\
+      & = \int \left(1-\sin^2(x)\right)^2\sin^2(x)\cos(x) dx
+    \end{align*}
+    Fazendo a substituição
+    \(
+      \qquad
+      u = \sin(x)
+      \qquad
+      du = \cos(x)dx
+    \)
+    \begin{align*}
+      F
+      & = \int \left(1-u^2\right)^2 u^2 du \\
+      & = \int \left(1-2u^2+u^4\right) u^2 du \\
+      & = \int u^2-2u^4+u^6 \, du \\
+      & = \frac{1}{3} u^3
+        - \frac{2}{5} u^5
+        + \frac{1}{7} u^7
+        + c \\
+      & = \frac{1}{3} \sin^3(x)
+        - \frac{2}{5} \sin^5(x)
+        + \frac{1}{7} \sin^7(x)
+        + c
+    \end{align*}
+
+    %--------------------------------------------------------------------------%
+    \item
+    \begin{align*}
+      G
+      & = \int \tan^3(x)\sec^4(x) dx \\
+      & = \int \tan^3(x)\sec^2(x) \sec^2(x) dx \\
+      & = \int \tan^3(x) \big(\tan^2(x)+1\big) \sec^2(x) dx
+    \end{align*}
+    Fazendo a substituição
+    \(
+      \qquad
+      u = \tan(x)
+      \qquad
+      du = \sec^2(x) dx
+    \)
+    \begin{align*}
+      G
+      & = \int u^3 \big(u^2+1\big) du \\
+      & = \int u^5 + u^3 \,du \\
+      & = \frac{u^6}{6} + \frac{u^4}{4} + c \\
+      & = \frac{1}{6}\tan^6(x) + \frac{1}{4}\tan^4(x) + c
+    \end{align*}
+    Solução alternativa
+    \[
+      G_2
+      = \frac{1}{6\cos^6(x)} - \frac{1}{4\cos^4(x)} + c
+      = \frac{\sec^6(x)}{6} - \frac{\sec^4(x)}{4} + c
+    \]
+
+
+    %--------------------------------------------------------------------------%
+    \item
+    \[
+    H = \int \frac{x^5}{\sqrt{4-x^2}} dx
+    \]
+    Fazendo a substituição
+    \(
+    x = 2\sin(\theta)
+    \qquad
+    dx = 2\cos(\theta) d\theta
+    \)
+    \begin{spreadlines}{2ex}
+      \begin{align*}
+        H
+        & = \int \frac{2^5 \sin^5(\theta)}{\sqrt{4-4\sin^2(\theta)}} 2\cos(\theta) d\theta \\
+        & = 2^5 \int \frac{\sin^5(\theta)}{\sqrt{1-\sin^2(\theta)}} \cos(\theta) d\theta \\
+        & = 2^5 \int \frac{\sin^5(\theta)}{\cos(\theta)} \cos(\theta) d\theta \\
+        & = 2^5 \int \sin^5(\theta) d\theta \\
+        & = 2^5 \int \left(\sin^2(\theta)\right)^2 \sin(\theta) d\theta \\
+        & = 2^5 \int \left(1-\cos^2(\theta)\right)^2 \sin(\theta) d\theta
+      \end{align*}
+    \end{spreadlines}
+    Fazendo a substituição
+    \(
+    \qquad
+    u = \cos(\theta)
+    \qquad
+    du = -\sin(\theta)d\theta
+    \)
+    \begin{align*}
+      H
+      & = -2^5 \int \left(1-u^2\right)^2 du \\
+      & = -2^5 \int 1-2u^2 + u^4\, du \\
+      & = 2^5 \int 2u^2 - u^4 -1\, du \\
+      & = 2^5 \left(\frac{2}{3}u^3 - \frac{1}{5}u^5 - u \right) + c \\
+      & = 2^5 \left(\frac{2}{3}\cos^3(\theta)
+      - \frac{1}{5}\cos^5(\theta)
+      - \cos(\theta) \right) + c
+    \end{align*}
+    Para calcular \(\cos(\theta)\) usamos que \(\sin(\theta) = \sfrac{x}{2}\), portanto
+    a hipotenusa é 2 e o cateto oposto é $x$ assim o cateto adjacente é
+    \(
+    a = \sqrt{2^2-x^2} = \sqrt{4-x^2}
+    \)
+    e o cosseno é
+    \[
+    \cos(\theta) = \frac{\sqrt{4-x^2}}{2}
+    \]
+    Voltando para a integral
+    \begin{spreadlines}{2ex}
+      \begin{align*}
+        H
+        & = 2^5\left[
+        \frac{2}{3}\left(\frac{\sqrt{4-x^2}}{2}\right)^3
+        - \frac{1}{5}\left(\frac{\sqrt{4-x^2}}{2}\right)^5
+        - \frac{\sqrt{4-x^2}}{2}
+        \right] + c \\
+        & = 2^5\left[
+        \frac{2}{3\cdot 2^3}\left(\sqrt{4-x^2}\right)^3
+        - \frac{1}{5\cdot 2^5}\left(\sqrt{4-x^2}\right)^5
+        - \frac{1}{2} \sqrt{4-x^2}
+        \right] + c \\
+        & = \sqrt{4-x^2}
+        \left[
+        \frac{2^3}{3}\left(\sqrt{4-x^2}\right)^2
+        - \frac{1}  {5}\left(\sqrt{4-x^2}\right)^4
+        - 2^4
+        \right] + c \\
+        & = \sqrt{4-x^2}
+        \left[
+        \frac{8}{3}\left(4-x^2\right)
+        - \frac{1}{5}\left(4-x^2\right)^2
+        - 16
+        \right] + c \\
+        & = \sqrt{4-x^2}
+        \left[
+        \frac{32-8x^2}{3}
+        - \frac{16-8x^2+x^4}{5}
+        - 16
+        \right] + c \\
+        & = \sqrt{4-x^2}
+        \left[
+        \frac{5\cdot 32 - 5\cdot 8x^2}{15}
+        -\frac{3\cdot 16 - 3\cdot 8x^2 + 3x^4}{15} - \frac{16\cdot 15}{15}
+        \right] + c \\
+        & = \frac{\sqrt{4-x^2}}{15}
+        \Big[
+        16\cdot 5\cdot 2 - 16 \cdot 3 - 16\cdot 5 \cdot 3
+        - 5\cdot 8x^2 + 3\cdot 8x^2
+        - 3x^4
+        \Big] + c \\
+        & = \frac{\sqrt{4-x^2}}{15}
+        \Big[
+        - 16\cdot 5 -16 \cdot 3
+        - 2\cdot 8x^2
+        - 3x^4
+        \Big] + c \\
+        & = -\frac{\sqrt{4-x^2}}{15}
+        \Big[
+        16\cdot 8
+        + 2\cdot 8x^2
+        + 3x^4
+        \Big] + c \\
+        & = -\frac{\sqrt{4-x^2}}{15}
+        \Big[ 128 + 16x^2 + 3x^4 \Big] + c
+      \end{align*}
+    \end{spreadlines}
+  \end{enumerate}
+\end{resposta}
+
+% 04
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Calcule o volume do sólido de revolução gerado pela rotação,
+em torno da reta \(x=-2\), da região contida entre as curvas
+\[
+  f(x) = \frac{1}{5x-x^2} \qquad
+  y = 0 \qquad
+  x = 1 \qquad
+  x = 4
+\]
+
+\begin{resposta}
+  Volume por castas cilíndricas
+  \begin{align*}
+    V & = \int_a^b 2\pi r(x) h(x) dx \\
+    a & = 1 \\
+    b & = 4 \\
+    r & = x+2 \\
+    h & = \frac{1}{5x-x^2}
+  \end{align*}
+  portanto
+  \[
+    V = 2\pi \int_1^4 \frac{x+2}{5x-x^2} dx
+  \]
+  Calculando a integral indefinida
+  \[
+    F = \int \frac{x+2}{5x-x^2} dx = \int \frac{x+2}{x(5-x)} dx
+  \]
+  Por frações parciais temos
+  \begin{align*}
+    \frac{x+2}{x(5-x)} & = \frac{A}{x} + \frac{B}{5-x} \\
+    x+2                & = A(5-x) + Bx                 \\
+    & = (B-A)x + 5A
+  \end{align*}
+  Igualando os coeficientes
+  \[
+    \systeme[AB]{B-A=1,5A=2}
+  \]
+  obtemos os valores
+  \(A=\frac{2}{5}\) e
+  \(B=\frac{7}{5}\)
+  portanto
+  \begin{align*}
+    F & = \int \frac{2}{5x} + \frac{7}{5(5-x)} dx \\
+      & = \frac{2}{5}\ln(x) - \frac{7}{5}\ln(5-x) + c
+  \end{align*}
+  Voltando ao volume temos
+  \begin{align*}
+    V
+    & = 2\pi F(x)\evalat{1}{4} \\
+    & = 2\pi \left[\frac{2}{5}\ln(x) - \frac{7}{5}\ln(5-x)\right] \evalat{1}{4} \\
+    & = 2\pi \left[
+      \left(\frac{2}{5}\ln(4) - \frac{7}{5}\ln(5-4)\right)
+    - \left(\frac{2}{5}\ln(1) - \frac{7}{5}\ln(5-1)\right)
+    \right] \\
+    & = 2\pi \left(\frac{2}{5}\ln(4) + \frac{7}{5}\ln(4)\right) \\
+    & = 2\pi \frac{9}{5}\ln(4) \\
+    & = \frac{18\pi}{5} \ln(4)
+  \end{align*}
+\end{resposta}
+
+
+
+\begin{resposta}
+\end{resposta}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

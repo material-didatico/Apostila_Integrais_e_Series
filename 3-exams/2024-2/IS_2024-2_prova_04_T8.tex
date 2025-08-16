@@ -1,0 +1,247 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova 4 -- Turma 8}{14/02/2025}
+
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25}
+Escreva o polinômio de Taylor de quarto grau, centrado no zero,
+da função cosseno hiperbólico
+\(
+  \cosh(x)=\frac{e^x+e^{-x}}{2}
+\)
+
+\begin{answer}
+  O polinômio de Taylor de quarto grau, centrado em zero, é
+  \[
+    P_4(x)
+    = \cosh(0)
+    + \cosh'(0) x
+    + \frac{\cosh''(0)}{2}x^2
+    + \frac{\cosh^{(3)}(0)}{3!}x^3
+    + \frac{\cosh^{(4)}(0)}{4!}x^4
+  \]
+  Calculando as derivadas
+  \begin{align*}
+    \cosh^{(1)}(x)
+    & = \frac{1}{2}\frac{d}{dx}\left(e^x+e^{-x}\right)
+      = \frac{1}{2}\left(e^x-e^{-x}\right) \\[2mm]
+    \cosh^{(2)}(x)
+    & = \frac{1}{2}\frac{d}{dx}\left(e^x-e^{-x}\right)
+      = \frac{1}{2}\left(e^x+e^{-x}\right) \\[2mm]
+    \cosh^{(3)}(x)
+    & = \frac{1}{2}\frac{d}{dx}\left(e^x+e^{-x}\right)
+      = \frac{1}{2}\left(e^x-e^{-x}\right) \\[2mm]
+    \cosh^{(4)}(x)
+    & = \frac{1}{2}\frac{d}{dx}\left(e^x-e^{-x}\right)
+      = \frac{1}{2}\left(e^x+e^{-x}\right)
+  \end{align*}
+  Avaliando as derivadas em zero
+  \begin{align*}
+    \cosh^{(0)}(0) & = \frac{e^0+e^{-0}}{2} = \frac{1+1}{2} = 1  \\[2mm]
+    \cosh^{(1)}(0) & = \frac{e^0-e^{-0}}{2} = \frac{1-1}{2} = 0  \\[2mm]
+    \cosh^{(2)}(0) & = \frac{e^0+e^{-0}}{2} = \frac{1+1}{2} = 1  \\[2mm]
+    \cosh^{(3)}(0) & = \frac{e^0-e^{-0}}{2} = \frac{1-1}{2} = 0  \\[2mm]
+    \cosh^{(4)}(0) & = \frac{e^0+e^{-0}}{2} = \frac{1+1}{2} = 1
+  \end{align*}
+  Portanto
+  \[
+    P_4(x)
+    = 1
+    + \frac{x^2}{2}
+    + \frac{x^4}{4!}
+  \]
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25}
+Considerando a série de potências
+\(
+  \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)n!}
+\)
+\begin{enumerate}[label=\alph*)]
+  \item\ [15] determine seu raio de convergência
+  \item\ [10] calcule sua derivada
+\end{enumerate}
+
+\begin{answer}
+\begin{enumerate}[label=\alph*)]
+\item
+  Usando o teste da razão
+  \begin{align*}
+    a_n & = \frac{x^{2n+1}}{(2n+1)n!} &
+    \abs{a_n} & = \frac{\abs{x}^{2n+1}}{(2n+1)n!} \\
+    a_{n+1} & = \frac{x^{2n+3}}{(2n+3)(n+1)!} &
+    \abs{a_n} & = \frac{\abs{x}^{2n+3}}{(2n+3)(n+1)!}
+  \end{align*}
+  \begin{align*}
+    \rho
+    & = \lim_{n\to\infty} \frac{\abs{a_{n+1}}}{\abs{a_n}} \\[2mm]
+    & = \lim_{n\to\infty} \frac{\abs{x}^{2n+3}}{(2n+3)(n+1)!}\;
+                          \frac{(2n+1)n!}{\abs{x}^{2n+1}}\\[2mm]
+    & = \lim_{n\to\infty} \frac{2n+1}{(2n+3)(n+1)} \abs{x}^2 \\[2mm]
+    & =  \abs{x}^2 \lim_{n\to\infty} \frac{2n+1}{2n^2+5n+3} \\[2mm]
+    & =  \abs{x}^2 \lim_{n\to\infty} \frac{\sfrac{2}{n}+\sfrac{1}{n^2}}{2+\sfrac{5}{n}+\sfrac{3}{n^2}} \\[2mm]
+    & = 0
+  \end{align*}
+  Portanto o raio de convergência é infinito \(R=\infty\)
+
+\item
+  \begin{align*}
+    f(x)
+    & = \frac{d}{dx} \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)n!} \\[2mm]
+    & = \sum_{n=0}^\infty \frac{1}{(2n+1)n!} \frac{d}{dx} x^{2n+1} \\[2mm]
+    & = \sum_{n=0}^\infty \frac{1}{(2n+1)n!} (2n+1)x^{2n} \\[2mm]
+    & = \sum_{n=0}^\infty \frac{x^{2n}}{n!}
+  \end{align*}
+  Curiosidade
+  \[
+    \sum_{n=0}^\infty \frac{x^{2n}}{n!}
+    = \sum_{n=0}^\infty \frac{\left(x^2\right)^n}{n!}
+    = e^{2x}
+  \]
+\end{enumerate}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25}
+Seja \( f(x) = \ln(x+1)\)
+\begin{enumerate}[label=\alph*)]
+  \item\ [10] Encontre um padrão para \(f^{(n)}(x)\)
+  \item\ [15] Usando o padrão do item anterior, encontre a
+              Serie de Maclaurin de $f(x)$
+\end{enumerate}
+
+\begin{answer}
+  \begin{enumerate}[label=\alph*)]
+    \item Calculando as primeiras derivadas
+    \begin{align*}
+      f^{(0)}(x) & = \ln(x+1) \\[2mm]
+      f^{(1)}(x) & = \frac{\,d\;}{\,dx\;}\ln(x+1) = \frac{1}{x+1}(x+1)' = (x+1)^{-1} \\[2mm]
+      f^{(2)}(x) & = \frac{d^2}{dx^2}    \ln(x+1) =    -                  (x+1)^{-2} \\[2mm]
+      f^{(3)}(x) & = \frac{d^3}{dx^3}    \ln(x+1) = \hpm 2              \,(x+1)^{-3} \\[2mm]
+      f^{(4)}(x) & = \frac{d^4}{dx^4}    \ln(x+1) =    - 2\cdot 3       \,(x+1)^{-4} \\[2mm]
+      f^{(5)}(x) & = \frac{d^5}{dx^5}    \ln(x+1) = \hpm 2\cdot 3\cdot 4\,(x+1)^{-5}
+    \end{align*}
+    Vemos que, para $\bm{n\geq1}$,
+    \[
+      f^{(n)}(x)
+      = \frac{d^n}{dx^n} \ln(x+1)
+      = (-1)^{n+1} (n-1)! (x+1)^{-n}
+      = \frac{(-1)^{n+1} (n-1)!}{(x+1)^n}
+    \]
+    \item O primeiro coeficiente, $n=0$, da Série de Maclaurin é
+      \[
+        c_0 = \frac{\ln(0+1)}{0!} = \frac{0}{1} = 0
+      \]
+      portanto, a série começa com $n=1$.
+      Os demais coeficientes, $n\geq 1$, são
+      \[
+        c_n
+        = \frac{f^{(n)}(0)}{n!}
+        = \frac{(-1)^{n+1} (n-1)!}{(0+1)^nn!}
+        = \frac{(-1)^{n+1}}{n}
+      \]
+      Montando a série temos
+      \[
+        T(x)
+        = \sum_{n=0}^\infty c_n x^n
+        = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} x^n
+      \]
+  \end{enumerate}
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25}
+Use o polinômio de Taylor de segundo grau, centrado em 1, para aproximar o
+valor de \(\sqrt{2}\), estime o erro cometido.
+Não é necessário encontrar a representação decimal dos valores numéricos.
+Dica: O valor máximo vai acontecer em um dos pontos extremos do intervalo.
+
+\begin{answer}
+  Polinômio de Taylor
+  \[
+    P_2(x) = f^{(0)}(1) +  f^{(1)}(1)(x-1) +  \frac{f^{(2)}(1)}{2} (x-1)^2
+  \]
+  Calculando as derivadas
+  \begin{align*}
+    f^{(0)}(x)
+    & = \sqrt{x}
+      = x^{\sfrac{1}{2}} \\[2mm]
+    f^{(1)}(x)
+    & = \frac{d}{dx} x^{\sfrac{1}{2}}
+      = \frac{1}{2} x^{\sfrac{1}{2}-1}
+      = \frac{x^{-\sfrac{1}{2}}}{2} \\[2mm]
+    f^{(2)}(x)
+    & = \frac{d}{dx} \frac{x^{-\sfrac{1}{2}}}{2}
+      = \frac{1}{2}\; \frac{-1}{2}\;  x^{-\sfrac{1}{2}-1}
+      = \frac{-x^{-\sfrac{3}{2}}}{4}
+  \end{align*}
+  Avaliando para $x=1$
+  \begin{align*}
+    f^{(0)}(1) & = \sqrt{1} = 1 \\[2mm]
+    f^{(1)}(1) & = \frac{x^{-\sfrac{1}{2}}}{2} \evalat{x=1}{} = \frac{1}{2}\\[2mm]
+    f^{(2)}(1) & = \frac{-x^{-\sfrac{3}{2}}}{4} \evalat{x=1}{} = \frac{-1}{4}
+  \end{align*}
+  Então
+  \begin{align*}
+    P_2(x)
+    & = f(1) + f'(1)(x-1) + \frac{f''(1)}{2!}(x-1)^2 \\
+    & = 1 + \frac{x-1}{2} -\frac{(x-1)^2}{8}
+  \end{align*}
+  Avaliando em 2
+  \begin{align*}
+    P_2(2)
+    & = 1 + \frac{2-1}{2} - \frac{(2-1)^2}{8} \\
+    & = 1 + \frac{1}{2}   - \frac{1}{8} \\
+    & = \frac{8+4-1}{8} \\
+    & = \frac{11}{8}
+  \end{align*}
+
+
+  Pelo \textbf{Teorema de Taylor}, sabemos que o erro cometido ao aproximarmos
+  $\sqrt{x}$ pelo seu polinômio de Taylor centrado em 1 de grau 2 é
+  \[
+    R_2(x) = \frac{f^{(3)}(c)}{3!} \, (x-1)^3
+  \]
+  para algum $c$ entre zero e $x$ e
+  \[
+    f^{(3)}(x)
+    = \frac{d}{dx} \frac{-x^{-\sfrac{3}{2}}}{4}
+    = \frac{-1}{4} \; \frac{-3}{2} \; x^{-\sfrac{3}{2}-1}
+    = \frac{3}{8}\; x^{-\sfrac{5}{2}}
+    = \frac{3}{8\sqrt{x^5}}
+  \]
+  Entre 1 e 2 o maior valor de \(\abs{f^{(3)}(x)}\) acontece em $x=1$, portanto
+  \[
+    \abs{f^{(3)}(x)}
+    \leq \frac{3}{8\sqrt{x^5}} \evalat{x=1}{}
+    = \frac{3}{8}
+  \]
+  \[
+    \abs{R_2(2)}
+    \leq \abs{\frac{f^{(3)}(c)}{3!} \, (2-1)^3}
+    = \frac{\sfrac{3}{8}}{3!}
+    = \frac{3}{8\cdot 3\cdot 2\cdot 1}
+    = \frac{1}{16}
+  \]
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

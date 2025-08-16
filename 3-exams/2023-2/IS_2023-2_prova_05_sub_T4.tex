@@ -1,0 +1,246 @@
+%------------------------------------------------------------------------------%
+% Luis A. D'Afonseca
+%
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{style_avaliacao}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integrais e Séries}{Prova Substitutiva -- Turma 4}{14/12/2023}
+
+\vspace{\baselineskip}
+\textbf{Substitui a prova} \underline{\hspace{20mm}}
+\vspace{\baselineskip}
+
+Os exercícios 1 e 2 valem 30 para quem perdeu a prova 1 ou 2 \\[-1mm]
+O exercício 3 vale 40 para quem perdeu a prova 3 \\[-1mm]
+O exercício 4 vale 40 para quem perdeu a prova 4
+
+% 01
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Calcule a integral \(\int_0^3 x^2\ln(x) dx\).
+\textit{Atenção ao intervalo de integração}.
+
+\begin{answer}
+  Calculando a primitiva
+  \(
+    F(x) = \int x^2\ln(x) dx
+  \),
+  por integral por partes
+  \[
+    u = \ln(x)
+    \qquad
+    dv = x^2dx
+  \]
+  \[
+    du = \frac{dx}{x}
+    \qquad
+    v = \frac{x^3}{3}
+  \]
+  \begin{align*}
+    F(x)
+    & = \int x^2\ln(x) dx \\[2mm]
+    & = \ln(x)\frac{x^3}{3} - \int \frac{x^3}{3} \frac{dx}{x} \\[2mm]
+    & = \frac{x^3\ln(x)}{3} - \frac{1}{3}\int x^2 dx\\[2mm]
+    & = \frac{x^3\ln(x)}{3} - \frac{1}{3} \frac{x^3}{3} + C\\[2mm]
+    & = \frac{x^3}{3^2}\big(3\ln(x)-1\big) + C
+  \end{align*}
+  Para calcular a integral definida precisamos observar que temos uma assintota
+  vertical em $x=0$, portanto, essa é uma integral imprópria
+  \begin{align*}
+    I
+    & = \int_0^3 x^2\ln(x) dx \\[2mm]
+    & = \lim_{t\to0} \int_t^3 x^2\ln(x) dx \\[2mm]
+    & = \lim_{t\to0} \left[\frac{x^3}{3^2}\big(3\ln(x)-1\big)\evalat{t}{3}\right]  \\[2mm]
+    & = \lim_{t\to0} \left[\frac{3^3}{3^2}\big(3\ln(3)-1\big)
+                         - \frac{t^3}{3^2}\big(3\ln(t)-1\big)\right]   \\[2mm]
+    & = 3\big(3\ln(3)-1\big)
+      - \frac{1}{3^2}\lim_{t\to0} \left[t^3\big(3\ln(t)-1\big)\right]
+  \end{align*}
+  Precisamos calcular o limite
+  \begin{align*}
+    L
+    & = \lim_{t\to0} t^3\big(3\ln(t)-1\big)  \\[2mm]
+    & = \lim_{t\to0} \frac{3\ln(t)-1}{t^{-3}} & \text{usando l'Hopital}\\[2mm]
+    & = \lim_{t\to0} \frac{3t^{-1}}{-3t^{-4}} \\[2mm]
+    & = \lim_{t\to0} -t^3 = 0
+  \end{align*}
+  Portando
+  \[
+    I = \int_0^3 x^2\ln(x) dx
+    = 3\big(3\ln(3)-1\big)
+    = 9\ln(3)-3
+  \]
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Calcule o volume do sólido construído pela rotação, em torno do eixo $x$, da região
+contida entre as curvas \(y=x\) e \(y=x^2\)
+
+\begin{answer}
+  Integrando por seções transversais em $x$ temos
+  \[
+    V = \int_a^b A(x) dx
+  \]
+  Calculando os pontos de intersecção das curvas
+  \begin{align*}
+    x & = x^2 \\
+    x^2 - x & = 0 \\
+    x(x-1) & = 0
+  \end{align*}
+  temos \(x=0\) ou \(x=1\), então \(a=0\), \(b=1\).
+  A área da seção transversal é
+  \[
+    A(x) = \pi r_1^2 - \pi r_2^2 = \pi \left(x^2-x^4\right)
+  \]
+  Assim
+  \begin{align*}
+    V
+    & = \int_0^1 \pi \left(x^2-x^4\right) dx \\[2mm]
+    & = \pi \int_0^1 x^2-x^4 dx \\[2mm]
+    & = \pi \left(\frac{x^3}{3} - \frac{x^5}{5}\right)\evalat{0}{1} \\[2mm]
+    & = \pi \left[
+          \left(\frac{1^3}{3} - \frac{1^5}{5}\right) -
+          \left(\frac{0^3}{3} - \frac{0^5}{5}\right)
+        \right] \\[2mm]
+    & = \pi \left(\frac{1}{3} - \frac{1}{5}\right)
+     = \frac{2\pi}{15}
+  \end{align*}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Analise a convergência da série \(\sum_{n=1}^\infty ne^{-n^2}\)
+
+\begin{answer}
+  Usando o teste da integral com a \textbf{função real} \(f(x)=xe^{-x^2}\) que é:
+  \begin{enumerate}
+    \item \textbf{contínua} para todo $x$ real
+    \item \textbf{positiva} para $x>0$
+    \item para verificar se é \textbf{decrescente} vamos calcular sua derivada
+    \begin{align*}
+      f'(x)
+      & = \frac{d}{dx}xe^{-x^2} \\[2mm]
+      & = e^{-x^2} + x\frac{d}{dx}e^{-x^2} \\[2mm]
+      & = e^{-x^2} + xe^{-x^2}\frac{d}{dx}\left(-x^2\right) \\[2mm]
+      & = e^{-x^2} + xe^{-x^2}(-2x) \\[2mm]
+      & = e^{-x^2}\left(1 - 2x^2\right)
+    \end{align*}
+    A função será decrescente para
+    \begin{align*}
+      1 - 2 x^2 & < 0                              \\
+      x^2       & > \frac{1}{2}                    \\
+      x         & > \frac{1}{\sqrt{2}} \approx 0,7
+    \end{align*}
+  \end{enumerate}
+  Temos então que a série converge, se e somente, se a integral
+  \[
+    \int_1^\infty xe^{-x^2} dx
+  \]
+  converge.
+  Calculando a primitiva por substituição simples
+  \[
+    u = -x^2
+    \qquad
+    du = -2xdx
+    \qquad
+    dx = \frac{du}{-2x}
+  \]
+  temos
+  \begin{align*}
+    F(x)
+    & = \int xe^{-x^2} dx \\[2mm]
+    & = \int xe^u \frac{du}{-2x} \\[2mm]
+    & = \frac{-1}{2}\int e^u du \\[2mm]
+    & = \frac{-e^u}{2} + C \\[2mm]
+    & = \frac{-e^{-x^2}}{2} + C
+  \end{align*}
+  Calculando a integral imprópria
+  \begin{align*}
+    I
+    & = \int_1^\infty xe^{-x^2} dx \\[2mm]
+    & = \lim_{b\to\infty}\int_1^b xe^{-x^2} dx \\[2mm]
+    & = \lim_{b\to\infty}\left(\frac{-e^{-x^2}}{2}\right)\evalat{1}{b} \\[2mm]
+    & = \frac{-1}{2}\lim_{b\to\infty}\left(e^{-x^2}\right)\evalat{1}{b} \\[2mm]
+    & = \frac{-1}{2}\lim_{b\to\infty}\left(e^{-b^2}-e^{-1^2}\right) \\[2mm]
+    & = \frac{-1}{2}\left(\lim_{b\to\infty}\left(e^{-b^2}\right)-e^{-1}\right) \\[2mm]
+    & = \frac{1}{2e} \in \R
+  \end{align*}
+  Como a integral converge a série também converge.
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\vspace{\baselineskip}
+\exercise{20}
+Sabendo que \(f^{(n)}(x) = 2^x\ln(2)^n\) para \(n=0, 1, 2, \dots\)
+\begin{enumerate}[label=\alph*)]
+  \item Construa a Série de Taylor de $f$ centrada em zero
+  \item Mostre que a Série de Taylor de $f$ converge para $f$ em $[0, 10]$
+\end{enumerate}
+
+\begin{answer}
+\begin{enumerate}[label=\alph*)]
+  \item A Série de Taylor para essa função é
+  \[
+    T(x)
+    = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n
+    = \sum_{n=0}^\infty \frac{2^n\ln(2)^n}{n!}x^n
+  \]
+  \item Para provarmos que a Série de Taylor converge para a função devemos
+  mostrar que \(R_n(x)\to 0\). Pelo Teorema de Taylor temos
+  \[
+    R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}x^{n+1}
+  \]
+  com $\xi$ entre zero e $x$, em nosso caso
+  \[
+    R_n(x)
+    = \frac{2^\xi\ln(2)^n}{(n+1)!}x^{n+1}
+    = \frac{\ln(2)^n}{(n+1)!}\, 2^\xi\, x^{n+1}
+  \]
+  Portanto
+  \[
+    \abs{R_n(x)}
+    = \frac{\ln(2)^n}{(n+1)!}\, 2^\xi\, \abs{x}^{n+1}
+  \]
+  Como \(0\leq\xi\leq x\leq 10\) temos
+  \[
+    2^\xi \leq 2^{10}
+    \qquad
+    \text{e}
+    \qquad
+    \abs{x}^{n+1}
+    = x^{n+1}
+    \leq 10^{n+1}
+  \]
+  Assim
+  \[
+    \abs{R_n(x)}
+    \leq \frac{\ln(2)^n}{(n+1)!}\, 2^{10}\, 10^{n+1}
+    = 10\cdot 2^{10} \,\frac{\ln(2)^n\,10^n}{(n+1)!}
+    = 10\cdot 2^{10} \,\frac{\big(10\ln(2)\big)^n}{(n+1)!}
+  \]
+  como
+  \[
+    \lim_{n\to\infty} 10\cdot 2^{10} \,\frac{\big(10\ln(2)\big)^n}{(n+1)!} = 0
+  \]
+  o Teorema do Confronto garante que $R_n(x)\to 0$ e portanto a Série de Taylor
+  converge para a função.
+\end{enumerate}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
