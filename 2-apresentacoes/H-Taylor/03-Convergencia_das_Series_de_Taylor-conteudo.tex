@@ -14,16 +14,16 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Polinômios e Séries de Taylor}
-  Se $f$ é $k$-derivável, em uma vizinhança de $\;x=a$, temos o \emph{Polinômio de Taylor}
+  Se $f$ é $k$-derivável, em \(x=a\), temos o \emph{Polinômio de Taylor}
   \[
     P_k(x) = \sum_{n=0}^k \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
   \]
 
   \pause
   \vspace{\baselineskip}
-  Se $f$ é infinitamente derivável temos a \emph{Série de Taylor}
+  Se $f$ é infinitamente derivável, em \(x=a\), temos a \emph{Série de Taylor}
   \[
-    \tilde{f}(x) = \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+    S(x) = \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
   \]
 \end{frame}
 
@@ -32,9 +32,9 @@
   \begin{itemize}[<+->]
     \item Quão próximo o polinômio $\;P_k(x)\;$ está da função $\;f(x)\;$?
     \vspace{\baselineskip}
-    \item A série converge, isso é, $\;\tilde{f}(x)\;$ existe?
+    \item A série converge, isso é, $\;S(x)\;$ existe?
     \vspace{\baselineskip}
-    \item Se $\;\tilde{f}(x)\;$ existe, qual sua relação com $\;f(x)\;$?
+    \item Se $\;S(x)\;$ existe, qual sua relação com $\;f(x)\;$?
   \end{itemize}
 \end{frame}
 
@@ -66,7 +66,7 @@
   \vspace{\baselineskip}
   Sua Série de Taylor converge para
   \[
-    T(x) = 0
+    T(x) = 0 \qquad \forall x \in \R
   \]
 \end{frame}
 
@@ -92,7 +92,7 @@
   \]
 
   \vspace{.5\baselineskip}
-  $R_n(x)\;$ é o \emph{Resto de Ordem $n$}
+  $R_n(x)\;$ é o \emph{Resto (ou Erro) de Ordem $n$}
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -100,11 +100,15 @@
 Se \emph{\(\;R_n(x)\to 0\;\)} quando \emph{\(\;n\to\infty\;\)}
 para todo \(\;x\in\mathcal{I}\;\)
 
+\pause
 \vspace{\baselineskip}
-A série de Taylor gerada por $f$ converge para $f$ em \(\;\mathcal{I}\;\)
+A Série de Taylor de $f$ converge para $f$ no intervalo \(\;\mathcal{I}\;\)
 \[
   f(x) = \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
 \]
+
+\pause
+Uma função igual a sua Série de Taylor é chamada \emph{Analítica}
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -127,35 +131,37 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
 %------------------------------------------------------------------------------%
 \addtocounter{exemplo}{1}
 \begin{frame}{Exemplo \theexemplo}
-    Estimar o erro ao aproximar \(e^x\), no intervalo \([-1, 1]\), \\
-    por seu Polinômio de Taylor centrado em zero
+  Estimar o erro ao aproximar \(e^x\), no intervalo \([-1, 1]\),
+  por seu Polinômio de Taylor centrado em zero
+\end{frame}
 
-   \vspace{0.5\baselineskip}
-   \pause
-   Série de Taylor da exponencial
-   \[
-     f(x) = \sum_{n=0}^\infty \frac{x^n}{n!}
-   \]
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Série de Taylor da exponencial
+  \[
+    f(x) = \sum_{n=0}^\infty \frac{x^n}{n!}
+  \]
 
-   \pause
-   Erro após a soma de $n$ termos,\(P_n(x)\)
-   \[
-     R_n(x)=\frac{\;f^{(n+1)}(c)\;}{(n+1)!}x^{n+1}
-   \]
-   Para algum $c$ entre zero e $x$
+  \pause
+  Erro após a soma de $n$ termos,\(P_n(x)\)
+  \[
+    R_n(x)=\frac{\;f^{(n+1)}(c)\;}{(n+1)!}x^{n+1}
+  \]
+  Para algum $c$ entre zero e $x$
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo \theexemplo}
   Não temos como saber o valor de $c$\pause, mas sabemos que
   \[
-    f^{(n+1)}(c) = e^c \pause \leq e^1 \pause < 3
+    f^{(n+1)}(c) = e^c \pause \leq e
+    \qquad\text{ pois } \quad c \leq 1
   \]
   \pause
   Portanto
   \[
-    \abs{R_n(x)} < \frac{\;3\abs{x^{n+1}}\;}{(n+1)!} \pause
-                 < \frac{\;3\;}{(n+1)!}
+    \abs{R_n(x)} < e\frac{\;\abs{x^{n+1}}\;}{(n+1)!} \pause
+                 < \frac{\;e\;}{(n+1)!}
   \]
 \end{frame}
 
@@ -164,12 +170,13 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
 \begin{frame}{Exemplo \theexemplo}
   Mostre que a Série de Taylor de \(e^x\) converge para a \(e^x\) para todo
   \(x\in[-1, 1]\)
+\end{frame}
 
-  \pause
-  \vspace{\baselineskip}
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
   Verificamos que para qualquer \(x\in[-1, 1]\)
   \[
-    \abs{R_n(x)} < \frac{\;3\;}{(n+1)!}
+    \abs{R_n(x)} < \frac{\;e\;}{(n+1)!}
     \qquad
     n = 1, 2, 3, \dots
   \]
@@ -177,15 +184,16 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
   \pause
   Como
   \[
-    \lim_{n\to\infty} \frac{\;3\;}{(n+1)!} = 0
+    \lim_{n\to\infty} \frac{\;e\;}{(n+1)!} = 0
   \]
   \pause
   O \emph{Teorema do Confronto} garante que
-  \[
+  \(
     \lim_{n\to\infty} R_n(x) = 0
-  \]
+  \)
+
   \pause
-  Portanto a série de Taylor da exponencial converge para a exponencial
+  A Série de Taylor da exponencial converge para a exponencial para \(x\in[-1, 1]\)
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -245,16 +253,17 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
   Como
   \[
     \lim_{n\to\infty} \frac{\;e^{\abs{x}}\;}{(n+1)!}\abs{x}^{n+1}
-    \;=\; e^{\abs{x}} \lim_{n\to\infty} \frac{\abs{x}^{n+1}}{(n+1)!}
+    \;=\; e^{\abs{x}} \abs{x}^{n+1} \lim_{n\to\infty} \frac{1}{(n+1)!}
     \;=\; 0
   \]
   \pause
-  O \emph{Teorema do Confronto} garante que
-  \[
+  o \emph{Teorema do Confronto} garante que
+  \(
     \lim_{n\to\infty} R_n(x) = 0
-  \]
+  \)
+
   \pause
-  Portanto a Série de Taylor da exponencial converge para a exponencial
+  A Série de Taylor da exponencial converge para a exponencial para \(x\in\R\)
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -263,9 +272,10 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
   Mostre que a Série de Taylor de \(\cos(x)\) centrada em zero
   converge para a \(\cos(x)\) para todo
   \(x\in\R\)
+\end{frame}
 
-  \pause
-  \vspace{\baselineskip}
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
   Série de Taylor da função \(\cos(x)\)
   \[
     T(x)
@@ -288,7 +298,10 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
 \begin{frame}{Exemplo \theexemplo}
   Sabemos que
   \[
-    \frac{d^{n+1}}{dx^{n+1}} \cos(x)
+    f^{(n+1)}(x)
+    \pause
+    = \frac{d^{n+1}}{dx^{n+1}} \cos(x)
+    \pause
     = \begin{cases}
        \pm \sin(x) & \text{ou} \\
        \pm \cos(x)
@@ -297,19 +310,24 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
 
   \pause
   \vspace{\baselineskip}
+  Portanto
   \[
-    \abs{\frac{d^{n+1}}{dx^{n+1}} \cos(x)} \leq 1
+    \abs{f^{(n+1)}(c)} \leq 1
     \qquad
-    \forall x\in\R
+    \forall n\in\N
+    \quad
+    \forall c\in\R
   \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo \theexemplo}
-  Portanto
+  Assim
   \[
     \abs{R_n(x)}
+    \pause
     \;=\;    \frac{\abs{f^{(n+1)}(c)}}{(n+1)!}\abs{x}^{n+1}
+    \pause
     \;\leq\; \frac{\abs{x}^{n+1}}{(n+1)!}
   \]
 
@@ -319,17 +337,77 @@ para todo \(t\) entre \(x\) e \(a\), inclusive
     \lim_{n\to\infty} \frac{\abs{x}^{n+1}}{(n+1)!} = 0
   \]
   \pause
-  O \emph{Teorema do Confronto} garante que
-  \[
+  o \emph{Teorema do Confronto} garante que
+  \(
     \lim_{n\to\infty} R_n(x) = 0
-  \]
+  \)
+
   \pause
-  Portanto a série de Taylor do cosseno converge para o cosseno
+  A Série de Taylor do cosseno converge para o cosseno para \(x\in\R\)
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\contentsname}
-  \tableofcontents
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Qual o grau do Polinômio de Taylor necessário para aproximar \(\cos(x)\)
+
+  no intervalo \([-1, 1]\) com erro menor do que \(10^{-6}\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{columns}
+  \column{0.5\linewidth}
+  Já verificamos que
+  \[
+    \abs{R_n(x)}
+    \;\leq\; \frac{\abs{x}^{n+1}}{(n+1)!}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Como  \(x\in[-1, 1]\)
+  \[
+    \pause
+    \abs{R_n(x)}
+    \pause
+    \;\leq\; \frac{1^{n+1}}{(n+1)!}
+    \pause
+    \;=\; \frac{1}{(n+1)!}
+  \]
+
+\column{0.5\linewidth}
+  \pause
+  Precisamos que
+  \[
+    \frac{1}{(n+1)!} < 10^{-6}
+  \]
+  \[
+    (n+1)! > 10^6
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Como \(10! = 3\,628\,800\) temos
+  \[
+    n = 9
+  \]
+\end{columns}
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 8.2 da Apostila
+
+  \vfill
+  Exercício: 2
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%

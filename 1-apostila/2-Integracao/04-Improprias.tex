@@ -8,7 +8,7 @@ for infinito ou $f$ possuir uma descontinuidade infinita, em alguns casos,
 é possível calcular a área sob o gráfico usando a integral imprópria.
 
 %------------------------------------------------------------------------------%
-\subsection{Integrais impróprias do tipo I -- Intervalo de integração ilimitado}
+\subsection{Integrais impróprias -- Intervalo de integração ilimitado}
 
 %------------------------------------------------------------------------------%
 \begin{definicao}{Integral Imprópria do tipo I}{def:intergal-impropria}
@@ -168,7 +168,7 @@ A próxima definição é outro tipo de integral imprópria,
 que envolve descontinuidade.
 
 %------------------------------------------------------------------------------%
-\subsection{Integrais impróprias do tipo II -- Descontinuidade em um extremo}
+\subsection{Integrais impróprias -- Descontinuidade em um extremo}
 
 %------------------------------------------------------------------------------%
 \begin{definicao}{Integral Imprópria -- Tipo 2}{def:integral-impropria-2}
@@ -177,20 +177,21 @@ que envolve descontinuidade.
 \item Se $f$ é contínua em $[a, b)$ e descontínua em $b$,
   temos que
   \[
-  \int_a^b f(x)\,dx = \lim_{t\to b^{-}} \int_a^t f(x)\,dx
+    \int_a^b f(x)\,dx = \lim_{t\to b^{-}} \int_a^t f(x)\,dx
   \]
   Se esse limite existir (como número finito).
 
-\item   Se $f$ é contínua em $(a, b]$ e descontínua em $a$,
+\item Se $f$ é contínua em $(a, b]$ e descontínua em $a$,
   temos que
   \[
     \int_a^b f(x)\,dx = \lim_{t\to a^{+}} \int_t^b f(x)\,dx
   \]
   Se esse limite existir (como número finito).
 
-  Nesse caso, dizemos que a integral imprópria $\int_a^b f(x)\,dx$ é
-  \textbf{convergente} se o limite correspondente existir e \textbf{divergente}
+  Nesse caso, dizemos que a integral imprópria \(\int_a^b f(x)\,dx\) é
+  \emph{convergente} se o limite correspondente existir e \emph{divergente}
   caso contrário.
+
 \item  Se $f$ é uma função definida em $[a, b]$, contínua exceto em um ponto
   $c \in [a, b]$ e $c$ é uma descontinuidade de $f$, então definimos
   \[
@@ -227,22 +228,32 @@ técnica de integração que veremos posteriormente.
 
 \begin{example}
   Encontre, caso exista
-  \(\int_{2}^5 \frac{1}{\sqrt{x-2}} dx\).
+  \(
+    \int_{2}^5 \frac{1}{\sqrt{x-2}} dx
+  \).
+
   \solution
   Note que, a integral
-  \(\int_{2}^5 \frac{1}{\sqrt{x-2}} dx\) é imprópria tipo-2, pois
-  \(f(x) =\frac{1}{\sqrt{x-2}} dx\) tem uma assíntota vertical em $x=2$.
+  \[
+    \int_{2}^5 \frac{1}{\sqrt{x-2}} dx
+  \]
+  é imprópria tipo-2, pois
+  \[
+    f(x) =\frac{1}{\sqrt{x-2}} dx
+  \]
+  tem uma assíntota vertical em $x=2$.
   Como essa descontinuidade ocorre no extremo esquerdo do intervalo $[2, 5]$,
   usaremos a parte 2 da Definição~\ref{def:integral-impropria-2}. Desse modo
   \begin{align*}
     \int_{2}^5 \frac{1}{\sqrt{x-2}} dx
-    & = \lim_{t \to 2^{+}} \int_{t}^5 \frac{1}{\sqrt{x-2}} dx  \\
-    &\stackTFCD \lim_{t \to 2^{+}} \left[ 2 \sqrt{x-2} \right]_t^5 \\
-    & = \lim_{t \to 2^{+}}2(\sqrt{3}-\sqrt{t-2})= 2\sqrt{3}
+    & = \lim_{t \to 2^{+}} \int_{t}^5 \frac{1}{\sqrt{x-2}} dx  \\[3mm]
+    &\stackTFCD \lim_{t \to 2^{+}} \left[ 2 \sqrt{x-2} \right]_t^5 \\[3mm]
+    & = \lim_{t \to 2^{+}}2(\sqrt{3}-\sqrt{t-2})  \\[3mm]
+    & = 2\sqrt{3}
   \end{align*}
   Portanto, a integral imprópria é convergente. Uma vez que o integrando
   é uma função positiva, podemos interpretar o valor da integral como a
-  área da região abaixo da curva $f(x)=\frac{1}{\sqrt{x-2}}$,
+  área da região abaixo da curva \(f(x)=\frac{1}{\sqrt{x-2}}\),
   no intervalo $(2, 5]$.
 
   Sabendo que
@@ -309,7 +320,7 @@ técnica de integração que veremos posteriormente.
 \end{example}
 
 Note que se não tivéssemos atentados que na função do exemplo~\ref{ex:imp3},
-poderíamos ter feito \textbf{erroneamente} o seguinte cálculo
+poderíamos ter feito \emph{erroneamente} o seguinte cálculo
 \[
   \int_{0}^3 \frac{1}{x-1} dx
   = \ln\abs{t-1} \evalat{0}{3}

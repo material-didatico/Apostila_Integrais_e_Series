@@ -7,7 +7,7 @@
   Se $u=g(x)$ for uma função derivável cuja imagem é um intervalo
   $I$ e $f$ for contínua em $I$, então
   \[
-    \int f(g(x)) g'(x) dx= \int f(u) du
+    \int f\big(g(x)\big) g'(x) \,dx = \int f(u) du
   \]
 \end{teorema}
 %------------------------------------------------------------------------------%
@@ -56,7 +56,9 @@
   Calcule \(\int \frac{x}{\sqrt{1-4x^2}}dx\)
   \solution
   Note que se fizermos a substituição $u=1-4x^2$, então
-  $du=-8x dx \Leftrightarrow xdx = -\frac{1}{8} du$.
+  \[
+    du = -8x dx \Leftrightarrow xdx = -\frac{1}{8} du.
+  \]
   Assim
   \begin{align*}
     \int \frac{x}{\sqrt{1-4x^2}}dx
@@ -81,14 +83,17 @@
     \int \tan(x) dx= \int \frac{\sin(x)}{\cos(x)} dx
   \]
   Isso nos sugere fazer a substituição $u=\cos(x)$, com isso,
-  $du=-\sin(x)dx \Leftrightarrow -du= \sin(x)dx$.
+  \[
+    du = -\sin(x)dx \quad\Leftrightarrow\quad
+    -du = \sin(x)dx.
+  \]
   Assim, usando a regra da substituição simples
   \begin{align*}
     \int \tan(x) dx
     & = \int \frac{\sin(x)}{\cos(x)} dx \\
     & = \int \frac{1}{u} (-du) \\
     & = - \int \frac{1}{u} du \\
-    & = - \ln \abs{\cos(x)}+C
+    & = - \ln \abs{\cos(x)}+C \\
     & = \ln \abs{\sec(x)}+C
   \end{align*}
 \end{example}
@@ -110,7 +115,7 @@
   Teorema Fundamental do Cálculo parte 2 para calcular a integral definida.
 
   Para calcular a integral indefinida iremos usar a substituição
-  $u=\ln(x)$ e com isso, $du= \frac{1}{x}dx$.
+  $u=\ln(x)$ e com isso, \(du= \frac{1}{x}dx\).
   \begin{align*}
     \int \frac{\ln(x)}{x} dx
     & = \int \ln(x) \frac{1}{x} dx \\
@@ -151,7 +156,11 @@
     + \lim_{t \to \infty} \int_{0}^{t} x^3e^{-x^4} dx
   \end{equation}
   Para resolvermos a integral indefinida $\int x^3e^{-x^4} dx$,
-  usamos a substituição $u=-x^4 \Rightarrow du=-4x^3dx$. Logo,
+  usamos a substituição
+  \[
+    u=-x^4 \Rightarrow du=-4x^3dx.
+  \]
+  Logo,
   \[
     \int x^3e^{-x^4} dx
     = -\frac{1}{4}\int e^u du
@@ -181,20 +190,25 @@
 
 %--------------------------------------------------------------------------------
 Algumas observações importantes
-\begin{itemize}
-  \item Seja $F$ a primitiva mais geral de $f$, ou seja,
-  \[
-    \int f(x)dx= F(x)+c,
-  \]
-    então
-  \[
-    \int f(kx) dx= \frac{F(kx)}{k}+C.
-  \]
-  \item Além disso, \(\int f(kx+b)dx= \frac{F(kx+b)}{k}+C\).
-  \item \(\int \cos(5x) dx= \frac{\sin(5x)}{5}+C\).
-  \item \(\int e^{8x}= \frac{e^{8x}}{8}+C\).
-  \item \(\int \frac{1}{x+3}dx= \ln\abs{x+3}+C\).
-\end{itemize}
+Seja $F$ a primitiva mais geral de $f$, ou seja,
+\[
+  \int f(x)dx= F(x)+c,
+\]
+  então
+\[
+  \int f(kx) dx= \frac{F(kx)}{k}+C.
+\]
+Além disso,
+\[
+  \int f(kx+b)dx= \frac{F(kx+b)}{k}+C
+\]
+Ppr exemplo
+\begin{gather*}
+  \int \cos(5x) dx= \frac{\sin(5x)}{5}+C \\
+  \int e^{8x}= \frac{e^{8x}}{8}+C        \\
+  \int \frac{1}{x+3}dx= \ln\abs{x+3}+C
+\end{gather*}
+
 Essas observações podem ser demonstradas usando substituição simples.
 
 %------------------------------------------------------------------------------%

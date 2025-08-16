@@ -172,9 +172,74 @@
     \begin{align*}
       \onslide<+->{\bessel'_0(x)
         & = \sum_{n=1}^\infty \frac{(-1)^n}{2^{2n}(n!)^2} \; 2n x^{2n-1} \\[3mm]}
-      \onslide<+->{& = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\, x^{2n-1}\,}{2^{2n-1}(n!)^2}}
+      \onslide<+->{& = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\, x^{2n-1}\,}{(n!)^2\,2^{2n-1}}}
     \end{align*}
   \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Qual a inclinação da reta tangente ao gráfico da função de Bessel em $x=2$?
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Já verificamos que
+  \[
+    \bessel'_0(x)
+    = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\, x^{2n-1}\,}{2^{2n-1}(n!)^2}
+  \]
+
+  \pause
+  Avaliando a derivada em $x=2$, temos
+  \[
+    \bessel'_0(2)
+    = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\, x^{2n-1}\,}{2^{2n-1}(n!)^2} \evalat{x=2}{}
+    \pause
+    = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\,}{(n!)^2} \frac{\,2^{2n-1}\,}{2^{2n-1}}
+    \pause
+    = \sum_{n=1}^\infty \frac{\,(-1)^n\, n\,}{(n!)^2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Determine a inclinação da reta tangente ao gráfico da função
+  \[
+      f(x) = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}
+      \qquad\qquad
+      \abs{x}<1
+  \]
+  em \(x=\frac{1}{4}\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calculando a derivada de $f$, temos}
+  \begin{align*}
+    \onslide<+->{f'(x)}
+    \onslide<+->{& = \frac{d}{dx}\left(\sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}\right) \\[2mm]}
+    \onslide<+->{& = \sum_{n=0}^{\infty} \frac{d}{dx}\left(\frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}\right) \\[2mm]}
+    \onslide<+->{& = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} \frac{d}{dx}\left(x^{2n+1}\right) \\[2mm]}
+    \onslide<+->{& = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} (2n+1)x^{2n}}
+    \onslide<+->{\;=\; \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2} x^{2n}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[
+    f'\left(\sfrac{1}{4}\right)
+    \pause
+    = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2} x^{2n} \evalat{x=\sfrac{1}{4}}{}
+    \pause
+    = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2} \frac{1}{4^{2n}}
+    \pause
+    = \sum_{n=0}^{\infty} \frac{(2n)!}{4^{3n} (n!)^2}
+  \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -194,83 +259,61 @@
 %------------------------------------------------------------------------------%
 \addtocounter{exemplo}{1}
 \begin{frame}{Exemplo \theexemplo}
-  Encontre uma série de potências centrada em \(x=0\) para a função
-  \[
-    f(x) = \ln \left( 1 + x^2 \right)
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo \theexemplo}
-  Ainda não temos uma técnica para obter a série diretamente\pause,
-  mas sabemos que
-  \[
-    \frac{d}{dx} \ln\left( 1+x^2 \right)
-    \;=\; \frac{2x}{1+x^2}
-    \pause\;=\; \frac{2x}{1-\left(-x^2\right)}
-  \]
-
+  Calcule a integral da função de Bessel
   \pause
-  \vspace{\baselineskip}
-  Enquanto que a soma da Série Geométrica com \(\alpha=2x\) e \( r = -x^2 \) é
   \[
-    \sum_{n=0}^\infty 2x \left(-x^2\right)^n
-    \;=\; \frac{2x}{1-\left(-x^2\right)}
+    \bessel_0(x) = \sum_{n=0}^\infty \frac{\,(-1)^n\,x^{2n}\,}{2^{2n}\,(n!)^2}
   \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo \theexemplo}
-  Nos pontos onde a série converge
-  \[
-    \frac{d}{dx}\ln\left( 1+x^2 \right)
-    \pause\;=\; \frac{2x}{1-\left(-x^2\right)}
-    \pause\;=\; \sum_{n=0}^\infty 2x \left(-x^2 \right)^n
-    \pause\;=\; 2 \sum_{n=0}^\infty (-1)^n\,x^{2n+1}
-  \]
-
-  \pause
-  Basta integrar para obtermos a série desejada
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo \theexemplo}
   \begin{align*}
-    \onslide<+->{\ln\left( 1+x^2 \right)
-      = \int \frac{d}{dx} \ln\left( 1+x^2 \right) dx}
-    \onslide<+->{& = \int 2 \sum_{n=0}^\infty (-1)^n\,x^{2n+1} dx \\[2mm]}
-    \onslide<+->{& = 2 \sum_{n=0}^\infty (-1)^n \int x^{2n+1} dx \\[2mm]}
-    \onslide<+->{& = 2 \sum_{n=0}^\infty (-1)^n \left(\frac{x^{2n+2}}{\,2n+2\,} + c_n\right) \\[2mm]}
-    \onslide<+->{& = C + \sum_{n=0}^\infty (-1)^n \frac{x^{2n+2}}{\,n+1\,}}
+    \onslide<+->{\int \bessel_0(x) dx}
+    \onslide<+->{& = \int \left(\sum_{n=0}^\infty \frac{\,(-1)^n\,x^{2n}\,}{2^{2n}\,(n!)^2}\right) dx \\[3mm]}
+    \onslide<+->{& = \sum_{n=0}^\infty \left(\int \frac{\,(-1)^n\,x^{2n}\,}{2^{2n}\,(n!)^2} dx\right) \\[3mm]}
+    \onslide<+->{& = \sum_{n=0}^\infty \frac{\,(-1)^n\,}{2^{2n}\,(n!)^2} \int x^{2n} dx \\[3mm]}
+    \onslide<+->{& = C + \sum_{n=0}^\infty \frac{\,(-1)^n\,}{2^{2n}\,(n!)^2}\, \frac{x^{2n+1}}{2n+1}}
+    \onslide<+->{\;=\; C + \sum_{n=0}^\infty \frac{\,(-1)^n\,x^{2n+1}\,}{2^{2n}(2n+1)\,(n!)^2}}
   \end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
 \begin{frame}{Exemplo \theexemplo}
-  Falta determinar \(C\)
-
-  \pause
-  Avaliando a função e a série em $x=0$
-  \pause
+  Calcule a integral da função
   \[
-    \ln\left( 1+x^2 \right) \;=\; \ln(1) \;=\; 0
-  \]
-  \pause
-  \vspace{-\baselineskip}
-  \[
-    C + \sum_{n=0}^\infty (-1)^n \frac{x^{2n+2}}{\,n+1\,}
-    = C
-  \]
-  \pause
-  portanto \(C=0\)\pause, então
-  \[
-    \ln\left( 1+x^2 \right) = \sum_{n=0}^\infty \frac{(-1)^n}{n+1}\, x^{2n+2}
+    f(x) = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}
+    \qquad\qquad
+    \abs{x}<1
   \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\contentsname}
-  \tableofcontents
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int f(x) dx}
+    \onslide<+->{& = \int \left(\sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}\right) dx \\[2mm]}
+    \onslide<+->{& = \sum_{n=0}^{\infty} \int \left(\frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}\right) dx \\[2mm]}
+    \onslide<+->{& = \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} \int x^{2n+1} dx \\[2mm]}
+    \onslide<+->{& = C + \sum_{n=0}^{\infty} \frac{(2n)!}{4^n (n!)^2 (2n+1)} \frac{x^{2n+2}}{2n+2}}
+    \onslide<+->{\;=\; C + \sum_{n=0}^{\infty} \frac{(2n)!\,x^{2n+2}}{4^n (n!)^2 (2n+2)(2n+1)}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 7.2 da Apostila
+
+  \vspace{\baselineskip}
+  Exercícios: 1a-b, 2
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%

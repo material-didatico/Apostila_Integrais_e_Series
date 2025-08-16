@@ -271,8 +271,39 @@
 \renewcommand*{\dbltopfraction}        {1}
 \renewcommand*{\dblfloatpagefraction}{0.9}
 
-\NewDocumentCommand{\IncludeGraphicHeight}{ m m   }{\includegraphics[height=#2]{#1}}
-\NewDocumentCommand{\IncludeGraphic}      { m O{1}}{\includegraphics[width=#2\linewidth]{#1}}
+\NewDocumentCommand{\IncludeGraphic}{m O{1}}%
+{%
+  \par%
+  \includegraphics[width=#2\linewidth]{#1}%
+  \par%
+}
+
+\NewDocumentCommand{\IncludeGraphicEx}{m O{1}}%
+{%
+  \par%
+  \fcolorbox{cpBoxExampleLines}{cpBoxExampleBack}%
+    {\includegraphics[width=#2\linewidth]{#1}}%
+  \par%
+}
+
+\NewDocumentCommand{\IncludeGraphicHeight}{m m O{0} O{0}}%
+{%
+  \par%
+  \vspace{#3\baselineskip}%
+  \includegraphics[height=#2]{#1}%
+  \vspace{#4\baselineskip}%
+  \par%
+}
+
+\NewDocumentCommand{\IncludeGraphicHeightEx}{m m O{0} O{0}}%
+{%
+  \par%
+  \vspace{#3\baselineskip}%
+  \fcolorbox{cpBoxExampleLines}{cpBoxExampleBack}%
+    {\includegraphics[height=#2]{#1}}%
+  \vspace{#4\baselineskip}%
+  \par%
+}
 
 \NewDocumentCommand{\IncludeGraphicCentred}{ m O{0.9} O{0} O{0} }%
 {%
@@ -283,11 +314,30 @@
   \end{center}%
 }
 
-\NewDocumentCommand{\IncludeTexGraphicCentred}{ m O{0} O{0} }%
+\NewDocumentCommand{\IncludeGraphicCentredEx}{ m O{0.9} O{0} O{0} }%
+{%
+  \begin{center}%
+    \vspace{#3\baselineskip}%
+    \fcolorbox{cpBoxExampleLines}{cpBoxExampleBack}%
+      {\includegraphics[width=#2\columnwidth]{#1}}%
+    \vspace{#4\baselineskip}%
+  \end{center}%
+}
+
+\NewDocumentCommand{\IncludeTexGraphicCentred}{m O{0} O{0}}%
 {%
   \begin{center}%
     \vspace{#2\baselineskip}%
     \input{#1}%
+    \vspace{#3\baselineskip}%
+  \end{center}%
+}
+
+\NewDocumentCommand{\IncludeTexGraphicCentredEx}{m O{0} O{0}}%
+{%
+  \begin{center}%
+    \vspace{#2\baselineskip}%
+    \fcolorbox{cpBoxExampleLines}{cpBoxExampleBack}{\input{#1}}%
     \vspace{#3\baselineskip}%
   \end{center}%
 }

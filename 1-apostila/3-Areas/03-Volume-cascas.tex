@@ -13,7 +13,7 @@ o volume gerado pela rotação dessa região em torno do eixo $y$, as seções
 transversais resultantes assumem a forma de arruelas. Contudo, determinar os
 raios interno e externo dessas arruelas requer resolver a  equação cúbica
 $y=2x^2-x^3$ em termos de $x $, uma tarefa desafiadora. É aqui que entra o
-poder do \textbf{Método das Cascas Cilíndricas}. Esse método proporciona uma
+poder do \emph{Método das Cascas Cilíndricas}. Esse método proporciona uma
 abordagem alternativa  para lidar com situações desse tipo.
 
 %------------------------------------------------------------------------------%
@@ -40,9 +40,10 @@ abordagem alternativa  para lidar com situações desse tipo.
 As figuras \ref{fig:volume_cascas_03}, \ref{fig:volume_cascas_04} e
 \ref{fig:volume_cascas_05} ilustram o método das cascas cilíndricas.
 
+%------------------------------------------------------------------------------%
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\linewidth]{volume-cascas-03}
+  \includegraphics[width=0.6\linewidth]{volume-cascas-03}
   \caption{Volume por cascas cilíndricas -- 03}
   \label{fig:volume_cascas_03}
 \end{figure}
@@ -51,14 +52,14 @@ As figuras \ref{fig:volume_cascas_03}, \ref{fig:volume_cascas_04} e
 %------------------------------------------------------------------------------%
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\linewidth]{volume-cascas-04}
+  \includegraphics[width=0.6\linewidth]{volume-cascas-04}
   \caption{Volume por cascas cilíndricas -- 04}
   \label{fig:volume_cascas_04}
 \end{figure}
 %------------------------------------------------------------------------------%
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\linewidth]{volume-cascas-05}
+  \includegraphics[width=0.6\linewidth]{volume-cascas-05}
   \caption{Volume por cascas cilíndricas -- 05}
   \label{fig:volume_cascas_05}
 \end{figure}
@@ -68,6 +69,7 @@ As figuras \ref{fig:volume_cascas_03}, \ref{fig:volume_cascas_04} e
 \begin{example}
   Encontre o volume do sólido obtido pela rotação em torno do eixo
   $y$ da região delimitada por $y = 2x^2 - x^3$ e $y = 0$.
+
 \solution
 A partir do esboço da figura a seguir, vemos que uma casca típica tem raio $x$,
 circunferência $2\pi x$ e altura $y = 2x^2 - x^3$.
@@ -75,9 +77,11 @@ circunferência $2\pi x$ e altura $y = 2x^2 - x^3$.
 Assim, pelo método das cascas cilíndricas, o volume é:
 \begin{align*}
   V
-  &=\int_0^2 (2\pi x)(2x^2 - x^3) dx = 2\pi \int_0^2 (2x^3 - x^4) dx
-  \stackTFCD \big( \frac{2x^3}{3}- \frac{x^4}{4}\big) \evalat{0}{2}  \\
-  & =2\pi \big( 8-\frac{32}{5}\big)=\frac{16\pi}{5}.
+  & = \int_0^2 (2\pi x)(2x^2 - x^3) dx \\
+  & = 2\pi \int_0^2 (2x^3 - x^4) dx
+  & = \big( \frac{2x^3}{3}- \frac{x^4}{4}\big) \evalat{0}{2} \qquad\qquad\text{TFC} \\
+  & = 2\pi \big( 8-\frac{32}{5}\big)
+  & = \frac{16\pi}{5}.
 \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
@@ -103,13 +107,16 @@ Portanto, o volume é dado por:
 \begin{example}
   Encontre o volume do sólido obtido pela rotação da região
   delimitada por $y = x - x^2$ e $y = 0$ em torno da reta $x = 2$.
-\solution
-Observe que nesse caso temos uma casca típica de raio $2-x$ e altura $x-x^2$.
-Então, o volume do sólido é:
-\begin{align*}
- V &=\int_0^1 2\pi(2- x)(x - x^2) dx = 2\pi \int_0^1 (x^3-3x^2 +2x) dx  \\
- & \stackTFCD \left( \frac{x^4}{4}- x^3+x^2 \right) \evalat{0}{1} =\frac{\pi}{2}.
-\end{align*}
+
+  \solution
+  Observe que nesse caso temos uma casca típica de raio $2-x$ e altura $x-x^2$.
+  Então, o volume do sólido é:
+  \begin{align*}
+   V & = \int_0^1 2\pi(2- x)(x - x^2) dx \\
+     & = 2\pi \int_0^1 (x^3-3x^2 +2x) dx  \\
+     & = \left( \frac{x^4}{4}- x^3+x^2 \right) \evalat{0}{1}  \qquad\qquad\text{TFC} \\
+     & = \frac{\pi}{2}.
+  \end{align*}
 \end{example}
 %------------------------------------------------------------------------------%
 
@@ -123,7 +130,5 @@ Ao calcular volumes por cascas cilíndricas fique atento aos pontos:
     (ou em torno de uma reta paralela ao eixo $y$) o raio da casca e a altura
     são funções de $x$ e o volume é dado por uma integral na variável $x$.
 \end{enumerate}
-
-\clearpage
 
 %------------------------------------------------------------------------------%

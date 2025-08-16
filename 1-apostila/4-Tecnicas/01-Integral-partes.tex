@@ -19,27 +19,36 @@
 \hrulefill
 
 
-\textbf{Quando usar?} Normalmente, usamos integração por partes quando queremos
+\emph{Quando usar?} Normalmente, usamos integração por partes quando queremos
 integrar o produto de duas funções onde uma delas é a derivada de alguma função
 conhecida, isto é
 \[
   \int f(x) g'(x) dx
 \]
 
-\textbf{Exemplos:}
-\begin{itemize}
-  \item Em $\int x \sin(x) dx$, temos um produto de funções onde $\sin(x)$, por
-      exemplo, é a derivada de alguém que conheço, isto é, de $-cos(x)$.
+\emph{Exemplos:}
 
-  \item $\int x lnx dx$, aqui também temos um produto de funções e $x$ é a
-      derivada de $\frac{x^2}{2}$
+Em
+\(
+  \int x \sin(x) dx
+\),
+temos um produto de funções onde $\sin(x)$, por
+exemplo, é a derivada de alguém que conheço, isto é, de $-\cos(x)$.
 
-  \item $\int (x^2+1) e^{-x} dx$, aqui temos um produto de duas funções e
-      $e^{-x}$ é a derivada de $-e^{-x}$.
+\(
+  \int x \ln(x) dx
+\),
+aqui também temos um produto de funções e $x$ é a
+derivada de \(\frac{x^2}{2}\).
 
-  \item Nossa intenção ao usarmos integração por partes é obtermos uma integral
-  mais simples que aquela de partida.
-\end{itemize}
+\(
+  \int (x^2+1) e^{-x} dx
+\),
+aqui temos um produto de duas funções e
+$e^{-x}$ é a derivada de $-e^{-x}$.
+
+Nossa intenção ao usarmos integração por partes é obtermos uma integral
+mais simples que aquela de partida.
 
 %------------------------------------------------------------------------------%
 \begin{teorema}{Fórmula de Integração por partes}{teo:formula-integral-partes}
@@ -61,11 +70,13 @@ conhecida, isto é
 Para demonstrar a fórmula de integração por partes,
 lembremos da regra do produto para derivadas
 \[
-  (f(x)g(x))'= f'(x)g(x)+f(x)g'(x)
+  \big(f(x)g(x)\big)'
+  = f'(x)g(x) + f(x)g'(x)
 \]
 Integrando ambos os lados da equação com relação a $x$, temos
 \[
-  \int (f(x)g(x))' dx= \int f'(x)g(x) dx+ \int f(x)g'(x) dx
+  \int \big(f(x)g(x)\big)' dx
+  = \int f'(x)g(x) dx + \int f(x)g'(x) dx
 \]
 ou seja,
 \[
@@ -76,23 +87,21 @@ Isolando o termo que queremos temos que
   \int f(x)g'(x) dx= f(x)g(x)-\int f'(x)g(x) dx+ \int f(x)g'(x) dx
 \]
 
-\begin{itemize}
-  \item É útil chamar $u=f(x)$ e $dv=g'(x)dx$ e usar o padrão
-    \begin{align*}
-      u  & = f(x)    &  dv & = g'(x)dx \\
-      du & = f'(x)dx &  v  & = g(x)
-    \end{align*}
-    quando temos uma integral do tipo $\int f(x)g'(x)dx$,
-    pois facilita a memorização da fórmula de integração por partes.
+É útil chamar $u=f(x)$ e $dv=g'(x)dx$ e usar o padrão
+\begin{align*}
+  u  & = f(x)    &  dv & = g'(x)dx \\
+  du & = f'(x)dx &  v  & = g(x)
+\end{align*}
+quando temos uma integral do tipo $\int f(x)g'(x)dx$,
+pois facilita a memorização da fórmula de integração por partes.
 
-  \item Na fórmula de integração por partes, $g$ é qualquer
-    antiderivada de $g'$, pegamos a com constante $0$ por simplicidade.
+Na fórmula de integração por partes, $g$ é qualquer
+antiderivada de $g'$, então escolhemos a constante igual a zero por simplicidade.
 
-  \item Você não deve escolher $u$ e $dv$ de qualquer maneira.
-    Essa escolha deve ser feita de modo a obter uma integral mais
-    simples do que a que tínhamos inicialmente. Com a prática de
-    exercícios essa escolha fica simples.
-\end{itemize}
+Você não deve escolher $u$ e $dv$ de qualquer maneira.
+Essa escolha deve ser feita de modo a obter uma integral mais
+simples do que a que tínhamos inicialmente. Com a prática de
+exercícios essa escolha fica simples.
 
 %------------------------------------------------------------------------------%
 \begin{example} \label{ex:ex1partes}
@@ -103,11 +112,11 @@ Isolando o termo que queremos temos que
   Vamos escolher $f(x)=x$ e $g'(x)= \sin(x)$.
   Logo $f'(x)=1$ e $g(x)= -\cos(x)$ (Lembre-se que para $g$
   podemos escolher qualquer antiderivada de $g'$.).
-  Assim, usando a fórmula \ref{f1}, obtemos
+  Assim, usando a fórmula \ref{eq:formula_partes-1}, obtemos
   \begin{align*}
     \int x\sin(x)dx
     & = f(x)g(x)- \int g(x)f'(x)dx \\
-    & = x(-\cos(x))- \int (-\cos(x))dx \\
+    & = x\big(-\cos(x)\big)- \int -\cos(x)dx \\
     & = -x \cos(x) + \int \cos(x) dx \\
     & = -x \cos(x) + \sin(x)  + C
   \end{align*}
@@ -122,8 +131,8 @@ Isolando o termo que queremos temos que
   \begin{align*}
     \int x\sin(x)dx
     & = uv- \int vdu \\
-    & = x\big(-\cos(x)\big)- \int \big(-\cos(x)\big)dx \\
-    & = -x \cos(x) + \int \cos(x) dx \\
+    & = x\big(-\cos(x)\big)- \int -\cos(x)\,dx \\
+    & = -x \cos(x) + \int \cos(x)\, dx \\
     & = -x \cos(x) + \sin(x)  + C
   \end{align*}
 \end{example}
@@ -145,7 +154,7 @@ que é uma integral mais difícil que aquela que começamos.
   \solution
   Primeiro note que podemos rescrever
   \[
-    \int \ln(x) dx= \int \ln(x) \cdot 1 dx
+    \int \ln(x) dx= \int \ln(x) \cdot 1\, dx
   \]
   Usando o padrão temos
   \begin{align*}
@@ -179,7 +188,7 @@ que é uma integral mais difícil que aquela que começamos.
     \label{eq:exemplo_r}
     \int t^2 e^t dt= t^2 e^t-2 \int te^t dt
   \end{equation}
-  Observe que a integral $ \int te^t dt $ não é imediata.
+  Observe que a integral \(\int te^t dt\) não é imediata.
   Nesse caso, temos que usar novamente Integração por partes.
   Escolhemos,
   \begin{align*}
@@ -192,7 +201,7 @@ que é uma integral mais difícil que aquela que começamos.
     = t e^t - \int e^t dt
     = t e^t - e^t + C
   \]
-  Substituindo esse resultado na equação \ref{eq:exemplo_r}, obtemos
+  Substituindo esse resultado na equação \eqref{eq:exemplo_r}, obtemos
   \begin{align*}
     \int t^2 e^t dt
     & = t^2 e^t - 2\int te^tdt  \\
@@ -218,7 +227,7 @@ que é uma integral mais difícil que aquela que começamos.
     \int e^x \sin(x) dx = -e^x \cos(x)+ \int e^x \cos(x)dx
   \end{equation}
   Parece que ainda não resolvemos o nosso problema, uma vez que
-  $\int e^x \cos(x) dx$ não é uma integral elementar, mas pelo menos
+  \(\int e^x \cos(x) dx\) não é uma integral elementar, mas pelo menos
   não é mais complicada. Vamos integrar novamente a integração por
   partes para ver onde chegamos. Dessa vez usaremos $u=e^x$ e
   $dv=\cos(x)dx$. Assim $du=e^x dx$, $v=\sin(x)$, e
@@ -228,7 +237,10 @@ que é uma integral mais difícil que aquela que começamos.
   \end{equation}
   Parece que estamos andando em círculos e que voltamos para o
   mesmo lugar que começamos.
-  Porém, se substituirmos a expressão $\int e^x \cos(x)dx$ da
+  Porém, se substituirmos a expressão
+  \(
+    \int e^x \cos(x)dx
+  \) da
   equação \eqref{eq:exemplo_p2} na
   equação \eqref{eq:exemplo_p1}, temos
   \[
@@ -237,13 +249,13 @@ que é uma integral mais difícil que aquela que começamos.
   \]
   Assim, temos uma equação para a integral desconhecida e,
   para encontrar o seu valor, basta deixar o termo
-  $\int e^x \sin(x) dx$ do lado esquerdo da equação. Assim,
+  \(\int e^x \sin(x) dx\) do lado esquerdo da equação. Assim,
   \[
     2\int e^x \sin(x) dx = -e^x \cos(x)+ e^x \sin(x)
   \]
   Dividindo a equação por 2 e adicionando a constante de integração temos
   \[
-    \int e^x \sin(x) dx = \frac{e^x}{2}( -\cos(x) +\sin(x))+ C
+    \int e^x \sin(x) dx = \frac{e^x}{2}\big( -\cos(x) +\sin(x) \big) + C
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -309,10 +321,13 @@ que é uma integral mais difícil que aquela que começamos.
   encontrar a integral indefinida $\int x\sin(x)dx$.
   No exemplo \ref{ex:ex1partes} essa integral já foi calculada.
   Assim, usando o Teorema Fundamental do Cálculo-Parte 2
-  \[
-    A = \left[ -x \cos(x) + \sin(x) \right]_0^{\pi}
-    = (-\pi\cos(\pi+ \sin(\pi)))-(-0\cos(0)+ \cos(0))=\pi.
-  \]
+  \begin{align*}
+    A
+    & = \left[ -x \cos(x) + \sin(x) \right] \evalat{0}{\pi} \\[2mm]
+    & = \big(-\pi\cos(\pi+ \sin(\pi))\big)
+      - \big(-0\cos(0)+ \cos(0)\big) \\[2mm]
+    & =\pi.
+  \end{align*}
 
   \item
   Agora, para encontrar o volume do sólido de revolução gerado pela rotação
@@ -322,7 +337,7 @@ que é uma integral mais difícil que aquela que começamos.
 
   Integrando sobre a região entre \(x = 0\) e \(x = \pi\), obtemos o volume
   \[
-    V = \int_{0}^{\pi} 2\pi x \cdot (x \sin(x)) \, dx
+    V = \int_{0}^{\pi} 2\pi x (x \sin(x)) \, dx
       = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx
   \]
   Para calcular a integral indefinida, usamos integração por partes.
@@ -334,26 +349,23 @@ que é uma integral mais difícil que aquela que começamos.
   Integramos o segundo termo usando novamente integração por partes.
   Escolhemos \(u = -2x\) e \(dv = \cos(x) \, dx\).
   Então, \(du = -2 \, dx\) e \(v = \sin(x)\).
-  \[
-    \int -2x \cos(x) \, dx = -2x \sin(x) - \int -2 \sin(x) \, dx
-  \]
-  \[
-    \int -2x \cos(x) \, dx = -2x \sin(x) - 2 \cos(x)+K
-  \]
+  \begin{align*}
+    \int -2x \cos(x) \, dx
+    & = -2x \sin(x) - \int -2 \sin(x) \, dx \\[2mm]
+    & = -2x \sin(x) - 2 \cos(x)+K
+  \end{align*}
   Agora, voltamos à primeira expressão
-  \[
-    \int x^2 \sin(x) \, dx = -x^2 \cos(x) - (-2x \sin(x) - 2 \cos(x))+K
-  \]
-
-  \[
-    \int x^2 \sin(x) \, dx = -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x)+K
-  \]
+  \begin{align*}
+    \int x^2 \sin(x) \, dx
+    & = -x^2 \cos(x) - (-2x \sin(x) - 2 \cos(x))+K \\[2mm]
+    & = -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x)+K
+  \end{align*}
   Agora, usando o Teorema Fundamental do Cálculo-Parte 2
   \begin{align*}
     V & = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx                                     \\
       & = 2\pi \left( -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x) \right) \evalat{0}{\pi} \\
       & = 2\pi \Big[ -\pi^2 \cos(\pi) + 2\pi \sin(\pi) + 2 \cos(\pi)                \\
-      & \hspace{14mm} - (0^2 \cos(0) + 2(0) \sin(0) + 2 \cos(0)) \Big]
+      & \hspace{14mm} - \big(0^2 \cos(0) + 2(0) \sin(0) + 2 \cos(0)\big) \Big]
   \end{align*}
   Lembrando que \(\cos(\pi) = -1\) e \(\sin(\pi) = 0\), temos
   \[

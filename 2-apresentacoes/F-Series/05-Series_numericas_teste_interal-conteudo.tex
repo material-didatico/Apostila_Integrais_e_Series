@@ -36,15 +36,14 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Série com Termos Não-Negativos}
+  Caso particular de séries onde $\quad a_n \geq 0 \quad \forall n$
 
-Caso particular de séries onde $\quad a_n \geq 0 \quad \forall n$
-
-\pause
-\vspace{\baselineskip}
-Uma série
-\[\sum_{n=1}^\infty a_n \qquad \text{com} \qquad a_n\geq 0 \]
-é \emph{convergente} se, e somente se, sua sequência de somas parciais, $S_n$, \\
-é uma sequência \emph{limitada superiormente}.
+  \pause
+  \vspace{\baselineskip}
+  Uma série
+  \[\sum_{n=1}^\infty a_n \qquad \text{com} \qquad a_n\geq 0 \]
+  é \emph{convergente} se, e somente se, sua sequência de somas parciais, $S_n$, \\
+  é uma sequência \emph{limitada superiormente}.
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -72,6 +71,7 @@ Uma série
     \input{fig_teste_integral_comparacao}
   \end{center}
 \end{frame}
+
 %------------------------------------------------------------------------------%
 \begin{frame}[t]{Teste da Integral}
   Seja $(a_n)$ uma sequência tal que
@@ -126,11 +126,11 @@ Uma série
 \begin{frame}{Comparação entre a Série e a Integral}
   Temos portanto as relações
   \[
-  \int_{N}^{\infty} f(x)\,dx
-  \quad\leq\quad
-  \sum_{k=N}^{\infty} a_k
-  \quad\leq\quad
-  a_N + \int_{N}^{\infty} f(x)\,dx
+    \int_{N}^{\infty} f(x)\,dx
+    \quad\leq\quad
+    \sum_{k=N}^{\infty} a_k
+    \quad\leq\quad
+    a_N + \int_{N}^{\infty} f(x)\,dx
   \]
 \end{frame}
 
@@ -233,7 +233,9 @@ Uma série
   	a_n = \frac{1}{n^p} = f(n) \qquad \text{para} \qquad f(x) = \frac{1}{x^p}
   \]
   \pause
-  Como $f(x)$ é monótona, contínua e positiva, pelo Teste da Integral, temos
+  Para $x\in[1, \infty)$ a função $f(x)$ é descrescente, contínua e positiva,
+
+  pelo Teste da Integral, temos
   \[
     \sum_{n=1}^{\infty} \frac{1}{n^p} \quad\text{converge}
     \qquad\Leftrightarrow\qquad
@@ -266,10 +268,65 @@ Uma série
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Convergência da Série $p$}
-  A série $p$ converge para $p>1$ e diverge caso contrário.
+  A série-$p$
+  \[
+    \sum_{n=1}^\infty\frac{1}{\;n^p\;}
+    = 1
+    + \frac{1}{2^p}
+    + \frac{1}{3^p}
+    + \frac{1}{4^p}
+    + \frac{1}{5^p}
+    + \frac{1}{6^p}
+    + \cdots
+  \]
+  converge para $p>1$ e diverge caso contrário
+\end{frame}
 
-  \pause
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  Use o teste da integral para determinar se a série
+  \[
+  \sum_{n=1}^{\infty} \frac{1}{n^2}
+  \]
+  converge ou diverge
+
   \vspace{\baselineskip}
+  Certifique-se de que as condições do teste da integral sejam satisfeitas
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  \onslide<+->{Podemos aplicar o teste da integral pois a função $f(x)=\frac{1}{x^2}$ \\[2mm]
+    é \emph{positiva}, \emph{contínua} e \emph{decrescente} para $x\geq 1$}
+
+  \begin{align*}
+    \onslide<+->{\int_{1}^{\infty} \frac{1}{x^2}\,dx}
+    \onslide<+->{& = \lim_{b\to\infty} \int_{1}^{b} \frac{1}{x^2}\,dx           \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{x} \right)\evalat{1}{b} \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{b} +1 \right)}
+    \onslide<+->{ \;=\; 1}
+  \end{align*}
+
+  \onslide<+->{Como a integral converge a série também converge}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo -- 1}
+  Note que
+  \[
+  \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1,6449 \;\neq\; 1
+  \]
+
+  \vspace{\baselineskip}
+  O cálculo da soma da série está na Seção 9.6 -- Problema de Basileia
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Estimativa de Erro}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência da Série $p$}
   Não temos uma fórmula para a soma da série
 
   \pause
@@ -281,10 +338,6 @@ Uma série
   Quantos termos precisamos?
 
 \end{frame}
-
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Estimativa de Erro}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Resto ou Erro}
@@ -331,45 +384,6 @@ Uma série
 %------------------------------------------------------------------------------%
 %------------------------------------------------------------------------------%
 \section{Exemplos}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo -- 1}
-  Use o teste da integral para determinar se a série
-  \[
-    \sum_{n=1}^{\infty} \frac{1}{n^2}
-  \]
-  converge ou diverge
-
-  \vspace{\baselineskip}
-  Certifique-se de que as condições do teste da integral sejam satisfeitas
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo -- 1}
-  \onslide<+->{Podemos aplicar o teste da integral pois a função $f(x)=\frac{1}{x^2}$ \\[2mm]
-  é \emph{positiva}, \emph{contínua} e \emph{decrescente} para $x\geq 1$}
-
-  \begin{align*}
-    \onslide<+->{\int_{1}^{\infty} \frac{1}{x^2}\,dx}
-    \onslide<+->{& = \lim_{b\to\infty} \int_{1}^{b} \frac{1}{x^2}\,dx           \\[2mm]}
-    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{x} \right)\evalat{1}{b} \\[2mm]}
-    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{b} +1 \right)}
-    \onslide<+->{ \;=\; 1}
-  \end{align*}
-
-  \onslide<+->{Como a integral converge a série também converge}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo -- 1}
-  Note que
-  \[
-    \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1,6449 \;\neq\; 1
-  \]
-
-  \vspace{\baselineskip}
-  O cálculo da soma da série está na Seção 9.6 -- Problema de Basileia
-\end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo -- 2}

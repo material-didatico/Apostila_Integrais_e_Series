@@ -5,37 +5,40 @@
 \begin{exercise}
 Calcule as integrais.
 \begin{mathlist}
-  \item \int \sin^3(x)\cos^2(x)dx
-  \item \int \sin^6(x)\cos^3(x)dx
-  \item \int_0^{\frac{\pi}{2}} \sin^7(x) \cos^5(x) dx
-  \item \int_0^{\frac{\pi}{2}} \sin^2(\frac{1}{3}x) dx
-  \item \int_0^{\pi} cos^4(2t) dt
-  \item \int t \sin^2(t)dt
-  \item \int \cos(\theta) \cos^5(\sin(\theta)) d\theta
-  \item \int \cos^2(x) \sin(2x)dx
-  \item \int \tan^4(x) \sec^6(x) dx
-  \item \int_0^{\frac{\pi}{3}} \tan^5(x) \sec^4(x)dx
-  \item \int \sin(8x) \cos(5x)dx
-  \item \int \frac{\sin(\phi)}{\cos^3(\phi)} d \phi
-  \item \int \tan^5(x)dx
-  \item \int_{\frac{\pi}{6}}^{\frac{\pi}{2}} \cot^2(x) dx
+  \item \int \sin^3(x)\cos^2(x) \,dx
+  \item \int \sin^6(x)\cos^3(x) \,dx
+  \item \int_0^{\sfrac{\pi}{2}} \sin^7(x) \cos^5(x) \,dx
+  \item \int_0^{\sfrac{\pi}{2}} \sin^2\left(\frac{x}{3}\right) \,dx
+  \item \int_0^{\pi} \cos^4(2t) \,dt
+  \item \int t \sin^2(t) \,dt
+  \item \int \cos(\theta) \cos^5\big(\sin(\theta)\big) \,d\theta
+  \item \int \cos^2(x) \sin(2x) \,dx
+  \item \int \tan^4(x) \sec^6(x) \,dx
+  \item \int_0^{\sfrac{\pi}{3}} \tan^5(x) \sec^4(x) \,dx
+  \item \int \sin(8x) \cos(5x) \,dx
+  \item \int \frac{\sin(\phi)}{\cos^3(\phi)} \,d\phi
+  \item \int \tan^5(x) \,dx
+  \item \int_{\sfrac{\pi}{6}}^{\sfrac{\pi}{2}} \cot^2(x) \,dx
 \end{mathlist}
 \begin{answer}
 \begin{mathlist}
-  \item -\frac{1}{3} \cos^2(x)+\frac{1}{5} \cos^5(x)+C
-  \item \frac{1}{7} \sin^7(x)-\frac{1}{5} \sin^5(x)+C
+  \item -\frac{1}{3} \cos^2(x)+\frac{1}{5} \cos^5(x) + C
+  \item \frac{1}{7} \sin^7(x)-\frac{1}{5} \sin^5(x) + C
   \item \frac{1}{120}
   \item \pi+ \frac{3}{8} \sqrt{3}
   \item \frac{3}{8} \pi
   \item \frac{1}{4}t^2-\frac{1}{4} t \sin(2t)- \frac{1}{8} \cos(2t)+C
-  \item \sin(\sin(\theta))- \frac{2}{3}\sin^5(\sin(\theta))+ \frac{1}{5} \sin^5(\sin(\theta))+C
+  \item \sin\big(\sin(\theta)\big)
+      - \frac{2}{3} \sin^5\big(\sin(\theta)\big)
+      + \frac{1}{5} \sin^5\big(\sin(\theta)\big)
+      + C
   \item -\frac{1}{2}\cos^4(x)+C
   \item  \frac{1}{9} \tan^9(x)+ \frac{2}{7} \tan^7(x)+ \frac{1}{5} \tan^5(x)+C
   \item \frac{117}{8}
   \item -\frac{1}{6} \cos(3x)-\frac{1}{26} \cos(13x)+C
   \item \frac{1}{2} \tan^2(x)+C
-  \item \frac{1}{4} \sec^4(x)- \tan^2(x) + ln \vert \sec(x) \vert+ C
-  \item \frac{1}{2}(1-\ln 2)
+  \item \frac{1}{4} \sec^4(x)- \tan^2(x) + \ln\abs{\sec(x)} + C
+  \item \frac{1}{2}\big(1-\ln(2)\big)
 \end{mathlist}
 \end{answer}
 \end{exercise}
@@ -52,34 +55,41 @@ Encontre a sua função posição $s=f(t)$ se $f(0)=0$.
 
 %------------------------------------------------------------------------------%
 \begin{exercise}
-Determine se a $ \int_{0}^{\infty} \sin^2(x) dx$ integral é convergente
-ou divergente. Caso seja convergente, calcule o valor dessa integral.
+Determine se a
+\(\int_{0}^{\infty} \sin^2(x) dx\)
+integral é convergente ou divergente.
+Caso seja convergente, calcule o valor dessa integral.
 \begin{answer}
-divergente.
+Divergente.
 \end{answer}
+
+%------------------------------------------------------------------------------%
 \end{exercise}
 \begin{exercise}
 Nos exercícios seguintes encontre a área da região delimitada pelas curvas
 dadas e encontre o volume do sólido obtido pela rotação da região delimitada
 pelas curvas dadas em torno dos eixos especificados:
 \begin{alphalist}
-    \item $y=\sin(x)$, $y=0$, $\frac{\pi}{2} \leq x \leq \pi$, em torno do eixo $x$.
-    \item $y=\sin(x)$, $y=\cos(x)$, $0\leq x \leq \frac{\pi}{4} $, em torno de y=1.
+    \item $y=\sin(x)$, $y=0$, \(\frac{\pi}{2} \leq x \leq \pi\), em torno do eixo $x$.
+    \item $y=\sin(x)$, $y=\cos(x)$, \(0\leq x \leq \frac{\pi}{4}\), em torno de $y=1$.
 \end{alphalist}
 \begin{answer}
 \begin{alphalist}
-    \item $A=1$ e $V=\frac{\pi^2}{4}$
-    \item $A=\sqrt{2}-1$ e $V=\pi(2\sqrt{2}- \frac{5}{2})$
+    \item $A=1$ e \(V=\frac{\pi^2}{4}\)
+    \item $A=\sqrt{2}-1$ e \(V=\pi\left(2\sqrt{2}- \frac{5}{2}\right)\)
 \end{alphalist}
 \end{answer}
 \end{exercise}
 
+%------------------------------------------------------------------------------%
 \begin{exercise}
 Encontre o valor médio de $f(x)= \sin^2(x)\cos^3(x)$ no intervalo $[-\pi,\pi]$.
 \begin{answer}
 0
 \end{answer}
 \end{exercise}
+
+%------------------------------------------------------------------------------%
 \begin{exercise}
   Considere a região do primeiro quadrante delimitada pelos eixos coordenadas
   e pela curva $f(x)=\cos(x)$, $0 \leq x \leq \frac{\pi}{2}$.
@@ -90,9 +100,10 @@ Encontre o valor médio de $f(x)= \sin^2(x)\cos^3(x)$ no intervalo $[-\pi,\pi]$.
     \item Encontre o volume do sólido de revolução gerado pela rotação
     dessa região em torno do eixo $y$.
     \item Encontre o volume do sólido de revolução gerado pela rotação
-      dessa região em torno do da reta $x=\frac{\pi}{2}$.
+      dessa região em torno do da reta \(x=\frac{\pi}{2}\).
   \end{alphalist}
 \end{exercise}
+
 %------------------------------------------------------------------------------%
 %\begin{exercise}
 %\begin{mathlist}[2]

@@ -127,14 +127,20 @@
   \onslide<+->{
   Para cada \(x\) fixo, é uma Série Geométrica com \(\alpha=1\) e \(r=\beta(x-a)\)}
 
-  \vspace{\baselineskip}
-  \onslide<+->{
-  Converge quando \(\abs{r}<1\)}
-  \begin{align*}
-    \onslide<+->{\abs{\beta(x-a)}                   & \;<\; 1                         \\[2mm]}
-    \onslide<+->{-\frac{1}{\abs{\beta}}  \;<\;  x-a & \;<\; \frac{1}{\abs{\beta}}     \\[2mm]}
-    \onslide<+->{a-\frac{1}{\abs{\beta}} \;<\;  x   & \;<\; a + \frac{1}{\abs{\beta}}}
-  \end{align*}
+%  \vspace{\baselineskip}
+  \onslide<+->{Converge quando \(\abs{r}<1\)}
+  \begin{columns}
+    \column{0.3\linewidth}
+    \begin{align*}
+      \onslide<+->{\abs{\beta(x-a)}                   & \;<\; 1                         \\[2mm]}
+      \onslide<+->{\abs{(x-a)}                        & \;<\; \frac{1}{\abs{\beta}}     }
+    \end{align*}
+    \column{0.5\linewidth}
+    \begin{align*}
+      \onslide<+->{-\frac{1}{\abs{\beta}}  \;<\;  & x-a \;<\; \frac{1}{\abs{\beta}}     \\[2mm]}
+      \onslide<+->{a-\frac{1}{\abs{\beta}} \;<\;  & x   \;<\; a + \frac{1}{\abs{\beta}}}
+    \end{align*}
+  \end{columns}
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -162,10 +168,21 @@
   Calcule a soma da série
   \[
     \sum_{n=0}^\infty \left(\frac{x-2}{2}\right)^{\!\!n}
+    \pause
+    \;=\;
+    \sum_{n=0}^\infty \frac{1}{2^n}\left(x-1\right)^n
   \]
+
+  \pause
+  Série de Potências com \(a=1\) e \(c_n=\frac{1}{2^n}\)
+
   \pause
   Caso particular do exemplo anterior
-  com $\beta=\frac{1}{2}$ e $a=2$
+  com \(\beta=\frac{1}{2}\) e \(a=1\)
+
+  \pause
+  Série Geométrica com \(\alpha=1\) e \(r=\frac{x-2}{2}\)
+
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -189,18 +206,26 @@
     \pause \;=\;
     \frac{\alpha}{1-r}
     \pause \;=\;
-    \frac{1}{1-\frac{x-2}{2}}
+    \frac{1}{\;1-\dfrac{x-2}{2}\;}
     \pause \;=\;
-    \frac{2}{2-(x-2)}
+    \frac{2}{\,2-(x-2)\,}
     \pause \;=\;
     \frac{2}{4-x}
   \]
 \end{frame}
 
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{\contentsname}
-  \tableofcontents
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 7.1 da Apostila
+
+  Revisar Séries Geométricas, Seção 6.1 da Apostila
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
 \end{frame}
 
 %------------------------------------------------------------------------------%

@@ -2,7 +2,7 @@
 
 \usepackage{integracao_e_series}
 
-\title{Séries Numéricas -- Teste e Raiz}
+\title{Séries Numéricas -- Teste da Raiz}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -21,15 +21,12 @@
   \]
 
   \pause
-  \vspace{\baselineskip}
   Se $\rho<1$                    \tabto{37mm} a série \emph{converge}
 
   \pause
-  \vspace{\baselineskip}
   Se $\rho>1$ ou $\rho\to\infty$ \tabto{37mm} a série \emph{diverge}
 
   \pause
-  \vspace{\baselineskip}
   Se $\rho=1$                    \tabto{37mm} o teste é \emph{inconclusivo}
 \end{frame}
 
@@ -56,6 +53,45 @@
 		\onslide<+->{\;=\; 1}
 	\]
 \end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Exemplos do Teste da Raiz}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Use o teste da raiz para analisar a convergência da série
+  \[
+  \sum_{n=1}^\infty \frac{4^n}{\,(3n)^n\,}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \[
+  a_n
+  = \frac{4^n}{\,(3n)^n\,}
+  \pause
+  = \left(\frac{4}{\,3n\,}\right)^{\!n}
+  \]
+
+  \pause
+  \[
+  \sqrt[n]{a_n\,}
+  \pause
+  = \sqrt[n]{\left(\frac{4}{\,3n\,}\right)^{\!n}}
+  \pause
+  = \frac{4}{3n}
+  \pause
+  \to 0
+  \pause
+  < 1
+  \]
+
+  A série converge
+\end{frame}
+%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \addtocounter{exemplo}{1}
@@ -97,45 +133,6 @@
 
 	\end{columns}
 \end{frame}
-
-%------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Exemplos do Teste da Raiz}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Use o teste da raiz para analisar a convergência da série
-  \[
-    \sum_{n=1}^\infty \frac{4^n}{\,(3n)^n\,}
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo \theexemplo}
-  \[
-    a_n
-    = \frac{4^n}{\,(3n)^n\,}
-    \pause
-    = \left(\frac{4}{\,3n\,}\right)^{\!n}
-  \]
-
-  \pause
-  \[
-    \sqrt[n]{a_n\,}
-    \pause
-    = \sqrt[n]{\left(\frac{4}{\,3n\,}\right)^{\!n}}
-    \pause
-    = \frac{4}{3n}
-    \pause
-    \to 0
-    \pause
-    < 1
-  \]
-
-  A série converge
-\end{frame}
-%------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \addtocounter{exemplo}{1}

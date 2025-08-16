@@ -2,48 +2,46 @@
 \section{Integração por Substituição Trigonométrica}
 \label{sec:Integracao_substituicao_Trigonometrica}
 
+Quando tentamos resolver a integral
+\[
+  \int x \sqrt{a^2-x^2}dx,
+\]
+podemos usar uma substituição simples $u=a^2-x^2$.
 
-\begin{itemize}
-  \item Quando tentamos resolver a integral
-        \[
-          \int x \sqrt{a^2-x^2}dx,
-        \]
-        podemos usar uma substituição simples $u=a^2-x^2$.
+No geral fazemos a seguinte mudança
+\[
+  \int f(g(x))g'(x) dx= \int f(u)du
+\]
 
-  \item No geral fazemos a seguinte mudança
-        \[
-          \int f(g(x))g'(x) dx= \int f(u)du
-        \]
+Para a integral
+\[
+  \int \sqrt{a^2-x^2}dx
+\]
+não conseguimos fazer a substituição simples
 
-  \item Para a integral
-        \[
-          \int \sqrt{a^2-x^2}dx
-        \]
-        não conseguimos fazer a
-        substituição simples
+Nesse caso fazemos uma substituição ``inversa''
+$x=a\sin( \theta )$, assim:
+\begin{align*}
+  \int \sqrt{a^2-x^2}\,dx
+  & = \int \sqrt{a^2-a^2 \sin^2(\theta)\,} a\cos(\theta) \,d\theta \\
+  & = \int \sqrt{a^2\big(1-\sin^2(\theta)\big)\,}   \cos(\theta) \,d\theta \\
+  & = \int a^2 \cos^2 (\theta) d\theta
+\end{align*}
 
-  \item Nesse caso fazemos uma substituição ``inversa''
-  $x=a\sin( \theta )$, assim:
-  \begin{align*}
-    \int \sqrt{a^2-x^2}\,dx
-    & = \int \sqrt{a^2-a^2 \sin^2(\theta)} a\cos(\theta) d \theta \\
-    & = \int \sqrt{a^2(1-\sin^2(\theta))} \cos(\theta) d\theta \\
-    & = \int a^2 \cos^2 (\theta) d\theta
-  \end{align*}
+Nesse caso geral temos
+\[
+  \int f(x)dx= \int f\big(g(\theta)\big) g'(\theta) \,d\theta
+\]
 
-  \item Nesse caso geral temos
-        \[
-          \int f(x)dx= \int f(g(\theta)) g'(\theta) d \theta
-        \]
+Podemos fazer a substituição inversa desde que $g$ seja injetiva.
 
-  \item Podemos fazer a substituição inversa desde que $g$ seja injetiva.
+No nosso caso  podemos fazer a substituição inversa $x=a\sin(\theta)$,
+desde que essa função seja injetora. Isso pode ser conseguido se
+restringirmos $\theta$ ao intervalo
+\[
+  \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]
+\]
 
-  \item No nosso caso  podemos fazer a substituição inversa $x=a\sin(\theta)$,
-        desde que essa função seja injetora. Isso pode ser conseguido se
-        restringirmos $\theta$ ao intervalo
-        \(\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\)
-
-\end{itemize}
 Nessa seção estudaremos a técnica de substituição trigonométrica e ela serve
 para integrar funções que tem uma ``raiz'' e não conseguimos usar nenhuma das
 técnicas estudadas até aqui. A Tabela~\ref{tab:substituicoes_trigonometricas}
@@ -55,14 +53,37 @@ apresenta os casos onde usaremos a substituição trigonométrica.
   \renewcommand*{\arraystretch}{2.2}
   \caption{Substituições Trigonométricas}
   \label{tab:substituicoes_trigonometricas}
-  \begin{tabular}{cp{7cm}c}
-    \hline
-       Expressão     & Substituição                                                       &             Identidade             \\ \hline
-    $\sqrt{a^2-x^2}$ & $x=a\sin(\theta)$, $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$ & $1-\sin^2(\theta)= \cos^2(\theta)$ \\
-    $\sqrt{a^2+x^2}$ & $x=a\tan(\theta)$, $-\frac{\pi}{2}< \theta < \frac{\pi}{2}$        & $1+\tan^2(\theta)= \sec^2(\theta)$ \\
-    $\sqrt{x^2-a^2}$ & $x=a\sec(\theta)$, $0 \leq \theta < \frac{\pi}{2}$                 &  $\sec^2(\theta)-1=\tan^2(\theta)$ \\
-                     & ou $\pi \leq \theta < \frac{3\pi}{2}$                              &                                    \\ \hline
-  \end{tabular}
+  \begin{ceqn}
+  \[
+    \begin{array}{>{\;}c<{\;}>{\;}c<{\;}>{\;}l<{\;}>{\;}c<{\;}}
+      \hline
+      \text{Expressão}    &
+      \text{Substituição} & &
+      \text{Identidade}
+      \\ \hline
+      \sqrt{a^2-x^2}
+      & x=a\sin(\theta)
+      & -\sfrac{\pi}{2} \leq \theta \leq \sfrac{\pi}{2}
+      & 1-\sin^2(\theta)= \cos^2(\theta)
+      \\
+      \sqrt{a^2+x^2}
+      & x=a\tan(\theta)
+      & -\sfrac{\pi}{2} < \theta < \sfrac{\pi}{2}
+      & 1+\tan^2(\theta) = \sec^2(\theta)
+      \\
+      \sqrt{x^2-a^2}
+      & x=a\sec(\theta)
+      &
+      \hpm
+      \begin{array}{l}
+          0 \leq \theta < \sfrac{\pi}{2} \\
+        \pi \leq \theta < \sfrac{3\pi}{2}
+      \end{array}
+      & \sec^2(\theta)-1= \tan^2(\theta)
+      \\ \hline
+    \end{array}
+  \]
+  \end{ceqn}
 \end{table}
 %------------------------------------------------------------------------------%
 
@@ -94,10 +115,10 @@ apresenta os casos onde usaremos a substituição trigonométrica.
     & = \frac{1}{3}\int \frac{\sqrt{9\cos^2(x)}}{ \sin^2(\theta)} \cos(\theta) d\theta \\
     & = \frac{1}{3}\int \frac{3\cos(\theta)}{\sin^2(\theta)}\cos(\theta) d\theta  \\
     & = \int \frac{\cos^2(\theta)}{\sin^2(\theta)} d\theta \\
-    & = \int \cot^2(x) d\theta
+    & = \int \cot^2(\theta) d\theta
   \end{align*}
   Usando
-  \(\csc^2(\theta)-1 = \cot^2(x)\)
+  \(\csc^2(\theta)-1 = \cot^2(\theta)\)
   temos
   \begin{align*}
   I
@@ -106,10 +127,15 @@ apresenta os casos onde usaremos a substituição trigonométrica.
   \end{align*}
   Agora precisamos voltar para a variável original $x$, ou seja, é necessário
   expressar $\cot(\theta)$ e $\theta$ em função de $x$. Ora, temos que
-  $x=3\sin(\theta) \Rightarrow \sin(\theta)= \frac{x}{3}$. Se interpretarmos
+  \[
+    x = 3\sin(\theta)
+    \Rightarrow
+    \sin(\theta) = \frac{x}{3}.
+  \]
+  Se interpretarmos
   $\theta$ como um ângulo de um triângulo retângulo então podemos escolher $x$
   como o cateto oposto e $3$ como hipotenusa, uma vez que
-  $\sin(\theta)=\frac{x}{3}$.
+  \(\sin(\theta)=\frac{x}{3}\).
   O Teorema de Pitágoras nos dá que o cateto adjacente é
   $\sqrt{9-x^2}$. Assim,
   \[
@@ -117,10 +143,10 @@ apresenta os casos onde usaremos a substituição trigonométrica.
   \]
 
   Embora no diagrama $\theta >0$, essa expressão para $\cot(\theta)$ também é
-  válida para $\theta <0$. Uma vez que $\sin(\theta)= \frac{x}{3}$ e
+  válida para $\theta <0$. Uma vez que \(\sin(\theta)= \frac{x}{3}\) e
   $y=\sin(\theta)$ é injetiva no intervalo
-  $-\frac{\pi}{2} \leq \theta \leq\frac{\pi}{2}$
-  então $\theta = \arcsin(\frac{x}{3})$, logo
+  \(-\frac{\pi}{2} \leq \theta \leq\frac{\pi}{2}\)
+  então \(\theta = \arcsin\left(\frac{x}{3}\right)\), logo
   \[
     \int \frac{\sqrt{9-x^2}}{x^2}dx
     = -\cot(\theta)-\theta+C
@@ -130,10 +156,13 @@ apresenta os casos onde usaremos a substituição trigonométrica.
   \IncludeGraphicCentred{exemplo_triangulo_1}[0.4][-1]
 \end{example}
 %------------------------------------------------------------------------------%
-Durante a resolução do exercício usamos que $\sqrt{\cos^2(\theta)}=
-\cos(\theta)$, fizemos isso porque $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$
-e $\cos(x)$ é não-negativo nesse intervalo, assim, $|\cos(x)|= \cos(x)$, nesse
-caso.
+
+Durante a resolução do exercício usamos que
+\(\sqrt{\cos^2(\theta)}=\cos(\theta)\),
+fizemos isso porque
+\(\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2} \right]\)
+e $\cos(x)$ é não-negativo nesse intervalo, assim,
+$\abs{\cos(x)}= \cos(x)$, nesse caso.
 
 %------------------------------------------------------------------------------%
 \begin{example}

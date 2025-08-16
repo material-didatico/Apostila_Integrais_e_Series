@@ -56,7 +56,7 @@ O Teorema do Valor médio para integrais responde esse questionamento.
       f(c)= \frac{1}{b-a}\int_a^b f(x)dx.
   \]
   O valor $f(c)$ é chamado \textit{Valor médio} de $f$ no intervalo $[a, b]$
-  e denotamos por $f_{\text{médio}}$.
+  e denotamos por~$f_{\text{médio}}$.
 \end{teorema}
 
 Geometricamente, o Teorema \ref{teo:tvmi} afirma que existe um $c \in (a, b)$
@@ -227,17 +227,19 @@ uma função descontínua não assuma seu valor médio.
     = e^{h(x)}h'(x)
     =e^{h(x)}e^{\tan(x)}\sec^2(x)
   \]
-  e
+  portanto
   \[
     f'\left(\frac{\pi}{4}\right)
     = e^{h(\sfrac{\pi}{4})}
       e^{\tan(\sfrac{\pi}{4})}
       \sec^2\left(\frac{\pi}{4}\right)
-    = 0 \cdot e^1 \cdot \left(\frac{2}{\sqrt{2}}\right)^2=0
+    = 0 e^1 \left(\frac{2}{\sqrt{2}}\right)^{\!\!2}=0
   \]
   onde,
   \[
-    h\left(\frac{\pi}{4} \right)= \int_1^1 e^t dt=0.
+    h\left(\frac{\pi}{4} \right)
+    = \int_1^1 e^t dt
+    = 0.
   \]
 \end{example}
 %------------------------------------------------------------------------------%
@@ -332,7 +334,7 @@ Vamos aos exemplos.
 \begin{example}
   Calcule
   \(
-    \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx
+    \int_0^1 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 dx
   \)
   \solution
   Note que
@@ -346,8 +348,8 @@ Vamos aos exemplos.
   a integral indefinida, usando a linearidade da integral.
   \begin{align*}
     F(x)
-    & = \int \left[ 20x^5-e^x+ 3x^6 - \cos x+  \frac{3}{1+x^2}-3 \right] dx \\
-    & = \int \left[ 20x^5-e^x+ 3x^6 - \cos x+ 3\frac{1}{1+x^2}-3 \right] dx \\
+    & = \int 20x^5-e^x+ 3x^6 - \cos x+  \frac{3}{1+x^2}-3 dx \\
+    & = \int 20x^5-e^x+ 3x^6 - \cos x+ 3\frac{1}{1+x^2}-3 dx \\
     & = 20 \int x^5 dx
       -    \int e^x dx
       + 3  \int x^6 dx
@@ -366,21 +368,20 @@ Vamos aos exemplos.
   Cálculo parte 2 temos que
   \begin{align*}
     I
-    & = \int_0^1 \left[ 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 \right] dx \\
-    & = \left[ \frac{20x^6}{6}
+    & = \int_0^1 20x^5-e^x+ 3x^6- \cos x+ \frac{3}{1+x^2}-3 dx \\
+    & = \left( \frac{20x^6}{6}
       - e^x
       + \frac{3x^7}{7}
       - \sin(x)
       + 3\arctan(x)
-      - 3x \right] \evalat{0}{1} \\
+      - 3x \right) \evalat{0}{1} \\
     & = \left( \frac{20}{6}
       - e
       + \frac{3}{7}
       - \sin(1)
       + 3 \arctan(1)
       - 3 \right) \\
-    & \hspace{10mm}
-      - \left( 0 - e^0 + 0 - \sin(0) + 3\arctan(0) - 0 \right) \\
+    & - \left( 0 - e^0 + 0 - \sin(0) + 3\arctan(0) - 0 \right) \\
     & = \left(\frac{10}{3}-e+\frac{3}{7}-\sin(1) + \frac{3\pi}{4} - 3 \right) - (-1) \\
     & = \frac{10}{3} - e + \frac{3}{7} - \sin(1) + \frac{3\pi}{4} - 3 + 1 \\
     & = \frac{148 - 84e - 84 \sin(1) + 63 \pi}{84}
