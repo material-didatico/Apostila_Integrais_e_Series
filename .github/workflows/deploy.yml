@@ -1,0 +1,37 @@
+
+name: Build LaTeX and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full make
+
+      - name: Run Makefile
+        run: make publish
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          external_repository: material-didatico/material-didatico.github.io
+          personal_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./_docs
+          publish_branch: main
+          destination_dir: ./docs/is
