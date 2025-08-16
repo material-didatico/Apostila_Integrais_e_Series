@@ -1,0 +1,622 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+\usepackage{systeme}
+
+\title{Integração por Frações Parciais}
+\subtitle{Caso 1 -- Fatores reais distintos}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Objetivo e Preliminares}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Objetivo}
+  Integrar funções da forma
+  \[
+    f(x) = \frac{P(x)}{Q(x)}
+  \]
+  onde $P$ e $Q$ são polinômios
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Polinômios}
+  Se o polinômio $P$, de grau $n$,
+  \[
+    P(x) = ax^n + bx^{n-1} + \cdots + rx + s
+  \]
+  \pause
+  Possui $n$ raízes reais distintas $x_i$
+  \[
+    P(x) = a(x-x_1)(x-x_2)\cdots(x-x_n)
+  \]
+  \pause
+  Se a raiz $x_k$ se repete $p$ vezes
+  \[
+    P(x) = a(x-x_1)(x-x_2)\cdots(x-x_k)^p
+  \]
+  \pause
+  Se $P$ possui uma raiz complexa
+  \[
+    P(x) = a(x-x_1)(x-x_2)\cdots(x^2+bx+c)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integral Relevante}
+  \begin{align*}
+    \onslide<+->{\int \frac{1}{x+a}\, dx}
+    \onslide<+->{& = \int \frac{1}{u}\, du  & u = x+a \quad du = dx \\[5mm]}
+    \onslide<+->{& = \ln\abs{u} + C \\[5mm]}
+    \onslide<+->{& = \ln\abs{x+a} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Integral Relevante -- 2}
+%  \begin{align*}
+%    \onslide<+->{\int \frac{1}{x^2+a^2}\, dx}
+%    \onslide<+->{& = \int \frac{1}{a^2\left(\left(\frac{x}{a}\right)^2 + 1\right)} \,dx \\[2mm]}
+%    \onslide<+->{& = \frac{1}{a} \int \frac{1}{\left(\frac{x}{a}\right)^2 + 1} \,\frac{dx}{a}}
+%    \onslide<+->{& u = \frac{x}{a} \qquad du = \frac{dx}{a}  \\[2mm]}
+%    \onslide<+->{& = \frac{1}{a} \int \frac{1}{u^2+1}\, du  \\[2mm]}
+%    \onslide<+->{& = \frac{1}{a} \arctan(u) + C    \\[2mm]}
+%    \onslide<+->{& = \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C}
+%  \end{align*}
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  Integrar \(\int \frac{x^3+x}{x-1}\,dx\)
+
+  \pause
+  \[
+    f(x) = \frac{P(x)}{Q(x)}
+    \qquad\qquad
+    P(x) = x^3+x
+    \qquad\qquad
+    Q(x) = x-1
+  \]
+
+  \pause
+  Como o grau de $P$ é maior do que o de $Q$, calculamos a divisão
+  \[
+    f(x) = x^2 + x + 2 + \frac{2}{x-1}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+  \begin{align*}
+    \onslide<+->{\int \frac{x^3+x}{x-1} \,dx}
+    \onslide<+->{& = \int x^2 + x + 2 + \frac{2}{x-1} \, dx \\[5mm]}
+    \onslide<+->{& = \frac{x^3}{3}
+      + \frac{x^2}{2}
+      + 2x
+      + 2 \ln\abs{x-1}
+      + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integração por Frações Parciais}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integração por Frações Parciais}
+  Integrar \(f(x)=\frac{P(x)}{Q(x)}\) onde $P$ e $Q$ são polinômios
+  \pause
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Se o grau de $P$ for maior ou igual que o grau de $Q$, dividir $P$ por $Q$
+
+    \item Fatorar $Q(x)$
+
+    \item Expandir $f$ em frações parciais
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Caso 1}
+  $Q(x)$ é o produto de $n$ fatores lineares distintos
+  \[
+    Q(x) =
+    \left( a_1 x + b_1 \right)
+    \left( a_2 x + b_2 \right) \cdots
+    \left( a_n x + b_n \right)
+  \]
+
+  \pause
+  Expansão
+  \[
+    \frac{P(x)}{Q(x)}
+    = \frac{A_1}{ a_1 x + b_1 }
+    + \frac{A_2}{ a_2 x + b_2 }
+    + \cdots
+    + \frac{A_m}{ a_n x + b_n }
+  \]
+\end{frame}
+
+\begin{frame}{Exemplo}
+  \begin{align*}
+    \onslide<+->{\frac{x-3}{x(x-1)(x+1)}}
+    \onslide<+->{& = \frac{{\color{blue}A}}{x}
+                   + \frac{{\color{blue}B}}{x-1}
+                   + \frac{{\color{blue}C}}{x+1} \\[2mm]}
+    \onslide<+->{& = \frac{{\color{blue}A}(x-1)(x+1)
+                   + {\color{blue}B}x(x+1)
+                   + {\color{blue}C}x(x-1)}{x(x-1)(x+1)} \\[7mm]}
+    \onslide<+->{x-2 & = {\color{blue}A}(x-1)(x+1)
+                       + {\color{blue}B}x(x+1)
+                       + {\color{blue}C}x(x-1) \\}
+    \onslide<+->{    & = x^3 \left( {\color{blue}A} + {\color{blue}B} + {\color{blue}C} \right)
+                       + x   \left({\color{blue}B}-{\color{blue}C}\right)
+                       - {\color{blue}A}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+\begin{columns}
+\column{0.5\linewidth}
+  \systeme[ABC]{
+    A + B + C = 0,
+        B - C = 1,
+    A         = 3
+  }
+\column{0.5\linewidth}
+  \[
+    \pause
+    A = 3
+  \]
+  \pause
+  \[
+    B = 1 + C
+  \]
+  \pause
+  \[
+    A + B + C = 0
+  \]
+  \[
+    \pause
+    3 + 1 + C + C = 0
+  \]
+  \[
+    \pause
+    C = -\frac{4}{2} = -2
+  \]
+  \pause
+  \[
+    B = 1 - 2 = -1
+  \]
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+\begin{align*}
+  \onslide<+->{\frac{x-3}{x(x-1)(x+1)}
+  & = \frac{A}{x}
+    + \frac{B}{x-1}
+    + \frac{C}{x+1} \\[2mm]}
+  \onslide<+->{& = \frac{3}{x}
+    + \frac{-1}{x-1}
+    + \frac{-2}{x+1}}
+\end{align*}
+\begin{align*}
+  \onslide<+->{\int \frac{x-3}{x(x-1)(x+1)} \,dx
+  & = \int \frac{3}{x} \,dx
+    - \int \frac{1}{x-1} \,dx
+    - 2 \int \frac{1}{x+1} \,dx \\[2mm]}
+  \onslide<+->{& = 3\ln\abs{x}
+    - \ln\abs{x-1}
+    - 2 \ln\abs{x+1}
+    + K \\[2mm]}
+  \onslide<+->{& = \ln\abs{\frac{x^3}{(x-1)(x+1)^2}}
+    + K}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Caso 2}
+%  $Q(x)$ é o produto de $m$ fatores lineares e alguns repetidos
+%
+%  \pause
+%  Suponha que o primeiro fator $(a_1 x + b_1)$ seja repetido $p$ vezes
+%  \[
+%    Q(x)
+%    = \left(a_1 x + b_1\right)^p
+%      \left(a_2 x + b_2\right) \cdots
+%      \left(a_q x + b_q\right)
+%  \]
+%
+%  \pause
+%  Expansão
+%  \[
+%    \frac{P(x)}{Q(x)}
+%    = \frac{A_1}{(a_1x+b_1)}
+%    + \frac{A_2}{(a_1x+b_1)^2}
+%    + \cdots
+%    + \frac{A_p}{(a_1x+b_1)^p}
+%    + \cdots
+%    + \frac{A_q}{a_q x + b_q}
+%  \]
+%\end{frame}
+%
+%\begin{frame}{Exemplo}
+%  \[
+%    \frac{x^3-x-2}{x^3(x-1)}
+%    = \frac{A}{x}
+%    + \frac{B}{x^2}
+%    + \frac{C}{x^3}
+%    + \frac{D}{x-1}
+%  \]
+%
+%  \pause
+%  \vspace{\baselineskip}
+%  \[
+%    \int \frac{x^3-x-2}{x^3(x-1)} \,dx
+%    = A \int \frac{1}{x} \,dx
+%    + B \int \frac{1}{x^2} \,dx
+%    + C \int \frac{1}{x^3} \,dx
+%    + D \int \frac{1}{x-1} \,dx
+%  \]
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Caso 3}
+%  $Q(x)$ contém fatores quadráticos irredutíveis que não se repetem
+%  \[
+%    Q(x) = \cdots  \left( ax^2 + bx + c \right)
+%    \qquad
+%    \text{ com } b^2-4ac<0
+%  \]
+%
+%  \pause
+%  Expansão
+%  \[
+%    \frac{P(x)}{Q(x)}
+%    = \cdots
+%    + \frac{Ax+B}{ax^2 + bx + c}
+%  \]
+%\end{frame}
+%%------------------------------------------------------------------------------%
+%
+%\begin{frame}{Exemplo}
+%  \[
+%    \frac{x}{(x-2)(x^2+1)(x^2+4)}
+%    = \frac{A}{x-2}
+%    + \frac{Bx+C}{x^2+1}
+%    + \frac{Dx+E}{x^2+4}
+%  \]
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Caso 4}
+%  $Q(x)$ contém fatores quadráticos irredutíveis repetidos
+%  \[
+%    Q(x) = \cdots  \left( ax^2 + bx + c \right)^r
+%    \qquad
+%    \text{ com } b^2-4ac<0
+%  \]
+%
+%  \pause
+%  Expansão
+%  \[
+%    \frac{P(x)}{Q(x)}
+%    = \cdots
+%    + \frac{A_1x+B_1}{ax^2+bx+c}
+%    + \frac{A_2x+B_2}{(ax^2+bx+c)^2}
+%    + \cdots
+%    + \frac{A_rx+B_r}{(ax^2+bx+c)^r}
+%  \]
+%\end{frame}
+%
+%\begin{frame}{Exemplo}
+%\[
+%  \frac{2x}{(x-9)(x^2+4)^2}
+%  = \frac{A}{x-9}
+%  + \frac{Bx+C}{x^2+4}
+%  + \frac{Dx+E}{(x^2+4)^2}
+%\]
+%\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \frac{x^2+2x-1}{2x^3+3x^2-2x}dx\)}
+
+  \onslide<+->{O grau do numerador $P$ é menor que o grau do denominador $Q$}
+
+  \onslide<+->{Fatorando $Q$}
+  \begin{align*}
+    \onslide<3->{Q(x)
+                 & = 2x^3+3x^2-2x \\}
+    \onslide<+->{& = x\left(2x^2+3x-2\right) \\}
+    \onslide<+->{& = x\, 2\left(x- \frac{1}{2}\right)\left(x+2\right) \\}
+    \onslide<+->{& = x\left(2x-1\right)\left(x+2\right)}
+  \end{align*}
+  \onslide<+->{Caso 1 -- Fatores lineares sem repetição}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{\[
+    \frac{x^2+2x-1}{2x^3+3x^2-2x}
+    = \frac{A}{x}
+    + \frac{B}{2x-1}
+    + \frac{C}{x+2}
+  \]}
+  \onslide<+->{Multiplicando por \(2x^3+3x^2-2x = x\left(2x-1\right)\left(x+2\right)\)}
+  \begin{align*}
+    \onslide<+->{x^2+2x-1
+    & = A(2x-1)(x+2)+Bx(x+2)+ Cx(2x-1) \\}
+    \onslide<+->{& = (2A+B +2C)x^2+ (3A+2B-C)x-2A}
+  \end{align*}
+  \onslide<+->{\systeme[ABC]{
+     2A + B +2C =  1,
+     3A +2B - C =  2,
+    -2A         = -1
+  }}
+  \onslide<+->{\[
+    A= \frac{1}{2}  \qquad
+    B= \frac{1}{5}  \qquad
+    C=-\frac{1}{10}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+  \onslide<+->{\int \frac{x^2+2x-1}{2x^3+3x^2-2x} dx
+  & = \int
+        \frac{\sfrac{1}{2}}{x}
+      + \frac{\sfrac{1}{5}}{2x-1}
+      - \frac{\sfrac{1}{10}}{x+2} \,dx \\[5mm]}
+  \onslide<+->{& = \frac{1}{2}  \int \frac{1}{x} \,dx
+    + \frac{1}{5}  \int \frac{1}{2x-1} \,dx
+    - \frac{1}{10} \int \frac{1}{x+2} \,dx \\[5mm]}
+  \onslide<+->{& = \frac{1}{2}  \ln\abs{x}
+    + \frac{1}{10} \ln\abs{2x-1}
+    - \frac{1}{10} \ln\abs{x+2}
+    + C}
+\end{align*}
+\end{frame}
+
+
+% 2
+%------------------------------------------------------------------------------%
+%\addtocounter{exemplo}{1}
+%\section{Exemplo \theexemplo}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  Calcule \(\int \frac{4x}{x^3-x^2-x+1}dx\)
+%
+%  \pause
+%  O grau do numerador $P$ é menor que o grau do denominador $Q$
+%
+%  \pause
+%  Raízes de $Q$: $x=1$ com multiplicidade 2 e $x=-1$
+%
+%  \pause
+%  Fatorando $Q$
+%  \[
+%    Q(x)
+%    = x^3 - x^2 - x - 2
+%    = (x-1)^2(x+1)
+%  \]
+%  \pause
+%  Caso 2: Fatores lineares com repetição
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \onslide<+->{\[
+%    \frac{4x}{x^3-x^2-x-2}
+%    = \frac{A}{x-1}
+%    + \frac{B}{(x-1)^2}
+%    + \frac{C}{x+1}
+%  \]}
+%  \onslide<+->{Multiplicando os dois lados por \(x^3-x^2-x-2=(x-1)^2(x+1)\)}
+%  \begin{align*}
+%    \onslide<+->{4x
+%    & = A(x-1)(x+1)+B(x+1)+C(x-1)^2 \\}
+%    \onslide<+->{& = (A+C)x^2+(B-2C)x+(-A+B+C)}
+%  \end{align*}
+%  \onslide<+->{\systeme[ABC]{
+%     A    + C = 0,
+%        B -2C = 4,
+%    -A +B + C = 0
+%  }}
+%  \onslide<+->{\[
+%    A =  1 \qquad
+%    B =  2 \qquad
+%    C = -1
+%  \]}
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \begin{align*}
+%    \onslide<+->{\int \frac{4x}{x^3-x^2-x-2} \,dx
+%    & = \int \frac{1}{x-1}+ \frac{2}{(x-1)^2}-\frac{1}{x+1} \, dx \\[2mm]}
+%    \onslide<+->{& = \int \frac{1}{x-1} \,dx
+%      + \int \frac{2}{(x-1)^2} \,dx
+%      - \int \frac{1}{x+1} \,dx \\[2mm]}
+%    \onslide<+->{& = \ln \abs{x-1}- \frac{2}{x-1}- \ln\abs{x+1}+C \\[2mm]}
+%    \onslide<+->{& = \ln \abs{\frac{x-1}{x+1}} - \frac{2}{x-1}+C}
+%  \end{align*}
+%\end{frame}
+
+% 3
+%------------------------------------------------------------------------------%
+%\addtocounter{exemplo}{1}
+%\section{Exemplo \theexemplo}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  Encontre \(\int \frac{2x^2-x+4}{x^3+4x}\,dx\)
+%
+%  \pause
+%  O grau do numerador $P$ é menor que o grau do denominador $Q$
+%
+%  \pause
+%  Fatorando $Q$
+%  \[
+%    Q(x)
+%    = x^3 + 4x
+%    = x\left( x^2 + 4 \right)
+%  \]
+%  \pause
+%  Caso 3: Fator quadrático irredutível sem repetição
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \onslide<+->{\[
+%    \frac{ 2x^2 - x + 4}{ x^3 + 4x }
+%    = \frac{2x^2 - x + 4}{x\left( x^2 + 4 \right)}
+%    = \frac{A}{x} + \frac{Bx+C}{x^2+4}
+%  \]}
+%  \onslide<+->{Multiplicando por \(x^3 + 4x=x\left(x^2+4\right)\)}
+%  \begin{align*}
+%    \onslide<+->{2x^2 - x + 4
+%    & = A\left( x^2 + 4 \right) + \left( Bx + C \right) x \\}
+%    \onslide<+->{& = \left( A + B \right) x^2 + Cx + 4A}
+%  \end{align*}
+%  \onslide<+->{\systeme[ABC]{
+%    A+B=2,
+%    C=-1,
+%    4A=4
+%    }}
+%  \onslide<+->{\[
+%    A =  1 \qquad
+%    B =  1 \qquad
+%    C = -1
+%  \]}
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo}
+%  \begin{align*}
+%    \onslide<+->{\int \frac{2x^2-x+4}{x^3+4x}dx
+%    & = \int \frac{1}{x} + \frac{x-1}{x^2+4} \,dx \\[3mm]}
+%    \onslide<+->{& = \int \frac{1}{x}dx + \int \frac{x}{x^2+4} dx - \int \frac{1}{x^2+4} dx \\[3mm]}
+%    \onslide<+->{& = \ln\abs{x}
+%    + \frac{1}{2} \ln\abs{x^2+4}
+%    - \frac{1}{2} \arctan\left(\frac{x}{2}\right)
+%    + C}
+%  \end{align*}
+%  \onslide<+->{Onde usamos
+%  \[
+%    u=x^2+4 \qquad \text{para calcular} \qquad\int \frac{x}{x^2+4} dx
+%  \]}
+%  \onslide<+->{\[
+%    \int \frac{1}{x^2+a^2}dx
+%    = \frac{1}{a} \arctan\left(\frac{x}{a}\right)+K
+%  \]}
+%\end{frame}
+
+% 4
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int \frac{\sin(x)}{\cos^2(x)-3\cos(x)}dx\)
+
+  \pause
+  \[
+    u  =  \cos(x)    \qquad
+    \pause
+    du = -\sin(x) dx
+    \pause
+    \quad\Rightarrow\quad
+    \sin(x)dx = -du
+  \]
+
+  \pause
+  \[
+    \int \frac{\sin(x)}{\cos^2(x)-3\cos(x)}dx
+    = -\int \frac{1}{u^2-3u}du
+    \pause
+    = -\int \frac{1}{u(u-3)}du
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calculando \(\int \frac{1}{u(u-3)}du\)
+
+  \pause
+  Por frações parciais -- caso 1
+  \[
+    \frac{1}{u(u-3)}
+    = \frac{A}{u} + \frac{B}{u-3}
+  \]
+  \pause
+  Multiplicando por $u(u-3)$
+  \[
+    1
+    = A(u-3)+Bu
+    \pause
+    = (A+B)u-3A
+  \]
+  \pause
+  Resolvendo o sistema
+  \[
+    A = -\frac{1}{3} \qquad
+    B =  \frac{1}{3}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{align*}
+  \onslide<+->{\int \frac{1}{u(u-3)}du
+  & = \int \frac{-\sfrac{1}{3}}{u} + \frac{\sfrac{1}{3}}{u-3} \,du \\[2mm]}
+  \onslide<+->{& = -\frac{1}{3} \int \frac{1}{u}   \,du
+      +\frac{1}{3} \int \frac{1}{u-3} \,du \\[2mm]}
+  \onslide<+->{& = - \frac{1}{3} \ln\abs{u}
+      + \frac{1}{3} \ln\abs{u-3} + C \\[2mm]}
+  \onslide<+->{& = \frac{1}{3} \ln \abs{\frac{u-3}{u}} + C }
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int \frac{\sin(x)}{\cos^2(x)-3\cos(x)}dx
+    & = -\int \frac{1}{u(u-3)}du \\[2mm]}
+    \onslide<+->{& = -\frac{1}{3} \ln \abs{\frac{u-3}{u}} + C \\[2mm]}
+    \onslide<+->{& =  \frac{1}{3} \ln \abs{\frac{u}{u-3}} + C \\[2mm]}
+    \onslide<+->{& =  \frac{1}{3} \ln \abs{\frac{\cos(x)}{\cos(x)-3}} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.5 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

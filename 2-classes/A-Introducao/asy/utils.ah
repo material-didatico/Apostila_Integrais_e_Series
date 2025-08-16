@@ -1,0 +1,19 @@
+//-----------------------------------------------------------------------------
+
+settings.tex       = "pdflatex";
+settings.outformat = "pdf";
+defaultpen(fontsize(12pt));
+
+import graph;
+import math;
+
+//-----------------------------------------------------------------------------
+
+pen[] pens = {
+  blue    + linewidth(1pt),
+  magenta + linewidth(1pt),
+  orange  + linewidth(1pt),
+  red     + linewidth(1pt)
+};
+
+//-----------------------------------------------------------------------------

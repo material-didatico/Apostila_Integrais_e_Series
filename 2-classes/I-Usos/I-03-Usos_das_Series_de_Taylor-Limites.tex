@@ -1,0 +1,90 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Usos da Séries de Taylor -- Calculando Limites}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Avaliando Formas Indeterminadas}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Avaliando Formas Indeterminadas}
+Calcular o limite
+\[
+  \lim_{x\to 1} \frac{\ln x}{\;x-1\;} \qquad\text{ indeterminação do tipo } \frac{0}{0}
+\]
+
+\pause
+\vspace{\baselineskip}
+Por l'Hôpital
+\[
+  \lim_{x\to 1} \frac{\ln x}{\;x-1\;} = \lim_{x\to 1} \frac{\;\sfrac{1}{x}\;}{1} = \frac{1}{1} = 1
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Avaliando Formas Indeterminadas}
+Solução alternativa usando Séries de Taylor
+
+\pause
+\vspace{\baselineskip}
+Sabemos que
+\[
+  \ln(\alpha+1) = \alpha - \frac{\alpha^2}{2}
+                         + \frac{\alpha^3}{3}
+                         - \frac{\alpha^4}{4}
+                         + \cdots
+  \hspace{46mm} \abs{\alpha} < 1
+\]
+
+\pause
+\vspace{0.5\baselineskip}
+Substituindo $\alpha=x-1$ temos
+\[
+  \ln(x) = (x-1) - \frac{(x-1)^2}{2}
+                 + \frac{(x-1)^3}{3}
+                 - \frac{(x-1)^4}{4}
+                 + \cdots
+  \hspace{13mm} \abs{x-1} < 1
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Avaliando Formas Indeterminadas}
+Substituindo na função original
+\begin{align*}
+  \action<+->{\frac{\ln x}{\,x-1\,}} &
+  \action<+->{= \frac{1}{\,x-1\,}
+                \left( (x-1) - \frac{(x-1)^2}{2}
+                             + \frac{(x-1)^3}{3}
+                             - \frac{(x-1)^4}{4}
+                             + \cdots
+                \right)  \\[3mm]}
+  \action<+->{& = 1 - \frac{x-1}{2} + \frac{(x-1)^2}{3} - \frac{(x-1)^3}{4} + \cdots}
+\end{align*}
+\null
+\[
+  \action<+->{  \lim_{x\to 1} \frac{\ln x}{\,x-1\,}}
+  \action<+->{= \lim_{x\to 1} \left( 1 - \frac{x-1}{2}
+                                       + \frac{(x-1)^2}{3}
+                                       - \frac{(x-1)^3}{4}
+                                       + \cdots
+                              \right)}
+  \action<+->{= 1}
+\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{\contentsname}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

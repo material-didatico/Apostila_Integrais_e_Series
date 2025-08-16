@@ -1,52 +1,60 @@
 #------------------------------------------------------------------------------#
 
-HANDOUT_FILES=$(shell find -maxdepth 1 -name '*-handout.tex')
-PRESENT_FILES=$(shell find -maxdepth 1 -name '*-apresentacao.tex')
-HANDOUT_PDF_FILES=$(HANDOUT_FILES:.tex=.pdf)
-PRESENT_PDF_FILES=$(PRESENT_FILES:.tex=.pdf)
-HANDOUT_NON_FILES=$(HANDOUT_FILES:.tex=)
-PRESENT_NON_FILES=$(PRESENT_FILES:.tex=)
+TEX_FILES := $(shell find -maxdepth 1 -name '*.tex' -type f -exec basename {} \;)
+EXT_FILES := $(shell find -maxdepth 2 \
+             -name '*.cls' -or \
+             -name '*.sty' -or \
+             -name '*.bib' -or \
+             -name '*.asy')
 
-all: $(HANDOUT_PDF_FILES) $(PRESENT_PDF_FILES)
+PRES:=pres
 
-.PHONY: handout
-handout: $(HANDOUT_PDF_FILES)
+HAND_PDF_FILES := $(TEX_FILES:.tex=.pdf)
+PRES_PDF_FILES := $(foreach item, $(HAND_PDF_FILES), $(PRES)_$(item))
 
-.PHONY: presentation
-presentation: $(PRESENT_PDF_FILES)
+LATEX := >/dev/null 2>&1 latexmk -pdf -silent
 
-RUBBER= rubber --quiet --short --inplace
+BUILD_HAND = $(LATEX) -usepretex='\PassOptionsToClass{handout}{beamer}' $<
+BUILD_PRES = $(LATEX) -jobname=$(PRES)_$(<:.tex=) $<
 
-%-handout.pdf: %-handout.tex %-conteudo.tex \
-       $(wildcard *.cls) \
-       $(wildcard *.sty) \
-       $(wildcard *.bib) \
-       $(wildcard ./figs/*)
-	${RUBBER} --pdf $(<:.tex=)
+PRINT_LOG = texlogfilter --filename $(@:.pdf=.log)
 
-%-apresentacao.pdf: %-apresentacao.tex %-conteudo.tex \
-       $(wildcard *.cls) \
-       $(wildcard *.sty) \
-       $(wildcard *.bib) \
-       $(wildcard ./figs/*)
-	${RUBBER} --pdf $(<:.tex=)
+ASY_DONE := ./asy/_all_done
+MAKE = make --no-print-directory -C 
 
-# Cleaning
+DEPENDENCIES := $(EXT_FILES) $(wildcard ./figs/*) $(ASY_DONE)
+
 #------------------------------------------------------------------------------#
 
-RM_TMP_FILES=rm -vf *~ .*~ *.bak                                    \
-                    *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc \
-                    *.bcf *.run.xml *.snm *.nav *.vrb .*.sw?        \
-                    *.psynctex.gz *.synctex.gz
+all: $(PRES_PDF_FILES) $(HAND_PDF_FILES)
+
+$(PRES)_%.pdf: %.tex $(DEPENDENCIES)
+	@ echo Compiling $@
+	@ $(BUILD_PRES) || $(PRINT_LOG)
+
+%.pdf: %.tex $(DEPENDENCIES)
+	@ echo Compiling $@
+	@ $(BUILD_HAND) || $(PRINT_LOG)
+
+$(ASY_DONE):
+	@ $(MAKE) asy
+
+#------------------------------------------------------------------------------#
 
 .PHONY: clean
 clean:
-	-@ for T in $(NON_FILES) ; do ${RUBBER} --clean --verbose $$T ; done
-	-@ ${RM_TMP_FILES}
+	@ echo Cleaning $(notdir $(CURDIR))
+	@ $(MAKE) asy clean
+	@ rm -f *~ .*~ *.bak                                    \
+          *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc \
+          *.bcf *.run.xml *.snm *.nav *.vrb .*.sw?        \
+          *.psynctex.gz *.synctex.gz *.rubbercache *.pre  \
+          *.fdb_latexmk *.fls *.dvi
 
 .PHONY: distclean
 distclean: clean
-	-@ rm -vf ${HANDOUT_PDF_FILES}
-	-@ rm -vf ${PRESENT_PDF_FILES}
+	@ echo Distcleaning $(notdir $(CURDIR))
+	@ $(MAKE) asy distclean
+	@ rm -f *.pdf
 
 #------------------------------------------------------------------------------#

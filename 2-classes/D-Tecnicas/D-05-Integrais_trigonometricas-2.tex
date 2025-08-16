@@ -1,0 +1,225 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Integrais de Funções Trigonométricas}
+\subtitle{2 -- Tangentes e Secantes}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Tangente e Secante}
+
+\begin{frame}{Tangente $\times$ secante}
+  \onslide<+->{Estratégias para calcular
+  \[
+    \int \tan^m(x) \sec^n(x)\, dx
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência da $\sec(x)$ é par}
+  \onslide<+->{Potência da secante \emph{$n = 2k$} com $k \geq 2$}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\sec^2(x)$
+    \item Use que $\sec^2(x) = 1 + \tan^2(x)$
+    \item Faça a substituição $u = \tan(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Potência da $\tan(x)$ é ímpar}
+  \onslide<+->{Potência da $\tan(x)$ é ímpar}
+  \begin{enumerate}[<+->]
+    \setlength\itemsep{1em}
+    \item Guarde um fator $\sec(x)\tan(x)$
+    \item Use que $\tan^2(x)=\sec^2(x)-1$
+    \item Faça a substituição $u=\sec(x)$
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Outros Casos}
+  Não tem regra geral
+
+  Dependem de manipulações trigonométricas específicas
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int \tan^6(x) \sec^4(x)\, dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad n = 2k \quad k \geq 2
+  \]}
+
+  \onslide<+->{Guardar \(\sec^2(x)\)}
+
+  \onslide<+->{Usar \(\sec^2(x) = 1 + \tan^2(x)\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^6(x) \sec^4(x)\,dx                              \\[2mm]}
+    \onslide<+->{  & = \int \tan^6(x) \sec^2(x) \sec^2(x) \,dx                   \\[2mm]}
+    \onslide<+->{  & = \int \tan^6(x) \left( 1 + \tan^2(x) \right) \sec^2(x)\,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  = \tan(x)     \qquad
+    du = \sec^2(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int u^6 \left( 1 - u^2 \right) \,du
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F = & \int u^6 \left( 1 + u^2 \right) du            \\[2mm]}
+    \onslide<+->{    & \int u^6 + u^8 \, du                          \\[2mm]}
+    \onslide<+->{    & = \frac{u^7}{7} + \frac{u^9}{9} + C           \\[2mm]}
+    \onslide<+->{    & = \frac{1}{7}\tan^7(x) + \frac{1}{9}\tan^9(x) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Encontre \(\int \tan^5(x) \sec^7(x) dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad m \; \text{ ímpar}
+  \]}
+
+  \onslide<+->{Guardar \(\sec(x)\tan(x)\)}
+
+  \onslide<+->{Usar \(\tan^2(x) = \sec^2(x) - 1\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^5(x) \sec^7(x) \,dx                                          \\[1mm]}
+    \onslide<+->{  & = \int \tan^4(x) \sec^6(x)                     \quad\sec(x) \tan(x) \,dx \\[1mm]}
+    \onslide<+->{  & = \int \big[\tan^2(x)\big]^2 \sec^6(x)         \quad\sec(x) \tan(x) \,dx \\[1mm]}
+    \onslide<+->{  & = \int \left[ \sec^2(x) - 1 \right]^2\sec^6(x) \quad\sec(x) \tan(x) \,dx}
+  \end{align*}
+  \onslide<+->{Substituição simples
+  \[
+    u  = \sec(x)     \qquad
+    du = \sec(x)\tan(x)dx
+  \]}
+  \onslide<+->{\[
+    F = \int \left( u^2 - 1 \right)^2 u^6 \,du
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \left( u^2 - 1 \right)^2 u^6 \,du                              \\[2mm]}
+    \onslide<+->{  & = \int \left( u^4 - 2u^2 + 1 \right) u^6 \,du                         \\[2mm]}
+    \onslide<+->{  & = \int u^{10}-2u^8+u^6 \,du                                           \\[2mm]}
+    \onslide<+->{  & = \frac{u^{11}}{11}-\frac{2u^9}{9}+ \frac{u^7}{7}+C                   \\[2mm]}
+    \onslide<+->{  & = \frac{1}{11} \sec^{11}(x)
+        - \frac{2}{9}  \sec^9(x)
+        + \frac{1}{7}  \sec^7(x)
+        + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Calcule \(\int \tan^3(x) \,dx\)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Integral do tipo
+  \[
+    \int \tan^m(x) \sec^n(x)\,dx \qquad n=0 \quad m \; \text{ ímpar}
+  \]}
+
+  \onslide<+->{Usar \(\tan^2(x) = \sec^2(x) - 1\)}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \tan^3(x) \,dx                                     \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \tan^2(x) \,dx                             \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \big( \sec^2(x) - 1 \big) dx               \\[2mm]}
+    \onslide<+->{  & = \int \tan(x) \sec^2(x) \,dx
+        - \int \tan(x) \,dx}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\begin{columns}
+\column{0.5\linewidth}
+  \onslide<+->{\[
+    G = \int \tan(x)\sec^2(x) \,dx
+  \]}
+  \onslide<+->{Substituição
+  \[
+    u  = \tan(x)    \qquad
+    du = \sec^2(x)dx
+  \]}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{G & = \int \tan(x)\sec^2(x) \,dx \\[2mm]}
+    \onslide<+->{  & = \int u \,du                \\[2mm]}
+    \onslide<+->{  & = \frac{u^2}{2}+ C           \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\tan^2(x) + C}
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Logo,}
+  \begin{align*}
+    \onslide<1->{F & = \int \tan^3(x) dx                          \\[2mm]}
+    \onslide<+->{  & = \int \tan(x)\sec^2(x) dx - \int \tan(x) dx \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\tan^2(x) + \ln\abs{\cos(x)} + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.3 da Apostila
+
+  Exercícios: 1i, 1j, 1m
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

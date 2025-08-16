@@ -1,0 +1,609 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Séries de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Séries de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Potência e Séries de Taylor}
+  \begin{itemize}[<+->]
+    \item \emph{Séries de Potências}                          \\[3mm]
+          Dada uma Série de Potências construímos uma função  \\[11mm]
+    \item \emph{Séries de Taylor}                             \\[3mm]
+          Dada uma função construímos uma Série de Potências
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Taylor e Séries de Maclaurin}
+  \begin{itemize}[<+->]
+    \item \emph{Séries de Taylor}                     \\[3mm]
+    Centrada em um ponto qualquer, \emph{$a\in\R$}    \\[11mm]
+    \item \emph{Séries de Maclaurin}                  \\[3mm]
+    Série de Taylor centrada na origem, \emph{$a=0$}
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Coeficientes da Série de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Construção da Série de Taylor}
+  Supomos que uma função pode ser escrita como uma Série de Potências
+  \[
+    f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \onslide<+->{f(x)                 & = \sum_{n=0}^{\infty} c_n (x-a)^n      \\[2mm]}
+    \onslide<+->{\phantom{f^{(3)}(x)} & = \memph{c_0} + c_1(x-a) + c_2(x-a)^2 + \cdots \\[5mm]}
+    \onslide<+->{f(a)                 & = \memph{c_0}}
+  \end{align*}
+  \onslide<+->{
+  \[ \memph{c_0} = f(a) = \frac{f(a)}{0!} \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \onslide<+->{f'(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[c_0
+        + \memph{c_1}(x-a)
+        + c_2(x-a)^2
+        + \cdots\Big] \\[2mm]}
+    \onslide<+->{\phantom{f^{(3)}(x)}
+      & = \memph{c_1}
+        + 2c_2(x-a)
+        + 3c_3(x-a)^2
+        + \cdots \\[5mm]}
+    \onslide<+->{f'(a) & = \memph{c_1}}
+  \end{align*}
+  \onslide<+->{
+  \[
+    \memph{c_1} = f'(a) = \frac{f'(a)}{1!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \onslide<+->{f''(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[ c_1
+        + 2\memph{c_2}(x-a)
+        + 3c_3(x-a)^2
+        + \cdots\Big] \\[2mm]}
+    \onslide<+->{\phantom{f^{(3)}(x)}
+      & = (2\times 1)\memph{c_2}
+        + (3\times 2)c_3(x-a)
+        + (4\times 3)c_4(x-a)^2
+        + \cdots \\[5mm]}
+    \onslide<+->{f''(a)
+      & = (2\times 1)\memph{c_2}}
+  \end{align*}
+  \onslide<+->{\[
+    \memph{c_2} = \frac{f''(a)}{2!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \onslide<+->{f^{(3)}(x)
+      & \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[(2\times 1)c_2
+        + (3\times 2)\memph{c_3}(x-a)
+        + (4\times 3)c_4(x-a)^2
+        + \cdots\Big]
+      \\[2mm]}
+    \onslide<+->{\phantom{f^{(3)}(x)}
+      & = (3\times 2\times 1)\memph{c_3}
+        + (4\times 3\times 2)c_4(x-a)
+        + (5\times 4\times 3)c_5(x-a)^2
+        + \cdots \\[5mm]}
+    \onslide<+->{f^{(3)}(a)
+      & = (3\times 2\times 1)\memph{c_3}}
+  \end{align*}
+  \onslide<+->{
+  \[
+    \memph{c_3} = \frac{f^{(3)}(a)}{3!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Construção da Série de Taylor}
+  \vspace{\baselineskip}
+  \begin{align*}
+    \onslide<+->{f^{(4)}(x)
+      &  \vphantom{\sum_{n=0}^{\infty}}
+        = \frac{d}{dx}\Big[(3\times 2\times 1)c_3
+        + (4\times 3\times 2)\memph{c_4}(x-a)
+        + (5\times 4\times 3)c_5(x-a)^2
+        + \cdots\Big]
+       \\[2mm]}
+    \onslide<+->{\phantom{f^{(3)}(x)}
+      & = (4\times 3\times 2\times 1)\memph{c_4}
+        + (5\times 4\times 3\times 2)c_5(x-a)
+        + \cdots \\[5mm]}
+    \onslide<+->{f^{(4)}(a)
+      & = (4\times 3\times 2\times 1)\memph{c_4}}
+  \end{align*}
+  \onslide<+->{
+  \[
+    \memph{c_4} = \frac{f^{(4)}(a)}{4!}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Construção da Série de Taylor}
+  Generalizando
+  \[
+    f^{(n)}(a) = n!c_n  \qquad\qquad c_n = \frac{\;f^{(n)}(a)\;}{n!}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  Se    \(\quad f(x) = \sum_{n=0}^{\infty} c_n (x-a)^n \quad \)
+  então \(\quad c_n = \frac{\;f^{(n)}(a)\;}{n!} \quad \)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Definição da Série de Taylor}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série de Taylor}
+  Se $f$ é uma função infinitamente derivável em \(x=a\) \\
+  sua \emph{Série de Taylor} centrada em $\;x=a\;$ é
+  \begin{multline*}
+    \sum_{n=0}^\infty \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n = \\
+    f(a)\;+\;f'(a)(x-a)\;+\;\frac{f''(a)}{2!}(x-a)^2\;+\cdots+\;\frac{f^{(n)}(a)}{n!}(x-a)^n\;+\cdots
+  \end{multline*}
+
+  \pause
+  \vspace{\baselineskip}
+  Observe que \emph{não} escrevemos que $f(x)$ é \emph{igual} a sua série de Taylor
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série de Maclaurin}
+  Uma Série de Maclaurin é uma Série de Taylor centrada em zero, $a=0$
+  \[
+    \sum_{n=0}^\infty \frac{\;f^{(n)\;}(0)}{n!}\,x^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Polinômios de Taylor}
+  Se $f$ é uma função com $k$ derivadas em \(x=a\) \\
+  seu \emph{Polinômio de Taylor} de ordem $k$ centrado em $\;x=a\;$ é
+  \[
+    \sum_{n=0}^k \frac{\;f^{(n)\;}(a)}{n!}\,(x-a)^n
+      \;=\; f(a)
+      \;+\;f'(a)(x-a)
+      \;+\cdots+\; \frac{f^{(k)}(a)}{k!}(x-a)^k
+    \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a Série de Taylor da função \emph{$f(x)=e^x$} centrada em \emph{$a=0$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Derivadas}
+  Derivando
+  \[
+    f^{(k)}(x) = \frac{d^k}{dx^k}\,e^x = e^x
+  \]
+  \pause
+  Avaliando em $a=0$
+  \[
+    f^{(k)}(0) = e^0 = 1
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Calculando os Coeficientes}
+  \begin{align*}
+    \onslide<+->{c_0 & = \frac{f^{(0)}(0)}{0!} = \frac{1}{0!} = 1  \\[3mm]}
+    \onslide<+->{c_1 & = \frac{f^{(1)}(0)}{1!} = \frac{1}{1!} = 1 \\[3mm]}
+    \onslide<+->{c_2 & = \frac{f^{(2)}(0)}{2!} = \frac{1}{2!} = \frac{1}{2} \\[7mm]}
+    \onslide<+->{c_k & = \frac{f^{(k)}(0)}{k!} = \frac{1}{k!}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Construindo a Série}
+  \begin{align*}
+    \onslide<+->{S(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n \\[3mm]}
+    \onslide<+->{     & = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n     \\[3mm]}
+    \onslide<+->{     & = \sum_{n=0}^\infty \frac{x^n}{n!}               \\[3mm]}
+    \onslide<+->{     & = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}+\cdots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Convergência}
+\begin{itemize}[<+->]
+  \item Vimos que a Série de Potências converge para todo $x\in\R$ \\[5mm]
+  \item Mas a série converge para a função? \\[5mm]
+  \[
+     e^x \;\;{\color{red}\stackrel{?}{ = }}\;\; \sum_{n=0}^\infty \frac{\;x^n\;}{n!}
+  \]
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Polinômios de Taylor a Função Exponencial}
+  \vspace{\baselineskip}
+  \scalebox{0.85}{\input{fig_taylor_exp}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a série de Taylor do logaritmo natural, \(\ln(x)\), centrada em 1
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo -- Derivadas}
+  \onslide<+->{Derivando}
+  \begin{align*}
+    \onslide<+->{f^{(0)}(x) & = \ln(x) \\}
+    \onslide<+->{f^{(1)}(x) & = x^{-1} \\}
+    \onslide<+->{f^{(2)}(x) & = (-1) x^{-2} \\}
+    \onslide<+->{f^{(3)}(x) & = (-1)(-2) x^{-3} \\}
+    \onslide<+->{f^{(4)}(x) & = (-1)(-2)(-3) x^{-4} \\}
+    \onslide<+->{f^{(5)}(x) & = (-1)(-2)(-3)(-4) x^{-5} \\[7mm]}
+    \onslide<+->{f^{(n)}(x) & = (-1)^{n-1} \, (n-1)!\, x^{-n} \qquad \qquad n = 1, 2, 3, \dots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Derivadas}
+  Avaliando as derivadas em $x=1$
+
+  \pause
+  Para $n=0$
+  \[
+    \pause
+    f^{(0)}(1)
+    \pause
+    = \ln(1)
+    \pause
+    = 0
+  \]
+
+  \pause
+  Para $n = 1, 2, 3, \dots$
+  \[
+    \pause
+    f^{(n)}(1)
+    \pause
+    = (-1)^{n-1} \, (n-1)!\, 1^{-n}
+    \pause
+    = (-1)^{n-1} \, (n-1)!
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Calculando os Coeficientes}
+  Calculando os coeficientes $c_n$
+
+  \pause
+  Para $n=0$
+  \[
+    \pause
+    c_0
+    \pause
+    = \frac{f^{(0)}(1)}{0!}
+    \pause
+    = \frac{\ln(1)}{1}
+    \pause
+    = \frac{0}{1}
+    \pause
+    = 0
+  \]
+
+  \pause
+  Para $n = 1, 2, 3, \dots$
+  \[
+    \pause
+    c_n
+    \pause
+    = \frac{f^{(n)}(1)}{n!}
+    \pause
+    = \frac{(-1)^{n-1} \, (n-1)!}{n!}
+    \pause
+    = \frac{(-1)^{n-1}}{n}
+    \pause
+    = \frac{(-1)^{n+1}}{n}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Construindo a Série}
+  \begin{align*}
+    \onslide<+->{S(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n \\[1.5mm]}
+    \onslide<+->{& = \sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n      \\[1.5mm]}
+    \onslide<+->{& = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} (x-1)^n      \\[1.5mm]}
+    \onslide<+->{& = \sum_{n=1}^\infty (-1)^{n+1} \frac{(x-1)^n}{n}      \\[1.5mm]}
+    \onslide<+->{& = (x-1)
+                   - \frac{(x-1)^2}{2}
+                   + \frac{(x-1)^3}{3}
+                   + \cdots
+                   + (-1)^{n+1}\frac{(x-1)^n}{n!}
+                   + \cdots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a série de Taylor do cosseno, \(\cos(x)\), centrada em 0
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo -- Derivadas}
+\begin{columns}
+  \column{0.5\linewidth}
+  \onslide<+->{Derivando}
+  \begin{align*}
+    \onslide<+->{f^{(0)}(x) & = \hpm \cos(x) \\}
+    \onslide<+->{f^{(1)}(x) & =     -\sin(x) \\}
+    \onslide<+->{f^{(2)}(x) & =     -\cos(x) \\}
+    \onslide<+->{f^{(3)}(x) & = \hpm \sin(x) \\}
+    \onslide<+->{f^{(4)}(x) & = \hpm \cos(x) \\}
+    \onslide<+->{f^{(5)}(x) & =     -\sin(x) \\}
+    \onslide<+->{f^{(6)}(x) & =     -\cos(x)}
+  \end{align*}
+  \column{0.5\linewidth}
+  \onslide<+->{Avaliando as derivadas em $x=0$}
+  \begin{align*}
+    \onslide<+->{f^{(0)}(0) & = \hpm \cos(0) = \hpm 1  \\}
+    \onslide<+->{f^{(1)}(0) & =     -\sin(0) = \hpm 0  \\}
+    \onslide<+->{f^{(2)}(0) & =     -\cos(0) =     -1  \\}
+    \onslide<+->{f^{(3)}(0) & = \hpm \sin(0) = \hpm 0  \\}
+    \onslide<+->{f^{(4)}(0) & = \hpm \cos(0) = \hpm 1  \\}
+    \onslide<+->{f^{(5)}(0) & =     -\sin(0) = \hpm 0  \\}
+    \onslide<+->{f^{(6)}(0) & =     -\cos(0) =      -1   }
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Representando o padrão}
+\begin{columns}
+  \column{0.5\linewidth}
+  Para $n$ ímpar
+  \[
+    f^{(n)}(0) = 0
+  \]
+
+  \pause
+  Para $n$ par
+  \begin{align*}
+    f^{(0)}(0) = \hpm 1  \\
+    f^{(2)}(0) =     -1  \\
+    f^{(4)}(0) = \hpm 1  \\
+    f^{(6)}(0) =     -1
+  \end{align*}
+
+  \column{0.5\linewidth}
+  \pause
+  Para todo $k$, \(n=2k\) é sempre par
+  \[
+    \begin{array}{ccc}
+      \hline
+      \hpm k \hpm & \hpm n \hpm & f^{(2k)}(0) \\ \hline
+      0           & 0           & \hpm 1 \hpm \\
+      1           & 2           &     -1 \hpm \\
+      2           & 4           & \hpm 1 \hpm \\
+      3           & 6           &     -1 \hpm \\
+      4           & 8           & \hpm 1 \hpm \\ \hline
+    \end{array}
+  \]
+
+  \pause
+  Assim
+  \(
+    f^{(2k)}(0) = (-1)^k
+  \)
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Calculando os Coeficientes}
+  Calculando os coeficientes $c_n$
+
+  \pause
+  Para $n$ ímpar
+  \[
+    c_n = 0
+  \]
+
+  \pause
+  Para $n$ par, usamos $n=2k$
+  \[
+    \pause
+    c_n
+    \pause
+    = c_{2k}
+    \pause
+    = \frac{f^{(n)}(0)}{n!}
+    \pause
+    = \frac{f^{(2k)}(0)}{(2k)!}
+    \pause
+    = \frac{(-1)^k}{(2k)!}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Construindo a Série}
+  \begin{align*}
+    \onslide<+->{S(x) & = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n \\[1.5mm]}
+    \onslide<+->{& = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n          \\[1.5mm]}
+    \onslide<+->{& = \sum_{k=0}^\infty \frac{f^{(2k)}(0)}{(2k)!}x^{2k}   \\[1.5mm]}
+    \onslide<+->{& = \sum_{k=0}^\infty (-1)^k\frac{x^{2k}}{(2k)!}        \\[1.5mm]}
+    \onslide<+->{& = 1
+                   - \frac{x^2}{2}
+                   + \frac{x^4}{4!}
+                   - \frac{x^6}{6!}
+                   + \cdots
+                   + (-1)^k \frac{x^{2k}}{(2k)!}
+                   + \cdots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre a série de Maclaurin para
+  \(f(x) = \frac{1}{(1-x)^2}\)
+  e o raio de convergência da série de potências.
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Calculando as derivadas}
+\begin{columns}
+\column{0.5\linewidth}
+\begin{align*}
+  \onslide<+->{f^{(0)}(x) & = (1-x)^{-2}                      \\}
+  \onslide<+->{f^{(1)}(x) & = (1-x)^{-3} \,2                  \\}
+  \onslide<+->{f^{(2)}(x) & = (1-x)^{-4} \,2 \cdot 3          \\}
+  \onslide<+->{f^{(3)}(x) & = (1-x)^{-5} \,2 \cdot 3 \cdot 4  \\[7mm]}
+  \onslide<+->{f^{(n)}(x) & = (1-x)^{-n-2} (n+1)!}
+\end{align*}
+\column{0.5\linewidth}
+\begin{align*}
+  \onslide<+->{f^{(0)}(0) & = 1      \\}
+  \onslide<+->{f^{(1)}(0) & = 2     \\}
+  \onslide<+->{f^{(2)}(0) & = 3!     \\}
+  \onslide<+->{f^{(3)}(0) & = 4!     \\[7mm]}
+  \onslide<+->{f^{(n)}(0) & = (n+1)!}
+\end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Série de Maclaurin}
+  \[
+    \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} x^n
+    \pause \;=\; \sum_{n=0}^\infty \frac{(n+1)! }{n!}x^n
+    \pause \;=\; \sum_{n=0}^\infty \frac{(n+1)\,n! }{n!}x^n
+    \pause \;=\; \sum_{n=0}^\infty (n+1) x^n
+  \]
+\end{frame}
+
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Exemplo \theexemplo -- Analisando a convergência}
+%  Usando o teste da razão para determinar o Raio de Convergência
+%  \pause
+%  \[
+%    a_n = (n+1) x^n
+%    \hspace{57.2mm}
+%    \pause
+%    \abs{a_n} = (n+1) \abs{x}^n
+%  \]
+%  \[
+%    \pause
+%    a_{n+1}
+%    \pause
+%    = [(n+1)+1] x^{n+1}
+%    \pause
+%    = (n+2) x^{n+1}
+%    \hspace{15mm}
+%    \pause
+%    \abs{a_{n+1}} = (n+2) \abs{x}^{n+1}
+%  \]
+%
+%  \pause
+%  \vspace{0.1\baselineskip}
+%  \[
+%    \rho
+%    = \lim_{n\to\infty}\frac{\abs{a_{n+1}}}{\abs{a_n}}
+%    \pause
+%    = \lim_{n\to\infty}\frac{(n+2)\abs{x}^{n+1}}{(n+1)\abs{x}^n}
+%    \pause
+%    = \abs{x}\lim_{n\to\infty}\frac{n+2}{n+1}
+%    \pause
+%    = \abs{x}\lim_{n\to\infty}\frac{1+\sfrac{2}{n}}{1+\sfrac{1}{n}}
+%    \pause
+%    = \abs{x}
+%  \]
+%
+%  \pause
+%  \vspace{0.5\baselineskip}
+%  A série converge para
+%  \(\rho = \abs{x} < 1\)
+%  \pause
+%  portanto \(R=1\)
+%\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Analisando a convergência}
+  Usando o teste da razão para determinar o Raio de Convergência
+  \begin{align*}
+      \onslide<+->{a_n & = (n+1) x^n & }
+      \onslide<+->{\abs{a_n} & = (n+1) \abs{x}^n}
+      \\[3mm]
+      \onslide<+->{a_{n+1}}
+      \onslide<+->{& = [(n+1)+1] x^{n+1}}
+      \onslide<+->{= (n+2) x^{n+1}}
+      \onslide<+->{& \abs{a_{n+1}} & = (n+2) \abs{x}^{n+1}}
+  \end{align*}
+
+  \[
+    \onslide<+->{\rho}
+    \onslide<+->{= \lim_{n\to\infty}\frac{\abs{a_{n+1}}}{\abs{a_n}}}
+    \onslide<+->{= \lim_{n\to\infty}\frac{(n+2)\abs{x}^{n+1}}{(n+1)\abs{x}^n}}
+    \onslide<+->{= \abs{x}\lim_{n\to\infty}\frac{n+2}{n+1}}
+    \onslide<+->{= \abs{x}\lim_{n\to\infty}\frac{1+\sfrac{2}{n}}{1+\sfrac{1}{n}}}
+    \onslide<+->{= \abs{x}}
+  \]
+
+  \vspace{0.5\baselineskip}
+  \onslide<+->{A série converge para \(\rho = \abs{x} < 1\)}
+  \onslide<+->{portanto \(R=1\)}
+\end{frame}
+
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 8.1 da Apostila
+
+  \vfill
+  Exercícios: 1a-d, 2d-h, 3a-d, 5a-c
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

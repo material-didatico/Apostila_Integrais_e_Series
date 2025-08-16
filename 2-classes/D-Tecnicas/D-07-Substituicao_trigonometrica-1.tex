@@ -1,0 +1,394 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Integração por Substituição Trigonométrica}
+\subtitle{1 -- Substituição pelo seno}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Integração por Substituição Trigonométrica}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituição Simples}
+  Calculando
+  \[
+    F = \int x \sqrt{a^2-x^2}\,dx
+  \]
+  \pause
+  substituição
+  \(
+    \qquad
+    u = a^2-x^2
+    \qquad\qquad
+    du = -2xdx
+    \qquad
+    xdx = -\frac{du}{2}
+  \)
+  \pause
+  \[
+    F = -\frac{1}{2}\int \sqrt{u}\,du
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituição Simples -- Problema}
+  Calculando
+  \[
+    F = \int \sqrt{a^2-x^2}\,dx
+  \]
+  \pause
+  substituição
+  \(
+    \qquad
+    u = a^2-x^2
+    \qquad\qquad
+    du = -2xdx
+    \qquad
+    dx = -\frac{du}{2x}
+  \)
+  \pause
+  \[
+    F
+    = -\frac{1}{2}\int \sqrt{u} \,\frac{du}{{\color<4->{red}x}}
+    \pause
+    =\; {\color<4->{red}?}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Segunda Tentativa}
+  Calculando
+  \[
+    F = \int \sqrt{a^2-x^2}\,dx
+  \]
+  \pause
+  substituição
+  \(
+    \qquad
+    x = a\sin(\theta)
+    \qquad\qquad
+    dx = a\cos(\theta)d\theta
+    \vphantom{\frac{du}{2}}
+  \)
+  \pause
+  \[
+    F = \int \sqrt{a^2 - \big(a\sin(\theta)\big)^2\,} \,a\cos(\theta)d\theta
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Segunda Tentativa}
+  \begin{align*}
+    \onslide<+->{F & = \int \sqrt{a^2 - \big(a\sin(\theta)\big)^2\,} \,a\cos(\theta)d\theta     \\[2mm]}
+    \onslide<+->{  & = \int \sqrt{a^2 \big( 1 - \sin^2(\theta)\big)\,} \, a\cos(\theta) d\theta \\[2mm]}
+    \onslide<+->{  & = \int a^2 \sqrt{ \cos^2(\theta) } \,\cos(\theta) d\theta}
+    \onslide<+->{  & & a > 0        \\[2mm]}
+    \onslide<+->{  & = \int a^2 \cos^2(\theta) d\theta
+                   & & \theta \in \left[-\frac{\pi}{2},\, \frac{\pi}{2}\right] \\[2mm]}
+    \onslide<+->  {& = a^2 \int \cos^2(\theta) d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Segunda Tentativa}
+  \begin{align*}
+    \onslide<+->{F & = a^2 \int \cos^2(\theta) d\theta         \\[2mm]}
+    \onslide<+->{F & = \frac{a^2}{2} \int \big(1+\cos(2\theta)\big) d\theta
+      & & \cos^2(\alpha)= \frac{1}{2}\big(1+\cos(2\alpha)\big) \\[2mm]}
+    \onslide<+->{  & = \frac{a^2}{2}\left(\theta + \frac{\sin(2\theta)}{2}\right) + C \\[2mm]}
+    \onslide<+->{  & = \frac{a^2}{2}\big(\theta + \sin(\theta)\cos(\theta)\big) + C \\[2mm]}
+    \onslide<+->{  & = \frac{a^2}{2}
+      \left[
+      \arcsin\left(\frac{x}{a}\right)
+      + \frac{x}{a}\sqrt{a^2-x^2}\,
+      \right] + C
+      & & \text{Justificativa em breve}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Transformação Inversa}
+  \emph{Substituição simples} -- a nova variável é função da original
+  \[
+    u = f(x)
+  \]
+
+  \pause
+  \emph{Substituição inversa} -- a variável original é função da nova
+  \[
+    x = g(u)
+  \]
+  \pause
+  É necessário inverter $g$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Substituições Trigonométricas}
+\addtext{16}{0.35,2.2}{
+\renewcommand*{\arraystretch}{2.3}
+\begin{tabular}{c<{\;}>{\;}c<{\;}>{\;}c<{\;}>{\;}c} \hline
+  Expressão
+  & Substituição
+  & Intervalo
+  & Identidade \\ \hline
+  \onslide<+->{{\color<4->{blue}\(\sqrt{a^2-x^2}\)}
+  & {\color{blue}\(x=a\sin(\theta)\)}
+  & \(-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\)
+  & \(1-\sin^2(\theta) = \cos^2(\theta)\)} \\
+  \onslide<+->{\(\sqrt{a^2+x^2}\)
+  & \(x=a\tan(\theta)\)
+  & \(-\frac{\pi}{2}< \theta < \frac{\pi}{2} \)
+  & \(1+\tan^2(\theta)= \sec^2(\theta)\)} \\
+  \onslide<+->{\(\sqrt{x^2-a^2}\)
+  & \(x=a\sec(\theta)\)
+  & \(0 \leq \theta < \frac{\pi}{2} \) ou \(\pi \leq \theta < \frac{3\pi}{2} \)
+  & \(\sec^2(\theta)-1= \tan^2(\theta)\)} \\ \hline
+\end{tabular}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int \frac{\sqrt{9-x^2}}{x^2}dx\)
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Note
+  \(
+    \sqrt{9-x^2} = \sqrt{3^2-x^2}
+  \)
+
+  \pause
+  \vspace{\baselineskip}
+  Substituição inversa
+  \[
+    x = 3\sin(\theta)
+    \qquad\qquad
+    dx = 3 \cos(\theta) d\theta
+    \qquad\text{com}\qquad
+    -\frac{\pi}{2} \leq x \leq \frac{\pi}{2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{\sqrt{9-x^2}}{x^2}dx          & & x = 3\sin(\theta)                              \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sqrt{9-9\sin^2(\theta)}}{9 \sin^2(\theta)} \, 3 \cos(\theta) d\theta            \\[2mm]}
+    \onslide<+->{  & = \int \frac{3\times3}{9}\frac{\sqrt{1-\sin^2(\theta)}}{ \sin^2(\theta)} \cos(\theta) d\theta \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sqrt{1-\sin^2(\theta)}}{ \sin^2(\theta)} \cos(\theta) d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \frac{\sqrt{1-\sin^2(\theta)}}{ \sin^2(\theta)} \cos(\theta) d\theta
+                   & 1-\sin^2(\theta)= \cos^2(\theta) \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sqrt{\cos^2(\theta)}}{ \sin^2(\theta)} \cos(\theta) d\theta        \\[2mm]}
+    \onslide<+->{  & = \int \frac{\cos^2(\theta)}{\sin^2(\theta)} d\theta                        \\[2mm]}
+    \onslide<+->{  & = \int \cot^2(\theta) d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{F & = \int \cot^2(\theta) d\theta       & \cot^2(\theta) = \csc^2(\theta)-1 \\[2mm]}
+    \onslide<+->{  & = \int \csc^2(\theta) -1 \, d\theta & \big(\cot(\theta)\big)' = -\csc^2(\theta)\\[2mm]}
+    \onslide<+->{  & = - \cot(\theta) - \theta +C        &}
+  \end{align*}
+  \onslide<+->{Precisamos voltar para a variável original \(x = 3\sin(\theta)\)}
+
+  \onslide<+->{\[ \theta = \arcsin\left(\frac{x}{3}\right)\]}
+  \onslide<+->{
+  \[
+    F = - {\color<7>{red}\cot\left(\arcsin\left(\frac{x}{3}\right)\right)}
+        - \arcsin\left(\frac{x}{3}\right) + C
+    \qquad
+    \onslide<7>{\text{Forma ruim}}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{\[
+    x = 3\sin(\theta) \quad\Rightarrow\quad
+    \sin(\theta)
+    = \frac{x}{3}
+    = \frac{\text{cateto oposto}}{\text{hipotenusa}}
+  \]}
+
+  \addgraphic{6}{10,3}{exemplo_triangulo_1}
+
+  \onslide<+->{Por Pitágoras, o cateto adjacente é \(\sqrt{9-x^2}\)}
+
+  \onslide<+->{Portanto
+  \[
+    \tan(\theta)
+    = \frac{\text{cateto oposto}}{\text{cateto adjacente}}
+  \]}
+
+  \onslide<+->{\[
+    \cot(\theta)
+    = \frac{\text{cateto adjacente}}{\text{cateto oposto}}
+    = \frac{\sqrt{9-x^2}}{x}
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int \frac{\sqrt{9-x^2}}{x^2}dx
+    & = -\cot(\theta) - \theta + C  \\[5mm]}
+    \onslide<+->{& = -\frac{\sqrt{9-x^2}}{x} - \arcsin\left(\frac{x}{3}\right) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int x \arcsin(x) dx\)
+
+  \pause
+  \vspace{\baselineskip}
+  Vários métodos serão necessários
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral por Partes}
+  \onslide<+->{\[
+    F = \int x \arcsin(x) dx
+    \]}
+
+  \onslide<+->{Integral por partes}
+  \begin{align*}
+    \onslide<+->{u  & = \arcsin(x)              & dv & = xdx           \\}
+    \onslide<+->{du & =\frac{1}{\sqrt{1-x^2}}dx & v  & = \frac{x^2}{2}}
+  \end{align*}
+
+  \[
+  \onslide<+->{F = uv - \int v du}
+  \onslide<+->{  = \frac{x^2}{2} \arcsin(x)}
+  \onslide<+->{  - \frac{1}{2}\int \frac{x^2}{\sqrt{1-x^2}}dx}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Substituição Trigonométrica}
+  \onslide<+->{Resolver \( \int \frac{x^2}{\sqrt{1-x^2}}dx \)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Substituição inversa
+    \[
+    x  = \sin(\theta)
+    \qquad
+    dx = \cos(\theta)d\theta
+    \quad\text{com}\quad
+    -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+    \]}
+  \[
+  \onslide<+->{G = \int \frac{x^2}{\sqrt{1-x^2}}dx}
+  \onslide<+->{  = \int \frac{\sin^2(\theta)}{\sqrt{1-\sin^2(\theta)}} \cos(\theta)d\theta}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Substituição Trigonométrica}
+  \begin{align*}
+    \onslide<+->{G & = \int \frac{x^2}{\sqrt{1-x^2}}dx                                         \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sin^2(\theta)}{\sqrt{1-\sin^2(\theta)}} \cos(\theta)d\theta \\[2mm]}
+    \onslide<+->{  & = \int \frac{\sin^2(\theta)}{\sqrt{\cos^2(\theta)}} \cos(\theta)d\theta   \\[2mm]}
+    \onslide<+->{  & = \int \sin^2(\theta) d\theta}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Trigonométrica}
+  \onslide<+->{Calcular \( G = \int \sin^2(\theta) d\theta \)}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Manipulação algébrica
+    \[
+    \sin^2(\theta)= \frac{1}{2}\big(1-\cos(2 \theta)\big)
+    \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Integral Trigonométrica}
+  \begin{align*}
+    \onslide<+->{G & = \int \sin^2(\theta) d \theta                                            \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\int\big(1-\cos(2 \theta)\big) d\theta                       \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\left(\theta -\frac{\sin(2\theta)}{2}\right) + C             \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\left(\theta -\frac{2\sin(\theta)\cos(\theta)}{2}\right) + C \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\big(\theta -\sin(\theta)\cos(\theta)\big) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}[t]{Exemplo \theexemplo\ -- Desfazendo a Transformação Trigonométrica}
+  \[
+  \onslide<+->{ x
+    = \sin(\theta)
+    = \frac{\text{cateto oposto}}{\text{hipotenusa}}}
+  \qquad
+  \onslide<+->{
+    \theta=\arcsin(x)}
+  \]
+
+  \addgraphic{4}{10,3}{exemplo_triangulo_4}
+
+  \onslide<+->{\[
+    \cos(\theta)= \sqrt{1-x^2}
+    \]}
+  \begin{align*}
+    \onslide<+->{G & = \int \frac{x^2}{\sqrt{1-x^2}}dx                       \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\big(\theta -\sin(\theta)\cos(\theta)\big) \\[2mm]}
+    \onslide<+->{  & = \frac{1}{2}\left( \arcsin(x)-x\sqrt{1-x^2} \right) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Retornando a Integral Original}
+  \begin{align*}
+    \onslide<+->{F & = \int x \arcsin(x) dx                                 \\[5mm]}
+    \onslide<+->{  & = \frac{x^2}{2} \arcsin(x)
+      - \frac{1}{2}\int \frac{x^2}{\sqrt{1-x^2}}dx           \\[5mm]}
+    \onslide<+->{  & = \frac{x^2}{2} \arcsin(x)
+      - \frac{1}{4}\left(\arcsin(x)-x\sqrt{1-x^2}\right) + C \\[5mm]}
+    \onslide<+->{  & = \left(\frac{x^2}{2} - \frac{1}{4}\right) \arcsin(x)
+      + \frac{x}{4} \sqrt{1-x^2}
+      + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.4 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

@@ -1,1 +1,54 @@
-../sty/integracao_e_series.sty
+%------------------------------------------------------------------------------%
+% Definições particulares para as Apresentações de
+# Integração e Séries
+%------------------------------------------------------------------------------%
+
+\usepackage{class_notes}
+\usepackage{mathconfig}
+
+%------------------------------------------------------------------------------%
+
+% Issue an error is include file is missing
+\def\mkfilename#1{%
+  \if\relax\detokenize\expandafter{#1}\relax\else#1/\fi%
+}
+
+\AddToHook{include/before}{%
+  \IfFileExists{\mkfilename\CurrentFilePath\CurrentFile}{}{%
+    \GenericError{}{Error: File \mkfilename\CurrentFilePath\CurrentFile.tex not found!}{\@gobble}{}%
+}}
+
+%------------------------------------------------------------------------------%
+
+\graphicspath  {{./figs/},{./asy/}}
+\def\input@path{{./figs/},{./ex/}}
+
+\newcounter{exemplo}
+\setcounter{exemplo}{0}
+
+%------------------------------------------------------------------------------%
+
+\author{\large Luis Alberto D'Afonseca}
+\date  {Integração e Séries}
+
+\newcommand{\addtitle}{
+\begin{frame}
+  \titlepage
+  \addtext{4}{0.3,8.6}{\scriptsize\today}
+\end{frame}
+}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+%------------------------------------------------------------------------------%
+
+\newcommand{\fmedio}{f_{\text{médio}}}
+
+\newcommand{\vpt}{\vphantom{\int_{\int}^{\int}}}
+
+\newcommand*{\hint}[1]{\underline{Dica}: \textit{#1}}
+
+\newcommand{\stackTFCU}{\stackrel{\text{\scriptsize TFC1}}{=}}
+\newcommand{\stackTFCD}{\stackrel{\text{\scriptsize TFC2}}{=}}
+
+%------------------------------------------------------------------------------%

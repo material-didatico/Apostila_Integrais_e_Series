@@ -1,0 +1,165 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Teorema Fundamental do Cálculo -- Parte 1}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Teorema Fundamental do Cálculo -- Parte 1}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema Fundamental do Cálculo -- Parte 1}
+  Se $f$ for {\color{blue} contínua} em $[a, b]$,
+  \pause
+  então a função $F$ definida por
+  \[
+    F(\memph{x})
+    \;=\; \int_a^{\memph{x}} f(t)\,dt
+    \hspace{15mm} a \leq x \leq b
+  \]
+  \pause
+  é contínua em $[a, b]$,
+  \pause
+  derivável em $(a, b)$
+  \pause
+  e
+  \[
+    \frac{dF}{dx}(x) \;=\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Em outras palavras}
+  Se
+  \[
+    F(\memph{x})
+    \;=\; \int_a^{\memph{x}} f(t)\,dt
+  \]
+  \pause
+  então
+  \[
+    \frac{d}{d\memph{x}}
+    \left[\; \int_a^{\memph{x}} f(t)\,dt \;\right]
+    = f(\memph{x})
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Demonstração}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+  Queremos mostrar que, se
+  \[
+    F(x) = \int_a^x f(t)\,dt
+  \]
+  então
+  \[
+    \frac{dF}{dx} = f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+\onslide<+->{Sejam $x$ e $x+h$ em $(a, b)$}
+\begin{align*}
+  \onslide<+->{F(x+h) - F(x)
+    & = {\color<3>{blue}\int_a^{x+h} f(t)\,dt} - \int_a^x f(t)\,dt                     \\[3mm]}
+  \onslide<+->{
+    & = {\color<3>{blue}\int_a^x f(t)\,dt + \int_x^{x+h} f(t)\,dt} - \int_a^x f(t)\,dt \\[3mm]}
+  \onslide<+->{
+    & = \int_x^{x+h} f(t)\,dt}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+  Dividindo por $h\neq 0$
+  \[
+    \frac{F(x+h) - F(x)}{h} = \frac{1}{h} \int_x^{x+h} f(t)\,dt
+  \]
+  \pause
+  No limite $h\to 0$
+  \[
+    \frac{dF}{dx}
+    \pause
+    = \lim_{h\to0} \frac{F(x+h) - F(x)}{h}
+    \pause
+    = \lim_{h\to0} \frac{1}{h} \int_x^{x+h} f(t)\,dt
+  \]
+  \pause
+  Falta mostrar que
+  \[
+    \lim_{h\to 0} \frac{1}{h} \int_x^{x+h} f(t)\,dt \;\stackrel{?}{=}\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração}
+  Pelo Teorema Valor Médio,
+  \pause
+  existe \(c\in[x, x+h]\) tal que
+  \[
+    \int_x^{x+h} f(t)\,dt = f(c)h
+  \]
+  \pause
+  portanto
+  \[
+    \frac{1}{h} \int_x^{x+h} f(t)\,dt = f(c)
+  \]
+  \pause
+  Quando $h\to0$,
+  \pause
+  necessariamente $c\to x$,
+  \pause
+  assim
+  \[
+    \frac{dF}{dx}
+    \;=\; \lim_{h\to 0}\; \frac{1}{h} \int_x^{x+h} f(t)\,dt
+    \;=\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Calcule a derivada da função \(g(x)=\int_0^x \sqrt{1+t^2} \,dt\)
+\end{frame}
+
+\begin{frame}{Exemplo \theexemplo}
+  Sendo
+  \[
+    f(t)= \sqrt{1+t^2}
+  \]
+  contínua em todo o conjunto dos números reais
+
+  \pause
+  Pela parte 1 do Teorema Fundamental do Cálculo
+  \[
+    g'(x)=\sqrt{1+x^2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 2.5 da Apostila
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

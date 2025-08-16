@@ -1,0 +1,72 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+\usepackage{systeme}
+
+\title{Integração por Frações Parciais}
+\subtitle{Caso 4 -- Raizes complexas repetidas}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Integração por Frações Parciais}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Caso 4}
+  $Q(x)$ contém fatores quadráticos irredutíveis repetidos
+  \[
+    Q(x) = \cdots  \left( ax^2 + bx + c \right)^r
+    \qquad
+    \text{ com } b^2-4ac<0
+  \]
+
+  \pause
+  Expansão
+  \[
+    \frac{P(x)}{Q(x)}
+    = \cdots
+    + \frac{A_1x+B_1}{ax^2+bx+c}
+    + \frac{A_2x+B_2}{(ax^2+bx+c)^2}
+    + \cdots
+    + \frac{A_rx+B_r}{(ax^2+bx+c)^r}
+  \]
+\end{frame}
+
+\begin{frame}{Exemplo}
+\[
+  \frac{2x}{(x-9)(x^2+4)^2}
+  = \frac{A}{x-9}
+  + \frac{Bx+C}{x^2+4}
+  + \frac{Dx+E}{(x^2+4)^2}
+\]
+\end{frame}
+
+% 1
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.5 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

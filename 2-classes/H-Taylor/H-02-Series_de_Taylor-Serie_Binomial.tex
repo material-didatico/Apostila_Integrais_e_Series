@@ -1,0 +1,253 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Séries de Taylor -- Série Binomial}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Série Binomial}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Como avaliar funções potência?}
+Como avaliar funções potência?
+\begin{itemize}[<+->]
+  \item \( f(x) = x^r \) \\[3mm]
+  \item \( f(x) = \sqrt[3]{x} \) \\[3mm]
+  \item \( f(x) = x^{\sfrac{5}{7}} \)
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivadas da Função Binomial}
+Construir a série de Taylor da função \emph{\(\;f(x)=(1+x)^\alpha\;\)} onde $\alpha$ uma é constante
+\begin{align*}
+  \action<+->{f^{(0)}(x) & = (1+x)^\alpha                                                       \\[2mm]}
+  \action<+->{f^{(1)}(x) & = (1+x)^{\alpha-1}\;\, \alpha                                        \\[2mm]}
+  \action<+->{f^{(2)}(x) & = (1+x)^{\alpha-2}\;\, \alpha(\alpha-1)                              \\[2mm]}
+  \action<+->{f^{(3)}(x) & = (1+x)^{\alpha-3}\;\, \alpha(\alpha-1)(\alpha-2)                    \\}
+  \action<+->{           & \;\;\vdots                                                           \\
+              f^{(n)}(x) & = (1+x)^{\alpha-n}\;\, \alpha(\alpha-1)(\alpha-2)\cdots(\alpha-(n-1))\\[2mm]}
+  \action<+->{           & = (1+x)^{\alpha-n}\;\, \alpha(\alpha-1)(\alpha-2)\cdots(\alpha-n+1)}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Derivadas da Função Binomial em Zero}
+Avaliando as derivadas em \emph{\(\;x=0\;\)} temos \(\;(1+x)^p=1\;\) para todo $p$
+\begin{align*}
+  f^{(0)}(0) & = 1                                            \\[2mm]
+  f^{(1)}(0) & = \alpha                                       \\[2mm]
+  f^{(2)}(0) & = \alpha(\alpha-1)                             \\[2mm]
+  f^{(3)}(0) & = \alpha(\alpha-1)(\alpha-2)                   \\
+             & \;\;\vdots                                     \\
+  f^{(n)}(0) & = \alpha(\alpha-1)(\alpha-2)\cdots(\alpha-n+1)
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Coeficientes de Taylor da Função Binomial}
+  Os coeficientes \(c_n=\frac{f^{(n)}}{n!}\) da Série de Taylor são
+  \begin{align*}
+    c_0 & = 1                                        \\[2mm]
+    c_1 & = \alpha                                   \\[2mm]
+    c_2 & = \frac{\alpha(\alpha-1)}{2}               \\[2mm]
+    c_3 & = \frac{\alpha(\alpha-1)(\alpha-2)}{3!}    \\
+        & \;\;\vdots                                 \\
+    c_n & = \frac{\alpha(\alpha-1)(\alpha-2)\cdots(\alpha-n+1)}{n!}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Coeficiente Binomial}
+\onslide<+->{
+  Número maneiras de escolher $n$ elementos de um total de $k$
+}
+\begin{align*}
+  \onslide<+->{\binom{k}{n}}
+  \onslide<+->{& = \frac{k!}{n!(k-n)!}                        \\[5mm]}
+  \onslide<+->{& = \frac{k(k-1)\cdots(k-n+1)(k-n)!}{n!(k-n)!} \\[5mm]}
+  \onslide<+->{& = \frac{k(k-1)(k-2)\cdots(k-n+1)}{n!}}
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Coeficiente Binomial}
+Por similaridade, definimos para $\alpha$ real
+\begin{align*}
+  \binom{\alpha}{0} & = 1                                              \\[5mm]
+  \binom{\alpha}{1} & = \alpha                                         \\[5mm]
+  \binom{\alpha}{n} & = \frac{\alpha(\alpha-1)\cdots(\alpha+1-n)}{n!} \qquad n \geq 2
+\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série Binomial}
+  \onslide<+->{Para \(\alpha\in\R\) e \(-1<x<1\) temos}
+  \begin{align*}
+    \onslide<+->{(1+x)^\alpha &
+    \;=\; \sum_{n=0}^{\infty} \binom{\alpha}{n} x^n \\[5mm]}
+    \onslide<+->{& \;=\; \binom{\alpha}{0} x^0
+    \;+\; \binom{\alpha}{1} x^1
+    \;+\; \binom{\alpha}{2} x^2
+    \;+\; \binom{\alpha}{3} x^3
+    \;+\; \cdots}
+    \\[5mm] &
+    \onslide<+->{\;=\; 1
+    \;+\; \alpha x
+    \;+\; \frac{\alpha(\alpha-1)}{2} x^2
+    \;+\; \binom{\alpha}{3} x^3
+    \;+\; \binom{\alpha}{4} x^4
+    \;+\; \cdots}
+  \end{align*}
+  \onslide<+->{
+  Verificaremos depois que a série é igual a função no intervalo especificado.}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre a Série de Taylor da função \(\sqrt{x+1}\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Sabemos que
+  \[
+    (1+x)^\alpha
+    \;=\; \sum_{n=0}^{\infty} \binom{\alpha}{n} x^n
+  \]
+  \pause
+  portanto
+  \[
+    \pause
+    \sqrt{x+1}
+    \pause
+    \;=\; (1+x)^{\sfrac{1}{2}}
+    \pause
+    \;=\; \sum_{n=0}^{\infty} \binom{\sfrac{1}{2}}{n} x^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre o Polinômio de Taylor de terceiro grau da função \(\sqrt{x+1}\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  A série de Taylor da função é
+  \[
+    \sqrt{x+1}
+    \;=\; \sum_{n=0}^{\infty} \binom{\sfrac{1}{2}}{n} x^n
+  \]
+  \pause
+  Portanto o Polinômio de Taylor de terceiro grau é
+  \[
+    P_3(x) \;=\; \sum_{n=0}^{3} \binom{\sfrac{1}{2}}{n} x^n
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{P_3(x)
+    & \;=\; \sum_{n=0}^{3} \binom{\sfrac{1}{2}}{n} x^n \\[5mm]}
+    \onslide<+->{& \;=\; \binom{\sfrac{1}{2}}{0} x^0}
+    \onslide<+->{+ \binom{\sfrac{1}{2}}{1} x^1}
+    \onslide<+->{+ \binom{\sfrac{1}{2}}{2} x^2}
+    \onslide<+->{+ \binom{\sfrac{1}{2}}{3} x^3 \\[5mm]}
+    \onslide<+->{& \;=\; 1 }
+    \onslide<+->{+ \frac{1}{2}x}
+    \onslide<+->{+ \frac{\sfrac{1}{2}\left(\sfrac{1}{2}-1\right)}{2!} x^2}
+    \onslide<+->{+ \frac{\sfrac{1}{2}\left(\sfrac{1}{2}-1\right)\left(\sfrac{1}{2}-2\right)}{3!} x^3 \\[5mm]}
+    \onslide<+->{& \;=\; 1 + \frac{x}{2}
+    - \frac{x^2}{8}
+    + \frac{x^3}{16}}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Encontre a Série de Taylor da função $\sqrt[3]{x}$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Obtendo a Série}
+  Escrevemos a função na forma binomial
+  \[
+    \sqrt[3]{x}
+    \pause
+    = x^{\sfrac{1}{3}}
+    \pause
+    = \big(1 + (x-1)\big)^{\sfrac{1}{3}}
+    \pause
+    = (1+y)^{\sfrac{1}{3}}
+  \]
+  onde $y=x-1$
+
+  \pause
+  \vspace{\baselineskip}
+  Usando a Série Binomial
+  \[
+    (1+y)^{\sfrac{1}{3}} = \sum_{n=0}^\infty \binom{\sfrac{1}{3}}{n}\, y^n
+    \qquad y \in(-1, 1)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Convergência}
+  \onslide<+->{Desfazendo a mudança de variáveis}
+  \begin{align*}
+    \onslide<+->{-1 < y   & < 1 \\}
+    \onslide<+->{-1 < x-1 & < 1 \\}
+    \onslide<+->{0 < x    & < 2}
+  \end{align*}
+  \onslide<+->{A série converge para $x \in(0, 2)$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Examinando os Termos da Série}
+  \begin{align*}
+     \onslide<+->{\sqrt[3]{x}}
+     \onslide<+->{& = \sum_{n=0}^\infty \binom{\sfrac{1}{3}}{n} (x-1)^n \\[3mm]}
+     \onslide<+->{& = \!\binom{\sfrac{1}{3}}{0} (x-1)^0
+       + \!\binom{\sfrac{1}{3}}{1} (x-1)^1
+       + \!\binom{\sfrac{1}{3}}{2} (x-1)^2
+       + \!\binom{\sfrac{1}{3}}{3} (x-1)^3
+       + \cdots \\[3mm]}
+     \onslide<+->{& = 1 + \frac{1}{3}(x-1)
+     + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)}{2}(x-1)^2
+     + \frac{\sfrac{1}{3}\left(\sfrac{1}{3}-1\right)\left(\sfrac{1}{3}-2\right)}{3!}(x-1)^3
+       + \cdots \\[3mm]}
+     \onslide<+->{& = 1 + \frac{1}{3}(x-1) - \frac{1}{9}(x-1)^2 + \frac{5}{81}(x-1)^3 + \cdots}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 8.1 da Apostila
+
+  \vfill
+  Exercício: 8
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

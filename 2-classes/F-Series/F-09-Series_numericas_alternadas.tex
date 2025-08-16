@@ -1,0 +1,487 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title {Séries Numéricas com Termos Gerais}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Séries Alternadas}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries Alternadas}
+  Os \emph{termos trocam de sinal}
+  \pause
+  alternando entre um positivo e um negativo
+  \[ \sum_{n=1}^\infty (-1)^{n+1} a_n \]
+  com $a_n >0$ para todo $n$
+
+  \pause
+  \vspace{\baselineskip}
+  Exemplo, \emph{Série Harmônica Alternada}
+  \[
+    \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}
+    \;=\; 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Série Alternada -- Teste de Leibniz}
+  \onslide<+->{
+  Seja $\,a_n\,$ tal que, para todo $ n \in \N$,}
+
+  \vspace{0.5\baselineskip}
+  \begin{enumerate}[<+->]
+      \item $a_n>0$           \tabto{30mm} $a_n$ são os módulos dos termos da série  \\[2mm]
+      \item $a_n\geq a_{n+1}$ \tabto{30mm} os termos são decrescentes em módulo      \\[2mm]
+      \item $a_n\to 0$        \tabto{30mm} os termos tendem a zero
+  \end{enumerate}
+
+  \onslide<+->{
+  \vspace{\baselineskip}
+  Então, a série alternada
+  \(\; \sum_{n=1}^\infty (-1)^{n+1}a_n \;\)
+  converge}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{Vamos analisar a série
+  \[
+    \sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{\,2^{n-1}\,}
+  \]}
+  \onslide<2->{Percebemos que}
+  \begin{itemize}[<+->]
+    \item a série é alternada
+    \item o módulo do termo geral é \(\quad a_n = \frac{1}{\,2^{n-1}\,} \)
+    \item $a_n\geq a_{n+1}$
+    \item $a_n\to 0$
+  \end{itemize}
+  \onslide<+->{Portanto a série converge pelo Teste da Série Alternada}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Por outro lado
+  \[
+    \sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{\,2^{n-1}\,}
+    \pause
+    \;=\; \sum_{n=1}^{\infty} \frac{(-1)^2(-1)^{n-1}}{\,2^{n-1}\,}
+    \pause
+    \;=\; \sum_{n=1}^{\infty} \left( -\frac{1}{\,2\,} \right)^{n-1}
+  \]
+  \pause
+  Série geométrica com $\;a=1\;$ e \(\;r=-\frac{1}{2}\;\) \\[5mm]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Como $|r|<1$ ela converge \\[5mm]
+
+  \pause
+  sua soma é
+  \(\quad
+    S \;=\; \frac{a}{1-r}
+      \pause
+      \;=\; \frac{1}{1+\sfrac{1}{2}}
+      \;=\; \frac{2}{3}
+  \)
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%\framedgraphic{Usando Planilhas Eletrônicas}{./figs/exemplo_planilha}{}
+%\framedgraphic{Usando Planilhas Eletrônicas}{./figs/exemplo_grafico}{}
+
+%------------------------------------------------------------------------------%
+\section{Estimativa do Erro para Séries Alternadas}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Estimativa do Erro}
+  Dada uma série que satisfaz as condições do teste da série alternada
+  \pause
+  \[ S_n = a_1 - a_2 + a_3 - a_4 + \cdots + (-1)^{n+1}a_n \]
+  converge para a soma da série $S$
+  \pause
+  \begin{itemize}[<+->]
+    \item \( \abs{R_n} < a_{n+1} \)
+    \item $S$ está entre $S_n$ e $S_{n+1}$
+    \item \( R_n = S - S_n \;\) tem o mesmo sinal do primeiro termo não utilizado
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Convergência Absoluta}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência Absoluta}
+  Uma série
+  \(\quad \sum_{n=1}^{\infty}\; a_n\) \\[5mm]
+  \pause
+  \emph{converge absolutamente}, ou é \emph{absolutamente convergente}, \\[5mm]
+  \pause
+  se
+  \(\quad\sum_{n=1}^{\infty} \;\abs{a_n} \quad\) converge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência Condicional}
+  Se  \tabto{12mm} \(\sum_{n=1}^{\infty} a_n\)          \tabto{32mm} \emph{converge} \\[9mm]
+  \pause
+  mas \tabto{12mm} \(\sum_{n=1}^{\infty} \;\abs{a_n} \) \tabto{32mm} \emph{diverge}  \\[9mm]
+  \pause
+  a série é \emph{condicionalmente convergente} \\[9mm]
+  \pause
+  Exemplo: Série Harmônica Alternada
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teste da Convergência Absoluta}
+  Uma série absolutamente convergente é convergente.\\[3mm]
+
+  \pause
+  \vspace{\baselineskip}
+  Séries com termos não negativos e convergentes
+  são absolutamente convergentes
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do Rearranjo}
+Se \(\quad\sum_{n=1}^{\infty} a_n \quad \) converge absolutamente \\[5mm]
+
+\pause
+dado qualquer \emph{rearranjo} $(b_k)$ da sequência $(a_n)$ \\[5mm]
+
+\pause
+a série $\sum b_k$ converge e
+\[
+  \sum_{k=1}^{\infty} b_k = \sum_{n=1}^{\infty} a_n
+\]
+\end{frame}
+
+%%------------------------------------------------------------------------------%
+%%------------------------------------------------------------------------------%
+%\section{Resumo dos Testes}
+%%------------------------------------------------------------------------------%
+%%------------------------------------------------------------------------------%
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Testes Básicos}
+%	\begin{itemize}[<+->]
+%		\item \emph{Teste da divergência ou do $n$-ésimo termo}\\
+%          a menos que $a_n\to 0$, a série diverge \\[5mm]
+%		\item \emph{Séries geométricas} \\[3mm]
+%          \(\sum_{n=1}^{\infty} ar^{n-1}\) converge se \(\abs{r}<1\); caso contrário, diverge \\[5mm]
+%		\item \emph{Série $p$} \\[3mm]
+%          \(\sum_{n=1}^{\infty} \frac{1}{n^p}\)
+%          converge se $p>1$; caso contrário, diverge\\[5mm]
+%    \item Série \emph{Telescópica}
+%	\end{itemize}
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Séries de Termos Não-Negativos}
+%\begin{itemize}[<+->]
+%  \item Teste da \emph{integral} \\[5mm]
+%  \item Teste da \emph{razão} ou o teste da \emph{raiz} \\[5mm]
+%  \item Teste da \emph{comparação}
+%\end{itemize}
+%\end{frame}
+%
+%%------------------------------------------------------------------------------%
+%\begin{frame}{Séries Gerais -- Alguns Termos Negativos}
+%	\begin{itemize}[<+->]
+%    \item A série é \emph{alternada}? \\[3mm]
+%          Verifique as condições do teste da série alternada \\[5mm]
+%		\item \(\sum_{n=1}^{\infty} \abs{a_n}\) converge? \\[3mm]
+%		      Se convergir, \(\sum_{n=1}^{\infty} a_n\) também converge
+%	\end{itemize}
+%\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Exemplos}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Use o Teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=1}^\infty(-1)^{n}\ln\left(1+\frac{1}{n}\right)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 1: \(a_n>0\)}
+  \pause
+  Como
+  \(
+    1 + \frac{1}{n} > 1
+  \)
+  para todo $n\geq 1$
+
+  \pause
+  \vspace{\baselineskip}
+  Podemos escolher
+  \[
+    a_n = \ln\left(1+\frac{1}{n}\right)
+  \]
+  que garante $a_n>0$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 2: \(a_n\geq a_{n+1}\)}
+  \pause
+  Considerando a função
+  \[
+    f(x)
+    = \ln\left(1+\frac{1}{x}\right)
+    \pause
+    = \ln\left(1+x^{-1}\right)
+  \]
+  \pause
+  temos
+  \[
+    f'(x)
+    = \frac{1}{1+x^{-1}} \, \left(-x^{-2}\right)
+    \pause
+    = \frac{-1}{\left(1+x^{-1}\right)x^2}
+    \pause
+    = \frac{-1}{x^2+x}
+    \pause
+    < 0
+    \qquad \forall x\geq 1
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Portanto $a_n$ é decrescente \(a_n>a_{n+1}\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 3: \(a_n\to 0\)}
+  \pause
+  Observando que
+  \[
+    \lim_{n\to\infty} 1+\frac{1}{n} = 1
+  \]
+  \pause
+  e a função $\ln(x)$ é contínua em $1$
+  \pause
+  \[
+    \lim a_n
+    = \lim \ln \left(1+\frac{1}{n}\right)
+    \pause
+    = \ln\lim \left(1+\frac{1}{n}\right)
+    \pause
+    = \ln 1
+    \pause
+    = 0
+  \]
+
+  \pause
+  O Teste de Leibniz garante que a série converge
+\end{frame}
+%------------------------------------------------------------------------------%
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Use o Teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=2}^\infty(-1)^{n+1}\frac{4}{(\ln n)^2}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 1: \(a_n>0\)}
+  \pause
+  Vemos que
+  \(
+    a_n = \frac{4}{(\ln n)^2} > 0
+  \)
+  para todo $n\geq 2$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 2: \(a_n\geq a_{n+1}\)}
+  \pause
+  Como  \(\ln n\) é crescente\pause,
+  \[
+    a_n = \frac{4}{(\ln n)^2}
+  \]
+  é decrescente
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 3: \(a_n\to 0\)}
+  \pause
+  $a_n\to 0$, pois
+  \[
+    \left(\ln n\right)^2\to \infty
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  O teste de Leibniz garante que a série converge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Use o teste de Leibniz para mostrar que a série a seguir converge
+  \[
+    \sum_{n=1}^\infty(-1)^{n+1}\frac{10^n}{(n+1)!}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 1: \(a_n>0\)}
+  \pause
+  \(
+    a_n = \frac{10^n}{(n+1)!}
+  \)
+  é positivo para \(n\geq 1\)
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 2: \(a_n\geq a_{n+1}\)}
+  \begin{columns}
+    \column{0.5\linewidth}
+    \begin{align*}
+      \onslide<+->{n   & \geq 8  \\[2mm]}
+      \onslide<+->{n+2 & \geq 10 \\[2mm]}
+      \onslide<+->{1   & \geq \frac{10}{n+2}}
+    \end{align*}
+    \column{0.5\linewidth}
+    \begin{align*}
+      \onslide<+->{a_{n+1}
+                   & =\frac{10^{n+1}}{(n+2)!}             \\}
+      \onslide<+->{& =\frac{10}{(n+2)}\frac{10^n}{(n+1)!} \\}
+      \onslide<+->{& \leq \frac{10^n}{(n+1)!}             \\}
+      \onslide<+->{& =a_n}
+    \end{align*}
+
+    \onslide<+->{
+      Portanto, $a_n$ é decrescente para \(n\geq8\)}
+  \end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo\ -- Condição 3: \(a_n\to 0\)}
+  \onslide<+->{}
+  \onslide<+->{Para \(n>10\)}
+  \begin{align*}
+    \onslide<+->{(n+1)!
+      & = 1 \times 2 \times \cdots
+            \times 9 \times 10 \times 11 \times \cdots
+            \times n \times (n+1) \\}
+    \onslide<+->{& \geq 10! \; 10^{n-10}\,(n+1)}
+  \end{align*}
+  \onslide<+->{Dessa forma}
+  \[
+  \onslide<5->{\frac{10^n}{(n+1)!}
+    \leq \frac{10^n}{10!\;10^{n-10}\,(n+1)}}
+  \onslide<+->{=\frac{10^{10}}{10!}\,\frac{1}{(n+1)}}
+  \onslide<+->{\to 0}
+  \]
+
+  \onslide<+->{Como
+    \(
+      0 <
+      \frac{10^n}{(n+1)!}
+      \leq \frac{10^{10}}{10!}\,\frac{1}{(n+1)}
+    \)\\[5mm]}
+
+  \onslide<+->{o Teorema do Confronto garante que $a_n\to 0$}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  O teste de Leibniz garante que a série converge
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Estime o erro cometido quando aproximamos o valor da soma da série
+  \[
+    \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}
+  \]
+  pela soma dos seus quatro primeiros termos
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  A série converge pelo teste da série alternada, portanto
+  \[
+    \abs{R_n} < a_{n+1}
+  \]
+
+  \pause
+  Como somamos quatro quatro termos (\(S_4\)), temos que
+  \[
+    \abs{R_4}
+    < a_5
+    \pause
+    = \frac{1}{5}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\begin{frame}{Exemplo \theexemplo}
+  Determine quantos termos devem ser somados para aproximar a soma da série
+  \[
+    \sum_{n=1}^\infty \frac{(-1)^{n}}{n^2+3}
+  \]
+  com erro menor do que 0,0001
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{A série converge pelo teste da série alternada, portanto
+  \[
+    \abs{R_n} < a_{n+1}
+  \]}
+
+  \onslide<+->{
+  Para garantir que o erro é menor do que 0,001 devemos impor que}
+\begin{columns}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<2->{a_{n+1}           & < 10^{-4} \\[2mm]}
+    \onslide<+->{\frac{1}{n^2+3}   & < 10^{-4} \\[2mm]}
+    \onslide<+->{\frac{1}{10^{-4}} & < n^2+3}
+  \end{align*}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{n^2 & > 10^4 -3 \\[2mm]}
+    \onslide<+->{n^2 & > 10^4    \\[2mm]}
+    \onslide<+->{n   & > 10^2 }
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção ? da Apostila
+
+  \vspace{\baselineskip}
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

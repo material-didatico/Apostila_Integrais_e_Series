@@ -1,0 +1,160 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+\usepackage{systeme}
+
+\title{Integração por Frações Parciais}
+\subtitle{Caso 2 -- Fatores reais repetidos}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Preliminares}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Integral Relevante}
+  \begin{align*}
+    \onslide<+->{\int \frac{1}{x^2+a^2}\, dx}
+    \onslide<+->{& = \int \frac{1}{a^2\left(\left(\frac{x}{a}\right)^2 + 1\right)} \,dx \\[2mm]}
+    \onslide<+->{& = \frac{1}{a} \int \frac{1}{\left(\frac{x}{a}\right)^2 + 1} \,\frac{dx}{a}}
+    \onslide<+->{& u = \frac{x}{a} \qquad du = \frac{dx}{a}  \\[2mm]}
+    \onslide<+->{& = \frac{1}{a} \int \frac{1}{u^2+1}\, du  \\[2mm]}
+    \onslide<+->{& = \frac{1}{a} \arctan(u) + C    \\[2mm]}
+    \onslide<+->{& = \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Integração por Frações Parciais}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Caso 2}
+  $Q(x)$ é o produto de $m$ fatores lineares e alguns repetidos
+
+  \pause
+  Suponha que o primeiro fator $(a_1 x + b_1)$ seja repetido $p$ vezes
+  \[
+    Q(x)
+    = \left(a_1 x + b_1\right)^p
+      \left(a_2 x + b_2\right) \cdots
+      \left(a_q x + b_q\right)
+  \]
+
+  \pause
+  Expansão
+  \[
+    \frac{P(x)}{Q(x)}
+    = \frac{A_1}{(a_1x+b_1)}
+    + \frac{A_2}{(a_1x+b_1)^2}
+    + \cdots
+    + \frac{A_p}{(a_1x+b_1)^p}
+    + \cdots
+    + \frac{A_q}{a_q x + b_q}
+  \]
+\end{frame}
+
+\begin{frame}{Exemplo}
+  \[
+    \frac{x^3-x-2}{x^3(x-1)}
+    = \frac{A}{x}
+    + \frac{B}{x^2}
+    + \frac{C}{x^3}
+    + \frac{D}{x-1}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  \[
+    \int \frac{x^3-x-2}{x^3(x-1)} \,dx
+    = A \int \frac{1}{x} \,dx
+    + B \int \frac{1}{x^2} \,dx
+    + C \int \frac{1}{x^3} \,dx
+    + D \int \frac{1}{x-1} \,dx
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\addtocounter{exemplo}{1}
+\section{Exemplo \theexemplo}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  Calcule \(\int \frac{4x}{x^3-x^2-x+1}dx\)
+
+  \pause
+  O grau do numerador $P$ é menor que o grau do denominador $Q$
+
+  \pause
+  Raízes de $Q$: $x=1$ com multiplicidade 2 e $x=-1$
+
+  \pause
+  Fatorando $Q$
+  \[
+    Q(x)
+    = x^3 - x^2 - x - 2
+    = (x-1)^2(x+1)
+  \]
+  \pause
+  Caso 2: Fatores lineares com repetição
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \onslide<+->{\[
+    \frac{4x}{x^3-x^2-x-2}
+    = \frac{A}{x-1}
+    + \frac{B}{(x-1)^2}
+    + \frac{C}{x+1}
+  \]}
+  \onslide<+->{Multiplicando os dois lados por \(x^3-x^2-x-2=(x-1)^2(x+1)\)}
+  \begin{align*}
+    \onslide<+->{4x
+    & = A(x-1)(x+1)+B(x+1)+C(x-1)^2 \\}
+    \onslide<+->{& = (A+C)x^2+(B-2C)x+(-A+B+C)}
+  \end{align*}
+  \onslide<+->{\systeme[ABC]{
+     A    + C = 0,
+        B -2C = 4,
+    -A +B + C = 0
+  }}
+  \onslide<+->{\[
+    A =  1 \qquad
+    B =  2 \qquad
+    C = -1
+  \]}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo \theexemplo}
+  \begin{align*}
+    \onslide<+->{\int \frac{4x}{x^3-x^2-x-2} \,dx
+    & = \int \frac{1}{x-1}+ \frac{2}{(x-1)^2}-\frac{1}{x+1} \, dx \\[2mm]}
+    \onslide<+->{& = \int \frac{1}{x-1} \,dx
+      + \int \frac{2}{(x-1)^2} \,dx
+      - \int \frac{1}{x+1} \,dx \\[2mm]}
+    \onslide<+->{& = \ln \abs{x-1}- \frac{2}{x-1}- \ln\abs{x+1}+C \\[2mm]}
+    \onslide<+->{& = \ln \abs{\frac{x-1}{x+1}} - \frac{2}{x-1}+C}
+  \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar a Seção 4.5 da Apostila
+
+  Exercícios:
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%

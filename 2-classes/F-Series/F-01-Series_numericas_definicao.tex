@@ -1,0 +1,208 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+\usepackage{cancel}
+
+\title{Séries Numéricas -- Definição}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Definição}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries}
+    Uma \emph{Série Infinita} é a soma dos termos de uma \emph{Sequência Infinita} $(a_n)$
+
+    \pause
+    \vspace{\baselineskip}
+    Se existir, essa \emph{soma} pode ser escrita como
+    \[
+      \sum_{n=1}^\infty a_n
+      \;=\; a_1 + a_2 + \cdots + a_n + \cdots
+      \;=\; S
+    \]
+
+    \pause
+    Cada valor $a_n$ é chamado de \emph{Termo da Série}
+
+		\only<beamer>{
+    \pause
+    \vspace{\baselineskip}
+    \begin{center}
+        \textbf{\color{red}Como saber se a soma existe?}
+    \end{center}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Sequência de Somas Parciais}
+    Soma dos primeiros $n$ \emph{termos} de uma sequência $(a_k)$
+    \[
+      S_{\memph{n}}
+      = \; a_1 + a_2 + \cdots + a_{\memph{n}} \;
+      = \sum_{k=1}^{\memph{n}} a_k
+    \]
+
+    \pause
+    Temos agora uma nova sequência: \emph{Somas Parciais} $(S_n)$
+
+    \pause
+    \vspace{\baselineskip}
+    Podemos usar as técnicas definidas para sequências
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência de uma Série}
+    A \emph{soma da série} é $S$
+    \[
+      \sum_{n=1}^\infty a_n = S
+    \]
+    quando a sequência de \emph{somas parciais} $(S_n)$ converge para $S$
+    \pause
+    \[
+      \lim_{n\to\infty} S_n
+      \;=\; \lim_{n\to\infty} \sum_{k=1}^n a_k
+      \;=\; S
+    \]
+    \pause
+    Se sequência de somas parciais diverge a série \emph{diverge}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+    Somar os termos da sequência
+    \[ a_k = \frac{1}{2^k} \]
+
+    \pause
+    \vspace{.5\baselineskip}
+    \[
+    	a_1 = \frac{1}{2}  \qquad\pause
+    	a_2 = \frac{1}{4}  \qquad\pause
+    	a_3 = \frac{1}{8}  \qquad\pause
+      a_4 = \frac{1}{16} \qquad\pause
+      a_5 = \frac{1}{32} \qquad\pause\cdots
+    \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somas Parciais}
+    \begin{align*}
+      \onslide<+->{a_1 & = \frac{1}{2}   & }
+      \onslide<+->{S_1 & = \frac{1}{2}                             &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{2}   \\[2mm]}
+    	\onslide<+->{a_2 & = \frac{1}{4}   & }
+      \onslide<+->{S_2 & = \frac{1}{2} + \frac{1}{4}               &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{4}   \\[2mm]}
+    	\onslide<+->{a_3 & = \frac{1}{8}   & }
+      \onslide<+->{S_3 & = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{8}   \\[2mm]}
+    	\onslide<+->{a_4 & = \frac{1}{16}  & }
+      \onslide<+->{S_4 & = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} &  & }
+      \onslide<+->{\hspace{-17mm}  = 1 - \frac{1}{16}   \\[7mm]}
+      \onslide<+->{a_n & = \frac{1}{2^n} & }
+      \onslide<+->{S_n & = \sum_{k=1}^{n} \frac{1}{2^k}        &  & }
+      \onslide<+->{\hspace{-17mm}  = \emph{1 - \frac{1}{2^n} \quad \text{(Conjectura)} }}
+    \end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração dor Indução Finita}
+  Demonstração dor Indução Finita
+
+  \pause
+  \vspace{\baselineskip}
+	Para mostrar que uma afirmação é verdadeira para todo $n\in\N$
+
+  devemos provar que
+  \pause
+	\begin{enumerate}[<+->]
+		\item ela é verdadeira para $n=1$
+		\item se ela for verdadeira para $n$ então também será para $n+1$
+	\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Demonstração da Fórmula das Somas Parciais}
+\begin{columns}
+\column{0.5\linewidth}
+  Assumimos por \emph{indução finita} que
+  \quad
+  \[
+    S_{n-1} = 1 - \frac{1}{2^{n-1}}
+  \]
+  para um \emph{$n$ dado qualquer}
+
+  \pause
+  \vspace{\baselineskip}
+  Queremos mostrar que
+  \[
+    S_n = 1 - \frac{1}{2^n}
+  \]
+
+  \pause
+  \column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{S_n & = \frac{1}{2}
+                       + \frac{1}{4}
+                       + \frac{1}{8}
+                       + \cdots
+                       + \frac{1}{2^{n-1}}
+                       + \frac{1}{2^n}} \\[2mm]
+      \onslide<+->{& = \left(\frac{1}{2}
+                     + \frac{1}{4}
+                     + \frac{1}{8}
+                     + \cdots
+                     + \frac{1}{2^{n-1}}\right)
+                     + \frac{1}{2^n}} \\[2mm]
+    \onslide<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = {\color<5->{blue}1 - \frac{1}{2^{n-1}}} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = 1 - \frac{2}{2^n} + \frac{1}{2^n}\\[2mm]}
+    \onslide<+->{& = 1 - \frac{1}{2^n}}
+  \end{align*}
+\end{columns}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Calculando o Limite das Somas Parciais}
+    \begin{align*}
+    	\onslide<+->{\lim_{n\to\infty} S_n}
+      \onslide<+->{& = \lim \left(1 - \frac{1}{2^n}\right)     \\[2mm]}
+    	\onslide<+->{& = \lim 1 - \lim\left(\frac{1}{2}\right)^{\!\!n} \\[2mm]}
+    	\onslide<+->{& = 1 - 0 \\[2mm]}
+      \onslide<+->{& = 1}
+    \end{align*}
+
+    \onslide<+->
+    {
+      Portanto a série converge e podemos escrever
+      \[
+        \sum_{n=1}^{\infty} \frac{1}{\;2^n\;} = 1
+      \]
+    }
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar as Seção 6.1 da Apostila
+
+  \vspace{\baselineskip}
+  Exercícios: 1, 2, 4a-c, 6a-b
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
