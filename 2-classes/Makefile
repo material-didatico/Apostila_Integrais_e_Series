@@ -34,5 +34,6 @@ distclean:
 	@ for D in ${SUBDIRS}; do \
 	  make --no-print-directory -C $$D distclean ; \
 	done
+	@ rm -rf pdf
 
 #------------------------------------------------------------------------------#

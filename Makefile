@@ -1,7 +1,12 @@
 #------------------------------------------------------------------------------#
 
-# List of all subderectories
-SUBDIRS=`find -mindepth 1 -maxdepth 1 -type d -not -name '.*' -not -name '_*'`
+# List of all subdirectories
+SUBDIRS=`find -mindepth 1     \
+				      -maxdepth 1     \
+							-type d         \
+							-not -name '.*' \
+							-not -name '_*' \
+							-not -name 'docs'`
 
 all:
 	@ for D in ${SUBDIRS} ; do \
@@ -27,13 +32,12 @@ clean:
 	  make -C $$D clean ;      \
 	done
 
-
 .PHONY: distclean
 distclean:
 	@ rm -vf ${DISTCLEAN_FILES}
 	@ for D in ${SUBDIRS}; do   \
 	  make -C $$D distclean ;   \
 	done
-	@ rm -rf _docs
+	@ rm -rf _docs_md
 
 #------------------------------------------------------------------------------#
