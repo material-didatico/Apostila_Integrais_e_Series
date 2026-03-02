@@ -2,11 +2,11 @@
 
 # List of all subdirectories
 SUBDIRS=`find -mindepth 1     \
-				      -maxdepth 1     \
-							-type d         \
-							-not -name '.*' \
-							-not -name '_*' \
-							-not -name 'docs'`
+              -maxdepth 1     \
+              -type d         \
+              -not -name '.*' \
+              -not -name '_*' \
+              -not -name 'docs'`
 
 all:
 	@ for D in ${SUBDIRS} ; do \

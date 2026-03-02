@@ -51,18 +51,22 @@
 \RequirePackage[nomessages]{fp}
 \RequirePackage{tabto}
 
-% Formating
+\RequirePackage{xparse}
+
+% Formatting
 %------------------------------------------------------------------------------%
 
-% Chosing beamer theme
+% Choosing beamer theme
 \usetheme{default}
 \usecolortheme{whale}
 
 \definecolor{themeblue}{rgb}{0.1993,0.1993,0.6953}
 \definecolor{lightgray}{gray}{0.9}
 \definecolor{links}{HTML}{2A1B81}
+\definecolor{bgquestion}{HTML}{133e3d}
 \definecolor{bgexample}{HTML}{0d5959}
 \definecolor{bgproof}{gray}{0.3}
+\definecolor{bgwarning}{HTML}{8d4c0b}
 
 \setbeamerfont{institute}{size=\large}
 \setbeamerfont{date}{size=\small}
@@ -73,7 +77,7 @@
 % Add page numbering
 \setbeamertemplate{footline}[frame number]
 
-% Remove visual polution
+% Remove visual pollution
 \setbeamertemplate{sidebar left}{}
 \beamertemplatenavigationsymbolsempty
 
@@ -118,15 +122,31 @@
 % New commands
 %------------------------------------------------------------------------------%
 
+% % Add a frame with one figure
+% \newcommand{\framedgraphic}[3]%
+% {%
+%   \begin{frame}{#1}%
+%     \centering%
+%     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}%
+%     #3%
+%   \end{frame}%
+% }
+
 % Add a frame with one figure
-\newcommand{\framedgraphic}[3]%
+%   #1 - [*] don't change image size
+%   #2 - [optional] frame type
+%   #3 - frame title
+%   #4 - image file
+%   #5 - [optional] extra text
+\NewDocumentCommand{\framedgraphic}{s O{frame} m m O{}}
 {%
-  \begin{frame}{#1}%
-    \begin{center}%
-      \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}%
-    \end{center}%
-    #3%
-  \end{frame}%
+  \begin{#2}{#3}%
+    \centering%
+    \IfBooleanTF{#1}%
+      {\includegraphics{#4}}%
+      {\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#4}}%
+    #5%
+  \end{#2}%
 }
 
 % Add a full image frame
@@ -144,8 +164,8 @@
 
 \newenvironment{question}{%
   \addtocounter{exemplo}{1}%
-  \setbeamercolor{frametitle}{bg=bgexample}%
-  \begin{frame}{Exemplo \theexemplo}{~}
+  \setbeamercolor{frametitle}{bg=bgquestion}%
+  \begin{frame}{Exemplo \theexemplo}
 }{%
   \end{frame}
 }
@@ -161,6 +181,14 @@
   \setbeamercolor{frametitle}{bg=bgproof}%
   \begin{frame}{#1}
 }{%
+  \end{frame}
+}
+
+\newenvironment{warningframe}[1]{%
+  \addtocounter{exemplo}{1}%
+  \setbeamercolor{frametitle}{bg=bgwarning}%
+  \begin{frame}{#1}
+  }{%
   \end{frame}
 }
 

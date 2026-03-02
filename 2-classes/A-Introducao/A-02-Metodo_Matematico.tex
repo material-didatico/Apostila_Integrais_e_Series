@@ -36,6 +36,14 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{O Método Matemático}
+  Detalhes são extremamente importantes
+
+  \pause
+  Notações similares podem significar coisas muito diferentes
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{O Método Matemático}
   \begin{enumerate}[<+->]
     \item Axiomas
     \begin{itemize}
@@ -46,7 +54,7 @@
 
     \item Definições
     \begin{itemize}
-      \item Definem conceitos dentro de uma teoria
+      \item Definem conceitos em uma teoria
       \item Combinamos que é verdade
     \end{itemize}
     ~
@@ -70,7 +78,7 @@
   estar ancorada em um resultado demonstrado
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   Por isso eles são numerados
 \end{frame}
 
@@ -95,7 +103,7 @@
 \begin{frame}{Organização do Prova}
   \begin{itemize}[<+->]
     \item Respeite as margens do papel (Todas as Quatro!)
-    \item Use uma ``fonte'' adequada, cada coisa tem seu simbolo \emph{único}
+    \item Use uma ``fonte'' adequada, cada coisa tem seu símbolo \emph{único}
     \item Não imite o quadro do professor ou as imagens de um vídeo
     \item Em português escrevemos da esquerda para a direita e de cima para baixo
     \begin{itemize}
@@ -110,7 +118,7 @@
 \begin{frame}{Notação}
   \begin{itemize}[<+->]
     \item Use a notação correta
-    \item Não misture os símbolos\; $=$,\; $\to$,\; $\Rightarrow$
+    \item Não misture os símbolos \; $=$,\; $\to$,\; $\Rightarrow$
     \begin{itemize}
       \item \emph{$=$}           \tabto{8mm} indica igualdade, ambos os lados são exatamente a mesma coisa
       \item \emph{$\to$}         \tabto{8mm} é usado somente na notação de limite e na definição de funções
@@ -118,44 +126,96 @@
         \onslide<+->{
         ( A terra é plana ) $\quad\Rightarrow\quad$ ( Belo Horizonte tem praias maravilhosas ) \\[3mm]}
         \onslide<+->{
-        Afirmação \emph{verdadeira} pois falso implica em falso}
+        Afirmação \emph{verdadeira}, pois falso implica em falso}
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo do uso de $\Rightarrow$}
+Afirmação verdadeira para $x\in\R$
+\[
+  x > 7 \quad\Rightarrow\quad x > 3
+\]
+
+\pause
+Substituindo valores
+\pause
+\begin{ceqn}
+\[
+\begin{array}{>{\quad}c<{\quad}>{\quad}c<{\quad}>{\quad}c<{\quad}} \hline
+  x        & x > 7             & x > 3             \\ \hline \pause
+  9        & \text{verdadeiro} & \text{verdadeiro} \\ \pause
+  5        & \text{falso}      & \text{verdadeiro} \\ \pause
+  1        & \text{falso}      & \text{falso}      \\ \pause
+  \nexists & \text{falso}      & \text{verdade}    \\ \hline
+\end{array}
+\]
+\end{ceqn}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Evite Erros Comuns}
+\begin{columns}[t]
+\column{0.3\linewidth}
+  \begin{itemize}[<+->]
+    \setlength\itemsep{1.2em}
+    \item Não existe $\times-$
+    \item \(f(x) \neq f(a)\)
+    \item \(\frac{a+b}{c} \neq \frac{a}{c}+\frac{b}{c}\)
+    \item \((a+b)^2 \neq a^2 + b^2\)
+    \item \(\sqrt{4} = 2 \neq \pm 2 \)
+    \item \(\sqrt{x^2} \neq x\)
+  \end{itemize}
+\column{0.7\linewidth}
+  \begin{itemize}[<+->]
+    \setlength\itemsep{1em}
+    \item Não declarar o que está calculando
+    \item Usar informação que só será apresentada no futuro
+  \end{itemize}
+\end{columns}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Não Pule Passagens}
   \begin{itemize}[<+->]
     \item Escreva todas as passagens
-    \item O que foi solicitado no enunciado deve estar escrito explicitamente na resolução
+    \item O solicitado no enunciado deve estar escrito explicitamente na resolução
     \item Evite repetir expressões grandes, atribua um nome para ela
   \end{itemize}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Repetições}
+
 Prefira sequências de igualdades a sequências de equações
+
+\bigskip
 \begin{columns}
-  \column{0.5\linewidth}
+\column{0.3\linewidth}
   \pause
+  \quad Evite
+  \vspace{-0.4\baselineskip}
   \begin{align*}
-    f(x) & = 2 + 2 + 2 + 2 \\
-    f(x) & = 4 + 2 + 2     \\
-    f(x) & = 6 + 2         \\
+    f(x) & = 2 + 2 + 2 + 2 \\[-1mm]
+    f(x) & = 4 + 2 + 2     \\[-1mm]
+    f(x) & = 6 + 2         \\[-1mm]
     f(x) & = 8
   \end{align*}
-  \column{0.5\linewidth}
+\column{0.6\linewidth}
   \pause
+  \quad Prefira
+  \vspace{-0.4\baselineskip}
   \begin{align*}
-    f(x) & = 2 + 2 + 2 + 2 \\
-         & = 4 + 2 + 2     \\
-         & = 6 + 2         \\
+    f(x) & = 2 + 2 + 2 + 2 \\[-1mm]
+         & = 4 + 2 + 2     \\[-1mm]
+         & = 6 + 2         \\[-1mm]
          & = 8
   \end{align*}
 \end{columns}
 
 \pause
-\vspace{\baselineskip}
+\bigskip
 Forma alternativa (menos legível)
 \[
   f(x)
@@ -168,38 +228,33 @@ Forma alternativa (menos legível)
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstrando Igualdades}
-  Começamos de um termo e o manipulamos até o outro
+  \onslide<+->{Começamos de um termo e o manipulamos até o outro}
 
-  \pause
-  \vspace{\baselineskip}
-  Mostrar que \(a^2-b^2 = (a+b)(a-b)\)
+  \bigskip
+  \onslide<+->{Mostrar que \(a^2-b^2 = (a+b)(a-b)\)}
 
-  \pause
   \begin{align*}
-    (a+b)(a-b)
-    & = a(a-b) - b(a-b) \\
-    & = a^2 - ab - ba - b^2 \\
-    & = a^2 - b^2
+    \onslide<+->{(a+b)(a-b)}
+    \onslide<+->{& = a(a-b) + b(a-b) \\}
+    \onslide<+->{& = a^2 - ab + ba - b^2 \\}
+    \onslide<+->{& = a^2 - b^2}
   \end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstrando Igualdades}
-  \emph{Não manipular os dois lados ao mesmo tempo}
+  \onslide<+->{\emph{Não manipular os dois lados ao mesmo tempo}}
 
-  \pause
-  \vspace{\baselineskip}
-  Mostrar que \(3=4\)
+  \bigskip
+  \onslide<+->{Mostrar que \(3=4\)}
 
-  \pause
   \begin{align*}
-    3          & = 4          \\
-    3 \times 0 & = 4 \times 0 \\
-    0          & = 0
+    \onslide<+->{3          & = 4          \\}
+    \onslide<+->{3 \times 0 & = 4 \times 0 \\}
+    \onslide<+->{0          & = 0}
   \end{align*}
 
-  \pause
-  Se o erro não está claro para você, não manipule os dois lados
+  \onslide<+->{Se o erro não está claro para você, não manipule os dois lados}
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -208,16 +263,15 @@ Forma alternativa (menos legível)
 %------------------------------------------------------------------------------%
 \begin{frame}{Lista Mínima}
   Ler o texto
-  ``\href{https://drive.google.com/file/d/1h39y9FEjm6QrzK2Lqjg15CQ94gvFqjtu/view?usp=sharing}%
+  ``\href{https://drive.google.com/file/d/1iUuy68VWqKabrV7JxTwlyOgr59cA9G2r/view?usp=sharing}%
   {Como Resolver Exercícios de Matemática}''
 
   ~
 
   Ler a Apostila
-  ``\href{https://sites.google.com/view/prof-luis-dafonseca/ensino-b\%C3\%A1sico/infinito}%
+  ``\href{https://material-didatico.github.io/pages/infinito/}%
   {Quem disse que $0,999\dots=1$}''
 \end{frame}
-
 
 %------------------------------------------------------------------------------%
 \end{document}

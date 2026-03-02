@@ -1,6 +1,10 @@
 
-site_name: Material Didático
-site_url: https://material-didatico.github.io
+site_name: Integração e Séries
+site_url:  https://material-didatico.github.io/Apostila_Integrais_e_Series
+
+nav:
+  - Material Didático: https://material-didatico.github.io
+  - Integração e Séries: index.md
 
 theme:
   name:       material
