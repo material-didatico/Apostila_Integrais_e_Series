@@ -3,7 +3,7 @@
 
 \usepackage{integracao_e_series}
 
-\title{Limites}
+\title{Revisão de Limites}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -15,6 +15,179 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Limite de uma Função}
+  Seja $f(x)$ definida em um intervalo aberto em torno de $a$,
+
+  \pause
+  exceto, possivelmente, no próprio $a$
+
+  \pause
+  O limite de $f(x)$ quando $x$ tende para $a$ é o número $L$
+  \[
+    \lim_{x\to a} f(x) = L
+  \]
+  \pause
+  se, para cada \(\epsilon > O\), existir \(\delta > O\), tais que
+  \pause
+  \[
+    0 < \abs{x-a} < \delta \qquad\Rightarrow\qquad \abs{f(x)-L} < \epsilon
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limites de algumas funções}
+  \( \lim_{x\to a} c = c \)
+
+  \pause
+  \medskip
+  \( \lim_{x\to a} x = a \)
+
+  \pause
+  \medskip
+  \( \lim_{x\to a} x^n = a^n \)
+  \tabto{35mm}
+  $n$ número inteiro positivo
+
+  \pause
+  \medskip
+  \( \lim_{x\to a} \sqrt[n]{x} = \sqrt[n]{a} \)
+  \tabto{35mm}
+  $n$ número inteiro positivo, se $n$ for par precisamos impor $a\geq 0$
+
+  \pause
+  \medskip
+  \( \lim_{x\to a} p(x) = p(a) \)
+  \tabto{35mm}
+  onde $p(x)$ é um polinômio em $x$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Limites de algumas funções}
+  \( \lim_{x\to \infty} \frac{1}{x} = 0 \)
+
+  \pause
+  \medskip
+  \( \lim_{x\to 0^+} \frac{1}{x} = \infty \)
+
+  \pause
+  \medskip
+  \( \lim_{x\to 0^-} \frac{1}{x} = -\infty \)
+
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Propriedades de Limites}
+  Se os limites \(\lim_{x\to a}f(x)\) e  \(\lim_{x\to a}g(x)\) existirem, então:\\[4mm]
+  \pause
+  \begin{enumerate}[<+->]
+    \item
+      \(
+        \lim_{x\to a} \left(f(x)+g(x)\right)
+        = \lim_{x\to a}f(x) + \lim_{x\to a}g(x)
+      \)
+      \hfill Soma
+      \\[5mm]
+
+    \item
+      \(
+        \lim_{x\to a} \left(f(x)-g(x)\right)
+        = \lim_{x\to a}f(x) - \lim_{x\to a}g(x)
+      \)
+      \hfill Diferença
+      \\[5mm]
+
+    \item
+      \(
+        \lim_{x\to a} \left(c f(x)\right)
+        = c\lim_{x\to a} f(x),\quad \forall\; c\in\R
+      \)
+      \hfill Multiplicação por escalar
+      \\[5mm]
+
+    \item
+      \(
+        \lim_{x\to a} \left(f(x)g(x)\right)
+        = \left(\lim_{x\to a} f(x)\right)\left(\lim_{x\to a} g(x)\right)
+      \)
+      \hfill Produto
+      \\[5mm]
+
+    \item
+      \(
+        \lim_{x\to a} \frac{f(x)}{g(x)}
+        = \dfrac{\displaystyle \lim_{x\to a} f(x)}{\displaystyle \lim_{x\to a} g(x)}\quad
+      \)
+      desde que $\;\lim_{x\to a} f(x) \neq 0$
+      \hfill Quociente
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Teorema do confronto}
+  Se \(g(x) < j(x) < h(x)\)
+
+  \pause
+  para todo $x$ em um intervalo aberto contendo $a$,
+  \pause
+  exceto $x = a$,
+  \pause
+  e
+  \[
+    \lim_{x\to a} g(x) = \lim_{x\to a} h(x) = L
+  \]
+  \pause
+  então
+  \[
+   \lim_{x\to a} f(x) = L
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Técnicas para Calcular Limites em uma Variável}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Estratégia Geral para Cálculo de Limites}
+\begin{enumerate}[<+->]
+    \item Substituir diretamente o valor da variável no limite
+    \item Identificar o resultado: número finito, $\pm\infty$ ou indeterminação
+    \item Em caso de indeterminação:
+    \begin{itemize}
+        \item aplicar manipulações algébricas
+        \item utilizar fatorações
+        \item racionalizações
+        \item dividir pelo termo de maior grau
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Indeterminações Comuns}
+\begin{itemize}[<+->]
+    \setlength{\itemsep}{5mm}
+    \item $\dfrac{0}{0}$           \tabto{35mm} indeterminação algébrica
+    \item $\dfrac{\infty}{\infty}$ \tabto{35mm} formas racionais
+    \item $\infty - \infty$        \tabto{35mm} diferença de infinitos
+    \item $0 \cdot \infty$
+    \item $1^\infty$,\; $0^0$,\; $\infty^0$
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\include{A-04-Limites-ex1}
+\include{A-04-Limites-ex2}
+\include{A-04-Limites-ex3}
+\include{A-04-Limites-ex4}
+\include{A-04-Limites-ex5}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Técnicas principais}
+\begin{itemize}
+  \item Substituição direta
+  \item Fatoração e simplificação algébrica
+  \item Divisão por maior potência para limites no infinito
+  \item Racionalização em diferenças envolvendo raízes
+  \item Reescrita de produtos em quocientes
+  \item Uso da Regra de L'Hôpital
+\end{itemize}
 \end{frame}
 
 %------------------------------------------------------------------------------%

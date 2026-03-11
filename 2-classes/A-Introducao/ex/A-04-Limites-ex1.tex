@@ -1,0 +1,49 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Avalie o limite
+  \(
+    \lim_{x \to 2} \frac{x^2 - 4}{x-2}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Substituindo diretamente
+  \pause
+  \[
+    \lim_{x \to 2} \frac{x^2 - 4}{x-2}
+    \pause
+    \;=\; \frac{x^2 - 4}{x-2} \evalat{x=2}{}
+    \pause
+    \;=\; \frac{2^2 - 4}{2-2}
+    \pause
+    \;=\; \frac{0}{0}
+  \]
+
+  \pause
+  Indeterminação \(\sfrac{0}{0}\),
+
+  \pause
+  não podemos dizer nada sobre o limite
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Fatorando o numerador}
+  \begin{align*}
+    \onslide<+->{f(x)}
+    \onslide<+->{& = \frac{x^2 - 4}{x-2} \\}
+    \onslide<+->{& = \frac{(x-2)(x+2)}{x-2} \\}
+    \onslide<+->{& = x+2}
+  \end{align*}
+
+  \onslide<+->{Calculando o Limite}
+  \[
+    \onslide<+->{\lim_{x \to 2} f(x)}
+    \onslide<+->{\;=\; \lim_{x \to 2} (x+2)}
+    \onslide<+->{\;=\; (x+2) \evalat{x=2}{}}
+    \onslide<+->{\;=\; 4}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,42 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Avalie
+  \(
+    \lim_{x \to 0^+} x\ln(x)
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Não podemos substituir diretamente,
+  \pause
+  mas sabemos que
+  \[
+    \pause
+    \lim_{x \to 0^+} x = 0
+  \]
+  \[
+    \pause
+    \lim_{x \to 0^+} \ln x = -\infty
+  \]
+  \pause
+  portanto temos uma indeterminação \(0(-\infty)\)
+
+  \pause
+  e não podemos dizer nada sobre o limite
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\lim_{x \to 0^+} x\ln(x)}
+    \onslide<+->{& = \lim_{x \to 0^+} \frac{\ln(x)}{\sfrac{1}{x}}  & & \text{indeterminação } \frac{\infty}{\infty}\\}
+    \onslide<+->{& = \lim_{x \to 0^+} \frac{\left(\ln(x)\right)'}{\left(x^{-1}\right)'} & & \text{Regra de L'Hôpital} \\}
+    \onslide<+->{& = \lim_{x \to 0^+} \frac{x^{-1}}{-x^{-2}} \\}
+    \onslide<+->{& = \lim_{x \to 0^+} \frac{x^2}{-x} \\}
+    \onslide<+->{& = \lim_{x \to 0^+} -x}
+    \onslide<+->{\;=\; 0}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

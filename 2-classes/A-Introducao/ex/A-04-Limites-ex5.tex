@@ -1,0 +1,49 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \lim_{x \to 0} x\sin\left(\frac{1}{x}\right)
+  \)
+
+  \bigskip
+  \pause
+  Dica: use o Teorema do Confronto
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Como
+  \[
+    -1 \leq \sin(u) \leq 1 \qquad \forall u \in \R
+  \]
+  \pause
+  para $x\neq 0$
+  \[
+    -1 \leq \sin\left(\frac{1}{x}\right) \leq 1
+  \]
+  \pause
+  portanto
+  \[
+    -\abs{x} \leq x\sin\left(\frac{1}{x}\right) \leq \abs{x}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Sabemos que
+  \[
+    \lim_{x\to 0} \abs{x} \;=\; 0
+    \pause
+    \qquad\text{e}\qquad
+    \lim_{x\to 0} -\abs{x} \;=\; 0
+  \]
+
+  \pause
+  Portanto, pelo Teorema do Confronto,
+  \pause
+  \[
+    \lim_{x \to 0} x\sin\left(\frac{1}{x}\right) = 0
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,62 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Avalie
+  \(
+    \lim_{x \to \infty} \left(\sqrt{x^2+3x} - x\right)
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Não podemos substituir diretamente,
+  \pause
+  mas sabemos que
+  \pause
+  \[
+    \lim_{x \to \infty} \sqrt{x^2+3x} = \infty
+  \]
+  \[
+    \pause
+    \lim_{x \to \infty} x = \infty
+  \]
+  \pause
+  portanto temos uma indeterminação \(\infty-\infty\)
+
+  \pause
+  e não podemos dizer nada sobre o limite
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{columns}[t]
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{f(x)}
+    \onslide<+->{& = \sqrt{x^2+3x} - x \\}
+    \onslide<+->{& = \left(\sqrt{x^2+3x} - x\right)\; \frac{\sqrt{x^2+3x} + x}{\sqrt{x^2+3x} + x} \\}
+    \onslide<+->{& = \frac{x^2+3x - x^2}{\sqrt{x^2+3x} + x} \\}
+    \onslide<+->{& = \frac{3x}{\sqrt{x^2+3x} + x} \\}
+    \onslide<+->{& = \frac{3x}{\sqrt{x^2\left(1+\dfrac{3}{x}\right)} + x}}
+  \end{align*}
+\column{0.5\linewidth}
+  \begin{align*}
+    \onslide<+->{f(x)}
+    \onslide<+->{& = \frac{3x}{x\sqrt{1+\dfrac{3}{x}\;} + x} \\}
+    \onslide<+->{& = \frac{3x}{x\left(\sqrt{1+\dfrac{3}{x}\;} + 1\right)} \\}
+    \onslide<+->{& = \frac{3}{\sqrt{1+\dfrac{3}{x}\;} + 1}}
+  \end{align*}
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\lim_{x \to \infty} f(x)}
+    \onslide<+->{& = \lim_{x \to \infty} \frac{3}{\sqrt{1+\dfrac{3}{x}\;} + 1} \\}
+    \onslide<+->{& = \frac{3}{\sqrt{\displaystyle 1+\lim_{x \to \infty}\left(\frac{3}{x}\right)\;} + 1} \\}
+    \onslide<+->{& = \frac{3}{\sqrt{1+0\;} + 1}}
+    \onslide<+->{\;=\; \frac{3}{2}}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -3,7 +3,7 @@
 
 \usepackage{integracao_e_series}
 
-\title{Derivadas}
+\title{Revisão de Derivadas}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -17,13 +17,18 @@
 \begin{frame}{Derivada de uma Função Real}
   A \emph{Derivada} de uma função real $f(x)$ em relação
   a variável $x$
+
   \pause
-  é a função $f'$\\
-  cujo valor em $x$ é
+  é a função $f'$ cujo valor em $x$
+  \pause
+  é
   \[
-    f'(x) = \lim_{h\to 0} \frac{\,f(x+h)-f(x)\,}{h}
+    f'({\color<5->{magenta}x})
+    = \lim_{{\color<4->{blue}h}\to 0}
+    \frac{\,f({\color<5->{magenta}x}+{\color<4->{blue}h})-f({\color<5->{magenta}x})\,}
+         {{\color<4->{blue}h}}
   \]
-  desde que o limite exista.
+  \onslide<6->{desde que o limite exista}
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -42,7 +47,7 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Algumas Funções Derivada}
+\begin{frame}{Derivadas de Algumas Funções}
 \begin{columns}
 \column{0.5\linewidth}
 \begin{gather*}
@@ -88,7 +93,7 @@
       \item \( \big(fg \big)' = f'g + fg' \)
     \end{enumerate}
     \column{0.5\linewidth}
-    \vspace{\baselineskip}
+    \bigskip
     \begin{enumerate}[<+->]
       \setcounter{enumi}{4}
       \item \( \left(\frac{f}{\,g\,}\right)' = \frac{f'g - fg'}{g^2} \)\\[7mm]
