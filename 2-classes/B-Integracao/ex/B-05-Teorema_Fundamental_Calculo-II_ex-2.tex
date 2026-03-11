@@ -1,0 +1,32 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule \(\int_3^6 \frac{dx}{x}\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \(f(x)=\frac{1}{x}\) é contínua no intervalo $[3, 6]$
+
+  \pause
+  \bigskip
+  Uma primitiva de $f$ é $F(x)=\ln\abs{x}$
+
+  \pause
+  \bigskip
+  Pelo Teorema Fundamental do Cálculo
+  \[
+    \int_3^6 \frac{dx}{x}
+    \pause
+    = \ln\abs{x} \;\evalat{1}{3}
+    \pause
+    = \ln(6) - \ln(3)
+    \pause
+    = \ln\left(\frac{6}{3}\right)
+    \pause
+    = \ln(2)
+    \pause
+    \approx 0.693
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Encontre $f$ tal que
+  \[
+    f'(x) = e^x + 20\left(1+x^2\right)^{-1}
+  \]
+  e \(f(0)=-2\)
+\end{question}
+
+\begin{resolution}{Solução}
+  Primeiro vamos encontrar a família de funções $f$ que são primitivas de $f'$
+
+  \bigskip
+  \pause
+  Depois usamos a condição \(f(0)=-2\) para encontrar a primitiva solicitada
+\end{resolution}
+
+\begin{resolution}{Solução}
+  \onslide<+->{Primitiva mais geral}
+  \begin{align*}
+    \onslide<+->{f(x) & = \int f'(x) dx \\}
+    \onslide<+->{& = \int e^x+20\left(1+x^2\right)^{-1} dx \\}
+    \onslide<+->{& = \int e^x + 20\frac{1}{1+x^2} dx  \\}
+    \onslide<+->{& = \int e^x dx + 20\int \frac{1}{1+x^2} dx  \\}
+    \onslide<+->{& = e^x + 20\arctan(x) + C}
+  \end{align*}
+\end{resolution}
+
+\begin{resolution}{Solução}
+  \onslide<+->{Vamos determinar o valor de $C$ usando $f(0)=-2$}
+  \begin{align*}
+    \onslide<+->{f(0)                    & = -2                       \\}
+    \onslide<+->{e^0 + 20 \arctan(0) + C & = -2                       \\}
+    \onslide<+->{C                       & = -2 - e^0 - 20 \arctan(0) \\}
+    \onslide<+->{                        & = -2 - 1 - 0               \\}
+    \onslide<+->{                        & = -3}
+  \end{align*}
+  \onslide<+->{Portanto
+  \[
+    f(x) = e^x + 20 \arctan(x) -3
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

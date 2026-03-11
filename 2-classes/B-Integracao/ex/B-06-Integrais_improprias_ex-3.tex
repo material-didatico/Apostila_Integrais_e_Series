@@ -1,0 +1,43 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \[
+    \int_{0}^3 \frac{1}{x-1} \, dx
+  \]
+  se possível
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A função \(f(x) = \frac{1}{x-1}\) é descontínua em $x=1\in[0, 3]$
+
+  \pause
+  \bigskip
+  Precisamos dividir o intervalo e duas partes \([0, 1]\) e \([1, 3]\)
+  \pause
+  \[
+          \int_0^3 \frac{1}{x-1} \,dx
+    \;=\; \int_0^1 \frac{1}{x-1} \,dx
+    \;+\; \int_1^3 \frac{1}{x-1} \,dx
+  \]
+
+  \pause
+  Agora a descontinuidade está nos extremos dos intervalos
+  e podemos usar integrais impróprias
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{\int_{0}^1 \frac{1}{x-1} dx}
+  \onslide<+->{& = \lim_{t \to 1^{-}}\int_{0}^t \frac{1}{x-1} dx  \\}
+  \onslide<+->{& = \lim_{t \to 1^{-}} \ln\abs{x-1} \evalat{0}{t}  \\}
+  \onslide<+->{& = \lim_{t \to 1^{-}}\big(\ln\abs{t-1} - \ln\abs{-1} \big) \\}
+  \onslide<+->{& = \lim_{t \to 1^{-}} \ln(1-t) }
+  \onslide<+->{& & 1-t \to 0^+ \text{ quando } t \to 1^{-} \\}
+  \onslide<+->{& =-\infty}
+\end{align*}
+\onslide<+->{Portanto a integral diverge e não precisamos calcular a segunda parte}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

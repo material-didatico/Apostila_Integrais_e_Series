@@ -141,93 +141,9 @@
 %------------------------------------------------------------------------------%
 \section{Exemplos}
 
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Calcular a integral \(\int_{-\infty}^0 e^x\, dx\)
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-\begin{align*}
-  \onslide<+->{\int_{{\color<2>{blue}-\infty}}^0 e^x\, dx
-                 & = {\color<2>{blue}\lim_{t\to-\infty}}
-       \left(\int_{{\color<2>{blue} t}}^{0} e^x\, dx \;\right)
-    & & \text{definição integral imprópria}                       \\}
-  \onslide<+->{
-    & = \lim_{t\to-\infty}
-    \left(e^x \,\evalat{t}{0} \;\right) \\[2mm]}
-  \onslide<+->{
-    & = \lim_{t\to-\infty} \left( e^0 - e^t \right) \\[2mm]}
-  \onslide<+->{
-    & = \lim_{t\to-\infty} 1 - \lim_{t\to-\infty}e^t \\[2mm]}
-  \onslide<+->{& = 1}
-\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Determine se a integral
-  \[
-    \int_{-1}^{0} \frac{1}{\,x^{\sfrac{2}{3}}\,}\;dx
-  \]
-  é convergente ou divergente
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  \onslide<+->{\(f(x) = \frac{1}{\,x^{\sfrac{2}{3}}} = x^{\sfrac{-2}{3}}\)
-    é descontínua em $x=0$}
-  \begin{align*}
-    \onslide<+->{\int_{-1}^{0} \frac{1}{\,x^{\sfrac{2}{3}}\,}\;dx}
-    \onslide<+->{& = \lim_{t \to 0^{-}} \int_{-1}^{t} x^{\sfrac{-2}{3}}\;dx  \\[2mm]}
-    \onslide<+->{& = \lim_{t \to 0^{-}} \left(\frac{x^{\sfrac{-2}{3}+1}}{\sfrac{-2}{3}+1} \evalat{-1}{t}\right) \\[2mm]}
-    \onslide<+->{& = \lim_{t \to 0^{-}} \left(3x^{\sfrac{1}{3}} \evalat{-1}{t}\right) \\[2mm]}
-    \onslide<+->{& = \lim_{t \to 0^{-}} 3 \left[ t^{\sfrac{1}{3}} - (-1)^{\sfrac{1}{3}} \right] \\[2mm]}
-    \onslide<+->{& = 3}
-    \onslide<+->{& \text{Portanto, a integral imprópria converge}}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Calcule
-  \[
-    \int_{0}^3 \frac{1}{x-1} \, dx
-  \]
-  se possível
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  A função \(f(x) = \frac{1}{x-1}\) é descontínua em $x=1\in[0, 3]$
-
-  \pause
-  \vspace{\baselineskip}
-  Precisamos dividir o intervalo e duas partes \([0, 1]\) e \([1, 3]\)
-  \pause
-  \[
-          \int_0^3 \frac{1}{x-1} \,dx
-    \;=\; \int_0^1 \frac{1}{x-1} \,dx
-    \;+\; \int_1^3 \frac{1}{x-1} \,dx
-  \]
-
-  \pause
-  Agora a descontinuidade está nos extremos dos intervalos
-  e podemos usar integrais impróprias
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-\begin{align*}
-  \onslide<+->{\int_{0}^1 \frac{1}{x-1} dx}
-  \onslide<+->{& = \lim_{t \to 1^{-}}\int_{0}^t \frac{1}{x-1} dx  \\}
-  \onslide<+->{& = \lim_{t \to 1^{-}} \ln\abs{x-1} \evalat{0}{t}  \\}
-  \onslide<+->{& = \lim_{t \to 1^{-}}\big(\ln\abs{t-1} - \ln\abs{-1} \big) \\}
-  \onslide<+->{& = \lim_{t \to 1^{-}} \ln(1-t) }
-  \onslide<+->{& & 1-t \to 0^+ \text{ quando } t \to 1^{-} \\}
-  \onslide<+->{& =-\infty}
-\end{align*}
-\onslide<+->{Portanto a integral diverve e não precisamos calcular a segunda parte}
-\end{frame}
+\input{ex/B-06-Integrais_improprias_ex-1}
+\input{ex/B-06-Integrais_improprias_ex-2}
+\input{ex/B-06-Integrais_improprias_ex-3}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}

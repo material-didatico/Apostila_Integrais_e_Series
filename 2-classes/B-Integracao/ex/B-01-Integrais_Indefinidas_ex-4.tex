@@ -1,0 +1,43 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Encontre todas as funções $g$, tais que
+  \[
+    g'(x) = 4 \sin(x) + \frac{2x^5 - \sqrt{x}}{x}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Queremos as primitivas de $g'$}
+
+  \onslide<+->{Reescrevemos $g'$ como}
+  \begin{align*}
+    \onslide<+->{g'(x)}
+    \onslide<+->{& = 4 \sin(x) + \frac{2x^5- \sqrt{x}}{x} \\}
+    \onslide<+->{& = 4 \sin(x) + \frac{2x^5}{x}
+                   - \frac{x^{\sfrac{1}{2}}}{x} \\}
+    \onslide<+->{& = 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}}}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{g(x)}
+    \onslide<+->{& = \int g'(x) dx \\}
+    \onslide<+->{& = \int 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}} dx \\}
+    \onslide<+->{& = 4 \int \sin(x) dx
+                   + 2 \int x^4 dx
+                   - \int x^{-\sfrac{1}{2}} dx \\}
+    \onslide<+->{& = 4\big(- \cos(x)\big)
+                   + 2 \frac{x^5}{5}
+                   - \frac{x^{\sfrac{1}{2}}}{\sfrac{1}{2}}
+                   + C \\}
+    \onslide<+->{& = -4 \cos(x)
+                   + \frac{2}{5}x^5
+                   - 2 \sqrt{x}
+                   + C}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

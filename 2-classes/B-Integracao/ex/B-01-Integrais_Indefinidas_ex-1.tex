@@ -1,0 +1,38 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Encontrar a primitiva mais geral de \(f(x)= \cos(x)\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Sabemos que
+  \[
+    G(x) = \sin(x)
+  \]
+  é uma \emph{primitiva} para $f$,
+  \pause
+  pois
+  \[
+    G'(x)
+    \pause
+    \;=\; \frac{d}{dx}\sin(x)
+    \pause
+    \;=\; \cos(x)
+    \pause
+    \;=\; f(x)
+  \]
+  \pause
+  Portanto, a \emph{primitiva mais geral} de $f$ é
+  \pause
+  \[
+    F(x)
+    \pause
+    \;=\; \int \cos(x)\,dx
+    \pause
+    \;=\; G(x) + C
+    \pause
+    \;=\; \sin(x) + C
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,48 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral da função de Heaviside
+  \[
+  \heaviside(x) = \begin{cases}
+    \; 0 & \; x < 0 \\
+    \; 1 & \; x \geq 0
+  \end{cases}
+  \]
+  no intervalo $[-1, 2]$.
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \[
+    A
+    = \int_{-1}^{2} \heaviside(x) \,dx
+    \pause
+    = \int_{-1}^{0} 0 \,dx
+    + \int_{0}^{2}  1 \,dx
+  \]
+  \pause
+  \[
+    \int_{-1}^{0} 0 \,dx
+    \pause
+    = 0
+  \]
+  \pause
+  \[
+    \int_{0}^{2} 1 \,dx
+    \pause
+    \;=\; \text{base} \times \text{altura}
+    \pause
+    \;=\; (2-0)\times 1
+    \pause
+    \;=\; 2
+  \]
+  \pause
+  \[
+    A
+    \pause
+    = 0 + 2
+    \pause
+    = 2
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

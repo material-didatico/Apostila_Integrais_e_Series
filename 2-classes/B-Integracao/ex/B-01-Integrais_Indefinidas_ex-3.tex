@@ -1,0 +1,22 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule \(\int \cos(3\pi x) - \sqrt{x} \, dx\)
+\end{question}
+
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{F(x)}
+    \onslide<+->{& = \int \cos(3\pi x) - \sqrt{x} \, dx \\}
+    \onslide<+->{& = \int \cos(3\pi x) dx
+                   - \int \sqrt{x} \, dx \\}
+    \onslide<+->{& = \int \cos(3\pi x) dx
+                   - \int x^{\sfrac{1}{2}} \, dx \\}
+    \onslide<+->{& = \frac{\sin(3\pi x)}{3\pi}
+                   - \frac{x^{\sfrac{1}{2}+1}}{\sfrac{1}{2}+1} + C \\}
+    \onslide<+->{& = \frac{\sin(3\pi x)}{3\pi}
+                   - \frac{2x^{\sfrac{3}{2}}}{3}
+                   + C}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

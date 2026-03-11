@@ -1,0 +1,24 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcular a integral \(\int_{-\infty}^0 e^x\, dx\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{\int_{{\color<2>{blue}-\infty}}^0 e^x\, dx
+                 & = {\color<2>{blue}\lim_{t\to-\infty}}
+       \left(\int_{{\color<2>{blue} t}}^{0} e^x\, dx \;\right)
+    & & \text{definição integral imprópria}                       \\}
+  \onslide<+->{
+    & = \lim_{t\to-\infty}
+    \left(e^x \,\evalat{t}{0} \;\right) \\[2mm]}
+  \onslide<+->{
+    & = \lim_{t\to-\infty} \left( e^0 - e^t \right) \\[2mm]}
+  \onslide<+->{
+    & = \lim_{t\to-\infty} 1 - \lim_{t\to-\infty}e^t \\[2mm]}
+  \onslide<+->{& = 1}
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

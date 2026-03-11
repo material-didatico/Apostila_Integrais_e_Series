@@ -54,7 +54,7 @@
 \section{Demonstração}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Queremos mostrar que, se
   \[
     F(x) = \int_a^x f(t)\,dt
@@ -63,10 +63,10 @@
   \[
     \frac{dF}{dx} = f(x)
   \]
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
 \onslide<+->{Sejam $x$ e $x+h$ em $(a, b)$}
 \begin{align*}
   \onslide<+->{F(x+h) - F(x)
@@ -76,10 +76,10 @@
   \onslide<+->{
     & = \int_x^{x+h} f(t)\,dt}
 \end{align*}
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Dividindo por $h\neq 0$
   \[
     \frac{F(x+h) - F(x)}{h} = \frac{1}{h} \int_x^{x+h} f(t)\,dt
@@ -98,10 +98,10 @@
   \[
     \lim_{h\to 0} \frac{1}{h} \int_x^{x+h} f(t)\,dt \;\stackrel{?}{=}\; f(x)
   \]
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Pelo Teorema Valor Médio,
   \pause
   existe \(c\in[x, x+h]\) tal que
@@ -124,30 +124,12 @@
     \;=\; \lim_{h\to 0}\; \frac{1}{h} \int_x^{x+h} f(t)\,dt
     \;=\; f(x)
   \]
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
 \section{Exemplos}
 
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Calcule a derivada da função \(g(x)=\int_0^x \sqrt{1+t^2} \,dt\)
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  Sendo
-  \[
-    f(t)= \sqrt{1+t^2}
-  \]
-  contínua em todo o conjunto dos números reais
-
-  \pause
-  Pela parte 1 do Teorema Fundamental do Cálculo
-  \[
-    g'(x)=\sqrt{1+x^2}
-  \]
-\end{frame}
+\input{ex/B-04-Teorema_Fundamental_Calculo-I_ex-1}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}

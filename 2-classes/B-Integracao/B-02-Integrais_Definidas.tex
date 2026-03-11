@@ -18,7 +18,7 @@
   Figuras regulares
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   Área de um Retângulo
   \tabto{45mm}
   \(
@@ -26,7 +26,7 @@
   \)
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   Área de um Triângulo
   \tabto{45mm}
   \(
@@ -34,7 +34,7 @@
   \)
 
   \pause
-  \vspace{0.9\baselineskip}
+  \bigskip
   Área de um Círculo
   \tabto{45mm}
   \(
@@ -42,14 +42,14 @@
   \)
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   O que fazer com as figuras irregulares?
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área entre o gráfico de uma função e o eixo $x$}
   \centering
-  \vspace{2\baselineskip}
+  \bigskip
   \input{fig_integral_definida_area}
   \pause
   \emph{Como calcular a área?}
@@ -58,14 +58,14 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo: área sob o gráfico de $x^2$ entre 0 e $b$}
   \centering
-  \vspace{2\baselineskip}
+  \bigskip
   \input{fig_area_x2}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Aproximando a área sob o gráfico}
   \centering
-  \vspace{1.6\baselineskip}
+  \bigskip
   \input{fig_area_x2_retangulos}
 \end{frame}
 
@@ -73,80 +73,89 @@
 \begin{frame}{Aproximando a área sob o gráfico}
 Partição do intervalo $[0, b]$ em $n$ subintervalos iguais
 \[
-  0 = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = b
+  0 \;=\; x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n \;=\; b
 \]
 \pause
 Tamanho de cada subintervalo
 \[
   \Delta x
-  = x_{i+1} - x_i
   \pause
-  = \frac{b}{n}
+  \;=\; x_{i+1} - x_i
+  \pause
+  \;=\; \frac{b}{n}
 \]
 \pause
 Valor de $x_i$
 \[
   x_i
-  = i \Delta x
   \pause
-  = i\frac{b}{n}
+  \;=\; i \Delta x
+  \pause
+  \;=\; i\frac{b}{n}
 \]
 \pause
 Área de cada retângulo
 \[
   A_i
-  = x_i^2 \Delta x
   \pause
-  = \left(i\frac{b}{n}\right)^2 \frac{b}{n}
+  \;=\; f(x_i) \Delta x
   \pause
-  = \frac{b^3}{n^3}i^2
+  \;=\; x_i^2 \Delta x
+  \pause
+  \;=\; \left(i\frac{b}{n}\right)^2 \frac{b}{n}
+  \pause
+  \;=\; \frac{b^3}{n^3}i^2
 \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Somando os Retângulos}
 \begin{align*}
-  \onslide<+->{ S_n & = \sum_{i=1}^n A_i }
-  \onslide<+->{ \;=\; \sum_{i=1}^n \frac{b^3}{n^3}i^2               }
-  \onslide<+->{ \;=\; \frac{b^3}{n^3} \sum_{i=1}^n i^2             \\[5mm]}
-  \onslide<+->{ & = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[5mm]}
-  \onslide<+->{ & = \frac{b^3}{n^3} \; \frac{2n^3+3n^2+n}{6}       \\[5mm]}
-  \onslide<+->{ & = \frac{b^3}{6} \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) }
+  \onslide<+->{S_n}
+  \onslide<+->{& = \sum_{i=1}^n A_i }
+  \onslide<+->{\;=\; \sum_{i=1}^n \frac{b^3}{n^3}i^2                     }
+  \onslide<+->{\;=\; \frac{b^3}{n^3} \sum_{i=1}^n i^2             \\[2mm]}
+  \onslide<+->{& = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[2mm]}
+  \onslide<+->{& = \frac{b^3}{n^3} \; \frac{2n^3+3n^2+n}{6}       \\[2mm]}
+  \onslide<+->{& = \frac{b^3}{6} \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) }
 \end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Calculando pelo limite}
   \begin{align*}
-    \onslide<+->{ A & = \lim_{n\to\infty} S_n                   \\[7mm]}
-    \onslide<+->{   & = \lim_{n\to\infty}
-                        \frac{b^3}{6}
-                        \left( 2+\frac{3}{n}+\frac{1}{n^2} \right)       \\[7mm]}
-    \onslide<+->{   & = \frac{b^3}{6}
-                        \left( 2 + 3 \lim_{n\to\infty} \frac{1}{n}
-                                 +   \lim_{n\to\infty} \frac{1}{n^2} \right) \\[7mm]}
-    \onslide<+->{   & = \frac{b^3}{6} 2 \;=\; \frac{b^3}{3}}
+    \onslide<+->{A}
+    \onslide<+->{& = \lim_{n\to\infty} S_n                      \\[2mm]}
+    \onslide<+->{& = \lim_{n\to\infty}
+                     \frac{b^3}{6}
+                     \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{6}
+                     \left( 2 + 3 \lim_{n\to\infty} \frac{1}{n}
+                              +   \lim_{n\to\infty} \frac{1}{n^2}
+                     \right) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{6} (2 + 0 + 0 ) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{3}}
   \end{align*}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área entre o gráfico de $f$ e o eixo $x$ no intervalo $[a, b]$}
   \centering
-  \vspace{2.3\baselineskip}
+  \bigskip
   \input{fig_integral_definida_area}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Partição do intervalo $[a, b]$}
   \centering
-  \vspace{2\baselineskip}
+  \bigskip
   \input{fig_soma_riemman_particao}
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Aproximação por retângulos}
   \centering
-  \vspace{2\baselineskip}
+  \bigskip
   \input{fig_soma_riemman_retangulos}
 \end{frame}
 
@@ -185,7 +194,7 @@ Valor de $x_i$
   ${\color{magenta}c_i}\in[x_{i-1}, x_i]$ são os \emph{pontos amostrais}
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   Desde que o limite exista
 
 \end{frame}
@@ -300,112 +309,12 @@ Valor de $x_i$
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Calcule a área abaixo do gráfico da função \(f(x) = x + 2\) no intervalo
-  \([0, b]\)
-\end{frame}
+\section{Exemplos}
 
-\begin{frame}{Exemplo \theexemplo}
-  \begin{align*}
-      \onslide<+->{A & = \int_0^b f(x)\,dx    \\[2mm]}
-      \onslide<+->{& = \int_0^b x + 2 \,dx    \\[2mm]}
-      \onslide<+->{& = \int_0^b x\, dx + 2 \int_0^b dx
-                   & & \text{(Linearidade)}  \\[2mm]}
-      \onslide<+->{& = \frac{b^2}{2} + 2b
-                   & & \text{(Área do triângulo e do retângulo)}}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Cálcule \(\int_{-7}^7 x^3 dx\)
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  \[
-    A
-    = \int_{-7}^7 x^3 dx
-    \pause
-    = \int_{-7}^0 x^3 dx + \int_0^7 x^3 dx
-  \]
-  \pause
-  por simetria
-  \[
-    \int_{-7}^0 x^3 dx = - \int_0^7 x^3 dx
-  \]
-  \pause
-  portanto
-  \[
-    A = 0
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Cálcule \(\int_{-2}^4 \abs{x} dx\)
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  \begin{align*}
-    \onslide<+->{A
-    & = \int_{-2}^4 \abs{x} dx                        \\[2mm]}
-    \onslide<+->{& = \int_{-2}^0 \abs{x} dx + \int_0^4 \abs{x} dx  \\[2mm]}
-    \onslide<+->{& = \int_{-2}^0 -x dx + \int_0^4 x dx             \\[2mm]}
-    \onslide<+->{& = \frac{2^2}{2} + \frac{4^2}{2}                 \\[2mm]}
-    \onslide<+->{& = 2 + 8                                         \\[2mm]}
-    \onslide<+->{& = 10}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\addtocounter{exemplo}{1}
-\begin{frame}{Exemplo \theexemplo}
-  Calcule a integral da função de Heaviside
-  \[
-  \heaviside(x) = \begin{cases}
-    \; 0 & \; x < 0 \\
-    \; 1 & \; x \geq 0
-  \end{cases}
-  \]
-  no intervalo $[-1, 2]$.
-\end{frame}
-
-\begin{frame}{Exemplo \theexemplo}
-  \[
-    A
-    = \int_{-1}^{2} \heaviside(x) \,dx
-    \pause
-    = \int_{-1}^{0} 0 \,dx
-    + \int_{0}^{2}  1 \,dx
-  \]
-  \pause
-  \[
-    \int_{-1}^{0} 0 \,dx
-    \pause
-    = 0
-  \]
-  \pause
-  \[
-    \int_{0}^{2} 1 \,dx
-    \pause
-    \;=\; \text{base} \times \text{altura}
-    \pause
-    \;=\; (2-0)\times 1
-    \pause
-    \;=\; 2
-  \]
-  \pause
-  \[
-    A
-    \pause
-    = 0 + 2
-    \pause
-    = 2
-  \]
-\end{frame}
+\input{ex/B-02-Integrais_Definidas_ex-1}
+\input{ex/B-02-Integrais_Definidas_ex-2}
+\input{ex/B-02-Integrais_Definidas_ex-3}
+\input{ex/B-02-Integrais_Definidas_ex-4}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}
