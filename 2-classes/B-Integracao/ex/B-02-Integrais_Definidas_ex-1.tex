@@ -1,19 +1,89 @@
 %------------------------------------------------------------------------------%
 \begin{question}
-  Calcule a área abaixo do gráfico da função \(f(x) = x + 2\) no intervalo
-  \([0, b]\)
+  Calcular a área sob o gráfico da função $y=x^2$ entre 0 e $b$
 \end{question}
 
 %------------------------------------------------------------------------------%
-\begin{resolution}{Solução}
+\begin{resolution}{Área sob o gráfico de $x^2$ entre 0 e $b$}
+  \centering
+  \bigskip
+  \input{fig_area_x2}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Aproximando a área sob o gráfico}
+  \centering
+  \bigskip
+  \input{fig_area_x2_retangulos}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Aproximando a área sob o gráfico}
+  Partição do intervalo
+  \[
+    x_0 = a
+    \qquad\qquad
+    x_n = b
+  \]
+  \pause
+  Tamanho de cada subintervalo
+  \[
+    \Delta x
+    \pause
+    \;=\; x_{k+1} - x_k
+    \pause
+    \;=\; \frac{b}{n}
+  \]
+  \pause
+  Valor de $x_k$
+  \[
+    x_k
+    \pause
+    \;=\; k \Delta x
+    \pause
+    \;=\; k\frac{b}{n}
+  \]
+  \pause
+  Área de cada retângulo
+  \[
+    A_k
+    \pause
+    \;=\; f(x_k) \Delta x
+    \pause
+    \;=\; x_k^2 \Delta x
+    \pause
+    \;=\; \left(k\frac{b}{n}\right)^2 \frac{b}{n}
+    \pause
+    \;=\; \frac{b^3k^2}{n^3}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Somando os Retângulos}
   \begin{align*}
-    \onslide<+->{A & = \int_0^b f(x)\,dx    \\[2mm]}
-    \onslide<+->{& = \int_0^b x + 2 \,dx    \\[2mm]}
-    \onslide<+->{& = \int_0^b x\, dx + 2 \int_0^b dx
-                 & & \text{(Linearidade)}   \\[2mm]}
-    \onslide<+->{& = \frac{b^2}{2} + 2b
-                 & & \text{(Área do triângulo e do retângulo)}}
+    \onslide<+->{S_n}
+    \onslide<+->{& =   \sum_{k=1}^n A_k }
+    \onslide<+->{\;=\; \sum_{k=1}^n \frac{b^3 k^2}{n^3}                    }
+    \onslide<+->{\;=\; \frac{b^3}{n^3} \sum_{k=1}^n k^2             \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{n^3} \; \frac{2n^3+3n^2+n}{6}       \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{6} \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) }
   \end{align*}
 \end{resolution}
 
 %------------------------------------------------------------------------------%
+\begin{resolution}{Calculando o limite}
+  \begin{align*}
+    \onslide<+->{A}
+    \onslide<+->{& = \lim_{n\to\infty} S_n                      \\[2mm]}
+    \onslide<+->{& = \lim_{n\to\infty}
+      \frac{b^3}{6}
+      \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{6}
+      \left( 2 + 3 \lim_{n\to\infty} \frac{1}{n}
+      +   \lim_{n\to\infty} \frac{1}{n^2}
+      \right) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{6} (2 + 0 + 0 ) \\[2mm]}
+    \onslide<+->{& = \frac{b^3}{3}}
+  \end{align*}
+\end{resolution}

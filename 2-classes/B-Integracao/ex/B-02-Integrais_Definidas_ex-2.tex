@@ -1,26 +1,19 @@
 %------------------------------------------------------------------------------%
 \begin{question}
-  Calcule \(\int_{-7}^7 x^3 dx\)
+  Calcule a área abaixo do gráfico da função \(f(x) = x + 2\) no intervalo
+  \([0, b]\)
 \end{question}
 
 %------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
-  \[
-    A
-    = \int_{-7}^7 x^3 dx
-    \pause
-    = \int_{-7}^0 x^3 dx + \int_0^7 x^3 dx
-  \]
-  \pause
-  por simetria
-  \[
-    \int_{-7}^0 x^3 dx = - \int_0^7 x^3 dx
-  \]
-  \pause
-  portanto
-  \[
-    A = 0
-  \]
+  \begin{align*}
+    \onslide<+->{A & = \int_0^b f(x)\,dx    \\[2mm]}
+    \onslide<+->{& = \int_0^b x + 2 \,dx    \\[2mm]}
+    \onslide<+->{& = \int_0^b x\, dx + 2 \int_0^b dx
+                 & & \text{(Linearidade)}   \\[2mm]}
+    \onslide<+->{& = \frac{b^2}{2} + 2b
+                 & & \text{(Área do triângulo e do retângulo)}}
+  \end{align*}
 \end{resolution}
 
 %------------------------------------------------------------------------------%

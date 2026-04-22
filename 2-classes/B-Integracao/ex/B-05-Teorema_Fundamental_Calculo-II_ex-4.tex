@@ -1,0 +1,49 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \int_1^x x\cos(\pi t) \, dt
+  \)
+
+  \pause
+  \bigskip
+  \bigskip
+  Note que a integral é em $t$ portanto $x$ é uma constante
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Queremos calcular
+  \[
+    A
+    \;=\; \int_1^x x\cos(\pi t) \, dt
+    \pause
+    \;=\; x \int_1^x \cos(\pi t) \, dt
+  \]
+
+  \pause
+  Calculando a primitiva
+  \[
+    \pause
+    F(t)
+    \pause
+    \;=\; \int \cos(\pi t) \, dt
+    \pause
+    \;=\; \frac{\sin(\pi t)}{\pi} + c
+  \]
+ \end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{A}
+  \onslide<+->{& = x \, \big(F(t)\big) \evalat{1}{x}                                   \\[1mm]}
+  \onslide<+->{& = x \, \left(\frac{\sin(\pi t)}{\pi}\right) \evalat{1}{x}             \\[1mm]}
+  \onslide<+->{& = x \, \left(\frac{\sin(\pi x)}{\pi} - \frac{\sin(\pi 1)}{\pi}\right) \\[1mm]}
+  \onslide<+->{& = x \, \left(\frac{\sin(\pi x)}{\pi} - 0\right)                       \\[1mm]}
+  \onslide<+->{& = \frac{x}{\pi}\sin(\pi x)}
+\end{align*}
+\end{resolution}
+
+
+%------------------------------------------------------------------------------%

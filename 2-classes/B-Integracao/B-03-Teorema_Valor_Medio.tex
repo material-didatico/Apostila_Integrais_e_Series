@@ -11,31 +11,23 @@
 \addtitle
 
 %------------------------------------------------------------------------------%
-\section{Recapitulando}
+\section{Valor Médio}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Derivadas e Integrais}
-  \emph{Derivada}
-  \tabto{37mm}Taxa de variação de $f$
+\begin{frame}{Valor Médio}
+  O \emph{valor médio} de $f$ em $[a, b]$ é
+  \pause
+  o valor que produz a mesma área que a função
   \[
-    \hspace{35mm}
-    f'(x) = \frac{df}{dx}
+    \pause
+    \fmedio\;(b-a) = \int_a^b f(x) dx
   \]
 
   \pause
-  \emph{Integral indefinida}
-  \tabto{37mm}Antiderivada de $f$
+  Podemos calcular o valor médio a partir da integral definida
   \[
-    \hspace{35mm}
-    F(x) = \int f(x)\,dx \quad\text{ se }\quad \frac{dF}{dx} = f(x)
-  \]
-
-  \pause
-  \emph{Integral definida}
-  \tabto{37mm}Diferença de áreas sob o gráfico de $f$
-  \[
-    \hspace{35mm}
-    \text{``Área''} = \int_a^b f(x)\,dx
+    \pause
+    \fmedio = \frac{1}{b-a} \int_a^b f(x) dx
   \]
 \end{frame}
 
@@ -51,17 +43,6 @@
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Valor Médio}
-  Denotamos o \emph{Valor Médio} de $f$ em $[a, b]$
-  por \({\color{blue}\fmedio}\in\R\)
-
-  \pause
-  \bigskip
-  \(\fmedio\) é valor tal que
-  \[
-    \fmedio(b-a) = \int_a^b f(x) dx
-  \]
-
-  \pause
   O Teorema do Valor Médio garante que\\[1mm]
   \pause
   \medskip
@@ -89,15 +70,15 @@
 \section{Demonstração}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Queremos mostrar que existe $c \in (a, b)$ tal que
   \[
     f(c) = \frac{1}{b-a}\int_a^b f(x)\,dx
   \]
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Teorema de Weierstrass \\
   \pause
   \qquad $f$ é \emph{contínua} em $[a, b]$
@@ -108,20 +89,20 @@
   {\centering
   \bigskip
   \onslide<+->{\input{fig_valor_medio_media}}}
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   \onslide<+->{Como a integral \emph{preserva a desigualdade}}
   \begin{align*}
     \onslide<+->{\int_a^b f(u)\,dx \;\leq\; & \int_a^b f(x)\,dx \;\leq\; \int_a^b f(v) \,dx \\[3mm]}
     \onslide<+->{f(u)(b-a) \;\leq\;         & \int_a^b f(x)\, dx \;\leq \;f(v)(b-a)         \\[3mm]}
     \onslide<+->{f(u) \;\leq\;               \frac{1}{b-a} & \int_a^b f(x)\,dx \;\leq\; f(v)}
   \end{align*}
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Demonstração}
+\begin{proofframe}{Demonstração}
   Valor médio
   \[
     \fmedio = \frac{1}{b-a} \int_a^b f(x)\,dx
@@ -137,7 +118,7 @@
 
   \pause
   \qquad $f$ precisa assumir o valor \(\fmedio\) em algum $c\in[a, b]$
-\end{frame}
+\end{proofframe}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}

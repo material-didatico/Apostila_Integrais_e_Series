@@ -1,31 +1,45 @@
 %------------------------------------------------------------------------------%
 \begin{question}
-  Calcular a área sob o gráfico de \(f(x)=x^2\) entre 0 e $b$
+  Calcular a ``área'' sob o gráfico de \(f(x)=x^2\) entre 0 e $b$
 \end{question}
 
 %------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
+  A ``área'' sob o gráfico é
   \[
-    \text{Área}
-    \;=\; \int_0^b f(x) \,dx \pause
+    \pause
+    A
+    \;=\; \int_a^b f(x) \,dx
+    \pause
     \;=\; \int_0^b x^2  \,dx
   \]
-  \pause
-  Sabemos que a primitiva de $f$ é
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Calculamos a primitiva de $f(x)=x^2$
   \[
     F(x)
-    \;=\; \int x^2  \,dx \pause
-    \;=\; \frac{x^{2+1}}{2+1} + C \pause
+    \;=\; \int x^2 \,dx
+    \pause
+    \;=\; \frac{x^{2+1}}{2+1} + C
+    \pause
     \;=\; \frac{x^3}{3} + C
   \]
-  \pause
-  então, pelo Teorema Fundamental do Cálculo,
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Pelo Teorema Fundamental do Cálculo,
   \[
-    \text{Área}
-    \;=\; F(x) \evalat{0}{b} \pause
-    \;=\; F(b) - F(0)        \pause
+    A
+    \;=\; F(x) \evalat{0}{b}
+    \pause
+    \;=\; F(b) - F(0)
+    \pause
     \;=\; \left[ \frac{b^3}{3} + C \right]
-    -   \left[ \frac{0^3}{3} + C \right] \pause
+      -   \left[ \frac{0^3}{3} + C \right]
+    \pause
     \;=\; \frac{b^3}{3}
   \]
 \end{resolution}

@@ -63,6 +63,25 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
+\begin{frame}{Relação Entre Derivada e Primitiva}
+  \[
+    F(x) = \int f(x)\,dx
+    \qquad \Leftrightarrow \qquad
+    \frac{dF}{dx} = f(x)
+  \]
+
+  \pause
+  \[
+    \frac{d}{dx} \int f(x)\,dx \;=\; f(x)
+  \]
+
+  \pause
+  \[
+    \int \frac{df}{dx} \,dx \;=\; f(x)
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
 \section{Encontrando uma Primitiva}
 
 %------------------------------------------------------------------------------%
@@ -153,17 +172,17 @@ Para os demais valores precisamos de uma nova técnica
   Se \(F(x)\) é uma primitiva de \(f(x)\)
   \[
     \pause
-    \frac{d}{dx}F(ax+b)
+    \frac{d}{dx}\big(F({\color{magenta}a}x+b)\big)
     \pause
-    \;=\; F'(ax+b) \, \frac{d}{dx}(ax+b)
+    \;=\; F'({\color{magenta}a}x+b) \, \frac{d}{dx}({\color{magenta}a}x+b)
     \pause
-    \;=\; f(ax+b) a
+    \;=\; f({\color{magenta}a}x+b) {\color{magenta}a}
   \]
   \[
     \pause
-    \frac{d}{dx}\frac{F(ax+b)}{a}
-    \;=\; f(ax+b)
-    \]
+    \frac{d}{dx}\left(\frac{F({\color{magenta}a}x+b)}{{\color{magenta}a}}\right)
+    \;=\; f({\color{magenta}a}x+b)
+  \]
 
   \pause
   Então
@@ -178,6 +197,8 @@ Para os demais valores precisamos de uma nova técnica
 \input{ex/B-01-Integrais_Indefinidas_ex-3}
 \input{ex/B-01-Integrais_Indefinidas_ex-4}
 \input{ex/B-01-Integrais_Indefinidas_ex-5}
+\input{ex/B-01-Integrais_Indefinidas_ex-6}
+\input{ex/B-01-Integrais_Indefinidas_ex-7}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}

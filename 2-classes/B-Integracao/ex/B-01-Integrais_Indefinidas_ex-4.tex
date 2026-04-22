@@ -2,7 +2,7 @@
 \begin{question}
   Encontre todas as funções $g$, tais que
   \[
-    g'(x) = 4 \sin(x) + \frac{2x^5 - \sqrt{x}}{x}
+    \frac{dg}{dx}(x) = 4 \sin(x) + \frac{2x^5 - \sqrt{x}}{x}
   \]
 \end{question}
 
@@ -12,7 +12,7 @@
 
   \onslide<+->{Reescrevemos $g'$ como}
   \begin{align*}
-    \onslide<+->{g'(x)}
+    \onslide<+->{\frac{dg}{dx}(x)}
     \onslide<+->{& = 4 \sin(x) + \frac{2x^5- \sqrt{x}}{x} \\}
     \onslide<+->{& = 4 \sin(x) + \frac{2x^5}{x}
                    - \frac{x^{\sfrac{1}{2}}}{x} \\}
@@ -24,8 +24,8 @@
 \begin{resolution}{Solução}
   \begin{align*}
     \onslide<+->{g(x)}
-    \onslide<+->{& = \int g'(x) dx \\}
-    \onslide<+->{& = \int 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}} dx \\}
+    \onslide<+->{& = \int \frac{dg}{dx} dx \\}
+    \onslide<+->{& = \int 4 \sin(x) + 2x^4 -x^{-\sfrac{1}{2}}\, dx \\}
     \onslide<+->{& = 4 \int \sin(x) dx
                    + 2 \int x^4 dx
                    - \int x^{-\sfrac{1}{2}} dx \\}

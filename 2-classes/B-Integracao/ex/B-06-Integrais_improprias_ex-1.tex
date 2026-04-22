@@ -5,20 +5,49 @@
 
 %------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
-\begin{align*}
-  \onslide<+->{\int_{{\color<2>{blue}-\infty}}^0 e^x\, dx
-                 & = {\color<2>{blue}\lim_{t\to-\infty}}
-       \left(\int_{{\color<2>{blue} t}}^{0} e^x\, dx \;\right)
-    & & \text{definição integral imprópria}                       \\}
-  \onslide<+->{
-    & = \lim_{t\to-\infty}
-    \left(e^x \,\evalat{t}{0} \;\right) \\[2mm]}
-  \onslide<+->{
-    & = \lim_{t\to-\infty} \left( e^0 - e^t \right) \\[2mm]}
-  \onslide<+->{
-    & = \lim_{t\to-\infty} 1 - \lim_{t\to-\infty}e^t \\[2mm]}
-  \onslide<+->{& = 1}
-\end{align*}
+Como o intervalo é infinito precisamos explicitar o limite
+\[
+  \pause
+  A
+  = \int_{{\color<3>{blue}-\infty}}^0 e^x\, dx
+  \pause
+  = {\color<3>{blue}\lim_{t\to-\infty}}
+    \left(\int_{{\color<3>{blue} t}}^{0} e^x\, dx \;\right)
+\]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Primitiva}
+  Primeiro vamos calcular a primitiva
+  \[
+    \pause
+    F(x)
+    \pause
+    \;=\; \int e^x\, dx
+    \pause
+    \;=\; e^x + c
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Integral definida}
+  \begin{align*}
+    \onslide<+->{I(t) & = \int_t^0 e^x\, dx  \\[1mm]}
+    \onslide<+->{     & = F(x)\evalat{t}{0}  \\[1mm]}
+    \onslide<+->{     & = e^x \evalat{t}{0}  \\[1mm]}
+    \onslide<+->{     & = e^0 - e^t          \\[1mm]}
+    \onslide<+->{     & = 1 - e^t                   }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Calculando o limite}
+  \begin{align*}
+    \onslide<+->{A & = \lim_{t\to-\infty} I(t)                       \\[1mm]}
+    \onslide<+->{  & = \lim_{t\to-\infty} \left(1 - e^t \right)      \\[1mm]}
+    \onslide<+->{  & = \lim_{t\to-\infty} 1 - \lim_{t\to-\infty}e^t  \\[1mm]}
+    \onslide<+->{  & = 1}
+  \end{align*}
 \end{resolution}
 
 %------------------------------------------------------------------------------%

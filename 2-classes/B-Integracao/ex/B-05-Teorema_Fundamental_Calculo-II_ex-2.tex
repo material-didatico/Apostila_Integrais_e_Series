@@ -9,23 +9,36 @@
 
   \pause
   \bigskip
-  Uma primitiva de $f$ é $F(x)=\ln\abs{x}$
+  podemos usar o Teorema Fundamental do Cálculo
+\end{resolution}
 
-  \pause
-  \bigskip
+%------------------------------------------------------------------------------%
+\begin{resolution}{Primitiva}
+  \onslide<+->{Calculando uma primitiva de $f$ }
+  \begin{align*}
+    \onslide<+->{F(x)}
+    \onslide<+->{& = \int f(x) dx        \\[2mm]}
+    \onslide<+->{& = \int \frac{1}{x} dx \\[2mm]}
+    \onslide<+->{& = \ln\abs{x} + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
   Pelo Teorema Fundamental do Cálculo
   \[
+    \pause
     \int_3^6 \frac{dx}{x}
     \pause
-    = \ln\abs{x} \;\evalat{1}{3}
+    \;=\; \ln\abs{x} \;\evalat{1}{3}
     \pause
-    = \ln(6) - \ln(3)
+    \;=\; \ln(6) - \ln(3)
     \pause
-    = \ln\left(\frac{6}{3}\right)
+    \;=\; \ln\left(\frac{6}{3}\right)
     \pause
-    = \ln(2)
+    \;=\; \ln(2)
     \pause
-    \approx 0.693
+    {\color{gray}\;\approx\; 0.693}
   \]
 \end{resolution}
 

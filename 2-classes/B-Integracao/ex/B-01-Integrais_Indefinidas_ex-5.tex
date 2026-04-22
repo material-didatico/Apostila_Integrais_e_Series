@@ -2,11 +2,12 @@
 \begin{question}
   Encontre $f$ tal que
   \[
-    f'(x) = e^x + 20\left(1+x^2\right)^{-1}
+    \frac{df}{dx}(x) = e^x + 20\left(1+x^2\right)^{-1}
   \]
   e \(f(0)=-2\)
 \end{question}
 
+%------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
   Primeiro vamos encontrar a família de funções $f$ que são primitivas de $f'$
 
@@ -15,10 +16,11 @@
   Depois usamos a condição \(f(0)=-2\) para encontrar a primitiva solicitada
 \end{resolution}
 
+%------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
   \onslide<+->{Primitiva mais geral}
   \begin{align*}
-    \onslide<+->{f(x) & = \int f'(x) dx \\}
+    \onslide<+->{f(x) & = \int \frac{df}{dx}(x) dx \\}
     \onslide<+->{& = \int e^x+20\left(1+x^2\right)^{-1} dx \\}
     \onslide<+->{& = \int e^x + 20\frac{1}{1+x^2} dx  \\}
     \onslide<+->{& = \int e^x dx + 20\int \frac{1}{1+x^2} dx  \\}
@@ -26,6 +28,7 @@
   \end{align*}
 \end{resolution}
 
+%------------------------------------------------------------------------------%
 \begin{resolution}{Solução}
   \onslide<+->{Vamos determinar o valor de $C$ usando $f(0)=-2$}
   \begin{align*}

@@ -56,87 +56,10 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Exemplo: área sob o gráfico de $x^2$ entre 0 e $b$}
-  \centering
-  \bigskip
-  \input{fig_area_x2}
-\end{frame}
+\input{ex/B-02-Integrais_Definidas_ex-1}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Aproximando a área sob o gráfico}
-  \centering
-  \bigskip
-  \input{fig_area_x2_retangulos}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Aproximando a área sob o gráfico}
-Partição do intervalo $[0, b]$ em $n$ subintervalos iguais
-\[
-  0 \;=\; x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n \;=\; b
-\]
-\pause
-Tamanho de cada subintervalo
-\[
-  \Delta x
-  \pause
-  \;=\; x_{i+1} - x_i
-  \pause
-  \;=\; \frac{b}{n}
-\]
-\pause
-Valor de $x_i$
-\[
-  x_i
-  \pause
-  \;=\; i \Delta x
-  \pause
-  \;=\; i\frac{b}{n}
-\]
-\pause
-Área de cada retângulo
-\[
-  A_i
-  \pause
-  \;=\; f(x_i) \Delta x
-  \pause
-  \;=\; x_i^2 \Delta x
-  \pause
-  \;=\; \left(i\frac{b}{n}\right)^2 \frac{b}{n}
-  \pause
-  \;=\; \frac{b^3}{n^3}i^2
-\]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Somando os Retângulos}
-\begin{align*}
-  \onslide<+->{S_n}
-  \onslide<+->{& = \sum_{i=1}^n A_i }
-  \onslide<+->{\;=\; \sum_{i=1}^n \frac{b^3}{n^3}i^2                     }
-  \onslide<+->{\;=\; \frac{b^3}{n^3} \sum_{i=1}^n i^2             \\[2mm]}
-  \onslide<+->{& = \frac{b^3}{n^3} \; \frac{n(n+1)(2n+1)}{6}      \\[2mm]}
-  \onslide<+->{& = \frac{b^3}{n^3} \; \frac{2n^3+3n^2+n}{6}       \\[2mm]}
-  \onslide<+->{& = \frac{b^3}{6} \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) }
-\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Calculando pelo limite}
-  \begin{align*}
-    \onslide<+->{A}
-    \onslide<+->{& = \lim_{n\to\infty} S_n                      \\[2mm]}
-    \onslide<+->{& = \lim_{n\to\infty}
-                     \frac{b^3}{6}
-                     \left( 2+\frac{3}{n}+\frac{1}{n^2} \right) \\[2mm]}
-    \onslide<+->{& = \frac{b^3}{6}
-                     \left( 2 + 3 \lim_{n\to\infty} \frac{1}{n}
-                              +   \lim_{n\to\infty} \frac{1}{n^2}
-                     \right) \\[2mm]}
-    \onslide<+->{& = \frac{b^3}{6} (2 + 0 + 0 ) \\[2mm]}
-    \onslide<+->{& = \frac{b^3}{3}}
-  \end{align*}
-\end{frame}
+\section{Soma de Riemman}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área entre o gráfico de $f$ e o eixo $x$ no intervalo $[a, b]$}
@@ -162,12 +85,11 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \begin{frame}{Aproximação por retângulos}
 \begin{align*}
-  \onslide<+->{\Delta x & = \frac{b-a}{n} \\[2mm]}
-  \onslide<+->{x_i & = a + i\Delta x \\[3mm]}
-  \onslide<+->{A_i & = f(x_i)\Delta x \\[8mm]}
-  \onslide<+->{S_n & = A_1+A_2+A_3+\cdots+ A_n \\[2mm]}
-  \onslide<+->{    & = f(x_1)\Delta x+ f(x_2) \Delta x+ f(x_3) \Delta x + \cdots + f(x_n)\Delta x\\}
-  \onslide<+->{    & = \sum_{i=1}^n f(x_i)\Delta x}
+  \onslide<+->{\Delta x & = \frac{b-a}{n}      \\[2mm]}
+  \onslide<+->{x_k & = a + k\Delta x           \\[3mm]}
+  \onslide<+->{A_k & = f(x_k)\Delta x          \\[6mm]}
+  \onslide<+->{S_n & =   \sum_{k=1}^n  A_k }
+  \onslide<+->{    \;=\; \sum_{k=1}^n f(x_k)\Delta x}
 \end{align*}
 \end{frame}
 
@@ -214,68 +136,67 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \begin{frame}{Sentido de integração}
   \large
-  \[
+  \(
     \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{b}} f(x)\,dx
     = \textcolor{red}{-}
     \int^{\textcolor{blue}{a}}_{\textcolor{magenta}{b}} f(x)\,dx
-  \]
+  \)
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Intervalo de comprimento nulo}
   \large
-  \[
-    \int_{\textcolor{blue}{a}}^{\textcolor{blue}{a}} f(x)dx
+  \(
+    \int_{\textcolor{blue}{a}}^{\textcolor{blue}{a}\vphantom{b}} f(x)dx
     = \textcolor{blue}{0}
-  \]
+  \)
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Área de um retângulo}{}
-  {\large
-  \[
+  \large
+  \(
     \int_{a}^b {\color{blue}c}\,dx = {\color{blue}c}(b-a)
-  \]}
-
-  Para {\color{blue}$c$} constante
+  \)
+  \qquad\qquad
+  para {\color{blue}$c$} constante
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Soma e subtração de funções}
   \large
-  \[
+  \(
     \int_{a}^b f(x) \;\memph{+}\; g(x)\, dx =
     \int_{a}^b f(x)\,dx \;\memph{+}\,
     \int_{a}^b g(x)\,dx
-  \]
-  ~
-  \[
+  \)
+  \\[7mm]
+  \(
     \int_{a}^b f(x) \;\memph{-}\; g(x)\, dx =
     \int_{a}^b f(x)\,dx \;\memph{-}\,
     \int_{a}^b g(x)\,dx
-  \]
+  \)
 \end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Multiplicação de função por constante}{}
-  {\large
-  \[
-    \int_{a}^b \textcolor{blue}{c}\,f(x)\,dx
-    = \textcolor{blue}{c} \int_{a}^b f(x)\,dx
-  \]}
-  ~
-
-  Para \textcolor{blue}{$c$} constante
+  \large
+  \(
+        \int_{a}^b \textcolor{blue}{c}\,f(x)\,dx
+      = \textcolor{blue}{c} \int_{a}^b f(x)\,dx
+  \)
+  \qquad\qquad
+  para \textcolor{blue}{$c$} constante
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Separando o intervalo em dois}
+\begin{frame}{Separando o intervalo em dois}{}
   \large
-  \[
+  \(
     \int_{\textcolor{blue}{a}}^{\textcolor{blue}{b}} f(x)\,dx
     = \int_{\textcolor{blue}{a}}^{\textcolor{magenta}{c}} f(x)\,dx
     + \int_{\textcolor{magenta}{c}}^{\textcolor{blue}{b}} f(x)\,dx
-  \]
+  \)
 \end{frame}
 
 %------------------------------------------------------------------------------%
@@ -311,10 +232,10 @@ Valor de $x_i$
 %------------------------------------------------------------------------------%
 \section{Exemplos}
 
-\input{ex/B-02-Integrais_Definidas_ex-1}
 \input{ex/B-02-Integrais_Definidas_ex-2}
 \input{ex/B-02-Integrais_Definidas_ex-3}
 \input{ex/B-02-Integrais_Definidas_ex-4}
+\input{ex/B-02-Integrais_Definidas_ex-5}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}
