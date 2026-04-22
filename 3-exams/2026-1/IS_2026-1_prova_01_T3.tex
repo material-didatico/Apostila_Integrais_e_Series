@@ -1,0 +1,232 @@
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{integracao_series}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integração e Séries}{Prova 1 -- Turma 3}{01/04/2026}
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{40\%}
+Calcule as integrais
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=0pt]
+  \item\!\! [20\%] \(\int a(3x-1)^4 - \frac{1}{cx} + \sqrt{x} + 7 \, dx\)
+  \item\!\! [20\%] \(\int_0^x x\sin(\pi t) \, dt \)
+\end{enumerate}
+
+\clearpagequestiononly
+
+\begin{answer}
+\textbf{a)} \quad
+  Esta é uma integral indefinida, isto é, ela é a função que quando derivada
+  retorna o integrando
+  \begin{align*}
+    F(x)
+    & = \int a(3x-1)^4 - \frac{1}{cx} + \sqrt{x} + 7 \, dx
+    \\[2mm]
+    & = a\int (3x-1)^4 \, dx
+      - \frac{1}{c}\int \frac{1}{x} \, dx
+      + \int \sqrt{x} \, dx
+      + 7 \int dx
+    \\[2mm]
+    & = a\int (3x-1)^4 \, dx
+      - \frac{1}{c}\int x^{-1} \, dx
+      + \int x^{\sfrac{1}{2}} \, dx
+      + 7\int x^0 \, dx
+    \\[2mm]
+    & = a\frac{(3x-1)^{4+1}}{3(4+1)}
+      - \frac{1}{c}\ln\abs{x}
+      + \frac{x^{\sfrac{1}{2}+1}}{\sfrac{1}{2}+1}
+      + 7\frac{x^{0+1}}{0+1} + k
+      \\[2mm]
+    & = \frac{a}{15} (3x-1)^5
+      - \frac{1}{c}\ln\abs{x}
+      + \frac{x^{\sfrac{3}{2}}}{\sfrac{3}{2}}
+      + 7x + k
+      \\[2mm]
+    & = \frac{a}{15} (3x-1)^5
+      - \frac{1}{c}\ln\abs{x}
+      + \frac{2x^{\sfrac{3}{2}}}{3}
+      + 7x + k
+  \end{align*}
+
+\begin{multicols}{2}
+\textbf{b)} \quad
+  Esta é uma integral definida então ela é um número real.
+  Como vamos usar o Teorema Fundamental do Cálculo para avaliar a integral
+  precisamos encontrar a primitiva primeiro.
+
+  \textbf{Atenção:} note que a integral é em $t$, portanto $x$ é uma \textbf{constante}!
+  \begin{align*}
+    F(t)
+    & = \int x\sin(\pi t) \, dt \\[2mm]
+    & = x \int \sin(\pi t) \, dt \\[2mm]
+    & = x \left(\frac{-\cos(\pi t)}{\pi}\right) + c \\[2mm]
+    & = -\frac{x}{\pi} \cos(\pi t) + c
+  \end{align*}
+  Avaliando a integral definida
+  \begin{align*}
+    A
+    & = \int_0^x x\sin(\pi t) \, dt \\[2mm]
+    & = F(t) \evalat{0}{x}
+    \;=\; F(x) - F(0) \\[2mm]
+    & = \left(-\frac{x}{\pi} \cos(\pi t) + c\right) \evalat{0}{x}  \\[2mm]
+    & = \left(-\frac{x}{\pi} \cos(\pi x) + c\right)
+      - \left(-\frac{x}{\pi} \cos(\pi 0) + c\right)   \\[2mm]
+    & = -\frac{x}{\pi} \cos(\pi x)
+      +  \frac{x}{\pi}  \\[2mm]
+    & = \frac{x}{\pi} \left(1 - \cos(\pi x)\right)
+  \end{align*}
+\end{multicols}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{30\%}
+Calcule a área entre as curvas
+\(
+  y = x^2
+\)
+e
+\(
+  y = 8\sqrt{x}
+\)
+
+\clearpagequestiononly
+
+\begin{answer}
+\begin{multicols}{2}
+\centerline{\includegraphics{T3_A_area}}
+
+Intersecção entre as curvas
+\begin{align*}
+  x^2                     & = 8\sqrt{x}                \\
+  x^4                     & = \left(8\sqrt{x}\right)^2 \\
+  x^4                     & = 8^2 x                    \\
+  x^4 - 8^2 x             & = 0                        \\
+  x\left(x^3 - 8^2\right) & = 0
+\end{align*}
+portanto $x=0$ ou
+\begin{align*}
+  x^3 - 8^2 & = 0                   \\
+  x^3       & = 8^2 = 2^{3\times 2} \\
+  x         & = 2^2 = 4
+\end{align*}
+Assim as intersecções ocorrem em $x=0$ e $x=4$
+
+Como no intervalo $[0, 4]$
+ambas as funções são contínuas e
+$x^2 \leq 8\sqrt{x}$
+a área é dada pela integral
+\[
+  A = \int_0^4 8\sqrt{x} - x^2 \; dx
+\]
+Calculando a primitiva
+\begin{align*}
+  F(x)
+  & = \int 8\sqrt{x} - x^2 \; dx \\
+  & = 8 \int x^{\sfrac{1}{2}} \, dx  - \int x^2 \, dx  \\
+  & = 8 \frac{x^{\sfrac{1}{2}+1}}{\sfrac{1}{2}+1}  - \frac{x^{2+1}}{2+1} + c \\
+  & = 8 \frac{x^{\sfrac{3}{2}}}{\sfrac{3}{2}}  - \frac{x^3}{3} + c \\
+  & = 16 \frac{x^{\sfrac{3}{2}}}{3}  - \frac{x^3}{3} + c \\
+  & = \frac{16 x^{\sfrac{3}{2}} - x^3 }{3} + c
+\end{align*}
+Aplicando o Teorema Fundamental do Cálculo, podemos calcular a área
+\begin{align*}
+    A
+    & = \int_0^4 8\sqrt{x} - x^2 \; dx \\
+    & = F(x) \evalat{0}{4} \\
+    & F(4) - F(0) \\
+    & = \left(\frac{16 \times 4^{\sfrac{3}{2}} - 4^3 }{3}\right) -
+        \left(\frac{16 \times 0^{\sfrac{3}{2}} - 0^3 }{3}\right)  \\
+    & = \frac{16 \times 8 - 64}{3}  \\
+    & = \frac{128 - 64}{3}  \\
+    & = \frac{64}{3}
+\end{align*}
+\end{multicols}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{30\%}
+Considere a região do plano, $R$, entre as curvas
+\(
+  y = x(x-2)
+\)
+e
+\(
+  y = 0
+\).
+Escreva formulas integrais para os sólidos de revolução construídos:
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=0pt]
+  \item\!\! [15\%] pela rotação da região $R$ em torno do eixo $y$
+  \item\!\! [15\%] pela rotação da região $R$ em torno do eixo $x$
+\end{enumerate}
+
+\begin{answer}
+\begin{multicols}{2}
+  \centerline{\includegraphics{T3_A_volume}}
+
+  A intersecção entre as curvas ocorre quando
+  \[
+    x(x-2) = 0
+  \]
+  ou seja, quando $x=0$ e $x=2$.
+  Assim os intervalos de integração serão
+  \[
+    a = 0
+    \qquad\text{e}\qquad
+    b = 2
+  \]
+
+  No intervalo $[0, 2]$ as funções são contínuas e
+  \[
+    x(x-2) \leq 0
+  \]
+  portanto a ``altura'' entre as curvas é
+  \[
+    g(x) = 0 - x(x-2) = 2x - x^2
+  \]
+
+\textbf{a)} \quad
+  Para calcularmos o volume do sólido de revolução criado pela rotação em
+  torno do eixo $y$ usamos cascas cilíndricas.
+  Neste caso o raio e a altura da casca cilíndrica são
+  \[
+    r(x) = x
+    \qquad
+    h(x) = g(x) = 2x - x^2
+  \]
+  Portanto o volume é
+  \begin{align*}
+    V
+    & = \int_a^b 2\pi r(x) h(x)\, dx \\
+    & = \int_0^2 2\pi x\left(2x-x^2\right) \, dx \\
+    & = 2\pi \int_0^2 2x^2 - x^3 \, dx
+  \end{align*}
+
+\textbf{b)} \quad
+  Para calcularmos o volume do sólido de revolução criado pela rotação em
+  torno do eixo $x$ usamos seções transversais.
+  A área da seção transversão é
+  \[
+    A(x) = \pi r^2(x) = \pi g^2(x) = \pi\left(2x-x^2\right)^2
+  \]
+  Assim o volume é dado por
+  \begin{align*}
+    V
+    & = \int_a^b A(x) \, dx \\
+    & = \int_0^2 \pi \left(2x-x^2\right)^2 \, dx \\
+    & = \pi \int_0^2  \left(2x-x^2\right)^2 \, dx
+  \end{align*}
+\end{multicols}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
