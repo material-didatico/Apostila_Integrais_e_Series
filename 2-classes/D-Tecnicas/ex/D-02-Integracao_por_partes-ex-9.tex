@@ -1,0 +1,101 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Considere a região do primeiro quadrante delimitada por
+  \[
+    f(x) = x \sin(x)
+    \qquad\qquad
+    0 \leq x \leq \pi
+  \]
+
+  \bigskip
+  Encontre o volume do sólido de revolução gerado pela \\
+  rotação dessa região em torno do eixo $y$
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Volume rotação no eixo $y$}
+  Método de cascas cilíndricas
+  \[
+    V = \int_a^b 2\pi \, r(x) \, h(x) \, dx
+  \]
+
+
+  \pause
+  Raio   \tabto{20mm} \(r(x)=x\)
+
+  \pause
+  Altura \tabto{20mm} \(h(x) = f(x)\)
+
+  \pause
+  Região \tabto{20mm} \(a = 0\) até \(b = \pi\)
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Volume rotação no eixo $y$}
+\begin{align*}
+  \onslide<+->{V & = \int_a^b 2\pi r(x) h(x) \, dx                    }\\[2mm]
+  \onslide<+->{  & = \int_{0}^{\pi} 2\pi \, x \, x \sin(x) \, dx  }\\[2mm]
+  \onslide<+->{  & = 2\pi \int_{0}^{\pi} x^2 \sin(x) \, dx            }\\[2mm]
+  \onslide<+->{  & = 2\pi \, F(x) \evalat{0}{\pi}                     }
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Volume rotação no eixo $y$}
+  \onslide<+->{\[
+    F(x) = \int x^2 \sin(x) \, dx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = x^2  & dv & =  \sin(x) dx & \hspace{3cm}~ }\\
+    \onslide<+->{du & = 2xdx & v  & = -\cos(x)                    }
+  \end{align*}
+  \begin{align*}
+    \onslide<+->{F(x)  & = -x^2 \cos(x) + 2 \int x \cos(x) \, dx }\\
+    \onslide<+->{      & = -x^2 \cos(x) + 2 \, G(x)              }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Volume rotação no eixo $y$}
+  \onslide<+->{\[
+    G(x) = \int x \cos(x) \, dx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = x  & dv & = \cos(x) dx & \hspace{3cm}~ }\\
+    \onslide<+->{du & = dx & v  & = \sin(x)                    }
+  \end{align*}
+  \begin{align*}
+    \onslide<+->{G(x) & = x \sin(x) - \int \sin(x) \, dx }\\
+    \onslide<+->{     & = x \sin(x) + \cos(x) + c        }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Volume rotação no eixo $y$}
+  \begin{align*}
+    \onslide<+->{F(x) & = -x^2 \cos(x) + 2 \, G(x)                                }\\[2mm]
+    \onslide<+->{     & = -x^2 \cos(x) + 2 \left( x \sin(x) + \cos(x) + c \right) }\\[2mm]
+    \onslide<+->{     & = -x^2 \cos(x) + 2x \sin(x) + 2\cos(x) + c                }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{V & = 2\pi \, F(x) \evalat{0}{\pi}                                    }\\
+    \onslide<+->{  & = 2\pi \left(
+                              -x^2 \cos(x) + 2x \sin(x) + 2 \cos(x)
+                            \right) \evalat{0}{\pi} }\\
+    \onslide<+->{  & = 2\pi \Big[
+                              \big(-\pi^2 \cos(\pi) +2\pi \sin(\pi) +2\cos(\pi) \big)
+                            - \big(0 + 0 + 2 \cos(0)\big)
+                            \Big]                                                      }\\
+    \onslide<+->{ & = 2\pi \Big[ \left( \pi^2 + 0 - 2 \right) - 2 \Big]                }\\
+    \onslide<+->{ & = 2\pi \left( \pi^2 - 4 \right)                                    }\\
+    \onslide<+->{ & = 2\pi^3 - 8\pi                                                    }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

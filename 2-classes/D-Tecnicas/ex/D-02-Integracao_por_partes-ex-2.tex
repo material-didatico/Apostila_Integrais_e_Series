@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral
+  \(
+    \int t \ln t \, dt
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Queremos calcular \;
+  \(
+    R(t) = \int t \ln t \, dt
+  \)}
+
+  \onslide<+->{usamos \;
+  \(
+    \int u dv \;=\;u v \;-\; \int v du
+  \)}
+  \begin{align*}
+    \onslide<+->{u  & = \ln t           & dv & = t dt & \hspace{3cm}~ \\}
+    \onslide<+->{du & = \frac{1}{t}\,dt & v  & = \frac{t^2}{2}}
+  \end{align*}
+  \onslide<+->{temos \;
+  \(
+    R(t)
+    \;=\; \ln(t) \frac{t^2}{2}
+    \;-\; \int \frac{t^2}{2} \frac{1}{t}\,dt
+  \)}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{R(t)   = \int t \ln t \, dt                                        \;}
+    \onslide<+->{     & = \ln(t) \frac{t^2}{2} - \int \frac{t^2}{2} \frac{1}{t}\,dt \\}
+    \onslide<+->{     & =  \frac{t^2}{2} \ln(t) - \frac{1}{2} \int t dt             \\}
+    \onslide<+->{     & =  \frac{t^2}{2} \ln(t) - \frac{1}{2} \frac{t^2}{2} + k     \\}
+    \onslide<+->{     & =  \frac{t^2}{2} \left(\ln(t) - \frac{1}{2}\right) + k      \\}
+    \onslide<+->{     & =  \frac{t^2}{2} \ln\left(\frac{t}{\sqrt{e}}\right) + k                              }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

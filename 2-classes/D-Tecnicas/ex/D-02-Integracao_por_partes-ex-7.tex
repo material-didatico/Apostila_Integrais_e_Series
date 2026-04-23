@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral
+  \(
+    \int_0^1 \frac{y}{\,e^{2y}\,} dy
+  \)
+\end{question}
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Primeiro precisamos encontrar a primitiva}
+  \[
+    \onslide<+->{F(x) \;=\; \int \frac{y}{\,e^{2y}\,} dy}
+    \onslide<+->{     \;=\; \int y \,e^{-2y}\, dy}
+  \]
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = y  & dv & = e^{-2y} dy & \hspace{3cm}~ }\\
+    \onslide<+->{du & = dy &}
+    \onslide<+->{v & = \int e^{-2y} dy}
+    \onslide<+->{    = -\frac{e^{-2y}}{2}}
+  \end{align*}
+  \onslide<+->{\[
+    F(x)
+    \;=\; -\frac{ye^{-2y}}{2}- \int -\frac{e^{-2y}}{2} dy
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{F(x) & = -\frac{y}{2}e^{-2y} - \int -\frac{e^{-2y}}{2} dy         }\\[1mm]
+  \onslide<+->{     & = -\frac{y}{2}e^{-2y} + \frac{1}{2} \int e^{-2y} dy        }\\[1mm]
+  \onslide<+->{     & = -\frac{y}{2}e^{-2y} + \frac{1}{2} \frac{e^{-2y}}{-2} + c }\\[1mm]
+  \onslide<+->{     & = -\frac{y}{2}e^{-2y} - \frac{1}{4} e^{-2y} + c            }
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Usando o Teorema Fundamental do Cálculo}
+  \begin{align*}
+    \onslide<+->{\int_0^1 \frac{y}{\,e^{2y}\,} dy}
+    \onslide<+->{& = F(x) \evalat{0}{1}                                                                }\\[1mm]
+    \onslide<+->{& = \left( -\frac{y}{2}e^{-2y} - \frac{1}{4} e^{-2y} \right) \evalat{0}{1}            }\\[1mm]
+    \onslide<+->{& = \left( -\frac{1}{2}e^{-2}- \frac{1}{4}e^{-2}\right)- \left(0- \frac{1}{4} \right) }\\[1mm]
+    \onslide<+->{& = -\frac{3}{4}e^{-2} + \frac{1}{4} }
+    \onslide<+->{\;=\; \frac{1-3e^{-2}}{4}            }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

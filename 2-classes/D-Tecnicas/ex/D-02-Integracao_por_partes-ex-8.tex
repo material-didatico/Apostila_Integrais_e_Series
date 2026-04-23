@@ -1,0 +1,48 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Considere a região do primeiro quadrante delimitada por
+  \[
+    f(x) = x \sin(x)
+    \qquad\qquad
+    0 \leq x \leq \pi
+  \]
+
+  \bigskip
+  Encontre a área dessa região
+\end{question}
+
+\framedgraphic{Gráfico da função $f(x)=x \sin(x)$}{ex_area_x_sinx}{}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Cálculo da Área}
+  Área
+  \[
+    A
+    = \int_a^b f(x) - g(x) \,dx
+    \pause
+    = \int_0^{\pi} x\sin(x)\,dx
+  \]
+  \pause
+  Precisamos da primitiva
+  \[
+    F(x)
+    \;=\; \int x\sin(x)dx
+    \pause
+    \;=\; -x \cos(x) + \sin(x) + c
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Cálculo da Área}
+  \begin{align*}
+    \onslide<+->{A & = F(x)                             \evalat{0}{\pi} \\[1mm]}
+    \onslide<+->{  & = \big( -x \cos(x) + \sin(x) \big) \evalat{0}{\pi} \\[1mm]}
+    \onslide<+->{  & = \big(-\pi\cos(\pi) + \sin(\pi)\big)
+                     - \big(-  0\cos(0)   + \sin(0)\big)                \\[1mm]}
+    \onslide<+->{  & = \big(-\pi(-1) + 0\big)
+                     - \big(-  0   + 0\big)                             \\[1mm]}
+    \onslide<+->{  & = \pi}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

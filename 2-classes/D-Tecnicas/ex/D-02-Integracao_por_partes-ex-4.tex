@@ -1,0 +1,30 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \int \ln(x) dx
+  \)
+  \pause
+  \(
+    = \int \ln(x) \cdot 1 \; dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{\[
+    F(x) = \int \ln(x) dx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = \ln(x)        & dv & = 1 dx  & \hspace{4cm}~ }\\
+    \onslide<+->{du & = \frac{1}{x}dx & v  & = x                     }
+  \end{align*}
+  \begin{align*}
+    \onslide<+->{F(x) & = x \ln(x) - \int x\, \frac{1}{x}\,dx}\\
+    \onslide<+->{     & = x \ln(x) - \int dx                 }\\
+    \onslide<+->{     & = x \ln(x) - x + c                   }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

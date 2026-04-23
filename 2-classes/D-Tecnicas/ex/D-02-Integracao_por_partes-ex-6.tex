@@ -1,0 +1,66 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral
+  \(
+    \int e^x \sin(x) dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{\[
+    F(x) = \int e^x \sin(x) dx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = e^x   & dv & = \sin(x) dx & \hspace{3cm}~ }\\
+    \onslide<+->{du & = e^xdx & v  & = -\cos(x) }
+  \end{align*}
+  \onslide<+->{\[
+    F(x) = -e^x \cos(x)+ \int e^x \cos(x)dx
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Andando em Círculos}
+  \onslide<+->{\[
+    G(x) = \int e^x \cos(x) dx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = e^x   & dv & = \cos(x) dx & \hspace{3cm}~ }\\
+    \onslide<+->{du & = e^xdx & v  & = \sin(x) }
+  \end{align*}
+  \onslide<+->{\[
+    G(x) = e^x \sin(x) - \int e^x \sin(x) dx
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{
+      F(x) = \int e^x \sin(x) dx
+      &    = -    e^x \cos(x) + \int e^x \cos(x) dx }\\
+    \onslide<+->{
+      G(x) = \int e^x \cos(x) dx
+      &    = \hpm {\color<3>{blue}e^x \sin(x) - \int e^x \sin(x) dx} }
+  \end{align*}
+  \begin{align*}
+     \onslide<+->{
+      F(x) =
+      \int e^x \sin(x) dx
+      & \;=\; -e^x \cos(x) + {\color<3>{blue}e^x \sin(x) - \int e^x \sin(x) dx}
+    }\\
+    \onslide<+->{
+      2\int e^x \sin(x) dx
+      & \;=\; -e^x \cos(x)+ e^x \sin(x)
+    }\\
+    \onslide<+->{
+      \int e^x \sin(x) dx
+      & \;=\; \frac{e^x}{2}\big(\sin(x) -\cos(x)\big) + c
+    }
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

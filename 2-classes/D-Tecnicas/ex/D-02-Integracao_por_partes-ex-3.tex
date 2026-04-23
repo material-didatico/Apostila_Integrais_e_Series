@@ -1,0 +1,29 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral
+  \(
+    \int x e^x \, dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{
+  \[
+    F(x) = \int x e^x \, dx
+  \]}
+  \vspace{-1.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = x  & dv & = e^x\,dx & \hspace{5cm}~\\}
+    \onslide<+->{du & = dx & v  & = e^x}
+  \end{align*}
+  \vspace{-1.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{F(x) & = xe^x - \int e^x dx      }\\[1mm]
+    \onslide<+->{     & = xe^x - e^x + c          }\\[1mm]
+    \onslide<+->{     & = e^x(x -1) + c           }
+  \end{align*}
+
+\end{resolution}
+
+%------------------------------------------------------------------------------%

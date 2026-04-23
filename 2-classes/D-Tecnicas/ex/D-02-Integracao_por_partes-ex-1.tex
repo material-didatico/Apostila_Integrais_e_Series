@@ -1,0 +1,46 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule a integral
+  \(
+    \int x \sin(x)\,dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Queremos calcular \;
+  \(
+    H(x) = \int x \sin(x)\,dx
+  \)}
+
+  \onslide<+->{usamos \;
+  \(
+    \int {\color{blue}u}{\color{magenta}dv}
+    \;=\;
+    {\color{blue}u}{\color{magenta}v}
+    \;-\;
+    \int {\color{magenta}v} {\color{blue}du}
+  \)}
+  \begin{align*}
+    \onslide<+->{{\color{blue}u}  & =  x & {\color{magenta}dv} & = \sin(x) dx & \hspace{1cm}~ \\}
+    \onslide<+->{{\color{blue}du} & = dx & {\color{magenta}v}  & = \int \sin(x) dx = -\cos(x)}
+  \end{align*}
+  \onslide<+->{temos
+  \[
+    H(x)
+    \;=\; {\color{blue}x} \, \big({\color{magenta}-\cos(x)}\big)
+    \;-\; \int \big({\color{magenta}-\cos(x)}\big) {\color{blue}dx}
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{H(x) & = \int x\sin(x)dx                                \\}
+    \onslide<+->{     & = x\big(-\cos(x)\big)- \int \big(-\cos(x)\big)dx \\}
+    \onslide<+->{     & = -x \cos(x) + \int \cos(x) dx                   \\[1mm]}
+    \onslide<+->{     & = -x \cos(x) + \sin(x) + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

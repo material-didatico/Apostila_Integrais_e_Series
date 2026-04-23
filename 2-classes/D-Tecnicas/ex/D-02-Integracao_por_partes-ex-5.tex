@@ -1,0 +1,50 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \int t^2 e^t dt
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{\[
+    F(t) = \int t^2 e^t dt
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = t^2  & dv & = e^t dt & \hspace{5cm}~ \\}
+    \onslide<+->{du & = 2tdt & v  & = e^t}
+  \end{align*}
+  \onslide<+->{\[
+    F(t)  = t^2 e^t - 2 \int t e^t\, dt
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{\[
+    G(t) = \int t e^t\, dt
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{u  & = t  & dv & = e^t dt & \hspace{5cm}~ \\}
+    \onslide<+->{du & = dt & v  & = e^t}
+  \end{align*}
+  \begin{align*}
+    \onslide<+->{G(t) & = t e^t - \int e^t dt  \\}
+    \onslide<+->{     & = t e^t - e^t + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{F(t) & = t^2 e^t - G(t)                           \\[1mm]}
+    \onslide<+->{     & = t^2 e^t - 2\left( te^t - e^t + c \right) \\[1mm]}
+    \onslide<+->{     & = t^2 e^t - 2te^t + 2e^t - c               \\[1mm]}
+    \onslide<+->{     & = \left(t^2 - 2t + 2\right)e^t + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
