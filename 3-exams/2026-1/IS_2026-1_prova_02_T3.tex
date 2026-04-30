@@ -1,0 +1,254 @@
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{integracao_series}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integração e Séries}{Prova 2 -- Turma 3}{27/04/2026}
+
+~\\[2mm]
+Calcule as integrais solicitadas, apresentando todos os passos necessários.
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{25\%}
+\(
+  \int \sqrt{9 - x^2}\, dx
+\)
+
+\begin{answer}
+\begin{multicols}{2}
+  Utilizamos a substituição trigonométrica
+  \[
+    x = 3\sin\theta
+    \qquad \qquad
+    dx = 3\cos\theta\, d\theta
+  \]
+  temos
+  \[
+    \sqrt{9 - x^2}
+    = \sqrt{9 - 9\sin^2\theta}
+    = 3\cos\theta
+  \]
+  Substituindo na integral
+  \begin{align*}
+    F
+    & = \int \sqrt{9 - x^2}\, dx                        \\[2mm]
+    & = \int (3\cos\theta)(3\cos\theta)\, d\theta       \\[2mm]
+    & = 9 \int \cos^2\theta\, d\theta
+  \end{align*}
+  Usamos a identidade
+  \[
+    \cos^2\theta = \frac{1 + \cos(2\theta)}{2}
+  \]
+  temos
+  \begin{align*}
+    F
+    & = \frac{9}{2} \int 1 + \cos 2\theta\, d\theta   \\[2mm]
+    & = \frac{9}{2} \left(\theta + \frac{1}{2}\sin 2\theta \right) + C
+  \end{align*}
+  Voltando para $x$ temos
+  \begin{align*}
+    \theta
+    & = \arcsin\left(\frac{x}{3}\right)
+    \\
+    \sin 2\theta
+    & = 2\sin\theta\cos\theta                        \\[2mm]
+    & = 2\,\frac{x}{3}\,\frac{\sqrt{9 - x^2}}{3}     \\[2mm]
+    & = \frac{2}{9}x\sqrt{9 - x^2}
+  \end{align*}
+  Assim
+  \begin{align*}
+    F(x)
+    & = \frac{9}{2}
+      \left(
+        \arcsin\left(\frac{x}{3}\right)
+        + \frac{1}{2}\frac{2}{9}x\sqrt{9 - x^2}
+      \right) + C \\[2mm]
+    & = \frac{9}{2}\arcsin\left(\frac{x}{3}\right) + \frac{x}{2}\sqrt{9 - x^2} + C
+  \end{align*}
+\end{multicols}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{25\%}
+\(
+  \int_0^{\infty} \frac{e^x}{(1 + e^x)^2} \, dx
+\)
+
+\begin{answer}
+\begin{multicols}{2}
+Trata-se de uma integral imprópria com domínio infinito,
+portanto precisamos explicitar o limite
+\begin{align*}
+  A
+  & = \int_0^{\infty} \frac{e^x}{(1 + e^x)^2}\, dx \\[2mm]
+  & = \lim_{b \to \infty} \int_0^b \frac{e^x}{(1 + e^x)^2}\, dx
+\end{align*}
+Primeiro vamos calcular a primitiva
+\[
+  F(x) = \int \frac{e^x}{(1 + e^x)^2}\, dx
+\]
+usando a substituição
+\[
+  u = 1 + e^x
+  \qquad\qquad
+  du = e^x dx
+\]
+temos
+\begin{align*}
+  F(x)
+  & = \int \frac{1}{u^2}\, du   \\[2mm]
+  & = \int u^{-2}\, du          \\[2mm]
+  & = \frac{u^{-1}}{-1} + C     \\[2mm]
+  & = \frac{-1}{u} + C     \\[2mm]
+  & = \frac{-1}{1 + e^x} + C
+\end{align*}
+Calculamos agora a integral definida no intervalo~$[0, b]$
+\begin{align*}
+  I(b)
+  & = \int_0^b \frac{e^x}{(1 + e^x)^2}\, dx       \\[2mm]
+  & = F(x) \evalat{0}{b}                          \\[2mm]
+  & = \frac{-1}{1 + e^x}\, \evalat{0}{b}          \\[2mm]
+  & = \frac{-1}{1 + e^b} - \frac{-1}{1 + e^0}     \\[2mm]
+  & = \frac{-1}{1 + e^b} + \frac{1}{1 + 1}        \\[2mm]
+  & = \frac{1}{2} + \frac{1}{1 + e^b}
+\end{align*}
+Agora  calculamos o limite
+\begin{align*}
+  A
+  & = \lim_{b \to \infty} I(b) \\[2mm]
+  & = \lim_{b \to \infty} \left(\frac{1}{2} + \frac{1}{1 + e^b}\right) \\[2mm]
+  & = \frac{1}{2}
+\end{align*}
+\end{multicols}
+\end{answer}
+
+% 03
+%------------------------------------------------------------------------------%
+\exercise{25\%}
+\(
+  \int_{-1}^1 x e^x \, dx
+\)
+
+\begin{answer}
+\begin{multicols}{2}
+  Queremos calcular
+  \[
+    A = \int_{-1}^1 x e^x \, dx
+  \]
+  Usamos integração por partes e escolhemos
+  \[
+    u = x
+    \qquad\qquad
+    dv = e^x dx
+  \]
+  obtermos assim
+  \[
+    du = dx
+    \qquad\qquad
+    v = e^x
+  \]
+  Calculando a primitiva
+  \begin{align*}
+    F(x)
+    & = \int x e^x dx           \\*[2mm]
+    & = x e^x - \int e^x dx     \\*[2mm]
+    & = x e^x - e^x + C
+  \end{align*}
+  Calculando a integral definida
+\begin{align*}
+    A
+    & = \int_0^1 x e^x dx                           \\[2mm]
+    & = F(x) \evalat{-1}{1}                         \\[2mm]
+    & = \left(x e^x - e^x\right) \evalat{-1}{1}     \\[2mm]
+    & = \left(1 e^1 - e^1\right)
+      - \left(-1 e^{-1} - e^{-1}\right)             \\[2mm]
+    & = e - e - \left(-e -e\right)                  \\[2mm]
+    & = 2e
+\end{align*}
+\end{multicols}
+\end{answer}
+
+% 04
+%------------------------------------------------------------------------------%
+\exercise{25\%}
+  \(
+    \int \sin^3 x \cos^2 x \, dx
+  \)
+
+\begin{answer}
+\begin{multicols}{2}
+  Queremos calcular a integral indefinida
+  \[
+    F(x)
+    = \int \sin^3 x \cos^2 x \, dx
+  \]
+  Como temos uma potência ímpar no seno,\\
+  realizamos a transformação
+  \begin{align*}
+    \sin^3 x
+    & = \sin^2 x \sin x           \\
+    & = \left(1 - \cos^2 x \right)\sin x
+  \end{align*}
+  Então
+  \begin{align*}
+    F(x)
+    & = \int \sin^3 x \cos^2 x dx                      \\[2mm]
+    & = \int \left(1 - \cos^2 x\right)\cos^2 x \sin x\, dx
+  \end{align*}
+  Usando a substituição
+  \[
+    u = \cos x
+    \qquad\qquad
+    du = -\sin x dx
+  \]
+  temos
+  \begin{align*}
+    F(x)
+    & = \int \left(1 - u^2\right) u^2 (-du)  \\[2mm]
+    & = \int u^4 - u^2 du                    \\[2mm]
+    & = \frac{u^5}{5} - \frac{u^3}{3}  + C   \\[2mm]
+    & = -\frac{\cos^3 x}{3} + \frac{\cos^5 x}{5} + C
+  \end{align*}
+\end{multicols}
+\end{answer}
+
+%  \section*{Tabela de Integrais}
+%
+%  \[
+%  \begin{array}{|c|c|}
+%    \hline
+%    \text{Função} & \text{Integral} \\
+%    \hline
+%    \int x^n dx & \frac{x^{n+1}}{n+1} + C \quad (n \neq -1) \\
+%    \hline
+%    \int \frac{1}{x} dx & \ln|x| + C \\
+%    \hline
+%    \int e^x dx & e^x + C \\
+%    \hline
+%    \int \sin x dx & -\cos x + C \\
+%    \hline
+%    \int \cos x dx & \sin x + C \\
+%    \hline
+%    \int \sec^2 x dx & \tan x + C \\
+%    \hline
+%    \int \frac{1}{\sqrt{a^2 - x^2}} dx & \arcsin\left(\frac{x}{a}\right) + C \\
+%    \hline
+%    \int \frac{1}{a^2 + x^2} dx & \frac{1}{a}\arctan\left(\frac{x}{a}\right) + C \\
+%    \hline
+%    \int \cos^2 x dx & \frac{x}{2} + \frac{\sin 2x}{4} + C \\
+%    \hline
+%    \int \sin^2 x dx & \frac{x}{2} - \frac{\sin 2x}{4} + C \\
+%    \hline
+%  \end{array}
+%  \]
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
