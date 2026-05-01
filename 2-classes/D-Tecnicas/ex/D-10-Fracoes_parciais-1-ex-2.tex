@@ -1,0 +1,105 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \int \frac{3x + 5}{(x+1)(x+2)} \, dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  O grau do numerador
+  \[
+    P(x) = 3x + 5
+  \]
+  \pause
+  é menor do que o do denominador
+  \[
+    Q(x) = (x+1)(x+2)
+  \]
+  \pause
+  O denominador já está fatorado
+
+  \pause
+  Por frações parciais temos
+  \[
+    \pause
+    f(x)
+    \;=\; \frac{P(x)}{Q(x)}
+    \pause
+    \;=\; \frac{3x + 5}{(x+1)(x+2)}
+    \pause
+    \;=\; \frac{A}{x+1} + \frac{B}{x+2}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\frac{3x + 5}{(x+1)(x+2)} & =  \frac{A}{x+1} + \frac{B}{x+2}      \\[3mm]}
+    \onslide<+->{3x + 5 & = \left(\frac{A}{x+1} + \frac{B}{x+2}\right)(x+1)(x+2)   \\[1mm]}
+    \onslide<+->{& = A(x+2) + B(x+1)                                               \\[1mm]}
+    \onslide<+->{& = Ax + 2A + Bx + B                                              \\[1mm]}
+    \onslide<+->{& = (A+B)x + (2A + B)}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{columns}
+\column{0.5\linewidth}
+  \onslide<+->{Para que os polinômios sejam iguais
+  \[
+    3x + 5 = (A+B)x + (2A + B)
+  \]}
+  \onslide<+->{os coeficientes precisam ser iguais}
+  \[
+    \onslide<+->{
+    \systeme[sort={A,B}]{
+      A + B = 3,
+      2A + B = 5
+    }}
+  \]
+\column{0.5\linewidth}
+  \[
+    \onslide<+->{B = 3 - A}
+  \]
+  \vspace{-1.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{2A + B     & = 5     \\}
+    \onslide<+->{2A + 3 - A & = 5     \\}
+    \onslide<+->{A          & = 5 - 3}
+    \onslide<+->{             = 2}
+  \end{align*}
+  \vspace{-1.5\baselineskip}
+  \begin{align*}
+    \onslide<+->{B & = 3 - A \\}
+    \onslide<+->{  & = 3 - 2   }
+    \onslide<+->{    = 1}
+  \end{align*}
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{f(x)}
+  \onslide<+->{& = \frac{3x + 5}{(x+1)(x+2)}           \\[2mm]}
+  \onslide<+->{& = \frac{A}{x+1} + \frac{B}{x+2}       \\[2mm]}
+  \onslide<+->{& = \frac{2}{x+1} + \frac{1}{x+2}}
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{F(x)}
+    \onslide<+->{& = \int \frac{3x + 5}{(x+1)(x+2)} dx              \\[2mm]}
+    \onslide<+->{& = \int \frac{2}{x+1} + \frac{1}{x+2} dx          \\[2mm]}
+    \onslide<+->{& = 2\int \frac{1}{x+1} dx + \int \frac{1}{x+2} dx \\[2mm]}
+    \onslide<+->{& = 2\ln\abs{x+1} + \ln\abs{x+2} + c               \\[2mm]}
+    \onslide<+->{& = \color{gray} \ln\left((x+1)^2\,\abs{x+2}\right) + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

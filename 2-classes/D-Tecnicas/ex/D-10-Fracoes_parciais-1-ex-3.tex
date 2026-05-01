@@ -1,0 +1,140 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Calcule
+  \(
+    \int \frac{x-3}{x(x-1)(x+1)} \,dx
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  O grau do numerador
+  \[
+    P(x) = x - 2
+  \]
+  \pause
+  é menor do que o do denominador
+  \[
+    Q(x) = x(x-1)(x+1)
+  \]
+  \pause
+  O denominador já está fatorado
+
+  \pause
+  Por frações parciais temos
+  \[
+    \pause
+    f(x)
+    \;=\; \frac{P(x)}{Q(x)}
+    \pause
+    \;=\; \frac{x-3}{x(x-1)(x+1)}
+    \pause
+    \;=\; \frac{A}{x} + \frac{B}{x-1} + \frac{C}{x+1}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\frac{x-3}{x(x-1)(x+1)}}
+    \onslide<+->{& = \frac{A}{x}
+                   + \frac{B}{x-1}
+                   + \frac{C}{x+1}
+    \\[1mm]}
+    \onslide<+->{x-3
+                 & = \left(
+                     \frac{A}{x}
+                   + \frac{B}{x-1}
+                   + \frac{C}{x+1}
+                   \right)
+                   x(x-1)(x+1)
+    \\[1mm]}
+    \onslide<+->{& = A(x-1)(x+1)
+                   + Bx(x+1)
+                   + Cx(x-1)
+    \\}
+    \onslide<+->{& = A\left(x^2 + 1\right)
+                   + B\left(x^2 + x\right)
+                   + C\left(x^2 - x\right)
+    \\}
+    \onslide<+->{& = x^2 \left( A + B + C \right)
+                   + x   \left(B-C\right)
+                   - A}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \[
+    \onslide<+->{
+    x - 3
+    \;=\; x^2 \left(A + B + C \right)
+    \;+\; x   \left(B - C\right)
+    \;-\; A}
+  \]
+
+\vspace{-\baselineskip}
+\begin{columns}[t]
+\column{0.3\linewidth}
+  \[
+    \onslide<+->{\systeme[sort={A,B,C}]{
+      A + B + C = 0,
+          B - C = 1,
+      A         = 3
+    }}
+  \]
+
+  \smallskip
+  \[
+    \onslide<+->{B = 1 + C}
+  \]
+\column{0.4\linewidth}
+  \begin{align*}
+    \onslide<+->{A + B + C     & = 0  \\}
+    \onslide<+->{3 + 1 + C + C & = 0  \\}
+    \onslide<+->{2C            & = -4 \\}
+    \onslide<+->{C             & = -2}
+  \end{align*}
+  \[
+    \onslide<+->{B = 1 - 2 = -1}
+  \]
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{\frac{x-3}{x(x-1)(x+1)}
+  & = \frac{A}{x}
+    + \frac{B}{x-1}
+    + \frac{C}{x+1} \\[2mm]}
+  \onslide<+->{& = \frac{3}{x}
+    + \frac{-1}{x-1}
+    + \frac{-2}{x+1} \\[2mm]}
+  \onslide<+->{& = \frac{3}{x}
+    - \frac{1}{x-1}
+    - \frac{2}{x+1}}
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{align*}
+  \onslide<+->{\int \frac{x-3}{x(x-1)(x+1)} \,dx}
+  \onslide<+->{& = \int \frac{3}{x}
+    - \frac{1}{x-1}
+    - \frac{2}{x+1} \,dx \\[2mm]}
+  \onslide<+->{& = \int \frac{3}{x} \,dx
+    - \int \frac{1}{x-1} \,dx
+    - 2 \int \frac{1}{x+1} \,dx \\[2mm]}
+  \onslide<+->{& = 3\ln\abs{x}
+    - \ln\abs{x-1}
+    - 2 \ln\abs{x+1}
+    + k \\[2mm]}
+  \onslide<+->{&\color{gray}
+    = \ln\abs{\frac{x^3}{(x-1)(x+1)^2}}
+    + k}
+\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -37,9 +37,9 @@
 
 % Packages to pt_BR localization
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[brazil]{babel}
+\RequirePackage{lmodern}
 \RequirePackage[T1]{fontenc}
-\RequirePackage{ae}
+\RequirePackage[brazilian]{babel}
 \RequirePackage{indentfirst}
 \RequirePackage{icomma}
 
@@ -166,31 +166,40 @@
   \addtocounter{exemplo}{1}%
   \setbeamercolor{frametitle}{bg=bgquestion}%
   \begin{frame}{Exemplo \theexemplo}
-}{%
-  \end{frame}
-}
+}{\end{frame}}
 
 \newenvironment{resolution}[1]{%
   \setbeamercolor{frametitle}{bg=bgexample}%
   \begin{frame}{Exemplo \theexemplo{} -- #1}
-}{%
-  \end{frame}
-}
+}{\end{frame}}
+
+\newenvironment{resolutiont}[1]{%
+  \setbeamercolor{frametitle}{bg=bgexample}%
+  \begin{frame}[t]{Exemplo \theexemplo{} -- #1}
+}{\end{frame}}
 
 \newenvironment{proofframe}[1]{%
   \setbeamercolor{frametitle}{bg=bgproof}%
   \begin{frame}{#1}
-}{%
-  \end{frame}
-}
+}{\end{frame}}
+
+\newenvironment{proofframet}[1]{%
+  \setbeamercolor{frametitle}{bg=bgproof}%
+  \begin{frame}[t]{#1}
+}{\end{frame}}
+
 
 \newenvironment{warningframe}[1]{%
   \addtocounter{exemplo}{1}%
   \setbeamercolor{frametitle}{bg=bgwarning}%
   \begin{frame}{#1}
-  }{%
-  \end{frame}
-}
+}{\end{frame}}
+
+\newenvironment{warningframet}[1]{%
+  \addtocounter{exemplo}{1}%
+  \setbeamercolor{frametitle}{bg=bgwarning}%
+  \begin{frame}[t]{#1}
+}{\end{frame}}
 
 %------------------------------------------------------------------------------%
 

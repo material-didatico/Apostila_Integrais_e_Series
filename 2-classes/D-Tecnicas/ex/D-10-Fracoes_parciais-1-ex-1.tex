@@ -1,0 +1,80 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Integrar \(\int \frac{x^3+x}{x-1}\,dx\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \[
+    f(x) = \frac{P(x)}{Q(x)}
+    \pause
+    \qquad\qquad
+    P(x) = x^3+x
+    \pause
+    \qquad\qquad
+    Q(x) = x-1
+  \]
+
+  \pause
+  Como o grau de $P$ é maior do que o de $Q$ fazemos a divisão
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolutiont}{Solução}
+ \vspace{1.5\baselineskip}
+\begin{columns}[t]
+\column{0.5\linewidth}
+  \only<+>{\polylongdiv[style=D, stage= 1]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 2]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 3]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 4]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 5]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 6]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 7]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 8]{x^3+x}{x-1}}%
+  \only<+>{\polylongdiv[style=D, stage= 9]{x^3+x}{x-1}}%
+  \only<+->{\polylongdiv[style=D, stage=10]{x^3+x}{x-1}}%
+\column{0.5\linewidth}
+  \begin{align*}
+    \only<+->{P(x)}
+    \only<+->{& = x^3 + x} \\
+    \only<+->{& = \left(x^2 + x + 2\right)(x-1) + 2}
+  \end{align*}
+\end{columns}
+\end{resolutiont}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{f(x)}
+    \onslide<+->{& = \frac{P(x)}{Q(x)}                                          }\\
+    \onslide<+->{& = \frac{x^3+x}{x-1}                                          }\\
+    \onslide<+->{& = \frac{\left(x^2 + x + 2\right)(x-1) + 2}{x-1}              }\\
+    \onslide<+->{& = \frac{\left(x^2 + x + 2\right)(x-1)}{x-1} + \frac{2}{x-1}  }\\
+    \onslide<+->{& = x^2 + x + 2 + \frac{2}{x-1}}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\int \frac{x^3+x}{x-1} \,dx}
+    \onslide<+->{& = \int x^2 + x + 2 + \frac{2}{x-1} \, dx \\[2mm]}
+    \onslide<+->{& = \int x^2 \, dx
+                   + \int x   \, dx
+                   + \int 2   \, dx
+                   + \int \frac{2}{x-1} \, dx \\[2mm]}
+    \onslide<+->{& = \frac{x^3}{3}
+      + \frac{x^2}{2}
+      + 2x
+      + 2 \ln\abs{x-1}
+      + c} \\[2mm]
+    \onslide<+->{& \color{gray} = \frac{x^3}{3}
+      + \frac{x^2}{2}
+      + 2x
+      + \ln(x-1)^2
+      + c}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
