@@ -1,0 +1,38 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da divergência para mostrar que a série
+  \[
+    \sum_{n=1}^\infty \frac{n^2 + 1}{2 - n + n^2}
+  \]
+  diverge
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{columns}
+\column{0.4\linewidth}
+  \onslide<+->{
+  O termo geral da série
+  \[
+    \sum_{n=1}^\infty \frac{n^2 + 1}{2 - n + n^2}
+  \]
+  \onslide<+->{é
+  \[
+    a_n = \frac{n^2 + 1}{2 - n + n^2}
+  \]}
+\column{0.6\linewidth}
+  \onslide<+->{Calculando o limite}
+  \begin{align*}
+    \onslide<+->{\lim a_n}
+    \onslide<+->{& = \lim \frac{n^2 + 1}{2 - n + n^2} \\}
+    \onslide<+->{& = \lim \frac{1 + \sfrac{1}{n^2}}{\sfrac{2}{n^2} - \sfrac{1}{n} + 1} \\}
+    \onslide<+->{& = \frac{\lim 1 + \lim \sfrac{1}{n^2}}{\lim \sfrac{2}{n^2} - \lim \sfrac{1}{n} + \lim 1} \\}
+    \onslide<+->{& = \frac{1 + 0}{0 - 0 + 1}}
+    \onslide<+->{\;=\; 1}
+    \onslide<+->{\;\neq\; 0}
+  \end{align*}
+  \onslide<+->Portanto a série diverge}
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

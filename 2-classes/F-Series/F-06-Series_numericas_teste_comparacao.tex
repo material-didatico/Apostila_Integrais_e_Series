@@ -28,7 +28,7 @@
   com \( \quad {\color{c1}p_n} \;\leq\; {\color{c2}a_n} \;\leq\; {\color{c3}q_n} \quad \) para todo $n>N$
 
   \pause
-  \hspace{\baselineskip}
+  \bigskip
   \begin{enumerate}
     \item se \tabto{8mm} \(\color{c3} \sum q_n \) convergir \tabto{40mm} então  \(\color{c2} \sum a_n \) converge \\[6mm]\pause
     \item se \tabto{8mm} \(\color{c1} \sum p_n \) divergir  \tabto{40mm} então  \(\color{c2} \sum a_n \) diverge
@@ -69,7 +69,7 @@
   para $n>2$
 
   \pause
-  \vspace{\baselineskip}
+  \bigskip
   Então a série do inverso do fatorial converge
 \end{frame}
 
@@ -95,14 +95,14 @@
     \item
     \emph{Se} \(\;\sum {\color{c3} b_n}\) converge
     \tabto{36mm} \emph{e} \(\;\lim \frac{\;{\color{c1} a_n}\;}{{\color{c3} b_n}} = 0\)
-    \tabto{66mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também converge
+    \tabto{69mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também converge
 
     \pause
     \vfill
     \item
     \emph{Se} \(\;\sum {\color{c3} b_n}\) diverge
     \tabto{36mm} \emph{e} \(\;\lim \frac{\;{\color{c1} a_n}\;}{{\color{c3} b_n}} = \infty\)
-    \tabto{66mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também diverge
+    \tabto{69mm} \emph{então} \(\;\sum {\color{c1} a_n} \) também diverge
 
     \vfill
   \end{enumerate}
@@ -177,10 +177,10 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Exemplo \theexemplo}
   \begin{align*}
-    \onslide<+->{a_n & = \frac{n-1}{n^4+2} \\[3mm]}
-    \onslide<+->{& =    \frac{n}{n^4+2} - {\color<3->{gray}\frac{1}{n^4+2}} \\[3mm]}
-    \onslide<+->{& \leq \frac{n}{n^4+2}                   \\[3mm]}
-    \onslide<+->{& =    \frac{1}{n^3 +  {\color<5->{gray}\sfrac{2}{n}}}      \\[3mm]}
+    \onslide<+->{a_n & = \frac{n-1}{n^4+2}                                  \\}
+    \onslide<+->{& =    \frac{n}{n^4+2} - {\color<3->{gray}\frac{1}{n^4+2}} \\}
+    \onslide<+->{& \leq \frac{n}{n^4+2}                                     \\}
+    \onslide<+->{& =    \frac{1}{n^3 +  {\color<5->{gray}\sfrac{2}{n}}}     \\}
     \onslide<+->{& \leq \frac{1}{n^3}}
   \end{align*}
 \end{frame}
@@ -332,10 +332,10 @@
   \onslide<+->{Aplicando o teste da comparação no limite}
   \begin{align*}
     \onslide<1->{\lim_{n\to\infty}\frac{a_n}{b_n}}
-    \onslide<+->{& = \lim_{n\to\infty} \dfrac{\;\frac{1}{\ln n}\;}{\frac{1}{n}}         \\[2mm]}
-    \onslide<+->{& = \lim_{n\to\infty} \frac{n}{\ln n}                                  \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{x}{\ln x}                                  \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{1}{\sfrac{1}{x}} & \text{Usando l'Hopital} \\[2mm]}
+    \onslide<+->{& = \lim_{n\to\infty} \dfrac{\;\frac{1}{\ln n}\;}{\frac{1}{n}}         \\}
+    \onslide<+->{& = \lim_{n\to\infty} \frac{n}{\ln n}                                  \\}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{x}{\ln x}                                  \\}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{1}{\sfrac{1}{x}} & \text{Usando l'Hopital} \\}
     \onslide<+->{& = \lim_{x\to\infty} x = \infty}
   \end{align*}
   \onslide<+->{Concluímos que a série diverge}
@@ -374,9 +374,9 @@
     \column{0.45\linewidth}
     \onslide<+->{Pelo teste da comparação no limite}
     \begin{align*}
-        \onslide<1->{C & = \lim_{n\to\infty} \frac{a_n}{b_n}                                                 \\[2mm]}
-        \onslide<+->{& = \lim_{n\to\infty} \dfrac{\; \dfrac{5n^3-3n}{\,n^2(n-2)(n^2+5)\,}\;}{\dfrac{1}{n^2}} \\[2mm]}
-        \onslide<+->{& = \lim_{n\to\infty} \frac{5n^3-3n}{\;(n-2)(n^2+5)\;}                                  \\[2mm]}
+        \onslide<1->{C & = \lim_{n\to\infty} \frac{a_n}{b_n}                                                 \\}
+        \onslide<+->{& = \lim_{n\to\infty} \dfrac{\; \dfrac{5n^3-3n}{\,n^2(n-2)(n^2+5)\,}\;}{\dfrac{1}{n^2}} \\}
+        \onslide<+->{& = \lim_{n\to\infty} \frac{5n^3-3n}{\;(n-2)(n^2+5)\;}                                  \\}
         \onslide<+->{& = \lim_{n\to\infty} \frac{5n^3-3n}{\;n^3 -2n^2 +5n -10\;}                             }
       \end{align*}
     \column{0.55\linewidth}
@@ -388,14 +388,14 @@
                 {\;\dfrac{n^3}{n^3}
                  -\dfrac{2n^2}{n^3}
                  +\dfrac{5n}{n^3}
-                  -\dfrac{10}{n^3}\;} \\[2mm]}
+                  -\dfrac{10}{n^3}\;} \\}
         \onslide<+->{& = \lim_{n\to\infty}
             \frac{5
                  -\dfrac{3}{n^2}}
                 {\;1
                  -\dfrac{2}{n}
                  +\dfrac{5}{n^2}
-                 -\dfrac{10}{n^3}\;} \\[2mm]}
+                 -\dfrac{10}{n^3}\;} \\}
         \onslide<+->{& = 5}
       \end{align*}
     \onslide<+->{Portanto a série original converge}

@@ -130,13 +130,13 @@
 %------------------------------------------------------------------------------%
 \begin{frame}{Demonstração da Fórmula das Somas Parciais}
 \begin{columns}
-\column{0.5\linewidth}
+\column{0.4\linewidth}
   Assumimos por \emph{indução finita} que
   \quad
   \[
     S_{n-1} = 1 - \frac{1}{2^{n-1}}
   \]
-  para um \emph{$n$ dado qualquer}
+  para um \emph{$n$ qualquer}
 
   \pause
   \vspace{\baselineskip}
@@ -146,23 +146,25 @@
   \]
 
   \pause
-  \column{0.5\linewidth}
+  \column{0.6\linewidth}
   \begin{align*}
     \onslide<+->{S_n & = \frac{1}{2}
                        + \frac{1}{4}
                        + \frac{1}{8}
                        + \cdots
                        + \frac{1}{2^{n-1}}
-                       + \frac{1}{2^n}} \\[2mm]
-      \onslide<+->{& = \left(\frac{1}{2}
-                     + \frac{1}{4}
-                     + \frac{1}{8}
-                     + \cdots
-                     + \frac{1}{2^{n-1}}\right)
-                     + \frac{1}{2^n}} \\[2mm]
-    \onslide<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^n}\\[2mm]}
-    \onslide<+->{& = {\color<5->{blue}1 - \frac{1}{2^{n-1}}} + \frac{1}{2^n}\\[2mm]}
-    \onslide<+->{& = 1 - \frac{2}{2^n} + \frac{1}{2^n}\\[2mm]}
+                       + \frac{1}{2^n}}
+                       \\
+    \onslide<+->{& = \left(\frac{1}{2}
+                   + \frac{1}{4}
+                   + \frac{1}{8}
+                   + \cdots
+                   + \frac{1}{2^{n-1}}\right)
+                   + \frac{1}{2^n}}
+                   \\
+    \onslide<+->{& = {\color<5->{blue}S_{n-1}} + \frac{1}{2^n}\\}
+    \onslide<+->{& = {\color<5->{blue}1 - \frac{1}{2^{n-1}}} + \frac{1}{2^n}\\}
+    \onslide<+->{& = 1 - \frac{2}{2^n} + \frac{1}{2^n}\\}
     \onslide<+->{& = 1 - \frac{1}{2^n}}
   \end{align*}
 \end{columns}

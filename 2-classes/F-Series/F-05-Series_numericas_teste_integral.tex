@@ -79,7 +79,7 @@
   \begin{enumerate}[<+->]
     \item seus termos são positivos, $a_n>0$
     \item $a_n=f(n)$
-    \item $f$ é contínua, positiva e decrescente para todo $x \geq N$
+    \item \emph{a função $f$} é contínua, positiva e decrescente para todo $x \geq N$
   \end{enumerate}
 
 	\only<+->{
@@ -400,7 +400,7 @@
   A função \(f(x)=\frac{x}{x^2+4}\) é \emph{positiva} e \emph{contínua} para $x\geq 1$
 
   \pause
-  \vspace{\baselineskip}
+  \medskip
   Para verificar que ela é \emph{decrescente}, calculamos sua derivada
   \[
     f'(x)
@@ -409,17 +409,16 @@
     \pause
     = \frac{4-x^2}{(x^2+4)^2}
   \]
-  ~
 
   \pause
-  $f'(x)<0$, e portanto $f$ é decrescente, para todo $x>2$
+  $f'(x)<0$, e, portanto, $f$ é decrescente, para todo $x>2$
 
   \pause
-  \vspace{\baselineskip}
+  \medskip
   Precisamos de um $N$ inteiro a partir do qual $f$ seja decrescente
 
   \pause
-  \vspace{\baselineskip}
+  \medskip
   Escolhemos $N=3$
 \end{frame}
 
@@ -447,9 +446,9 @@
   \onslide<+->{Calculando a integral imprópria temos}
   \begin{align*}
     \onslide<+->{\int_{3}^{\infty}
-    & \frac{x}{x^2+4}\,dx = \lim_{b\to\infty} \int_{3}^{b} \! \frac{x}{x^2+4}\,dx  \\[2mm]}
-    \onslide<+->{& = \lim_{b\to\infty} \left[ F(x) \right]\evalat{3}{b}       \\[2mm]}
-    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{1}{2} \ln\left(x^2+4\right) \right]\evalat{3}{b}       \\[2mm]}
+    & \frac{x}{x^2+4}\,dx = \lim_{b\to\infty} \int_{3}^{b} \! \frac{x}{x^2+4}\,dx  \\}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ F(x) \right]\evalat{3}{b}       \\}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{1}{2} \ln\left(x^2+4\right) \right]\evalat{3}{b}       \\}
     \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{\; \ln\left(b^2+4\right) -\ln\left(3^2+4\right) \:}{2} \right]}
     \onslide<+->{\;=\; \infty}
   \end{align*}
