@@ -1,0 +1,37 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Utilize o teste da comparação para determinar se a série
+  \[
+    \sum_{n=1}^{\infty} \frac{\cos^2 n}{n^{\sfrac{3}{2}}}
+  \]
+  converge ou diverge
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Sabemos que \(\abs{\cos x}\leq 1\)\pause,
+  portanto
+  \[
+    0 \;\leq\;\cos^2 x \;\leq\; 1
+  \]
+  \pause
+  como $n^{\sfrac{3}{2}}$ é sempre positivo para $n\geq 1$
+  \[
+    0 \;\leq\; \frac{\cos^2}{n^{\sfrac{3}{2}}} \;\leq\; \frac{1}{n^{\sfrac{3}{2}}}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Analisando a série
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^{\sfrac{3}{2}}}
+  \]
+  percebemos que é uma série $p$ com $p=\frac{3}{2}>1$ e portanto convergente
+
+  \pause
+  \vspace{1.5\baselineskip}
+  Assim a série original é convergente
+\end{resolution}
+
+%------------------------------------------------------------------------------%

@@ -1,0 +1,38 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da comparação para mostrar que a série
+  \[
+    \sum_{n=1}^\infty \frac{n-1}{n^4+2}
+  \]
+converge
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{a_n & = \frac{n-1}{n^4+2}                                  \\}
+    \onslide<+->{& =    \frac{n}{n^4+2} - {\color<3->{gray}\frac{1}{n^4+2}} \\}
+    \onslide<+->{& \leq \frac{n}{n^4+2}                                     \\}
+    \onslide<+->{& =    \frac{1}{n^3 +  {\color<5->{gray}\sfrac{2}{n}}}     \\}
+    \onslide<+->{& \leq \frac{1}{n^3}}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A série
+  \(\;
+    \sum_{n=1}^\infty \frac{1}{n^3}
+  \;\)
+  é uma série $p$ com $p=3>1$, portanto convergente
+
+  \pause
+  \vspace{\baselineskip}
+  Pelo teste de comparação a série
+  \(\;
+    \sum_{n=1}^\infty \frac{n-1}{n^4+2}
+  \;\)
+  também converge
+\end{resolution}
+
+%------------------------------------------------------------------------------%

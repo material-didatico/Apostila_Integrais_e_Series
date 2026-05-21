@@ -1,0 +1,32 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Verifique a convergência da série
+  \quad
+  \(
+    \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{\infty} \frac{2n+1}{\;n^2+2n+1\;}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Comparamos no limite com a Série Harmônica
+  \quad
+  \(
+    \sum_{n=1}^{\infty} b_n = \sum_{n=1}^{\infty} \frac{1}{\;n\;}
+  \)
+
+  \pause
+  \vspace{0.3\baselineskip}
+  \[
+  \lim_{n\to\infty} \frac{a_n}{b_n}              \pause \;=\;
+  \lim_{n\to\infty} \frac{(2n+1)n}{\;n^2+2n+1\;} \pause \;=\;
+  \lim_{n\to\infty} \frac{4n+1}{\;2n+2\;}        \pause \;=\;
+  \lim_{n\to\infty} \frac{\,4\,}{2}                     \;=\; 2
+  \]
+
+  \pause
+  \vspace{0.5\baselineskip}
+  Como a soma de \(b_n\) diverge então a de \(a_n\) também diverge
+\end{resolution}
+
+%------------------------------------------------------------------------------%

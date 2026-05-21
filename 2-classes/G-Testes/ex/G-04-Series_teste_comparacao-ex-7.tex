@@ -1,0 +1,61 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  % Exercício 24 página 31 Thomas?
+  A série
+  \[
+  \sum_{n=3}^{\infty} \frac{5n^3-3n}{n^2(n-2)(n^2+5)}
+  \]
+  converge ou diverge?
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Para $n$ suficientemente grande $a_n$ se comporta como
+  \[
+    b_n = \frac{n^3}{n^5} = \frac{1}{n^2}
+  \]
+
+  \pause
+  \vspace{\baselineskip}
+  A série $b_n$ é uma série $p$ com $p=2>1$ e portanto convergente
+
+  \pause
+  \vspace{\baselineskip}
+  Além disso, $a_n$ e $b_n$ são maiores do que zero para todo $n$ suficientemente grande
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{columns}
+    \column{0.45\linewidth}
+    \onslide<+->{Pelo teste da comparação no limite}
+    \begin{align*}
+        \onslide<1->{C & = \lim_{n\to\infty} \frac{a_n}{b_n}                                                 \\}
+        \onslide<+->{& = \lim_{n\to\infty} \dfrac{\; \dfrac{5n^3-3n}{\,n^2(n-2)(n^2+5)\,}\;}{\dfrac{1}{n^2}} \\}
+        \onslide<+->{& = \lim_{n\to\infty} \frac{5n^3-3n}{\;(n-2)(n^2+5)\;}                                  \\}
+        \onslide<+->{& = \lim_{n\to\infty} \frac{5n^3-3n}{\;n^3 -2n^2 +5n -10\;}                             }
+      \end{align*}
+    \column{0.55\linewidth}
+    \begin{align*}
+        \onslide<+->{C
+        & = \lim_{n\to\infty}
+            \frac{\dfrac{5n^3}{n^3}
+                 -\dfrac{3n}{n^3}}
+                {\;\dfrac{n^3}{n^3}
+                 -\dfrac{2n^2}{n^3}
+                 +\dfrac{5n}{n^3}
+                  -\dfrac{10}{n^3}\;} \\}
+        \onslide<+->{& = \lim_{n\to\infty}
+            \frac{5
+                 -\dfrac{3}{n^2}}
+                {\;1
+                 -\dfrac{2}{n}
+                 +\dfrac{5}{n^2}
+                 -\dfrac{10}{n^3}\;} \\}
+        \onslide<+->{& = 5}
+      \end{align*}
+    \onslide<+->{Portanto a série original converge}
+  \end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

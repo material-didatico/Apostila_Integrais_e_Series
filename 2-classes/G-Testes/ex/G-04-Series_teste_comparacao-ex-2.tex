@@ -1,0 +1,53 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Verifique a convergência da série
+  \(
+    \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A série converge\pause, pois, tomando
+  \[
+    b_n
+    \;=\; \frac{2^n}{4^n}
+    \;=\; \frac{1}{2^n}
+  \]
+  \pause
+  temos
+  \[
+    \lim \frac{a_n}{b_n}
+    \pause
+    = \lim \frac{\;\dfrac{2^n}{3+4^n}\;}{\dfrac{1}{2^n}}
+    \pause
+    = \lim \frac{4^n}{3+4^n}
+    \pause
+    = \lim \frac{1}{\sfrac{3}{4^n}+1}
+    \pause
+    = 1
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A série
+  \(
+    \sum \frac{1}{2^n}
+  \)
+  converge
+
+  \pause
+  \vspace{\baselineskip}
+  Pois é uma série geométrica com $\abs{r}=\frac{1}{2}<1$
+
+  \pause
+  \vspace{\baselineskip}
+  Então a série
+  \(
+    \sum_{n=1}^\infty \frac{2^n}{3+4^n}
+  \)
+  também converge
+\end{resolution}
+
+%------------------------------------------------------------------------------%

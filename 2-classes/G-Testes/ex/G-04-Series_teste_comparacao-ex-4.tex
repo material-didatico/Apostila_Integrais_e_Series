@@ -1,0 +1,31 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da comparação para verificar a convergência da série
+  \(
+    \sum_{n=1}^\infty\frac{3^n}{2^n-1}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A série diverge\pause,
+  pois
+  \[
+    a_n = \frac{3^n}{2^n-1}
+    \pause
+    \;\geq\; \frac{3^3}{2^n}
+    \pause
+    \;=\;    \left(\frac{3}{2}\right)^{\!\!{n}}
+  \]
+  \pause
+  e a série geométrica
+  \(
+    \sum_{n=1}^\infty\left(\frac{3}{2}\right)^{\!\!{n}}
+  \)
+  diverge\pause, pois \quad
+  \(
+    \abs{r}=\frac{3}{2}>1
+  \)
+\end{resolution}
+
+%------------------------------------------------------------------------------%
