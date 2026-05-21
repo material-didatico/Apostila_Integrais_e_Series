@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \[
+    \sum_{n=1}^\infty\frac{3^{n+2}}{\ln(n)}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \[
+    a_n = \frac{\,3^{n+2}\,}{\,\ln(n)\,}
+  \]
+  \pause
+  \[
+    a_{n+1} = \frac{\,3^{n+3}\,}{\,\ln(n+1)\,}
+  \]
+
+  \pause
+  \medskip
+  \[
+    \frac{a_{n+1}}{a_n}
+    \pause
+    = \frac{3^{n+3}}{\,\ln(n+1)\,} \; \frac{\,\ln(n)\,}{\,3^{n+2}\,}
+    \pause
+    = \frac{3\ln(n)}{\,\ln(n+1)\,}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\rho}
+    \onslide<+->{& = \lim_{n\to\infty} \frac{\,a_{n+1}\,}{a_n}         \\}
+    \onslide<+->{& = \lim_{n\to\infty} \frac{3\ln(n)}{\,\ln(n+1)\,}    \\}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{3\ln(x)}{\,\ln(x+1)\,}    \\}
+    \onslide<+->{& = \lim_{x\to\infty} \frac{\,3(x+1)\,}{x}            \\}
+    \onslide<+->{& = 3}
+    \onslide<+->{\;>\; 1}
+  \end{align*}
+  \onslide<+->{A série diverge pelo teste da razão}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

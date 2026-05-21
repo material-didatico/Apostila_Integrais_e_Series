@@ -1,0 +1,43 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+	Analisar a convergência da série
+	\[
+    \sum_{n=1}^{\infty} \frac{(2n)!}{(n!)^2}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+	\onslide<+->{Calculando os termos}
+	\begin{align*}
+		\onslide<2->{a_n & = \frac{(2n)!}{n!n!} \\[2mm]}
+		\onslide<+->{a_{n+1} & = \frac{\big(2(n+1)\big)!}{(n+1)!(n+1)!}}
+	\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+	\begin{align*}
+		\onslide<+->{\frac{a_{n+1}}{a_n}}
+		\onslide<+->{& = \left(\,\frac{(2n+2)!}{\,(n+1)!(n+1)!\,}\,\right) \; \left(\,\frac{n!n!}{\,(2n)!\,}\,\right) \\[1mm]}
+		\onslide<+->{& = \frac{n!}{(n+1)!} \; \frac{n!}{(n+1)!} \; \frac{(2n+2)!}{(2n)!}                              \\[1mm]}
+		\onslide<+->{& = \frac{n!}{(n+1)n!} \; \frac{n!}{(n+1)n!} \; \frac{(2n+2)(2n+1)(2n)!}{(2n)!}                  \\[1mm]}
+		\onslide<+->{& = \frac{1}{(n+1)} \; \frac{1}{(n+1)} \; (2n+2)(2n+1)                                           \\[1mm]}
+		\onslide<+->{& = \frac{\,2(n+1)(2n+1)\,}{(n+1)(n+1)}}
+		\onslide<+->{\; = \;\frac{\,4n+2\,}{n+1}}
+		\onslide<+->{\; = \;\frac{\,4+\sfrac{2}{n}\,}{1+\sfrac{1}{n}}}
+	\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\rho & = \lim \frac{a_{n+1}}{a_n}  \\}
+    \onslide<+->{& = \lim \frac{\,4+\sfrac{2}{n}\,}{1+\sfrac{1}{n}} \\}
+    \onslide<+->{& =  4 \\}
+    \onslide<+->{& > 1}
+  \end{align*}
+  \onslide<+->{Pelo teste da razão concluímos que a série diverge}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

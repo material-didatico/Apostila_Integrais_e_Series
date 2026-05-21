@@ -1,0 +1,52 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da razão para verificar a convergência ou divergência da série
+  \[
+    \sum_{n=1}^\infty \frac{n!}{\,n^n\,}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{\[
+    a_n = \frac{n!}{\,n^n\,}
+  \]}
+  \onslide<+->{\[
+    a_{n+1} = \frac{(n+1)!}{\,(n+1)^{n+1}\,}
+  \]}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{columns}
+    \column{0.5\linewidth}
+    \begin{align*}
+      \onslide<+->{\frac{\,a_{n+1}\,}{a_n}
+                   & = \frac{(n+1)!}{\,(n+1)^{n+1}\,} \; \frac{\,n^n\,}{n!} \\[2mm]}
+      \onslide<+->{& = \frac{\,(n+1)\,n!\;n^n\,}{(n+1)^n\,(n+1)\;n!}        \\[2mm]}
+      \onslide<+->{& = \frac{n^n}{\,(n+1)^n\,}}
+    \end{align*}
+    \column{0.5\linewidth}
+    \begin{align*}
+      \onslide<+->{\frac{\,a_{n+1}\,}{a_n}
+                   & = \left(\frac{n}{\,n+1\,}\right)^{\!n}                     \\[2mm]}
+      \onslide<+->{& = \left(\frac{1}{1+\sfrac{1}{n}}\right)^{\!n}              \\[2mm]}
+      \onslide<+->{& = \left[\left( 1 + \frac{1}{n} \right)^{\!n\vphantom{\int}}\;\right]^{-1}}
+    \end{align*}
+  \end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\rho
+    & = \lim \frac{a_{n+1}}{a_n} \\[3mm]}
+    \onslide<+->{& = \lim \left[\left( 1 + \frac{1}{n} \right)^{\!n\vphantom{\int}}\;\right]^{-1} \\[3mm]}
+    \onslide<+->{& = \left[ \lim \left( 1 + \frac{1}{n} \right)^{\!n\vphantom{\int}}\;\right]^{-1} \\[3mm]}
+    \onslide<+->{& = e^{-1} }
+    \onslide<+->{\approx 0,3679}
+    \onslide<+->{< 1}
+  \end{align*}
+  \onslide<6->{A série converge pelo teste da razão}
+\end{resolution}
+%------------------------------------------------------------------------------%
