@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Mostre que a sequência \(a_k = \frac{1}{k}\) converge para $L = 0$
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Explorando a Definição}
+  Para $\varepsilon=1$     \tabto{28mm} basta      \tabto{50mm} $N=1$
+
+  \pause
+  Para $\varepsilon=0,001$ \tabto{28mm} precisamos \tabto{50mm} $N=1000$
+
+  \pause
+  \vspace{\baselineskip}
+  Quantos passos precisamos para garantir uma precisão de $\varepsilon$ qualquer?
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Explorando a Definição}
+  Precisamos encontrar um $N$ que garanta
+  \(\abs{a_k-L}<\varepsilon\)
+  para todo $k>N$
+  \pause
+  \[\abs{\,a_k-L\,} = \abs{\,\frac{1}{k}-0\,} = \frac{1}{\,k\,} \]
+  \pause
+  então
+  \[
+    \abs{\,a_k-L\,}<\varepsilon
+    \pause
+    \quad\Leftrightarrow\quad
+    \frac{1}{\,k\,} < \varepsilon
+    \pause
+    \quad\Leftrightarrow\quad
+    \frac{1}{\,\varepsilon\,} < k
+  \]
+  \pause
+  escolhemos
+  \[
+    N = \ceil{\;\frac{1}{\;\varepsilon\;}\;}
+    \qquad\qquad\text{menor inteiro maior ou igual a } \frac{1}{\;\varepsilon\;}
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

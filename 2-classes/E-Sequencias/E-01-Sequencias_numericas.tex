@@ -37,97 +37,11 @@
 \end{columns}
 \end{frame}
 
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 1}
-Dada a fórmula para o $n$-ésimo termo, $a_n$, de uma sequência $(a_n)$,\\
-encontre os valores de $a_1$, $a_2$, $a_3$ e $a_4$.
-\[
-  a_n = \frac{1-n}{n^2}
-\]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 2}
-\begin{align*}
-  \onslide<+->{a_1 }
-  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=1}{} }
-  \onslide<+->{= \dfrac{\;1-1\;}{1^2} }
-  \onslide<+->{= 0              \\[3mm]}
-  \onslide<+->{a_2 }
-  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=2}{} }
-  \onslide<+->{= \dfrac{\;1-2\;}{2^2} }
-  \onslide<+->{= -\dfrac{1}{4}  \\[3mm]}
-  \onslide<+->{a_3 }
-  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=3}{} }
-  \onslide<+->{= \dfrac{\;1-3\;}{3^2} }
-  \onslide<+->{= -\dfrac{2}{9}  \\[3mm]}
-  \onslide<+->{a_4 }
-  \onslide<+->{& = \dfrac{\;1-n\;}{n^2}\evalat{n=4}{} }
-  \onslide<+->{= \dfrac{\;1-4\;}{4^2} }
-  \onslide<+->{= -\dfrac{3}{16}}
-\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 2}
-  Encontre uma fórmula explícita para o $n$-ésimo termo da sequência
-  \[
-    \left(0,\, 3,\, 8,\, 15,\, 24,\, \dots \right)
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 2}
-  Sequência dos quadrados dos inteiros positivos menos um
-  \[
-    a_n = n^2-1
-  \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 2}
-  Verificando
-  \begin{align*}
-    \onslide<+->{a_1 & = (n^2-1)\evalat{n=1}{} = 1^2-1 = 1^2-1 = 0  \\}
-    \onslide<+->{a_2 & = (n^2-1)\evalat{n=2}{} = 2^2-1 = 2^2-1 = 3  \\}
-    \onslide<+->{a_3 & = (n^2-1)\evalat{n=3}{} = 3^2-1 = 3^2-1 = 8  \\}
-    \onslide<+->{a_4 & = (n^2-1)\evalat{n=4}{} = 4^2-1 = 4^2-1 = 15 \\}
-    \onslide<+->{a_5 & = (n^2-1)\evalat{n=5}{} = 5^2-1 = 5^2-1 = 24}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo 2}
-  \emph{Expressão alternativa}
-  \[
-    a_n = -\frac{1}{3}n^4 +\frac{10}{3}n^3 -\frac{32}{3}n^2 +\frac{50}{3}n -9
-  \]
-\end{frame}
+\input{ex/E-01-Sequencias_numericas-ex-01}
+\input{ex/E-01-Sequencias_numericas-ex-02}
 
 %------------------------------------------------------------------------------%
 \section{Convergência}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência de Sequências}
-    $(a_k)$ \emph{converge} para $L$ se, para todo $\memph{\varepsilon}>0$
-    existe $\memph{N}\in \N$ tal que
-    \[
-    	k>\memph{N} \quad \Rightarrow  \quad \abs{a_k-L}<\memph{\varepsilon}
-    \]
-
-    \pause
-    \vspace{\baselineskip}
-    Notação
-    \[
-      \lim_{k\to \infty} a_k = L \qquad\text{ ou }\qquad
-      a_k \to L                  \qquad\text{ ou }\qquad
-      \lim a_k = L
-    \]
-
-    \pause
-    \vspace{\baselineskip}
-    Uma sequência convergente $(a_k)$ tem apenas \emph{um limite}.
-\end{frame}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Definição de Limite}
@@ -136,73 +50,62 @@ encontre os valores de $a_1$, $a_2$, $a_3$ e $a_4$.
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Explorando a Definição}
-    Percebemos que a sequência \(a_k = \frac{1}{k}\) converge para $L = 0$
-
-    \pause
-    \vspace{\baselineskip}
-    Para $\varepsilon=1$     \tabto{28mm} basta      \tabto{50mm} $N=1$
-
-    \pause
-    Para $\varepsilon=0,001$ \tabto{28mm} precisamos \tabto{50mm} $N=1000$
-
-    \pause
-    \vspace{\baselineskip}
-    Quantos passos precisamos para garantir uma precisão de $\varepsilon$ qualquer?
-
+\begin{frame}{Convergência de Sequências}
+  A sequência $(a_k)$ \emph{converge} para $L$ se, para todo $\memph{\varepsilon}>0$
+  existe $\memph{N}\in \N$ tal que
+  \[
+   	k>\memph{N} \quad \Rightarrow  \quad \abs{a_k-L}<\memph{\varepsilon}
+  \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Explorando a Definição}
-    Precisamos encontrar um $N$ que garanta
-    \(\abs{a_k-L}<\varepsilon\)
-    para todo $k>N$
-    \pause
-    \[\abs{\,a_k-L\,} = \abs{\,\frac{1}{k}-0\,} = \frac{1}{\,k\,} \]
-    \pause
-    então
-    \[
-        \abs{\,a_k-L\,}<\varepsilon
-        \pause
-        \quad\Leftrightarrow\quad
-        \frac{1}{\,k\,} < \varepsilon
-        \pause
-        \quad\Leftrightarrow\quad
-        \frac{1}{\,\varepsilon\,} < k
-    \]
-    \pause
-    escolhemos
-    \[
-        N = \ceil{\;\frac{1}{\;\varepsilon\;}\;}
-        \qquad\qquad\text{menor inteiro maior ou igual a } \frac{1}{\;\varepsilon\;}
-    \]
+\begin{frame}{Notação}
+  \[
+    \lim_{k\to \infty} a_k = L \qquad\text{ ou }\qquad
+    a_k \to L                  \qquad\text{ ou }\qquad
+    \lim a_k = L
+  \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Divergência ao infinito}
-    $(a_k)$ \emph{\textbf{diverge} ao infinito} se dado
-    $\memph{M}\in\R$ existe $\memph{N}\in\N$ tal que
-    \[
-      k > \memph{N} \quad \Rightarrow \quad a_k > \memph{M}
-    \]
+\begin{frame}{Unicidade do Limite}
+  Uma sequência convergente $(a_k)$ tem \emph{um único} limite
+\end{frame}
 
-    \pause
-    \vspace{\baselineskip}
-    Notação
-    \[ \lim_{k\to\infty} a_k=\infty
+%------------------------------------------------------------------------------%
+\input{ex/E-01-Sequencias_numericas-ex-03}
+
+%------------------------------------------------------------------------------%
+\section{Divergência ao Infinito}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Divergência ao Infinito}
+  \centering
+  \scalebox{0.9}{\input{fig_sequencia_infinity}}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Divergência ao Infinito}
+  A sequência $(a_k)$ \emph{\textbf{diverge} ao infinito} se dado
+  $\memph{M}\in\R$ existe $\memph{N}\in\N$ tal que
+  \[
+    k > \memph{N} \quad \Rightarrow \quad a_k > \memph{M}
+  \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Notação}
+  \[
+    \lim_{k\to\infty} a_k=\infty
     \qquad\text{ ou }\qquad
     a_k\to \infty
     \qquad\text{ ou }\qquad
     \lim a_k=\infty
-    \]
-
+  \]
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Divergência ao infinito}
-  \centering
-  \scalebox{0.9}{\input{fig_sequencia_infinity}}
-\end{frame}
+\section{Calculando o Limite}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Casos Particulares Importantes}
@@ -247,23 +150,11 @@ encontre os valores de $a_1$, $a_2$, $a_3$ e $a_4$.
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  \onslide<+->{
-  Sendo $0<r<1$, calcule o limite da sequência
-  \(
-    a_k = \dfrac{\;-\dfrac{1}{r^k}+7\;}{ 1 + \dfrac{5}{r^k}}
-  \)}
-  \begin{align*}
-    \onslide<+->{\lim a_k
-                 & = \lim \left(\frac{-\dfrac{1}{r^k}+7}{1+ \dfrac{5}{r^k}}\right) }
-    \onslide<+->{  = \lim \left(\frac{\dfrac{-1+7r^k}{r^k}}
-                                     {\dfrac{r^k + 5}{r^k}}\right) }
-    \onslide<+->{  = \lim \left(\frac{-1+7r^k}{r^k+5}\right) \\[3mm]}
-    \onslide<+->{& = \dfrac{-1+7\lim(r^k)}{\lim(r^k) + 5}}
-    \onslide<+->{\hspace{70mm} \lim r^k=0\\[3mm]}
-    \onslide<+->{& = -\frac{1}{5}}
-  \end{align*}
-\end{frame}
+\section{Exemplos}
+
+\input{ex/E-01-Sequencias_numericas-ex-04}
+\input{ex/E-01-Sequencias_numericas-ex-05}
+\input{ex/E-01-Sequencias_numericas-ex-06}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}

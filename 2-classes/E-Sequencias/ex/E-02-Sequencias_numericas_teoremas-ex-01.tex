@@ -1,0 +1,63 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+Calcule o limite da sequência
+\(
+  c_n = \frac{\cos(n)}{n}
+\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Observamos que
+  \[
+    c_n
+    = \frac{\cos(n)}{n}
+    \pause
+    = \frac{1}{n} \, \cos(n)
+    \pause
+        = a_n b_n
+  \]
+  \pause
+  com
+  \quad
+  \pause
+  \(
+    a_n = \frac{1}{n}
+  \)
+  \pause
+  \quad
+  e
+  \quad
+  \(
+    b_n = \cos(n)
+  \)
+
+  \pause
+  \medskip
+  Sabemos que
+  \(
+    \lim a_n = 0
+  \)
+  \quad
+  \pause
+  e
+  \quad
+  \(
+    \abs{b_n} \leq 1
+  \)
+
+  \pause
+
+  \smallskip
+  portanto,
+  \pause
+  \emph{pelo teorema do confronto},
+  \pause
+  temos que
+  \[
+    \lim c_n = 0
+  \]
+
+\end{resolution}
+
+%------------------------------------------------------------------------------%

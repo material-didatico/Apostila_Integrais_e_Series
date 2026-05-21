@@ -1,0 +1,39 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+Calcule
+\(
+  \lim \cos\left(\frac{1}{2^k}\right)
+\)
+\end{question}
+
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Considerando a sequência \( a_k = \frac{1}{2^k} \)
+
+  \pause
+  \medskip
+  Sabemos que \(\lim a_k=0\)
+
+  \pause
+  \medskip
+  A função cosseno é contínua em zero
+
+  \pause
+  \medskip
+  Portanto
+  \pause
+  \[
+    \lim\cos\left(\frac{1}{2^k}\right)
+    \pause
+    \;=\; \lim\cos(a_k)
+    \pause
+    \;=\; \cos\big(\lim a_k\big)
+    \pause
+    \;=\; \cos(0)
+    \pause
+    \;=\; 1
+  \]
+\end{resolution}
+
+%------------------------------------------------------------------------------%

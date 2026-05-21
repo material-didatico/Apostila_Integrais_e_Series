@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Dada a sequência
+	\[
+    a_n = \frac{(2n)!}{(n!)^2}
+  \]
+	calcule o limite da sequência \(b_n = \frac{a_{n+1}}{a_n}\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+	\begin{align*}
+		\onslide<+->{a_n & = \frac{(2n)!}{n!n!} \\[2mm]}
+		\onslide<+->{a_{n+1} & = \frac{\big(2(n+1)\big)!}{(n+1)!(n+1)!}}
+	\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+	\begin{align*}
+		\onslide<+->{b_n = \frac{a_{n+1}}{a_n}}
+		\onslide<+->{& = \left(\,\frac{(2n+2)!}{\,(n+1)!(n+1)!\,}\,\right) \;
+                     \left(\,\frac{n!n!}{\,(2n)!\,}\,\right)                                      \\}
+		\onslide<+->{& = \frac{n!}{(n+1)!} \; \frac{n!}{(n+1)!} \; \frac{(2n+2)!}{(2n)!}              \\}
+		\onslide<+->{& = \frac{n!}{(n+1)n!} \; \frac{n!}{(n+1)n!} \; \frac{(2n+2)(2n+1)(2n)!}{(2n)!}  \\}
+		\onslide<+->{& = \frac{1}{(n+1)} \; \frac{1}{(n+1)} \; (2n+2)(2n+1)                           \\}
+		\onslide<+->{& = \frac{\,2(n+1)(2n+1)\,}{(n+1)(n+1)}}
+	\end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{columns}[t]
+\column{0.5\linewidth}
+	\begin{align*}
+		\onslide<+->{b_n & = \frac{\,2(n+1)(2n+1)\,}{(n+1)(n+1)}}        \\
+		\onslide<+->{    & = \frac{\,4n+2\,}{n+1}}                       \\
+		\onslide<+->{    & = \frac{\,4+\sfrac{2}{n}\,}{1+\sfrac{1}{n}}}  \\
+	\end{align*}
+  \column{0.5\linewidth}
+ 	\begin{align*}
+ 		\onslide<+->{\lim b_n}
+    \onslide<+->{& = \lim \frac{\,4+\sfrac{2}{n}\,}{1+\sfrac{1}{n}}           }  \\
+    \onslide<+->{& = \frac{\,4 + \lim \sfrac{2}{n}\,}{1 + \lim \sfrac{1}{n}}  }  \\
+    \onslide<+->{& = \frac{\,4 + 0\,}{1 + 0}                                  }  \\
+    \onslide<+->{& = 4}
+ 	\end{align*}
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

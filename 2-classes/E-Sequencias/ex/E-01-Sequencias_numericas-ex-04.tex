@@ -1,0 +1,38 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Dadas as sequências
+  \[
+    a_n = \frac{2^n}{3+4^n}
+    \qquad \text{ e } \qquad
+    b_n = \frac{1}{2^n}
+  \]
+  calcule o limite da sequência \(\frac{a_n}{b_n}\)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Explorando a Definição}
+  \[
+    \frac{a_n}{b_n}
+    \pause
+    \;=\; \frac{\;\dfrac{2^n}{3+4^n}\;}{\dfrac{1}{2^n}}
+    \pause
+    \;=\; \frac{2^n}{3+4^n} \; \frac{2^n}{1}
+    \pause
+    \;=\; \frac{4^n}{3+4^n}
+    \pause
+    \;=\; \frac{1}{\sfrac{3}{4^n}+1}
+  \]
+
+  \pause
+  \[
+    \lim \frac{a_n}{b_n}
+    \pause
+    \;=\; \lim \frac{1}{\sfrac{3}{4^n}+1}
+    \pause
+    \;=\; \frac{1}{0+1}
+    \pause
+    \;=\; 1
+  \]
+\end{resolution}
+%------------------------------------------------------------------------------%
+

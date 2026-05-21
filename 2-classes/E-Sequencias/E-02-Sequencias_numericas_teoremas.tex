@@ -25,12 +25,36 @@
   Se $\quad a_k\to L\quad$ e $\quad c_k\to L\quad$ então $\quad b_k\to L$
 \end{frame}
 
-
 %------------------------------------------------------------------------------%
 \begin{frame}{Teorema do Confronto}
   \centering
   \scalebox{1}{\input{fig_teorema_confronto}}
 \end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Corolário do Teorema do Confronto}
+  Seja
+  \[
+   	\lim a_k = 0
+ 	\]
+  \pause
+   e
+  \[
+    \abs{b_k} \leq M
+    \qquad
+    \forall k \in \N
+  \]
+	\pause
+  então
+  \[
+    \lim a_k \, b_k = 0
+  \]
+\end{frame}
+
+\input{ex/E-02-Sequencias_numericas_teoremas-ex-01}
+
+%------------------------------------------------------------------------------%
+\section{Teorema da Função Contínua}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Teorema da Função Contínua}
@@ -51,9 +75,6 @@ então
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\section{Teorema da Função Contínua}
-
-%------------------------------------------------------------------------------%
 \begin{frame}{Teorema da Função Contínua}
   \begin{columns}
     \column{0.5\textwidth}\centerline{\scalebox{0.8}{\input{fig_teorema_funcao_continua_1}}} \pause
@@ -62,106 +83,29 @@ então
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  Calcular \(\lim\left[\cos\left(\alpha^k\right)\right]\) com $0<\alpha<1$
-
-  \pause
-  \vspace{\baselineskip}
-  \qquad Considerando a sequência \( a_k = \alpha^k\)
-
-  \pause
-  \qquad Sabemos que \(\lim a_k=0\)
-
-  \pause
-  \qquad A função cosseno é contínua em zero
-
-  \pause
-  \vspace{0.5\baselineskip}
-  Portanto
-  \[
-    \lim\cos(\alpha^k)
-    = \lim\cos(a_k)
-    \pause
-    = \cos\big(\lim a_k\big)
-    \pause
-    = \cos(0)
-    \pause
-    = 1
-  \]
-\end{frame}
+\input{ex/E-02-Sequencias_numericas_teoremas-ex-02}
 
 %------------------------------------------------------------------------------%
 \section{Sequência Definida por Função}
 
 %------------------------------------------------------------------------------%
 \begin{frame}{Limite de sequência definida por função}
-    Se $f$ é uma função real e \(a_k=f(k)\) então
-
-    \[
-    	\lim_{x\to\infty} f(x) = L \quad \Rightarrow \quad
-      \lim_{k\to\infty} a_k = L
-    \]
-
-    \pause
-    \vspace{\baselineskip}
-    Esse resultado nos permite usar a regra de l'Hôpital (em $x$)
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  Mostre que \( \lim\frac{5k^4}{k^4+8k^3} = 5 \)
+  Se $f(x)$ é uma função real ($x\in\R$) \; e \; \(a_k = f(k)\), \(k\in\N\)
 
   \pause
-  A função
   \[
-    f(x) = \frac{5x^4}{x^4+8x^3}
-    \hspace{50mm}
-    \emph{x\in\R}
+   	\lim_{x\to\infty} f(x) = L
+    \quad \Rightarrow \quad
+    \lim_{k\to\infty} a_k = L
   \]
-  está definida para todo $x>0$
+
   \pause
-  e a sequência
-  \[
-    a_k = f(k)=\frac{5k^4}{k^4+8k^3}
-    \hspace{40.5mm}
-    \emph{k\in\N}
-  \]
+  \vspace{\baselineskip}
+  Esse resultado nos permite usar a regra de l'Hôpital (\emph{em $x$})
 \end{frame}
 
 %------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  \onslide<+->{Podemos aplicar a regra de L'Hôpital \emph{em $x$},}
-  \onslide<+->{pois temos uma indeterminação $\sfrac{\infty}{\infty}$}
-  \begin{align*}
-    \onslide<+->{    \lim_{k\to\infty} \frac{5k^4}{k^4+8k^3}}
-    \onslide<+->{  = \lim_{x\to\infty} \frac{5x^4}{x^4+8x^3}}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{20x^3}{4x^3+24x^2} \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{60x^2}{12x^2+48x}  \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{120x}{24x+48}      \\[2mm]}
-    \onslide<+->{& = \lim_{x\to\infty} \frac{120}{24}           \\[2mm]}
-    \onslide<+->{& = 5}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-  \onslide<+->{Método mais apropriado}
-  \begin{align*}
-    \onslide<+->{    \lim_{k\to\infty} \frac{5k^4}{k^4+8k^3}}
-    \onslide<+->{& = \lim_{k\to\infty} \frac{\dfrac{\,5k^4\,}{k^4}}{\;\dfrac{\;k^4+8k^3\;}{k^4}\;} \\[3mm]}
-    \onslide<+->{& = \lim_{k\to\infty} \frac{5}{1+\dfrac{8}{k}} \\[2mm]}
-    \onslide<+->{& = \frac{5}{\displaystyle 1 + 8\lim_{k\to\infty} \frac{1}{k}} \\[2mm]}
-    \onslide<+->{& = 5}
-  \end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-%\begin{frame}{Exemplo}
-%  Gráficos da função e da sequência
-%
-%  \vspace{\baselineskip}
-%  \centerline{\input{fig_exemplo_sequencia_por_funcao_racional}  }
-%\end{frame}
+\input{ex/E-02-Sequencias_numericas_teoremas-ex-03}
 
 %------------------------------------------------------------------------------%
 \section{Sequência Limitadas}
@@ -171,15 +115,15 @@ então
 	Uma sequência $(a_k)$ é
 
 	\pause
-  \vspace{\baselineskip}
+  \bigskip
 	\emph{Limitada inferiormente} \tabto{50mm} se existe $m\in\R$ tal que \emph{$m\leq a_k$} para todo $k\in\N$
 
 	\pause
-	\vspace{\baselineskip}
-	\emph{Limitada superiormente} \tabto{50mm} se existe $M\in\R$ tal que \emph{$M\geq a_k$} para todo $k\in\N$
+	\bigskip
+  \emph{Limitada superiormente} \tabto{50mm} se existe $M\in\R$ tal que \emph{$M\geq a_k$} para todo $k\in\N$
 
 	\pause
-	\vspace{\baselineskip}
+	\bigskip
 	\emph{Limitada}               \tabto{50mm} se é limitada superiormente e inferiormente
 
 \end{frame}
@@ -211,15 +155,15 @@ então
 \begin{frame}{Sequências Crescentes e Decrescentes}
 	Uma sequência $(a_k)$ é
 
-	\vspace{\baselineskip}
+	\bigskip
 	\emph{Crescente}   \tabto{30mm} se \emph{$\;a_k \leq a_{k+1}\;$} para todo $k\in\N$
 
 	\pause
-	\vspace{\baselineskip}
+	\bigskip
 	\emph{Decrescente} \tabto{30mm} se \emph{$\;a_k \geq a_{k+1}\;$} para todo $k\in\N$
 
 	\pause
-	\vspace{\baselineskip}
+	\bigskip
 	\emph{Monótona}    \tabto{30mm} se é crescente ou decrescente
 \end{frame}
 
