@@ -1,0 +1,197 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+\usepackage{cancel}
+
+\title{Séries Numéricas -- Exemplos}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Séries Geométricas}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries Geométricas}
+	Uma \emph{Série Geométrica} é uma série com a forma
+	\[
+    \alpha + \alpha r + \alpha r^2 + \alpha r^3 + \cdots + \alpha r^{n-1} + \cdots
+    = \sum_{n=1}^\infty \alpha r^{n-1}
+  \]
+
+  \pause\qquad\(\alpha\in\R\)          \tabto{33mm} número fixo não nulo, $\alpha\neq 0$
+
+	\vspace{0.5\baselineskip}
+  \pause\qquad\(r\in\R\)               \tabto{33mm} \emph{razão} da série
+
+  \vspace{0.5\baselineskip}
+  \pause\qquad\(a_n = \alpha r^{n-1}\) \tabto{33mm} termo geral
+
+	\pause\vspace{\baselineskip}
+	Especial pois sabemos quando converge e qual sua soma
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência da Série Geométrica -- Parte 1}
+	Se $r=1$
+  \pause
+  temos
+	\[
+    S_n
+    = \sum_{k=1}^{n} \alpha \,1^{k-1}
+    \pause
+    = \sum_{k=1}^{n} \alpha
+    \pause
+    = \underbrace{\alpha + \cdots + \alpha}_{n \text{ vezes}}
+    \pause
+    = n\alpha
+  \]
+
+	\pause
+	\vspace{\baselineskip}
+	Portanto $S_n$ diverge quando $n\to\infty$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Convergência da Série Geométrica -- Parte 2}
+	Se $r\neq 1$ temos
+	\begin{align*}
+		\onslide<+->{S_n      & = \alpha  +    \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1}                \\[2mm]}
+		\onslide<+->{rS_n     & = \hspace{7mm} \alpha r + \alpha r^2 + \cdots + \alpha r^{n-1} + \alpha r^{n} \\[2mm]}
+		\onslide<+->{S_n-rS_n & = \alpha - \alpha r^{n} \\[2mm]}
+		\onslide<+->{S_n(1-r) & = \alpha - \alpha r^{n}        }
+	\end{align*}
+	\onslide<+->{
+    \[
+      S_n = \frac{\alpha (1-r^n)}{1-r} \qquad\qquad (r\neq 1)
+    \]
+    }
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Calculando o Limite}
+	Com $r\neq 1$, temos \(S_n = \frac{\alpha(1-r^n)}{1-r}\),
+  \pause
+  portanto
+  \[
+    \lim S_n
+    \pause
+    = \lim \frac{\alpha(1-r^n)}{1-r}
+    \pause
+    = \frac{\alpha}{1-r} -\frac{\alpha}{1-r} \lim r^n
+  \]
+  \pause
+  \vspace{-\baselineskip}
+	\begin{description}
+		\item[$r=-1$] \tabto{10mm}
+		\onslide<6->{$r^n=(-1)^n\;$ diverge quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
+		\item[$\abs{r}>1$] \tabto{10mm}
+		\onslide<7->{$\abs{r^n}\to\infty$ quando $n\to\infty$ portanto $S_n$ diverge} \\[7mm]
+		\item[$\abs{r}<1$] \tabto{10mm}
+		\onslide<8->{$r^n\to 0$ quando $n\to\infty$ portanto \( S_n \to \frac{\alpha}{1-r} \)}
+	\end{description}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries Geométricas}
+	Uma série geométrica
+	\[
+    \sum_{n=1}^\infty \alpha r^{n-1}
+  \]
+	é convergente se $\abs{r}<1$ com soma
+	\[
+    \sum_{n=1}^\infty \alpha r^{n-1} = \frac{\alpha }{1-r}
+  \]
+	e divergente se $\abs{r}\geq 1$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
+\section{Séries Telescópicas}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries Telescópicas}
+	Raramente conseguimos fórmulas exatas para a soma de séries
+
+	\pause
+	\vspace{\baselineskip}
+	\emph{Séries Telescópicas} são um caso especial onde quase todos os termos se anulam
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Exemplo}
+	Calcular a soma da série
+	\[\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right) \]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Somas Parciais}
+	\begin{align*}
+		\onslide<+->{S_n & = \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
+			\\[3mm]}
+		\onslide<+->{& = \left( \frac{1}{1} - \frac{1}{1+1} \right)
+			+ \left( \frac{1}{2} - \frac{1}{2+1} \right)
+			+ \cdots
+			+ \left( \frac{1}{n-1} - \frac{1}{n} \right)
+			+ \left( \frac{1}{n} - \frac{1}{n+1} \right)
+			\\[3mm]}
+		\onslide<+->{&
+      = \frac{1}{1} - {\color<4->{blue}\frac{1}{2}}
+			+ {\color<4->{blue}\frac{1}{2}} - {\color<5->{red}\frac{1}{3}}
+      + {\color<5->{red}\frac{1}{3}}  - {\color<6->{gray}\frac{1}{4}}
+			+ \cdots
+      + {\color<6->{gray}\frac{1}{n-2}}  - {\color<7->{green}\frac{1}{n-1}}
+			+ {\color<7->{green}\frac{1}{n-1}} - {\color<8->{magenta}\frac{1}{n}}
+			+ {\color<8->{magenta}\frac{1}{n}} - \frac{1}{n+1}
+			\\[3mm]}
+		\onslide<9->{& = 1 - \frac{1}{n+1}}
+	\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Calculando o Limite}
+	\begin{align*}
+		\onslide<+->{\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
+                  & = \lim_{n\to\infty} S_n \\[3mm]}
+		\onslide<+->{ & = \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right)  \\[3mm]}
+		\onslide<+->{ & = 1}
+	\end{align*}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Pode Não Ser Óbvio}
+	Calcular a soma da série
+	\[\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;} \]
+	\pause
+	Usando frações parciais
+	\[ \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \]
+	\pause
+	Temos
+	\[
+	\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;}
+	\;=\; \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
+	\;=\; 1
+	\]
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\section{Lista Mínima}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Lista Mínima}
+  Estudar as Seção 6.1 da Apostila
+
+  \vspace{\baselineskip}
+  Exercícios: 8a-c, 10, 11a-b
+
+  \vfill
+  Atenção: A prova é baseada no livro, não nas apresentações
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
