@@ -4,7 +4,7 @@
 \usepackage{integracao_e_series}
 \usepackage{cancel}
 
-\title{Séries Numéricas -- Exemplos}
+\title{Séries Geométricas}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -110,73 +110,7 @@
 \end{frame}
 
 %------------------------------------------------------------------------------%
-%------------------------------------------------------------------------------%
-\section{Séries Telescópicas}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Séries Telescópicas}
-	Raramente conseguimos fórmulas exatas para a soma de séries
-
-	\pause
-	\vspace{\baselineskip}
-	\emph{Séries Telescópicas} são um caso especial onde quase todos os termos se anulam
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Exemplo}
-	Calcular a soma da série
-	\[\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right) \]
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Somas Parciais}
-	\begin{align*}
-		\onslide<+->{S_n & = \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right)
-			\\[3mm]}
-		\onslide<+->{& = \left( \frac{1}{1} - \frac{1}{1+1} \right)
-			+ \left( \frac{1}{2} - \frac{1}{2+1} \right)
-			+ \cdots
-			+ \left( \frac{1}{n-1} - \frac{1}{n} \right)
-			+ \left( \frac{1}{n} - \frac{1}{n+1} \right)
-			\\[3mm]}
-		\onslide<+->{&
-      = \frac{1}{1} - {\color<4->{blue}\frac{1}{2}}
-			+ {\color<4->{blue}\frac{1}{2}} - {\color<5->{red}\frac{1}{3}}
-      + {\color<5->{red}\frac{1}{3}}  - {\color<6->{gray}\frac{1}{4}}
-			+ \cdots
-      + {\color<6->{gray}\frac{1}{n-2}}  - {\color<7->{green}\frac{1}{n-1}}
-			+ {\color<7->{green}\frac{1}{n-1}} - {\color<8->{magenta}\frac{1}{n}}
-			+ {\color<8->{magenta}\frac{1}{n}} - \frac{1}{n+1}
-			\\[3mm]}
-		\onslide<9->{& = 1 - \frac{1}{n+1}}
-	\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Calculando o Limite}
-	\begin{align*}
-		\onslide<+->{\sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
-                  & = \lim_{n\to\infty} S_n \\[3mm]}
-		\onslide<+->{ & = \lim_{n\to\infty} \left( 1 - \frac{1}{n+1} \right)  \\[3mm]}
-		\onslide<+->{ & = 1}
-	\end{align*}
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Pode Não Ser Óbvio}
-	Calcular a soma da série
-	\[\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;} \]
-	\pause
-	Usando frações parciais
-	\[ \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \]
-	\pause
-	Temos
-	\[
-	\sum_{n=1}^{\infty} \frac{1}{\;n(n+1)\;}
-	\;=\; \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)
-	\;=\; 1
-	\]
-\end{frame}
+\section{Exemplos}
 
 %------------------------------------------------------------------------------%
 \section{Lista Mínima}
