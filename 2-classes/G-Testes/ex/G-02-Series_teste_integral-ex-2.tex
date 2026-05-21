@@ -1,0 +1,70 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da integral para determinar se a série converge ou diverge.
+  Certifique-se de que as condições do teste da integral sejam satisfeitas.
+  \[
+    \sum_{n=1}^{\infty} \frac{n}{n^2+4}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  A função \(f(x)=\frac{x}{x^2+4}\) é \emph{positiva} e \emph{contínua} para $x\geq 1$
+
+  \pause
+  \medskip
+  Para verificar que ela é \emph{decrescente}, calculamos sua derivada
+  \[
+    f'(x)
+    \pause
+    = \frac{1(x^2+4) - x(2x)}{(x^2+4)^2}
+    \pause
+    = \frac{4-x^2}{(x^2+4)^2}
+  \]
+
+  \pause
+  $f'(x)<0$, e, portanto, $f$ é decrescente, para todo $x>2$
+
+  \pause
+  \medskip
+  Precisamos de um $N$ inteiro a partir do qual $f$ seja decrescente
+
+  \pause
+  \medskip
+  Escolhemos $N=3$
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Podemos, agora, aplicar o teste da integral}
+
+  \vspace{\baselineskip}
+  \onslide<+->{Primeiro calculamos a primitiva de \(f(x)=\frac{x}{x^2+4}\)}
+  \onslide<+->{usando substituição
+  \[
+    u=x^2+4 \qquad \text{e} \qquad du=2xdx
+  \]}
+  \vspace{-\baselineskip}
+  \begin{align*}
+    \onslide<+->{F(x) = \int\frac{x}{x^2+4}\,dx
+                 & = \int \frac{1}{2u}\,du      \\[2mm]}
+    \onslide<+->{& = \frac{1}{2}\ln u + C       \\[2mm]}
+    \onslide<+->{& = \frac{1}{2}\ln \left(x^2+4\right) + C}
+  \end{align*}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \onslide<+->{Calculando a integral imprópria temos}
+  \begin{align*}
+    \onslide<+->{\int_{3}^{\infty}
+    & \frac{x}{x^2+4}\,dx = \lim_{b\to\infty} \int_{3}^{b} \! \frac{x}{x^2+4}\,dx  \\}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ F(x) \right]\evalat{3}{b}       \\}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{1}{2} \ln\left(x^2+4\right) \right]\evalat{3}{b}       \\}
+    \onslide<+->{& = \lim_{b\to\infty} \left[ \frac{\; \ln\left(b^2+4\right) -\ln\left(3^2+4\right) \:}{2} \right]}
+    \onslide<+->{\;=\; \infty}
+  \end{align*}
+  \onslide<+->{Como a integral diverge a série também diverge}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

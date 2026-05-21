@@ -1,0 +1,58 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da integral para determinar se a série
+  \[
+  \sum_{n=1}^{\infty} \frac{1}{n^2}
+  \]
+  converge ou diverge
+
+  \pause
+  \bigskip
+  Certifique-se de que as condições do teste da integral sejam satisfeitas
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Podemos aplicar o teste da integral, pois, a \emph{função}
+  \(
+    f(x) = \frac{1}{x^2},
+  \)
+
+  \pause
+  para $x\geq 1$,
+  \pause
+  é \emph{positiva},
+  \pause
+  \emph{contínua}
+  \pause
+  e \emph{decrescente}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \begin{align*}
+    \onslide<+->{\int_{1}^{\infty} \frac{1}{x^2}\,dx}
+    \onslide<+->{& = \lim_{b\to\infty} \int_{1}^{b} \frac{1}{x^2}\,dx           \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{x} \right)\evalat{1}{b} \\[2mm]}
+    \onslide<+->{& = \lim_{b\to\infty} \left( -\frac{1}{b} +1 \right)}
+    \onslide<+->{ \;=\; 1}
+  \end{align*}
+
+  \onslide<+->{Como a integral converge a série também converge}
+\end{resolution}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Diferença Entre a Soma e a Integral}
+  Note que
+  \[
+    \sum_{n=1}^{\infty} \frac{1}{n^2}
+    \;=\;       \frac{\pi^2}{6}
+    \;\approx\; 1,6449
+    \;\neq\;    1
+  \]
+
+  \vspace{\baselineskip}
+  O cálculo da soma da série está na Seção 9.6 -- Problema de Basileia
+\end{resolution}
+
+%------------------------------------------------------------------------------%
