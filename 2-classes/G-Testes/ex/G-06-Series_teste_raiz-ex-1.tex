@@ -1,0 +1,42 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da raiz para analisar a convergência da série
+  \(
+    \sum_{n=1}^\infty \frac{4^n}{\,(3n)^n\,}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  \[
+    a_n
+    \;=\; \frac{4^n}{\,(3n)^n\,}
+    \pause
+    \;=\; \left(\frac{4}{\,3n\,}\right)^{\!n}
+  \]
+
+  \pause
+  \[
+    \sqrt[n]{a_n\,}
+    \pause
+    \;=\; \sqrt[n]{\left(\frac{4}{\,3n\,}\right)^{\!n}}
+    \pause
+    \;=\; \frac{4}{3n}
+  \]
+
+  \pause
+  \[
+    \rho
+    \pause
+    \;=\; \lim_{n\to \infty} \sqrt[n]{a_n\,}
+    \pause
+    \;=\; \lim_{n\to \infty} \frac{4}{3n}
+    \pause
+    \;=\; 0
+  \]
+
+  Como \(\rho < 1\),
+  \pause
+  a série converge pelo teste da raiz
+\end{resolution}
+%------------------------------------------------------------------------------%

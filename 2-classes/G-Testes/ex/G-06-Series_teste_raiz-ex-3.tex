@@ -1,0 +1,44 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da raiz para analisar a convergência da série
+  \(
+    \sum_{n=1}^\infty\frac{1}{n^{n+1}}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Fazendo a mudança de índice \(k=n+1\)
+  \[
+    \sum_{n=1}^\infty\frac{1}{\, n^{n+1}\,} =
+    \sum_{k=2}^\infty\frac{1}{\,(k-1)^{k}\,}
+  \]
+  \[
+    \pause
+    a_k = \frac{1}{\,(k-1)^{k}\,}
+  \]
+  \[
+    \pause
+    \sqrt[k]{a_k}
+    \pause
+    = \sqrt[k]{\frac{1}{\,(k-1)^{k}\,}}
+    \pause
+    = \frac{1}{k-1}
+  \]
+  \[
+    \pause
+    \rho
+    \pause
+    = \lim \sqrt[k]{a_k}
+    \pause
+    = \lim \frac{1}{k-1}
+    \pause
+    = 0
+  \]
+
+  Como \(\rho < 1\),
+  \pause
+  a série converge pelo teste da raiz
+\end{resolution}
+
+%------------------------------------------------------------------------------%

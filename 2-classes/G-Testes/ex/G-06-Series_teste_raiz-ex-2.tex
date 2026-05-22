@@ -1,0 +1,57 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Analise a convergência da série \(\sum_{n=1}^\infty a_n\) com
+  \(
+    a_n = \begin{cases}
+      \displaystyle \;\dfrac{n}{\,2^n\,} & n \text{ impar} \\[5mm]
+      \displaystyle \;\dfrac{1}{\,2^n\,} & n \text{ par}
+    \end{cases}
+  \)
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+\begin{columns}
+	\column{0.48\textwidth}
+	\[
+ 		a_n = \begin{cases}
+ 			\displaystyle \;\dfrac{n}{\,2^n\,} & n \text{ impar} \\[5mm]
+ 			\displaystyle \;\dfrac{1}{\,2^n\,} & n \text{ par}
+ 		\end{cases}
+	\]
+
+	\pause
+	\vspace{0.5\baselineskip}
+	\[
+ 		\sqrt[n]{a_n} = \begin{cases}
+ 			\displaystyle \;\dfrac{\,\sqrt[n]{n}\,}{2} & n \text{ impar} \\[5mm]
+ 			\displaystyle \;\;\,\dfrac{1}{\,2\,}       & n \text{ par}
+ 		\end{cases}
+	\]
+
+\column{0.48\textwidth}
+	\pause
+	\[
+ 		\frac{1}{\,2\,} \;\leq\; \sqrt[n]{a_n} \;\leq\; \frac{\,\sqrt[n]{n}\,}{2}
+	\]
+
+	\pause
+	Sabemos que \(\; \lim\sqrt[n]{n} = 1 \)
+
+	\pause
+	\vspace{.5\baselineskip}
+	Pelo teorema do confronto
+	\[
+    \rho
+    = \lim \sqrt[n]{a_n}
+    = \frac{1}{2}
+    < 1
+  \]
+
+	\pause
+	Portanto, pelo teste da raiz, \\
+  a série é convergente
+\end{columns}
+\end{resolution}
+
+%------------------------------------------------------------------------------%

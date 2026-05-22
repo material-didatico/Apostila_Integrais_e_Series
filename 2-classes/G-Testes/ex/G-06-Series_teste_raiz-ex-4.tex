@@ -1,0 +1,47 @@
+%------------------------------------------------------------------------------%
+\begin{question}
+  Use o teste da raiz para analisar a convergência da série
+  \[
+    \sum_{n=1}^\infty \left[\ln\left(e^2+\frac{1}{n}\right)\right]^{n+1}
+  \]
+\end{question}
+
+%------------------------------------------------------------------------------%
+\begin{resolution}{Solução}
+  Fazendo a mudança de índice \(k=n+1\)
+  \[
+    \sum_{n=1}^\infty \left[\ln\left(e^2+\frac{1}{n}  \right)\right]^{n+1} \;=\;
+    \sum_{k=2}^\infty \left[\ln\left(e^2+\frac{1}{k-1}\right)\right]^{k}
+  \]
+
+  \pause
+  \[
+    a_k
+    = \left[\ln\left( e^2 + \frac{1}{k-1} \right)\right]^k
+    \pause
+    \qquad
+    \sqrt[k]{a_k}
+    = \ln\left(e^2+\frac{1}{k-1}\right)
+  \]
+
+  \pause
+  Aplicando o Teste da Raiz
+  \[
+    \rho
+    = \lim \sqrt[k]{a_k}
+    \pause
+    = \lim \ln\left(e^2+\frac{1}{k-1}\right)
+    \pause
+    = \ln \left(e^2+ \lim\frac{1}{k-1}\right)
+    \pause
+    = \ln \left(e^2\right)
+    \pause
+    = 2
+  \]
+
+  Como \(\rho > 1\),
+  \pause
+  a série diverge pelo teste da raiz
+\end{resolution}
+
+%------------------------------------------------------------------------------%
