@@ -3,7 +3,7 @@
 
 \usepackage{integracao_e_series}
 
-\title {Séries Numéricas com Termos Gerais}
+\title {Séries Numéricas -- Teste da Série Alternada}
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -18,11 +18,15 @@
   Os \emph{termos trocam de sinal}
   \pause
   alternando entre um positivo e um negativo
-  \[ \sum_{n=1}^\infty (-1)^{n+1} a_n \]
-  com $a_n >0$ para todo $n$
-
   \pause
-  \vspace{\baselineskip}
+  \[
+    \sum_{n=1}^\infty (-1)^{n+1} a_n
+  \]
+  com $a_n >0$ para todo $n$
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Série Harmônica Alternada}
   Exemplo, \emph{Série Harmônica Alternada}
   \[
     \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}
@@ -91,12 +95,7 @@
       \;=\; \frac{1}{1+\sfrac{1}{2}}
       \;=\; \frac{2}{3}
   \)
-
 \end{frame}
-
-%------------------------------------------------------------------------------%
-%\framedgraphic{Usando Planilhas Eletrônicas}{./figs/exemplo_planilha}{}
-%\framedgraphic{Usando Planilhas Eletrônicas}{./figs/exemplo_grafico}{}
 
 %------------------------------------------------------------------------------%
 \section{Estimativa do Erro para Séries Alternadas}
@@ -115,93 +114,6 @@
   \end{itemize}
 \end{frame}
 
-%------------------------------------------------------------------------------%
-\section{Convergência Absoluta}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência Absoluta}
-  Uma série
-  \(\quad \sum_{n=1}^{\infty}\; a_n\) \\[5mm]
-  \pause
-  \emph{converge absolutamente}, ou é \emph{absolutamente convergente}, \\[5mm]
-  \pause
-  se
-  \(\quad\sum_{n=1}^{\infty} \;\abs{a_n} \quad\) converge
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Convergência Condicional}
-  Se  \tabto{12mm} \(\sum_{n=1}^{\infty} a_n\)          \tabto{32mm} \emph{converge} \\[9mm]
-  \pause
-  mas \tabto{12mm} \(\sum_{n=1}^{\infty} \;\abs{a_n} \) \tabto{32mm} \emph{diverge}  \\[9mm]
-  \pause
-  a série é \emph{condicionalmente convergente} \\[9mm]
-  \pause
-  Exemplo: Série Harmônica Alternada
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teste da Convergência Absoluta}
-  Uma série absolutamente convergente é convergente.\\[3mm]
-
-  \pause
-  \vspace{\baselineskip}
-  Séries com termos não negativos e convergentes
-  são absolutamente convergentes
-\end{frame}
-
-%------------------------------------------------------------------------------%
-\begin{frame}{Teorema do Rearranjo}
-Se \(\quad\sum_{n=1}^{\infty} a_n \quad \) converge absolutamente \\[5mm]
-
-\pause
-dado qualquer \emph{rearranjo} $(b_k)$ da sequência $(a_n)$ \\[5mm]
-
-\pause
-a série $\sum b_k$ converge e
-\[
-  \sum_{k=1}^{\infty} b_k = \sum_{n=1}^{\infty} a_n
-\]
-\end{frame}
-
-%%------------------------------------------------------------------------------%
-%%------------------------------------------------------------------------------%
-%\section{Resumo dos Testes}
-%%------------------------------------------------------------------------------%
-%%------------------------------------------------------------------------------%
-%
-%%------------------------------------------------------------------------------%
-%\begin{frame}{Testes Básicos}
-%	\begin{itemize}[<+->]
-%		\item \emph{Teste da divergência ou do $n$-ésimo termo}\\
-%          a menos que $a_n\to 0$, a série diverge \\[5mm]
-%		\item \emph{Séries geométricas} \\[3mm]
-%          \(\sum_{n=1}^{\infty} ar^{n-1}\) converge se \(\abs{r}<1\); caso contrário, diverge \\[5mm]
-%		\item \emph{Série $p$} \\[3mm]
-%          \(\sum_{n=1}^{\infty} \frac{1}{n^p}\)
-%          converge se $p>1$; caso contrário, diverge\\[5mm]
-%    \item Série \emph{Telescópica}
-%	\end{itemize}
-%\end{frame}
-%
-%%------------------------------------------------------------------------------%
-%\begin{frame}{Séries de Termos Não-Negativos}
-%\begin{itemize}[<+->]
-%  \item Teste da \emph{integral} \\[5mm]
-%  \item Teste da \emph{razão} ou o teste da \emph{raiz} \\[5mm]
-%  \item Teste da \emph{comparação}
-%\end{itemize}
-%\end{frame}
-%
-%%------------------------------------------------------------------------------%
-%\begin{frame}{Séries Gerais -- Alguns Termos Negativos}
-%	\begin{itemize}[<+->]
-%    \item A série é \emph{alternada}? \\[3mm]
-%          Verifique as condições do teste da série alternada \\[5mm]
-%		\item \(\sum_{n=1}^{\infty} \abs{a_n}\) converge? \\[3mm]
-%		      Se convergir, \(\sum_{n=1}^{\infty} a_n\) também converge
-%	\end{itemize}
-%\end{frame}
 
 %------------------------------------------------------------------------------%
 \section{Exemplos}

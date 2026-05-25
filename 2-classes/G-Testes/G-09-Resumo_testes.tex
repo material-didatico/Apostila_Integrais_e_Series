@@ -1,0 +1,51 @@
+%------------------------------------------------------------------------------%
+\documentclass[fleqn,utf8,aspectratio=169,12pt]{beamer}
+
+\usepackage{integracao_e_series}
+
+\title{Resumo dos Testes de Convergência}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\addtitle
+
+%------------------------------------------------------------------------------%
+\section{Resumo dos Testes}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Testes Básicos}
+	\begin{itemize}[<+->]
+		\item \emph{Teste da divergência ou do $n$-ésimo termo}\\
+          a menos que $a_n\to 0$, a série diverge \\[5mm]
+		\item \emph{Séries geométricas} \\[3mm]
+          \(\sum_{n=1}^{\infty} ar^{n-1}\) converge se \(\abs{r}<1\); caso contrário, diverge \\[5mm]
+		\item \emph{Série $p$} \\[3mm]
+          \(\sum_{n=1}^{\infty} \frac{1}{n^p}\)
+          converge se $p>1$; caso contrário, diverge\\[5mm]
+    \item Série \emph{Telescópica}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries de Termos Não-Negativos}
+\begin{itemize}[<+->]
+  \item Teste da \emph{integral} \\[5mm]
+  \item Teste da \emph{razão} ou o teste da \emph{raiz} \\[5mm]
+  \item Teste da \emph{comparação}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\begin{frame}{Séries Gerais -- Alguns Termos Negativos}
+	\begin{itemize}[<+->]
+    \item A série é \emph{alternada}? \\[3mm]
+          Verifique as condições do teste da série alternada \\[5mm]
+		\item \(\sum_{n=1}^{\infty} \abs{a_n}\) converge? \\[3mm]
+		      Se convergir, \(\sum_{n=1}^{\infty} a_n\) também converge
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
