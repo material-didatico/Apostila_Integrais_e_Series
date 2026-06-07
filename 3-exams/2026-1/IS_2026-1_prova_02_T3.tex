@@ -164,13 +164,13 @@ Agora  calculamos o limite
   Calculando a integral definida
 \begin{align*}
     A
-    & = \int_0^1 x e^x dx                           \\[2mm]
-    & = F(x) \evalat{-1}{1}                         \\[2mm]
-    & = \left(x e^x - e^x\right) \evalat{-1}{1}     \\[2mm]
+    & = \int_0^1 x e^x dx                        \\[2mm]
+    & = F(x) \evalat{-1}{1}                      \\[2mm]
+    & = \left(x e^x - e^x\right) \evalat{-1}{1}  \\[2mm]
     & = \left(1 e^1 - e^1\right)
-      - \left(-1 e^{-1} - e^{-1}\right)             \\[2mm]
-    & = e - e - \left(-e -e\right)                  \\[2mm]
-    & = 2e
+      - \left(-1 e^{-1} - e^{-1}\right)          \\[2mm]
+    & = e - e + \frac{1}{e} + \frac{1}{e}        \\[2mm]
+    & = \frac{2}{e}
 \end{align*}
 \end{multicols}
 \end{answer}
@@ -211,10 +211,11 @@ Agora  calculamos o limite
   temos
   \begin{align*}
     F(x)
-    & = \int \left(1 - u^2\right) u^2 (-du)  \\[2mm]
-    & = \int u^4 - u^2 du                    \\[2mm]
-    & = \frac{u^5}{5} - \frac{u^3}{3}  + C   \\[2mm]
-    & = -\frac{\cos^3 x}{3} + \frac{\cos^5 x}{5} + C
+    & = \int \left(1 - u^2\right) u^2 (-du)          \\[2mm]
+    & = \int u^4 - u^2 du                            \\[2mm]
+    & = \frac{u^5}{5} - \frac{u^3}{3}  + C           \\[2mm]
+    & = -\frac{\cos^3 x}{3} + \frac{\cos^5 x}{5} + C \\[2mm]
+    & =  \frac{\cos^5 x}{5} - \frac{\cos^3 x}{3} + C
   \end{align*}
 \end{multicols}
 \end{answer}

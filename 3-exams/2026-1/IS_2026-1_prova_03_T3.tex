@@ -1,0 +1,202 @@
+%------------------------------------------------------------------------------%
+\documentclass[a4paper,12pt,fleqn]{article}
+
+\usepackage{integracao_series}
+
+\ShowAnswers
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+\makeHeader{Integração e Séries}{Prova 3 -- Turma 3}{13/05/2026}
+
+
+% 01
+%------------------------------------------------------------------------------%
+\exercise{50\%}
+Calcule
+\(
+  F(x) = \int \frac{2x^2+5x+1}{(x^2 + x -2)(x+3)}\,dx
+\)
+
+\begin{answer}
+Para fatorar o polinômio no denominador
+\[
+  Q(x) = (x^2 + x -2)(x+3)
+\]
+precisamos encontrar as raízes de
+\[
+  h(x) = x^2 + x -2
+\]
+portanto
+\[
+  \Delta
+  = b^2 - 4 a c
+  = 1^2 - 4 \times 1 \times (-2)
+  = 9
+  \qquad\qquad
+  \sqrt{\Delta}
+  =\sqrt{9}
+  = 3
+\]
+raízes
+\[
+  x_i
+  = \frac{-b\pm\sqrt{\Delta}}{2a}
+  = \frac{-1\pm 3}{2\times 1}
+  = \frac{-1\pm 3}{2}
+\]
+\[
+  x_1
+  = \frac{-1-3}{2}
+  = \frac{-4}{2}
+  = -2
+\]
+\[
+  x_2
+  = \frac{-1+3}{2}
+  = \frac{2}{2}
+  = 1
+\]
+Assim
+\[
+  Q(x) = (x-1)(x+2)(x+3)
+\]
+
+Por frações parciais
+\[
+  \frac{2x^2+5x+1}{(x-1)(x+2)(x+3)}
+  =
+  \frac{A}{x-1}
+  +
+  \frac{B}{x+2}
+  +
+  \frac{C}{x+3}
+\]
+Multiplicando ambos os lados por \((x-1)(x+2)(x+3)\),
+\begin{align*}
+  2x^2 + 5x + 1
+  & = A(x+2)(x+3)
+    + B(x-1)(x+3)
+    + C(x-1)(x+2)  \\
+  & = A(x^2+5x+6)
+    + B(x^2+2x-3)
+    + C(x^2+x-2)   \\
+  & = (A+B+C)x^2
+    + (5A+2B+C)x
+    + (6A-3B-2C)
+\end{align*}
+Comparando os coeficientes,
+\[
+  \systeme[sort={A,B,C}]{
+     A +  B +  C = 2,
+    5A + 2B +  C = 5,
+    6A - 3B - 2C = 1
+  }
+\]
+Subtraindo a primeira equação da segunda
+\begin{align*}
+  4A + B & = 3   \\
+  B      & =3-4A
+\end{align*}
+Substituindo \(B = 3 - 4A\) na primeira equação
+\begin{align*}
+  A +  B +  C & = 2          \\
+  C           & = 2 - A - B  \\
+              & = 2-A-(3-4A) \\
+              & = 3A - 1
+\end{align*}
+Substituindo na terceira equação
+\begin{align*}
+  6A - 3B - 2C       & = 1          \\
+  6A-3(3-4A)-2(3A-1) & = 1          \\
+  6A-9+12A-6A+2      & = 1          \\
+  12A-7              & = 1          \\
+  12A                & = 8          \\
+  A                  & = \frac{8}{12} = \frac{2}{3}
+\end{align*}Logo,
+\[
+  B
+  = 3 - \frac{8}{3}
+  = \frac{1}{3}
+\qquad\text{ e }\qquad
+  C
+  = 3\,\frac{2}{3} - 1
+  = 1
+\]
+Portanto,
+\[
+  \frac{2x^2+5x+1}{(x-1)(x+2)(x+3)}
+  = \frac{2}{3(x-1)}
+  + \frac{1}{3(x+2)}
+  + \frac{1}{x+3}
+\]
+Assim,
+\begin{align*}
+F(x)
+& = \int \frac{2x^2+5x+1}{(x^2 + x -2)(x+3)}\,dx
+\\[2mm]
+& = \frac{2}{3}\int\frac{dx}{x-1}
+  + \frac{1}{3}\int\frac{dx}{x+2}
+  + \int\frac{dx}{x+3}
+\\[2mm]
+& = \frac{2}{3}\ln\abs{x-1}
+  + \frac{1}{3}\ln\abs{x+2}
+  + \ln\abs{x+3}
+  + c
+\end{align*}
+\end{answer}
+
+% 02
+%------------------------------------------------------------------------------%
+\exercise{50\%}
+Calcule os limites das sequências
+\(
+  a_n = \frac{3n^2-5n+1}{2n^2+n-4}
+\)
+\quad e \quad
+\(
+  b_n = \frac{(n+1)!}{n!\,(2n+1)}
+\)
+
+\begin{answer}
+\begin{multicols}{2}
+\textbf{a)}
+\begin{align*}
+  A
+  & = \lim_{n\to\infty} a_n   \\[2mm]
+  & = \lim \frac{3n^2-5n+1}{2n^2+n-4}  \\[2mm]
+  & = \lim \frac{3-\sfrac{5}{n}+\sfrac{1}{n^2}}
+                {2+\sfrac{1}{n}-\sfrac{4}{n^2}} \\[2mm]
+  & = \frac{\lim \left(3-\sfrac{5}{n}+\sfrac{1}{n^2}\right)}
+           {\lim \left(2+\sfrac{1}{n}-\sfrac{4}{n^2}\right)}  \\[2mm]
+  & = \frac{3-\lim \sfrac{5}{n}+\lim \sfrac{1}{n^2}}
+           {2+\lim \sfrac{1}{n}-\lim \sfrac{4}{n^2}} \\[2mm]
+  & = \frac{3-0+0}{2+0-0} \\[2mm]
+  & =  \frac{3}{2}
+\end{align*}
+
+\columnbreak
+
+\textbf{b)}
+\begin{align*}
+  B
+  & = \lim_{n\to\infty} b_n  \\[2mm]
+  & = \lim \frac{(n+1)!}{n!\,(2n+1)} \\[2mm]
+  & = \lim \frac{(n+1)\,n!}{n!\,(2n+1)} \\[2mm]
+  & = \lim \frac{n+1}{2n+1} \\[2mm]
+  & = \lim \frac{1+\sfrac{1}{n}}{2+\sfrac{1}{n}} \\[2mm]
+  & = \frac{\lim \left(1+\sfrac{1}{n}\right)}
+           {\lim \left(2+\sfrac{1}{n}\right)} \\[2mm]
+ & = \frac{1+\lim \sfrac{1}{n}}
+          {2+\lim \sfrac{1}{n}} \\[2mm]
+ & = \frac{1+0}
+          {2+0} \\[2mm]
+ & = \frac{1}{2}
+\end{align*}
+\end{multicols}
+\end{answer}
+
+%------------------------------------------------------------------------------%
+\end{document}
+%------------------------------------------------------------------------------%
